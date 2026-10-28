@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Play, X } from "lucide-react";
 
+import { trackFunnelEvent, trackLeadSubmit } from "@/lib/analytics-events";
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
@@ -30,11 +31,9 @@ export type ReelFunnelReel = {
  * then whatsapp him that."
  *
  * So: the clip plays in place, and under it is ONE question. Picking an answer
- * opens WhatsApp with both facts already written — the reel they were
- * watching and the thing they want — so Esteban's first message is never
- * blank and never generic. No form, no fields, no email capture: the message
- * IS the lead, and it arrives in the channel this site already uses for every
- * other contact action.
+ * opens a compact contact form with the reel and service already attached.
+ * The request is stored before the visitor can book a call or take the
+ * optional WhatsApp handoff, so neither next action loses the inquiry.
  *
  * AND YOU CAN KEEP BROWSING. Owner, 2026-10-12: "i kind of wanted to be able
  * to scroll also and see other work whole on this view (like Netflix does)."
@@ -46,10 +45,23 @@ export type ReelFunnelReel = {
 const COPY = {
   en: {
     question: "What do you need?",
-    hint: "Pick one and it opens WhatsApp with your answer already written.",
+    hint: "Choose one, then leave your details to book a time or get a reply.",
     close: "Close",
     watching: "Watching",
     more: "More work",
+    detailsHeading: "Where should Esteban reply?",
+    detailsHint: "Your request is saved first. Then you can pick a time or use WhatsApp.",
+    name: "Name",
+    email: "Email",
+    phone: "Phone or WhatsApp number",
+    send: "Save my request",
+    sending: "Saving…",
+    back: "Back",
+    savedHeading: "Your request is saved.",
+    savedHint: "Pick a time now, or message Esteban if that is easier.",
+    book: "Book a time",
+    whatsapp: "Message on WhatsApp",
+    error: "We could not save that right now. Please contact Esteban directly.",
     needs: [
       // Short enough to sit two-up without wrapping to three lines: four
       // full-width pills needed a scroll on a real phone.
@@ -63,10 +75,23 @@ const COPY = {
   },
   es: {
     question: "¿Qué necesitas?",
-    hint: "Elige una y se abre WhatsApp con tu respuesta ya escrita.",
+    hint: "Elige una y deja tus datos para reservar o recibir respuesta.",
     close: "Cerrar",
     watching: "Viendo",
     more: "Más trabajo",
+    detailsHeading: "¿Dónde puede responderte Esteban?",
+    detailsHint: "Primero guardamos tu solicitud. Después puedes reservar o usar WhatsApp.",
+    name: "Nombre",
+    email: "Email",
+    phone: "Teléfono o número de WhatsApp",
+    send: "Guardar mi solicitud",
+    sending: "Guardando…",
+    back: "Volver",
+    savedHeading: "Tu solicitud está guardada.",
+    savedHint: "Reserva un horario ahora o escríbele a Esteban si te queda mejor.",
+    book: "Reservar un horario",
+    whatsapp: "Escribir por WhatsApp",
+    error: "No pudimos guardar tu solicitud ahora. Comunícate directo con Esteban.",
     needs: [
       { id: "same", label: "Un reel como este", said: "un reel como este" },
       { id: "business", label: "Video de negocio", said: "un video para mi negocio" },
@@ -77,6 +102,8 @@ const COPY = {
       `Hola Esteban, acabo de ver "${reel}" en tu página. Necesito: ${need}.`,
   },
 } as const;
+
+type Step = "choose" | "details" | "saved" | "error";
 
 export function ReelFunnel({
   reel,
@@ -96,13 +123,31 @@ export function ReelFunnel({
   const [mounted, setMounted] = useState(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const askRef = useRef<HTMLDivElement | null>(null);
+  const [step, setStep] = useState<Step>("choose");
+  const [needId, setNeedId] = useState<string | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sending, setSending] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
   /** Swapping reels returns you to the player. Without this you pick a new
       one from the bottom of the list and the video is off-screen above. */
   useEffect(() => {
-    if (reel) panelRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    if (!reel) return;
+    setStep("choose");
+    setNeedId(null);
+    setName("");
+    setEmail("");
+    setPhone("");
+    setSending(false);
+    panelRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    // Desktop makes this column independently scrollable. Reset it too when
+    // a visitor chooses another film, otherwise the new question can open
+    // halfway down its own panel.
+    askRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [reel?.id]);
 
   const onKey = useCallback(
@@ -131,6 +176,39 @@ export function ReelFunnel({
   const t = COPY[locale];
   const others = playlist.filter((item) => item.id !== reel.id);
   const mediaClass = `em-funnel__media${reel.aspect === "landscape" ? " em-funnel__media--landscape" : ""}`;
+  const selectedNeed = t.needs.find((need) => need.id === needId);
+  const message = selectedNeed ? t.line(reel.title, selectedNeed.said) : "";
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!reel || !selectedNeed) return;
+    setSending(true);
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "reel-funnel",
+          locale,
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          projectType: selectedNeed.id,
+          notes: `Reel: ${reel.title}\nRequest: ${selectedNeed.said}`,
+        }),
+      });
+      if (!response.ok) throw new Error("lead request failed");
+      trackFunnelEvent("form_submit", { form_id: "reel_funnel", lane: selectedNeed.id, locale });
+      trackFunnelEvent("lead", { lead_source: "reel-funnel", lead_type: selectedNeed.id, locale });
+      trackLeadSubmit("reel-funnel", locale);
+      setStep("saved");
+    } catch {
+      trackFunnelEvent("form_error", { form_id: "reel_funnel", error_code: "request_failed", field: "submit", locale });
+      setStep("error");
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <div
@@ -182,30 +260,69 @@ export function ReelFunnel({
           </div>
         ) : null}
 
-        <div className="em-funnel__ask">
+        <div className="em-funnel__ask" ref={askRef}>
           <p className="em-funnel__watching">
             {t.watching}: <strong>{reel.title}</strong>
           </p>
-          <h2 className="em-funnel__q">{t.question}</h2>
-          <div className="em-funnel__needs">
-            {t.needs.map((need) => (
-              <a
-                key={need.id}
-                href={whatsappHref(
-                  site.phone.e164,
-                  t.line(reel.title, need.said),
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta={`reel_funnel_${need.id}_whatsapp`}
-                data-section="reel_funnel"
-                className="em-funnel__need"
-              >
-                {need.label}
-              </a>
-            ))}
-          </div>
-          <p className="em-funnel__hint">{t.hint}</p>
+          {step === "choose" ? (
+            <>
+              <h2 className="em-funnel__q">{t.question}</h2>
+              <div className="em-funnel__needs">
+                {t.needs.map((need) => (
+                  <button
+                    key={need.id}
+                    type="button"
+                    data-cta={`reel_funnel_${need.id}`}
+                    data-section="reel_funnel"
+                    className="em-funnel__need"
+                    onClick={() => {
+                      setNeedId(need.id);
+                      setStep("details");
+                      trackFunnelEvent("form_start", { form_id: "reel_funnel", lane: need.id, locale });
+                    }}
+                  >
+                    {need.label}
+                  </button>
+                ))}
+              </div>
+              <p className="em-funnel__hint">{t.hint}</p>
+            </>
+          ) : null}
+
+          {step === "details" && selectedNeed ? (
+            <form className="em-funnel__form" onSubmit={handleSubmit}>
+              <h2 className="em-funnel__q">{t.detailsHeading}</h2>
+              <p className="em-funnel__hint">{t.detailsHint}</p>
+              <p className="em-funnel__selection">{selectedNeed.label}</p>
+              <label className="em-funnel__field"><span>{t.name}</span><input name="name" autoComplete="name" value={name} onChange={(event) => setName(event.target.value)} required /></label>
+              <label className="em-funnel__field"><span>{t.email}</span><input name="email" type="email" inputMode="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} required /></label>
+              <label className="em-funnel__field"><span>{t.phone}</span><input name="phone" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value)} required minLength={7} /></label>
+              <div className="em-funnel__actions">
+                <button type="submit" className="em-funnel__primary" disabled={sending} data-cta="reel_funnel_save">{sending ? t.sending : t.send}</button>
+                <button type="button" className="em-funnel__secondary" onClick={() => setStep("choose")}>{t.back}</button>
+              </div>
+            </form>
+          ) : null}
+
+          {step === "saved" && selectedNeed ? (
+            <div className="em-funnel__result">
+              <h2 className="em-funnel__q">{t.savedHeading}</h2>
+              <p className="em-funnel__hint">{t.savedHint}</p>
+              <div className="em-funnel__actions">
+                <a className="em-funnel__primary" href={site.booking} target="_blank" rel="noopener noreferrer" data-cta="reel_funnel_book_time">{t.book}</a>
+                <a className="em-funnel__secondary" href={whatsappHref(site.phone.e164, message)} target="_blank" rel="noopener noreferrer" data-cta="reel_funnel_whatsapp">{t.whatsapp}</a>
+              </div>
+            </div>
+          ) : null}
+
+          {step === "error" ? (
+            <div className="em-funnel__result">
+              <p className="em-funnel__error">{t.error}</p>
+              {selectedNeed ? (
+                <a className="em-funnel__secondary" href={whatsappHref(site.phone.e164, message)} target="_blank" rel="noopener noreferrer" data-cta="reel_funnel_whatsapp_fallback">{t.whatsapp}</a>
+              ) : null}
+            </div>
+          ) : null}
 
           {others.length > 0 ? (
             <section className="em-funnel__more" aria-label={t.more}>

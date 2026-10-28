@@ -315,12 +315,17 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-funnel-field input{display:block;width:100%;margin-top:6px;min-height:48px;padding:0 14px;border:1px solid #ddd4c8;border-radius:10px;font-size:16px;color:#101214;background:#fff}
 @media(min-width:768px){
   .em-funnel-scrim{align-items:center}
-  .em-funnel-panel{border-radius:20px}
+  .em-funnel-panel{width:min(680px,calc(100vw - 64px));max-height:min(760px,calc(100dvh - 64px));padding:32px;border-radius:20px}
 }
 @media(prefers-reduced-motion:no-preference){
-  .em-funnel-panel{animation:em-sheet-up 220ms cubic-bezier(.2,.7,.2,1) both}
+  /* Do not reuse `em-sheet-up`: its desktop keyframe carries a -50% X
+     translation for a separate, absolutely positioned sheet. This dialog is
+     flex-centred, so that inherited transform pulls it half its own width to
+     the left on landscape screens. */
+  .em-funnel-panel{animation:em-funnel-panel-up 220ms cubic-bezier(.2,.7,.2,1) both}
 }
 @media(prefers-reduced-motion:reduce){.em-funnel-panel{animation:none}}
+@keyframes em-funnel-panel-up{from{transform:translateY(16px);opacity:.6}to{transform:translateY(0);opacity:1}}
 
 /* Single projects folded into the chooser (owner, 2026-10-14). Native
    <details>, so every title, note and what-to-send sentence is in the first
@@ -331,10 +336,10 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 }
 .em-single-lead{margin:0 0 14px;max-width:46ch;font-size:16px;line-height:1.55;color:#4d5358}
 .em-single-group{margin:0 0 18px}.em-single-group h4{margin:0 0 8px;color:#6a625a;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.em-single-list{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:1fr;gap:10px;align-items:start}
+.em-single-list{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:1fr;gap:10px;align-items:stretch}
 @media(min-width:768px){.em-single-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1024px){.em-single-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.em-single-item{background:#fffaf3;border:1px solid #d6cabc;border-radius:16px;overflow:hidden}
+.em-single-item{height:100%;background:#fffaf3;border:1px solid #d6cabc;border-radius:16px;overflow:hidden}
 .em-single-item summary{display:flex;align-items:center;gap:12px;min-height:76px;padding:10px 14px 10px 10px;cursor:pointer;list-style:none}
 .em-single-item summary::-webkit-details-marker{display:none}
 .em-single-thumb{flex:none;width:64px;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:10px;background:#f4eade}
@@ -592,3 +597,8 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 
 @media(max-width:520px){.em-route-card__office-bays{right:-2%;bottom:34%;width:69%;height:20%;gap:4px}.em-route-card__office-door{right:5%;top:10%;height:43%}.em-route-card__agent-squad{right:-13px;bottom:18px;width:82%!important}.em-route-card__agent-courier{bottom:27%;left:37%;transform:scale(.75)}.em-route-card__agent-jobs{right:5%;bottom:7%}.em-route-card__agent-route{right:7%;bottom:24%;width:48%}.em-route-card__ai-partners{right:3%;top:7%}.em-route-card__visual--seo-landing:before{width:18%}.em-route-card__chat-workspace{padding:13px 3% 12px 22%}.em-route-card__chat-sidebar{width:18%;padding:35px 5px 5px}.em-route-card__chat-sidebar:before{left:5px;top:12px;font-size:6px}.em-route-card__chat-sidebar i{height:4px;margin-bottom:6px}.em-route-card__answer-chat{gap:6px;padding-bottom:29px}.em-route-card__answer-question{padding:4px 6px;font-size:6px}.em-route-card__answer-reply{font-size:7px}.em-route-card__answer-composer{min-height:23px;font-size:6px}.em-route-card__site-loop-cta{right:6%;bottom:11%;padding:5px 7px;font-size:6px}.em-route-card:has(.em-route-card__agent-office) .em-route-card__copy,.em-route-card:has(.em-route-card__chat-workspace) .em-route-card__copy,.em-route-card:has(.em-route-card__site-loop) .em-route-card__copy{max-width:57%}}
 @media(prefers-reduced-motion:reduce){.em-route-card__agent-squad,.em-route-card__agent-courier,.em-route-card__agent-jobs b,.em-route-card__agent-route i,.em-route-card__answer-chat,.em-route-card__answer-question,.em-route-card__answer-reply,.em-route-card__answer-composer,.em-route-card__site-loop-image{animation:none!important}}
+
+/* This card's image is its whole surface, not a fixed media strip above a
+   separate dark panel. Explicit dimensions make that contract survive each
+   desktop layout mode and Next Image's fill wrapper. */
+.em-route-card__visual--local-business{display:block;inset:0;width:100%;height:100%}.em-route-card__visual--local-business>img{width:100%;height:100%;object-fit:cover;object-position:center}
