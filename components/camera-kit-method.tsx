@@ -17,6 +17,15 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
+    accessoriesEyebrow: "ON THE SET",
+    accessoriesTitle: "The accessories follow the shot.",
+    accessoriesLead:
+      "A camera is only one part of the setup. Esteban brings the support and light the location needs, then keeps the working area focused on the person or product in front of the lens.",
+    accessoriesAction: "See how the setup stays practical",
+    accessoriesDetail:
+      "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
+    accessoriesAlt:
+      "Esteban using a camera beside a lit product setup during a shoot",
     unboxingEyebrow: "RECENT WORK",
     unboxingTitle: "Watch the product unboxing.",
     unboxingCopy: "A recent vertical product-unboxing reel opens on Instagram in a new tab.",
@@ -44,6 +53,15 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
+    accessoriesEyebrow: "EN EL RODAJE",
+    accessoriesTitle: "Los accesorios siguen la toma.",
+    accessoriesLead:
+      "La cámara es solo una parte del montaje. Esteban lleva el soporte y la luz que necesita la locación, y mantiene el espacio de trabajo enfocado en la persona o el producto frente al lente.",
+    accessoriesAction: "Mira cómo se mantiene práctico el montaje",
+    accessoriesDetail:
+      "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
+    accessoriesAlt:
+      "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
     unboxingEyebrow: "TRABAJO RECIENTE",
     unboxingTitle: "Mira el unboxing de producto.",
     unboxingCopy: "Un Reel vertical reciente de unboxing abre Instagram en una pestaña nueva.",
@@ -125,6 +143,25 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
           </p>
         </div>
+
+        <details className="em-camera-kit__accessories">
+          <summary data-cta={`camera_kit_accessories_${locale}`}>
+            <span className="em-camera-kit__accessories-image">
+              {/* Owner-authorized on-set photo. It documents the visible setup,
+                  not a named camera body, lens, light, or accessory model. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/about/esteban-on-set.jpg" alt={c.accessoriesAlt} />
+            </span>
+            <span className="em-camera-kit__accessories-copy">
+              <small>{c.accessoriesEyebrow}</small>
+              <strong>{c.accessoriesTitle}</strong>
+              <span>{c.accessoriesLead}</span>
+              <em>{c.accessoriesAction}</em>
+            </span>
+            <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
+          </summary>
+          <p>{c.accessoriesDetail}</p>
+        </details>
 
         <a
           className="em-camera-kit__unboxing"

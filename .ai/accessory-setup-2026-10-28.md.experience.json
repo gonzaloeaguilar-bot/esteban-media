@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Implement an owner-requested Esteban Moreno Media accessories section using the supplied real camera setup photo, with only verified product destinations exposed",
+  "phase": "plan",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "The owner supplied the photo and requested a clear, appealing accessories section around the visible camera setup.",
+    "target": "homepage Camera Bench follow-up",
+    "owner_status": "owner-directed",
+    "capture_kind": "owner-supplied photo",
+    "spec_sha256": "PENDING",
+    "taste_sha256": "PENDING",
+    "correction_excerpt": "Use the real setup as the hero; do not present an unverified Amazon product link.",
+    "comparison": "Current Camera Bench against the added real-setup card at phone and desktop widths.",
+    "references": ["esteban-camera-kit-method-release-2026-10-16", "esteban-camera-bench-desktop-polaroids-2026-10-28"],
+    "candidate_frames": ["375x667 closed", "390x844 opened", "1440x900 closed and opened"]
+  },
+  "brief": {
+    "visitor": "A prospective video client considering Esteban for a production project.",
+    "promise": "See a real working camera setup, then contact Esteban about the project rather than shopping a generic equipment list.",
+    "primary_action": "Open the short setup explanation, then contact Esteban.",
+    "friction": "The current Camera Bench shows confirmed camera bodies but not the owner's supplied working setup.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "accessory setup open followed by contact start", "denominator": "homepage accessory-section viewers", "baseline": "UNKNOWN", "evidence": "no comparable accessory-section event is currently available", "readout": "T+14 after production analytics are available", "decision_rule": "retain only if the section stays visually clear and does not regress contact flow"},
+    "concept": {"idea": "A real setup card beside a short field note.", "brand_reason": "A real photo gives the camera surface credibility while the concise copy keeps services, not gear, as the point.", "interaction": "native details", "visible_response": "The explanation expands beneath the image without leaving the page.", "direct_path": "Existing contact action remains the next commercial step.", "alternatives": "Do not add a generic accessory carousel or a dead Amazon button."},
+    "story": {"opening": "A real camera and mounted phone setup", "action": "Open how the setup supports a shoot", "consequence": "Read a concise, source-bounded explanation", "next_step": "Contact Esteban with the project"},
+    "content": {"visible": "Real setup image, heading, concise description", "optional_html": "Native details explanation in served HTML", "linked_depth": "No third-party product destination until the owner provides one that resolves"},
+    "references": {"borrow": "Existing Esteban Camera Bench native-details behavior", "avoid": "Unverified equipment claims, oversized secondary actions, and a generic affiliate gallery"},
+    "components": {"reuse": "Existing CameraKitMethod section and native details pattern", "local_reason": "The owner-supplied photo and setup explanation are specific to Esteban"},
+    "verification": {"rendered_states": "375x667, 390x844 and 1440x900, closed and opened", "motion": "No motion is needed; reduced-motion remains unchanged", "accessibility_performance": "Meaningful alt text, keyboard summary focus, and repository gates", "raw_html": "Section text, details content and image path are server-rendered", "conversion_boundary": "Existing contact path stays available and unchanged"},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead after T+14"},
+    "learning": {"metric": "accessory setup open followed by contact start", "baseline_source": "UNKNOWN: no comparable event export", "baseline_value": "UNKNOWN", "target_kind": "funnel_step", "target": "homepage accessory setup details to contact", "hypothesis": "A real, concise working-setup view reduces uncertainty without competing with contact.", "observation_windows": ["T+14"], "decision_rule": "retain only if visual and contact-flow checks pass", "ledger_status": "planned", "registration_condition": "record the event and comparable production baseline before outcome grading"}
+  }
+}

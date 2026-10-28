@@ -35,6 +35,15 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });
 
+  it("shows a real on-set accessories card without turning an unverified product URL into a buy link", () => {
+    expect(component).toContain('className="em-camera-kit__accessories"');
+    expect(component).toContain('data-cta={`camera_kit_accessories_${locale}`}');
+    expect(component).toContain('/about/esteban-on-set.jpg');
+    expect(component).toContain('The accessories follow the shot.');
+    expect(component).toContain('Los accesorios siguen la toma.');
+    expect(component).not.toContain('link.amazon/B0f98xMnt');
+  });
+
   it("replaces the generic homepage drawer in both languages without dropping optional reading", () => {
     expect(englishHome).toContain('<CameraKitMethod locale="en" />');
     expect(spanishHome).toContain('<CameraKitMethod locale="es" />');
