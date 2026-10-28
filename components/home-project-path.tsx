@@ -378,10 +378,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const chooserRef = useRef<HTMLDivElement>(null);
   const privateCelebrationVideoRef = useRef<HTMLVideoElement>(null);
   const [lensInView, setLensInView] = useState(false);
-  const [lensFocusing, setLensFocusing] = useState(0);
+  const [lensFocusing, setLensFocusing] = useState(false);
   // A tap anywhere on the camera body racks the lens once (the same focus
   // move the idle loop plays), so pressing the card visibly answers the press.
-  const kickLens = () => setLensFocusing((n) => n + 1);
+  // The class is cleared when the keyframes end, so the lens <img> is never
+  // remounted and a user who asked for reduced motion gets no rack at all.
+  const kickLens = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setLensFocusing(true);
+  };
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
@@ -545,7 +550,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               <span className="em-camera-chooser__shutter" />
               <span className="em-camera-chooser__grip" />
               <span className="em-camera-chooser__lens">
-                <span key={lensFocusing} className={`em-camera-chooser__lens-image${lensFocusing ? " is-focusing" : ""}`}>
+                <span className={`em-camera-chooser__lens-image${lensFocusing ? " is-focusing" : ""}`} onAnimationEnd={(event) => { if (event.animationName === "em-camera-focus") setLensFocusing(false); }}>
                   <Image src="/illustrations/esteban-sony-alpha-lens-v2.png" alt={c.lensAlt} fill sizes="112px" className="object-contain" />
                   <span className="em-camera-chooser__iris" />
                 </span>
