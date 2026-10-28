@@ -28,8 +28,8 @@ const copy = {
       "Esteban using a camera beside a lit product setup during a shoot",
     unboxingEyebrow: "RECENT WORK",
     unboxingTitle: "Watch the product unboxing.",
-    unboxingCopy: "A recent vertical product-unboxing reel opens on Instagram in a new tab.",
-    unboxingAction: "Watch the unboxing on Instagram",
+    unboxingCopy: "The recent vertical product-unboxing reel plays here inside the phone. Sound stays off until you choose to turn it on.",
+    unboxingAction: "Open on Instagram",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -64,8 +64,8 @@ const copy = {
       "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
     unboxingEyebrow: "TRABAJO RECIENTE",
     unboxingTitle: "Mira el unboxing de producto.",
-    unboxingCopy: "Un Reel vertical reciente de unboxing abre Instagram en una pestaña nueva.",
-    unboxingAction: "Ver el unboxing en Instagram",
+    unboxingCopy: "El Reel vertical reciente de unboxing se reproduce aquí dentro del teléfono. El sonido queda apagado hasta que decidas activarlo.",
+    unboxingAction: "Abrir en Instagram",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -163,21 +163,26 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           <p>{c.accessoriesDetail}</p>
         </details>
 
-        <a
-          className="em-camera-kit__unboxing"
-          href="https://www.instagram.com/reel/DepBjEbBl9P/"
-          target="_blank"
-          rel="noreferrer"
-          data-cta={`camera_kit_unboxing_${locale}`}
-        >
-          <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
-          <span>
+        <section className="em-camera-kit__unboxing" aria-label={c.unboxingTitle}>
+          <div className="em-camera-kit__unboxing-phone">
+            <span className="em-camera-kit__unboxing-speaker" aria-hidden="true" />
+            <iframe
+              title={c.unboxingTitle}
+              src="https://www.instagram.com/reel/DepBjEbBl9P/embed/"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              loading="lazy"
+              scrolling="no"
+            />
+          </div>
+          <div className="em-camera-kit__unboxing-copy">
             <small>{c.unboxingEyebrow}</small>
             <strong>{c.unboxingTitle}</strong>
             <span>{c.unboxingCopy}</span>
-          </span>
-          <span className="em-camera-kit__unboxing-action">{c.unboxingAction} <span aria-hidden="true">↗</span></span>
-        </a>
+            <a href="https://www.instagram.com/reel/DepBjEbBl9P/" target="_blank" rel="noreferrer" data-cta={`camera_kit_unboxing_${locale}`}>
+              {c.unboxingAction} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>

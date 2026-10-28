@@ -29,6 +29,9 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
     expect(component).toContain('https://www.instagram.com/reel/DepBjEbBl9P/');
+    expect(component).toContain('className="em-camera-kit__unboxing-phone"');
+    expect(component).toContain('src="https://www.instagram.com/reel/DepBjEbBl9P/embed/"');
+    expect(component).toContain('allow="autoplay; encrypted-media; picture-in-picture"');
     expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');

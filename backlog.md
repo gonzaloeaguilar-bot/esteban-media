@@ -258,4 +258,5 @@ Production is live. This file tracks repository implementation; account/access w
 # Homepage accessories setup — 2026-10-28
 
 - [x] Obtain independent scoped review, commit `ab2ef552`, and open PR #583 for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`.
+- [x] Replace the unboxing outbound-card treatment with an embedded Instagram Reel inside an iPhone-shaped player and preserve the direct Instagram fallback.
 - [ ] Clear the unrelated remote `prospect-auditor-verifier` Squarespace fixture failure on PR #583, attach genuine quality evidence, merge, and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
