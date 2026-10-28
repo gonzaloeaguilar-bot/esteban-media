@@ -57,6 +57,8 @@ for (const locale of ["en", "es"] as const) {
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
+      expect(component).toContain("lg:max-w-6xl");
+      expect(css).toContain("@media(min-width:1024px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
