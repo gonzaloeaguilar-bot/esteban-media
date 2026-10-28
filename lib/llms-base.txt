@@ -4,9 +4,9 @@
 
 Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
-Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
+On-location service area: Fort Lauderdale base with scoped projects across South Florida, from Palm Beach through the Florida Keys
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-10-10
+Last updated: 2026-10-28
 
 ## Core Pages
 
@@ -192,9 +192,9 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 
 ## Service Areas
 
-- Fort Lauderdale is the operating base.
-- Broward County and Miami-Dade County are the normal local markets.
-- Palm Beach County is an expansion area considered project by project. The site has a county page (https://estebanmorenomedia.com/areas/palm-beach-county, https://estebanmorenomedia.com/es/areas/palm-beach-county) and a few existing city-named Palm Beach County service pages, listed in the page index below. Those pages describe the same project-by-project scope; they do not mean a local office, a studio, or broader availability there than in the county as a whole.
+- Fort Lauderdale is the operating base. On-location projects can be scoped across South Florida, from Palm Beach through the Florida Keys.
+- Every on-location quote confirms the exact site, access, schedule, capture needs, deliverables and any transportation cost for a location far from the Fort Lauderdale base before a production date is set.
+- The Palm Beach County pages (https://estebanmorenomedia.com/areas/palm-beach-county, https://estebanmorenomedia.com/es/areas/palm-beach-county) and existing city-named Palm Beach County pages do not mean a local office or studio.
 - Remote editing, AI-assisted content, and social planning do not require an on-location visit.
 - Remote work can support clients outside South Florida when the project uses supplied footage, product images, brand references, or other assets that can be shared online.
 
@@ -209,7 +209,7 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 ## Common Questions
 
 - What does Esteban Moreno Media do? Video editing of client-supplied footage, AI-assisted content, social media planning, and selectively scoped on-location video production.
-- Where is it based and what areas are served? Fort Lauderdale is the base; Broward County and Miami-Dade County are the normal local markets, and Palm Beach County is an expansion area considered project by project.
+- Where is it based and what areas are served? Fort Lauderdale is the base. On-location projects can be scoped across South Florida, from Palm Beach through the Florida Keys; the written quote confirms any transportation cost for a distant location before a production date is set.
 - What languages are available? Service is Spanish-first, with intermediate English communication available.
 - Does a project require an in-person visit? No. Remote editing, AI-assisted content, and social planning are handled remotely; only on-location capture involves a local visit, and that is scoped selectively.
 - Are prices published? Yes, as starting points for four packages: Arranque / Starter (remote editing) from $100 per video, Crecimiento / Growth (monthly social plan) from $640 per month, Presencia Local / Local Presence (on-site production) from $800 per production day, and Todo Incluido / All-In (website, AI lead capture, local presence and content) by custom quote. Each project gets a specific quote; turnaround times are not published.
