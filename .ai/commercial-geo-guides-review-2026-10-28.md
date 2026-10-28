@@ -58,3 +58,30 @@ The six linked production targets returned HTTP 200 on 2026-10-28:
 ```
 
 The pre-change files are available directly from `7015724f^` and the changed-page date ledger is included in the same diff. The full deterministic suite passed after the final source edit: `pnpm test` returned 177 passing files and 3,690 tests. `pnpm lint` returned 0 errors and 22 pre-existing warnings; `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, and `git diff --check` passed.
+
+### Full visitor-facing diff excerpt
+
+```diff
++ Reels: "What should a Fort Lauderdale business decide before asking for a Reel edit?"
++ Decide the one question the Reel needs to answer ... send the original clips,
++ the account where it will run, and one person who can approve the draft.
++ The local shoot is scoped separately only when the footage cannot carry the message.
+
++ Production: "What should a business share before asking about a Fort Lauderdale video project?"
++ Start with the decision the video should help a customer make ... add the city,
++ date, placement, existing footage, required people/areas and access limits.
++ The written scope does not assume a crew, schedule or deliverable.
+
++ Restaurant: "Should a Miami restaurant edit existing footage or plan a shoot?"
++ Existing original clips can start an edit. A shoot is separately scoped only
++ when preparation, dining room, owner explanation or product detail is missing.
++ Existing guide and published Bar Door Monkey links are contextual.
+
++ Spanish: equivalent decision units appear in `/es/editor-de-reels-fort-lauderdale`,
++ `/es/produccion-de-video-fort-lauderdale`, and
++ `/es/edicion-de-video-promocional-para-restaurantes-miami`.
++ The restaurant route replaces its old handoff/revision heading rather than
++ creating a fifth Spanish section.
+```
+
+For the literal Git diff, run the exact command in the first line of this review-artifacts section. There are no other public-file changes in `7015724f`.
