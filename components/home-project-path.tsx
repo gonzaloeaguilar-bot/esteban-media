@@ -469,11 +469,17 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
 
         <div ref={chooserRef} className="em-camera-chooser mt-5" aria-hidden="true" data-lens-idling={lensInView || undefined}>
           <div className="em-camera-chooser__body">
-            <div className="em-camera-chooser__flash" />
-            <span className="em-camera-chooser__lens">
-              <span className="em-camera-chooser__lens-image">
-                <Image src="/illustrations/esteban-sony-alpha-lens-v2.png" alt={c.lensAlt} fill sizes="112px" className="object-contain" />
-                <span className="em-camera-chooser__iris" />
+            <span className="em-camera-chooser__camera" aria-hidden="true">
+              <span className="em-camera-chooser__flash" />
+              <span className="em-camera-chooser__viewfinder" />
+              <span className="em-camera-chooser__dial" />
+              <span className="em-camera-chooser__shutter" />
+              <span className="em-camera-chooser__grip" />
+              <span className="em-camera-chooser__lens">
+                <span className="em-camera-chooser__lens-image">
+                  <Image src="/illustrations/esteban-sony-alpha-lens-v2.png" alt={c.lensAlt} fill sizes="112px" className="object-contain" />
+                  <span className="em-camera-chooser__iris" />
+                </span>
               </span>
             </span>
             <p className="em-camera-chooser__eyebrow">{locale === "es" ? "ELIGE TU PROYECTO" : "CHOOSE YOUR PROJECT"}</p>

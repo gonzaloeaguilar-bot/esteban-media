@@ -113,6 +113,19 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@media(prefers-reduced-motion:reduce)");
     });
 
+    it("1b2b. gives the chooser a complete ornamental camera body and breathing room below the lens", () => {
+      const component = read("components/home-project-path.tsx");
+      const css = read("app/illustrated-commercial.css");
+      expect(component).toContain('className="em-camera-chooser__camera"');
+      expect(component).toContain('className="em-camera-chooser__viewfinder"');
+      expect(component).toContain('className="em-camera-chooser__dial"');
+      expect(component).toContain('className="em-camera-chooser__shutter"');
+      expect(component).toContain('className="em-camera-chooser__grip"');
+      expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:196px");
+      expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:30px;left:16px;width:112px;height:112px");
+      expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:222px");
+    });
+
     it("1b2a. lets the creator-card like send a contained burst of hearts upward", () => {
       const css = read("app/illustrated-commercial.css");
       const editingStart = path.indexOf('data-route="editing"');
