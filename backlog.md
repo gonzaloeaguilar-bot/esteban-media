@@ -257,4 +257,5 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Align the hand-written llms facts and root LocalBusiness service-area graph to the owner-confirmed Fort Lauderdale-to-Florida-Keys boundary without adding a street address, office, directory claim or fixed transportation fee. PR #577 merged as `2cda4e7b17ba8257755f22ff9c82e87406ba01be`; canonical raw HTML and `/llms.txt` verified after Vercel success; IndexNow accepted 567 sitemap URLs. See `wiki/esteban-entity-coverage-release-audit-2026-10-28.md`.
 # Homepage accessories setup — 2026-10-28
 
-- [ ] Obtain independent scoped review for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`; then commit, PR, merge and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
+- [x] Obtain independent scoped review, commit `ab2ef552`, and open PR #583 for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`.
+- [ ] Clear the unrelated remote `prospect-auditor-verifier` Squarespace fixture failure on PR #583, attach genuine quality evidence, merge, and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
