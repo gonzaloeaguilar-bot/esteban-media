@@ -146,11 +146,10 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
 
         <details className="em-camera-kit__accessories">
           <summary data-cta={`camera_kit_accessories_${locale}`}>
-            <span className="em-camera-kit__accessories-image">
-              {/* Owner-authorized on-set photo. It documents the visible setup,
-                  not a named camera body, lens, light, or accessory model. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/about/esteban-on-set.jpg" alt={c.accessoriesAlt} />
+            <span className="em-camera-kit__accessories-stage" aria-hidden="true">
+              <span className="em-camera-kit__accessories-light" />
+              <span className="em-camera-kit__accessories-camera"><i /><b /></span>
+              <span className="em-camera-kit__accessories-phone" />
             </span>
             <span className="em-camera-kit__accessories-copy">
               <small>{c.accessoriesEyebrow}</small>
@@ -159,24 +158,6 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
               <em>{c.accessoriesAction}</em>
             </span>
             <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
-          </summary>
-          <p>{c.accessoriesDetail}</p>
-        </details>
-
-        <details className="em-camera-kit__unboxing">
-          <summary data-cta={`camera_kit_unboxing_${locale}`}>
-            <span className="em-camera-kit__unboxing-preview">
-              {/* Existing owner-authorized on-set photo; no product model is implied. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/about/esteban-on-set.jpg" alt={c.accessoriesAlt} />
-              <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
-            </span>
-            <span className="em-camera-kit__unboxing-copy">
-            <small>{c.unboxingEyebrow}</small>
-            <strong>{c.unboxingTitle}</strong>
-            <span>{c.unboxingCopy}</span>
-              <em>{c.unboxingAction}</em>
-            </span>
           </summary>
           <p>{c.accessoriesDetail}</p>
         </details>
