@@ -227,6 +227,18 @@
 - Production verification: Vercel marked the merge commit `success`; canonical raw HTML returns the Fort Lauderdale-only `PostalAddress`, public phone/email, and `areaServed` with Florida Keys. Canonical `/llms.txt` returns the matching coverage, transport and no-local-office wording. `/areas` retains canonical and EN/ES/x-default alternates. `pnpm seo:indexnow:run` received HTTP 200 for all 567 sitemap URLs.
 - Local checks: full `pnpm test` 177 files / 3,691 tests; typecheck; lint 0 errors / 22 existing warnings; production build; Rail adoption 3/3; diff check. Governed independent review returned `REVIEW_VERDICT: APPROVE`. This is technical entity/discovery proof, not a citation, ranking, lead or revenue result.
 
+
+# 2026-10-28 — Draft-only Gmail Lead Desk (local worktree)
+
+- Worktree: `/Users/gonzalo/code/esteban-lead-desk`, branch `codex/esteban-lead-desk`, based on `main` at `267d9dba`. The parent checkout was left untouched because it contains unrelated edits.
+- Adds `lib/lead-desk.ts`, `scripts/run-lead-desk.ts`, targeted tests and `docs/lead-desk.md`. The runner reads only Gmail label `Esteban/Leads`, creates a client reply draft and an internal Esteban alert draft, keeps a local status log, and has no Gmail send endpoint.
+- Rate logic reads only `lib/pricing.ts`. A birthday request without date, venue, hours and deliverables asks for those details without showing a price. Complete solo 4-hour capture returns the owner-approved $400 half-day internal match; it still does not confirm availability.
+- Verification: `pnpm vitest run lib/__tests__/lead-desk.test.ts` passed 3/3; `pnpm typecheck` passed; `pnpm test` passed 166 files / 3,472 tests; `git diff --check` passed. The runner's no-token check stopped before Gmail access with `GMAIL_LEAD_DESK_ACCESS_TOKEN is required`.
+- Mailbox evidence: Google Workspace now displays `Gmail is set up!` and `Gmail is ready`. DNS reads returned root SPF `include:_spf.google.com`, Google DKIM, DMARC `p=none`, and MX `1 smtp.google.com.`. The birthday thread was manually labeled `Esteban/Leads` in the new mailbox.
+- Open before activation: obtain a scoped OAuth token for `info@...` with Gmail modify/compose access, choose Esteban's alert recipient, then run one controlled lead through to two drafts. Do not send client mail automatically.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
