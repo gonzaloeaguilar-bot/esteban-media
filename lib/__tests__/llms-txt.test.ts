@@ -45,10 +45,11 @@ describe("llms.txt stays in step with the sitemap (audit 2026-10-10, fix 4)", ()
     expect(llms).not.toContain("/services/youtube-video-editing-service-miami");
   });
 
-  it("describes the existing Palm Beach pages without claiming more than project-by-project scope", () => {
+  it("matches the owner-confirmed South Florida service boundary without inventing an office", () => {
     expect(llms).not.toContain("no sub-city coverage is currently published");
-    expect(llms).toContain("Palm Beach County is an expansion area considered project by project.");
-    expect(llms).toContain("they do not mean a local office");
+    expect(llms).toContain("Palm Beach through the Florida Keys");
+    expect(llms).toContain("any transportation cost for a location far from the Fort Lauderdale base");
+    expect(llms).toContain("do not mean a local office or studio");
   });
 });
 
@@ -107,7 +108,7 @@ describe("/llms.txt for AI crawlers", () => {
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: info@estebanmorenomedia.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-10-10");
+    expect(llms).toContain("Last updated: 2026-10-28");
   });
 
   it("lists high-intent quote prompts for the priority service pages", () => {

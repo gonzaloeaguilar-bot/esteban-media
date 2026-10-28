@@ -7,6 +7,18 @@ export const entityIds = {
   website: absoluteUrl("/#website"),
 } as const;
 
+// The visible English and Spanish Areas pages state the owner-confirmed
+// on-location boundary: Palm Beach through the Keys. This list describes where
+// the business can scope work; it is deliberately separate from `address`,
+// which remains the Fort Lauderdale service-area-business locality.
+const entityServiceAreas = [
+  ...serviceAreas.map((area) => ({
+    "@type": area.schemaType,
+    name: area.name,
+  })),
+  { "@type": "AdministrativeArea", name: "Florida Keys, Florida" },
+] as const;
+
 export const personEntityJsonLd = {
   "@type": "Person",
   "@id": entityIds.person,
@@ -80,10 +92,7 @@ export const localBusinessEntityJsonLd = {
     addressRegion: "FL",
     addressCountry: "US",
   },
-  areaServed: serviceAreas.map((area) => ({
-    "@type": area.schemaType,
-    name: area.name,
-  })),
+  areaServed: entityServiceAreas,
   sameAs: [
     site.instagram,
     site.youtube,
@@ -116,7 +125,7 @@ export const localBusinessEntityJsonLd = {
         name: service.name,
         description: service.description,
         provider: { "@id": entityIds.business },
-        areaServed: serviceAreas.map((area) => area.name),
+        areaServed: entityServiceAreas.map((area) => area.name),
       },
     })),
   },
