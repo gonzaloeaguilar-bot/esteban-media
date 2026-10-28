@@ -586,14 +586,16 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               </details>
             );
           })}
-          <article className="em-route-card em-private-celebrations-card" data-route="private-celebrations" aria-labelledby={`private-celebrations-${locale}`}>
-            <div className="em-private-celebrations-card__hero">
-              <video className="em-private-celebrations-card__video" autoPlay loop muted playsInline preload="metadata" poster="/private-events/yacht-party-miami-poster.jpg" aria-hidden="true">
-                <source src="/private-events/yacht-party-miami.mp4" type="video/mp4" />
-              </video>
-              <div className="em-private-celebrations-card__copy"><span>{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><b>{privateCelebrations.price}</b></div>
-            </div>
-            <div className="em-private-celebrations-card__body">
+          <details className="em-route-card" data-route="private-celebrations" name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
+            <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
+              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
+              <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
+                <Image className="em-route-card__private-celebrations-poster" src="/private-events/yacht-party-miami-poster.jpg" alt={locale === "es" ? "Yate navegando durante una celebración nocturna" : "Yacht moving during an evening celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" />
+                <video className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami.mp4" autoPlay loop muted playsInline preload="auto" disablePictureInPicture tabIndex={-1} />
+              </span>
+              <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
+            </summary>
+            <div className="em-route-card__body em-private-celebrations-card__body">
               <p>{privateCelebrations.lead}</p>
               <details className="em-private-celebrations__packages">
                 <summary>{privateCelebrations.packagesLabel}<ChevronDown className="size-4" aria-hidden="true" /></summary>
@@ -604,7 +606,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               </details>
               <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
             </div>
-          </article>
+          </details>
         </div>
         <div className="mt-5 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]">{locale === "es" ? "¿Tu proyecto no encaja en una de estas rutas? Cuéntame qué quieres crear y te preparo una cotización." : "Does your project not fit one of these routes? Tell me what you want to make and I will prepare a quote."}</p>

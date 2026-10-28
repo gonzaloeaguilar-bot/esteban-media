@@ -42,8 +42,8 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
     });
 
-    it("1b. the top-level buyer routes include private celebrations and no parallel one-off card remains", () => {
-      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(7);
+    it("1b. the top-level buyer routes keep private celebrations inside the project-card system", () => {
+      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(8);
       expect(path).not.toContain("em-single-project-entry");
       expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
       expect(path).toContain(locale === "en" ? "Local businesses" : "Negocios locales");
@@ -65,6 +65,10 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain('/private-events/yacht-party-miami.mp4');
       expect(celebrations).toContain('autoPlay');
       expect(celebrations).toContain('playsInline');
+      expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
+      expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');
+      expect(celebrations).toContain('preload="auto"');
+      expect(celebrations).toContain('disablePictureInPicture');
     });
 
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
