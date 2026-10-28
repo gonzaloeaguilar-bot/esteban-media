@@ -17,6 +17,9 @@ export type ReelFunnelReel = {
   embedUrl?: string;
   /** A published film can be widescreen even when its carousel card is a phone. */
   aspect?: "landscape";
+  /** Preferred over `aspect`: the stage is 9:16 for portrait and 16:9 for
+      landscape, and the picture is never cropped in either. */
+  orientation?: "portrait" | "landscape";
   poster: string;
 };
 
@@ -175,7 +178,8 @@ export function ReelFunnel({
 
   const t = COPY[locale];
   const others = playlist.filter((item) => item.id !== reel.id);
-  const mediaClass = `em-funnel__media${reel.aspect === "landscape" ? " em-funnel__media--landscape" : ""}`;
+  const landscape = (reel.orientation ?? (reel.aspect === "landscape" ? "landscape" : "portrait")) === "landscape";
+  const mediaClass = `em-funnel__media${landscape ? " em-funnel__media--landscape" : ""}`;
   const selectedNeed = t.needs.find((need) => need.id === needId);
   const message = selectedNeed ? t.line(reel.title, selectedNeed.said) : "";
 
@@ -221,7 +225,7 @@ export function ReelFunnel({
       }}
     >
       <div
-        className={`em-funnel__panel${reel.aspect === "landscape" ? " em-funnel__panel--landscape" : ""}`}
+        className={`em-funnel__panel${landscape ? " em-funnel__panel--landscape" : ""}`}
         ref={panelRef}
       >
         <button
@@ -235,7 +239,7 @@ export function ReelFunnel({
         </button>
 
         {reel.embedUrl || reel.src ? (
-          <div className={mediaClass}>
+          <div className={mediaClass} data-orientation={landscape ? "landscape" : "portrait"}>
             {reel.embedUrl ? (
               <iframe
                 className="em-funnel__video"

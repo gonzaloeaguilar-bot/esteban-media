@@ -1,3 +1,11 @@
+# 2026-10-28 — Vertical video fills the rail phone and opens in a 9:16 stage (branch fix/vertical-video-fill-rail-and-modal-20261028, PR open, not production)
+
+- Owner screenshots ("todo tiene el problema"): every rail clip sat in one 16:9 strip in the top third of the phone card, and the player cropped a vertical Reel to a slice. Each portfolio item now declares `orientation` (lib `mediaOrientation()` from the declared aspect; the teaser sets it per source). Evidence: ffprobe gives 720x1280/576x1024 for all eight local MP4s; `youtube.com/shorts/<id>` answers 200 for Hm-mI-RgvUY, YTJW6zn14S8, poIo-VCBeAw, B4d_bFQV6T0 (now `9:16`) and 303-redirects for BDRru8eXaj4 and the other films (`16:9`).
+- Rail: `.em-phone-video[data-orientation]` — portrait owns the whole phone screen (video/poster cover, YouTube iframe as a centred 9:16 box), landscape keeps a whole 16:9 frame centred. Player: phone stage is a true 9:16 box `min(100%, 86svh*9/16)`, `object-fit: contain`, panel below; desktop keeps the #611 two-column layout, landscape stage is now a true 16:9 (was 663x336). Portfolio-page players (`PortfolioVideo`, its modal, watch page) take the same `orientation`.
+- Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
+
+---
+
 # 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
 
 - Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.

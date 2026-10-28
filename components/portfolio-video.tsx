@@ -11,6 +11,8 @@ interface PortfolioVideoProps {
   poster: string;
   title: string;
   locale: "en" | "es";
+  /** A Short plays in a 9:16 stage; a film in 16:9. Defaults to landscape. */
+  orientation?: "portrait" | "landscape";
 }
 
 export function PortfolioVideo({
@@ -19,7 +21,9 @@ export function PortfolioVideo({
   poster,
   title,
   locale,
+  orientation = "landscape",
 }: PortfolioVideoProps) {
+  const portrait = orientation === "portrait";
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const playerRef = useRef<HTMLIFrameElement>(null);
@@ -46,7 +50,11 @@ export function PortfolioVideo({
 
   return (
     <div>
-      <div className="relative aspect-video overflow-hidden rounded-t-xl bg-[#101214]">
+      <div
+        className={`relative overflow-hidden rounded-t-xl bg-[#101214] ${portrait ? "mx-auto aspect-[9/16]" : "aspect-video"}`}
+        data-orientation={orientation}
+        style={portrait ? { width: "min(100%, calc(86svh * 9 / 16))" } : undefined}
+      >
         {isPlaying ? (
           <iframe
             ref={playerRef}
@@ -131,6 +139,7 @@ export function PortfolioVideo({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         locale={locale}
+        orientation={orientation}
       />
     </div>
   );
