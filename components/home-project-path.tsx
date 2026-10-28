@@ -11,6 +11,8 @@ import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CELEBRATION_FILM_BUNDLES,
+  REAL_ESTATE_DRONE_PHOTO_ADD_ON,
+  COMMERCIAL_VIDEO_TIERS,
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
   ON_LOCATION_CAPTURE,
@@ -248,7 +250,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: la sesión pasa al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "1 property per month (up to 3,000 SF)",
@@ -257,7 +259,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoot rolls to next month if no listing",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Plus")) {
@@ -269,7 +271,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3 a 4 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: las sesiones pasan al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "2 properties per month (up to 3,000 SF each)",
@@ -278,7 +280,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3–4 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoots roll to next month if no listings",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Premium")) {
@@ -483,8 +485,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     return "Demo, brand film, or a production with actors and studio.";
   };
   const commercialScope = locale === "es"
-    ? "Elige el alcance al cotizar: demo básico desde $1,000; brand film desde $3,000; actores y estudio desde $6,500."
-    : "Choose the scope when you quote it: basic demo from $1,000; brand film from $3,000; actors and studio from $6,500.";
+    ? `Elige el alcance al cotizar: demo básico desde ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film desde ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actores y estudio desde ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`
+    : `Choose the scope when you quote it: basic demo from ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film from ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actors and studio from ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`;
   const creatorFilm = locale === "es"
     ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
     : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
@@ -496,10 +498,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         lead: "Video de tu celebración, en casa, en un salón o en un yate, para compartirlo y recordarlo.",
         selectedPackagePrefix: "Me interesa:",
         packages: [
-          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: "Película de mi celebración (desde $1,200, hasta 4 horas)" },
-          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: "Película de celebración de día completo (desde $2,200, hasta 8 horas)" },
-          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: "Producción de celebración con dos personas (desde $3,400, hasta 8 horas)" },
-          { name: "Película de fiesta en yate", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · medio día`, includes: "Grabación a bordo en Miami o Fort Lauderdale y una película terminada de tu fiesta en yate. Mínimo medio día; el día completo (desde $2,800) incluye tomas con dron marino con licencia.", whatsapp: "Película de mi fiesta en yate (desde $1,450 medio día, desde $2,800 día completo con dron)" },
+          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: `Película de mi celebración (desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, hasta 4 horas)` },
+          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: `Película de celebración de día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, hasta 8 horas)` },
+          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: `Producción de celebración con dos personas (desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, hasta 8 horas)` },
+          { name: "Película de fiesta en yate", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · medio día`, includes: `Grabación a bordo en Miami o Fort Lauderdale y una película terminada de tu fiesta en yate. Mínimo medio día; el día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) incluye tomas con dron marino con licencia.`, whatsapp: `Película de mi fiesta en yate (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} medio día, desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} día completo con dron)` },
         ],
         packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
         quote: "Cotizar mi celebración",
@@ -514,10 +516,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         lead: "Video of your celebration, at home, a venue, or on a yacht, to share and remember.",
         selectedPackagePrefix: "I'm interested in:",
         packages: [
-          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: "My celebration film (from $1,200, up to 4 hours)" },
-          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: "My full-day celebration film (from $2,200, up to 8 hours)" },
-          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: "My two-person celebration production (from $3,400, up to 8 hours)" },
-          { name: "Yacht party film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · half day`, includes: "On-board filming in Miami or Fort Lauderdale and a finished film of your yacht party. Half-day minimum; a full day (from $2,800) adds licensed marine drone tracking.", whatsapp: "My yacht party film (from $1,450 half day, from $2,800 full day with drone)" },
+          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: `My celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, up to 4 hours)` },
+          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: `My full-day celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, up to 8 hours)` },
+          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: `My two-person celebration production (from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, up to 8 hours)` },
+          { name: "Yacht party film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · half day`, includes: `On-board filming in Miami or Fort Lauderdale and a finished film of your yacht party. Half-day minimum; a full day (from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) adds licensed marine drone tracking.`, whatsapp: `My yacht party film (from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} half day, from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} full day with drone)` },
         ],
         packageNote: "Travel and any extras are confirmed in writing before booking.",
         quote: "Quote my celebration",

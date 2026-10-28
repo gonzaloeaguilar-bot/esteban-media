@@ -393,7 +393,7 @@ export const spanishServices: SpanishService[] = [
       "Las preguntas de alcance cubren la audiencia, la meta, los canales y las necesidades de contenido.",
     icon: CalendarRange,
     tags: ["Estrategia", "Frecuencia", "Plan de contenido"],
-    startingPrice: "Paquetes mensuales desde $640/mes",
+    startingPrice: `Paquetes mensuales desde ${usd(PACKAGE_PRICES.crecimiento.kind === "from" ? PACKAGE_PRICES.crecimiento.amount : 0)}/mes`,
   },
   {
     id: "videografia",
@@ -405,7 +405,7 @@ export const spanishServices: SpanishService[] = [
       "La disponibilidad y el alcance se consideran proyecto por proyecto después de conocer la locación, la meta y las necesidades de captura.",
     icon: Video,
     tags: ["South Florida", "En locación", "Según proyecto"],
-    startingPrice: "Jornadas de producción desde $800",
+    startingPrice: `Presencia Local desde ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}/mes`,
   },
   {
     id: "diseno-web",

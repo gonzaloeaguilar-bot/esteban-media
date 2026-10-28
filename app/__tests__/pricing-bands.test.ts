@@ -7,8 +7,7 @@ import {
   PRICING_BANDS,
   PRODUCT_PHOTO_MARKET,
   SHORT_FORM,
-  VOLUME_MULTIPLIERS,
-} from "@/lib/pricing";
+  VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
 import { getGuides } from "@/lib/guides";
 
 function source(path: string) {
@@ -57,7 +56,7 @@ describe("pricing module bands", () => {
   });
 
   it("keeps the on-location capture add-on at the documented figures", () => {
-    expect(PRICING_BANDS["on-location"].baseMin).toBe(400);
+    expect(PRICING_BANDS["on-location"].baseMin).toBe(500);
     expect(PRICING_BANDS["on-location"].baseMax).toBe(775);
   });
 
@@ -120,14 +119,14 @@ describe("pricing module bands", () => {
 
   it("separates the published production-day starting price from a full corporate quote", () => {
     const price = PACKAGE_PRICES["presencia-local"];
-    expect(price).toMatchObject({ kind: "from", unit: "production-day" });
+    expect(price).toMatchObject({ kind: "from", unit: "month" });
     if (price.kind !== "from") throw new Error("Local Presence needs a published starting price");
 
     const english = getGuides("en").find(({ id }) => id === "corporate-video-cost-guide")!;
     const spanish = getGuides("es").find(({ id }) => id === "corporate-video-cost-guide")!;
-    expect(english.answer).toContain(`$${price.amount}`);
+    expect(english.answer).toContain(usd(price.amount));
     expect(english.answer).toContain("not a complete corporate-video price");
-    expect(spanish.answer).toContain(`$${price.amount}`);
+    expect(spanish.answer).toContain(usd(price.amount));
     expect(spanish.answer).toContain("no el precio completo de un video corporativo");
     expect(source("lib/guides.ts")).toContain('packageGuidePrice("presencia-local")');
   });

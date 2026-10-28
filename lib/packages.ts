@@ -15,6 +15,7 @@ import {
   usd,
   type PackageId,
   type PackagePrice,
+  COMMERCIAL_VIDEO_TIERS,
 } from "@/lib/pricing";
 
 export type Locale = "en" | "es";
@@ -211,7 +212,7 @@ const COPY: Record<Locale, Copy> = {
         { id: "grabacion", title: "Grabación en locación sin edición", note: "Material 4K en bruto para tu equipo", href: "/es/produccion-de-video-fort-lauderdale", icon: "camera" },
         { id: "multicam", title: "Producción multicámara y conferencias", note: "2 a 3 cámaras con audio directo de consola", href: "/es/videografo-para-conferencias-fort-lauderdale", icon: "camera" },
         { id: "yate", title: "Producción audiovisual de yates y marina", note: "Solo o tripulación de 2 con opción de dron marino", href: "/es/marketing-de-video-para-alquiler-de-yates-miami", icon: "camera" },
-        { id: "kickstarter", title: "Video comercial o demo de producto", note: "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+", href: "/es/editor-de-video-para-campanas-de-crowdfunding", icon: "camera" },
+        { id: "kickstarter", title: "Video comercial o demo de producto", note: `Demo básico ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)} · Brand film ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)} · Actores y estudio ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}+`, href: "/es/editor-de-video-para-campanas-de-crowdfunding", icon: "camera" },
         { id: "mejora", title: "Mejora de fotos con IA", note: "Inmobiliaria y producto", href: "/es/fotos-con-ia-para-bienes-raices-miami", icon: "wand" },
         { id: "seo", title: "SEO local y visibilidad en buscadores de IA", href: "/es/presencia-local-seo", icon: "map" },
         { id: "auditoria", title: "Auditoría de sitio, embudo y competencia", href: "/es/auditoria-de-funnel-y-datos", icon: "gauge" },
@@ -267,7 +268,7 @@ const COPY: Record<Locale, Copy> = {
         { id: "grabacion", title: "On-location raw video capture", note: "Raw 4K footage delivered unedited", href: "/services/video-production-fort-lauderdale", icon: "camera" },
         { id: "multicam", title: "Multi-camera and conference production", note: "2 to 3 cameras with soundboard audio feed", href: "/services/conference-videographer-fort-lauderdale", icon: "camera" },
         { id: "yate", title: "Yacht and marine video production", note: "Solo or 2-person crew with marine drone option", href: "/services/yacht-charter-video-marketing-miami", icon: "camera" },
-        { id: "kickstarter", title: "Commercial video or product demo", note: "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+", href: "/services/crowdfunding-video-editor-miami", icon: "camera" },
+        { id: "kickstarter", title: "Commercial video or product demo", note: `Basic demo ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)} · Brand film ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)} · Actors and studio ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}+`, href: "/services/crowdfunding-video-editor-miami", icon: "camera" },
         { id: "mejora", title: "AI photo enhancement", note: "Real estate and product", href: "/services/ai-real-estate-photo-enhancement", icon: "wand" },
         { id: "seo", title: "Local SEO and AI-search visibility", href: "/services/local-presence-seo", icon: "map" },
         { id: "auditoria", title: "Website, funnel and competitor audit", href: "/services/growth-funnel-audit", icon: "gauge" },

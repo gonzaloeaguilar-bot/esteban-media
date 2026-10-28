@@ -36,10 +36,10 @@ for (const locale of ["en", "es"] as const) {
   describe(`home ${locale}: packaging after the chooser`, () => {
     it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
-      expect(prices).toContain("$640");
       expect(prices).toContain("$800");
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640\/(mo|month|mes)</);
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
+      expect(prices).toContain("$1,600");
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600\/[^<]+</);
     });
 
     it("1b. the top-level buyer routes keep private celebrations inside the project-card system", () => {
@@ -60,12 +60,12 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrationStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,800 · hasta 8 horas" : "from $2,800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $4,000 · hasta 8 horas" : "from $4,000 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
       expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
-      expect(celebrations).toContain(locale === "es" ? "desde $1,450 · medio día" : "from $1,450 · half day");
-      expect(celebrations).toContain("$2,800");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,800 · medio día" : "from $1,800 · half day");
+      expect(celebrations).toContain("$3,200");
       // Measurement rides on the shared track.js layer (one writer per event):
       // the open tap, every package tap and the WhatsApp CTA all carry data-cta.
       expect(celebrations).toContain(`data-cta="home_project_route_${locale}_private-celebrations"`);
@@ -263,7 +263,7 @@ for (const locale of ["en", "es"] as const) {
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
       expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);
-      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$400/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$500/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
       expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
@@ -286,8 +286,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel.indexOf("em-funnel-summary")).toBeGreaterThan(-1);
       expect(funnel.indexOf("em-funnel-summary")).toBeLessThan(funnel.indexOf("<input"));
       expect(funnel).toContain(growth);
-      expect(funnel).toContain("$640");
       expect(funnel).toContain("$800");
+      expect(funnel).toContain("$1,600");
       expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
       expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });

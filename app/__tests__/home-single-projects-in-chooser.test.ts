@@ -32,9 +32,9 @@ describe("single projects live inside the chooser, once", () => {
     });
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
-      expect(html).toMatch(/em-path-offer-price[^>]*>\$450\/(mo|mes)</);
-      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640/);
-      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>\$600\/(mo|mes)</);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Local Presence|Presencia Local)</);
       // Editing is a buying choice (once, weekly, or scoped project), not a
@@ -42,8 +42,8 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).toMatch(/em-pk-starter-tile__num[^>]*>\$100</);
       expect(html).not.toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
-      expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
-      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,000/);
+      expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$350/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,500/);
       // the lane cards still do not repeat a "Starting price" label
       expect(html).not.toMatch(/em-art-price-label/);
     });

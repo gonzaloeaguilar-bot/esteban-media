@@ -24,7 +24,7 @@ describe("ecommerce portfolio proof", () => {
     expect(markup).toContain("My D&#x27;ler");
     expect(markup).toContain("not represented as physical product photography");
     expect(markup).toContain("Amazon sellers, Shopify brands");
-    expect(markup).toContain("starts from $280");
+    expect(markup).toContain("starts from $350");
     expect(markup).toContain("Rush 24-hour delivery may be available");
   });
 

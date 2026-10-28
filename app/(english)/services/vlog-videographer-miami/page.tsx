@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CREW_RECORDING_RATES, usd } from "@/lib/pricing";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -148,7 +149,7 @@ export default function VlogVideographerMiamiPage() {
                   Filming your next vlog series in Miami?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Hourly filming from $80/hr or full-day creator packages with rapid video turnaround.
+                  Hourly filming from {usd(CREW_RECORDING_RATES.solo.hourly)}/hr or full-day creator packages with rapid video turnaround.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
