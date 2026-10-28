@@ -43,6 +43,7 @@ describe("homepage portfolio rail", () => {
     expect(rail).toContain('videoSurface?: boolean;');
     expect(rail).toContain('className="em-phone-video"');
     expect(rail).toContain('item.embedUrl && item.id === litId && !reduced');
+    expect(rail).toContain('setLitId(null);');
     expect(rail).not.toContain('em-phone-video__controls');
     expect(rail).not.toContain('bg-[var(--em-accent-ink)] text-white');
     expect(css).toContain('.em-phone-video__screen');
