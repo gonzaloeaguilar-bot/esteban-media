@@ -588,7 +588,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           })}
           <article className="em-route-card em-private-celebrations-card" data-route="private-celebrations" aria-labelledby={`private-celebrations-${locale}`}>
             <div className="em-private-celebrations-card__hero">
-              <Image src="/illustrations/private-celebration-illustration.png" alt={locale === "es" ? "Ilustración de una celebración privada de cumpleaños" : "Illustration of a private birthday celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" />
+              <video className="em-private-celebrations-card__video" autoPlay loop muted playsInline preload="metadata" poster="/private-events/yacht-party-miami-poster.jpg" aria-hidden="true">
+                <source src="/private-events/yacht-party-miami.mp4" type="video/mp4" />
+              </video>
               <div className="em-private-celebrations-card__copy"><span>{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><b>{privateCelebrations.price}</b></div>
             </div>
             <div className="em-private-celebrations-card__body">
