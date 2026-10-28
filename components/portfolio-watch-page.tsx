@@ -21,7 +21,7 @@ import {
   getCaseStudyPath,
   type CaseStudyId,
 } from "@/lib/case-studies";
-import { getPoster, isInstagramSource, isYouTubeSource, type PortfolioItem } from "@/lib/portfolio";
+import { getPoster, isInstagramSource, isYouTubeSource, mediaOrientation, type PortfolioItem } from "@/lib/portfolio";
 import {
   getPortfolioCategoryPath,
   getPortfolioCollectionPath,
@@ -237,7 +237,11 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           </nav>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,.55fr)] lg:items-center lg:gap-12">
-            <div className="relative aspect-video overflow-hidden rounded-xl border border-white/15 bg-[#292b2d] shadow-2xl">
+            <div
+              className={`relative overflow-hidden rounded-xl border border-white/15 bg-[#292b2d] shadow-2xl ${mediaOrientation(item.media) === "portrait" ? "mx-auto aspect-[9/16]" : "aspect-video"}`}
+              data-orientation={mediaOrientation(item.media)}
+              style={mediaOrientation(item.media) === "portrait" ? { width: "min(100%, calc(86svh * 9 / 16))" } : undefined}
+            >
               <Image
                 src={poster}
                 alt={copy.title}
