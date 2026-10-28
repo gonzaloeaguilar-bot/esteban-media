@@ -36,7 +36,7 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       absolute: "Miami & Fort Lauderdale Video Editing Services",
     });
     expect(englishAreasMetadata.description).toBe(
-      "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
+      "Explore video editing, AI-assisted content, social planning, and scoped on-location production across South Florida, from Palm Beach through the Keys.",
     );
     expect(englishPortfolioMetadata.title).toEqual({
       absolute: "Miami Video Editing Portfolio | Real Work",
@@ -48,7 +48,7 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       absolute: "Servicios de edición de video en Miami y Fort Lauderdale",
     });
     expect(spanishAreasMetadata.description).toBe(
-      "Explora edición de video, contenido con IA y planificación social para Fort Lauderdale, Broward y Miami-Dade. Palm Beach se evalúa según el proyecto.",
+      "Explora edición de video, contenido con IA, planificación social y grabación definida por proyecto en South Florida, desde Palm Beach hasta los Keys.",
     );
     expect(spanishPortfolioMetadata.title).toEqual({
       absolute: "Portafolio de edición de video en Miami y Fort Lauderdale",

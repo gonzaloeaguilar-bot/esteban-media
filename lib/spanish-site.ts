@@ -440,14 +440,14 @@ export const spanishAreas = [
     county: "Miami-Dade County",
     href: "/es/areas",
     description:
-      "Proyectos seleccionados para emprendedores, restaurantes, marcas y real estate en Miami-Dade.",
+      "Proyectos de edición y grabación para emprendedores, restaurantes, marcas y real estate en Miami-Dade.",
   },
   {
     name: "Palm Beach County",
     county: "Palm Beach County",
     href: "/es/areas/palm-beach-county",
     description:
-      "Palm Beach County es un área de expansión que se evalúa proyecto por proyecto. Hay páginas de servicios por ciudad; la disponibilidad para grabar en locación se confirma en cada consulta.",
+      "Proyectos de edición y grabación en Palm Beach County, definidos desde la base de Esteban en Fort Lauderdale.",
   },
 ];
 
@@ -1610,13 +1610,13 @@ export const spanishNichePages: SpanishNichePage[] = [
     metadataTitle: "Video para Restaurantes en Miami",
     // SNIPPET TEST 2026-10-07 (GSC: video para restaurantes miami, 7 impr, pos 6.9, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
     description:
-      "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
+      "Edición de Reels y videos promocionales para restaurantes de Miami y South Florida: platos estrella, ambiente del salón y promociones. Atención en español.",
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
       `¿Ya tienes clips? Un proyecto promocional para tu restaurante, con alcance y cotización a la medida de tu local, va desde ${usd(RESTAURANT_PROMO.from)}. ¿Solo necesitas un reel editado con tus propios clips? Es ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque). ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.`,
     keyword: "video para restaurantes Miami",
-    location: "Miami-Dade",
+    location: "Miami / South Florida",
     availability: "confirmed",
     icon: UtensilsCrossed,
     bestFor: [
@@ -1624,12 +1624,12 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Restaurantes que necesitan fotos reales y quieren definir una sesión por separado.",
       "Dueños que quieren definir la meta antes de producir contenido nuevo.",
       "Equipos que prefieren explicar el proyecto en español.",
-      "Ideas que requieren una captura local seleccionada en Miami-Dade.",
+      "Ideas que requieren una captura local definida por proyecto en South Florida.",
     ],
     scopingQuestions: [
       "¿Qué aspecto del restaurante necesita comunicar el video?",
       "¿Ya existe material grabado en cocina o salón?",
-      "¿La idea requiere una locación en Miami-Dade?",
+      "¿En qué ciudad de South Florida se necesita la grabación?",
       "¿Qué uso, formato y disponibilidad deben confirmarse?",
     ],
     projectFit:
