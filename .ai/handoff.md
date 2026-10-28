@@ -1,3 +1,12 @@
+# 2026-10-28 — Great Reviewer carousel autoplay and phone-frame consistency (PR #579, not production)
+
+- The homepage work rail now treats every vertical property Reel and the featured The Great Reviewer iPhone Reel as an explicit phone-framed card. The seven property clips already carry local MP4 sources; The Great Reviewer is a published YouTube video, so its previous click followed the fallback portfolio link instead of opening the player.
+- The featured card now opens the existing in-place Reel sheet with `https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0`. It starts muted, inline, and automatically after the visitor selects the card; local MP4 Reels remain unchanged. The sheet's iframe has no default border, so it uses the same clean 9:16 player slot as local video.
+- Local checks: `pnpm vitest run components/__tests__/portfolio-teaser.test.ts components/__tests__/reel-funnel-escape.test.ts` passed 6/6; `pnpm typecheck` and `git diff --check` passed. A full `pnpm build` was started after this patch; record its terminal receipt before treating it as a pass. The pre-existing 3005 development server had a stale Next chunk error, so it is not visual evidence for this change.
+- This is an added candidate on PR #579, not a production result. A fresh preview plus canonical phone/tablet/desktop interaction check remains required after independent quality evidence is available.
+
+---
+
 # 2026-10-28 — Tablet route-card repair (PR #579, not production)
 
 - Commit `7fced5d4` on `fix/desktop-camera-polaroids-20261028` is pushed to PR #579. It keeps the seven homepage buyer paths in one readable column through a 1024px landscape tablet and starts the two-column layout at 1100px. At that wider layout, the seventh card and an opened card span both columns; this removes the orphan final half-row and the empty stretched neighbor.

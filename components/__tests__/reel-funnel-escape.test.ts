@@ -19,6 +19,7 @@ describe("ReelFunnel exit path", () => {
     expect(css).toContain("@media (min-width: 1024px) {");
     expect(css).toContain("grid-template-columns: minmax(0, 1.35fr) minmax(340px, .85fr)");
     expect(css).toContain(".em-funnel__video {");
+    expect(css).toContain("iframe.em-funnel__video { border: 0; }");
     expect(css).toContain("object-fit: contain");
     expect(css).toContain(".em-funnel__ask {");
     expect(css).toContain("overflow: auto");

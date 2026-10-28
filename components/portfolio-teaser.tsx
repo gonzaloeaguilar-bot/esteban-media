@@ -143,6 +143,10 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // playlist, whose `isReel` flag also controls in-place MP4
                 // playback.
                 phoneFrame: true,
+                // It is published on YouTube, not mirrored as a local MP4.
+                // Selecting it still opens the same in-place player sheet and
+                // starts the video immediately instead of navigating away.
+                embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0",
               };
             }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,

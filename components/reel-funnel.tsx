@@ -10,7 +10,10 @@ import { site } from "@/lib/site";
 export type ReelFunnelReel = {
   id: string;
   title: string;
-  src: string;
+  /** Locally hosted Reel. */
+  src?: string;
+  /** Published YouTube clip. Kept in the same player sheet as local Reels. */
+  embedUrl?: string;
   poster: string;
 };
 
@@ -147,17 +150,27 @@ export function ReelFunnel({
           <X className="size-5" aria-hidden="true" />
         </button>
 
-        <video
-          className="em-funnel__video"
-          src={reel.src}
-          poster={reel.poster}
-          controls
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        />
+        {reel.embedUrl ? (
+          <iframe
+            className="em-funnel__video"
+            src={reel.embedUrl}
+            title={reel.title}
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+          />
+        ) : reel.src ? (
+          <video
+            className="em-funnel__video"
+            src={reel.src}
+            poster={reel.poster}
+            controls
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+        ) : null}
 
         <div className="em-funnel__ask">
           <p className="em-funnel__watching">

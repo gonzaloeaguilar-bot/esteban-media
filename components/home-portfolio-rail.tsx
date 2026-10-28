@@ -30,6 +30,8 @@ export type HomePortfolioCard = {
   phoneFrame?: boolean;
   /** The reel's MP4. Present only on reels; makes the card open a player. */
   videoSrc?: string;
+  /** A published YouTube reel: opens in the same player sheet as local MP4s. */
+  embedUrl?: string;
   href: string;
   title: string;
   eyebrow: string;
@@ -64,7 +66,7 @@ export function HomePortfolioRail({
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
-    const byId = new Map(items.filter((i) => i.videoSrc).map((i) => [i.id, i]));
+    const byId = new Map(items.filter((i) => i.videoSrc || i.embedUrl).map((i) => [i.id, i]));
     if (byId.size === 0) return;
 
     function onClick(event: MouseEvent) {
@@ -72,9 +74,15 @@ export function HomePortfolioRail({
       const card = (event.target as HTMLElement)?.closest<HTMLElement>(".rail-card");
       const id = card?.getAttribute("data-rail-card");
       const item = id ? byId.get(id) : undefined;
-      if (!item?.videoSrc || !item.poster) return;
+      if (!item || (!item.videoSrc && !item.embedUrl) || !item.poster) return;
       event.preventDefault();
-      setOpenReel({ id: item.id, title: item.title, src: item.videoSrc, poster: item.poster });
+      setOpenReel({
+        id: item.id,
+        title: item.title,
+        src: item.videoSrc,
+        embedUrl: item.embedUrl,
+        poster: item.poster,
+      });
     }
 
     root.addEventListener("click", onClick);
@@ -263,8 +271,14 @@ export function HomePortfolioRail({
     <ReelFunnel
       reel={openReel}
       playlist={items
-        .filter((i) => i.videoSrc && i.poster)
-        .map((i) => ({ id: i.id, title: i.title, src: i.videoSrc!, poster: i.poster! }))}
+        .filter((i) => (i.videoSrc || i.embedUrl) && i.poster)
+        .map((i) => ({
+          id: i.id,
+          title: i.title,
+          src: i.videoSrc,
+          embedUrl: i.embedUrl,
+          poster: i.poster!,
+        }))}
       locale={locale}
       onClose={() => setOpenReel(null)}
       onSelect={setOpenReel}

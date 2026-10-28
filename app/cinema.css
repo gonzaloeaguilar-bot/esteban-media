@@ -2438,6 +2438,10 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   background: #000;
   display: block;
 }
+/* A YouTube Reel uses the same player slot as the local MP4s. Iframes keep
+   their browser default border unless it is reset explicitly, which leaves a
+   thin pale edge that reads as an accidental second frame in the dark sheet. */
+iframe.em-funnel__video { border: 0; }
 .em-funnel__ask { padding: 14px 14px 16px; }
 .em-funnel__watching {
   margin: 0;
