@@ -164,6 +164,9 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
               poster: "/portfolio/sony-a7iv-unboxing.png",
               posterAlt: isSpanish ? "Unboxing de una Sony Alpha 7 IV" : "Sony Alpha 7 IV unboxing",
               phoneFrame: true,
+              videoSurface: true,
+              videoSurfaceLabel: "Sony Alpha 7 IV",
+              videoSrc: "/portfolio/sony-a7iv-unboxing.mp4",
             }, ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,
               href: reelHref,

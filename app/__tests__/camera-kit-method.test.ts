@@ -33,11 +33,22 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__unboxing-preview"');
     expect(component).toContain('<details className="em-camera-kit__unboxing">');
     expect(component).toContain('/portfolio/sony-a7iv-unboxing.png');
+    expect(component).toContain('/portfolio/sony-a7iv-unboxing.mp4');
+    expect(component).toContain('className="em-camera-kit__unboxing-video"');
+    expect(component).toContain('controls');
+    expect(component).toContain('Play the unboxing');
+    expect(component).toContain('Reproducir el unboxing');
     expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
     expect(component).not.toContain('/about/esteban-on-set.jpg');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
+  });
+
+  it("keeps the unboxing player inside the disclosure without autoplaying it", () => {
+    expect(styles).toContain('.em-camera-kit__unboxing-video{display:block');
+    expect(component).toContain('playsInline');
+    expect(component).not.toContain('className="em-camera-kit__unboxing-video"\n            controls\n            autoPlay');
   });
 
   it("shows the owner-provided accessory product preview without turning it into a buy link", () => {
