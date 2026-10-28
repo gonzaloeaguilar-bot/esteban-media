@@ -9680,6 +9680,11 @@ for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-interna
   languageAlternatesRaw[es] = { "en-US": en, "es-US": es, "x-default": en };
 }
 
+const PRIVATE_PARTY_EN = "/services/private-party-videographer-south-florida";
+const PRIVATE_PARTY_ES = "/es/videografo-para-fiestas-privadas-sur-de-florida";
+languageAlternatesRaw[PRIVATE_PARTY_EN] = { "en-US": PRIVATE_PARTY_EN, "es-US": PRIVATE_PARTY_ES, "x-default": PRIVATE_PARTY_EN };
+languageAlternatesRaw[PRIVATE_PARTY_ES] = { "en-US": PRIVATE_PARTY_EN, "es-US": PRIVATE_PARTY_ES, "x-default": PRIVATE_PARTY_EN };
+
 export const languageAlternates: Record<string, Record<string, string>> =
   Object.fromEntries(
     Object.entries(languageAlternatesRaw).filter(

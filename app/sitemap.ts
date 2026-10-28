@@ -147,6 +147,8 @@ export const sitemapRoutes = [
   { path: "/services/catering-company-video-miami", priority: 0.85 },
   { path: "/services/brewery-craft-distillery-video-miami", priority: 0.85 },
   { path: "/services/yacht-party-videographer-miami", priority: 0.85 },
+  { path: "/services/private-party-videographer-south-florida", priority: 0.85 },
+  { path: "/es/videografo-para-fiestas-privadas-sur-de-florida", priority: 0.8 },
   { path: "/services/sportfishing-videographer-miami", priority: 0.85 },
   { path: "/services/hair-restoration-video-miami", priority: 0.85 },
   { path: "/services/chiropractic-video-marketing-miami", priority: 0.85 },

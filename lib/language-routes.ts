@@ -87,6 +87,8 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-cervecerias-artesanales-miami",
   "/services/yacht-party-videographer-miami":
     "/es/videografo-para-fiestas-en-yates-miami",
+  "/services/private-party-videographer-south-florida":
+    "/es/videografo-para-fiestas-privadas-sur-de-florida",
   "/services/sportfishing-videographer-miami":
     "/es/videografo-de-pesca-deportiva-miami",
   "/services/hair-restoration-video-miami":
