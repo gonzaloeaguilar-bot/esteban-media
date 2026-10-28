@@ -39,3 +39,22 @@ Query × canonical page rows: `reel editor fort lauderdale` → 11 impressions, 
 - `git diff --check` passed.
 
 The full `pnpm build` compiled successfully and completed lint/type validation, then its 608-page static generation outlasted the terminal's 30-second job limit. It is not represented as a successful full build until a terminal receipt is captured.
+
+## Independent review artifacts — attempt 3
+
+The exact source diff is `git show --format= 7015724f -- app/'(english)'/services/reels-editor-fort-lauderdale/page.tsx app/'(english)'/services/video-production-fort-lauderdale/page.tsx app/'(english)'/services/restaurant-promo-video-editing-miami/page.tsx lib/spanish-site.ts config/page-lastmod.json`.
+
+The only new English claim units are direct visitor instructions. The Reels unit says to decide one question, send original clips, name the account and name an approver; it says a shoot is separately scoped when footage cannot carry the message. The production unit says to provide the business decision, city, date, placement, existing footage, required people/areas and access limits; it says the resulting scope must not assume a crew, schedule or deliverable. The restaurant unit says supplied footage can start an edit and filming is separately scoped when essential scenes are missing. No outcomes, ratings, credentials, availability promise, client attribution, price, or broader service area is introduced.
+
+The six linked production targets returned HTTP 200 on 2026-10-28:
+
+```text
+200 /resources/remote-editing-handoff-checklist
+200 /guides/video-content-ideas-for-restaurants
+200 /portfolio/bar-door-monkey
+200 /es/guias/entrega-para-edicion-remota-de-video
+200 /es/guias/ideas-de-contenido-de-video-para-restaurantes
+200 /es/portafolio/bar-door-monkey
+```
+
+The pre-change files are available directly from `7015724f^` and the changed-page date ledger is included in the same diff. The full deterministic suite passed after the final source edit: `pnpm test` returned 177 passing files and 3,690 tests. `pnpm lint` returned 0 errors and 22 pre-existing warnings; `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, and `git diff --check` passed.
