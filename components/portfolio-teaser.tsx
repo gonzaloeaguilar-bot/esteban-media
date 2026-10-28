@@ -168,8 +168,11 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
               const poster = getPoster(item);
               const isYouTubeVideo = item.media.kind === "youtube";
               const isInstagramVideo = item.media.kind === "instagram";
-              const isVideoWork = item.category === "social-content" &&
-                (isYouTubeVideo || isInstagramVideo);
+              const isSelfHostedVideo = item.media.kind === "video";
+              // The homepage carousel is Esteban's moving-work shelf. Every
+              // real video receives the same phone treatment; only the source
+              // determines whether a centred card can autoplay.
+              const isVideoWork = isYouTubeVideo || isInstagramVideo || isSelfHostedVideo;
               const targetHref =
                 item.category === "web-design"
                   ? isSpanish
@@ -193,7 +196,12 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                   ? "YouTube"
                   : isSpanish
                     ? "Publicación de Instagram"
-                    : "Instagram post",
+                    : isInstagramVideo
+                      ? "Instagram post"
+                      : isSpanish
+                        ? "Video de Esteban Moreno"
+                        : "Esteban Moreno video",
+                videoSurfaceBrand: isInstagramVideo ? "instagram" as const : "youtube" as const,
                 // YouTube exposes a real muted, inline player. Passing its
                 // verified public video ID here lets every centred YouTube
                 // card play instead of leaving only the Great Reviewer lead
@@ -204,6 +212,7 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 embedUrl: item.media.kind === "youtube"
                   ? `https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&rel=0`
                   : undefined,
+                videoSrc: item.media.kind === "video" ? item.media.src : undefined,
               };
             })]}
           />

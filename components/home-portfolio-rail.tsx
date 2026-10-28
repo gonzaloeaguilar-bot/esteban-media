@@ -32,6 +32,8 @@ export type HomePortfolioCard = {
   videoSurface?: boolean;
   /** Visible player chrome must identify the work without guessing a channel. */
   videoSurfaceLabel?: string;
+  /** The shell names the real source rather than presenting every film as YouTube. */
+  videoSurfaceBrand?: "youtube" | "instagram";
   /** The reel's MP4. Present only on reels; makes the card open a player. */
   videoSrc?: string;
   /** A published YouTube reel: opens in the same player sheet as local MP4s. */
@@ -225,7 +227,9 @@ export function HomePortfolioRail({
         {item.videoSurface ? (
           <span className="em-phone-video" aria-hidden="true">
             <span className="em-phone-video__top">
-              <span className="em-phone-video__wordmark">YouTube</span>
+              <span className={`em-phone-video__wordmark em-phone-video__wordmark--${item.videoSurfaceBrand ?? "youtube"}`}>
+                {item.videoSurfaceBrand === "instagram" ? "Instagram" : "YouTube"}
+              </span>
               <span className="em-phone-video__live">Now playing</span>
             </span>
             <span className="em-phone-video__screen">
