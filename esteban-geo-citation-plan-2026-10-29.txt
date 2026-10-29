@@ -1,0 +1,192 @@
+ESTEBAN MORENO MEDIA — QUERY-BY-QUERY GEO CITATION WINNING PLAN
+Date: 2026-10-29
+Operator: CTO Lead Team (Dev, QA, SEO, Growth)
+Evidence Base: Spark Oct 29 live tests (ChatGPT, iAsk.ai, Duck.ai, GSC, GA4), Vault Findings [[esteban-geo-seo-findings-2026-10-29]], and Repository Architecture.
+
+================================================================================
+EXECUTIVE SUMMARY & OPERATING PRINCIPLE
+================================================================================
+AI Answer Engines (ChatGPT/GPTBot, iAsk.ai, Duck.ai/Bing, Perplexity) do not evaluate
+pages like traditional web indexes. They answer conversational questions by retrieving:
+1. First-party entity authority (llms.txt, clean root NAP, transparent pricing, Schema.org).
+2. Direct conversational question-and-answer headings (100-180 words, unmounted/native <details>).
+3. Trusted 3rd-party aggregators and directories (Clutch, GigSalad, Collabstr, Zola, The Knot).
+
+Current Verified Baseline (2026-10-29):
+- Branded queries ("Esteban Moreno Media Fort Lauderdale video"): WIN on ChatGPT, iAsk.ai, Duck.ai.
+- Fort Lauderdale Reels Editor ("Who is the best reels editor in Fort Lauderdale"): WIN on ChatGPT (#1 citation, Spanish reels page with chatgpt.com source tag). LOST on iAsk.ai and Duck.ai (generic software lists).
+- Miami Restaurant Video ("Best video editor for restaurants in Miami"): LOST on all tested engines (established specialists win: Mad Freddy, Alpha Creators Media, Miami Chef, Nata Felipe, Off Menu Studio).
+
+Goal: Expand from 1 unbranded win to high-probability adjacent clusters using deterministic, query-by-query page and listing enhancements.
+
+================================================================================
+QUERY-BY-QUERY CITATION PLAN
+================================================================================
+
+--------------------------------------------------------------------------------
+CLUSTER 1: SPANISH & LOCAL REELS / VIDEO EDITING (FORT LAUDERDALE)
+--------------------------------------------------------------------------------
+Priority: P1 (Win Probability: 85% - 95%)
+Status: Immediate expansion of existing ChatGPT win.
+
+1. Query: "editor de reels en Fort Lauderdale" / "editor de reels fort lauderdale"
+   - Source Type AI Pulls From: Direct first-party crawled Spanish service pages; GSC already logs 16 impressions at pos 14.0.
+   - Exact Page/Listing Changes Needed:
+     * Route: /es/editor-de-reels-fort-lauderdale
+     * Header & Q&A Structure: Add bilingual question schema (FAQPage) answering: "¿Quién es el mejor editor de reels en Fort Lauderdale para negocios?"
+     * Copy: State starting price explicitly ($100/video, Growth from $640/mo), turnkey turnaround (same day files arrive / 24-48h), delivery specs (vertical 9:16, bilingual captions).
+     * Interlinking: Deep link to /portfolio/homeowners and /es/testimonios.
+   - Re-test Method:
+     * Guest-mode ChatGPT, iAsk.ai, Duck.ai search queries in Spanish.
+     * Acceptance probe: Verify Esteban cited in top 2 sources with exact service link.
+
+2. Query: "editor de video en Fort Lauderdale" / "editor de video fort lauderdale"
+   - Source Type AI Pulls From: First-party service pages; GSC logs 11 impressions at pos 23.7.
+   - Exact Page/Listing Changes Needed:
+     * Route: /es/produccion-de-video-fort-lauderdale & /es/editor-de-video-miami
+     * Copy & Structure: Emphasize Fort Lauderdale base, remote editing workflows across Broward and South Florida, clear starting pricing ($100 per video, $800 day production).
+     * Schema: Ensure LocalBusiness / ProfessionalService schema has "areaServed": ["Fort Lauderdale", "Broward County"].
+   - Re-test Method:
+     * Prompt ChatGPT & Duck.ai: "¿Cuáles son los editores de video recomendados en Fort Lauderdale para empresas locales?"
+
+3. Query: "reel editor fort lauderdale" / "short-form video editor Fort Lauderdale"
+   - Source Type AI Pulls From: English service pages; GSC logs 13 impressions at pos 8.5.
+   - Exact Page/Listing Changes Needed:
+     * Route: /services/reels-editor-fort-lauderdale
+     * Copy: Align answer-first paragraph with the exact language ChatGPT cited on the Spanish page ("local editor focused on Reels, TikTok and YouTube Shorts for businesses, editing from supplied footage, captions and vertical formatting, published pricing from $100").
+     * Citation anchor: Visible "Updated" date via page-lastmod.json and IndexNow ping.
+   - Re-test Method:
+     * ChatGPT guest chat: "Who provides professional reel editing for small businesses in Fort Lauderdale?"
+
+--------------------------------------------------------------------------------
+CLUSTER 2: CLOSE ADJACENTS — TIKTOK & YOUTUBE SHORTS EDITING
+--------------------------------------------------------------------------------
+Priority: P2 (Win Probability: 75% - 85%)
+Status: Fast-follow on existing short-form infrastructure.
+
+4. Query: "TikTok editor Fort Lauderdale" / "TikTok video editor for South Florida businesses"
+   - Source Type AI Pulls From: First-party niche service routes; Clutch profile.
+   - Exact Page/Listing Changes Needed:
+     * Route: /services/tiktok-ad-video-editor & /es/editor-de-video-para-tiktok
+     * Listing: Update Clutch profile services to explicitly list "TikTok Ads & Organic Shorts Editing".
+     * Content: Include platform-specific hook techniques, retention editing stats, pacing, and trend audio compliance.
+   - Re-test Method:
+     * Query: "Who is a TikTok video editor based in Fort Lauderdale for e-commerce or local brands?"
+
+5. Query: "YouTube Shorts editor for businesses in South Florida"
+   - Source Type AI Pulls From: YouTube long/short-form service pages and creator resource guides.
+   - Exact Page/Listing Changes Needed:
+     * Route: /services/long-form-to-short-form-video-repurposing & /es/edicion-de-video-largo-para-youtube
+     * Content: Step-by-step batch extraction framework (turning 1 long video/podcast into 5-10 Shorts/Reels).
+   - Re-test Method:
+     * Query: "Best services to repurpose YouTube videos into Shorts and Reels in South Florida"
+
+--------------------------------------------------------------------------------
+CLUSTER 3: NARROW HIGH-VALUE COMMERCIAL NICHES (WITH DEDICATED PAGES)
+--------------------------------------------------------------------------------
+Priority: P3 (Win Probability: 65% - 75%)
+Status: High commercial value ($800 - $2,500+ tickets).
+
+6. Query: "yacht event videographer Miami" / "yacht charter video Fort Lauderdale"
+   - Source Type AI Pulls From: First-party luxury niche pages and boat event vendor registries.
+   - Exact Page/Listing Changes Needed:
+     * Routes: /services/yacht-event-videographer-miami, /services/yacht-charter-video-marketing-miami, /services/yacht-party-videographer-miami
+     * Copy: Prominently feature the verified celebration/yacht tier packages ($1,200 up to 4 hrs, $2,200 up to 8 hrs) from lib/pricing.ts. Mention drone coverage capability and marina filming experience.
+     * Visual/Schema: VideoObject schema with yacht celebration deliverables.
+   - Re-test Method:
+     * Query: "Who shoots video for private yacht parties and charters in Miami?"
+
+7. Query: "bilingual video subtitling Spanish English Miami"
+   - Source Type AI Pulls From: First-party translation/subtitling pages; creator economy forums.
+   - Exact Page/Listing Changes Needed:
+     * Routes: /services/bilingual-video-subtitling-service & /es/servicio-de-subtitulado-bilingue-de-video
+     * Content: Address latency, slang nuances (Latin American Spanish vs US neutral), and burn-in vs SRT file delivery.
+   - Re-test Method:
+     * Query: "Where to get professional English and Spanish subtitles for corporate videos in Miami?"
+
+8. Query: "remote video editor for creators" / "hire remote video editor USA / LatAm"
+   - Source Type AI Pulls From: Remote service landing pages and handoff guide docs.
+   - Exact Page/Listing Changes Needed:
+     * Routes: /services/hire-remote-video-editor & /resources/remote-editing-handoff-checklist
+     * Content: Clarify asynchronous workflow (Google Drive/Frame.io handoff, 48h turnaround, transparent fixed per-video pricing).
+   - Re-test Method:
+     * Query: "How to hire a bilingual remote video editor for content creators?"
+
+9. Query: "content day batch filming for businesses Fort Lauderdale"
+   - Source Type AI Pulls From: On-location service pages; Google Business Profile posts.
+   - Exact Page/Listing Changes Needed:
+     * Routes: /services/content-day-videographer-miami & /services/social-media-video-batching-miami
+     * Content: Explain the "Local Presence" batch filming model: 1 shoot day = 15-30 days of vertical content.
+   - Re-test Method:
+     * Query: "Who offers content day filming packages for local businesses in Fort Lauderdale or Broward?"
+
+--------------------------------------------------------------------------------
+CLUSTER 4: MID TIER COMPETITIVE NICHES
+--------------------------------------------------------------------------------
+Priority: P4 (Win Probability: 45% - 55%)
+Status: Crowded organic landscape, requires authority layering.
+
+10. Query: "real estate video editor Fort Lauderdale"
+    - Source Type AI Pulls From: Real estate directories, Zillow video specialists, Clutch profile.
+    - Exact Page/Listing Changes Needed:
+      * Route: /services/real-estate-reels-video-editor-south-florida & /pricing/real-estate
+      * Changes: Highlight existing Clutch rating (founded 2025, real estate focus) and architectural pacing for luxury listings.
+    - Re-test Method:
+      * Query: "Who edits real estate reels and property walk-through videos in Fort Lauderdale?"
+
+11. Query: "corporate event videographer Miami"
+    - Source Type AI Pulls From: B2B agency lists, LinkedIn, Clutch, corporate production pages.
+    - Exact Page/Listing Changes Needed:
+      * Routes: /services/corporate-event-videographer-miami & /services/corporate-event-videographer-fort-lauderdale
+      * Changes: Outline multi-camera conference coverage, executive interview setups, same-day highlight reels.
+    - Re-test Method:
+      * Query: "Top recommended videographers for corporate summits and conferences in Miami"
+
+--------------------------------------------------------------------------------
+CLUSTER 5: HARDEST COMPETITIVE TIERS (DIRECTORY & INCUMBENT DOMINATED)
+--------------------------------------------------------------------------------
+Priority: P5 (Win Probability: 20% - 35% in near term; Requires 3rd-party placements)
+Status: Do NOT attempt to win solely via on-page changes.
+
+12. Query: "best video editor for restaurants in Miami" / "restaurant food videographer Miami"
+    - Evidence: Tested 2026-10-29 — Esteban was completely unmentioned. Competitors cited: Mad Freddy, Alpha Creators Media, Miami Chef, Nata Felipe, Off Menu Studio.
+    - Source Type AI Pulls From: Niche food media mentions, Instagram creator lists, Collabstr, local restaurant roundups.
+    - Required Changes:
+      * Site: /services/restaurant-promo-video-editing-miami & /es/guias/estudio-instagram-restaurantes-miami
+      * External: Secure mentions on food marketing blogs, Collabstr creator directory, and Miami culinary producer lists. On-page alone will not beat established specialists.
+    - Re-test Method:
+      * Re-run weekly across ChatGPT and iAsk: "Best video editor for restaurants in Miami".
+
+13. Query: "wedding videographer Fort Lauderdale"
+    - Source Type AI Pulls From: Zola, The Knot, WeddingWire, GigSalad.
+    - Analysis: Scan confirms Esteban is absent from wedding portals. AI engines pull wedding citations almost exclusively from these directories.
+    - Required Changes:
+      * External: Profile creation on WeddingWire, The Knot, or GigSalad before expecting any GEO engine citation.
+    - Re-test Method:
+      * Query: "Top rated wedding videographers in Fort Lauderdale under $2,500".
+
+================================================================================
+EXECUTION MATRIX & RE-TEST CADENCE
+================================================================================
+| Priority | Query Cluster                       | Primary Surface                                      | Lead Engine Target | Re-test Frequency |
+|----------|-------------------------------------|------------------------------------------------------|--------------------|-------------------|
+| P1       | Spanish Reels / Video FTL           | /es/editor-de-reels-fort-lauderdale                  | ChatGPT / Duck.ai  | Bi-weekly         |
+| P1       | English Reels FTL                   | /services/reels-editor-fort-lauderdale               | ChatGPT / iAsk.ai  | Bi-weekly         |
+| P2       | TikTok & Shorts Repurposing         | /services/tiktok-ad-video-editor                     | ChatGPT / Perplex. | Monthly           |
+| P3       | Yacht & Luxury Celebration Video    | /services/yacht-event-videographer-miami             | ChatGPT / Duck.ai  | Monthly           |
+| P3       | Bilingual Subtitling & Remote Edit  | /services/bilingual-video-subtitling-service         | ChatGPT / Perplex. | Monthly           |
+| P3       | Business Content Days               | /services/content-day-videographer-miami             | ChatGPT / iAsk.ai  | Monthly           |
+| P4       | Real Estate & Corporate Events      | /services/real-estate-reels-video-editor             | Clutch / ChatGPT   | Monthly           |
+| P5       | Restaurants & Weddings Miami        | External Directories (Collabstr, The Knot, Zola)     | All AI Engines     | Quarterly         |
+
+================================================================================
+DETERMINISTIC VERIFICATION & GOVERNANCE RULES
+================================================================================
+1. Zero Cost & Deterministic Boundary:
+   - Acceptance gate commands must pass at $0 (pnpm test / analytics-gate.py).
+2. Human-First & AI Citation Parity:
+   - Answer-first principle on screen 1 (single sentence offer + price anchor).
+   - Structured depth behind native <details> with Server-Side Rendering (never client JS unmounted).
+3. Continuous Registry:
+   - Update config/page-lastmod.json upon any content update.
+   - Sync findings to Vault wiki [[esteban-geo-seo-findings-2026-10-29]] and Hot note.
