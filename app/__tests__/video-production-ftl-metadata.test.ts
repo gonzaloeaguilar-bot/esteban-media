@@ -31,7 +31,7 @@ describe("Video production Fort Lauderdale bilingual metadata demand wave", () =
         ? esMetadata.title.absolute
         : String(esMetadata.title);
 
-    expect(title).toBe("Producción de Video en Fort Lauderdale");
+    expect(title).toBe("Producción de Video Fort Lauderdale");
     expect(title.length).toBeGreaterThanOrEqual(30);
     expect(title.length).toBeLessThanOrEqual(60);
 

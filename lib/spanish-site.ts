@@ -6085,7 +6085,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     // 2026-10-29 GSC review: 10 impr pos 14.0 en la versión EN y consultas como
     // "editor de video fort lauderdale" / "produccion de video fort lauderdale" con 0 clics.
     // Título y descripción responden primero con precio base y atención en español.
-    metadataTitle: "Producción de Video en Fort Lauderdale",
+    metadataTitle: "Producción de Video Fort Lauderdale",
     description:
       "Producción y edición de video en Fort Lauderdale para negocios de Broward. Edición remota desde $100 y grabación local cotizada por proyecto en español.",
     eyebrow: "Fort Lauderdale / Broward",
