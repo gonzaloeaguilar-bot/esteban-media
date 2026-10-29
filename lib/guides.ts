@@ -66,6 +66,8 @@ export const GUIDE_IDS = [
   "raw-video-formats-explained-guide",
   "restaurant-video-cost-guide",
   "real-estate-video-cost-guide",
+  "small-business-content-decision-guide",
+  "video-quote-preparation-guide",
   ...GUIDE_HUB_IDS,
   ...GUIDE_COMPARISON_IDS,
 ] as const;
@@ -142,6 +144,188 @@ if (listingPhotoStart.amount === null || !listingTour.note) {
 const listingPhotoStartingPrice = usd(listingPhotoStart.amount);
 
 const guidePairs: readonly GuidePair[] = [
+  {
+    id: "small-business-content-decision-guide",
+    en: {
+      slug: "do-i-need-video-social-media-or-a-website-for-my-small-business",
+      metadataTitle: "Video, Social, or Website?",
+      title: "Do I need video, social media help, or a website for my small business?",
+      description:
+        "Choose the first useful step for a South Florida small business: clarify the offer, create usable video, plan social content, or improve where people land.",
+      eyebrow: "Small business content planning",
+      answer:
+        "Start with the decision a customer cannot make yet: understand the offer, see useful proof, find a next step, or return often enough to remember the business. The first project should remove that one obstacle instead of buying every service at once.",
+      proof: {
+        href: "/about",
+        title: "About Esteban Moreno Media",
+        description:
+          "Esteban Moreno Media connects editing, social-content planning, scoped local production, and website work. The site does not publish a universal package that every business needs.",
+      },
+      sections: [
+        {
+          heading: "What should a small business improve first: the message, the footage, or the place people land?",
+          paragraphs: [
+            "Start with what keeps a customer from taking the next step. If a visitor cannot explain what the business offers or who it helps, clarify the message before planning a shoot. If the offer is clear but there is no useful photo or video to show, a focused filming or editing project can create the proof people need. If the content already exists but the person has nowhere clear to call, book, visit, or ask a question, improve the page or contact path before producing more clips.",
+            "This keeps a small project honest. You do not need to hire a separate videographer, social-media manager, and website designer on day one. Describe the customer action you need, what assets already exist, and where people currently get stuck. That gives Esteban a starting point to scope, rather than treating a large menu of services as a required package.",
+          ],
+        },
+        {
+          heading: "When does a content shoot make more sense than a monthly plan?",
+          paragraphs: [
+            "A focused shoot makes sense when one useful thing is missing: a short introduction, product or service footage, a few clear social clips, or material for a page that is already being improved. Plan the shoot around where each asset will be used, not around a fixed number of posts. A product demonstration, a customer question, the work happening in the space, and a simple next step can become different pieces without pretending that every business needs the same calendar.",
+            "Ongoing content makes more sense after there is a repeatable reason to publish and someone has time to use the work. Before choosing a recurring plan, name the channel, the audience, the offer, and who will review or publish it. Esteban can help shape a scoped content, editing, or digital project, while the written quote confirms the actual deliverables, timing, and responsibilities for that project.",
+          ],
+        },
+        {
+          heading: "Can one project support Reels, a website, and local discovery?",
+          paragraphs: [
+            "Often, yes, when the work begins with the same customer question. A short vertical edit can introduce a service on social media; selected footage can make a website explain that service more clearly; and accurate images or video can support the business information people see before visiting or contacting it. The source material, permissions, formats, and final destinations should be agreed before filming so no one assumes that one export automatically fits every channel.",
+            "Start by listing what someone should understand after seeing the content and where they should go next. Then decide whether the first move is filming, editing existing clips, preparing a content plan, or improving the page that receives the visitor. For help turning that decision into a written request, use the [video quote preparation guide](/guides/what-to-send-a-videographer-before-asking-for-a-quote).",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "Can I start with footage I already have?", answer: "Yes. Share the original files, the publishing goal, the platforms, reference examples, and the date that matters. Esteban can then confirm whether editing existing footage, filming something new, or combining both is the clearest next scope." },
+        { question: "Do I need a social media manager or a content plan first?", answer: "A content plan and usable assets can be the first step. Ongoing management makes sense when there is a real publishing rhythm, a person responsible for approvals, and an agreed scope for the work." },
+        { question: "Can this guide guarantee more calls, bookings, or sales?", answer: "No. It helps choose and scope a useful first project. Results depend on the offer, audience, distribution, contact path, and how the finished work is used." },
+      ],
+    },
+    es: {
+      slug: "necesito-video-redes-o-pagina-web-para-mi-negocio",
+      metadataTitle: "Video, Redes o Web: Qué Primero",
+      title: "¿Necesito video, ayuda con redes o una página web para mi negocio?",
+      description:
+        "Elige el primer paso útil para un negocio de South Florida: aclarar la oferta, crear video, planear contenido o mejorar dónde llega la gente.",
+      eyebrow: "Plan de contenido para negocios",
+      answer:
+        "Empieza por la decisión que el cliente todavía no puede tomar: entender la oferta, ver una prueba útil, encontrar el siguiente paso o recordar el negocio. El primer proyecto debe quitar ese obstáculo, no vender todos los servicios de una vez.",
+      proof: {
+        href: "/es/sobre-esteban",
+        title: "Sobre Esteban Moreno Media",
+        description:
+          "Esteban Moreno Media conecta edición, planificación de contenido social, producción local cotizada por proyecto y trabajo web. El sitio no publica un paquete universal para todos los negocios.",
+      },
+      sections: [
+        {
+          heading: "¿Qué debe mejorar primero un negocio: el mensaje, el material o el lugar donde llega la gente?",
+          paragraphs: [
+            "Empieza por lo que impide que una persona dé el siguiente paso. Si alguien no puede explicar qué ofrece el negocio o a quién ayuda, aclara el mensaje antes de planear una grabación. Si la oferta está clara pero no hay fotos o videos útiles que la demuestren, una grabación o edición enfocada puede crear la prueba que falta. Si ya existe contenido pero nadie sabe dónde llamar, reservar, visitar o preguntar, mejora la página o el camino de contacto antes de producir más clips.",
+            "Así el primer proyecto se mantiene honesto. No necesitas contratar a un videógrafo, un community manager y un diseñador web por separado el primer día. Cuenta qué acción necesitas que tome un cliente, qué material ya existe y dónde se está perdiendo la gente. Eso le da a Esteban un punto de partida para cotizar, en vez de tratar una lista grande de servicios como un paquete obligatorio.",
+          ],
+        },
+        {
+          heading: "¿Cuándo conviene más una grabación de contenido que un plan mensual?",
+          paragraphs: [
+            "Una grabación enfocada sirve cuando falta una cosa útil: una presentación corta, imágenes de un producto o servicio, algunos videos claros para redes o material para una página que ya se está mejorando. Planea la grabación según dónde se usará cada pieza, no según una cantidad fija de publicaciones. Una demostración, una duda de cliente, el trabajo dentro del local y un paso siguiente claro pueden dar piezas distintas sin fingir que todos los negocios necesitan el mismo calendario.",
+            "El contenido continuo tiene más sentido cuando ya existe una razón repetible para publicar y alguien tiene tiempo de usar ese trabajo. Antes de elegir un plan recurrente, define el canal, la audiencia, la oferta y quién revisará o publicará. Esteban puede ayudar a dar forma a un proyecto de contenido, edición o presencia digital; la cotización escrita confirma los entregables, tiempos y responsabilidades reales.",
+          ],
+        },
+        {
+          heading: "¿Puede un proyecto servir para Reels, una página web y presencia local?",
+          paragraphs: [
+            "Muchas veces sí, si el trabajo parte de la misma pregunta del cliente. Una edición vertical corta puede presentar un servicio en redes; material seleccionado puede explicar ese servicio con más claridad en la web; e imágenes o video correctos pueden apoyar la información que alguien ve antes de visitar o contactar el negocio. El material de origen, los permisos, los formatos y los destinos finales deben acordarse antes de grabar para no suponer que una sola exportación sirve para todos los canales.",
+            "Empieza anotando qué debe entender una persona después de ver el contenido y adónde debe ir después. Luego decide si el primer paso es grabar, editar material existente, preparar un plan de contenido o mejorar la página que recibe la visita. Para convertir esa decisión en una solicitud escrita, usa la [guía para pedir una cotización](/es/guias/que-enviar-a-un-videografo-antes-de-pedir-cotizacion).",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "¿Puedo empezar con los videos que ya tengo?", answer: "Sí. Comparte los archivos originales, la meta de publicación, las plataformas, ejemplos de referencia y la fecha importante. Esteban puede confirmar si conviene editar el material existente, grabar algo nuevo o combinar ambos." },
+        { question: "¿Necesito primero un community manager o un plan de contenido?", answer: "Un plan de contenido y material útil pueden ser el primer paso. La gestión continua tiene sentido cuando existe un ritmo real de publicación, una persona que aprueba y un alcance acordado." },
+        { question: "¿Esta guía garantiza más llamadas, reservas o ventas?", answer: "No. Ayuda a escoger y cotizar un primer proyecto útil. El resultado depende de la oferta, la audiencia, la distribución, el camino de contacto y cómo se use el trabajo terminado." },
+      ],
+    },
+  },
+  {
+    id: "video-quote-preparation-guide",
+    en: {
+      slug: "what-to-send-a-videographer-before-asking-for-a-quote",
+      metadataTitle: "Videographer Quote Checklist",
+      title: "What should I send a videographer before asking for a quote?",
+      description:
+        "Use a short, practical checklist to explain your business goal, footage, location, channels, references, approval contact, and timing before requesting a video quote.",
+      eyebrow: "Quote preparation guide",
+      answer:
+        "Send the goal, business context, where the content will live, what material already exists, any location or date, a few references, and the person who approves the work. Unknown details are fine when they are marked for a recommendation.",
+      proof: {
+        href: "/resources/video-project-brief-template",
+        title: "Video project brief template",
+        description:
+          "A copy-ready template that helps turn the preparation steps into one message. It does not publish a fixed price, schedule, or deliverables before the project is scoped.",
+      },
+      sections: [
+        {
+          heading: "What does a videographer need to understand before preparing a quote?",
+          paragraphs: [
+            "Start with the business goal, not the camera request. Say what a viewer should understand or do after watching: ask a question, visit a location, book, buy, or remember an offer. Add a sentence about the business and the audience so the scope is tied to a real decision. Then name where the finished work should live, such as a website, an Instagram Reel, a sales conversation, or an event recap. Those details change the framing, length, captions, and versions that may be useful.",
+            "Next, say whether you already have footage, photos, logos, written copy, or a page that the video needs to support. For filming, include the location, possible dates, people or products involved, access limits, and anything that must not be shown. A quote is clearer when the request distinguishes known facts from questions that need Esteban's recommendation.",
+          ],
+        },
+        {
+          heading: "Which examples, approvals, and timing should you include?",
+          paragraphs: [
+            "Send two or three references that show the feeling, pace, or structure you like, and explain what you like about each one. A reference is direction, not a request to copy another business. If there are words, prices, product details, names, or a required call to action, send the approved version instead of asking the editor to guess. Mention any music, brand, privacy, location, or customer-permission limits that affect what can be filmed or published.",
+            "Name one person who can gather feedback and approve the final direction. Include the date that actually matters, such as an event, launch, opening, or campaign, rather than promising a delivery date before the work is understood. Esteban can use that information to confirm scope, formats, deliverables, timing, and price in writing. Use the [video brief template](/resources/video-project-brief-template) if a copy-ready outline helps.",
+          ],
+        },
+        {
+          heading: "What changes when the quote is for an event or existing phone footage?",
+          paragraphs: [
+            "For an event, add the date, location, schedule, moments that matter, speakers or people to prioritize, and the purpose of the finished piece. A recap, a private memory, and a social clip are different requests even when they come from the same event. Say whether filming is needed throughout the event or only for selected moments, and do not assume that extra cameras, editing versions, or rush delivery are included without a written scope.",
+            "For footage you already own, send original files when possible, not copies compressed by a messaging app. Add the intended length, platform, reference style, required graphics or words, and known audio problems. If you are still deciding whether you need filming, editing, social content, or a website update, start with the [small-business content decision guide](/guides/do-i-need-video-social-media-or-a-website-for-my-small-business).",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "Can I ask for a quote before I know every detail?", answer: "Yes. Send what is known and label the open questions. A useful response can clarify what needs a decision before a written scope and price can be confirmed." },
+        { question: "Should I send a long list of content ideas?", answer: "Send the priorities, not an unranked list. Start with the one customer question or business action the project should support, then add ideas that serve it." },
+        { question: "Can I send a voice note in Spanish?", answer: "Yes. Spanish is Esteban's strongest communication channel. A written list of names, links, dates, and required wording can help preserve precision alongside a voice note." },
+      ],
+    },
+    es: {
+      slug: "que-enviar-a-un-videografo-antes-de-pedir-cotizacion",
+      metadataTitle: "Checklist para Cotizar Video",
+      title: "¿Qué le envío a un videógrafo antes de pedir una cotización?",
+      description:
+        "Usa una lista breve y práctica para explicar tu meta, material, locación, canales, referencias, responsable de aprobación y fecha antes de pedir una cotización.",
+      eyebrow: "Guía para pedir cotización",
+      answer:
+        "Envía la meta, el contexto del negocio, dónde se usará el contenido, qué material ya existe, la locación o fecha si aplica, algunas referencias y quién aprueba. No pasa nada si faltan detalles: márcalos para recibir una recomendación.",
+      proof: {
+        href: "/es/recursos/plantilla-brief-proyecto-video",
+        title: "Plantilla de brief para proyecto de video",
+        description:
+          "Una plantilla para convertir estos pasos en un solo mensaje. No publica precio, fecha ni entregables fijos antes de definir el proyecto.",
+      },
+      sections: [
+        {
+          heading: "¿Qué necesita entender un videógrafo antes de preparar una cotización?",
+          paragraphs: [
+            "Empieza con la meta del negocio, no con la cámara. Di qué debe entender o hacer una persona después de ver el video: preguntar, visitar un lugar, reservar, comprar o recordar una oferta. Agrega una frase sobre el negocio y la audiencia para que la cotización se conecte con una decisión real. Luego indica dónde se usará el resultado: una página web, un Reel de Instagram, una conversación de ventas o un resumen de evento. Esos detalles cambian el encuadre, la duración, los subtítulos y las versiones que pueden hacer falta.",
+            "Después explica si ya tienes video, fotos, logos, texto aprobado o una página que el contenido debe apoyar. Para una grabación, incluye la locación, fechas posibles, personas o productos involucrados, límites de acceso y cualquier cosa que no se debe mostrar. La cotización es más clara cuando separas hechos confirmados de preguntas para las que necesitas la recomendación de Esteban.",
+          ],
+        },
+        {
+          heading: "¿Qué ejemplos, aprobaciones y fechas conviene incluir?",
+          paragraphs: [
+            "Envía dos o tres referencias que muestren el tono, ritmo o estructura que te gusta y explica qué te gusta de cada una. Una referencia da dirección; no es una petición para copiar a otro negocio. Si hay texto, precios, detalles de producto, nombres o un llamado a la acción obligatorio, manda la versión aprobada en lugar de pedir que el editor adivine. Menciona límites de música, marca, privacidad, locación o permiso de clientes que afecten lo que se puede grabar o publicar.",
+            "Nombra a una persona que reúna los comentarios y apruebe la dirección final. Incluye la fecha que realmente importa —un evento, lanzamiento, apertura o campaña— sin prometer una entrega antes de entender el trabajo. Con esos datos, Esteban puede confirmar por escrito alcance, formatos, entregables, tiempos y precio. Si te sirve un esquema listo para copiar, usa la [plantilla de brief](/es/recursos/plantilla-brief-proyecto-video).",
+          ],
+        },
+        {
+          heading: "¿Qué cambia si la cotización es para un evento o para videos de teléfono existentes?",
+          paragraphs: [
+            "Para un evento, agrega fecha, lugar, horarios, momentos importantes, oradores o personas que deban aparecer y para qué servirá la pieza final. Un resumen, un recuerdo privado y un clip para redes son pedidos distintos aunque salgan del mismo evento. Explica si se necesita grabar todo el evento o solo momentos elegidos y no supongas que cámaras extra, versiones de edición o entrega urgente quedan incluidos sin un alcance escrito.",
+            "Para videos que ya tienes, manda los originales cuando sea posible, no copias comprimidas por una aplicación de mensajes. Agrega duración esperada, plataforma, estilo de referencia, gráficos o palabras obligatorias y problemas de audio conocidos. Si todavía decides entre grabación, edición, contenido para redes o una mejora web, empieza por la [guía para decidir el primer paso](/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio).",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "¿Puedo pedir una cotización sin conocer todos los detalles?", answer: "Sí. Envía lo que sabes y marca las preguntas abiertas. Una respuesta útil puede aclarar qué se debe decidir antes de confirmar por escrito alcance y precio." },
+        { question: "¿Debo enviar una lista larga de ideas de contenido?", answer: "Envía las prioridades, no una lista sin orden. Empieza por la duda de cliente o acción de negocio que debe apoyar el proyecto y añade las ideas que sirven a esa meta." },
+        { question: "¿Puedo enviar una nota de voz en español?", answer: "Sí. El español es el canal de comunicación más fuerte de Esteban. Una lista escrita de nombres, enlaces, fechas y texto obligatorio ayuda a conservar precisión junto a la nota de voz." },
+      ],
+    },
+  },
   {
     id: "prepare-footage",
     en: {

@@ -18,6 +18,14 @@
 - Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
 - Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
 
+# 2026-10-28 — Personal creative-partner GEO answers (local candidate)
+
+Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first helps a small business decide whether the first need is clearer messaging, useful footage, or a page/contact path; the second tells a prospective client what to send before asking Esteban for a quote. Both point readers to existing service, work, price, and contact pages and explicitly avoid universal packages, performance promises, or an invented fixed deliverable. Sitemap inventory is 573 routes, four new watched URLs are declared, and each guide has its server-rendered FAQ and visible update date through the existing guide renderer.
+
+Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
+
+---
+
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 
 - Commit `27ed763f` repairs two visual regressions found during the follow-up desktop/tablet pass: the camera contact sheet's late phone styles had erased the intended paper prints and left dark title text on dark cards; the Great Reviewer widescreen YouTube source was filling a tall vertical desktop canvas with black.
