@@ -7,6 +7,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeProjectPath } from "@/components/home-project-path";
+import { PersonalCraftExperience } from "@/components/personal-craft-experience";
 import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -65,6 +66,7 @@ export default function Home() {
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
+      <PersonalCraftExperience locale="en" />
       <HomeProjectPath locale="en" />
       {/* Proof and contact now sit TOGETHER right at the decision, not one
           compact mention above the chooser plus a full repeat three screens

@@ -3,7 +3,7 @@
 Bilingual marketing site for Esteban Moreno Media, a Fort Lauderdale media and content partner serving Broward, Miami-Dade, and selectively scoped Palm Beach County projects.
 
 - Production: [estebanmorenomedia.com](https://estebanmorenomedia.com)
-- Contact: `esmolopez@gmail.com` · `(305) 497-4478`
+- Contact: `info@estebanmorenomedia.com` · `(305) 497-4478`
 - Vercel project: `esteban-media`
 - Repository: private; owned by `gonzaloeaguilar-bot`
 

@@ -246,7 +246,7 @@ export function WebAiServicePageView({
         </Container>
       </section>
 
-      <ServiceInquiryRail service={page.inquiry} sectionId={`${prefix}-inquiry`} locale={locale} accentedSpanish trackInterest />
+      <ServiceInquiryRail service={page.inquiry} sectionId={`${prefix}-inquiry`} locale={locale} relationship="digital" accentedSpanish trackInterest />
       <ServiceRelated heading={page.relatedHeading} services={page.related} sectionId={`${prefix}-related`} />
     </main>
   );

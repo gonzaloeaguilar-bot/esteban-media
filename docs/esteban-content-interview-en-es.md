@@ -323,7 +323,7 @@ Helpful prompts / Ideas:
 
 **EN:** Please confirm:
 
-- Public email: `esmolopez@gmail.com`
+- Public email: `info@estebanmorenomedia.com`
 - Public phone: `(305) 497-4478`
 - Preferred contact method
 - Business hours
@@ -333,7 +333,7 @@ Helpful prompts / Ideas:
 
 **ES:** Confirma:
 
-- Email público: `esmolopez@gmail.com`
+- Email público: `info@estebanmorenomedia.com`
 - Teléfono público: `(305) 497-4478`
 - Método de contacto preferido
 - Horario de atención

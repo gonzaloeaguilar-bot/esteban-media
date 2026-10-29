@@ -342,6 +342,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
       <ServiceInquiryRail
         sectionId={inquiryId}
         locale={locale}
+        relationship="event"
         accentedSpanish
         service={{
           serviceId: prefix,
@@ -499,6 +500,7 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
       <ServiceInquiryRail
         sectionId={inquiryId}
         locale={locale}
+        relationship="event"
         accentedSpanish
         service={{
           serviceId: prefix,
