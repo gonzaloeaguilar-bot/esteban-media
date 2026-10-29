@@ -176,7 +176,7 @@ export default function NfcContactCardPage() {
                   </span>
                 );
               const content = <>
-                <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">{scene}</span>
+                <div className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">{scene}</div>
                 <span className="em-route-card__copy">
                   <span className="em-route-card__eyebrow">{eyebrow}</span>
                   <strong>{label}</strong>
