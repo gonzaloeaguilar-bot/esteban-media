@@ -6087,7 +6087,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     // Título y descripción responden primero con precio base y atención en español.
     metadataTitle: "Producción de Video Fort Lauderdale",
     description:
-      "Producción y edición de video en Fort Lauderdale para negocios de Broward. Edición remota desde $100 y grabación local cotizada por proyecto en español.",
+      `Producción y edición de video en Fort Lauderdale para negocios de Broward. Edición remota desde ${usd(SHORT_FORM.perVideoFrom)} y grabación local cotizada por proyecto en español.`,
     eyebrow: "Fort Lauderdale / Broward",
     h1: "Producción de video en Fort Lauderdale para negocios que necesitan explicar su oferta.",
     lead:
