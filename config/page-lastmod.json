@@ -1,11 +1,11 @@
 {
  "/": {
-  "date": "2026-10-28",
-  "hash": "033b1c568620434f"
+  "date": "2026-10-29",
+  "hash": "9033bbcca1ce9fa6"
  },
  "/about": {
-  "date": "2026-10-28",
-  "hash": "0e272001bbc68503"
+  "date": "2026-10-29",
+  "hash": "0739469e8178b284"
  },
  "/areas": {
   "date": "2026-10-28",
@@ -40,8 +40,8 @@
   "hash": "d4db3196db64c9e4"
  },
  "/case-studies/exatlon": {
-  "date": "2026-10-24",
-  "hash": "7f7f0b3848063b13"
+  "date": "2026-10-29",
+  "hash": "5992ef4801d2f3ba"
  },
  "/case-studies/flas-concierge": {
   "date": "2026-10-24",
@@ -52,8 +52,8 @@
   "hash": "d1d7d08ca2cb13cb"
  },
  "/case-studies/gains-from-geebs-shorts": {
-  "date": "2026-10-24",
-  "hash": "bbe9574cf7f936f6"
+  "date": "2026-10-29",
+  "hash": "553c609d54b8e20d"
  },
  "/case-studies/great-reviewer-website": {
   "date": "2026-10-24",
@@ -68,20 +68,20 @@
   "hash": "64a52d206bd261f8"
  },
  "/case-studies/juanchis-burguer": {
-  "date": "2026-10-24",
-  "hash": "776bfed6452d6e4d"
+  "date": "2026-10-29",
+  "hash": "7fcab41efa92ea52"
  },
  "/case-studies/my-dler": {
   "date": "2026-10-24",
   "hash": "4b5ffbbc33084f1b"
  },
  "/case-studies/portosole": {
-  "date": "2026-10-24",
-  "hash": "497c80d64e3ed853"
+  "date": "2026-10-29",
+  "hash": "b19c4cac48fb1a74"
  },
  "/case-studies/punto-de-giro": {
-  "date": "2026-10-24",
-  "hash": "1120da134fd1e7fa"
+  "date": "2026-10-29",
+  "hash": "0d2248a88579ee5d"
  },
  "/contact": {
   "date": "2026-10-28",
@@ -112,8 +112,8 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-10-28",
-  "hash": "bd26b644c1d5abe6"
+  "date": "2026-10-29",
+  "hash": "d5a000e39a9d50fe"
  },
  "/es/areas": {
   "date": "2026-10-28",
@@ -164,8 +164,8 @@
   "hash": "d4db3196db64c9e4"
  },
  "/es/casos-de-estudio/exatlon": {
-  "date": "2026-10-24",
-  "hash": "7f7f0b3848063b13"
+  "date": "2026-10-29",
+  "hash": "5992ef4801d2f3ba"
  },
  "/es/casos-de-estudio/flas-concierge": {
   "date": "2026-10-24",
@@ -176,8 +176,8 @@
   "hash": "d1d7d08ca2cb13cb"
  },
  "/es/casos-de-estudio/gains-from-geebs-shorts": {
-  "date": "2026-10-24",
-  "hash": "bbe9574cf7f936f6"
+  "date": "2026-10-29",
+  "hash": "553c609d54b8e20d"
  },
  "/es/casos-de-estudio/great-reviewer-website": {
   "date": "2026-10-24",
@@ -192,20 +192,20 @@
   "hash": "ee9c29fdd0e5232d"
  },
  "/es/casos-de-estudio/juanchis-burguer": {
-  "date": "2026-10-24",
-  "hash": "776bfed6452d6e4d"
+  "date": "2026-10-29",
+  "hash": "7fcab41efa92ea52"
  },
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-10-24",
   "hash": "2d0482e82e820651"
  },
  "/es/casos-de-estudio/portosole": {
-  "date": "2026-10-24",
-  "hash": "497c80d64e3ed853"
+  "date": "2026-10-29",
+  "hash": "b19c4cac48fb1a74"
  },
  "/es/casos-de-estudio/punto-de-giro": {
-  "date": "2026-10-24",
-  "hash": "1120da134fd1e7fa"
+  "date": "2026-10-29",
+  "hash": "0d2248a88579ee5d"
  },
  "/es/chatbot-con-ia-para-negocios": {
   "date": "2026-10-16",
@@ -712,8 +712,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-10-28",
-  "hash": "447aca2dcf51f420"
+  "date": "2026-10-29",
+  "hash": "3524f274617005ac"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -740,8 +740,8 @@
   "hash": "222ae986068a26b1"
  },
  "/es/portafolio/exatlon": {
-  "date": "2026-10-24",
-  "hash": "792b1eb77db8bbc1"
+  "date": "2026-10-29",
+  "hash": "356123eec478a948"
  },
  "/es/portafolio/flas-concierge": {
   "date": "2026-10-14",
@@ -756,8 +756,8 @@
   "hash": "671e94e399d29eb5"
  },
  "/es/portafolio/gains-from-geebs-shorts": {
-  "date": "2026-10-24",
-  "hash": "59d823f2757707ae"
+  "date": "2026-10-29",
+  "hash": "e5e816338b2a24e9"
  },
  "/es/portafolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -776,8 +776,8 @@
   "hash": "ade81d82bfbf7d82"
  },
  "/es/portafolio/juanchis-burguer": {
-  "date": "2026-10-24",
-  "hash": "ac1a22cbe108573a"
+  "date": "2026-10-29",
+  "hash": "1145a2d045eddd99"
  },
  "/es/portafolio/la-huelga": {
   "date": "2026-10-14",
@@ -792,12 +792,12 @@
   "hash": "5ee98c19a859ce25"
  },
  "/es/portafolio/portosole": {
-  "date": "2026-10-24",
-  "hash": "0e4f2ea7a4c73e9c"
+  "date": "2026-10-29",
+  "hash": "3280eec8b957a401"
  },
  "/es/portafolio/punto-de-giro": {
-  "date": "2026-10-24",
-  "hash": "53088e9bf6c690dc"
+  "date": "2026-10-29",
+  "hash": "9fe24d72935d6af9"
  },
  "/es/portafolio/titanforge": {
   "date": "2026-10-14",
@@ -808,8 +808,8 @@
   "hash": "2f0c94ff1fd3c57b"
  },
  "/es/precios": {
-  "date": "2026-10-14",
-  "hash": "d03a2bac5dcaa68a"
+  "date": "2026-10-29",
+  "hash": "f11dd1f2d6cc75e8"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -1500,8 +1500,8 @@
   "hash": "2d4f6f989971a2b4"
  },
  "/portfolio": {
-  "date": "2026-10-28",
-  "hash": "128770ae40ee14c4"
+  "date": "2026-10-29",
+  "hash": "5c8dd822e106be47"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -1528,8 +1528,8 @@
   "hash": "a4b16e6bf2dea47f"
  },
  "/portfolio/exatlon": {
-  "date": "2026-10-24",
-  "hash": "6cc734194a2a061b"
+  "date": "2026-10-29",
+  "hash": "9edb2bcb408a5f0c"
  },
  "/portfolio/flas-concierge": {
   "date": "2026-10-14",
@@ -1544,8 +1544,8 @@
   "hash": "718495efb8edbcd3"
  },
  "/portfolio/gains-from-geebs-shorts": {
-  "date": "2026-10-24",
-  "hash": "e4ecfe1f23184f86"
+  "date": "2026-10-29",
+  "hash": "aa472d4d68a98e74"
  },
  "/portfolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -1564,8 +1564,8 @@
   "hash": "2e4f5c823cadbdc8"
  },
  "/portfolio/juanchis-burguer": {
-  "date": "2026-10-24",
-  "hash": "6f0e7146df18e28c"
+  "date": "2026-10-29",
+  "hash": "da7185145ddaeea6"
  },
  "/portfolio/la-huelga": {
   "date": "2026-10-14",
@@ -1580,20 +1580,20 @@
   "hash": "6039eb203b9f927f"
  },
  "/portfolio/portosole": {
-  "date": "2026-10-24",
-  "hash": "796d550984d9be99"
+  "date": "2026-10-29",
+  "hash": "1fc1f89f33936fcc"
  },
  "/portfolio/punto-de-giro": {
-  "date": "2026-10-24",
-  "hash": "5a7b3f5e93c641ca"
+  "date": "2026-10-29",
+  "hash": "c0118cfa4b94d568"
  },
  "/portfolio/titanforge": {
   "date": "2026-10-14",
   "hash": "6846745c85c7096e"
  },
  "/pricing": {
-  "date": "2026-10-14",
-  "hash": "726ee4688b247fbc"
+  "date": "2026-10-29",
+  "hash": "d7722c3f281129a6"
  },
  "/pricing/all-in": {
   "date": "2026-09-29",
