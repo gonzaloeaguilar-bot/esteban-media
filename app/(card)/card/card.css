@@ -1,6 +1,5 @@
 /* /card quick actions: the homepage em-route-card treatment, scoped to the NFC page. */
-.em-route-list{display:grid;gap:12px}
-@media (min-width:768px){.em-route-list{grid-template-columns:1fr 1fr}}
+.em-nfc .em-route-list{display:grid;grid-template-columns:1fr;gap:12px}
 .em-route-card{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;min-height:200px;overflow:hidden;padding:18px;border:1px solid #2a2521;border-radius:18px;background:#17191a;color:#fffaf3;isolation:isolate;text-decoration:none;transition:transform 220ms ease,box-shadow 220ms ease}
 @media (min-width:768px){.em-route-card{min-height:240px}}
 .em-route-card:hover,.em-route-card:focus-visible{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.28)}
@@ -44,7 +43,7 @@
 @media (prefers-reduced-motion:reduce){.em-route-card,.em-route-card__visual>img,.em-route-card__visual>video,.em-route-card__go,.em-route-card__badge svg,.em-route-card__dots i,.em-route-card__stars svg{animation:none!important;transition:none!important}.em-route-card__stars svg{opacity:1}}
 /* Custom scenes (homepage-grade): WhatsApp chat, Google Maps storefront, Google review card. */
 .em-card-scene{position:absolute;z-index:2;right:14px;top:14px;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:var(--font-geist-sans,system-ui,sans-serif)}
-.em-route-card--primary .em-route-card__copy,.em-route-card--scene .em-route-card__copy{max-width:52%}
+.em-route-card--primary .em-route-card__copy,.em-route-card--scene .em-route-card__copy{max-width:50%}
 /* WhatsApp */
 .em-card-scene--wa{width:46%;max-width:210px;background:#e5ddd5;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.35) 0 2px,transparent 3px),radial-gradient(circle at 70% 60%,rgba(255,255,255,.3) 0 2px,transparent 3px);background-size:40px 40px}
 .em-wa__head{display:flex;align-items:center;gap:7px;padding:7px 9px;background:#075e54;color:#fff}

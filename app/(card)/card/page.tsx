@@ -113,7 +113,7 @@ const actions = [
 
 export default function NfcContactCardPage() {
   return (
-    <main className="min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
+    <main className="em-nfc min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
       <div className="mx-auto max-w-xl">
         <header className="border-b border-[#d6ccc0] pb-6 sm:pb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f3c27]">Esteban Moreno Media</p>
