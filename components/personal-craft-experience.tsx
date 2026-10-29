@@ -45,58 +45,82 @@ export function PersonalCraftExperience({ locale }: { locale: Locale }) {
   return (
     <section
       aria-labelledby={`personal-craft-heading-${locale}`}
-      className="border-y border-[#d8cec1] bg-[#ece5da] py-12 sm:py-16 lg:py-20"
+      className="border-t border-[#e4e0da] bg-[#f7f5f1] py-12 sm:py-16 lg:py-20 text-[#101214]"
       data-section="personal-craft-experience"
     >
-      <Container size="xl">
-        <div className="grid gap-9 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16">
-          <div className="max-w-xl">
-            <p className="em-eyebrow">{c.eyebrow}</p>
-            <h2 id={`personal-craft-heading-${locale}`} className="mt-3 em-h2">
-              {c.heading}
-            </h2>
-            <p className="mt-5 text-base leading-7 text-[#252a2d] sm:text-lg sm:leading-8">
-              {c.lead}
-            </p>
-            <a
-              href="#start"
-              className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#101214] px-6 text-sm font-medium text-[#f6f1ea] transition hover:bg-[#2a2e32] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d3d2b]"
-              data-cta="personal_craft_choose_path"
-            >
-              {c.action}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </div>
+      <Container size="lg">
+        <div className="max-w-3xl">
+          <p className="em-eyebrow text-[#9d3d2b]">{c.eyebrow}</p>
+          <h2 id={`personal-craft-heading-${locale}`} className="mt-3 em-h2">
+            {c.heading}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-[#4d5358] sm:text-lg sm:leading-8">
+            {c.lead}
+          </p>
+        </div>
 
-          <div className="border-t border-[#cfc4b8] pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <ol className="space-y-4" aria-label={c.eyebrow}>
-              {c.commitments.map((commitment, index) => (
-                <li key={commitment} className="grid grid-cols-[2.25rem_1fr] gap-3 sm:grid-cols-[2.75rem_1fr] sm:gap-4">
-                  <span className="flex size-9 items-center justify-center rounded-full border border-[#bfb3a6] font-serif text-lg text-[#9d3d2b] sm:size-11 sm:text-xl" aria-hidden="true">
+        <ol className="mt-8 grid gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6" aria-label={c.eyebrow}>
+          {c.commitments.map((commitment, index) => (
+            <li
+              key={commitment}
+              className="relative flex flex-col justify-between rounded-2xl border border-[#e4e0da] bg-white p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] transition hover:border-[#cfc4b8]"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-[#f0ede6] pb-3">
+                  <span className="font-mono text-xs font-bold tracking-widest text-[#9d3d2b]" aria-hidden="true">
                     0{index + 1}
                   </span>
-                  <p className="m-0 pt-1 text-base leading-7 text-[#252a2d] sm:pt-1.5 sm:text-lg sm:leading-8">{commitment}</p>
-                </li>
-              ))}
-            </ol>
-
-            <details className="mt-7 border-t border-[#cfc4b8] pt-4">
-              <summary className="cursor-pointer text-sm font-semibold text-[#9d3d2b] underline decoration-[#d16a55] underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9d3d2b]">
-                {c.detail}
-              </summary>
-              <div className="mt-4 max-w-2xl text-sm leading-6 text-[#4d4741] sm:text-base sm:leading-7">
-                <p className="m-0">{c.detailText}</p>
-                <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-                  <Link href={`${prefix}/services`} className="font-medium text-[#9d3d2b] underline decoration-[#d16a55] underline-offset-4 hover:text-[#7f2f20]">
-                    {c.services}
-                  </Link>
-                  <Link href={`${prefix}/portfolio`} className="font-medium text-[#9d3d2b] underline decoration-[#d16a55] underline-offset-4 hover:text-[#7f2f20]">
-                    {c.portfolio}
-                  </Link>
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-[#8a8278]">
+                    {index === 0
+                      ? (locale === "es" ? "Propósito" : "Purpose")
+                      : index === 1
+                      ? (locale === "es" ? "Oficio" : "Craft")
+                      : (locale === "es" ? "Siguiente paso" : "Next step")}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-[#252a2d] sm:text-[15px] sm:leading-6">
+                  {commitment}
                 </p>
               </div>
-            </details>
-          </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-8 flex flex-col items-start gap-4 border-t border-[#e4e0da] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href="#start"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#101214] px-6 py-2.5 text-sm font-medium text-[#f6f1ea] transition hover:bg-[#25282c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d3d2b]"
+            data-cta="personal_craft_choose_path"
+          >
+            <span>{c.action}</span>
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </a>
+
+          <details className="group text-left">
+            <summary className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-[#9d3d2b] transition hover:text-[#7f2f20] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d3d2b] list-none [&::-webkit-details-marker]:hidden">
+              <span className="flex size-5 items-center justify-center rounded-full border border-[#d16a55]/40 text-xs font-mono font-bold leading-none text-[#9d3d2b] transition-transform group-open:rotate-45" aria-hidden="true">
+                +
+              </span>
+              <span className="underline decoration-[#d16a55]/60 underline-offset-4">{c.detail}</span>
+            </summary>
+            <div className="mt-3 max-w-xl rounded-xl border border-[#e4e0da] bg-white p-4 text-sm leading-relaxed text-[#4d5358] shadow-[0_1px_2px_rgba(0,0,0,0.03)] sm:p-5">
+              <p className="m-0">{c.detailText}</p>
+              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                <Link
+                  href={`${prefix}/services`}
+                  className="inline-flex items-center gap-1 font-medium text-[#9d3d2b] underline decoration-[#d16a55] underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  {c.services} →
+                </Link>
+                <Link
+                  href={`${prefix}/portfolio`}
+                  className="inline-flex items-center gap-1 font-medium text-[#9d3d2b] underline decoration-[#d16a55] underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  {c.portfolio} →
+                </Link>
+              </div>
+            </div>
+          </details>
         </div>
       </Container>
     </section>
