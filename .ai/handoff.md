@@ -5,12 +5,26 @@
 - Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
 
 ---
+# 2026-10-28 — GEO daily execution selector (local, ready for review)
+
+- Added the deterministic draft-only selector at `scripts/esteban-geo-execution-queue.mjs`, its 5-test suite, a zero-cost daily `fleet-slot.sh` launchd template, and the governed executor contract in `docs/geo-execution-queue.md`.
+- Live-ledger acceptance selected `esteban:es:editor-de-reels-fort-lauderdale` for `/es/editor-de-reels-fort-lauderdale`; the selector records this as `eligible`, explicitly not as a successful executor dispatch. A cluster is suppressed for 28 days only after a valid executor-owned `dispatched` receipt. Citation and outcome evidence remain source-bound; no outcome is inferred.
+- Local checks: focused Vitest 5/5, full `pnpm test` completed with no failures, `node --check`, `plutil -lint launchd/com.esteban-media.geo-execution-selector.plist`, and `git diff --check` passed. This is local only: no launch agent was installed, site was not edited, and no production change or business outcome is claimed.
+- Next: `cto-qa-lead` independently reviews the selector/state contract. After governed release, install the template through the normal fleet process and verify a selector receipt before any executor consumes a brief.
 
 # 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
 
 - Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.
 - Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
 - Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
+
+# 2026-10-28 — Personal creative-partner GEO answers (local candidate)
+
+Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first helps a small business decide whether the first need is clearer messaging, useful footage, or a page/contact path; the second tells a prospective client what to send before asking Esteban for a quote. Both point readers to existing service, work, price, and contact pages and explicitly avoid universal packages, performance promises, or an invented fixed deliverable. Sitemap inventory is 573 routes, four new watched URLs are declared, and each guide has its server-rendered FAQ and visible update date through the existing guide renderer.
+
+Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
+
+---
 
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 
@@ -111,6 +125,11 @@
 
 - PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
 - Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+# 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth candidate)
+
+- Source scope: `app/(english)/contact/page.tsx`, `app/__tests__/contact-conversion-proof.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/contact`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/contact` beneath the main brief section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (168 test files / 3,492 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/contact` on production.
 
 ---
 
@@ -227,7 +246,29 @@
 - Production verification: Vercel marked the merge commit `success`; canonical raw HTML returns the Fort Lauderdale-only `PostalAddress`, public phone/email, and `areaServed` with Florida Keys. Canonical `/llms.txt` returns the matching coverage, transport and no-local-office wording. `/areas` retains canonical and EN/ES/x-default alternates. `pnpm seo:indexnow:run` received HTTP 200 for all 567 sitemap URLs.
 - Local checks: full `pnpm test` 177 files / 3,691 tests; typecheck; lint 0 errors / 22 existing warnings; production build; Rail adoption 3/3; diff check. Governed independent review returned `REVIEW_VERDICT: APPROVE`. This is technical entity/discovery proof, not a citation, ranking, lead or revenue result.
 
+
+# 2026-10-28 — Draft-only Gmail Lead Desk (local worktree)
+
+- Worktree: `/Users/gonzalo/code/esteban-lead-desk`, branch `codex/esteban-lead-desk`, based on `main` at `267d9dba`. The parent checkout was left untouched because it contains unrelated edits.
+- Adds `lib/lead-desk.ts`, `scripts/run-lead-desk.ts`, targeted tests and `docs/lead-desk.md`. The runner reads only Gmail label `Esteban/Leads`, creates a client reply draft and an internal Esteban alert draft, keeps a local status log, and has no Gmail send endpoint.
+- Rate logic reads only `lib/pricing.ts`. A birthday request without date, venue, hours and deliverables asks for those details without showing a price. Complete solo 4-hour capture returns the owner-approved $400 half-day internal match; it still does not confirm availability.
+- Verification: `pnpm vitest run lib/__tests__/lead-desk.test.ts` passed 3/3; `pnpm typecheck` passed; `pnpm test` passed 166 files / 3,472 tests; `git diff --check` passed. The runner's no-token check stopped before Gmail access with `GMAIL_LEAD_DESK_ACCESS_TOKEN is required`.
+- Mailbox evidence: Google Workspace now displays `Gmail is set up!` and `Gmail is ready`. DNS reads returned root SPF `include:_spf.google.com`, Google DKIM, DMARC `p=none`, and MX `1 smtp.google.com.`. The birthday thread was manually labeled `Esteban/Leads` in the new mailbox.
+- Open before activation: obtain a scoped OAuth token for `info@...` with Gmail modify/compose access, choose Esteban's alert recipient, then run one controlled lead through to two drafts. Do not send client mail automatically.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
+
+# 2026-10-24 — Camera Bench + supplied unboxing refresh live
+
+- `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` now give the confirmed Sony Alpha 7 IV and Canon EOS Rebel T5i a larger, unified mobile swipe shelf and add the supplied Instagram unboxing Reel as an explicit external action. Instagram returns `x-frame-options: DENY`, so it must remain an external link rather than an embed.
+- Production: PR #537 merged as `d9769fb04a57c55825dae8f94f44daf2742dc542`; Vercel deployment `dpl_13v72fYK1weQTSD7rnd157Vi9ppW` reached Ready. `curl -fsSL https://estebanmorenomedia.com/es` returned HTTP/2 200 plus both camera names, the Spanish unboxing label, and `https://www.instagram.com/reel/DepBjEbBl9P/`.
+
+# 2026-10-21 — Social funnel contact repair (PR #507)
+
+- Branch `fix/social-funnel-conversion`, commit `8a2bc293`, adds a direct WhatsApp option in the chooser's first contact state. The message carries the selected project label, so a visitor can contact Esteban without entering name/email/phone after choosing a lane. This responds to the latest GA4 social funnel: 3 form starts and 0 submits, but it does not claim an outcome until live traffic is measured.
+- Regression: focused `home-packaging-human` passed 18/18; `pnpm typecheck`, lint (0 errors; existing warnings), and `pnpm build` passed. PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/507. Next: await CI/review, merge under normal authority, then verify the live mobile chooser and GA4 `home_path_funnel_direct_whatsapp` event.
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
 - Production evidence: `pnpm seo:verify` passed three consecutive reads on 2026-10-20: 530 indexable pages, 16 video-sitemap pages, 98 guide pages, 265 English and 265 Spanish routes, GA4 `G-W9CM4CE2MQ`, and a 1200x630 social card. The first full `pnpm check` exposed a distinct stale fixture: `es/chatbot-con-ia-para-negocios` intentionally changed with the Web AI service release but the Spanish text-parity snapshot was not refreshed. Rebuilding the exact fixture captured 194 routes; the parity check then passed all 194.
