@@ -10,6 +10,7 @@ import { StarterOptions } from "@/components/starter-options";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
+  CELEBRATION_FILM_BUNDLES,
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
   ON_LOCATION_CAPTURE,
@@ -500,16 +501,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     ? {
         label: "Celebraciones sociales",
         title: "Fiestas y celebraciones",
-        price: `Desde ${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`,
+        price: `Desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`,
         lead: "Video de tu celebración para compartirlo y recordarlo.",
-        packagesLabel: "Ver paquetes y precios",
         selectedPackagePrefix: "Me interesa:",
         packages: [
-          { name: "Cobertura esencial", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`, includes: "Esteban, cámara 4K y audio para captar los momentos clave.", whatsapp: "Cobertura esencial ($400, hasta 4 horas)" },
-          { name: "Día completo", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · hasta 8 horas`, includes: "Esteban, cámara 4K y audio para cubrir la celebración completa.", whatsapp: "Día completo ($800, hasta 8 horas)" },
-          { name: "Equipo de evento", price: `${usd(CREW_RECORDING_RATES.twoPerson.fullDay)} · hasta 8 horas`, includes: "Dos personas: cámara 4K y creador de contenido para clips verticales durante el evento.", whatsapp: "Equipo de evento ($1,280, hasta 8 horas)" },
+          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: "Película de mi celebración (desde $1,200, hasta 4 horas)" },
+          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: "Película de celebración de día completo (desde $2,200, hasta 8 horas)" },
+          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: "Producción de celebración con dos personas (desde $3,400, hasta 8 horas)" },
         ],
-        packageNote: "La edición final, el traslado y cualquier extra se confirman por escrito antes de reservar.",
+        packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
         quote: "Cotizar mi celebración",
         guide: "Ver guía de fiestas privadas",
         guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
@@ -518,16 +518,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     : {
         label: "Social celebrations",
         title: "Parties and celebrations",
-        price: `From ${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`,
+        price: `From ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`,
         lead: "Video of your celebration to share and remember.",
-        packagesLabel: "See packages and pricing",
         selectedPackagePrefix: "I'm interested in:",
         packages: [
-          { name: "Essential coverage", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`, includes: "Esteban, a 4K camera, and audio to capture the key moments.", whatsapp: "Essential coverage ($400, up to 4 hours)" },
-          { name: "Full day", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · up to 8 hours`, includes: "Esteban, a 4K camera, and audio for the full celebration.", whatsapp: "Full day ($800, up to 8 hours)" },
-          { name: "Event crew", price: `${usd(CREW_RECORDING_RATES.twoPerson.fullDay)} · up to 8 hours`, includes: "Two people: a 4K camera and content creator for vertical clips during the event.", whatsapp: "Event crew ($1,280, up to 8 hours)" },
+          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: "My celebration film (from $1,200, up to 4 hours)" },
+          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: "My full-day celebration film (from $2,200, up to 8 hours)" },
+          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: "My two-person celebration production (from $3,400, up to 8 hours)" },
         ],
-        packageNote: "Final editing, travel, and any extras are confirmed in writing before booking.",
+        packageNote: "Travel and any extras are confirmed in writing before booking.",
         quote: "Quote my celebration",
         guide: "Read the private-party guide",
         guideHref: "/services/private-party-videographer-south-florida",
@@ -634,13 +633,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </summary>
             <div className="em-route-card__body em-private-celebrations-card__body">
               <p>{privateCelebrations.lead}</p>
-              <details className="em-private-celebrations__packages">
-                <summary>{privateCelebrations.packagesLabel}<ChevronDown className="size-4" aria-hidden="true" /></summary>
-                <ul className="em-path-offers" role="list">
+              <ul className="em-path-offers" role="list">
                   {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
-                </ul>
-                <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
-              </details>
+              </ul>
+              <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
               <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
             </div>
           </details>

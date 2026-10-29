@@ -149,7 +149,7 @@ export const ON_SITE_PRODUCTION_RATES = {
       id: "solo-videographer",
       name: { en: "Solo Videographer (1 Camera)", es: "Videógrafo individual (1 Cámara)" },
       hourly: 100,
-      minimumHours: 3,
+      minimumHours: 4,
       halfDay: 400,
       fullDay: 800,
       turnkeyHalfDay: 750,

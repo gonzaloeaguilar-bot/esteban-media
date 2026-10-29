@@ -58,10 +58,12 @@ for (const locale of ["en", "es"] as const) {
       const celebrationStart = path.indexOf('data-route="private-celebrations"');
       const celebrations = path.slice(celebrationStart);
       expect(celebrationStart).toBeGreaterThan(-1);
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).not.toContain("em-private-celebrations__packages");
       expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
       expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
       expect(celebrations).toContain('autoPlay');
@@ -240,11 +242,14 @@ for (const locale of ["en", "es"] as const) {
       const celebrations = path.slice(celebrationsStart);
       expect(celebrationsStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
       expect(celebrations).toContain("https://wa.me/");
       expect(celebrations).toContain("home_private_celebrations_whatsapp");
-      expect(celebrations).toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).not.toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).toContain(locale === "es" ? "Película de tu celebración" : "Your celebration film");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200" : "from $1,200");
     });
 
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
