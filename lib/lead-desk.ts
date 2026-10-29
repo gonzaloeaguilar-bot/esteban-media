@@ -1,4 +1,4 @@
-import { CREW_RECORDING_RATES, FILMING_HOURLY } from "@/lib/pricing";
+import { CREW_RECORDING_RATES, FILMING_HOURLY, usd } from "@/lib/pricing";
 
 export type LeadDeskInput = { threadId: string; messageId: string; from: string; subject: string; body: string; receivedAt: string };
 export type LeadFacts = { eventDate?: string; venue?: string; hours?: number; deliverables?: string; guestCount?: number; editDeadline?: string; budget?: string; foundVia?: string };
@@ -37,7 +37,7 @@ export function proposePrice(body: string, facts = extractLeadFacts(body)): Pric
   if (!/\b(?:birthday|party|celebration|event)\b/i.test(body)) return { kind: "needs-review", internalRange: { min: FILMING_HOURLY.minimumAmount, max: CREW_RECORDING_RATES.solo.fullDay }, missing: ["service type", "hours", "deliverables"], rationale: "This request is outside a confirmed event-rate match." };
   const missing = [!facts.eventDate && "event date", !facts.venue && "venue", !facts.hours && "hours", !facts.deliverables && "deliverables"].filter((value): value is string => Boolean(value));
   if (missing.length > 0) return { kind: "needs-review", internalRange: { min: FILMING_HOURLY.minimumAmount, max: CREW_RECORDING_RATES.solo.fullDay }, missing, rationale: "Internal event-capture guide only; do not quote until the missing scope is confirmed." };
-  if (facts.hours && facts.hours <= 3) return { kind: "confirmed", amount: FILMING_HOURLY.minimumAmount, rationale: "Owner-approved filming floor: $100/hour with a three-hour minimum." };
+  if (facts.hours && facts.hours <= 3) return { kind: "confirmed", amount: FILMING_HOURLY.minimumAmount, rationale: `Owner-approved filming floor: ${usd(FILMING_HOURLY.amount)}/hour with a ${FILMING_HOURLY.minimumHours}-hour minimum.` };
   if (facts.hours && facts.hours <= 4) return { kind: "confirmed", amount: CREW_RECORDING_RATES.solo.halfDay, rationale: "Owner-approved solo half-day event-capture rate." };
   if (facts.hours && facts.hours <= 8) return { kind: "confirmed", amount: CREW_RECORDING_RATES.solo.fullDay, rationale: "Owner-approved solo full-day event-capture rate." };
   return { kind: "needs-review", internalRange: { min: CREW_RECORDING_RATES.solo.fullDay, max: CREW_RECORDING_RATES.twoPerson.fullDay }, missing: ["crew requirement", "final deliverables"], rationale: "The requested duration exceeds the standard solo event-capture match." };

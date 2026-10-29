@@ -231,7 +231,7 @@ describe("answer-first block (fix 9)", () => {
     expect(words).toBeGreaterThanOrEqual(60);
     expect(words).toBeLessThanOrEqual(120);
     expect(answer).toContain("$100");
-    expect(answer).toContain("$800");
+    expect(answer).toContain("$1,600");
     expect(headings(markup, 2)[0]).toMatch(locale === "es" ? /^¿.*\?$/ : /\?$/);
   });
 
@@ -245,7 +245,7 @@ describe("answer-first block (fix 9)", () => {
   ] as const)("%s in %s describes photography without quoting video rates", (service, locale) => {
     const markup = renderToStaticMarkup(ServiceAnswerFirst({ service, locale }));
     expect(markup).not.toContain("$100");
-    expect(markup).not.toContain("$800");
+    expect(markup).not.toContain("$1,600");
     expect(markup).toMatch(locale === "es" ? /cotizaci[oó]n por escrito/ : /written quote/);
   });
 });

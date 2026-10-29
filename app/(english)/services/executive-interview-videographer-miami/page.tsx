@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CREW_RECORDING_RATES, usd } from "@/lib/pricing";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -148,7 +149,7 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
                   Scheduling an executive interview or client testimonial?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Hourly on-location filming from $80/hr with full horizontal and vertical social cuts.
+                  Hourly on-location filming from {usd(CREW_RECORDING_RATES.solo.hourly)}/hr with full horizontal and vertical social cuts.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

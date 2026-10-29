@@ -1,7 +1,7 @@
 {
  "/": {
-  "date": "2026-10-16",
-  "hash": "6303ed2f3d96143b"
+  "date": "2026-10-28",
+  "hash": "033b1c568620434f"
  },
  "/about": {
   "date": "2026-10-28",
@@ -9,7 +9,7 @@
  },
  "/areas": {
   "date": "2026-10-28",
-  "hash": "4e309e38aad73198"
+  "hash": "d9a1b94177a5e504"
  },
  "/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -112,12 +112,12 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-10-16",
-  "hash": "f192963a81eacf6f"
+  "date": "2026-10-28",
+  "hash": "bd26b644c1d5abe6"
  },
  "/es/areas": {
   "date": "2026-10-28",
-  "hash": "d274177e7ad3e368"
+  "hash": "8d6595f338036847"
  },
  "/es/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -312,8 +312,8 @@
   "hash": "04bc737fa75eb434"
  },
  "/es/editor-de-reels-fort-lauderdale": {
-  "date": "2026-10-28",
-  "hash": "4a7a8ce63394bb97"
+  "date": "2026-10-29",
+  "hash": "b86ec5318d81b2ac"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
@@ -344,8 +344,8 @@
   "hash": "04ca052a197b020d"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
-  "date": "2026-10-14",
-  "hash": "52bd867998239d8d"
+  "date": "2026-10-28",
+  "hash": "e1fd9226db7f1aea"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -396,8 +396,8 @@
   "hash": "fa5f5fcb94d5ffae"
  },
  "/es/fotografia-de-producto-miami": {
-  "date": "2026-10-24",
-  "hash": "c897b4718bb02413"
+  "date": "2026-10-28",
+  "hash": "79f7107f9d354243"
  },
  "/es/fotografo-de-retratos-y-headshots-miami": {
   "date": "2026-08-14",
@@ -484,8 +484,8 @@
   "hash": "bbb7ddec672ca85d"
  },
  "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale": {
-  "date": "2026-10-08",
-  "hash": "051ce3ae31008789"
+  "date": "2026-10-28",
+  "hash": "2a9efea015258909"
  },
  "/es/guias/cuanto-cuesta-un-editor-de-videos-cortos": {
   "date": "2026-10-14",
@@ -580,8 +580,8 @@
   "hash": "dc26cfe86e5e5c6b"
  },
  "/es/guias/mejores-estilos-de-subtitulos-para-reels": {
-  "date": "2026-10-22",
-  "hash": "75be6ba2f6979a47"
+  "date": "2026-10-28",
+  "hash": "c00b4700c9bb475a"
  },
  "/es/guias/mejores-practicas-de-edicion-de-video-vertical": {
   "date": "2026-10-07",
@@ -1308,8 +1308,8 @@
   "hash": "b67d4c4fff2c00fb"
  },
  "/guides/best-caption-styles-for-instagram-reels": {
-  "date": "2026-10-23",
-  "hash": "3da2e524f2490cb2"
+  "date": "2026-10-28",
+  "hash": "ee2f2ed3e8fb2a52"
  },
  "/guides/bilingual-video-marketing-strategy-south-florida": {
   "date": "2026-10-07",
@@ -1480,8 +1480,8 @@
   "hash": "8406ca00f1e25bd4"
  },
  "/guides/video-production-cost-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "be0447b6d6b7ae29"
+  "date": "2026-10-28",
+  "hash": "a3724735ebc14a6c"
  },
  "/guides/video-production-rfp-template-miami": {
   "date": "2026-10-18",
@@ -1760,8 +1760,8 @@
   "hash": "1cd9eca6a6fe7d0c"
  },
  "/services/conference-videographer-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "a00a6e93d353bc56"
+  "date": "2026-10-28",
+  "hash": "91f8b4dcba88b4ea"
  },
  "/services/construction-progress-video-miami": {
   "date": "2026-10-18",
@@ -1880,8 +1880,8 @@
   "hash": "8d4b6fdf2cc1862b"
  },
  "/services/executive-interview-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "78a7669024fc4641"
+  "date": "2026-10-28",
+  "hash": "e0a596e3a2f19829"
  },
  "/services/executive-linkedin-video-series-miami": {
   "date": "2026-10-19",
@@ -1928,8 +1928,8 @@
   "hash": "1c4f65f7111e50c9"
  },
  "/services/hire-remote-video-editor": {
-  "date": "2026-10-14",
-  "hash": "99468cddbc5095ea"
+  "date": "2026-10-28",
+  "hash": "a5a37a929f49eaa3"
  },
  "/services/hotel-hospitality-video-production-miami": {
   "date": "2026-10-13",
@@ -2108,8 +2108,8 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-10-28",
-  "hash": "1a92310802237309"
+  "date": "2026-10-29",
+  "hash": "83f3432a4c866ea9"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",
@@ -2184,8 +2184,8 @@
   "hash": "ab806b1c19df6744"
  },
  "/services/ugc-video-editor-ecommerce": {
-  "date": "2026-10-27",
-  "hash": "876a905cc87b2ab5"
+  "date": "2026-10-28",
+  "hash": "d0453f6147fac058"
  },
  "/services/vacation-rental-video-marketing-fort-lauderdale": {
   "date": "2026-10-13",
@@ -2228,8 +2228,8 @@
   "hash": "3eccf96db74e9a2a"
  },
  "/services/vlog-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "f30c0f29d8d38af9"
+  "date": "2026-10-28",
+  "hash": "eefd0d8ffecdff4a"
  },
  "/services/vsl-direct-response-video-editing": {
   "date": "2026-10-19",

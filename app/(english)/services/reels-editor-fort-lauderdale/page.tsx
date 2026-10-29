@@ -1,4 +1,5 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -158,9 +159,12 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Reels Editor Fort Lauderdale | Clear Social Videos",
+  // 2026-10-28: GSC Aug-Oct shows "reel editor fort lauderdale" (11 impr, pos 9.1)
+  // and "editor de reels fort lauderdale" (15 impr, pos 11.5) with 0 clicks on
+  // this page; the title did not say "reel editor" and the snippet answered nothing.
+  title: "Reel Editor in Fort Lauderdale",
   description:
-    "Turn supplied clips into clear Instagram Reels, TikTok videos, or Shorts with captions and one focused action. Fort Lauderdale and remote editing.",
+    `Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
   path: content.path,
   locale: "en",
 });

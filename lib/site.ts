@@ -128,7 +128,7 @@ export const services: Service[] = [
       "Scoping questions cover the audience, publishing goal, channels, and content needs.",
     icon: CalendarRange,
     tags: ["Strategy", "Cadence", "Content plan"],
-    startingPrice: "Monthly packages start at $640/mo",
+    startingPrice: `Monthly packages start at ${usd(PACKAGE_PRICES.crecimiento.kind === "from" ? PACKAGE_PRICES.crecimiento.amount : 0)}/mo`,
   },
   {
     id: "on-location",
@@ -140,7 +140,7 @@ export const services: Service[] = [
       "Availability and scope are considered project by project after learning the location, goal, and capture needs.",
     icon: Video,
     tags: ["South Florida", "On location", "Project-specific"],
-    startingPrice: "Production days start at $800",
+    startingPrice: `Local Presence from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}/mo`,
   },
   {
     id: "website-design",

@@ -24,6 +24,12 @@ Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first
 
 Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
 
+# 2026-10-28 — Bilingual personal craft homepage interlude (local candidate; not production)
+
+- Added `components/personal-craft-experience.tsx` to `/` and `/es`, immediately after the work rail and before `HomeProjectPath`. It keeps the approved hero untouched and presents the source-bounded direct-partnership promise, three short commitments, existing chooser anchor, and a server-rendered native `<details>` with only existing service and portfolio links.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` passed 3/3; `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, `git diff --check`, the experience-contract validator, and `analytics-gate.py` passed. Local EN and ES raw HTML each returned 200 and contained their promise and disclosure. Browser keyboard activation expanded the English disclosure and exposed its existing links.
+- `human-consumption-gate.mjs --site esteban-media` has no configured site entry, so it returned `--site esteban-media not in config`; this is unavailable, not a passing visual result. The production build was started but has no terminal receipt in this constrained session. Independent visual review, a complete build receipt, PR/merge/deployment, real phone/desktop production rendering, and the T+7/T+14 comparable inquiry read remain required before any production or outcome claim.
+
 ---
 
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
@@ -785,3 +791,15 @@ Configuration-gated conversion-observability implementation is present locally, 
 
 # 2026-10-28 — Celebration card: 4K landscape cover (PR pending)
 - Owner reported the "Parties and celebrations" card looked incomplete and low quality. Measured cause: the cover/loop were a 540x960 portrait clip stretched ~2x into a landscape card. Found the owner's 4K yacht clip (`IMG_6214.MOV`, 3840x2160 rotated portrait, 2.87s, Messages attachment 2026-10-28 16:12); cut a 2160x1215 landscape band (skyline + Ferris wheel + water) into `yacht-party-miami-skyline-{cover.jpg,poster.jpg,loop.mp4}` (loop 1600x900 h264 crf29, 1.3 MB, no audio). Served pixels now >= displayed device pixels at 390@3x and 1280@2x; autoplay muted inline verified; reduced-motion hides the loop. The 4K original of the earlier boat-passing clip (`yacht-party-miami.mp4`, 540x960) is not on this machine.
+# 2026-10-28 — Personal craft experience section (local only)
+
+- `components/personal-craft-experience.tsx` is rendered after `PortfolioTeaser` and before `HomeProjectPath` on the English and Spanish homepages. It sells Esteban as a direct creative partner through a source-bounded promise, three commitments, existing project chooser action, and server-rendered native `<details>` links to existing services/portfolio. It does not touch the approved hero or invent price, freebies, reviews or outcomes.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` 3/3; lint 0 errors / 22 existing warnings; typecheck 0; analytics gate PASS; `pnpm lastmod:update` changed two home records; `git diff --check` needs rerun after final edits. The full build and dev server could not finish while disk availability was 6.2 GiB and concurrent Next builds were active. No PR, production or visual approval claim.
+- Next: clean host build contention, run `pnpm build`, inspect 375x600 + 390x844 + desktop and raw EN/ES HTML, get Antigravity craft review, then open scoped PR.
+
+
+## 2026-10-28 — Prices: one source of truth (lib/pricing.ts)
+- Owner rule: every price on the site, FAQ answers, WhatsApp CTAs, llms.txt and the client catalog PDF must match and come from `lib/pricing.ts`. Enforced by `app/__tests__/price-single-source.test.ts` (no hand-typed `$N` outside pricing.ts except the ledgered market figures; llms-base.txt uses `{{TOKENS}}`; every `$N` in `public/deliverables/esteban-moreno-media-catalogo-2026.html` must exist in pricing.ts).
+- `lib/services-config.ts` no longer holds its own copies of rates; it reads pricing.ts. New constants: `REAL_ESTATE_DRONE_PHOTO_ADD_ON`, `REAL_ESTATE_MEDIA_PRICES`, `CELEBRATION_FILM_BUNDLES.yacht*`.
+- 2026-10-28 ladder (market review PDF sent to Esteban): filming $125/h ($500/$1,000), two-person $200/h ($800/$1,600), turnkey $950/$2,000 · $1,600/$3,000, yacht turnkey $1,800/$3,200, celebrations $1,200/$2,800/$4,000, Crecimiento $800/mo, Presencia Local $1,600/mo, RE plans $600/$950/$1,500, product photo $350, commercial $1,500/$3,500/$8,500–12,000.
+- Regenerate the catalog PDF after any price change: edit `public/deliverables/esteban-moreno-media-catalogo-2026.html`, render with Playwright to `esteban-moreno-media-catalogo-servicios-tarifas-2026.pdf`, copy both to the vault `deliverables/`.

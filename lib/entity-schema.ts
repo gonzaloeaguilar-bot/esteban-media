@@ -1,4 +1,5 @@
 import { pageLastModified } from "@/lib/page-lastmod";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { absoluteUrl, serviceAreas, services, site } from "@/lib/site";
 
 export const entityIds = {
@@ -66,10 +67,10 @@ export const localBusinessEntityJsonLd = {
   email: site.email,
   telephone: site.phone.e164,
   // Published starting prices only: Arranque / Starter from $100 per video (low)
-  // to Presencia Local / Local Presence from $800 per production day (high), with
+  // to Presencia Local / Local Presence (monthly, high), with
   // Todo Incluido / All-In quoted per project. "+" signals the custom-quote
   // ceiling rather than inventing a fixed maximum.
-  priceRange: "$100-$800+",
+  priceRange: `${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}-${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}+`,
   description: site.description,
   // 180x180 app icon, the only square brand mark the repo ships (public/
   // has no separate logo asset). Meets Google's minimum recommended
