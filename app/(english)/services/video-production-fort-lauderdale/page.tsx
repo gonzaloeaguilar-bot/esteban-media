@@ -60,6 +60,11 @@ const content: GeoServicePageContent = {
       body:
         "Start with the decision the video should help a customer make: contact the business, understand a service, see a location, or choose a product. Add the city, the date that matters, where the finished version will be used, and whether usable footage already exists. If filming is needed, include the people or areas that must be on camera and any access limits that affect the day. A reference can explain tone, but it should not replace the business goal. Those details let Esteban separate the remote-editing part from the on-location part and return a written scope instead of assuming a crew, a schedule, or a deliverable that has not been agreed.",
     },
+    {
+      question: "How do Fort Lauderdale video production services differ between filming and editing?",
+      body:
+        "Fort Lauderdale video production services separate on-location capture from remote editing. When footage already exists, the project begins directly in post-production with pacing, color, licensed audio, and vertical cuts. An in-person shoot is reserved for capturing the facility, team, or customer interactions in Broward County.",
+    },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",
   faqs: [
