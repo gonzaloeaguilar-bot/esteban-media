@@ -4682,7 +4682,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     lead:
       "Convertimos clips de testimoniales de usuarios y unboxings en anuncios de video de alta conversión con ganchos visuales y subtítulos animados.",
     keyword: "editor de video UGC en Miami",
-    location: "Miami / Remote E-Commerce",
+    location: "Fort Lauderdale / Miami / Remote E-Commerce",
     availability: "confirmed",
     icon: WandSparkles,
     bestFor: [
@@ -4700,6 +4700,11 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Pueden editar múltiples variaciones para pruebas A/B?",
         answer:
           "Sí. Entregamos distintas versiones con diferentes ganchos iniciales y llamadas a la acción para optimizar el retorno de inversión.",
+      },
+      {
+        question: "¿Editan video UGC para marcas de e-commerce en Fort Lauderdale?",
+        answer:
+          "Sí. Esteban tiene su base en Fort Lauderdale, así que las marcas de e-commerce de Fort Lauderdale y del resto de Broward County son clientes locales, no remotos. La edición UGC en sí no depende de la ubicación: los clips de creadores, las notas del producto y los claims aprobados llegan como archivos, y las variaciones del anuncio vuelven por el mismo camino, así que una marca de Fort Lauderdale sigue exactamente la misma entrega que una de Miami o de otro estado. La diferencia aparece cuando falta material. Una marca de Fort Lauderdale que necesita tomas extra del producto, un unboxing limpio o b-roll del artículo en uso puede hablar de una sesión corta de captura local en lugar de pedirle al creador que vuelva a grabar, y esa sesión se define por proyecto. Envía los clips que tienes, indica en qué plataforma correrán los anuncios y di si estás en Fort Lauderdale o en Miami para saber si la captura local es una opción.",
       },
     ],
   },

@@ -135,7 +135,8 @@ describe("service depth — the 2026-10-01 growth batch carries it", () => {
     const src = source(page);
     expect(src).toContain("buildServiceFaqSchema");
     expect(src).toContain(`buildServiceFaqSchema(absoluteUrl("${path}"),`);
-    expect(depth.faqs).toHaveLength(4);
+    // Four at launch; the UGC page gained a fifth (Fort Lauderdale) on 2026-10-24.
+    expect(depth.faqs.length).toBeGreaterThanOrEqual(4);
     expect(depth.craft).toHaveLength(3);
     expect(depth.related).toHaveLength(3);
   });

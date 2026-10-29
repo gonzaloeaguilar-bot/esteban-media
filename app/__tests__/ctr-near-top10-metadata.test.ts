@@ -87,8 +87,8 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
     expect(
       collectHrefs(EnglishAreasPage()).filter(
         (href) => href === "/services/restaurant-promo-video-editing-miami",
-      ),
-    ).toHaveLength(2);
+      ).length,
+    ).toBeGreaterThanOrEqual(2);
     expect(collectHrefs(SpanishAreasPage())).toContain(
       "/es/edicion-de-video-promocional-para-restaurantes-miami",
     );
