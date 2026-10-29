@@ -15,8 +15,19 @@
  * scoped quote, these are the prices Esteban charges for a listing shoot of a
  * known size. That is why they carry an exact figure and not a "from".
  *
- * To change a price, change it here. Nothing else should hold a figure.
+ * To change a price, change it in lib/pricing.ts (the single source of truth,
+ * 2026-10-28). This file only arranges those figures into published line items.
  */
+
+import {
+  COMMERCIAL_VIDEO_TIERS,
+  CREW_RECORDING_RATES,
+  ON_SITE_ADD_ONS,
+  REAL_ESTATE_DRONE_PHOTO_ADD_ON,
+  REAL_ESTATE_MEDIA_PRICES,
+  TURNKEY_PRODUCTION_BUNDLES,
+  YACHT_PRODUCTION,
+} from "@/lib/pricing";
 
 export type Currency = "USD";
 
@@ -59,11 +70,11 @@ export const REAL_ESTATE_MEDIA = {
 
   /** Listing photography, by home size. */
   photography: [
-    { minSf: 0, maxSf: 1500, amount: 199, label: { en: "Up to 1,500 SF", es: "Hasta 1,500 SF" } },
-    { minSf: 1501, maxSf: 3000, amount: 249, label: { en: "1,501 – 3,000 SF", es: "1,501 – 3,000 SF" } },
-    { minSf: 3001, maxSf: 4500, amount: 299, label: { en: "3,001 – 4,500 SF", es: "3,001 – 4,500 SF" } },
-    { minSf: 4501, maxSf: 6000, amount: 399, label: { en: "4,501 – 6,000 SF", es: "4,501 – 6,000 SF" } },
-    { minSf: 6001, maxSf: 8000, amount: 499, label: { en: "6,001 – 8,000 SF", es: "6,001 – 8,000 SF" } },
+    { minSf: 0, maxSf: 1500, amount: REAL_ESTATE_MEDIA_PRICES.photoTiers[0], label: { en: "Up to 1,500 SF", es: "Hasta 1,500 SF" } },
+    { minSf: 1501, maxSf: 3000, amount: REAL_ESTATE_MEDIA_PRICES.photoTiers[1], label: { en: "1,501 – 3,000 SF", es: "1,501 – 3,000 SF" } },
+    { minSf: 3001, maxSf: 4500, amount: REAL_ESTATE_MEDIA_PRICES.photoTiers[2], label: { en: "3,001 – 4,500 SF", es: "3,001 – 4,500 SF" } },
+    { minSf: 4501, maxSf: 6000, amount: REAL_ESTATE_MEDIA_PRICES.photoTiers[3], label: { en: "4,501 – 6,000 SF", es: "4,501 – 6,000 SF" } },
+    { minSf: 6001, maxSf: 8000, amount: REAL_ESTATE_MEDIA_PRICES.photoTiers[4], label: { en: "6,001 – 8,000 SF", es: "6,001 – 8,000 SF" } },
     // Deliberately `null`: the card says "Call to discuss". Putting a figure
     // here would invent a price Esteban does not quote.
     { minSf: 8001, maxSf: null, amount: null, label: { en: "8,000+ SF", es: "8,000+ SF" } },
@@ -73,7 +84,7 @@ export const REAL_ESTATE_MEDIA = {
     {
       id: "drone-photography",
       name: { en: "Drone photography", es: "Fotografía con dron" },
-      amount: 99,
+      amount: REAL_ESTATE_DRONE_PHOTO_ADD_ON,
       note: {
         en: "Typically 8–10 images, depending on the listing's features.",
         es: "Normalmente 8–10 imágenes, según las características de la propiedad.",
@@ -82,14 +93,14 @@ export const REAL_ESTATE_MEDIA = {
     {
       id: "zillow-3d-tour",
       name: { en: "Zillow 3D tour", es: "Recorrido 3D de Zillow" },
-      amount: 149,
+      amount: REAL_ESTATE_MEDIA_PRICES.zillow3dTourFrom,
       from: true,
       note: { en: "Price varies with home size.", es: "El precio varía según el tamaño." },
     },
     {
       id: "premium-listing-video",
       name: { en: "Premium listing video", es: "Video premium de la propiedad" },
-      amount: 200,
+      amount: REAL_ESTATE_MEDIA_PRICES.premiumListingVideoPerMinute,
       unit: "per-minute",
     },
   ] satisfies LineItem[],
@@ -98,7 +109,7 @@ export const REAL_ESTATE_MEDIA = {
     {
       id: "out-of-area",
       name: { en: "Out of area", es: "Fuera del área" },
-      amount: 75,
+      amount: REAL_ESTATE_MEDIA_PRICES.outOfAreaFee,
       note: {
         en: "North of West Palm Beach or south of Hollywood.",
         es: "Al norte de West Palm Beach o al sur de Hollywood.",
@@ -107,7 +118,7 @@ export const REAL_ESTATE_MEDIA = {
     {
       id: "reshoot",
       name: { en: "Reshoot", es: "Repetición de sesión" },
-      amount: 100,
+      amount: REAL_ESTATE_MEDIA_PRICES.reshootFee,
       note: {
         en: "For any reason other than photographer error, including weather. 10 photo maximum.",
         es: "Por cualquier motivo que no sea un error del fotógrafo, incluido el clima. Máximo 10 fotos.",
@@ -148,69 +159,69 @@ export const ON_SITE_PRODUCTION_RATES = {
     {
       id: "solo-videographer",
       name: { en: "Solo Videographer (1 Camera)", es: "Videógrafo individual (1 Cámara)" },
-      hourly: 100,
-      minimumHours: 4,
-      halfDay: 400,
-      fullDay: 800,
-      turnkeyHalfDay: 750,
-      turnkeyFullDay: 1600,
+      hourly: CREW_RECORDING_RATES.solo.hourly,
+      minimumHours: CREW_RECORDING_RATES.solo.minimumHours,
+      halfDay: CREW_RECORDING_RATES.solo.halfDay,
+      fullDay: CREW_RECORDING_RATES.solo.fullDay,
+      turnkeyHalfDay: TURNKEY_PRODUCTION_BUNDLES.soloHalfDay,
+      turnkeyFullDay: TURNKEY_PRODUCTION_BUNDLES.soloFullDay,
       gear: { en: "Sony Alpha 7 IV 4K + handheld gimbal + wireless mic kit", es: "Sony Alpha 7 IV 4K + gimbal de mano + microfonía inalámbrica" },
     },
     {
       id: "two-person-event-crew",
       name: { en: "Two-Person Event Crew (Lead DP + Mobile Content Creator)", es: "Equipo de 2 personas para eventos (DP principal + Creador de contenido móvil)" },
-      hourly: 160,
-      minimumHours: 4,
-      halfDay: 640,
-      fullDay: 1280,
-      turnkeyHalfDay: 1250,
-      turnkeyFullDay: 2400,
+      hourly: CREW_RECORDING_RATES.twoPerson.hourly,
+      minimumHours: CREW_RECORDING_RATES.twoPerson.minimumHours,
+      halfDay: CREW_RECORDING_RATES.twoPerson.halfDay,
+      fullDay: CREW_RECORDING_RATES.twoPerson.fullDay,
+      turnkeyHalfDay: TURNKEY_PRODUCTION_BUNDLES.twoPersonHalfDay,
+      turnkeyFullDay: TURNKEY_PRODUCTION_BUNDLES.twoPersonFullDay,
       gear: { en: "1 4K Cinema Camera + 2 iPhones on gimbals for instant vertical Reels/BTS", es: "1 Cámara 4K + 2 iPhones en gimbals para Reels verticales y BTS instantáneos" },
     },
     {
       id: "multi-camera-stage",
       name: { en: "Multi-Camera Production (2–3 Cameras + Audio Board)", es: "Producción multicámara (2–3 Cámaras + Audio de consola)" },
-      hourly: 225,
-      minimumHours: 4,
-      halfDay: 900,
-      fullDay: 1800,
-      turnkeyHalfDay: 1750,
-      turnkeyFullDay: 3600,
+      hourly: CREW_RECORDING_RATES.multiCamera.hourly,
+      minimumHours: CREW_RECORDING_RATES.multiCamera.minimumHours,
+      halfDay: CREW_RECORDING_RATES.multiCamera.halfDay,
+      fullDay: CREW_RECORDING_RATES.multiCamera.fullDay,
+      turnkeyHalfDay: TURNKEY_PRODUCTION_BUNDLES.multiCamHalfDay,
+      turnkeyFullDay: TURNKEY_PRODUCTION_BUNDLES.multiCamFullDay,
       gear: { en: "2–3 4K cameras + direct XLR soundboard feed + multi-track wireless lavaliers", es: "2–3 cámaras 4K + audio directo de consola XLR + micrófonos de solapa multicanal" },
     },
     {
       id: "yacht-marine-production",
       name: { en: "Yacht & Marine Production (Charter Shoots)", es: "Producción en yates y marina (Sesiones en chárter)" },
-      halfDay: 750,
-      fullDay: 1400,
-      turnkeyHalfDay: 1450,
-      turnkeyFullDay: 2800,
+      halfDay: YACHT_PRODUCTION.halfDaySolo,
+      fullDay: YACHT_PRODUCTION.fullDaySolo,
+      turnkeyHalfDay: TURNKEY_PRODUCTION_BUNDLES.yachtHalfDay,
+      turnkeyFullDay: TURNKEY_PRODUCTION_BUNDLES.yachtFullDay,
       note: { en: "Requires half-day or full-day booking. Active gimbal stabilization, marine deck care.", es: "Requiere media jornada o jornada completa. Estabilización activa con gimbal, cuidado de cubierta." },
     },
     {
       id: "commercial-product-demo-basic",
       name: { en: "Basic Product Demo / Kickstarter (Founder-Led)", es: "Demo comercial básico / Kickstarter (Fundador)" },
-      turnkey: 1000,
+      turnkey: COMMERCIAL_VIDEO_TIERS.basic.from,
       note: { en: "Founder interview + macro product demo, 3.5-hr on-location shoot + 60-90s edit", es: "Entrevista al fundador + demo macro de producto en locación, 3.5h de rodaje + edición de 60-90 seg" },
     },
     {
       id: "commercial-brand-narrative-premium",
       name: { en: "Premium Brand Film / Narrative Commercial", es: "Brand film narrativo / Comercial premium" },
-      turnkey: 3000,
+      turnkey: COMMERCIAL_VIDEO_TIERS.brandNarrative.from,
       note: { en: "Full-day shoot with 2-person crew, cinematic lighting, 60-120s hero video + 3 social ad hooks", es: "Jornada completa con crew de 2 personas, iluminación de cine, video de 60-120 seg + 3 ganchos para pauta" },
     },
     {
       id: "commercial-actors-studio-full",
       name: { en: "Commercial Production with Professional Actors & Studio", es: "Comercial publicitario con actores profesionales y estudio" },
-      turnkeyMin: 6500,
-      turnkeyMax: 8500,
+      turnkeyMin: COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin,
+      turnkeyMax: COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMax,
       note: { en: "Soundstage/cyc studio rental, professional actor casting (1-2 talent with commercial buyout), HMUA, 3-4 person crew, custom sound mix", es: "Renta de estudio/ciclorama, casting de actores profesionales (1-2 con derechos comerciales), estilismo, crew de 3-4 personas y masterización multiformato" },
     },
   ],
   addOns: [
-    { id: "soundboard-audio", name: { en: "Soundboard Direct XLR Audio Feed", es: "Toma directa de audio de consola XLR" }, amount: 150 },
-    { id: "marine-drone", name: { en: "Licensed Marine Drone Aerials (Over-Water)", es: "Tomas aéreas con dron en agua (Licencia FAA)" }, amount: 250 },
-    { id: "mobile-teleprompter", name: { en: "Mobile Teleprompter Kit", es: "Kit de teleprompter móvil" }, amount: 100 },
-    { id: "rapid-ssd-wrap", name: { en: "On-Site Fast NVMe SSD Footage Delivery", es: "Entrega inmediata de material en SSD NVMe rápido" }, amount: 120 },
+    { id: "soundboard-audio", name: { en: "Soundboard Direct XLR Audio Feed", es: "Toma directa de audio de consola XLR" }, amount: ON_SITE_ADD_ONS.soundboardAudio },
+    { id: "marine-drone", name: { en: "Licensed Marine Drone Aerials (Over-Water)", es: "Tomas aéreas con dron en agua (Licencia FAA)" }, amount: ON_SITE_ADD_ONS.marineDrone },
+    { id: "mobile-teleprompter", name: { en: "Mobile Teleprompter Kit", es: "Kit de teleprompter móvil" }, amount: ON_SITE_ADD_ONS.mobileTeleprompter },
+    { id: "rapid-ssd-wrap", name: { en: "On-Site Fast NVMe SSD Footage Delivery", es: "Entrega inmediata de material en SSD NVMe rápido" }, amount: ON_SITE_ADD_ONS.rapidSsdDelivery },
   ],
 } as const;

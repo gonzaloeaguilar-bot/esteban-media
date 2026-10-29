@@ -1,4 +1,5 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -163,7 +164,7 @@ export const metadata = buildPageMetadata({
   // this page; the title did not say "reel editor" and the snippet answered nothing.
   title: "Reel Editor in Fort Lauderdale",
   description:
-    "Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From $100 a video.",
+    `Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
   path: content.path,
   locale: "en",
 });

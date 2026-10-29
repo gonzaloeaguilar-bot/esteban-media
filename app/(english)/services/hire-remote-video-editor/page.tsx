@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
@@ -65,7 +66,7 @@ const REMOTE_EDITOR_DEPTH = {
     {
       question: "What does remote video editing cost?",
       answer:
-        "The Starter package, remote editing of footage you already have, starts from $100 per video with one revision round included. Every project is priced from the actual footage, the deliverable list, and the number of revision rounds, so the package price is a starting point rather than a fixed rate.",
+        `The Starter package, remote editing of footage you already have, starts from ${usd(SHORT_FORM.perVideoFrom)} per video with one revision round included. Every project is priced from the actual footage, the deliverable list, and the number of revision rounds, so the package price is a starting point rather than a fixed rate.`,
     },
     {
       question: "What languages does Esteban work in?",
