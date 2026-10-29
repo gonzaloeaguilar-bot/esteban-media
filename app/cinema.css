@@ -2609,12 +2609,11 @@ iframe.em-funnel__video { border: 0; }
 .em-revband__roll {
   position: relative;
   margin: 26px 0 0;
-  height: clamp(180px, 34vh, 260px);
+  height: clamp(200px, 34vh, 280px);
   overflow: hidden;
-  /* the roll fades in and out at the edges instead of being cut by a hard
-     line, which is what makes it read as a roll rather than as a scrollbox */
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+  /* the roll fades gently at the edges instead of obscuring the text */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
 .em-revband__track {
   display: flex;
@@ -2632,7 +2631,7 @@ iframe.em-funnel__video { border: 0; }
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffff;
 }
 .em-revband__roll blockquote::before { content: "\201C"; }
 .em-revband__roll blockquote::after { content: "\201D"; }
@@ -2643,7 +2642,7 @@ iframe.em-funnel__video { border: 0; }
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .em-revband__cta {
@@ -2656,6 +2655,7 @@ iframe.em-funnel__video { border: 0; }
   padding: 0 26px;
   border-radius: 999px;
   border: 1px solid var(--em-accent, #c84a2c);
+  background: rgba(200, 74, 44, 0.16);
   color: #fff;
   font-size: 15px;
   font-weight: 600;
