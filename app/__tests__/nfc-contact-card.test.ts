@@ -23,6 +23,26 @@ describe("NFC contact card", () => {
     expect(page).not.toContain("address");
   });
 
+  it("gives every action an end-to-end motif with no photography", () => {
+    const css = readFileSync(join(process.cwd(), "app/(card)/card/card.css"), "utf8");
+    expect(page).toContain('import "./card.css"');
+    expect(page).toContain('className="em-route-list mt-3"');
+    expect(page).not.toContain("next/image");
+    expect(page).not.toContain("/portfolio/");
+    expect(page).not.toContain("/about/");
+    expect((page.match(/visual: "/g) ?? []).length).toBe(6);
+    for (const scene of ["wa", "call", "reel", "maps", "review", "save"]) expect(page).toContain(`em-scene em-scene--${scene}`);
+    expect(page).toContain("em-wa__typing");
+    expect(page).toContain("em-maps__pin");
+    expect(page).toContain("Escribir una reseña");
+    expect(page).toContain("Agregar a contactos");
+    expect(css).toContain("@keyframes em-wa-in");
+    expect(css).toContain("@keyframes em-maps-drop");
+    expect(css).toContain("@keyframes em-review-star");
+    expect(css).toContain("@keyframes em-ring");
+    expect(css).toContain("@media (prefers-reduced-motion:reduce)");
+  });
+
   it("offers a downloadable vCard from the same canonical contact source", () => {
     expect(page).toContain('href: "/card.vcf"');
     expect(cardRoute).toContain("BEGIN:VCARD");

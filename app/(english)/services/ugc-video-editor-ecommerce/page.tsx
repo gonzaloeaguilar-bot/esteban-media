@@ -45,7 +45,7 @@ export default function UGCVideoEditorEcommercePage() {
         description:
           "User-generated content (UGC) video editing, Meta/TikTok ad variations, hook testing, and animated captions for e-commerce.",
         provider: { "@id": absoluteUrl("/#business") },
-        areaServed: "Miami / Remote E-Commerce",
+        areaServed: "Fort Lauderdale / Miami / Remote E-Commerce",
         serviceType: "UGC video editing",
       },
     ],

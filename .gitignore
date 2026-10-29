@@ -47,6 +47,7 @@ next-env.d.ts
 
 # project-specific
 context-snapshot.md
+var/lead-desk-status.json
 
 # local code-intelligence indexes (may include private interview context)
 /graphify-out/

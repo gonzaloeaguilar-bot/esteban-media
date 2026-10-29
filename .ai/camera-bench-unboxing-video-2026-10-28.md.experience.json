@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Repair the Camera Bench unboxing card so it plays the owner-supplied Sony video it promises.",
+  "phase": "plan",
+  "visual_evidence": {
+    "scope": "interaction",
+    "scope_reason": "A mobile disclosure promises video but currently reveals only text.",
+    "target": "repair",
+    "owner_status": "requested",
+    "capture_kind": "phone screenshot and rendered preview",
+    "spec_sha256": "PENDING",
+    "taste_sha256": "PENDING",
+    "correction_excerpt": "Fix it",
+    "comparison": "The existing still disclosure must become a visible, controllable player without changing the Camera Bench composition.",
+    "references": ["components/camera-kit-method.tsx", "public/portfolio/sony-a7iv-unboxing.png"],
+    "candidate_frames": ["390x844 closed disclosure", "390x844 open player", "1440x900 open player"]
+  },
+  "brief": {
+    "visitor": "A mobile visitor exploring Esteban's camera setup.",
+    "promise": "The unboxing control opens the actual Sony Alpha 7 IV video.",
+    "primary_action": "Tap Open the unboxing / Abrir el unboxing.",
+    "friction": "The current control promises video but expands to explanatory text only.",
+    "kpi": {"outcome": "truthful interaction", "event": "camera_kit_unboxing", "denominator": "unboxing-control opens", "baseline": "UNKNOWN", "evidence": "live homepage raw HTML 2026-10-28", "readout": "post-release interaction event", "decision_rule": "retain when the player is present, controllable and does not regress mobile layout"},
+    "concept": {"idea": "Keep the existing camera-card reveal and place the real video inside its disclosure.", "brand_reason": "It makes the camera bench truthful without adding a second visual system.", "interaction": "Native details opens; visitor uses native video controls.", "visible_response": "The still becomes the poster for an exposed video player.", "direct_path": "The rest of the homepage remains reachable without playing video.", "alternatives": "Do not use a misleading label or a new visual scene."},
+    "story": {"opening": "A concise camera preview", "action": "Open the unboxing", "consequence": "The real Sony clip is available to play", "next_step": "Continue to the working method or packages"},
+    "content": {"visible": "Existing unboxing title, image and action label", "optional_html": "Native details with player and one factual line", "linked_depth": "Sony source link remains in camera specifications"},
+    "references": {"borrow": "Existing camera-kit native disclosure and native video patterns", "avoid": "Autoplaying audio, a fake player, or claims beyond the supplied footage"},
+    "components": {"reuse": "Native details and HTML video", "local_reason": "This is Esteban-specific owner media in an existing brand-specific component."},
+    "verification": {"rendered_states": "390x844 closed/open and desktop open", "motion": "manual playback; reduced motion does not auto-start", "accessibility_performance": "keyboard, controls and layout", "raw_html": "MP4 source present", "conversion_boundary": "not applicable; this is an informational player"},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude", "outcome": "cto-qa-lead"},
+    "learning": {"metric": "truthful player availability", "baseline_source": "live homepage raw HTML", "baseline_value": "0 player sources in Camera Bench disclosure", "target_kind": "interaction", "target": "homepage Camera Bench unboxing disclosure", "hypothesis": "Matching the control promise to a real player removes a misleading interaction.", "observation_windows": ["release", "T+7"], "decision_rule": "retain if the player renders and works on phone without overflow", "ledger_status": "planned", "registration_condition": "record release verification after deployment"}
+  }
+}

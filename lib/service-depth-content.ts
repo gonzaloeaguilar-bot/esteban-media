@@ -598,6 +598,11 @@ export const UGC_ECOMMERCE_DEPTH: Depth = {
         "Enough to make it easy to watch, not so much that it stops feeling direct. Cut pauses, clean audio where possible, add captions, remove confusing repeats, and use simple graphics for product names or calls to action. Avoid overbuilt motion and stock-style transitions unless the brand specifically wants a more produced ad. A good UGC edit still feels like the creator is speaking to the viewer.",
     },
     {
+      question: "Does this UGC video editor work with Fort Lauderdale brands?",
+      answer:
+        "Yes. Esteban is based in Fort Lauderdale, so e-commerce brands in Fort Lauderdale and the rest of Broward County are local clients, not remote ones. UGC editing itself does not depend on location: creator clips, product notes and approved claims arrive as files, and the ad variations come back the same way, so a Fort Lauderdale brand follows exactly the same handoff as a Miami or out-of-state one. The difference is what happens when the footage is missing. A Fort Lauderdale brand that needs extra product shots, a clean unboxing or b-roll of the item in use can discuss a short local capture session instead of asking a creator to reshoot, and that conversation is scoped per project. Send the clips you have, name the platform the ads run on, and say whether you are in Fort Lauderdale or Miami so the editor knows whether local capture is an option.",
+    },
+    {
       question: "What makes UGC clips hard to edit?",
       answer:
         "The common problems are missing product shots, poor audio, unclear claims, and clips recorded in only one orientation when the final placement needs another. A creator can also record a strong testimonial without showing the product enough for the edit to prove the point. The best handoff includes extra b-roll, clean room tone if available, and one note describing the exact message the brand wants the viewer to remember.",
