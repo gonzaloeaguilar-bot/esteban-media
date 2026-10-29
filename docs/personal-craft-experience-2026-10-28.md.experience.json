@@ -1,0 +1,40 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Build the bilingual personal craft experience section on Esteban Moreno Media homepage",
+  "phase": "build",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "A new editorial section changes the buyer path but preserves the approved hero.",
+    "target": "direction",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "storyboard",
+    "spec_sha256": "8b8674a3c940149782bb412efbcd32c425a4badb8b71ef9b110b30fef316055f",
+    "taste_sha256": "5c9aafb4a61339ecfffee95bc3690db365c2ac6fff5b8039b395839ddf4fb214",
+    "correction_excerpt": "depth goes behind native <details>, not more cards",
+    "comparison": "Current live homepage versus isolated preview on phone and desktop.",
+    "references": [
+      {"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-homepage-all-screens-20261012.png", "moment": "current homepage composition", "sha256": "d4ca2c05405f5c43fdb458630fda488d24bc5d0c6b095bd497ab3d009ff77579", "borrow": "Esteban's existing editorial light/dark rhythm and real work", "avoid": "Adding a second hero or a dense grid of cards"}
+    ],
+    "candidate_frames": [
+      {"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-hero-now-vs-proposed-20261012.png", "moment": "opening", "viewport": "phone", "sha256": "373ab988284cad687fb5affdca638330739ce36de0a3afa97baa00bf6a056889"},
+      {"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-fold-caption-20261012.png", "moment": "action", "viewport": "phone", "sha256": "04a6564268875f6cc03c4ef945e0ff6494b494459564a5d926a2961ba0fe2520"},
+      {"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-cinematic-lens-concept-v1.png", "moment": "result", "viewport": "phone", "sha256": "2ab96ca38fa3d8a0d99501d88c25f0efe6a57288a998a0cab1c040e68220a60e"}
+    ]
+  },
+  "brief": {
+    "visitor": "A small-business owner, creator or event host who needs a direct creative partner.",
+    "promise": "One direct relationship from idea through finished video and connected digital work.",
+    "primary_action": "Choose a project path, then contact Esteban directly.",
+    "friction": "The existing homepage shows services but not enough of the personal collaboration behind them.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "lead_submit or direct contact click", "denominator": "homepage visitors", "baseline": "UNKNOWN: read a comparable 14-day homepage cohort after release before grading", "evidence": "No comparable cohort read in this task", "readout": "T+14", "decision_rule": "retain only if inquiry quality does not regress"},
+    "concept": {"idea": "A compact gallery-consultation interlude", "brand_reason": "Esteban works as a direct creative partner, not a faceless production line", "interaction": "Native details for optional service breadth", "visible_response": "Three commitments lead to existing work and service paths", "direct_path": "Existing chooser and contact paths", "alternatives": "No new modal, chatbot or motion"},
+    "story": {"opening": "One project, one creative partner", "action": "Share the goal and select the needed craft", "consequence": "A clear, direct next step", "next_step": "Use the existing project chooser/contact action"},
+    "content": {"visible": "Personal relationship, practical guidance, craft breadth", "optional_html": "Native details with linked existing services", "linked_depth": "Existing portfolio, services and contact routes"},
+    "references": {"borrow": "Existing Esteban Container, headings, editorial surface and source-linked review proof", "avoid": "Corporate agency language, invented bonuses/discounts, new testimonials, hero changes"},
+    "components": {"reuse": "Container, Link, existing button styling", "local_reason": "This is a brand-specific editorial composition"},
+    "verification": {"rendered_states": "375x600, 390x844, desktop, keyboard disclosure", "motion": "No motion required", "accessibility_performance": "native details and visible focus", "raw_html": "curl initial EN and ES HTML", "conversion_boundary": "existing direct contact links/form remain unchanged"},
+    "reviewers": {"craft": "Antigravity", "behavior": "cto-qa-lead", "outcome": "cto-growth-lead"},
+    "learning": {"metric": "qualified inquiry submissions", "baseline_source": "current analytics cohort", "baseline_value": "UNKNOWN: no comparable cohort was read before build", "target_kind": "funnel_step", "target": "homepage qualified inquiry", "hypothesis": "Explaining the direct personal partnership increases qualified inquiry confidence", "observation_windows": ["T+7", "T+14"], "decision_rule": "retain only if comparable inquiry quality does not regress", "ledger_status": "planned", "registration_condition": "record a current baseline after release before grading"}
+  }
+}
