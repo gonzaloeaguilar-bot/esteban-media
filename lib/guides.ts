@@ -3231,7 +3231,8 @@ const guidePairs: readonly GuidePair[] = [
     id: "caption-styles-reels-guide",
     en: {
       slug: "best-caption-styles-for-instagram-reels",
-      metadataTitle: "Best Instagram Reel Caption Styles",
+      // 2026-10-28: 124 impressions at position 8.6 in the 28-day brief, 0 clicks.
+      metadataTitle: "Reel Caption Styles That Read Well",
       title: "Best Instagram Reel caption styles for readable subtitles",
       // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
       // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
@@ -3304,7 +3305,7 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "mejores-estilos-de-subtitulos-para-reels",
-      metadataTitle: "Subtítulos para Reels: Guía",
+      metadataTitle: "Estilos de subtítulos para Reels",
       title: "Qué estilo de subtítulos usar en Reels: legibilidad, ritmo y zona segura",
       description:
         "Elige subtítulos para Reels que se lean en celular: frases completas o palabras clave, contraste suficiente y una zona segura que no tape la interfaz.",

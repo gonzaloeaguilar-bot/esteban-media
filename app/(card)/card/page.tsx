@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight,
   Download,
+  Heart,
   MapPinned,
   MessageCircle,
   Phone,
   Play,
+  Send,
   Star,
 } from "lucide-react";
 
@@ -36,9 +36,6 @@ const actions = [
     cta: "nfc_card_whatsapp",
     eyebrow: "Responde Esteban",
     visual: "whatsapp",
-    video: "/about/esteban-on-set.mp4",
-    image: "/about/esteban-on-set.jpg",
-    imageAlt: "Esteban Moreno en una producción",
     primary: true,
     external: true,
   },
@@ -50,8 +47,6 @@ const actions = [
     cta: "nfc_card_call",
     eyebrow: "Llamada directa",
     visual: "call",
-    image: "/about/esteban-on-location.jpg",
-    imageAlt: "Esteban Moreno grabando en locación",
     primary: false,
     external: false,
   },
@@ -63,8 +58,6 @@ const actions = [
     cta: "nfc_card_portfolio",
     eyebrow: "Portafolio",
     visual: "play",
-    image: "/portfolio/gains-from-geebs-shorts.jpg",
-    imageAlt: "Ejemplo de video corto producido por Esteban Moreno Media",
     primary: false,
     external: false,
     internal: true,
@@ -77,8 +70,6 @@ const actions = [
     cta: "nfc_card_maps",
     eyebrow: "Google Maps",
     visual: "maps",
-    image: "/portfolio/local-business-camera-work.jpg",
-    imageAlt: "Esteban trabajando con una cámara en un negocio local",
     primary: false,
     external: true,
   },
@@ -90,8 +81,6 @@ const actions = [
     cta: "nfc_card_google_review",
     eyebrow: "Reseñas",
     visual: "review",
-    image: "/portfolio/healthy-smile.jpg",
-    imageAlt: "Proyecto publicado de Esteban Moreno Media",
     primary: false,
     external: true,
   },
@@ -103,8 +92,6 @@ const actions = [
     cta: "nfc_card_save_contact",
     eyebrow: "Contacto",
     visual: "save",
-    image: "/portfolio/bar-door-monkey.jpg",
-    imageAlt: "Fotograma de un video de restaurante de Esteban Moreno Media",
     primary: false,
     external: false,
     download: true,
@@ -113,7 +100,7 @@ const actions = [
 
 export default function NfcContactCardPage() {
   return (
-    <main className="min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
+    <main className="em-nfc min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
       <div className="mx-auto max-w-xl">
         <header className="border-b border-[#d6ccc0] pb-6 sm:pb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f3c27]">Esteban Moreno Media</p>
@@ -128,28 +115,69 @@ export default function NfcContactCardPage() {
         <section className="pt-5" aria-label="Formas de contactar a Esteban">
           <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
           <div className="em-route-list mt-3">
-            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, eyebrow, visual, image, imageAlt, ...action }) => {
-              const className = `em-route-card${primary ? " em-route-card--primary" : ""}`;
-              const badge =
-                visual === "whatsapp" ? <span className="em-route-card__badge em-route-card__badge--whatsapp" aria-hidden="true"><Icon /><span className="em-route-card__dots"><i /><i /><i /></span></span>
-                : visual === "call" ? <span className="em-route-card__badge em-route-card__badge--call" aria-hidden="true"><Icon />Disponible</span>
-                : visual === "play" ? <span className="em-route-card__badge em-route-card__badge--play" aria-hidden="true"><Icon />Ver reel</span>
-                : visual === "maps" ? <span className="em-route-card__badge em-route-card__badge--maps" aria-hidden="true"><Icon />Fort Lauderdale</span>
-                : visual === "review" ? <span className="em-route-card__badge em-route-card__badge--review" aria-hidden="true"><span className="em-route-card__stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span></span>
-                : <span className="em-route-card__badge em-route-card__badge--save" aria-hidden="true"><Icon />.vcf</span>;
+            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, eyebrow, visual, ...action }) => {
+              const className = `em-route-card em-route-card--scene em-route-card--${visual}${primary ? " em-route-card--primary" : ""}`;
+              const stars = <span className="em-stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span>;
+              const scene =
+                visual === "whatsapp" ? (
+                  <span className="em-scene em-scene--wa">
+                    <span className="em-wa__head"><i>EM</i><span><span className="em-scene__t">Esteban Moreno Media</span><span className="em-scene__s">en línea</span></span></span>
+                    <span className="em-wa__body">
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--1">Hola Esteban, escaneé tu tarjeta<small>9:41</small></span>
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--2">Quiero un video para mi negocio<small>9:41</small></span>
+                      <span className="em-wa__typing"><i /><i /><i /></span>
+                      <span className="em-wa__msg em-wa__msg--out em-wa__msg--3">Claro, cuéntame qué necesitas grabar<small>9:42 ✓✓</small></span>
+                    </span>
+                  </span>
+                ) : visual === "call" ? (
+                  <span className="em-scene em-scene--call">
+                    <span className="em-call__rings"><i /><i /><i /></span>
+                    <span className="em-call__avatar">EM</span>
+                    <span className="em-call__name">Esteban Moreno Media</span>
+                    <span className="em-call__state">Llamada entrante<b>.</b><b>.</b><b>.</b></span>
+                    <span className="em-call__buttons"><span className="em-call__btn em-call__btn--no"><Phone /></span><span className="em-call__btn em-call__btn--yes"><Phone /></span></span>
+                  </span>
+                ) : visual === "play" ? (
+                  <span className="em-scene em-scene--reel">
+                    <span className="em-reel__bars"><i /><i /><i /></span>
+                    <span className="em-reel__frame"><span className="em-reel__play"><Play fill="currentColor" /></span></span>
+                    <span className="em-reel__rail"><span className="em-reel__like"><Heart fill="currentColor" /><small>1.2K</small></span><span><MessageCircle /><small>86</small></span><span><Send /><small>312</small></span></span>
+                    <span className="em-reel__handle">@estebanmorenomedia</span>
+                  </span>
+                ) : visual === "maps" ? (
+                  <span className="em-scene em-scene--maps">
+                    <span className="em-maps__map"><i /><i /><i /><i /><u /></span>
+                    <span className="em-maps__pin"><i /><u /></span>
+                    <span className="em-maps__sheet">
+                      <span className="em-maps__title">Esteban Moreno Media</span>
+                      <span className="em-maps__meta"><span className="em-scene__t">5.0</span>{stars}<span className="em-scene__s">Fort Lauderdale, FL</span></span>
+                      <span className="em-maps__actions"><span className="em-maps__btn em-maps__btn--go">Cómo llegar</span><span className="em-maps__btn">Llamar</span></span>
+                    </span>
+                  </span>
+                ) : visual === "review" ? (
+                  <span className="em-scene em-scene--review">
+                    <span className="em-review__head"><i>G</i><span><span className="em-scene__t">Esteban Moreno Media</span><span className="em-scene__s">Reseñas de Google</span></span></span>
+                    <span className="em-review__rate"><span className="em-scene__t">5.0</span>{stars}</span>
+                    <span className="em-review__dist"><i /><i /><i /><i /><i /></span>
+                    <span className="em-review__text">Excelente trabajo, el video quedó clarísimo</span>
+                    <span className="em-review__btn">Escribir una reseña</span>
+                  </span>
+                ) : (
+                  <span className="em-scene em-scene--save">
+                    <span className="em-save__avatar">EM<b /></span>
+                    <span className="em-save__name">Esteban Moreno Media</span>
+                    <span className="em-save__row"><Phone />{site.phone.display}</span>
+                    <span className="em-save__row"><Download />{site.email}</span>
+                    <span className="em-save__btn">Agregar a contactos</span>
+                  </span>
+                );
               const content = <>
-                <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">
-                  {"video" in action
-                    ? <video src={action.video} poster={image} autoPlay loop muted playsInline preload="metadata" />
-                    : <Image src={image} alt={imageAlt} fill sizes="(max-width: 767px) 100vw, 50vw" />}
-                </span>
-                {badge}
+                <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">{scene}</span>
                 <span className="em-route-card__copy">
                   <span className="em-route-card__eyebrow">{eyebrow}</span>
                   <strong>{label}</strong>
                   <span>{detail}</span>
                 </span>
-                <span className="em-route-card__go" aria-hidden="true">{external ? <ArrowUpRight /> : <Icon />}</span>
               </>;
 
               if ("internal" in action) {
