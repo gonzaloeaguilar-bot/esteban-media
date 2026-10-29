@@ -14,6 +14,7 @@ const copy = {
     roleTag: "Director & Video Editor",
     roleNote: "Direct collaboration on every cut, shoot and delivery.",
     stepTitles: ["Purpose", "Craft", "Next step"],
+    slateMeta: ["Scene 01 // Focus", "Take 02 // Craft", "Cut 03 // Action"],
     commitments: [
       "Begin with the goal, the audience, and where the work needs to live.",
       "Choose the right craft: editing, content planning, scoped production, or a connected website.",
@@ -33,6 +34,7 @@ const copy = {
     roleTag: "Director y Editor de Video",
     roleNote: "Atención directa en cada corte, rodaje y entrega.",
     stepTitles: ["Propósito", "Oficio", "Siguiente paso"],
+    slateMeta: ["Escena 01 // Enfoque", "Toma 02 // Oficio", "Corte 03 // Acción"],
     commitments: [
       "Empezamos por la meta, la audiencia y dónde debe vivir el trabajo.",
       "Elegimos el oficio correcto: edición, planificación de contenido, producción puntual o un sitio web conectado.",
@@ -45,6 +47,52 @@ const copy = {
     portfolio: "Ver el portafolio",
   },
 } as const;
+
+function StepFilmIcon({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#e4e0da] bg-[#f7f5f1] text-[#9d3d2b] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-[#101214] group-hover:bg-[#101214] group-hover:text-[#f6f1ea]">
+        <svg className="size-6 transition-transform duration-300 group-hover:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+          <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+          <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+          <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+          <circle cx="12" cy="12" r="2.5" className="fill-current" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#e4e0da] bg-[#f7f5f1] text-[#9d3d2b] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-[#101214] group-hover:bg-[#101214] group-hover:text-[#f6f1ea]">
+        <svg className="size-6 transition-transform duration-300 group-hover:-rotate-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect width="18" height="12" x="3" y="9" rx="2" />
+          <path d="m4 9 3.5-5h13l-3.5 5" />
+          <path d="m8.5 4 2.5 5" />
+          <path d="m13.5 4 2.5 5" />
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#e4e0da] bg-[#f7f5f1] text-[#9d3d2b] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-[#101214] group-hover:bg-[#101214] group-hover:text-[#f6f1ea]">
+      <svg className="size-6 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect width="18" height="18" x="3" y="3" rx="2" />
+        <path d="M7 3v18" />
+        <path d="M17 3v18" />
+        <path d="M3 7.5h4" />
+        <path d="M3 12h4" />
+        <path d="M3 16.5h4" />
+        <path d="M17 7.5h4" />
+        <path d="M17 12h4" />
+        <path d="M17 16.5h4" />
+        <polygon points="10 9 14 12 10 15" className="fill-current" />
+      </svg>
+    </div>
+  );
+}
 
 export function PersonalCraftExperience({ locale }: { locale: Locale }) {
   const c = copy[locale];
@@ -133,27 +181,33 @@ export function PersonalCraftExperience({ locale }: { locale: Locale }) {
               {c.lead}
             </p>
 
-            {/* Editorial process timeline */}
+            {/* Tactile cinema process cards */}
             <ol
-              className="mt-7 space-y-4 border-t border-[#e4e0da] pt-6"
+              className="mt-7 space-y-3.5"
               aria-label={c.eyebrow}
             >
               {c.commitments.map((commitment, index) => (
                 <li
                   key={commitment}
-                  className="group flex items-start gap-4 rounded-xl p-2.5 transition hover:bg-white/60"
+                  className="group relative flex items-start gap-4 rounded-2xl border border-[#e4e0da] bg-white p-4 sm:p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#c84a2c]/60 hover:shadow-[0_4px_20px_rgba(200,74,44,0.08)] hover:-translate-y-0.5"
                 >
-                  <span
-                    className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#eee7dc] font-mono text-xs font-bold text-[#9d3d2b] transition group-hover:bg-[#9d3d2b] group-hover:text-white"
-                    aria-hidden="true"
-                  >
-                    0{index + 1}
-                  </span>
-                  <div className="pt-0.5">
-                    <h3 className="text-sm font-semibold text-[#1a1c1e]">
-                      {c.stepTitles[index]}
-                    </h3>
-                    <p className="mt-0.5 text-sm leading-relaxed text-[#555d64]">
+                  <div className="flex flex-col items-center gap-1.5 shrink-0">
+                    <StepFilmIcon index={index} />
+                    <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#9d3d2b] transition-colors group-hover:text-[#7f3022]" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                  </div>
+
+                  <div className="min-w-0 flex-1 pt-0.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-md border border-[#f3ded7] bg-[#fbf5f2] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#9d3d2b]">
+                        {c.slateMeta[index]}
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg font-semibold tracking-tight text-[#101214]">
+                        {c.stepTitles[index]}
+                      </h3>
+                    </div>
+                    <p className="mt-1.5 text-sm leading-relaxed text-[#4d5358] sm:text-[15px] sm:leading-6">
                       {commitment}
                     </p>
                   </div>

@@ -58,6 +58,26 @@ const legacyRedirects = [
     destination: "/services/white-label-video-editing-for-agencies",
     permanent: true,
   },
+  {
+    source: "/es/servicios/edicion-de-video-para-reels",
+    destination: "/es/editor-de-reels-fort-lauderdale",
+    permanent: true,
+  },
+  {
+    source: "/es/servicios/edicion-de-video-para-reels/",
+    destination: "/es/editor-de-reels-fort-lauderdale",
+    permanent: true,
+  },
+  {
+    source: "/servicios/edicion-de-video-para-reels",
+    destination: "/es/editor-de-reels-fort-lauderdale",
+    permanent: true,
+  },
+  {
+    source: "/servicios/edicion-de-video-para-reels/",
+    destination: "/es/editor-de-reels-fort-lauderdale",
+    permanent: true,
+  },
 ];
 
 const nextConfig: NextConfig = {
