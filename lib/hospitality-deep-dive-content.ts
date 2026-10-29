@@ -6,6 +6,7 @@ import {
   PRICING_BANDS,
   shortFormWeeklyText,
   usd,
+  CREW_RECORDING_RATES,
 } from "@/lib/pricing";
 
 /**
@@ -239,7 +240,7 @@ export const CORPORATE_EVENT_FTL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos corporativos en Fort Lauderdale?",
     paragraphs: [
-      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde $80 por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre $400 y $750 por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
+      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
       "La edición varía según los entregables requeridos: un video resumen ágil para LinkedIn, grabaciones íntegras de conferencias magistrales o cápsulas verticales de testimonios. Especifica qué ponencias son prioritarias, los requisitos de audio y las fechas límite de entrega. La grabación presencial y la postproducción se coordinan de forma integral según el cronograma de tu evento en Fort Lauderdale.",
     ],
   },
@@ -263,7 +264,7 @@ export const NETWORKING_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos de networking y cócteles en Miami?",
     paragraphs: [
-      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde $80 por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre $400 y $750 por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
+      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
       "Los eventos de networking suelen demandar una pieza principal de sesenta a noventa segundos en formato horizontal y clips cortos verticales con entrevistas espontáneas a los asistentes. Definir si se priorizan los patrocinadores, los discursos de bienvenida o las interacciones entre invitados permite optimizar el tiempo de cámara durante el evento.",
     ],
   },
@@ -307,7 +308,7 @@ export const VLOG_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
     heading: "¿Cómo funciona el rodaje de vlogs en exteriores en Miami?",
     paragraphs: [
       "La filmación de vlogs en exteriores asigna al creador un camarógrafo dedicado que registra tomas en movimiento, segmentos de diálogo y material de apoyo por toda la ciudad. Esteban utiliza una cámara Sony Alpha 7 IV sobre estabilizador con micrófonos inalámbricos de alta calidad. Esta configuración ligera permite desplazarse con fluidez por restaurantes, eventos y zonas concurridas como Wynwood o Brickell sin cargar trípodes pesados.",
-      "El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a $80 la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.",
+      `El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a ${usd(CREW_RECORDING_RATES.solo.hourly)} la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.`,
     ],
   },
   {
