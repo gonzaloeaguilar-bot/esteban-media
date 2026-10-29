@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -11,7 +10,7 @@ const copy = {
     eyebrow: "One project, one creative partner",
     heading: "Start with the purpose. Choose the craft that helps.",
     lead: "I listen to what you need to communicate, help shape the idea, and stay directly involved through the finished work.",
-    photoAlt: "Esteban Moreno on location filming with camera in hand",
+    photoAlt: "Esteban Moreno directing a commercial shoot on location with camera in hand",
     roleTag: "Director & Video Editor",
     roleNote: "Direct collaboration on every cut, shoot and delivery.",
     stepTitles: ["Purpose", "Craft", "Next step"],
@@ -30,7 +29,7 @@ const copy = {
     eyebrow: "Un proyecto, un socio creativo",
     heading: "Empieza por la meta. Elige el oficio que te ayuda.",
     lead: "Escucho lo que necesitas comunicar, te ayudo a darle forma a la idea y sigo involucrado directamente hasta terminar el trabajo.",
-    photoAlt: "Esteban Moreno en rodaje con cámara en mano",
+    photoAlt: "Esteban Moreno dirigiendo un rodaje comercial en locación con cámara en mano",
     roleTag: "Director y Editor de Video",
     roleNote: "Atención directa en cada corte, rodaje y entrega.",
     stepTitles: ["Propósito", "Oficio", "Siguiente paso"],
@@ -58,30 +57,52 @@ export function PersonalCraftExperience({ locale }: { locale: Locale }) {
       data-section="personal-craft-experience"
     >
       <Container size="xl">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-14 xl:gap-16">
-          {/* Visual column: Authentic on-set production still */}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-14 xl:gap-16">
+          {/* Visual column: Authentic on-set production video */}
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden rounded-2xl bg-[#141618] shadow-xl shadow-black/10 ring-1 ring-black/5">
-              <Image
-                src="/about/esteban-on-location.jpg"
-                alt={c.photoAlt}
-                fill
-                sizes="(min-width: 1024px) 460px, (min-width: 640px) 420px, 90vw"
-                className="object-cover object-[center_28%]"
-              />
+            <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden rounded-2xl bg-[#141618] shadow-2xl shadow-black/15 ring-1 ring-black/10">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/about/esteban-on-set-frame.jpg"
+                className="size-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                aria-label={c.photoAlt}
+              >
+                <source src="/about/esteban-on-set.mp4" type="video/mp4" />
+              </video>
+
               {/* Filmic gradient overlay for legibility */}
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/15"
                 aria-hidden="true"
               />
 
-              {/* Viewfinder REC status pill */}
-              <div
-                className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/50 px-3 py-1 text-[10px] font-mono font-medium tracking-wider text-white/90 backdrop-blur-md"
-                aria-hidden="true"
-              >
-                <span className="size-1.5 rounded-full bg-[#e62b26]" />
-                <span>REC</span>
+              {/* Viewfinder corner brackets (matching camera HUD in the section under) */}
+              <span className="pointer-events-none absolute top-3.5 left-3.5 size-3.5 border-t-2 border-l-2 border-white/60 transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              <span className="pointer-events-none absolute top-3.5 right-3.5 size-3.5 border-t-2 border-r-2 border-white/60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              <span className="pointer-events-none absolute bottom-3.5 left-3.5 size-3.5 border-b-2 border-l-2 border-white/60 transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:translate-y-0.5" aria-hidden="true" />
+              <span className="pointer-events-none absolute bottom-3.5 right-3.5 size-3.5 border-b-2 border-r-2 border-white/60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-hidden="true" />
+
+              {/* Center focus crosshair / target ring */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                <span className="size-8 rounded-full border border-white/20 transition-all duration-500 group-hover:scale-125 group-hover:border-[#c84a2c]/60" />
+                <span className="absolute size-1.5 rounded-full bg-white/40 transition-colors group-hover:bg-[#e62b26]" />
+              </div>
+
+              {/* Top status bar: Camera specs + REC indicator */}
+              <div className="absolute top-4 inset-x-4 flex items-center justify-between" aria-hidden="true">
+                <span className="rounded-full border border-white/15 bg-black/60 px-2.5 py-1 text-[10px] font-mono font-medium tracking-widest text-white/90 backdrop-blur-md">
+                  SONY 4K · 60P
+                </span>
+
+                <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/60 px-3 py-1 text-[10px] font-mono tracking-wider text-white backdrop-blur-md shadow-xs">
+                  <span className="size-2 rounded-full bg-[#e62b26] animate-pulse shadow-[0_0_8px_#e62b26]" />
+                  <span className="font-bold">REC</span>
+                  <span className="text-white/60 pl-0.5">00:15:24</span>
+                </div>
               </div>
 
               {/* Director & Editor caption strip */}
