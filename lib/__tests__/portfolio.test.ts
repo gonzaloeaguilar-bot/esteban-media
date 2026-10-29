@@ -84,13 +84,13 @@ const verifiedYears: Record<string, number> = {
 describe("verified portfolio data", () => {
   it("declares the seven evidence-based categories in display order", () => {
     expect(PORTFOLIO_CATEGORY_IDS).toEqual([
+      "social-content",
+      "web-design",
       "business-promos",
       "events",
       "editing",
-      "social-content",
-      "narrative",
       "animation",
-      "web-design",
+      "narrative",
     ]);
   });
 
