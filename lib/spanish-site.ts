@@ -6179,7 +6179,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     // en la página en inglés; el título y la descripción ahora responden primero.
     metadataTitle: "Editor de Reels en Fort Lauderdale",
     description:
-      "Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde $100 por video.",
+      `Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Reels / TikTok / Shorts",
     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
     lead:
