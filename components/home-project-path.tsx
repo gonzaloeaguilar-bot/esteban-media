@@ -11,6 +11,7 @@ import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CELEBRATION_FILM_BUNDLES,
+  PRICE_TERMS,
   REAL_ESTATE_DRONE_PHOTO_ADD_ON,
   COMMERCIAL_VIDEO_TIERS,
   CREW_RECORDING_RATES,
@@ -503,7 +504,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: `Producción de celebración con dos personas (desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, hasta 8 horas)` },
           { name: "Película de fiesta en yate", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · medio día`, includes: `Grabación a bordo en Miami o Fort Lauderdale y una película terminada de tu fiesta en yate. Mínimo medio día; el día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) incluye tomas con dron marino con licencia.`, whatsapp: `Película de mi fiesta en yate (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} medio día, desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} día completo con dron)` },
         ],
-        packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
+        packageNote: `${PRICE_TERMS.es} El traslado y cualquier extra se confirman por escrito antes de reservar.`,
         quote: "Cotizar mi celebración",
         guide: "Ver guía de fiestas privadas",
         guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
@@ -521,7 +522,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: `My two-person celebration production (from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, up to 8 hours)` },
           { name: "Yacht party film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · half day`, includes: `On-board filming in Miami or Fort Lauderdale and a finished film of your yacht party. Half-day minimum; a full day (from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) adds licensed marine drone tracking.`, whatsapp: `My yacht party film (from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} half day, from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} full day with drone)` },
         ],
-        packageNote: "Travel and any extras are confirmed in writing before booking.",
+        packageNote: `${PRICE_TERMS.en} Travel and any extras are confirmed in writing before booking.`,
         quote: "Quote my celebration",
         guide: "Read the private-party guide",
         guideHref: "/services/private-party-videographer-south-florida",

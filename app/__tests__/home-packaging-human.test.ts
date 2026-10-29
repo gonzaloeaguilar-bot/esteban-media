@@ -263,7 +263,7 @@ for (const locale of ["en", "es"] as const) {
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
       expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);
-      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$500/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$400/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
       expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");

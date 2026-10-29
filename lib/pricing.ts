@@ -70,7 +70,7 @@ export const PRICING_BANDS: Record<PricingBandId, PricingBand> = {
   // Half-day on-location capture add-on: market $300-1,000, less 10%.
   "on-location": {
     id: "on-location",
-    baseMin: 500,
+    baseMin: 400,
     baseMax: 775,
     marketMin: 300,
     marketMax: 1000,
@@ -300,24 +300,24 @@ export const PRODUCT_PHOTO_SESSION = {
 } as const;
 
 // On-location raw video capture (no editing): market $300-1,000 half-day,
-// starting floor from PRICING_BANDS["on-location"].baseMin ($500 since 2026-10-28).
+// starting floor from PRICING_BANDS["on-location"].baseMin ($400: the accessible recording-only option, owner 2026-10-28).
 export const ON_LOCATION_CAPTURE = {
   from: PRICING_BANDS["on-location"].baseMin,
   unit: "half-day",
-  source: "PRICING_BANDS on-location baseMin ($500 half-day)",
+  source: "PRICING_BANDS on-location baseMin ($400 half-day)",
 } as const;
 
 
 // Filming (on-location recording) hourly floor. Owner fact confirmed 2026-10-18:
-// filming started at $100 per hour (owner fact 2026-10-18); set to $125 with a 4-hour minimum ($500 floor) in the 2026-10-28 market review.
+// filming from $100 per hour with a 4-hour minimum ($400 floor): owner decision 2026-10-28 to keep an accessible recording-only option even though the market review put the pro band at $100–250/h.
 // Copy reads it through filmingHourlyText(); never hard-code the figure.
 export const FILMING_HOURLY = {
-  amount: 125,
+  amount: 100,
   currency: "USD",
   unit: "hour",
   isMinimum: true,
   minimumHours: 4,
-  minimumAmount: 500,
+  minimumAmount: 400,
   source: "owner fact confirmed 2026-10-28: filming from $100 per hour with 4-hour minimum call",
 } as const;
 
@@ -333,13 +333,26 @@ export function filmingHourlyText(locale: "en" | "es"): string {
 // On-site crew, multi-camera, yacht and turnkey catalog (2026-10-18)
 // ---------------------------------------------------------------------------
 
+/**
+ * Owner decision 2026-10-28: every published figure is a STARTING point and
+ * the final quote is always open to conversation. Render this line wherever a
+ * price list ends (pricing page, home route cards, the catalog PDF).
+ */
+export const PRICE_TERMS = {
+  en: "Every price is a starting point: the final quote follows your scope, and we can always talk it through.",
+  es: "Todos los precios son puntos de partida: la cotización final sigue tu alcance y siempre podemos conversarla.",
+} as const;
+export function priceTermsText(locale: "en" | "es"): string {
+  return PRICE_TERMS[locale];
+}
+
 export const CREW_RECORDING_RATES = {
   solo: {
-    hourly: 125,
+    hourly: 100,
     minimumHours: 4,
-    minimumAmount: 500,
-    halfDay: 500,
-    fullDay: 1000,
+    minimumAmount: 400,
+    halfDay: 400,
+    fullDay: 800,
     description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
   },
   twoPerson: {

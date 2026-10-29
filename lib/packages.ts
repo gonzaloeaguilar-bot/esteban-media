@@ -16,6 +16,7 @@ import {
   type PackageId,
   type PackagePrice,
   COMMERCIAL_VIDEO_TIERS,
+  PRICE_TERMS,
 } from "@/lib/pricing";
 
 export type Locale = "en" | "es";
@@ -228,7 +229,7 @@ const COPY: Record<Locale, Copy> = {
         { title: "Confirmo contigo el alcance", body: "Formato, volumen, entregables, ubicación si aplica y plazos." },
         { title: "Recibes tu cotización", body: "Específica para tu proyecto." },
       ],
-      note: "Los precios de esta guía son puntos de partida, no tarifas fijas.",
+      note: `${PRICE_TERMS.es} No son tarifas fijas.`,
     },
     closing: {
       title: "¿Listo para crear algo increíble?",
@@ -284,7 +285,7 @@ const COPY: Record<Locale, Copy> = {
         { title: "I confirm the scope with you", body: "Format, volume, deliverables, location if needed, and timing." },
         { title: "You get your quote", body: "Specific to your project." },
       ],
-      note: "Prices in this guide are starting points, not fixed rates.",
+      note: `${PRICE_TERMS.en} They are not fixed rates.`,
     },
     closing: {
       title: "Ready to make something great?",

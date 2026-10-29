@@ -56,7 +56,7 @@ describe("pricing module bands", () => {
   });
 
   it("keeps the on-location capture add-on at the documented figures", () => {
-    expect(PRICING_BANDS["on-location"].baseMin).toBe(500);
+    expect(PRICING_BANDS["on-location"].baseMin).toBe(400);
     expect(PRICING_BANDS["on-location"].baseMax).toBe(775);
   });
 
