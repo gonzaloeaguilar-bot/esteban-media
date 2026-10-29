@@ -1,15 +1,15 @@
 {
  "/": {
-  "date": "2026-10-16",
-  "hash": "6303ed2f3d96143b"
+  "date": "2026-10-28",
+  "hash": "033b1c568620434f"
  },
  "/about": {
-  "date": "2026-10-23",
-  "hash": "a2f75c79b6ecb156"
+  "date": "2026-10-28",
+  "hash": "0e272001bbc68503"
  },
  "/areas": {
   "date": "2026-10-28",
-  "hash": "4e309e38aad73198"
+  "hash": "d9a1b94177a5e504"
  },
  "/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -85,7 +85,7 @@
  },
  "/contact": {
   "date": "2026-10-28",
-  "hash": "6ba05a6022652528"
+  "hash": "1eca90d6b5a3b83e"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -112,12 +112,12 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-10-16",
-  "hash": "f192963a81eacf6f"
+  "date": "2026-10-28",
+  "hash": "bd26b644c1d5abe6"
  },
  "/es/areas": {
   "date": "2026-10-28",
-  "hash": "d274177e7ad3e368"
+  "hash": "8d6595f338036847"
  },
  "/es/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -313,7 +313,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-10-28",
-  "hash": "4a7a8ce63394bb97"
+  "hash": "0eda4e0a6e96c0ea"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
@@ -344,8 +344,8 @@
   "hash": "04ca052a197b020d"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
-  "date": "2026-10-14",
-  "hash": "52bd867998239d8d"
+  "date": "2026-10-28",
+  "hash": "e1fd9226db7f1aea"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -580,12 +580,16 @@
   "hash": "dc26cfe86e5e5c6b"
  },
  "/es/guias/mejores-estilos-de-subtitulos-para-reels": {
-  "date": "2026-10-22",
-  "hash": "75be6ba2f6979a47"
+  "date": "2026-10-28",
+  "hash": "c00b4700c9bb475a"
  },
  "/es/guias/mejores-practicas-de-edicion-de-video-vertical": {
   "date": "2026-10-07",
   "hash": "43d01a3ac0d8b797"
+ },
+ "/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio": {
+  "date": "2026-10-28",
+  "hash": "b0b23cc5901b7bee"
  },
  "/es/guias/plantilla-brief-rfp-produccion-video-miami": {
   "date": "2026-10-18",
@@ -598,6 +602,10 @@
  "/es/guias/preparar-material-para-edicion-de-video": {
   "date": "2026-10-07",
   "hash": "b97a0891e3c3d5ea"
+ },
+ "/es/guias/que-enviar-a-un-videografo-antes-de-pedir-cotizacion": {
+  "date": "2026-10-28",
+  "hash": "4e622a37d4c25b79"
  },
  "/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales": {
   "date": "2026-10-07",
@@ -920,8 +928,8 @@
   "hash": "1828ba92ae142bb2"
  },
  "/es/sobre-esteban": {
-  "date": "2026-10-14",
-  "hash": "d3b44effddcfaf90"
+  "date": "2026-10-28",
+  "hash": "329b75481a6818a3"
  },
  "/es/temporizador-de-guiones-de-video": {
   "date": "2026-10-14",
@@ -1300,8 +1308,8 @@
   "hash": "b67d4c4fff2c00fb"
  },
  "/guides/best-caption-styles-for-instagram-reels": {
-  "date": "2026-10-23",
-  "hash": "3da2e524f2490cb2"
+  "date": "2026-10-28",
+  "hash": "ee2f2ed3e8fb2a52"
  },
  "/guides/bilingual-video-marketing-strategy-south-florida": {
   "date": "2026-10-07",
@@ -1318,6 +1326,10 @@
  "/guides/customer-testimonial-video-script-template": {
   "date": "2026-10-14",
   "hash": "4fc89cff2d7d1dd6"
+ },
+ "/guides/do-i-need-video-social-media-or-a-website-for-my-small-business": {
+  "date": "2026-10-28",
+  "hash": "646ecf7454f4787d"
  },
  "/guides/drone-video-editing-guidelines-florida": {
   "date": "2026-10-07",
@@ -1475,6 +1487,10 @@
   "date": "2026-10-18",
   "hash": "0abbb5c5657be251"
  },
+ "/guides/what-to-send-a-videographer-before-asking-for-a-quote": {
+  "date": "2026-10-28",
+  "hash": "95ce45df382d6572"
+ },
  "/guides/write-a-useful-video-brief": {
   "date": "2026-10-07",
   "hash": "66752ea49e8b4959"
@@ -1616,8 +1632,8 @@
   "hash": "98f0b8693140e551"
  },
  "/resources/video-project-brief-template": {
-  "date": "2026-10-01",
-  "hash": "f13b633ddbb729ef"
+  "date": "2026-10-28",
+  "hash": "98995f0a945681c5"
  },
  "/services": {
   "date": "2026-10-22",
@@ -2093,7 +2109,7 @@
  },
  "/services/reels-editor-fort-lauderdale": {
   "date": "2026-10-28",
-  "hash": "1a92310802237309"
+  "hash": "9184ab05bbd54a47"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",
@@ -2168,8 +2184,8 @@
   "hash": "ab806b1c19df6744"
  },
  "/services/ugc-video-editor-ecommerce": {
-  "date": "2026-10-27",
-  "hash": "876a905cc87b2ab5"
+  "date": "2026-10-28",
+  "hash": "d0453f6147fac058"
  },
  "/services/vacation-rental-video-marketing-fort-lauderdale": {
   "date": "2026-10-13",

@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 569,
-  "approvedSitemapUrlSetSha256": "e567c2dbacdec150b6f28d171fb4e04f3aaf5e9fbd39f6ff18497e1d5a10f053",
+  "approvedSitemapUrlCount": 573,
+  "approvedSitemapUrlSetSha256": "41e7c4d869f383988e8f7de88bde7b8a025fcbe72557055fa6107d0d2c5a6c9c",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,20 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-10-28",
+      "url": [
+        "/guides/do-i-need-video-social-media-or-a-website-for-my-small-business",
+        "/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio",
+        "/guides/what-to-send-a-videographer-before-asking-for-a-quote",
+        "/es/guias/que-enviar-a-un-videografo-antes-de-pedir-cotizacion"
+      ],
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "bilingual small-business decision and quote-preparation guides",
+      "demandEvidence": "Active-session owner request, 2026-10-28: build the personal creative-advisor angle through answer-first GEO pages for local small-business owners. Fresh public review found local competitors selling bundled content, management, or strategy; Esteban's bounded gap is a bilingual explanation of how to choose the first useful project and what to send before requesting a quote. This is an intent-gap and AI-answer hypothesis, not a claim of keyword volume, low difficulty, ranking, citation, inquiry, or revenue.",
+      "followUpDate": "2026-11-25",
+      "followUp": "Compare Search Console query and page impressions for all four routes, repeat the fixed EN/ES AI-answer prompts, and read attributable qualified inquiries. Keep, revise, consolidate, or noindex from that evidence; publication alone is not a win."
+    },
     {
       "on": "2026-10-28",
       "url": [

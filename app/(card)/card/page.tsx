@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowUpRight,
   Download,
+  Heart,
   MapPinned,
   MessageCircle,
   Phone,
   Play,
+  Send,
   Star,
 } from "lucide-react";
 
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
+
+import "./card.css";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -31,6 +34,8 @@ const actions = [
     detail: "Cuéntame qué necesitas grabar o editar",
     icon: MessageCircle,
     cta: "nfc_card_whatsapp",
+    eyebrow: "Responde Esteban",
+    visual: "whatsapp",
     primary: true,
     external: true,
   },
@@ -40,6 +45,8 @@ const actions = [
     detail: "Habla directamente con Esteban",
     icon: Phone,
     cta: "nfc_card_call",
+    eyebrow: "Llamada directa",
+    visual: "call",
     primary: false,
     external: false,
   },
@@ -49,6 +56,8 @@ const actions = [
     detail: "Mira videos y proyectos de Esteban",
     icon: Play,
     cta: "nfc_card_portfolio",
+    eyebrow: "Portafolio",
+    visual: "play",
     primary: false,
     external: false,
     internal: true,
@@ -59,6 +68,8 @@ const actions = [
     detail: "Ver el perfil de Esteban Moreno Media",
     icon: MapPinned,
     cta: "nfc_card_maps",
+    eyebrow: "Google Maps",
+    visual: "maps",
     primary: false,
     external: true,
   },
@@ -68,6 +79,8 @@ const actions = [
     detail: "En Google Maps, toca Reseñas y después Escribir una reseña",
     icon: Star,
     cta: "nfc_card_google_review",
+    eyebrow: "Reseñas",
+    visual: "review",
     primary: false,
     external: true,
   },
@@ -77,6 +90,8 @@ const actions = [
     detail: "Agrega a Esteban Moreno Media a tu teléfono",
     icon: Download,
     cta: "nfc_card_save_contact",
+    eyebrow: "Contacto",
+    visual: "save",
     primary: false,
     external: false,
     download: true,
@@ -85,7 +100,7 @@ const actions = [
 
 export default function NfcContactCardPage() {
   return (
-    <main className="min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
+    <main className="em-nfc min-h-dvh bg-[#f6f1ea] px-4 py-5 text-[#101214] sm:px-6 sm:py-10">
       <div className="mx-auto max-w-xl">
         <header className="border-b border-[#d6ccc0] pb-6 sm:pb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f3c27]">Esteban Moreno Media</p>
@@ -99,22 +114,70 @@ export default function NfcContactCardPage() {
 
         <section className="pt-5" aria-label="Formas de contactar a Esteban">
           <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
-          <div className="mt-3 grid gap-3">
-            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, ...action }) => {
-              const className = `group flex min-h-[84px] items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27] ${
-                primary
-                  ? "border-[#c84a2c] bg-[#c84a2c] text-white hover:bg-[#a93e29]"
-                  : "border-[#d6ccc0] bg-[#fffaf4] hover:border-[#9f3c27]"
-              }`;
+          <div className="em-route-list mt-3">
+            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, eyebrow, visual, ...action }) => {
+              const className = `em-route-card em-route-card--scene em-route-card--${visual}${primary ? " em-route-card--primary" : ""}`;
+              const stars = <span className="em-stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span>;
+              const scene =
+                visual === "whatsapp" ? (
+                  <span className="em-scene em-scene--wa">
+                    <span className="em-wa__head"><i>EM</i><span><span className="em-scene__t">Esteban Moreno Media</span><span className="em-scene__s">en línea</span></span></span>
+                    <span className="em-wa__body">
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--1">Hola Esteban, escaneé tu tarjeta<small>9:41</small></span>
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--2">Quiero un video para mi negocio<small>9:41</small></span>
+                      <span className="em-wa__typing"><i /><i /><i /></span>
+                      <span className="em-wa__msg em-wa__msg--out em-wa__msg--3">Claro, cuéntame qué necesitas grabar<small>9:42 ✓✓</small></span>
+                    </span>
+                  </span>
+                ) : visual === "call" ? (
+                  <span className="em-scene em-scene--call">
+                    <span className="em-call__rings"><i /><i /><i /></span>
+                    <span className="em-call__avatar">EM</span>
+                    <span className="em-call__name">Esteban Moreno Media</span>
+                    <span className="em-call__state">Llamada entrante<b>.</b><b>.</b><b>.</b></span>
+                    <span className="em-call__buttons"><span className="em-call__btn em-call__btn--no"><Phone /></span><span className="em-call__btn em-call__btn--yes"><Phone /></span></span>
+                  </span>
+                ) : visual === "play" ? (
+                  <span className="em-scene em-scene--reel">
+                    <span className="em-reel__bars"><i /><i /><i /></span>
+                    <span className="em-reel__frame"><span className="em-reel__play"><Play fill="currentColor" /></span></span>
+                    <span className="em-reel__rail"><span className="em-reel__like"><Heart fill="currentColor" /><small>1.2K</small></span><span><MessageCircle /><small>86</small></span><span><Send /><small>312</small></span></span>
+                    <span className="em-reel__handle">@estebanmorenomedia</span>
+                  </span>
+                ) : visual === "maps" ? (
+                  <span className="em-scene em-scene--maps">
+                    <span className="em-maps__map"><i /><i /><i /><i /><u /></span>
+                    <span className="em-maps__pin"><i /><u /></span>
+                    <span className="em-maps__sheet">
+                      <span className="em-maps__title">Esteban Moreno Media</span>
+                      <span className="em-maps__meta"><span className="em-scene__t">5.0</span>{stars}<span className="em-scene__s">Fort Lauderdale, FL</span></span>
+                      <span className="em-maps__actions"><span className="em-maps__btn em-maps__btn--go">Cómo llegar</span><span className="em-maps__btn">Llamar</span></span>
+                    </span>
+                  </span>
+                ) : visual === "review" ? (
+                  <span className="em-scene em-scene--review">
+                    <span className="em-review__head"><i>G</i><span><span className="em-scene__t">Esteban Moreno Media</span><span className="em-scene__s">Reseñas de Google</span></span></span>
+                    <span className="em-review__rate"><span className="em-scene__t">5.0</span>{stars}</span>
+                    <span className="em-review__dist"><i /><i /><i /><i /><i /></span>
+                    <span className="em-review__text">Excelente trabajo, el video quedó clarísimo</span>
+                    <span className="em-review__btn">Escribir una reseña</span>
+                  </span>
+                ) : (
+                  <span className="em-scene em-scene--save">
+                    <span className="em-save__avatar">EM<b /></span>
+                    <span className="em-save__name">Esteban Moreno Media</span>
+                    <span className="em-save__row"><Phone />{site.phone.display}</span>
+                    <span className="em-save__row"><Download />{site.email}</span>
+                    <span className="em-save__btn">Agregar a contactos</span>
+                  </span>
+                );
               const content = <>
-                <span className={`grid size-11 shrink-0 place-items-center rounded-full ${primary ? "bg-white/15" : "bg-[#f2e6db] text-[#9f3c27]"}`}>
-                  <Icon className="size-5" aria-hidden="true" />
+                <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">{scene}</span>
+                <span className="em-route-card__copy">
+                  <span className="em-route-card__eyebrow">{eyebrow}</span>
+                  <strong>{label}</strong>
+                  <span>{detail}</span>
                 </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-base font-semibold leading-5">{label}</span>
-                  <span className={`mt-1 block text-sm leading-5 ${primary ? "text-white/85" : "text-[#5a6066]"}`}>{detail}</span>
-                </span>
-                {external ? <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" /> : null}
               </>;
 
               if ("internal" in action) {
