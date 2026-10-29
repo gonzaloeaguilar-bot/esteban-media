@@ -6175,9 +6175,11 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-fort-lauderdale",
     title: "Editor de Reels en Fort Lauderdale",
-    metadataTitle: "Editor de Reels Fort Lauderdale",
+    // 2026-10-28: la consulta "editor de reels fort lauderdale" (15 impr) aterriza
+    // en la página en inglés; el título y la descripción ahora responden primero.
+    metadataTitle: "Editor de Reels en Fort Lauderdale | Edición de Reels para negocios",
     description:
-      "Edición de Reels, TikTok y videos cortos para negocios de Fort Lauderdale que ya tienen material o necesitan ordenar una idea.",
+      "Editor de Reels en Fort Lauderdale para negocios que ya tienen clips: Reels, TikTok y videos cortos con subtítulos legibles y una sola acción. Edición remota desde $100 por video.",
     eyebrow: "Reels / TikTok / Shorts",
     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
     lead:
