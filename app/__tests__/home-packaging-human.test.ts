@@ -58,15 +58,17 @@ for (const locale of ["en", "es"] as const) {
       const celebrationStart = path.indexOf('data-route="private-celebrations"');
       const celebrations = path.slice(celebrationStart);
       expect(celebrationStart).toBeGreaterThan(-1);
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
-      expect(celebrations).toContain('yacht-party-miami-boat-cover.jpg');
-      expect(celebrations).toContain('yacht-party-miami-boat-loop.mp4');
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).not.toContain("em-private-celebrations__packages");
+      expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
+      expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
       expect(celebrations).toContain('autoPlay');
       expect(celebrations).toContain('playsInline');
-      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-boat-cover.jpg"');
+      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-skyline-poster.jpg"');
       expect(celebrations).toContain('disableRemotePlayback');
       expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
       expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');
@@ -78,8 +80,10 @@ for (const locale of ["en", "es"] as const) {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
       expect(component).toContain("lg:max-w-6xl");
-      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
-      expect(css).toContain(".em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}");
+      // An open card expands in place, in its own column; it never jumps to a full-width row below its sibling.
+      expect(css).not.toContain(".em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain(".em-route-card .em-path-offers,.em-route-card .em-single-list{grid-template-columns:minmax(0,1fr)}");
       expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
@@ -151,7 +155,8 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:218px");
       expect(css).toContain(".em-camera-chooser__camera{position:absolute;inset:0;pointer-events:none}");
       expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:55px;left:25px;width:132px;height:132px");
-      expect(css).toContain("feTurbulence type='fractalNoise'");
+      expect(css).toContain('/illustrations/camera-leatherette-tile.png');
+      expect(css).toContain("background-size:auto,100% 22%,100% 22%,auto,128px 128px");
       expect(css).toContain(".em-camera-chooser__dial{position:absolute;top:25px;right:88px;display:block");
       expect(css).toContain(".em-camera-chooser__grip{position:absolute;right:-3px;bottom:20px;display:block");
       expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:248px");
@@ -237,11 +242,14 @@ for (const locale of ["en", "es"] as const) {
       const celebrations = path.slice(celebrationsStart);
       expect(celebrationsStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
       expect(celebrations).toContain("https://wa.me/");
       expect(celebrations).toContain("home_private_celebrations_whatsapp");
-      expect(celebrations).toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).not.toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).toContain(locale === "es" ? "Película de tu celebración" : "Your celebration film");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200" : "from $1,200");
     });
 
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {

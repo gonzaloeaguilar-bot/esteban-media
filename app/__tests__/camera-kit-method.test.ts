@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 const component = readFileSync(join(process.cwd(), "components/camera-kit-method.tsx"), "utf8");
 const englishHome = readFileSync(join(process.cwd(), "app/(english)/page.tsx"), "utf8");
 const spanishHome = readFileSync(join(process.cwd(), "app/(spanish)/es/page.tsx"), "utf8");
+const unboxing = readFileSync(join(process.cwd(), "components/camera-kit-unboxing.tsx"), "utf8");
 const styles = readFileSync(join(process.cwd(), "app/illustrated-commercial.css"), "utf8");
 
 describe("homepage camera kit and method", () => {
@@ -15,6 +16,21 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain("33 MP full-frame sensor · 4K 60p recording");
     expect(component).toContain("18 MP APS-C sensor · Full HD 1080 recording");
     expect(component).not.toContain("24h Cloud Delivery");
+  });
+
+  it("keeps complete published body specifications and the supplied Amazon affiliate links inside each native disclosure", () => {
+    expect(component).toContain('className="em-camera-kit__specs"');
+    expect(component).toContain("BIONZ XR");
+    expect(component).toContain("759 phase-detection points");
+    expect(component).toContain("CFexpress Type A");
+    expect(component).toContain("DIGIC 5");
+    expect(component).toContain("9 cross-type AF points");
+    expect(component).toContain("B00BW6LW7G");
+    expect(component).toContain("B0BN5GH5ZV");
+    expect(component).toContain('rel="noopener noreferrer sponsored"');
+    expect(component).toContain('data-cta={`camera_kit_sony_amazon_${locale}`}');
+    expect(component).toContain('data-cta={`camera_kit_canon_amazon_${locale}`}');
+    expect(component).toContain("As an Amazon Associate, Esteban Moreno Media earns from qualifying purchases.");
   });
 
   it("uses visible, model-specific native disclosures and a visible three-step method", () => {
@@ -30,25 +46,40 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
     expect(component).toContain('className="em-camera-kit__accessories-image"');
-    expect(component).toContain('className="em-camera-kit__unboxing-preview"');
-    expect(component).toContain('<details className="em-camera-kit__unboxing">');
-    expect(component).toContain('/portfolio/sony-a7iv-unboxing.png');
-    expect(component).toContain('/portfolio/sony-a7iv-unboxing.mp4');
-    expect(component).toContain('className="em-camera-kit__unboxing-video"');
-    expect(component).toContain('controls');
-    expect(component).toContain('Play the unboxing');
-    expect(component).toContain('Reproducir el unboxing');
-    expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
+    expect(component).toContain('<CameraKitUnboxing');
+    expect(component).not.toContain('<details className="em-camera-kit__unboxing">');
+    expect(component).not.toContain('em-camera-kit__unboxing-play');
+    expect(unboxing).toContain('/portfolio/sony-a7iv-unboxing.png');
+    expect(unboxing).toContain('/portfolio/sony-a7iv-unboxing.mp4');
+    expect(unboxing).toContain('className="em-camera-kit__unboxing-video"');
+    expect(unboxing).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
+    expect(component).toContain('"Sound on"');
+    expect(component).toContain('"Activar sonido"');
+    expect(component).not.toContain('Play the unboxing');
+    expect(component).not.toContain('Reproducir el unboxing');
     expect(component).not.toContain('/about/esteban-on-set.jpg');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });
 
-  it("keeps the unboxing player inside the disclosure without autoplaying it", () => {
-    expect(styles).toContain('.em-camera-kit__unboxing-video{display:block');
-    expect(component).toContain('playsInline');
-    expect(component).not.toContain('className="em-camera-kit__unboxing-video"\n            controls\n            autoPlay');
+  it("shows the whole unboxing clip inline, already playing, with no disclosure to open", () => {
+    expect(unboxing).toContain('"use client"');
+    expect(unboxing).toContain('autoPlay={!reducedMotion}');
+    expect(unboxing).toContain('loop');
+    expect(unboxing).toContain('muted');
+    expect(unboxing).toContain('playsInline');
+    expect(unboxing).toContain('controls={reducedMotion}');
+    expect(unboxing).toContain('prefers-reduced-motion: reduce');
+    expect(unboxing).toContain('video.addEventListener("loadeddata", startVideo)');
+    expect(unboxing).toContain('video.addEventListener("canplay", startVideo)');
+    expect(unboxing).not.toContain('<details');
+    expect(unboxing).not.toContain('<summary');
+    expect(styles).toContain('.em-camera-kit__unboxing-stage{display:grid;grid-template-rows:minmax(0,1fr);place-items:center;min-width:0;height:min(70svh,560px);padding:12px;background:#17191a}');
+    expect(styles).toContain('.em-camera-kit__unboxing-video{display:block;width:auto;height:100%;min-height:0;max-height:100%;max-width:100%;aspect-ratio:9/16;border-radius:10px;background:#17191a;object-fit:contain}');
+    expect(styles).toContain('.em-camera-kit__unboxing{grid-template-columns:minmax(280px,38%) minmax(0,1fr)}');
+    expect(styles).not.toContain('.em-camera-kit__unboxing summary');
+    expect(styles).not.toContain('.em-camera-kit__unboxing-play{');
   });
 
   it("shows the owner-provided accessory product preview without turning it into a buy link", () => {

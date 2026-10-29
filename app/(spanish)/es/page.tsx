@@ -7,6 +7,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeProjectPath } from "@/components/home-project-path";
+import { PersonalCraftExperience } from "@/components/personal-craft-experience";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -52,6 +53,7 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
+      <PersonalCraftExperience locale="es" />
       <HomeProjectPath locale="es" />
       {/* La prueba y el contacto van JUNTOS justo en la decisión, no una
           mención breve antes del selector y una repetición completa tres

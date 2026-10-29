@@ -159,6 +159,11 @@ export function SiteFooterClient(props: FooterProps) {
           <p className="mt-5 max-w-sm text-sm leading-6 text-[#c9c1b8]">
             {isSpanish ? props.spanishDescription : props.description}
           </p>
+          <p className="mt-3 max-w-sm text-sm leading-6 text-[#f6f1ea]" data-section="footer-personal-partner">
+            {isSpanish
+              ? "Cuando escribes, hablas directamente con Esteban para decidir qué necesita tu proyecto."
+              : "When you write, you speak directly with Esteban to decide what your project needs."}
+          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={`mailto:${props.email}`}
