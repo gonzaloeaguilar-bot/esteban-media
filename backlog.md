@@ -48,6 +48,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-28: build deterministic draft-only GEO execution selector, source-bound brief contract, focused coverage, and a `fleet-slot.sh` launchd template. Local validation passed; it is not installed or production-active. Independent review and governed fleet installation remain required.
+
 - [ ] 2026-10-28: merge and production-verify homepage reel player repair in PR #591. The visible Great Reviewer card must mount the one muted looping YouTube player at phone width, show no simulated scrubber or second orange play control, and preserve the card’s details action. Record the canonical production URL and 390px rendered result before closing.
 
 - [ ] 2026-10-28: release `feat/commercial-geo-guides-20261028` only after a fresh governed independent review, complete build receipt, valid PR checks, and canonical mobile/desktop production verification. Re-measure the three exact GSC query×page cohorts after 28 days; no rank, citation, inquiry, or revenue result is assumed.

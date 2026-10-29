@@ -5,6 +5,12 @@
 - Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
 
 ---
+# 2026-10-28 — GEO daily execution selector (local, ready for review)
+
+- Added the deterministic draft-only selector at `scripts/esteban-geo-execution-queue.mjs`, its 5-test suite, a zero-cost daily `fleet-slot.sh` launchd template, and the governed executor contract in `docs/geo-execution-queue.md`.
+- Live-ledger acceptance selected `esteban:es:editor-de-reels-fort-lauderdale` for `/es/editor-de-reels-fort-lauderdale`; the selector records this as `eligible`, explicitly not as a successful executor dispatch. A cluster is suppressed for 28 days only after a valid executor-owned `dispatched` receipt. Citation and outcome evidence remain source-bound; no outcome is inferred.
+- Local checks: focused Vitest 5/5, full `pnpm test` completed with no failures, `node --check`, `plutil -lint launchd/com.esteban-media.geo-execution-selector.plist`, and `git diff --check` passed. This is local only: no launch agent was installed, site was not edited, and no production change or business outcome is claimed.
+- Next: `cto-qa-lead` independently reviews the selector/state contract. After governed release, install the template through the normal fleet process and verify a selector receipt before any executor consumes a brief.
 
 # 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
 
