@@ -20,7 +20,7 @@ describe("US-Spanish money pages & contextual linking", () => {
     if (!ftl || !miami) return;
 
     // Title / metadataTitle
-    expect(ftl.metadataTitle).toBe("Editor de Reels en Fort Lauderdale | Edición de Reels para negocios");
+    expect(ftl.metadataTitle).toBe("Editor de Reels en Fort Lauderdale");
     expect(ftl.description).toContain("Edición");
     expect(ftl.description).toContain("videos cortos");
     expect(ftl.lead).toContain("página");

@@ -161,9 +161,9 @@ export const metadata = buildPageMetadata({
   // 2026-10-28: GSC Aug-Oct shows "reel editor fort lauderdale" (11 impr, pos 9.1)
   // and "editor de reels fort lauderdale" (15 impr, pos 11.5) with 0 clicks on
   // this page; the title did not say "reel editor" and the snippet answered nothing.
-  title: "Reel Editor in Fort Lauderdale | Reels Editing for Local Businesses",
+  title: "Reel Editor in Fort Lauderdale",
   description:
-    "Fort Lauderdale reel editor for businesses with clips already filmed: Instagram Reels, TikTok and Shorts with readable captions and one clear action. Remote editing from $100 a video.",
+    "Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From $100 a video.",
   path: content.path,
   locale: "en",
 });
