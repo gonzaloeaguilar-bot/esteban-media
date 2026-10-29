@@ -1,11 +1,11 @@
 {
  "/": {
-  "date": "2026-10-28",
-  "hash": "033b1c568620434f"
+  "date": "2026-10-29",
+  "hash": "9033bbcca1ce9fa6"
  },
  "/about": {
-  "date": "2026-10-28",
-  "hash": "0e272001bbc68503"
+  "date": "2026-10-29",
+  "hash": "0739469e8178b284"
  },
  "/areas": {
   "date": "2026-10-28",
@@ -112,8 +112,8 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-10-28",
-  "hash": "bd26b644c1d5abe6"
+  "date": "2026-10-29",
+  "hash": "d5a000e39a9d50fe"
  },
  "/es/areas": {
   "date": "2026-10-28",
@@ -808,8 +808,8 @@
   "hash": "2f0c94ff1fd3c57b"
  },
  "/es/precios": {
-  "date": "2026-10-14",
-  "hash": "d03a2bac5dcaa68a"
+  "date": "2026-10-29",
+  "hash": "f11dd1f2d6cc75e8"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -1592,8 +1592,8 @@
   "hash": "6846745c85c7096e"
  },
  "/pricing": {
-  "date": "2026-10-14",
-  "hash": "726ee4688b247fbc"
+  "date": "2026-10-29",
+  "hash": "d7722c3f281129a6"
  },
  "/pricing/all-in": {
   "date": "2026-09-29",

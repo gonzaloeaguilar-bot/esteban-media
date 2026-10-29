@@ -74,6 +74,7 @@ export default function Home() {
           reviews are the convincing, so they belong where the choice is
           made, once. */}
       <ClientReviews locale="en" compact />
+      <CameraKitMethod locale="en" />
       {/* One contact moment, not two near-duplicates (owner, 2026-10-13,
           looking at the live page: "these 2 sections are basically the
           same"). ContactCta now carries HomeContactStrip's calm, guided
@@ -82,7 +83,6 @@ export default function Home() {
           native <details>. ClosingCredits below stays as the quiet closing
           tap. */}
       <ContactCta locale="en" />
-      <CameraKitMethod locale="en" />
       <KeepReading id="more" className="em-fold" title="Package add-ons, answers and background" destinations="Optional services, common questions and more about Esteban.">
         {/* showGuide=false: the four packages and their prices already sit
             at the chooser's PriceSheet. This keeps the à la carte add-ons,
