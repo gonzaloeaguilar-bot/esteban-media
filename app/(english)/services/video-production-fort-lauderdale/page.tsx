@@ -1,7 +1,7 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { priceSentence } from "@/lib/packages";
-import { filmingHourlyText, shortFormPriceText } from "@/lib/pricing";
+import { SHORT_FORM, filmingHourlyText, shortFormPriceText, usd } from "@/lib/pricing";
 
 const content: GeoServicePageContent = {
   path: "/services/video-production-fort-lauderdale",
@@ -118,9 +118,11 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Video Production Company Fort Lauderdale | Business Video",
+  // 2026-10-29 GSC review: 10 impressions pos 14.0, 0 clicks; plus "remote video production
+  // company fort lauderdale" (3 imp @9.3). Title and description answer first with starting price.
+  title: "Video Production Company Fort Lauderdale",
   description:
-    "Fort Lauderdale video production company for business videos, Reels, website clips, hospitality, real estate, and remote post-production.",
+    `Fort Lauderdale video production company for business videos, website clips, and remote post-production from ${usd(SHORT_FORM.perVideoFrom)}. Scoped filming and editing in Broward.`,
   path: content.path,
   locale: "en",
 });

@@ -1,0 +1,48 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-659",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave (2026-10-29): targeting GSC impressions at position 6-15 lacking click-worthy intent. Query 'video production fort lauderdale' and page /services/video-production-fort-lauderdale sit at 10 impressions, pos 14.0, 0 clicks, plus 'remote video production company fort lauderdale' 3 impr pos 9.3. Rewrote EN and ES titles and descriptions to answer first, target intent, and cite starting price from lib/pricing.ts ($100 remote editing).",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-ftl, branch feat/demand-wave-video-production-ftl, move class title_meta_rewrite. CTO dispatch charter demand-wave-esteban-charter.md.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone-pilot claims, no aggregateRating. EN/ES parity strictly maintained. No new indexable URLs added, 0 sitemap count drift. Titles 38-40 chars, descriptions 152-153 chars. All gates pass.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test, git diff --check, pnpm lastmod:update. New regression test app/__tests__/video-production-ftl-metadata.test.ts verifies metadata limits and required phrasing.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move in isolated worktree off origin/main; verified lint, typecheck, tests, and page lastmod ledger."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic pass: zero banned claims, exact character budget compliance (titles 38-40, descriptions 152-153), zero inventory drift, lastmod ledger properly updated."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy adheres to answer-first dual-audience principles, highlights local Broward base with clear remote editing starting price ($100) and scoped on-location production."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement between passes. Snippets accurately represent verified pricing and service boundaries.",
+    "winner_rationale": "Move class 3 / 1 priority: Fort Lauderdale video production page earns 10 impressions at position 14.0 (and 3 impressions at 9.3 for remote production) with 0 clicks. Aligning title and snippet with answer-first value and explicit starting pricing captures high-intent local commercial traffic at zero incremental URL cost.",
+    "tests_or_validation": "pnpm lint, pnpm typecheck, pnpm test (all 189 test files / 3790 tests pass), pnpm lastmod:update clean, git diff --check clean.",
+    "debt_delta": "Net negative debt: introduces regression test app/__tests__/video-production-ftl-metadata.test.ts; preserves existing inventory and schema invariants without introducing new dependencies.",
+    "obsidian_handoff": "wiki/esteban-media-hot.md to be updated with PR link, move class (title_meta_rewrite), and follow-up GSC review dates (2026-11-12, 2026-11-26)."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move in isolated worktree off origin/main; verified lint, typecheck, tests, and page lastmod ledger."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic pass: zero banned claims, exact character budget compliance (titles 38-40, descriptions 152-153), zero inventory drift, lastmod ledger properly updated."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy adheres to answer-first dual-audience principles, highlights local Broward base with clear remote editing starting price ($100) and scoped on-location production."
+    }
+  },
+  "winner_rationale": "Move class 3 / 1 priority: Fort Lauderdale video production page earns 10 impressions at position 14.0 (and 3 impressions at 9.3 for remote production) with 0 clicks. Aligning title and snippet with answer-first value and explicit starting pricing captures high-intent local commercial traffic at zero incremental URL cost.",
+  "reviewer_disagreement_reviewed": "No disagreement between passes. Snippets accurately represent verified pricing and service boundaries.",
+  "tests_or_validation": "pnpm lint, pnpm typecheck, pnpm test (all 189 test files / 3790 tests pass), pnpm lastmod:update clean, git diff --check clean."
+}
