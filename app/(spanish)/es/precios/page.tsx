@@ -120,8 +120,8 @@ export default function SpanishPricingPage() {
         </Container>
       </section>
 
-      <PricingAnswer locale="es" />
       <PackagesSection locale="es" />
+      <PricingAnswer locale="es" />
       <ClosingCredits locale="es" />
     </main>
   );
