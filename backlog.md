@@ -12,6 +12,9 @@
 - [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
 
 - [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
+## 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth:2026-10-24:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/contact`: embed verified Google reviews (`ClientReviews`), linking brand searchers ("esteban moreno media" -> `/contact`) to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (168 files / 3,492 tests), and `priority-growth-project-verify.sh`.
 
 ## 2026-10-23 — Local GBP conversion proof on About page
 

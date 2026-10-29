@@ -125,6 +125,11 @@ Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existin
 
 - PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
 - Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+# 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth candidate)
+
+- Source scope: `app/(english)/contact/page.tsx`, `app/__tests__/contact-conversion-proof.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/contact`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/contact` beneath the main brief section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (168 test files / 3,492 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/contact` on production.
 
 ---
 
