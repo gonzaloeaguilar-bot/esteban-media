@@ -6082,9 +6082,12 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "produccion-de-video-fort-lauderdale",
     title: "Producción de video en Fort Lauderdale",
-    metadataTitle: "Producción de Video Fort Lauderdale",
+    // 2026-10-29 GSC review: 10 impr pos 14.0 en la versión EN y consultas como
+    // "editor de video fort lauderdale" / "produccion de video fort lauderdale" con 0 clics.
+    // Título y descripción responden primero con precio base y atención en español.
+    metadataTitle: "Producción de Video en Fort Lauderdale",
     description:
-      "Producción y edición de video para negocios de Fort Lauderdale y Broward, con atención en español y alcance definido por proyecto.",
+      "Producción y edición de video en Fort Lauderdale para negocios de Broward. Edición remota desde $100 y grabación local cotizada por proyecto en español.",
     eyebrow: "Fort Lauderdale / Broward",
     h1: "Producción de video en Fort Lauderdale para negocios que necesitan explicar su oferta.",
     lead:
