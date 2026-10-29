@@ -11,6 +11,8 @@ import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CELEBRATION_FILM_BUNDLES,
+  CHATBOT_PRICE,
+  LANDING_PAGE_PRICE,
   PRICE_TERMS,
   REAL_ESTATE_DRONE_PHOTO_ADD_ON,
   COMMERCIAL_VIDEO_TIERS,
@@ -206,35 +208,35 @@ const routeVisuals: Record<RouteId, string> = {
   "web-commerce": "/portfolio/gains-from-geebs-scroll-current.png",
 };
 
-const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string }>>> = {
+const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string; price: string }>>> = {
   "ai-agents": {
     en: [
-      { title: "AI chatbots", detail: "Answer common questions and capture the right next step." },
-      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow." },
+      { title: "AI chatbots", detail: "Answer common questions, qualify leads, and guide the next step.", price: `From ${usd(CHATBOT_PRICE.from)} setup` },
+      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow.", price: "Quoted per project" },
     ],
     es: [
-      { title: "Chatbots con IA", detail: "Responde preguntas comunes y captura el siguiente paso correcto." },
-      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas." },
+      { title: "Chatbots con IA", detail: "Responde preguntas comunes, califica prospectos y guía siguientes pasos.", price: `Desde ${usd(CHATBOT_PRICE.from)} setup` },
+      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas.", price: "Cotización por proyecto" },
     ],
   },
   "seo-landing": {
     en: [
-      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers." },
-      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious." },
+      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious.", price: `From ${usd(LANDING_PAGE_PRICE.from)}` },
+      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers.", price: "Quoted per project" },
     ],
     es: [
-      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA." },
-      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro." },
+      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro.", price: `Desde ${usd(LANDING_PAGE_PRICE.from)}` },
+      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA.", price: "Cotización por proyecto" },
     ],
   },
   "web-commerce": {
     en: [
-      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch." },
-      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells." },
+      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch.", price: "Quoted per project" },
+      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells.", price: "Quoted per project" },
     ],
     es: [
-      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar." },
-      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende." },
+      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar.", price: "Cotización por proyecto" },
+      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende.", price: "Cotización por proyecto" },
     ],
   },
 };
@@ -593,7 +595,25 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
+                  {route.id in digitalRouteLinks && (
+                    <>
+                      <p className="em-route-card__label">{locale === "es" ? "Servicios disponibles" : "Available services"}</p>
+                      <ul className="em-digital-route-links" role="list" data-specialty={route.id}>
+                        {digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => (
+                          <li key={item.title} data-service-option={index}>
+                            <button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, item.price)}>
+                              <div className="flex flex-col gap-1">
+                                <strong className="em-path-offer-name">{item.title}</strong>
+                                <span className="em-digital-price">{item.price}</span>
+                                <span className="em-path-offer-inc">{item.detail}</span>
+                              </div>
+                              <ArrowRight size={16} aria-hidden="true" />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
@@ -622,14 +642,30 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><p className="em-route-card__label mt-5">{creatorFilm.label}</p><ul className="em-path-offers grid grid-cols-1 gap-2.5" role="list" data-lane="creator-filming"><li className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-creator-filming-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{creatorFilm.title}</strong><span className="em-path-offer-price">{`${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`}</span></p><p className="em-path-offer-inc">{creatorFilm.lead}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual("grabacion", locale).preparation}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${creatorFilm.title}`, `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`)}>{creatorFilm.action}<ArrowRight size={15} /></button></div></details></li></ul><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
-                  {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
+                  {route.id !== "editing" && (
+                    <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
+                  )}
+                  <button
+                    type="button"
+                    className="em-route-collapse-btn"
+                    onClick={(e) => {
+                      const card = e.currentTarget.closest<HTMLDetailsElement>("details.em-route-card");
+                      if (card) {
+                        card.open = false;
+                        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                      }
+                    }}
+                  >
+                    <ChevronDown className="size-4 rotate-180" aria-hidden="true" />
+                    {locale === "es" ? "Ver todas las opciones" : "View all project types"}
+                  </button>
                 </div>
               </details>
             );
           })}
           <details className="em-route-card" data-route="private-celebrations" name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
             <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
-              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
+              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.lead}</span><span className="em-route-card__price-badge">{privateCelebrations.price}</span></span>
               <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
                 <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-skyline-cover.jpg" alt={locale === "es" ? "Vista nocturna del skyline de Miami desde la cubierta de un yate" : "Miami skyline at night seen from a yacht deck"} fill sizes="(max-width: 639px) 640px, 1200px" priority />
                 <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-skyline-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-skyline-poster.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
@@ -643,6 +679,20 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               </ul>
               <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
               <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
+              <button
+                type="button"
+                className="em-route-collapse-btn"
+                onClick={(e) => {
+                  const card = e.currentTarget.closest<HTMLDetailsElement>("details.em-route-card");
+                  if (card) {
+                    card.open = false;
+                    card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  }
+                }}
+              >
+                <ChevronDown className="size-4 rotate-180" aria-hidden="true" />
+                {locale === "es" ? "Ver todas las opciones" : "View all project types"}
+              </button>
             </div>
           </details>
         </div>
