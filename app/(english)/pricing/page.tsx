@@ -119,8 +119,8 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <PricingAnswer locale="en" />
       <PackagesSection locale="en" />
+      <PricingAnswer locale="en" />
       <ClosingCredits locale="en" />
     </main>
   );
