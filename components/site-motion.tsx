@@ -89,20 +89,31 @@ export function SiteMotion() {
     for (const el of targets) el.classList.add("rail-reveal");
 
     let observer: IntersectionObserver | undefined;
+    let tallObserver: IntersectionObserver | undefined;
     if ("IntersectionObserver" in window) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (!entry.isIntersecting) continue;
-            entry.target.classList.add("is-in");
-            observer?.unobserve(entry.target);
-          }
-        },
-        // A little before the edge, so a block is already arriving rather than
-        // visibly popping once it is fully on screen.
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
-      );
-      for (const el of targets) observer.observe(el);
+      const onEnter = (entries: IntersectionObserverEntry[], io: IntersectionObserver) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      };
+      // A little before the edge, so a block is already arriving rather than
+      // visibly popping once it is fully on screen.
+      observer = new IntersectionObserver(onEnter, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
+      /**
+       * A 5% threshold is impossible for a block taller than ~17 viewports:
+       * 5% of it is more than the viewport can show, so `isIntersecting`
+       * never fires and the block stays at opacity 0 forever. Measured on
+       * production 2026-10-29: /es/portafolio's grid section was 16,708px
+       * tall on a 390x844 phone and everything below the featured project
+       * was blank. Any target taller than the viewport is observed at the
+       * first visible pixel instead; its own children keep the staged feel.
+       */
+      tallObserver = new IntersectionObserver(onEnter, { rootMargin: "0px 0px -12% 0px", threshold: 0 });
+      for (const el of targets) {
+        (el.getBoundingClientRect().height > window.innerHeight ? tallObserver : observer).observe(el);
+      }
     } else {
       // No observer: show everything rather than hide it.
       for (const el of targets) el.classList.add("is-in");
@@ -110,6 +121,7 @@ export function SiteMotion() {
 
     return () => {
       observer?.disconnect();
+      tallObserver?.disconnect();
     };
   }, []);
 
