@@ -42,6 +42,11 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Owner-requested bilingual personal-creative-advisor guides (2026-10-28).
+  "https://estebanmorenomedia.com/guides/do-i-need-video-social-media-or-a-website-for-my-small-business",
+  "https://estebanmorenomedia.com/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio",
+  "https://estebanmorenomedia.com/guides/what-to-send-a-videographer-before-asking-for-a-quote",
+  "https://estebanmorenomedia.com/es/guias/que-enviar-a-un-videografo-antes-de-pedir-cotizacion",
   // Owner-requested bilingual private-celebration answer (2026-10-28).
   "https://estebanmorenomedia.com/services/private-party-videographer-south-florida",
   "https://estebanmorenomedia.com/es/videografo-para-fiestas-privadas-sur-de-florida",

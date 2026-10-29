@@ -378,6 +378,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const chooserRef = useRef<HTMLDivElement>(null);
   const privateCelebrationVideoRef = useRef<HTMLVideoElement>(null);
   const [lensInView, setLensInView] = useState(false);
+  const [lensFocusing, setLensFocusing] = useState(false);
+  // A tap anywhere on the camera body racks the lens once (the same focus
+  // move the idle loop plays), so pressing the card visibly answers the press.
+  // The class is cleared when the keyframes end, so the lens <img> is never
+  // remounted and a user who asked for reduced motion gets no rack at all.
+  const kickLens = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setLensFocusing(true);
+  };
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
@@ -532,7 +541,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{locale === "es" ? "Toca la situación que se parece a tu proyecto. Se abre aquí mismo con todo lo que incluye." : "Tap the situation that matches your project. It opens right here with everything included."}</p>
 
-        <div ref={chooserRef} className="em-camera-chooser mt-5" aria-hidden="true" data-lens-idling={lensInView || undefined}>
+        <div ref={chooserRef} className="em-camera-chooser mt-5" aria-hidden="true" data-lens-idling={lensInView || undefined} data-lens-focusing={lensFocusing || undefined} onPointerDown={kickLens}>
           <div className="em-camera-chooser__body">
             <span className="em-camera-chooser__camera" aria-hidden="true">
               <span className="em-camera-chooser__flash" />
@@ -541,7 +550,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               <span className="em-camera-chooser__shutter" />
               <span className="em-camera-chooser__grip" />
               <span className="em-camera-chooser__lens">
-                <span className="em-camera-chooser__lens-image">
+                <span className={`em-camera-chooser__lens-image${lensFocusing ? " is-focusing" : ""}`} onAnimationEnd={(event) => { if (event.animationName === "em-camera-focus") setLensFocusing(false); }}>
                   <Image src="/illustrations/esteban-sony-alpha-lens-v2.png" alt={c.lensAlt} fill sizes="112px" className="object-contain" />
                   <span className="em-camera-chooser__iris" />
                 </span>
@@ -618,8 +627,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
               <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
               <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
-                <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-boat-cover.jpg" alt={locale === "es" ? "Yate navegando con invitados durante una celebración nocturna" : "Yacht with guests during an evening celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" priority />
-                <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-boat-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-boat-cover.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
+                <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-skyline-cover.jpg" alt={locale === "es" ? "Vista nocturna del skyline de Miami desde la cubierta de un yate" : "Miami skyline at night seen from a yacht deck"} fill sizes="(max-width: 639px) 640px, 1200px" priority />
+                <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-skyline-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-skyline-poster.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
               </span>
               <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
             </summary>

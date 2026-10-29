@@ -15,16 +15,18 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 describe("guide routes", () => {
-  it("pre-renders 47 localized detail routes in each language", async () => {
+  it("pre-renders 49 localized detail routes in each language", async () => {
     const enParams = await generateEnglishParams();
     const esParams = await generateSpanishParams();
 
-    expect(enParams).toHaveLength(47);
-    expect(esParams).toHaveLength(47);
+    expect(enParams).toHaveLength(49);
+    expect(esParams).toHaveLength(49);
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-cost-fort-lauderdale");
     expect(esParams.map(({ slug }) => slug)).toContain("cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-rfp-template-miami");
     expect(esParams.map(({ slug }) => slug)).toContain("plantilla-brief-rfp-produccion-video-miami");
+    expect(enParams.map(({ slug }) => slug)).toContain("do-i-need-video-social-media-or-a-website-for-my-small-business");
+    expect(esParams.map(({ slug }) => slug)).toContain("que-enviar-a-un-videografo-antes-de-pedir-cotizacion");
   });
 
   it("keeps the RFP template localized, answer-first, and bounded to buyer questions", async () => {

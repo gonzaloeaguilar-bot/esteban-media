@@ -10,6 +10,8 @@ interface PortfolioVideoModalProps {
   isOpen: boolean;
   onClose: () => void;
   locale?: "en" | "es";
+  /** A Short gets a 9:16 stage capped at 86svh; a film keeps 16:9. */
+  orientation?: "portrait" | "landscape";
 }
 
 export function PortfolioVideoModal({
@@ -18,8 +20,10 @@ export function PortfolioVideoModal({
   isOpen,
   onClose,
   locale = "en",
+  orientation = "landscape",
 }: PortfolioVideoModalProps) {
   const isEs = locale === "es";
+  const portrait = orientation === "portrait";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,7 +56,7 @@ export function PortfolioVideoModal({
         aria-hidden="true"
       />
 
-      <div className="relative z-10 flex w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/20 bg-[#101214] text-white shadow-2xl">
+      <div className={`relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-[#101214] text-white shadow-2xl ${portrait ? "max-w-md" : "max-w-4xl"}`}>
         {/* HEADER */}
         <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
           <h3 className="font-serif text-lg font-semibold text-white truncate max-w-xl">
@@ -69,7 +73,11 @@ export function PortfolioVideoModal({
         </div>
 
         {/* IFRAME EMBED PLAYER */}
-        <div className="relative aspect-video w-full bg-black">
+        <div
+          className={`relative w-full bg-black ${portrait ? "mx-auto aspect-[9/16]" : "aspect-video"}`}
+          data-orientation={orientation}
+          style={portrait ? { width: "min(100%, calc(86svh * 9 / 16))" } : undefined}
+        >
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
             title={title}
