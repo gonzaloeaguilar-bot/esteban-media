@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -12,6 +13,8 @@ import {
 
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
+
+import "./card.css";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -31,6 +34,11 @@ const actions = [
     detail: "Cuéntame qué necesitas grabar o editar",
     icon: MessageCircle,
     cta: "nfc_card_whatsapp",
+    eyebrow: "Responde Esteban",
+    visual: "whatsapp",
+    video: "/about/esteban-on-set.mp4",
+    image: "/about/esteban-on-set.jpg",
+    imageAlt: "Esteban Moreno en una producción",
     primary: true,
     external: true,
   },
@@ -40,6 +48,10 @@ const actions = [
     detail: "Habla directamente con Esteban",
     icon: Phone,
     cta: "nfc_card_call",
+    eyebrow: "Llamada directa",
+    visual: "call",
+    image: "/about/esteban-on-location.jpg",
+    imageAlt: "Esteban Moreno grabando en locación",
     primary: false,
     external: false,
   },
@@ -49,6 +61,10 @@ const actions = [
     detail: "Mira videos y proyectos de Esteban",
     icon: Play,
     cta: "nfc_card_portfolio",
+    eyebrow: "Portafolio",
+    visual: "play",
+    image: "/portfolio/gains-from-geebs-shorts.jpg",
+    imageAlt: "Ejemplo de video corto producido por Esteban Moreno Media",
     primary: false,
     external: false,
     internal: true,
@@ -59,6 +75,10 @@ const actions = [
     detail: "Ver el perfil de Esteban Moreno Media",
     icon: MapPinned,
     cta: "nfc_card_maps",
+    eyebrow: "Google Maps",
+    visual: "maps",
+    image: "/portfolio/local-business-camera-work.jpg",
+    imageAlt: "Esteban trabajando con una cámara en un negocio local",
     primary: false,
     external: true,
   },
@@ -68,6 +88,10 @@ const actions = [
     detail: "En Google Maps, toca Reseñas y después Escribir una reseña",
     icon: Star,
     cta: "nfc_card_google_review",
+    eyebrow: "Reseñas",
+    visual: "review",
+    image: "/portfolio/healthy-smile.jpg",
+    imageAlt: "Proyecto publicado de Esteban Moreno Media",
     primary: false,
     external: true,
   },
@@ -77,6 +101,10 @@ const actions = [
     detail: "Agrega a Esteban Moreno Media a tu teléfono",
     icon: Download,
     cta: "nfc_card_save_contact",
+    eyebrow: "Contacto",
+    visual: "save",
+    image: "/portfolio/bar-door-monkey.jpg",
+    imageAlt: "Fotograma de un video de restaurante de Esteban Moreno Media",
     primary: false,
     external: false,
     download: true,
@@ -99,22 +127,29 @@ export default function NfcContactCardPage() {
 
         <section className="pt-5" aria-label="Formas de contactar a Esteban">
           <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
-          <div className="mt-3 grid gap-3">
-            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, ...action }) => {
-              const className = `group flex min-h-[84px] items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27] ${
-                primary
-                  ? "border-[#c84a2c] bg-[#c84a2c] text-white hover:bg-[#a93e29]"
-                  : "border-[#d6ccc0] bg-[#fffaf4] hover:border-[#9f3c27]"
-              }`;
+          <div className="em-route-list mt-3">
+            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, eyebrow, visual, image, imageAlt, ...action }) => {
+              const className = `em-route-card${primary ? " em-route-card--primary" : ""}`;
+              const badge =
+                visual === "whatsapp" ? <span className="em-route-card__badge em-route-card__badge--whatsapp" aria-hidden="true"><Icon /><span className="em-route-card__dots"><i /><i /><i /></span></span>
+                : visual === "call" ? <span className="em-route-card__badge em-route-card__badge--call" aria-hidden="true"><Icon />Disponible</span>
+                : visual === "play" ? <span className="em-route-card__badge em-route-card__badge--play" aria-hidden="true"><Icon />Ver reel</span>
+                : visual === "maps" ? <span className="em-route-card__badge em-route-card__badge--maps" aria-hidden="true"><Icon />Fort Lauderdale</span>
+                : visual === "review" ? <span className="em-route-card__badge em-route-card__badge--review" aria-hidden="true"><span className="em-route-card__stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span></span>
+                : <span className="em-route-card__badge em-route-card__badge--save" aria-hidden="true"><Icon />.vcf</span>;
               const content = <>
-                <span className={`grid size-11 shrink-0 place-items-center rounded-full ${primary ? "bg-white/15" : "bg-[#f2e6db] text-[#9f3c27]"}`}>
-                  <Icon className="size-5" aria-hidden="true" />
+                <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">
+                  {"video" in action
+                    ? <video src={action.video} poster={image} autoPlay loop muted playsInline preload="metadata" />
+                    : <Image src={image} alt={imageAlt} fill sizes="(max-width: 767px) 100vw, 50vw" />}
                 </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-base font-semibold leading-5">{label}</span>
-                  <span className={`mt-1 block text-sm leading-5 ${primary ? "text-white/85" : "text-[#5a6066]"}`}>{detail}</span>
+                {badge}
+                <span className="em-route-card__copy">
+                  <span className="em-route-card__eyebrow">{eyebrow}</span>
+                  <strong>{label}</strong>
+                  <span>{detail}</span>
                 </span>
-                {external ? <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" /> : null}
+                <span className="em-route-card__go" aria-hidden="true">{external ? <ArrowUpRight /> : <Icon />}</span>
               </>;
 
               if ("internal" in action) {

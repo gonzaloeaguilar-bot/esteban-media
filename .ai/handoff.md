@@ -1,8 +1,30 @@
+# 2026-10-28 — Vertical video fills the rail phone and opens in a 9:16 stage (branch fix/vertical-video-fill-rail-and-modal-20261028, PR open, not production)
+
+- Owner screenshots ("todo tiene el problema"): every rail clip sat in one 16:9 strip in the top third of the phone card, and the player cropped a vertical Reel to a slice. Each portfolio item now declares `orientation` (lib `mediaOrientation()` from the declared aspect; the teaser sets it per source). Evidence: ffprobe gives 720x1280/576x1024 for all eight local MP4s; `youtube.com/shorts/<id>` answers 200 for Hm-mI-RgvUY, YTJW6zn14S8, poIo-VCBeAw, B4d_bFQV6T0 (now `9:16`) and 303-redirects for BDRru8eXaj4 and the other films (`16:9`).
+- Rail: `.em-phone-video[data-orientation]` — portrait owns the whole phone screen (video/poster cover, YouTube iframe as a centred 9:16 box), landscape keeps a whole 16:9 frame centred. Player: phone stage is a true 9:16 box `min(100%, 86svh*9/16)`, `object-fit: contain`, panel below; desktop keeps the #611 two-column layout, landscape stage is now a true 16:9 (was 663x336). Portfolio-page players (`PortfolioVideo`, its modal, watch page) take the same `orientation`.
+- Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
+
+---
+# 2026-10-28 — GEO daily execution selector (local, ready for review)
+
+- Added the deterministic draft-only selector at `scripts/esteban-geo-execution-queue.mjs`, its 5-test suite, a zero-cost daily `fleet-slot.sh` launchd template, and the governed executor contract in `docs/geo-execution-queue.md`.
+- Live-ledger acceptance selected `esteban:es:editor-de-reels-fort-lauderdale` for `/es/editor-de-reels-fort-lauderdale`; the selector records this as `eligible`, explicitly not as a successful executor dispatch. A cluster is suppressed for 28 days only after a valid executor-owned `dispatched` receipt. Citation and outcome evidence remain source-bound; no outcome is inferred.
+- Local checks: focused Vitest 5/5, full `pnpm test` completed with no failures, `node --check`, `plutil -lint launchd/com.esteban-media.geo-execution-selector.plist`, and `git diff --check` passed. This is local only: no launch agent was installed, site was not edited, and no production change or business outcome is claimed.
+- Next: `cto-qa-lead` independently reviews the selector/state contract. After governed release, install the template through the normal fleet process and verify a selector receipt before any executor consumes a brief.
+
 # 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
 
 - Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.
 - Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
 - Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
+
+# 2026-10-28 — Personal creative-partner GEO answers (local candidate)
+
+Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first helps a small business decide whether the first need is clearer messaging, useful footage, or a page/contact path; the second tells a prospective client what to send before asking Esteban for a quote. Both point readers to existing service, work, price, and contact pages and explicitly avoid universal packages, performance promises, or an invented fixed deliverable. Sitemap inventory is 573 routes, four new watched URLs are declared, and each guide has its server-rendered FAQ and visible update date through the existing guide renderer.
+
+Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
+
+---
 
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 
@@ -103,6 +125,11 @@
 
 - PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
 - Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+# 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth candidate)
+
+- Source scope: `app/(english)/contact/page.tsx`, `app/__tests__/contact-conversion-proof.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/contact`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/contact` beneath the main brief section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (168 test files / 3,492 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/contact` on production.
 
 ---
 
@@ -232,6 +259,16 @@
 ---
 
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
+
+# 2026-10-24 — Camera Bench + supplied unboxing refresh live
+
+- `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` now give the confirmed Sony Alpha 7 IV and Canon EOS Rebel T5i a larger, unified mobile swipe shelf and add the supplied Instagram unboxing Reel as an explicit external action. Instagram returns `x-frame-options: DENY`, so it must remain an external link rather than an embed.
+- Production: PR #537 merged as `d9769fb04a57c55825dae8f94f44daf2742dc542`; Vercel deployment `dpl_13v72fYK1weQTSD7rnd157Vi9ppW` reached Ready. `curl -fsSL https://estebanmorenomedia.com/es` returned HTTP/2 200 plus both camera names, the Spanish unboxing label, and `https://www.instagram.com/reel/DepBjEbBl9P/`.
+
+# 2026-10-21 — Social funnel contact repair (PR #507)
+
+- Branch `fix/social-funnel-conversion`, commit `8a2bc293`, adds a direct WhatsApp option in the chooser's first contact state. The message carries the selected project label, so a visitor can contact Esteban without entering name/email/phone after choosing a lane. This responds to the latest GA4 social funnel: 3 form starts and 0 submits, but it does not claim an outcome until live traffic is measured.
+- Regression: focused `home-packaging-human` passed 18/18; `pnpm typecheck`, lint (0 errors; existing warnings), and `pnpm build` passed. PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/507. Next: await CI/review, merge under normal authority, then verify the live mobile chooser and GA4 `home_path_funnel_direct_whatsapp` event.
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
 - Production evidence: `pnpm seo:verify` passed three consecutive reads on 2026-10-20: 530 indexable pages, 16 video-sitemap pages, 98 guide pages, 265 English and 265 Spanish routes, GA4 `G-W9CM4CE2MQ`, and a 1200x630 social card. The first full `pnpm check` exposed a distinct stale fixture: `es/chatbot-con-ia-para-negocios` intentionally changed with the Web AI service release but the Spanish text-parity snapshot was not refreshed. Rebuilding the exact fixture captured 194 routes; the parity check then passed all 194.
@@ -740,3 +777,11 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The supplied `https://link.amazon/B0f98xMnt` returned HTTP 404, so no Amazon/product button is in the implementation. The supplied photo is a reference only and is not shipped.
 - Checks: focused 4/4, `pnpm test` 178 files / 3,698 tests, typecheck, lint 0 errors / 22 existing warnings, analytics gate PASS, and a successful second `pnpm build` (608 pages). Local raw EN/ES HTML and desktop/390×844 interaction were checked.
 - No commit, PR, merge, deployment or independent review. Next: obtain a scoped independent review; then commit, PR, merge and canonical production phone/desktop proof. Durable record: `[[esteban-accessory-setup-candidate-2026-10-28]]`.
+# 2026-10-28 — Full-body camera leatherette (PR #603, rebuilt)
+
+- Owner (screenshot 2026-10-28): the whole chooser card must read as camera leatherette, not only the grip. `.em-camera-chooser__body` now tiles `public/illustrations/camera-leatherette-tile.png` (36.6 KB, 256px seamless pebble tile generated with PIL at 2x, shown at 128px) across the full body, with a brushed top-plate band over the top 22% where the flash/viewfinder/dial/shutter sit and a soft vignette. PR #603's 100 KB WebP was removed. Nothing new animates; the reduced-motion block is unchanged.
+- Measured on the local dev render with Playwright + PIL (`scratchpad/leatherette/measure.py`): grain luminance stddev inside a 60x60 body patch with text and lens masked = 7.97 (390x844) and 9.28 (1280x800), threshold > 4; serif title vs worst-case sampled background = 11.25:1 and 11.48:1, threshold 4.5:1.
+- Gates: `tsc --noEmit` 0, `eslint` 0 errors / 22 pre-existing warnings, `vitest run app/__tests__/home-packaging-human.test.ts` 38/38, `next build` exit 0 (612 pages). Not merged; production proof pending the merge.
+
+# 2026-10-28 — Celebration card: 4K landscape cover (PR pending)
+- Owner reported the "Parties and celebrations" card looked incomplete and low quality. Measured cause: the cover/loop were a 540x960 portrait clip stretched ~2x into a landscape card. Found the owner's 4K yacht clip (`IMG_6214.MOV`, 3840x2160 rotated portrait, 2.87s, Messages attachment 2026-10-28 16:12); cut a 2160x1215 landscape band (skyline + Ferris wheel + water) into `yacht-party-miami-skyline-{cover.jpg,poster.jpg,loop.mp4}` (loop 1600x900 h264 crf29, 1.3 MB, no audio). Served pixels now >= displayed device pixels at 390@3x and 1280@2x; autoplay muted inline verified; reduced-motion hides the loop. The 4K original of the earlier boat-passing clip (`yacht-party-miami.mp4`, 540x960) is not on this machine.

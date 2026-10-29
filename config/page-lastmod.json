@@ -4,8 +4,8 @@
   "hash": "6303ed2f3d96143b"
  },
  "/about": {
-  "date": "2026-10-23",
-  "hash": "a2f75c79b6ecb156"
+  "date": "2026-10-28",
+  "hash": "0e272001bbc68503"
  },
  "/areas": {
   "date": "2026-10-28",
@@ -60,8 +60,8 @@
   "hash": "2cd33148acb271a9"
  },
  "/case-studies/healthy-smile": {
-  "date": "2026-10-24",
-  "hash": "b8bc90885a13787a"
+  "date": "2026-10-28",
+  "hash": "09081f3c06061d5c"
  },
  "/case-studies/homeowners": {
   "date": "2026-10-24",
@@ -85,7 +85,7 @@
  },
  "/contact": {
   "date": "2026-10-28",
-  "hash": "6ba05a6022652528"
+  "hash": "1eca90d6b5a3b83e"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -184,8 +184,8 @@
   "hash": "2cd33148acb271a9"
  },
  "/es/casos-de-estudio/healthy-smile": {
-  "date": "2026-10-24",
-  "hash": "a3509eeca91c917e"
+  "date": "2026-10-28",
+  "hash": "e6baa4a91d67de25"
  },
  "/es/casos-de-estudio/homeowners": {
   "date": "2026-10-24",
@@ -587,6 +587,10 @@
   "date": "2026-10-07",
   "hash": "43d01a3ac0d8b797"
  },
+ "/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio": {
+  "date": "2026-10-28",
+  "hash": "b0b23cc5901b7bee"
+ },
  "/es/guias/plantilla-brief-rfp-produccion-video-miami": {
   "date": "2026-10-18",
   "hash": "ae081107cfe7633d"
@@ -598,6 +602,10 @@
  "/es/guias/preparar-material-para-edicion-de-video": {
   "date": "2026-10-07",
   "hash": "b97a0891e3c3d5ea"
+ },
+ "/es/guias/que-enviar-a-un-videografo-antes-de-pedir-cotizacion": {
+  "date": "2026-10-28",
+  "hash": "4e622a37d4c25b79"
  },
  "/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales": {
   "date": "2026-10-07",
@@ -704,8 +712,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-10-21",
-  "hash": "f9314cb6afc7e5a7"
+  "date": "2026-10-28",
+  "hash": "447aca2dcf51f420"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -760,8 +768,8 @@
   "hash": "1f91152b6a936df0"
  },
  "/es/portafolio/healthy-smile": {
-  "date": "2026-10-18",
-  "hash": "8f9afdd524d4d23d"
+  "date": "2026-10-28",
+  "hash": "815a7b49370e8040"
  },
  "/es/portafolio/homeowners": {
   "date": "2026-10-14",
@@ -776,8 +784,8 @@
   "hash": "0c1be4c361f4b312"
  },
  "/es/portafolio/ml-colombia": {
-  "date": "2026-10-23",
-  "hash": "9abf634d406d80e3"
+  "date": "2026-10-28",
+  "hash": "cfa33c4562aa160e"
  },
  "/es/portafolio/my-dler": {
   "date": "2026-10-14",
@@ -920,8 +928,8 @@
   "hash": "1828ba92ae142bb2"
  },
  "/es/sobre-esteban": {
-  "date": "2026-10-14",
-  "hash": "d3b44effddcfaf90"
+  "date": "2026-10-28",
+  "hash": "329b75481a6818a3"
  },
  "/es/temporizador-de-guiones-de-video": {
   "date": "2026-10-14",
@@ -1319,6 +1327,10 @@
   "date": "2026-10-14",
   "hash": "4fc89cff2d7d1dd6"
  },
+ "/guides/do-i-need-video-social-media-or-a-website-for-my-small-business": {
+  "date": "2026-10-28",
+  "hash": "646ecf7454f4787d"
+ },
  "/guides/drone-video-editing-guidelines-florida": {
   "date": "2026-10-07",
   "hash": "6ce073464c5b3254"
@@ -1475,6 +1487,10 @@
   "date": "2026-10-18",
   "hash": "0abbb5c5657be251"
  },
+ "/guides/what-to-send-a-videographer-before-asking-for-a-quote": {
+  "date": "2026-10-28",
+  "hash": "95ce45df382d6572"
+ },
  "/guides/write-a-useful-video-brief": {
   "date": "2026-10-07",
   "hash": "66752ea49e8b4959"
@@ -1484,8 +1500,8 @@
   "hash": "2d4f6f989971a2b4"
  },
  "/portfolio": {
-  "date": "2026-10-16",
-  "hash": "ddc788a542c31d1a"
+  "date": "2026-10-28",
+  "hash": "128770ae40ee14c4"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -1540,8 +1556,8 @@
   "hash": "60765e71cc94040b"
  },
  "/portfolio/healthy-smile": {
-  "date": "2026-10-18",
-  "hash": "686f6223059b5f0e"
+  "date": "2026-10-28",
+  "hash": "3de1604ac0cf9741"
  },
  "/portfolio/homeowners": {
   "date": "2026-10-14",
@@ -1556,8 +1572,8 @@
   "hash": "38247f833dfb1e4b"
  },
  "/portfolio/ml-colombia": {
-  "date": "2026-10-23",
-  "hash": "c244c9f2b1dd07b8"
+  "date": "2026-10-28",
+  "hash": "3209108159aa0b98"
  },
  "/portfolio/my-dler": {
   "date": "2026-10-14",
@@ -1616,8 +1632,8 @@
   "hash": "98f0b8693140e551"
  },
  "/resources/video-project-brief-template": {
-  "date": "2026-10-01",
-  "hash": "f13b633ddbb729ef"
+  "date": "2026-10-28",
+  "hash": "98995f0a945681c5"
  },
  "/services": {
   "date": "2026-10-22",
