@@ -728,3 +728,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The supplied `https://link.amazon/B0f98xMnt` returned HTTP 404, so no Amazon/product button is in the implementation. The supplied photo is a reference only and is not shipped.
 - Checks: focused 4/4, `pnpm test` 178 files / 3,698 tests, typecheck, lint 0 errors / 22 existing warnings, analytics gate PASS, and a successful second `pnpm build` (608 pages). Local raw EN/ES HTML and desktop/390×844 interaction were checked.
 - No commit, PR, merge, deployment or independent review. Next: obtain a scoped independent review; then commit, PR, merge and canonical production phone/desktop proof. Durable record: `[[esteban-accessory-setup-candidate-2026-10-28]]`.
+# Syncwire accessory-preview release — 2026-10-28
+
+- Owner supplied the direct Amazon source for the camera accessory. Browser read verified the Syncwire Tripod Phone Mount listing, ASIN `B0CNKG6JHY`, and its official product image `61AkmH5DXML._AC_SL1500_.jpg`.
+- PR #599 merged as `b025e3a5298b6c3c2174c32e67cb2cf8b4ff0b49`; source commit is `8332dec6`. The card uses the real product preview, retains the bilingual disclosure, and does not restore the owner-rejected room photo or synthetic illustration.
+- Local verification: focused camera-kit test 5/5, lint 0 errors (22 existing warnings), rendered browser image present and disclosure opened. Vercel production `dpl_6NbtYsWPG3abdvh12VprJ2Pm7M8F` is Ready and aliases `https://estebanmorenomedia.com`; a fresh canonical raw read returned the Syncwire image filename, product alt text and card heading, and a browser capture showed the product image in the live card.
