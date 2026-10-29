@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { CHATBOT_PRICE, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { join } from "node:path";
 
 import sitemap from "@/app/sitemap";
@@ -29,6 +30,22 @@ import { spanishNichePages } from "@/lib/spanish-site";
  */
 
 const BASE_PATH = join(process.cwd(), "lib/llms-base.txt");
+
+// Every price in llms-base.txt is a {{TOKEN}} resolved here from lib/pricing.ts,
+// the single source of truth. A hand-typed dollar figure in the base file is a
+// test failure (price-single-source.test.ts).
+const fromAmount = (p: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) => (p.kind === "from" ? p.amount : 0);
+const PRICE_TOKENS: Record<string, string> = {
+  ARRANQUE_FROM: usd(fromAmount(PACKAGE_PRICES.arranque)),
+  CRECIMIENTO_FROM: usd(fromAmount(PACKAGE_PRICES.crecimiento)),
+  PRESENCIA_LOCAL_FROM: usd(fromAmount(PACKAGE_PRICES["presencia-local"])),
+  CHATBOT_FROM: usd(CHATBOT_PRICE.from),
+  LANDING_FROM: usd(LANDING_PAGE_PRICE.from),
+  LANDING_UPPER: usd(LANDING_PAGE_PRICE.typicalUpper),
+};
+export function fillPrices(text: string): string {
+  return text.replace(/\{\{([A-Z_]+)\}\}/g, (whole, key: string) => PRICE_TOKENS[key] ?? whole);
+}
 
 const CORE_LABELS: Record<string, string> = {
   "/": "Home",
@@ -113,6 +130,6 @@ function buildIndex(): string {
 }
 
 export function buildLlmsTxt(): string {
-  const base = readFileSync(BASE_PATH, "utf8").trimEnd();
+  const base = fillPrices(readFileSync(BASE_PATH, "utf8")).trimEnd();
   return `${base}\n\n${buildIndex()}\n`;
 }

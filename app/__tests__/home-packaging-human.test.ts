@@ -36,10 +36,10 @@ for (const locale of ["en", "es"] as const) {
   describe(`home ${locale}: packaging after the chooser`, () => {
     it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
-      expect(prices).toContain("$640");
       expect(prices).toContain("$800");
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640\/(mo|month|mes)</);
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
+      expect(prices).toContain("$1,600");
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600\/[^<]+</);
     });
 
     it("1b. the top-level buyer routes keep private celebrations inside the project-card system", () => {
@@ -60,9 +60,17 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrationStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,800 · hasta 8 horas" : "from $2,800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $4,000 · hasta 8 horas" : "from $4,000 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,800 · medio día" : "from $1,800 · half day");
+      expect(celebrations).toContain("$3,200");
+      // Measurement rides on the shared track.js layer (one writer per event):
+      // the open tap, every package tap and the WhatsApp CTA all carry data-cta.
+      expect(celebrations).toContain(`data-cta="home_project_route_${locale}_private-celebrations"`);
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_${locale}_yacht-party-film"`.replace("yacht-party-film", locale === "es" ? "película-de-fiesta-en-yate" : "yacht-party-film"));
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_whatsapp_${locale}"`);
       expect(celebrations).not.toContain("em-private-celebrations__packages");
       expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
       expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
@@ -278,8 +286,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel.indexOf("em-funnel-summary")).toBeGreaterThan(-1);
       expect(funnel.indexOf("em-funnel-summary")).toBeLessThan(funnel.indexOf("<input"));
       expect(funnel).toContain(growth);
-      expect(funnel).toContain("$640");
       expect(funnel).toContain("$800");
+      expect(funnel).toContain("$1,600");
       expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
       expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });

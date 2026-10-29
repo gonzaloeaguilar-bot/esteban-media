@@ -8,6 +8,7 @@ import {
   filmingHourlyText,
   shortFormWeeklyText,
   usd,
+  CREW_RECORDING_RATES,
 } from "@/lib/pricing";
 
 /**
@@ -710,7 +711,7 @@ export const VLOG_VIDEOGRAPHER_DEEP_DIVE: DeepDive = {
     {
       heading: "How does on-location vlog filming work in Miami?",
       paragraphs: [
-        "On-location vlog filming pairs the creator with a dedicated camera operator who captures walking footage, speaking segments, and contextual b-roll across Miami. Esteban operates a compact Sony Alpha 7 IV camera rigged with a gimbal or handheld stabilizer and compact directional wireless microphones. This setup allows creators to move naturally through outdoor venues, restaurants, and neighborhoods like Wynwood or Brickell without heavy tripods slowing the day down. Audio stays crisp even in busy environments through direct transmitter clipping. Filming can be booked by the hour at $80 per hour or packaged as a multi-hour content day, giving creators weeks of raw footage ready for editing.",
+        `On-location vlog filming pairs the creator with a dedicated camera operator who captures walking footage, speaking segments, and contextual b-roll across Miami. Esteban operates a compact Sony Alpha 7 IV camera rigged with a gimbal or handheld stabilizer and compact directional wireless microphones. This setup allows creators to move naturally through outdoor venues, restaurants, and neighborhoods like Wynwood or Brickell without heavy tripods slowing the day down. Audio stays crisp even in busy environments through direct transmitter clipping. Filming can be booked by the hour at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour or packaged as a multi-hour content day, giving creators weeks of raw footage ready for editing.`,
       ],
     },
     {

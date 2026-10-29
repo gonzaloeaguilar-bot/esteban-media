@@ -30,6 +30,6 @@ describe("remote video editor FAQ coverage", () => {
   it("keeps the questions in Spanish-first / published-price facts only", () => {
     const text = source(PAGE);
     // The published Starter starting price, no invented ceiling.
-    expect(text).toContain("$100 per video");
+    expect(text).toContain("${usd(SHORT_FORM.perVideoFrom)} per video");
   });
 });

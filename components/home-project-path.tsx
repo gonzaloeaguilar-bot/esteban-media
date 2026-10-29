@@ -11,6 +11,9 @@ import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CELEBRATION_FILM_BUNDLES,
+  PRICE_TERMS,
+  REAL_ESTATE_DRONE_PHOTO_ADD_ON,
+  COMMERCIAL_VIDEO_TIERS,
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
   ON_LOCATION_CAPTURE,
@@ -248,7 +251,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: la sesión pasa al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "1 property per month (up to 3,000 SF)",
@@ -257,7 +260,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoot rolls to next month if no listing",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Plus")) {
@@ -269,7 +272,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3 a 4 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: las sesiones pasan al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "2 properties per month (up to 3,000 SF each)",
@@ -278,7 +281,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3–4 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoots roll to next month if no listings",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Premium")) {
@@ -492,8 +495,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     return "Demo, brand film, or a production with actors and studio.";
   };
   const commercialScope = locale === "es"
-    ? "Elige el alcance al cotizar: demo básico desde $1,000; brand film desde $3,000; actores y estudio desde $6,500."
-    : "Choose the scope when you quote it: basic demo from $1,000; brand film from $3,000; actors and studio from $6,500.";
+    ? `Elige el alcance al cotizar: demo básico desde ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film desde ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actores y estudio desde ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`
+    : `Choose the scope when you quote it: basic demo from ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film from ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actors and studio from ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`;
   const creatorFilm = locale === "es"
     ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
     : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
@@ -502,14 +505,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         label: "Celebraciones sociales",
         title: "Fiestas y celebraciones",
         price: `Desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`,
-        lead: "Video de tu celebración para compartirlo y recordarlo.",
+        lead: "Video de tu celebración, en casa, en un salón o en un yate, para compartirlo y recordarlo.",
         selectedPackagePrefix: "Me interesa:",
         packages: [
-          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: "Película de mi celebración (desde $1,200, hasta 4 horas)" },
-          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: "Película de celebración de día completo (desde $2,200, hasta 8 horas)" },
-          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: "Producción de celebración con dos personas (desde $3,400, hasta 8 horas)" },
+          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: `Película de mi celebración (desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, hasta 4 horas)` },
+          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: `Película de celebración de día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, hasta 8 horas)` },
+          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: `Producción de celebración con dos personas (desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, hasta 8 horas)` },
+          { name: "Película de fiesta en yate", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · medio día`, includes: `Grabación a bordo en Miami o Fort Lauderdale y una película terminada de tu fiesta en yate. Mínimo medio día; el día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) incluye tomas con dron marino con licencia.`, whatsapp: `Película de mi fiesta en yate (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} medio día, desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} día completo con dron)` },
         ],
-        packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
+        packageNote: `${PRICE_TERMS.es} El traslado y cualquier extra se confirman por escrito antes de reservar.`,
         quote: "Cotizar mi celebración",
         guide: "Ver guía de fiestas privadas",
         guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
@@ -519,14 +523,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         label: "Social celebrations",
         title: "Parties and celebrations",
         price: `From ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`,
-        lead: "Video of your celebration to share and remember.",
+        lead: "Video of your celebration, at home, a venue, or on a yacht, to share and remember.",
         selectedPackagePrefix: "I'm interested in:",
         packages: [
-          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: "My celebration film (from $1,200, up to 4 hours)" },
-          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: "My full-day celebration film (from $2,200, up to 8 hours)" },
-          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: "My two-person celebration production (from $3,400, up to 8 hours)" },
+          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: `My celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, up to 4 hours)` },
+          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: `My full-day celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, up to 8 hours)` },
+          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: `My two-person celebration production (from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, up to 8 hours)` },
+          { name: "Yacht party film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · half day`, includes: `On-board filming in Miami or Fort Lauderdale and a finished film of your yacht party. Half-day minimum; a full day (from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) adds licensed marine drone tracking.`, whatsapp: `My yacht party film (from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} half day, from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} full day with drone)` },
         ],
-        packageNote: "Travel and any extras are confirmed in writing before booking.",
+        packageNote: `${PRICE_TERMS.en} Travel and any extras are confirmed in writing before booking.`,
         quote: "Quote my celebration",
         guide: "Read the private-party guide",
         guideHref: "/services/private-party-videographer-south-florida",
@@ -634,7 +639,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <div className="em-route-card__body em-private-celebrations-card__body">
               <p>{privateCelebrations.lead}</p>
               <ul className="em-path-offers" role="list">
-                  {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
+                  {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer em-private-celebrations__package"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
               </ul>
               <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
               <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>

@@ -393,7 +393,7 @@ export const spanishServices: SpanishService[] = [
       "Las preguntas de alcance cubren la audiencia, la meta, los canales y las necesidades de contenido.",
     icon: CalendarRange,
     tags: ["Estrategia", "Frecuencia", "Plan de contenido"],
-    startingPrice: "Paquetes mensuales desde $640/mes",
+    startingPrice: `Paquetes mensuales desde ${usd(PACKAGE_PRICES.crecimiento.kind === "from" ? PACKAGE_PRICES.crecimiento.amount : 0)}/mes`,
   },
   {
     id: "videografia",
@@ -405,7 +405,7 @@ export const spanishServices: SpanishService[] = [
       "La disponibilidad y el alcance se consideran proyecto por proyecto después de conocer la locación, la meta y las necesidades de captura.",
     icon: Video,
     tags: ["South Florida", "En locación", "Según proyecto"],
-    startingPrice: "Jornadas de producción desde $800",
+    startingPrice: `Presencia Local desde ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}/mes`,
   },
   {
     id: "diseno-web",
@@ -6182,7 +6182,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     // en la página en inglés; el título y la descripción ahora responden primero.
     metadataTitle: "Editor de Reels en Fort Lauderdale",
     description:
-      "Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde $100 por video.",
+      `Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Reels / TikTok / Shorts",
     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
     lead:
