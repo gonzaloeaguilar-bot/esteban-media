@@ -155,3 +155,29 @@
 .em-wa__msg--1{animation-delay:0s}.em-wa__typing{animation-delay:.7s;animation-duration:7s}.em-wa__msg--3{animation-delay:1.9s;animation-duration:7s}.em-wa__msg--1{animation-duration:7s}
 @keyframes em-wa-typing{0%{opacity:0}3%,16%{opacity:1}18%,100%{opacity:0}}
 .em-wa__typing,.em-wa__msg--3{grid-row:2;grid-column:1}.em-wa__body{grid-template-columns:1fr;grid-auto-rows:min-content}
+/* 2026-10-29 owner: no black strip; copy sits on the scene over a gradient like the homepage. Reel shows real work. */
+.em-route-card__visual{inset:0}
+.em-route-card__visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(9,11,12,0) 0%,rgba(9,11,12,0) 46%,rgba(9,11,12,.78) 100%)}
+.em-route-card__copy,.em-route-card--play .em-route-card__copy,.em-route-card--whatsapp .em-route-card__copy,.em-route-card--review .em-route-card__copy,.em-route-card--save .em-route-card__copy{position:absolute;left:12px;right:auto;bottom:12px;display:grid;grid-template-columns:1fr;grid-template-areas:none;height:auto;max-width:calc(100% - 24px);padding:9px 13px 10px;border-radius:12px;background:linear-gradient(90deg,rgba(8,10,11,.9),rgba(8,10,11,.7) 72%,rgba(8,10,11,.35));box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.em-route-card__eyebrow,.em-route-card__copy strong,.em-route-card__copy>span:last-child{grid-area:auto;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.em-route-card__copy>span:last-child{white-space:normal;max-width:38ch}
+/* keep scene content in the top band so nothing sits under the copy */
+.em-scene--wa .em-wa__body{padding-bottom:0}
+.em-scene--call,.em-scene--save,.em-scene--review{padding-bottom:64px}
+.em-review__btn{position:absolute;right:12px;top:12px}
+/* real-work reel strip */
+.em-scene--reel{background:#0a0a0c}
+.em-reel__bars{display:none}
+.em-reel__frame{display:none}
+.em-reel__strip{position:absolute;left:0;top:0;bottom:0;display:flex;gap:8px;padding:10px 12px;animation:em-strip 16s linear infinite}
+.em-reel__thumb{position:relative;flex:none;width:96px;height:100%;overflow:hidden;border-radius:10px;background:#1a1a1e;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.em-reel__thumb>img,.em-reel__thumb>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.em-reel__thumb--live{width:112px;box-shadow:0 0 0 2px #fff,0 8px 22px rgba(0,0,0,.5)}
+.em-reel__live{position:absolute;left:6px;top:6px;padding:2px 5px;border-radius:4px;background:#ff2d55;color:#fff;font-size:8px;font-weight:800;letter-spacing:.06em}
+@keyframes em-strip{0%,12%{transform:translateX(0)}44%,56%{transform:translateX(-104px)}88%,100%{transform:translateX(-208px)}}
+.em-reel__rail{top:12px;right:12px;gap:8px}
+@media (prefers-reduced-motion:reduce){.em-reel__strip{animation:none}}
+@keyframes em-strip{0%,14%{transform:translateX(0)}46%,60%{transform:translateX(-52px)}90%,100%{transform:translateX(-100px)}}
+.em-wa__head .em-scene__s{position:relative;padding-left:9px}.em-wa__head .em-scene__s:before{content:"";position:absolute;left:0;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:#25d366;animation:em-online 1.6s ease-in-out infinite}
+@keyframes em-online{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+@media (prefers-reduced-motion:reduce){.em-wa__head .em-scene__s:before{animation:none}}
