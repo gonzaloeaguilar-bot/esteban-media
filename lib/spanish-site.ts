@@ -1720,6 +1720,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         answer:
           "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance y la disponibilidad de la sesión por separado. Consulta [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale); el video publicado de Bar Door Monkey no se presenta como muestra de fotos.",
       },
+      {
+        question: "¿Cuánto cuesta la edición o producción de video para restaurantes en Miami?",
+        answer:
+          `La edición de un Reel individual con material propio suministrado por el restaurante parte desde ${usd(SHORT_FORM.perVideoFrom)} dentro del paquete Arranque, o desde ${usd(RESTAURANT_PROMO.from)} por proyecto promocional completo. Si se requiere filmación selectiva en cocina o salón, se cotiza según las horas de rodaje y la locación en Miami-Dade.`,
+      },
+      {
+        question: "¿Cuál es el tiempo de entrega de un Reel gastronómico?",
+        answer:
+          "La primera entrega de un Reel editado con material del cliente se realiza habitualmente en 48 horas hábiles tras recibir los archivos en la nube, lo que permite anunciar platos de temporada, menús especiales y eventos sin retrasos.",
+      },
     ],
   },
   {
@@ -2552,6 +2562,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         answer:
           "Los archivos de video y tomas aéreas se comparten mediante transferencia segura en la nube. Tras la primera entrega, puedes enviar comentarios consolidados con marcas de tiempo para ajustar ritmo, música y llamadas a la acción.",
       },
+      {
+        question: "¿Cuánto cuesta la edición o producción de video para yates en Fort Lauderdale?",
+        answer:
+          `La edición con clips existentes suministrados por el cliente inicia desde ${usd(SHORT_FORM.perVideoFrom)} por video vertical dentro del paquete Arranque o desde ${usd(RESTAURANT_PROMO.from)} para piezas promocionales extensas. Si se requiere media jornada de filmación náutica en marina o muelle en Broward, se cotiza según las horas de rodaje y la embarcación.`,
+      },
+      {
+        question: "¿Cuál es el tiempo de entrega para videos de corretaje o chárter náutico?",
+        answer:
+          "Los cortes horizontales y verticales editados con material suministrado se entregan habitualmente en 3 a 5 días hábiles, permitiendo revisiones centralizadas en la nube antes de su publicación en portales náuticos y redes sociales.",
+      },
     ],
   },
   {
@@ -3277,6 +3297,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Cómo se adaptan los subtítulos a videos verticales en redes?",
         answer:
           "Los textos se ajustan en tamaño y posición para no ser tapados por botones de redes sociales o descripciones de usuario.",
+      },
+      {
+        question: "¿Cuánto cuesta el servicio de subtitulado bilingüe en inglés y español?",
+        answer:
+          `El subtitulado bilingüe y formateo de videos cortos parte desde ${usd(SHORT_FORM.perVideoFrom)} por video dentro del paquete Arranque, entregando archivos SRT y cortes con subtítulos quemados dentro de zonas seguras. Para conferencias, webinars o videos corporativos de mayor duración, la cotización se ajusta por minuto de audio.`,
+      },
+      {
+        question: "¿Cuál es el plazo habitual de entrega para subtítulos bilingües?",
+        answer:
+          "Para videos cortos de hasta 60 segundos, la entrega se realiza en 24 a 48 horas hábiles. Para capacitaciones o ponencias de 15 a 45 minutos, el plazo estándar es de 3 a 5 días hábiles incluyendo revisión humana de terminología especializada.",
       },
     ],
   },
