@@ -18,6 +18,21 @@ describe("homepage camera kit and method", () => {
     expect(component).not.toContain("24h Cloud Delivery");
   });
 
+  it("keeps complete published body specifications and the supplied Amazon affiliate links inside each native disclosure", () => {
+    expect(component).toContain('className="em-camera-kit__specs"');
+    expect(component).toContain("BIONZ XR");
+    expect(component).toContain("759 phase-detection points");
+    expect(component).toContain("CFexpress Type A");
+    expect(component).toContain("DIGIC 5");
+    expect(component).toContain("9 cross-type AF points");
+    expect(component).toContain("B00BW6LW7G");
+    expect(component).toContain("B0BN5GH5ZV");
+    expect(component).toContain('rel="noopener noreferrer sponsored"');
+    expect(component).toContain('data-cta={`camera_kit_sony_amazon_${locale}`}');
+    expect(component).toContain('data-cta={`camera_kit_canon_amazon_${locale}`}');
+    expect(component).toContain("As an Amazon Associate, Esteban Moreno Media earns from qualifying purchases.");
+  });
+
   it("uses visible, model-specific native disclosures and a visible three-step method", () => {
     expect(component).toContain('<details className="em-camera-kit__method">');
     expect(component).toContain('data-cta={`camera_kit_method_${locale}`}');
