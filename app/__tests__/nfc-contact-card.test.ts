@@ -37,6 +37,19 @@ describe("NFC contact card", () => {
     expect(css).toContain("@media (prefers-reduced-motion:reduce)");
   });
 
+  it("renders custom WhatsApp chat, Google Maps storefront and Google review scenes", () => {
+    const css = readFileSync(join(process.cwd(), "app/(card)/card/card.css"), "utf8");
+    expect(page).toContain('className="em-card-scene em-card-scene--wa"');
+    expect(page).toContain("em-wa__typing");
+    expect(page).toContain('className="em-card-scene em-card-scene--maps"');
+    expect(page).toContain("em-maps__pin");
+    expect(page).toContain('className="em-card-scene em-card-scene--review"');
+    expect(page).toContain("Escribir una reseña");
+    expect(css).toContain("@keyframes em-wa-in");
+    expect(css).toContain("@keyframes em-maps-drop");
+    expect(css).toContain("@keyframes em-review-star");
+  });
+
   it("offers a downloadable vCard from the same canonical contact source", () => {
     expect(page).toContain('href: "/card.vcf"');
     expect(cardRoute).toContain("BEGIN:VCARD");

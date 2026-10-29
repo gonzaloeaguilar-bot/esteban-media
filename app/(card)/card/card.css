@@ -42,3 +42,77 @@
 .em-route-card__badge--save svg{animation:em-card-bob 2.4s ease-in-out infinite}
 @keyframes em-card-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
 @media (prefers-reduced-motion:reduce){.em-route-card,.em-route-card__visual>img,.em-route-card__visual>video,.em-route-card__go,.em-route-card__badge svg,.em-route-card__dots i,.em-route-card__stars svg{animation:none!important;transition:none!important}.em-route-card__stars svg{opacity:1}}
+/* Custom scenes (homepage-grade): WhatsApp chat, Google Maps storefront, Google review card. */
+.em-card-scene{position:absolute;z-index:2;right:14px;top:14px;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:var(--font-geist-sans,system-ui,sans-serif)}
+.em-route-card--primary .em-route-card__copy,.em-route-card--scene .em-route-card__copy{max-width:52%}
+/* WhatsApp */
+.em-card-scene--wa{width:46%;max-width:210px;background:#e5ddd5;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.35) 0 2px,transparent 3px),radial-gradient(circle at 70% 60%,rgba(255,255,255,.3) 0 2px,transparent 3px);background-size:40px 40px}
+.em-wa__head{display:flex;align-items:center;gap:7px;padding:7px 9px;background:#075e54;color:#fff}
+.em-wa__head>i{width:20px;height:20px;border-radius:50%;background:#128c7e url("/about/esteban-on-set.jpg") center/cover}
+.em-wa__head>span{display:grid;line-height:1.1}.em-wa__head .em-scene__t{font-size:10px;font-weight:700}.em-wa__head .em-scene__s{font-size:8px;opacity:.85}
+.em-wa__body{position:relative;display:grid;gap:5px;min-height:96px;padding:8px}
+.em-wa__msg{position:relative;max-width:86%;padding:5px 7px 9px;border-radius:8px;background:#fff;color:#111;font-size:9px;line-height:1.25;box-shadow:0 1px 1px rgba(0,0,0,.12);opacity:0;transform:translateY(6px)}
+.em-wa__msg small{position:absolute;right:5px;bottom:2px;font-size:6px;color:#667}
+.em-wa__msg--in{justify-self:start;border-top-left-radius:2px}
+.em-wa__msg--out{justify-self:end;border-top-right-radius:2px;background:#dcf8c6}
+.em-wa__typing{display:inline-flex;gap:3px;justify-self:end;padding:6px 8px;border-radius:8px;border-top-right-radius:2px;background:#dcf8c6;opacity:0}
+.em-wa__typing i{width:4px;height:4px;border-radius:50%;background:#5a6;animation:em-card-dot 1s ease-in-out infinite}.em-wa__typing i:nth-child(2){animation-delay:.15s}.em-wa__typing i:nth-child(3){animation-delay:.3s}
+.em-wa__msg--1{animation:em-wa-in 8s ease-out infinite}
+.em-wa__msg--2{animation:em-wa-in 8s ease-out infinite;animation-delay:1.1s}
+.em-wa__typing{animation:em-wa-typing 8s ease-out infinite;animation-delay:2.2s}
+.em-wa__msg--3{animation:em-wa-in 8s ease-out infinite;animation-delay:3.8s}
+@keyframes em-wa-in{0%{opacity:0;transform:translateY(6px)}4%,88%{opacity:1;transform:translateY(0)}94%,100%{opacity:0;transform:translateY(0)}}
+@keyframes em-wa-typing{0%{opacity:0}3%,18%{opacity:1}20%,100%{opacity:0}}
+/* Google Maps */
+.em-route-card__visual--maps{background:#e8eaed}
+.em-maps__map{position:absolute;inset:0;background:#e9f1e4 linear-gradient(0deg,rgba(255,255,255,.55) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px) 0 0/22px 22px;animation:em-maps-pan 14s ease-in-out infinite alternate}
+.em-maps__map>i{position:absolute;background:#fff;box-shadow:0 0 0 1px #d8dbd4}
+.em-maps__map>i:nth-child(1){left:0;right:0;top:38%;height:14px}
+.em-maps__map>i:nth-child(2){top:0;bottom:0;left:30%;width:12px}
+.em-maps__map>i:nth-child(3){left:0;right:0;top:66%;height:8px;background:#f7e7a8;box-shadow:0 0 0 1px #e6d58a}
+.em-maps__map>i:nth-child(4){top:0;bottom:0;left:68%;width:8px}
+.em-maps__map>u{text-decoration:none;position:absolute;left:8%;top:12%;width:16%;height:18%;border-radius:4px;background:#c8e6c9}
+@keyframes em-maps-pan{0%{transform:scale(1.04) translate(0,0)}100%{transform:scale(1.04) translate(-8px,-6px)}}
+.em-card-scene--maps{right:0;top:0;left:0;bottom:0;border-radius:0;box-shadow:none;overflow:visible;background:transparent}
+.em-maps__pin{position:absolute;left:52%;top:30%;width:26px;height:36px;transform-origin:50% 100%;animation:em-maps-drop 5s ease-out infinite}
+.em-maps__pin>i{position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50% 50% 50% 0;background:#ea4335;transform:rotate(-45deg);box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.em-maps__pin>i:after{content:"";position:absolute;left:8px;top:8px;width:10px;height:10px;border-radius:50%;background:#fff}
+.em-maps__pin>u{text-decoration:none;position:absolute;left:3px;bottom:-4px;width:20px;height:6px;border-radius:50%;background:rgba(0,0,0,.25);animation:em-maps-ring 5s ease-out infinite}
+@keyframes em-maps-drop{0%{transform:translateY(-18px);opacity:0}12%{transform:translateY(0);opacity:1}18%{transform:translateY(-6px)}24%,100%{transform:translateY(0);opacity:1}}
+@keyframes em-maps-ring{0%,10%{transform:scale(.6);opacity:0}14%{opacity:.6}40%{transform:scale(2.4);opacity:0}100%{opacity:0}}
+.em-maps__sheet{position:absolute;right:12px;top:12px;width:48%;max-width:220px;padding:9px 10px;border-radius:12px;background:#fff;color:#202124;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:em-maps-sheet 5s ease-out infinite}
+@keyframes em-maps-sheet{0%,14%{opacity:0;transform:translateY(8px)}22%,100%{opacity:1;transform:translateY(0)}}
+.em-maps__title{display:block;font-size:11px;font-weight:700;line-height:1.2}
+.em-maps__meta{display:flex;align-items:center;gap:4px;margin-top:3px;font-size:8px;color:#5f6368}.em-maps__meta .em-scene__t{color:#202124;font-weight:700}.em-maps__meta .em-scene__s{margin-left:auto}
+.em-maps__stars{display:inline-flex;gap:1px;color:#fbbc04}.em-maps__stars svg{width:8px;height:8px}
+.em-maps__actions{display:flex;gap:5px;margin-top:7px}
+.em-maps__btn{flex:1;padding:5px 0;border-radius:999px;border:1px solid #dadce0;color:#1a73e8;font-size:8px;font-weight:700;text-align:center}
+.em-maps__btn--go{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.em-route-card__visual--maps+.em-card-scene--maps~.em-route-card__copy{max-width:100%}
+/* Google review */
+.em-card-scene--review{width:48%;max-width:220px;padding:9px 10px;background:#fff;color:#202124}
+.em-review__head{display:flex;align-items:center;gap:7px}.em-review__head>i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#4285f4;font:700 12px/1 Arial,sans-serif;font-style:normal;box-shadow:0 0 0 1px #dadce0}
+.em-review__head>span{display:grid;line-height:1.1}.em-review__head .em-scene__t{font-size:10px;font-weight:700}.em-review__head .em-scene__s{font-size:8px;color:#5f6368}
+.em-review__rate{display:flex;align-items:center;gap:6px;margin-top:7px}.em-review__rate .em-scene__t{font-size:16px;line-height:1;font-weight:700}
+.em-review__stars{display:inline-flex;gap:2px;color:#fbbc04}.em-review__stars svg{width:13px;height:13px;opacity:.25;transform:scale(.8);animation:em-review-star 6s ease-out infinite}
+.em-review__stars svg:nth-child(2){animation-delay:.2s}.em-review__stars svg:nth-child(3){animation-delay:.4s}.em-review__stars svg:nth-child(4){animation-delay:.6s}.em-review__stars svg:nth-child(5){animation-delay:.8s}
+@keyframes em-review-star{0%,8%{opacity:.25;transform:scale(.8)}16%,86%{opacity:1;transform:scale(1)}100%{opacity:.25;transform:scale(.8)}}
+.em-review__text{display:block;margin-top:6px;font-size:8px;line-height:1.3;color:#3c4043;overflow:hidden;white-space:nowrap;width:0;animation:em-review-type 6s steps(40) infinite;animation-delay:1.1s}
+@keyframes em-review-type{0%,10%{width:0}50%,90%{width:100%}100%{width:100%}}
+.em-review__btn{display:block;margin-top:8px;padding:5px 0;border-radius:999px;background:#1a73e8;color:#fff;font-size:8px;font-weight:700;text-align:center}
+@media (max-width:420px){.em-card-scene--wa,.em-card-scene--review{width:54%}.em-route-card--primary .em-route-card__copy,.em-route-card--scene .em-route-card__copy{max-width:100%}}
+@media (prefers-reduced-motion:reduce){.em-wa__msg,.em-maps__sheet,.em-maps__pin,.em-maps__map,.em-review__stars svg,.em-review__text,.em-wa__typing i{animation:none!important}.em-wa__msg,.em-maps__sheet,.em-maps__pin{opacity:1;transform:none}.em-review__stars svg{opacity:1;transform:none}.em-review__text{width:100%}.em-wa__typing{opacity:0}}
+.em-route-card--scene{min-height:250px}
+@media (min-width:768px){.em-route-card--scene{min-height:270px}}
+@media (max-width:420px){.em-route-card--scene{min-height:300px;align-items:flex-end}.em-card-scene--wa,.em-card-scene--review{top:12px}}
+/* Scene tiles: the sheet is the signal, drop the corner arrow and keep the map bright. */
+.em-route-card--scene .em-route-card__go{display:none}
+.em-route-card__visual--maps:after{background:linear-gradient(180deg,rgba(9,11,12,0) 0%,rgba(9,11,12,0) 50%,rgba(9,11,12,.72) 100%)}
+.em-maps__pin{left:34%;top:46%}
+.em-wa__body{min-height:0}
+.em-review__text{width:auto;white-space:normal;overflow:visible;opacity:0;animation:em-review-fade 6s ease-out infinite;animation-delay:1.1s}
+@keyframes em-review-fade{0%,8%{opacity:0;transform:translateY(3px)}20%,88%{opacity:1;transform:none}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.em-review__text{opacity:1;animation:none}}
+.em-wa__head>span,.em-review__head>span{gap:3px;line-height:1.25}
+.em-wa__head .em-scene__t,.em-review__head .em-scene__t{line-height:1.25}
+.em-wa__head .em-scene__s,.em-review__head .em-scene__s{line-height:1.25}

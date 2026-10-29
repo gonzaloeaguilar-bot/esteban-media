@@ -129,17 +129,42 @@ export default function NfcContactCardPage() {
           <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
           <div className="em-route-list mt-3">
             {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, eyebrow, visual, image, imageAlt, ...action }) => {
-              const className = `em-route-card${primary ? " em-route-card--primary" : ""}`;
+              const className = `em-route-card${primary ? " em-route-card--primary" : ""}${visual === "whatsapp" || visual === "maps" || visual === "review" ? " em-route-card--scene" : ""}`;
               const badge =
-                visual === "whatsapp" ? <span className="em-route-card__badge em-route-card__badge--whatsapp" aria-hidden="true"><Icon /><span className="em-route-card__dots"><i /><i /><i /></span></span>
-                : visual === "call" ? <span className="em-route-card__badge em-route-card__badge--call" aria-hidden="true"><Icon />Disponible</span>
+                visual === "whatsapp" ? (
+                  <span className="em-card-scene em-card-scene--wa" aria-hidden="true">
+                    <span className="em-wa__head"><i /><span><span className="em-scene__t">Esteban Moreno</span><span className="em-scene__s">en línea</span></span></span>
+                    <span className="em-wa__body">
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--1">Hola Esteban, escaneé tu tarjeta<small>9:41</small></span>
+                      <span className="em-wa__msg em-wa__msg--in em-wa__msg--2">Quiero un video para mi negocio<small>9:41</small></span>
+                      <span className="em-wa__typing"><i /><i /><i /></span>
+                      <span className="em-wa__msg em-wa__msg--out em-wa__msg--3">Claro, cuéntame qué necesitas grabar<small>9:42 ✓✓</small></span>
+                    </span>
+                  </span>
+                ) : visual === "maps" ? (
+                  <span className="em-card-scene em-card-scene--maps" aria-hidden="true">
+                    <span className="em-maps__pin"><i /><u /></span>
+                    <span className="em-maps__sheet">
+                      <span className="em-maps__title">Esteban Moreno Media</span>
+                      <span className="em-maps__meta"><span className="em-scene__t">5.0</span><span className="em-maps__stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span><span className="em-scene__s">Fort Lauderdale, FL</span></span>
+                      <span className="em-maps__actions"><span className="em-maps__btn em-maps__btn--go">Cómo llegar</span><span className="em-maps__btn">Llamar</span></span>
+                    </span>
+                  </span>
+                ) : visual === "review" ? (
+                  <span className="em-card-scene em-card-scene--review" aria-hidden="true">
+                    <span className="em-review__head"><i>G</i><span><span className="em-scene__t">Esteban Moreno Media</span><span className="em-scene__s">Reseñas de Google</span></span></span>
+                    <span className="em-review__rate"><span className="em-scene__t">5.0</span><span className="em-review__stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span></span>
+                    <span className="em-review__text">Excelente trabajo, el video quedó clarísimo</span>
+                    <span className="em-review__btn">Escribir una reseña</span>
+                  </span>
+                ) : visual === "call" ? <span className="em-route-card__badge em-route-card__badge--call" aria-hidden="true"><Icon />Disponible</span>
                 : visual === "play" ? <span className="em-route-card__badge em-route-card__badge--play" aria-hidden="true"><Icon />Ver reel</span>
-                : visual === "maps" ? <span className="em-route-card__badge em-route-card__badge--maps" aria-hidden="true"><Icon />Fort Lauderdale</span>
-                : visual === "review" ? <span className="em-route-card__badge em-route-card__badge--review" aria-hidden="true"><span className="em-route-card__stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></span></span>
                 : <span className="em-route-card__badge em-route-card__badge--save" aria-hidden="true"><Icon />.vcf</span>;
               const content = <>
                 <span className={`em-route-card__visual em-route-card__visual--${visual}`} aria-hidden="true">
-                  {"video" in action
+                  {visual === "maps"
+                    ? <span className="em-maps__map"><i /><i /><i /><i /><u /></span>
+                    : "video" in action
                     ? <video src={action.video} poster={image} autoPlay loop muted playsInline preload="metadata" />
                     : <Image src={image} alt={imageAlt} fill sizes="(max-width: 767px) 100vw, 50vw" />}
                 </span>
