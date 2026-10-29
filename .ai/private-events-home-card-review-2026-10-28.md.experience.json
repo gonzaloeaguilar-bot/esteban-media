@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Review the compact bilingual homepage private-celebrations package card before release.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The new card introduces image, price, disclosure, and two direct actions in a phone viewport.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "7b03e3ae4d063bd41763c889bb5a18722b44147ecf10b9a708105e4b135e4c06",
+    "taste_sha256": "5c9aafb4a61339ecfffee95bc3690db365c2ac6fff5b8039b395839ddf4fb214",
+    "correction_excerpt": "keep every remaining touch target at least 44 px.",
+    "comparison": "Review evidence/private-celebrations-390x844.png against the stated mobile contract.",
+    "references": [],
+    "candidate_frames": [{"path":"evidence/private-celebrations-390x844.png","moment":"result","viewport":"phone","sha256":"30db7f5e2cd04a04598dd0034015d72be2c6156e44fb5dd73c64ccccd4a7cb78"}]
+  },
+  "brief": {
+    "visitor": "A South Florida resident planning a private social celebration.",
+    "promise": "Find the event option, starting price, guide, and quote action without a long sales page.",
+    "primary_action": "Open WhatsApp with a celebration quote message already started.",
+    "friction": "Visitors need to know where to start without mistaking an illustrative image for client proof or a starting price for a fixed event quote.",
+    "kpi": {"outcome": "qualified private-event inquiries", "event": "home_private_celebrations_whatsapp", "denominator": "card views", "baseline": "UNMEASURED", "evidence": "new CTA event is explicit in server markup", "readout": "T+7 and T+14", "decision_rule": "retain only if inquiry quality is acceptable"},
+    "concept": {"idea": "One compact social-celebrations card in the existing production route.", "brand_reason": "Uses the established editorial card grammar and published package price.", "interaction": "Native details reveals scope lines; actions remain direct links.", "visible_response": "The disclosure chevron rotates and the actions are visible below the scope lines.", "direct_path": "Guide or WhatsApp.", "alternatives": "No standalone homepage carousel or modal."},
+    "story": {"opening": "Fiestas y celebraciones / Parties and celebrations.", "action": "Open details or use the quote and guide links.", "consequence": "Visitor reaches a guide or begins a scoped quote.", "next_step": "Provide date, place, and event type in WhatsApp."},
+    "content": {"visible": "Title, owner-set starting price, short explanation, guide and quote actions.", "optional_html": "Three scope bullets in native details.", "linked_depth": "The bilingual private-events pages."},
+    "references": {"borrow": "Existing home project-path offer-card grammar.", "avoid": "False project proof, fixed-event price claims, decorative UI that hides the primary action."},
+    "components": {"reuse": "HomeProjectPath, Image, Link, packages price/WhatsApp helpers.", "local_reason": "The card belongs in the existing production chooser."},
+    "verification": {"rendered_states": "EN and ES, 390x844 expanded card.", "motion": "Native disclosure only; respects reduced motion through existing CSS.", "accessibility_performance": "Alt labels illustration; touch targets at least 44px.", "raw_html": "Check guide href and WhatsApp URL in rendered HTML.", "conversion_boundary": "Follow direct WhatsApp href, not a simulated lead claim."},
+    "reviewers": {"craft": "cto-design-lead", "behavior": "cto-qa-lead", "outcome": "cto-web-lead"},
+    "learning": {"metric": "qualified private-event inquiries", "baseline_source": "No comparable private-celebration inquiry baseline is available in this session", "baseline_value": "UNKNOWN: no comparable private-celebration inquiry baseline is available in this session", "target_kind": "funnel_step", "target": "home_private_celebrations_whatsapp", "hypothesis": "A compact, clear package card will create qualified inquiries.", "observation_windows": ["T+7", "T+14"], "decision_rule": "retain after measured quality review", "ledger_status": "planned", "registration_condition": "record events before interpreting impact"}
+  }
+}
