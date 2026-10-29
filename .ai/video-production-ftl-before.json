@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-10-29",
+  "before": {
+    "app/(english)/services/video-production-fort-lauderdale/page.tsx": {
+      "title": "Video Production Company Fort Lauderdale | Business Video",
+      "description": "Fort Lauderdale video production company for business videos, Reels, website clips, hospitality, real estate, and remote post-production."
+    },
+    "lib/spanish-site.ts": {
+      "metadataTitle": "Producción de Video Fort Lauderdale",
+      "description": "Producción y edición de video para negocios de Fort Lauderdale y Broward, con atención en español y alcance definido por proyecto."
+    }
+  }
+}

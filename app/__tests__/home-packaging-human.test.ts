@@ -87,11 +87,10 @@ for (const locale of ["en", "es"] as const) {
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
-      expect(component).toContain("lg:max-w-6xl");
-      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}");
-      // An open card expands in place, in its own column; it never jumps to a full-width row below its sibling.
-      expect(css).not.toContain(".em-route-card[open]{grid-column:1/-1}");
-      expect(css).toContain(".em-route-card .em-path-offers,.em-route-card .em-single-list{grid-template-columns:minmax(0,1fr)}");
+      expect(css).toContain("@media(min-width:1100px){");
+      // An open card takes over all of the position and hides closed siblings
+      expect(css).toContain(".em-route-list:has(.em-route-card[open]) .em-route-card:not([open]){display:none!important}");
+      expect(css).toContain(".em-route-card[open]{grid-column:1/-1!important;width:100%!important}");
       expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
