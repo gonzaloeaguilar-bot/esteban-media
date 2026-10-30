@@ -27,9 +27,13 @@ describe("NFC contact card", () => {
     const css = readFileSync(join(process.cwd(), "app/(card)/card/card.css"), "utf8");
     expect(page).toContain('import "./card.css"');
     expect(page).toContain('className="em-route-list mt-3"');
-    expect(page).not.toContain("next/image");
-    expect(page).not.toContain("/portfolio/");
     expect(page).not.toContain("/about/");
+    // Real work appears only inside the reel strip; every other scene is a pure motif.
+    const reel = page.slice(page.indexOf("em-scene--reel"), page.indexOf("em-scene--maps"));
+    expect(reel).toContain("/real-estate-reels/brickell-loop.mp4");
+    expect((reel.match(/\/portfolio\//g) ?? []).length).toBe(4);
+    expect((page.match(/\/portfolio\//g) ?? []).length).toBe(4);
+    expect(page).toContain("em-reel__strip");
     expect((page.match(/visual: "/g) ?? []).length).toBe(6);
     for (const scene of ["wa", "call", "reel", "maps", "review", "save"]) expect(page).toContain(`em-scene em-scene--${scene}`);
     expect(page).toContain("em-wa__typing");

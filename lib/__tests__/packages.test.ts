@@ -19,8 +19,8 @@ describe("packages", () => {
 
   it("keeps Esteban's own starting prices, and only in lib/pricing.ts", () => {
     expect(PACKAGE_PRICES.arranque).toEqual({ kind: "from", amount: 100, unit: "video" });
-    expect(PACKAGE_PRICES.crecimiento).toEqual({ kind: "from", amount: 640, unit: "month" });
-    expect(PACKAGE_PRICES["presencia-local"]).toEqual({ kind: "from", amount: 800, unit: "production-day" });
+    expect(PACKAGE_PRICES.crecimiento).toEqual({ kind: "from", amount: 800, unit: "month" });
+    expect(PACKAGE_PRICES["presencia-local"]).toEqual({ kind: "from", amount: 1600, unit: "month" });
     expect(PACKAGE_PRICES["todo-incluido"]).toEqual({ kind: "custom" });
     // No surface may paste a figure: the content and the component read the SSOT.
     for (const file of ["lib/packages.ts", "components/packages-section.tsx"]) {
