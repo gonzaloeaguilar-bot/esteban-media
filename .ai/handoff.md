@@ -803,3 +803,20 @@ Configuration-gated conversion-observability implementation is present locally, 
 - `lib/services-config.ts` no longer holds its own copies of rates; it reads pricing.ts. New constants: `REAL_ESTATE_DRONE_PHOTO_ADD_ON`, `REAL_ESTATE_MEDIA_PRICES`, `CELEBRATION_FILM_BUNDLES.yacht*`.
 - 2026-10-28 ladder (market review PDF sent to Esteban): filming $125/h ($500/$1,000), two-person $200/h ($800/$1,600), turnkey $950/$2,000 · $1,600/$3,000, yacht turnkey $1,800/$3,200, celebrations $1,200/$2,800/$4,000, Crecimiento $800/mo, Presencia Local $1,600/mo, RE plans $600/$950/$1,500, product photo $350, commercial $1,500/$3,500/$8,500–12,000.
 - Regenerate the catalog PDF after any price change: edit `public/deliverables/esteban-moreno-media-catalogo-2026.html`, render with Playwright to `esteban-moreno-media-catalogo-servicios-tarifas-2026.pdf`, copy both to the vault `deliverables/`.
+
+## 2026-10-30 - Spark: price parity wave (bridge #202 scope, built direct)
+
+Site prices now match the raised Stripe prices from the owner-approved
+2026-10-29 inventory: Real Estate plans $750/$1,250/$1,950, Growth $950/mo
+with the 8-video editing cap stated, Local Presence includes the governing
+one half-day session per month, filming $125/hr with a $500 minimum (solo
+crew card matches), turnkey solo half day $1,250 and two-person half day
+$1,900, product photo sessions from $500. Creator Pro tier added at
+$240/week for 3 videos (Arranque weekly now publishes 1/2/3 tiers across the
+pricing section, FAQ answers, Offer schema and the reels cost calculator,
+whose "no published weekly price" line now starts above 3 a week). New
+price constants in lib/pricing.ts for the Oct 29/30 approved services (AI
+services, chatbot care plan, podcast multicam, revision rounds, subtitling,
+express rule, expansion batch) so future pages read one source. Published
+catalog HTML deliverable updated to the same figures. All five gates green
+on Spark's VM (3,800 tests). PR only, not merged.
