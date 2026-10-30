@@ -89,6 +89,7 @@
 .rail-faq,
 .rail-player,
 .rail-scene,
+.rail-conversationscene,
 .rail-stickybar,
 .rail-tabs,
 .rail-bottomnav,
@@ -160,6 +161,7 @@
 .rail-faq *,
 .rail-player *,
 .rail-scene *,
+.rail-conversationscene *,
 .rail-stickybar *,
 .rail-tabs *,
 .rail-bottomnav *,
@@ -202,6 +204,63 @@
 .rail-envelope *,
 .rail-mailhint *,
 .rail-agenda *,
+.rail-gloss *,
+.rail-stamps *,
+.rail-inscribe *,
+.rail-scrub *,
+.rail-goods,
+.rail-order,
+.rail-goods *,
+.rail-order *,
+.rail-dial,
+.rail-insight,
+.rail-bars,
+.rail-streak,
+.rail-suggest,
+.rail-dial *,
+.rail-insight *,
+.rail-bars *,
+.rail-streak *,
+.rail-suggest *,
+.rail-arrange,
+.rail-legend,
+.rail-choose,
+.rail-arrange *,
+.rail-legend *,
+.rail-choose *,
+.rail-splits,
+.rail-fields,
+.rail-week,
+.rail-log,
+.rail-splits *,
+.rail-fields *,
+.rail-week *,
+.rail-log *,
+.rail-trend,
+.rail-readout,
+.rail-ledger,
+.rail-trend *,
+.rail-readout *,
+.rail-ledger *,
+.rail-plans,
+.rail-ask,
+.rail-place,
+.rail-plans *,
+.rail-ask *,
+.rail-place *,
+.rail-channels,
+.rail-switcher,
+.rail-spot,
+.rail-channels *,
+.rail-switcher *,
+.rail-spot *,
+.rail-peek,
+.rail-peek *,
+.rail-rings,
+.rail-photo,
+.rail-rings *,
+.rail-photo *,
+.rail-chapters *,
 .rail-welcome * {
   box-sizing: border-box;
   /* UNA PALABRA LARGA NO PUEDE MOVER LA PAGINA. El kit no elige el contenido:
@@ -213,6 +272,110 @@
      de lo que ya entra — y deja intacto el min-content, que es lo que otros
      componentes usan para dimensionarse. */
   overflow-wrap: anywhere;
+}
+
+/* ── Character conversation scene ───────────────────────────────────────── */
+.rail-conversationscene {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-block-size: var(--rail-conversation-min-height, 32rem);
+  block-size: var(--rail-conversation-height, 100%);
+  overflow: hidden;
+  color: var(--rail-conversation-ink, #f7f7f5);
+  background: var(--rail-conversation-bg, #141414);
+}
+
+.rail-conversationscene__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rail-conversationscene__viewport {
+  position: relative;
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.rail-conversationscene__stage {
+  position: absolute;
+  z-index: 2;
+  inset-block-end: var(--rail-conversation-character-bottom, 0.75rem);
+  inset-inline-start: var(--rail-conversation-character-start, 0.5rem);
+  inline-size: var(--rail-conversation-character-width, 42%);
+  max-inline-size: var(--rail-conversation-character-max-width, 10.9375rem);
+  block-size: var(--rail-conversation-character-height, 12.8125rem);
+  pointer-events: none;
+}
+
+.rail-conversationscene__status {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  max-inline-size: var(--rail-conversation-status-max-width, 9rem);
+  transform: translateX(-50%);
+}
+
+.rail-conversationscene__messages {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--rail-conversation-messages-padding, 1.25rem 1rem 14.0625rem);
+  scrollbar-width: thin;
+}
+
+.rail-conversationscene__message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-block-end: var(--rail-conversation-message-gap, 1rem);
+}
+
+.rail-conversationscene__message[data-rail-side="character"] {
+  padding-inline-end: var(--rail-conversation-character-message-inset, 1.25rem);
+}
+
+.rail-conversationscene__bubble {
+  max-inline-size: var(--rail-conversation-bubble-max-width, 82%);
+  padding: var(--rail-conversation-bubble-padding, 0.75rem 1rem);
+  border-radius: var(--rail-conversation-bubble-radius, 1rem);
+  color: var(--rail-conversation-character-bubble-ink, #252b31);
+  background: var(--rail-conversation-character-bubble-bg, #fff);
+  box-shadow: var(--rail-conversation-bubble-shadow, 0 0.4rem 1.25rem rgb(0 0 0 / 18%));
+}
+
+.rail-conversationscene__message[data-rail-side="visitor"] .rail-conversationscene__bubble {
+  color: var(--rail-conversation-visitor-bubble-ink, #17202a);
+  background: var(--rail-conversation-visitor-bubble-bg, #dff4fb);
+}
+
+.rail-conversationscene__meta,
+.rail-conversationscene__actions {
+  max-inline-size: var(--rail-conversation-bubble-max-width, 82%);
+  margin-block-start: var(--rail-conversation-meta-gap, 0.3rem);
+  color: var(--rail-conversation-meta-ink, rgb(255 255 255 / 62%));
+}
+
+.rail-conversationscene__typing {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline-end: var(--rail-conversation-character-message-inset, 1.25rem);
+}
+
+.rail-conversationscene__composer {
+  position: relative;
+  z-index: 3;
+  min-inline-size: 0;
+  background: var(--rail-conversation-composer-bg, #141414);
 }
 
 .rail,
@@ -259,6 +422,7 @@
 .rail-faq,
 .rail-player,
 .rail-scene,
+.rail-conversationscene,
 .rail-stickybar,
 .rail-tabs,
 .rail-bottomnav,
@@ -308,6 +472,37 @@
 .rail-envelope,
 .rail-mailhint,
 .rail-agenda,
+.rail-gloss,
+.rail-stamps,
+.rail-inscribe,
+.rail-scrub,
+.rail-goods,
+.rail-order,
+.rail-dial,
+.rail-insight,
+.rail-bars,
+.rail-streak,
+.rail-suggest,
+.rail-arrange,
+.rail-legend,
+.rail-choose,
+.rail-splits,
+.rail-fields,
+.rail-week,
+.rail-log,
+.rail-trend,
+.rail-readout,
+.rail-ledger,
+.rail-plans,
+.rail-ask,
+.rail-place,
+.rail-channels,
+.rail-switcher,
+.rail-spot,
+.rail-peek,
+.rail-rings,
+.rail-photo,
+.rail-chapters,
 .rail-welcome {
   --_gap: calc(var(--rail-gap, 20px) * var(--_space));
   --_width: var(--rail-card-width, 300px);
@@ -421,6 +616,7 @@
 .rail-receipt,
 .rail-statuschip,
 .rail-segmented,
+.rail-controls,
 .rail-cta,
 .rail-presence,
 .rail-byline,
@@ -436,6 +632,33 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--_space-lg);
+}
+
+/* ON A PHONE THE ACTION TAKES ITS OWN LINE. Since the header action became
+   a direct child of the header it sat on the title's row at every width, and
+   at 393px a 161px "Shop" link squeezed the title column to 107px: one rail
+   header went from 206px to 539px (gainsfromgeebs.com/packages, 2026-09-29).
+   Only the action moves. The first attempt gave the whole text block a
+   minimum measure instead, and that also pushed the small position counter
+   ("1/6") and the empty title slot of a headingless rail onto lines of their
+   own: +54px on a page with no action at all. */
+@media (max-width: 479.98px) {
+  .rail__header { flex-wrap: wrap; }
+  /* A zero basis so the title does not claim a whole line before anything
+     shrinks: it shares its row with the counter exactly as before, and only
+     the action, at 100%, has to wrap. */
+  .rail__header > :first-child { flex: 1 1 0; min-width: 0; }
+  /* `.rail__header >` for weight, not decoration: the base
+     .rail__header-action rule comes later in this file with the same
+     weight, so without it its max-width: 60% and margin-inline-start: auto
+     win, the action never wraps, and the title is squeezed to 61px. */
+  .rail__header > .rail__header-action {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-inline-start: 0;
+    justify-content: flex-start;
+    text-align: start;
+  }
 }
 
 .rail__eyebrow {
@@ -2396,6 +2619,168 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 /* ---------------------------------------------------------------------------
+ * RailSheet layout="takeover" — the promo that fills the screen.
+ *
+ * The sign-in promo an app shows: the picture first and big, then a title, one
+ * line, one button nobody can miss, and the small print under it. On a phone
+ * it is the whole screen and rises from the bottom edge; on a wide screen it is
+ * a tall panel that fades in over the page. The picture is CROPPED here, on
+ * purpose, unlike the card layout: a takeover is a poster, not a viewer, and
+ * --rail-sheet-takeover-focus says which part of the photograph must survive.
+ * ------------------------------------------------------------------------- */
+
+.rail-sheet--takeover {
+  width: 100%;
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .rail-sheet--takeover {
+    width: min(var(--rail-sheet-takeover-width, 560px), 92vw);
+    height: var(--rail-sheet-takeover-height, 92dvh);
+    max-height: var(--rail-sheet-takeover-height, 92dvh);
+    margin: auto;
+    border-radius: var(--rail-card-radius, 16px);
+  }
+}
+
+.rail-sheet--takeover .rail-sheet__in,
+.rail-sheet--takeover .rail-sheet__in[data-rail-sheet-figure] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  padding-block-start: 0;
+  border-radius: inherit;
+}
+
+.rail-sheet--takeover .rail-sheet__in[data-rail-sheet-figure] {
+  grid-template-rows: var(--rail-sheet-takeover-figure, 58%) minmax(0, 1fr);
+}
+
+.rail-sheet--takeover .rail-sheet__figure {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The picture fades into the panel, so the title reads as sitting on the
+   photograph's floor rather than under a hard edge. */
+.rail-sheet--takeover .rail-sheet__figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: var(--rail-sheet-takeover-fade, 45%);
+  background: linear-gradient(to bottom, transparent, var(--rail-sheet-bg, #111));
+  pointer-events: none;
+}
+
+.rail-sheet--takeover .rail-sheet__image,
+.rail-sheet--takeover .rail-sheet__figure > :is(img, video) {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  object-fit: cover;
+  object-position: var(--rail-sheet-takeover-focus, center 30%);
+}
+
+.rail-sheet--takeover .rail-sheet__text {
+  gap: var(--_space-sm);
+  padding-block-end: calc(var(--_space-4xl) + env(safe-area-inset-bottom, 0px));
+}
+
+.rail-sheet--takeover :is(.rail-sheet__badge, .rail-sheet__title) {
+  padding-inline-end: 0;
+}
+
+.rail-sheet--takeover .rail-sheet__title {
+  font-size: calc(var(--rail-sheet-takeover-title-size, clamp(28px, 7.4vw, 40px)) * var(--_type));
+  font-weight: var(--rail-sheet-takeover-title-weight, var(--rail-weight-bold, 700));
+  line-height: 1.1;
+}
+
+.rail-sheet--takeover .rail-sheet__body {
+  font-size: calc(var(--rail-sheet-takeover-body-size, 17px) * var(--_type));
+  line-height: 1.45;
+}
+
+.rail-sheet--takeover .rail-sheet__actions {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.rail-sheet--takeover .rail-sheet__actions > .rail-card__cta {
+  justify-content: center;
+  width: 100%;
+  min-height: var(--rail-sheet-takeover-cta-height, 54px);
+  border-radius: var(--_pill);
+}
+
+/* On a photograph the close button needs its own ground: the ink-tinted glass
+   of the card layout vanishes against a bright sky. */
+.rail-sheet--takeover .rail-sheet__close {
+  top: calc(var(--rail-sheet-close-inset, 10px) + env(safe-area-inset-top, 0px));
+  border-color: transparent;
+  background: var(--rail-sheet-takeover-close-bg, rgba(0, 0, 0, 0.45));
+  color: var(--rail-sheet-takeover-close-color, #fff);
+}
+
+.rail-sheet__fine {
+  margin: 0;
+  font-size: calc(var(--rail-sheet-fine-size, 13px) * var(--_type));
+  line-height: 1.5;
+  text-align: center;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.65));
+}
+
+/* A link in small print is still a thing a thumb has to hit. Vertical
+   padding on an inline box grows its hit area without moving the line. */
+.rail-sheet__fine a {
+  display: inline-block;
+  padding-block: var(--_space-sm);
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-sheet--takeover[open] {
+    animation: rail-sheet-rise var(--rail-sheet-takeover-duration, var(--_dur-slow)) var(--_ease) both;
+  }
+
+  .rail-sheet--takeover[open]::backdrop {
+    animation: rail-sheet-fade var(--_dur-base) var(--_ease-soft) both;
+  }
+
+  @media (min-width: 768px) {
+    .rail-sheet--takeover[open] {
+      animation-name: rail-sheet-appear;
+      animation-duration: var(--_dur-base);
+    }
+  }
+}
+
+@keyframes rail-sheet-rise {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+
+@keyframes rail-sheet-appear {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rail-sheet-fade {
+  from { opacity: 0; }
+}
+
+/* ---------------------------------------------------------------------------
  * RailFaq — questions and answers on <details>/<summary>.
  * Promoted from danielzea-site's `faq.css`.
  * ------------------------------------------------------------------------- */
@@ -2498,7 +2883,12 @@ a.rail-frame__presenter-mark { text-decoration: none; }
      21. Como la que gira es el glifo y no ella, agrandarla ya no agranda nada
      —ese fue mi primer intento y lo empeoro, de 396 a 397—. */
   width: var(--rail-faq-marker-box, 1.5em);
-  height: var(--rail-faq-marker-box, 1.5em);
+  /* Solo el ANCHO necesita sitio para la diagonal: lo que girado se sale por
+     arriba o por abajo no ensancha nada. Con alto 1.5em la caja crecia a 36 px
+     con un titulo de 24, alargaba cada fila 12 px y centraba el `+` por debajo
+     de la primera linea de la pregunta (medido en thedancingchairs a 390 px:
+     texto a 107, `+` a 114). El alto es el de la linea, como antes. */
+  height: 1em;
   font-size: calc(var(--rail-size-title, 24px) * var(--_type));
   line-height: 1;
   color: var(--_muted);
@@ -2751,6 +3141,11 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: var(--rail-stickybar-bg, #0a0a0a);
   border-top: 1px solid var(--_border);
   transform: translateY(100%);
+  /* The home indicator on a modern phone sits over the bottom of the screen.
+     RailBottomNav already clears it; this bar did not, so its actions — the
+     reason the bar exists — sat under the indicator. Padding, not margin, so
+     `offsetHeight` still measures everything the spacer has to reserve. */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .rail-stickybar[data-rail-visible="true"] { transform: none; }
@@ -3044,6 +3439,12 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: var(--rail-progress-bg, var(--_bg));
 }
 
+/* Nested in a tile that already states the name and the figure: no surface of
+   its own, no padding, no second card inside a card. */
+.rail-progress[data-rail-bare] {
+  padding: 0;
+  background: transparent;
+}
 .rail-progress__head {
   display: flex;
   align-items: baseline;
@@ -3052,12 +3453,20 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   margin-bottom: var(--_space-sm);
 }
 
+/* NEITHER SIDE OF THE HEAD MAY REFUSE TO SHRINK. A long label or a long
+   formatted value pushed the whole row past the viewport — measured at 424px
+   inside 390 by the long-word sweep on CI, and at 408 by a story that
+   predates the marker. `min-inline-size: 0` is what lets the kit's global
+   `overflow-wrap` actually break them. */
 .rail-progress__label {
+  min-inline-size: 0;
   font-size: calc(var(--rail-progress-label-size, 17px) * var(--_type));
   font-weight: var(--rail-weight-bold, 700);
 }
 
 .rail-progress__value {
+  min-inline-size: 0;
+  text-align: end;
   font-size: calc(var(--rail-progress-value-size, 16px) * var(--_type));
   font-weight: var(--rail-weight-bold, 700);
   font-variant-numeric: tabular-nums;
@@ -9696,4 +10105,2898 @@ button.rail-allocation__name {
 .rail-agenda__pick:focus-visible {
   outline: 2px solid var(--_accent);
   outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * GLOSS — a term in its own language, said again in the reader's.
+ * The TERM keeps reading size and the translation is what shrinks: set the
+ * whole line as an eyebrow and it reads as chrome, and chrome is what people
+ * skip. This is the only line on the page the reader does not already know.
+ */
+.rail-gloss {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--_space-xs);
+  margin: 0 0 var(--_space-md);
+  color: var(--_muted);
+  font-size: var(--_text-xs);
+}
+.rail-gloss__term {
+  color: var(--_text);
+  font-size: var(--rail-gloss-size, var(--_text-lg));
+  letter-spacing: var(--rail-gloss-tracking, normal);
+}
+/* El hueco va en CSS y no como un espacio en el JSX: un espacio entre llaves
+   lo borra cualquier formateador, y volveria "一期一会(Ichigo ichie)" sin que
+   ninguna puerta lo notase. */
+.rail-gloss__roman { margin-inline-start: var(--_space-xs); font-style: italic; }
+/* EL NAVEGADOR SANGRA `dd` 40px POR SU CUENTA. Es la regla de la hoja de
+   estilos del agente para las listas de definicion, y en una fila no se lee
+   como sangria: se lee como un hueco entre el termino y lo que significa, y
+   dejaba `__origin` empezando fuera del margen izquierdo de la plana. Medido
+   en la story: 40px exactos. Elegir `<dl>` por la semantica obliga a pagar
+   esto. */
+.rail-gloss__meaning,
+.rail-gloss__origin {
+  margin: 0;
+}
+/* La raya separa la voz ajena de la propia. Va antes del significado, no
+   antes de la romanizacion: esa sigue siendo la misma palabra. */
+.rail-gloss__meaning::before {
+  content: "— ";
+}
+.rail-gloss__origin {
+  flex-basis: 100%;
+  color: var(--_muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * STAMPS — the two neighbours, parked left and right of what you are reading.
+ * THREE COLUMNS WITH THE MIDDLE EMPTY. At the ends of a sequence one stamp is
+ * missing, and in a flex row the survivor slides to the centre of the page
+ * where nothing else in this format sits. The hole holds the position.
+ */
+.rail-stamps {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  /* STRETCH, NO CENTER. Los dos vecinos casi nunca traen titulos del mismo
+     largo, y centrados cada uno toma su propia altura: medido en un
+     concesionario, "2025 Honda HR-V LX Sport Utility 4D" daba 188px y "2015
+     Honda Civic Si Sedan 4D" 168px, uno al lado del otro. El componente
+     promete que un sello con arte y otro sin ella miden igual; dos sellos con
+     arte y titulos distintos tienen que medir igual por la misma razon. */
+  align-items: stretch;
+  gap: var(--_space-md);
+}
+.rail-stamps__gap { display: block; }
+.rail-stamps__stamp {
+  display: grid;
+  /* La arte arriba, el texto abajo y el hueco que sobra EN MEDIO: asi dos
+     sellos estirados a la misma altura siguen alineando su imagen y su
+     titulo, en vez de repartir el sobrante por dentro de cada uno. */
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  gap: var(--_space-xs);
+  width: var(--rail-stamp-width, 92px);
+  padding: var(--_space-xs);
+  border: 1px solid var(--_border);
+  border-radius: var(--rail-stamp-radius, 2px);
+  background: var(--_card-bg, transparent);
+  color: var(--_text);
+  font-size: var(--_text-xs);
+  text-decoration: none;
+  /* Un sello sin arte y uno con arte tienen que medir lo mismo: si no, media
+     secuencia cambia de forma segun quien tenga foto. */
+  min-height: var(--rail-stamp-min-h, 72px);
+}
+.rail-stamps__art {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--_aspect);
+  object-fit: contain;
+}
+.rail-stamps__kicker {
+  color: var(--_muted);
+  letter-spacing: var(--_track-wide);
+  text-transform: uppercase;
+}
+.rail-stamps__title { color: var(--_text); }
+@media (max-width: 720px) {
+  /* En el movil los bordes de la ventana son el pulgar, no un margen. Los dos
+     sellos bajan a una fila bajo el contenido y el hueco se cierra. */
+  .rail-stamps { grid-template-columns: 1fr 1fr; }
+  .rail-stamps__gap { display: none; }
+  .rail-stamps__stamp { width: 100%; }
+}
+
+/* ---------------------------------------------------------------------------
+ * INSCRIBE — a line that settles a word at a time.
+ * The text is in the DOM whole; this only fades it. With motion off the
+ * animation never runs, and because the resting state is the visible one,
+ * nothing has to be undone for that to be true.
+ */
+.rail-inscribe__word { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .rail-inscribe__word {
+    animation: rail-inscribe var(--_dur-slow) var(--_ease-out) var(--_delay, 0s) both;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * SCRUB — a scene driven by the scroll and by nothing else.
+ * The box is the scroll distance; the clip is pinned inside it. `sticky`
+ * rather than `fixed`: a fixed child escapes its section and paints over
+ * whatever comes next, which is the defect this format ships with.
+ */
+.rail-scrub {
+  position: relative;
+  min-height: var(--rail-scrub-travel, 220vh);
+}
+.rail-scrub__clip {
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100svh;
+  object-fit: cover;
+}
+.rail-scrub__over {
+  position: sticky;
+  top: 0;
+  /* El texto vive en el flujo del sticky, no sobre un clip que ya ocupo su
+     sitio: por eso sube su propia altura. Sin esto la superposicion empuja
+     una ventana entera de blanco bajo la escena. */
+  margin-top: -100svh;
+  min-height: 100svh;
+  padding: var(--_space-lg);
+  color: var(--_text);
+}
+.rail-inscribe__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * RailGoods — picture, name, price, and one button that adds it.
+ * ------------------------------------------------------------------------- */
+
+.rail-goods__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-goods__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* Two across on a phone regardless of the prop: three product cells at
+     390px leave the name about eleven characters, and a shop whose names are
+     stubs is a shop nobody can compare in. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rail-goods-gap, var(--_space-sm));
+}
+@container (min-width: 520px) {
+  .rail-goods[data-rail-columns="3"] .rail-goods__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.rail-goods__good {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-3xs);
+  min-width: 0;
+  border-radius: var(--rail-goods-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-goods-bg, transparent);
+}
+.rail-goods__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-2xs);
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+.rail-goods__art--none {
+  display: block;
+}
+.rail-goods__art {
+  width: 100%;
+  aspect-ratio: var(--rail-goods-aspect, 1 / 1);
+  object-fit: contain;
+  border-radius: var(--rail-goods-art-radius, 8px);
+  background: var(--rail-goods-art-bg, color-mix(in srgb, currentColor 6%, transparent));
+}
+.rail-goods__name {
+  /* The link is the product's target, and a two-line name that happens to be
+     one line must still be tappable. */
+  min-height: var(--_tap-min);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.rail-goods__price {
+  margin: 0;
+}
+.rail-goods__unit,
+.rail-goods__promise,
+.rail-goods__unavailable {
+  margin: 0;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-goods__tag {
+  /* 2px between a word and the next word is not a space, it is a collision:
+     "primeOvernight" was measured on the phone story. */
+  margin-inline-end: var(--_space-2xs);
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--rail-goods-tag-color, var(--_accent-text));
+}
+.rail-goods__unavailable {
+  font-weight: var(--rail-weight-semibold, 600);
+}
+/* THE BUTTON ONLY FLOATS OVER A PICTURE. Absolutely positioned in a cell
+   with no art it lands ON the product name — measured: four of six names
+   collided with it at 390px. Without an image it sits in the flow instead,
+   where nothing can be under it. */
+.rail-goods__add {
+  align-self: start;
+  display: grid;
+  place-items: center;
+  gap: var(--_space-3xs);
+  grid-auto-flow: column;
+  min-width: max(var(--_tap-min), var(--rail-goods-add-size, 36px));
+  min-height: max(var(--_tap-min), var(--rail-goods-add-size, 36px));
+  padding-inline: var(--_space-3xs);
+  border: 0;
+  border-radius: var(--rail-goods-add-radius, 999px);
+  background: var(--rail-goods-add-bg, var(--_accent));
+  color: var(--rail-goods-add-color, #fff);
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  cursor: pointer;
+}
+.rail-goods__good[data-rail-art] .rail-goods__add {
+  position: absolute;
+  inset-inline-end: var(--_space-2xs);
+  /* Over the picture, not under the price: the thumb reaches the top of a
+     cell while the eye is still on the name, and a button at the bottom of
+     one cell sits a few pixels from the top of the next. */
+  inset-block-start: var(--_space-2xs);
+  align-self: auto;
+}
+.rail-goods__plus {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type) * var(--rail-goods-plus-scale, 1.3));
+  line-height: 1;
+}
+.rail-goods__count {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+}
+.rail-goods a:focus-visible,
+.rail-goods button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailOrder — what it costs, where it goes, and the press that spends it.
+ * ------------------------------------------------------------------------- */
+
+.rail-order {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-sm);
+}
+.rail-order__heading {
+  margin: 0;
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-order__terms {
+  margin: 0;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-order__act {
+  min-height: max(var(--_tap-min), var(--rail-order-act-height, 44px));
+  padding-inline: var(--_space-md);
+  border: 0;
+  border-radius: var(--rail-order-act-radius, 999px);
+  background: var(--rail-order-act-bg, var(--_accent));
+  /* `--_accent-text` is accent-coloured TEXT ON THE PAGE, not text on the
+     accent. On a red button it renders red on red — measured 1.77:1 by the
+     axe gate. The kit's primary buttons all default to #fff over the accent
+     and let a brand override it. */
+  color: var(--rail-order-act-color, #fff);
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  cursor: pointer;
+}
+.rail-order__lines {
+  margin: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+  padding-block: var(--_space-sm);
+  border-block: 1px solid var(--_border);
+}
+.rail-order__line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-order__line dt,
+.rail-order__line dd {
+  margin: 0;
+  min-width: 0;
+}
+/* The label takes the slack and the amount keeps its width: without this a
+   long line name pushes the row — and the page — past the viewport, which
+   the long-word sweep measured at 872px inside a 390px screen. */
+.rail-order__line-label {
+  flex: 1 1 auto;
+}
+.rail-order__line-amount {
+  flex: 0 1 auto;
+}
+.rail-order__line-amount {
+  text-align: end;
+  /* NOT `nowrap`. A real amount is six characters and never wraps anyway, and
+     the one time it is longer — a waived price beside its replacement, a
+     currency nobody planned for — nowrap moves the whole page instead. */
+}
+.rail-order__line[data-rail-total] {
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type) * var(--rail-order-total-scale, 1.1));
+}
+.rail-order__was {
+  margin-inline-end: var(--_space-2xs);
+  color: var(--_muted);
+}
+.rail-order__tag {
+  margin-inline-end: var(--_space-2xs);
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--rail-order-tag-color, var(--_accent-text));
+}
+.rail-order__row {
+  display: grid;
+  gap: var(--_space-3xs);
+  padding-block-end: var(--_space-sm);
+  border-block-end: 1px solid var(--_border);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-order__row-label,
+.rail-order__row-detail,
+.rail-order__arrival-label,
+.rail-order__arrival-detail {
+  margin: 0;
+}
+.rail-order__row-detail,
+.rail-order__arrival-detail {
+  color: var(--_muted);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+}
+/* A consumer passes real links inside `terms`, and a bare <a> falls back to
+   the browser's #0000ee — 2.1:1 on a dark surface. */
+.rail-order__terms a {
+  color: var(--rail-order-link-color, var(--_accent-text));
+}
+.rail-order__change {
+  justify-self: start;
+  min-height: var(--_tap-min);
+  display: inline-flex;
+  align-items: center;
+  color: var(--rail-order-link-color, var(--_accent-text));
+}
+.rail-order__arrival-label {
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-order a:focus-visible,
+.rail-order button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailDial — the ring, its two flanks, and the split underneath.
+ * ------------------------------------------------------------------------- */
+
+.rail-dial__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-dial__ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-2xs);
+}
+/* MEASURED AT 390px: a fixed 180px dial plus two flanks does not fit, and
+   what gives way is the words — "Remaining" broke across two lines as
+   "Remainin / g" and the target read "1,70 / 0". The dial shrinks first now,
+   and every figure is sized in container units so the whole group scales
+   with the space it actually has rather than with a number written here. */
+.rail-dial__dial {
+  position: relative;
+  flex: 0 1 var(--rail-dial-size, 180px);
+  inline-size: var(--rail-dial-size, 180px);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.rail-dial__svg {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  /* The gap opens at the bottom: -225deg puts the arc's start at the lower
+     leading corner, where the eye enters a dial. */
+  transform: rotate(-225deg);
+}
+.rail-dial__rest,
+.rail-dial__arc {
+  fill: none;
+  stroke-width: var(--rail-dial-width, 8);
+  stroke-linecap: round;
+}
+.rail-dial__rest {
+  stroke: var(--rail-dial-rest, color-mix(in srgb, currentColor 16%, transparent));
+}
+.rail-dial__arc {
+  stroke: var(--rail-dial-arc, var(--_accent));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-dial__arc {
+    transition: stroke-dasharray var(--_dur-slow) var(--_ease);
+  }
+}
+.rail-dial__centre {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.rail-dial__centre {
+  /* Inside the ring, never over it: the arc's inner edge is about two thirds
+     of the box, and a figure wider than that crosses its own dial. */
+  max-inline-size: 64%;
+}
+.rail-dial__value {
+  font-size: calc(clamp(var(--rail-dial-value-min, 20px), var(--rail-dial-value-scale, 9cqi), var(--rail-dial-value-size, 44px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.05;
+}
+.rail-dial__flank {
+  margin: 0;
+  flex: 1 1 0;
+  min-inline-size: 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.rail-dial__flank-value {
+  font-size: calc(clamp(var(--rail-dial-flank-min, 18px), var(--rail-dial-flank-scale, 6.5cqi), var(--rail-dial-flank-size, 26px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+.rail-dial__value-label,
+.rail-dial__flank-label {
+  font-size: calc(clamp(var(--rail-dial-label-min, 11px), var(--rail-dial-label-scale, 3.4cqi), var(--rail-size-meta, 14px)) * var(--_type));
+  color: var(--_muted);
+}
+.rail-dial__bars {
+  list-style: none;
+  margin: var(--_space-md) 0 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--_space-sm);
+}
+.rail-dial__bar {
+  display: grid;
+  justify-items: center;
+  gap: var(--_space-3xs);
+  min-inline-size: 0;
+  text-align: center;
+}
+.rail-dial__bar-label {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-dial__bar-track {
+  inline-size: 100%;
+  block-size: var(--rail-dial-bar-height, 4px);
+  border-radius: var(--rail-dial-bar-radius, 999px);
+  background: var(--rail-dial-bar-rest, color-mix(in srgb, currentColor 16%, transparent));
+  overflow: hidden;
+}
+.rail-dial__bar-fill {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+  background: var(--_bar-tone, var(--rail-dial-bar-fill, var(--_accent)));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-dial__bar-fill {
+    transition: inline-size var(--_dur-slow) var(--_ease);
+  }
+}
+.rail-dial__bar-value {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+/* -------------------------------------------------------------------------
+ * RailInsight — one measured thing, small, and the way into the full one.
+ * ------------------------------------------------------------------------- */
+
+.rail-insight {
+  display: grid;
+  gap: var(--_space-3xs);
+  padding: var(--_space-sm);
+  border-radius: var(--rail-insight-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-insight-bg, color-mix(in srgb, currentColor 8%, transparent));
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+}
+.rail-insight__title {
+  font-size: calc(var(--rail-insight-title-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-insight__period,
+.rail-insight__unit {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+  font-weight: var(--rail-weight-regular, 400);
+}
+.rail-insight__chart {
+  display: block;
+  margin-block: var(--_space-xs);
+  min-block-size: var(--rail-insight-chart-height, 48px);
+}
+.rail-insight__foot {
+  /* Pinned to the bottom so two tiles side by side put their numbers on the
+     same line. Without it a tile with no chart closes up and the row reads as
+     two unrelated cards. */
+  margin-block-start: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-xs);
+  padding-block-start: var(--_space-xs);
+  border-block-start: 1px solid var(--_border);
+  /* The rule sits under the drawing, not under the title: the number and the
+     picture are one reading and the heading is another. */
+}
+.rail-insight__value {
+  font-size: calc(var(--rail-insight-value-size, 26px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  min-inline-size: 0;
+}
+.rail-insight__chevron {
+  color: var(--_muted);
+  align-self: center;
+}
+.rail-insight:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailBars — the shape of a month, and the line it is measured against.
+ * ------------------------------------------------------------------------- */
+
+.rail-bars__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-bars__plot {
+  position: relative;
+  block-size: var(--rail-bars-height, 140px);
+  border-block-end: 1px solid var(--_border);
+}
+.rail-bars__series {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  block-size: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--rail-bars-gap, 3px);
+}
+.rail-bars__col {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  block-size: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.rail-bars__bar {
+  inline-size: 100%;
+  border-radius: var(--rail-bars-radius, 2px);
+  background: var(--rail-bars-fill, var(--_accent));
+  /* A bar of a real but tiny value must still be a bar: at 1px it reads as
+     the axis, which is the same shape a missing day has. */
+  min-block-size: var(--rail-bars-min, 3px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-bars__bar {
+    transition: block-size var(--_dur-slow) var(--_ease);
+  }
+}
+.rail-bars__marker {
+  position: absolute;
+  inset-inline: 0;
+  block-size: 0;
+  border-block-start: var(--rail-bars-marker-width, 2px) dashed
+    var(--rail-bars-marker, var(--_accent-text));
+}
+/* A <table> IGNORES `width: 1px`. Under `table-layout: auto` the box grows to
+   its min-content no matter what the sr-only class says, so the hidden series
+   pushed the page to 637px inside a 390px screen — a visually-hidden element
+   moving the layout, which is the one thing it must never do. */
+.rail-bars table.rail-sr-only {
+  table-layout: fixed;
+}
+/* A <caption> IS NOT LAID OUT BY THE TABLE ALGORITHM. `table-layout: fixed`
+   pinned the columns and the caption still grew to its own min-content,
+   pushing the page to 535px inside 390 — the same invisible element moving
+   the layout, one box further out. */
+.rail-bars table.rail-sr-only caption {
+  display: block;
+  inline-size: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.rail-bars__caption {
+  margin: var(--_space-2xs) 0 0;
+  text-align: end;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-bars__summary {
+  margin: var(--_space-md) 0 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--_space-md);
+  flex-wrap: wrap;
+}
+.rail-bars__sum {
+  display: grid;
+  justify-items: center;
+  gap: var(--_space-3xs);
+  min-inline-size: 0;
+}
+.rail-bars__sum-value {
+  margin: 0;
+  font-size: calc(var(--rail-bars-sum-size, 24px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-bars__sum-label {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* -------------------------------------------------------------------------
+ * RailStreak — a month of a habit, and the count that survives a bad day.
+ * ------------------------------------------------------------------------- */
+
+.rail-streak {
+  display: grid;
+  gap: var(--_space-3xs);
+  padding: var(--_space-sm);
+  border-radius: var(--rail-streak-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-streak-bg, color-mix(in srgb, currentColor 8%, transparent));
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+}
+.rail-streak__title {
+  font-size: calc(var(--rail-streak-title-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-streak__period {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-streak__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(var(--rail-streak-rows, 3), auto);
+  grid-auto-columns: 1fr;
+  gap: var(--rail-streak-gap, 4px);
+  margin-block: var(--_space-xs);
+}
+.rail-streak__day {
+  aspect-ratio: 1;
+  border-radius: var(--rail-streak-day-radius, 3px);
+  background: var(--rail-streak-missed, color-mix(in srgb, currentColor 14%, transparent));
+}
+.rail-streak__day[data-rail-state="done"] {
+  background: var(--rail-streak-done, var(--_accent));
+}
+.rail-streak__day[data-rail-state="future"] {
+  /* Not a miss. An outline, so the month still has its shape. */
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--_border);
+}
+.rail-streak__foot {
+  margin-block-start: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-xs);
+  padding-block-start: var(--_space-xs);
+  border-block-start: 1px solid var(--_border);
+}
+.rail-streak__summary {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  min-inline-size: 0;
+}
+.rail-streak__chevron {
+  color: var(--_muted);
+}
+.rail-streak:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailSuggest — a face, a name, why, and one button.
+ * ------------------------------------------------------------------------- */
+
+.rail-suggest__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  margin-block-end: var(--_space-sm);
+}
+.rail-suggest__heading {
+  margin: 0;
+  /* Without this the heading refuses to shrink and pushes "See all" off the
+     screen — measured: the link's trailing edge landed past 390px. */
+  min-inline-size: 0;
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-suggest__seeall {
+  flex: 0 0 auto;
+  /* A standalone "See all" is a control, not a word in a sentence: the
+     inline-link exemption does not cover it, and 44x17 fails the AA floor. */
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--_tap-min);
+  color: var(--rail-suggest-link-color, var(--_accent-text));
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-suggest__row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--_space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.rail-suggest__row::-webkit-scrollbar {
+  display: none;
+}
+.rail-suggest__cell {
+  /* Under a half so the next card is visibly cut: a row that ends flush at
+     the edge reads as a row that ends. */
+  flex: 0 0 var(--rail-suggest-width, 62%);
+  max-inline-size: var(--rail-suggest-max, 260px);
+  scroll-snap-align: start;
+}
+.rail-suggest__card {
+  position: relative;
+  block-size: 100%;
+  display: grid;
+  justify-items: center;
+  gap: var(--_space-2xs);
+  padding: var(--_space-md) var(--_space-sm) var(--_space-sm);
+  border-radius: var(--rail-suggest-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-suggest-bg, color-mix(in srgb, currentColor 8%, transparent));
+  text-align: center;
+}
+.rail-suggest__dismiss {
+  position: absolute;
+  inset-block-start: var(--_space-2xs);
+  inset-inline-end: var(--_space-2xs);
+  min-inline-size: var(--_tap-min);
+  min-block-size: var(--_tap-min);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--rail-suggest-dismiss-radius, 999px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.rail-suggest__link {
+  display: grid;
+  justify-items: center;
+  gap: var(--_space-2xs);
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+}
+.rail-suggest__face {
+  position: relative;
+  display: block;
+}
+.rail-suggest__avatar {
+  inline-size: var(--rail-suggest-avatar, 108px);
+  block-size: var(--rail-suggest-avatar, 108px);
+  border-radius: var(--rail-suggest-avatar-radius, 999px);
+  object-fit: cover;
+}
+.rail-suggest__badge {
+  position: absolute;
+  /* INSIDE the avatar's lower edge, not straddling it: half outside, the pill
+     lands on the name underneath and the two read as one broken line. */
+  inset-block-end: var(--_space-2xs);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  padding: var(--_space-3xs) var(--_space-2xs);
+  border-radius: var(--rail-suggest-badge-radius, 999px);
+  background: var(--rail-suggest-badge-bg, var(--_accent));
+  color: var(--rail-suggest-badge-color, #fff);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-suggest__name {
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  min-inline-size: 0;
+}
+.rail-suggest__reason {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-3xs);
+  flex-wrap: wrap;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-suggest__mutuals {
+  display: flex;
+}
+.rail-suggest__mutual {
+  inline-size: var(--rail-suggest-mutual, 22px);
+  block-size: var(--rail-suggest-mutual, 22px);
+  border-radius: var(--rail-suggest-avatar-radius, 999px);
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--rail-suggest-bg-solid, var(--_bg, transparent));
+}
+.rail-suggest__mutual + .rail-suggest__mutual {
+  margin-inline-start: calc(var(--rail-suggest-mutual, 22px) * -0.35);
+}
+.rail-suggest__follow {
+  inline-size: 100%;
+  min-block-size: max(var(--_tap-min), var(--rail-suggest-follow-height, 40px));
+  margin-block-start: auto;
+  border: 0;
+  border-radius: var(--rail-suggest-follow-radius, 8px);
+  background: var(--rail-suggest-follow-bg, var(--_accent));
+  color: var(--rail-suggest-follow-color, #fff);
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  cursor: pointer;
+}
+.rail-suggest__follow[data-rail-followed] {
+  background: var(--rail-suggest-followed-bg, color-mix(in srgb, currentColor 14%, transparent));
+  color: inherit;
+}
+.rail-suggest a:focus-visible,
+.rail-suggest button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailProgress — the optional tick on the bar.
+ * ------------------------------------------------------------------------- */
+
+.rail-progress__track {
+  position: relative;
+  display: block;
+}
+.rail-progress__marker {
+  position: absolute;
+  inset-block: 0;
+  inline-size: var(--rail-progress-marker-width, 2px);
+  border-radius: var(--rail-progress-marker-radius, 1px);
+  background: var(--rail-progress-marker, currentColor);
+  transform: translateX(-50%);
+}
+
+/* -------------------------------------------------------------------------
+ * RailArrange — the list a person puts in their own order.
+ * ------------------------------------------------------------------------- */
+
+.rail-arrange__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-arrange__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--rail-arrange-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-arrange-bg, color-mix(in srgb, currentColor 8%, transparent));
+  overflow: hidden;
+}
+.rail-arrange__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  padding: var(--_space-sm);
+  min-block-size: max(var(--_tap-min), var(--rail-arrange-row-height, 56px));
+}
+.rail-arrange__row + .rail-arrange__row {
+  border-block-start: 1px solid var(--_border);
+}
+.rail-arrange__preview {
+  flex: 0 0 auto;
+  inline-size: var(--rail-arrange-preview, 48px);
+  block-size: var(--rail-arrange-preview, 48px);
+  display: grid;
+  place-items: center;
+  border-radius: var(--rail-arrange-preview-radius, 6px);
+  background: var(--rail-arrange-preview-bg, color-mix(in srgb, currentColor 10%, transparent));
+  overflow: hidden;
+}
+.rail-arrange__label {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-arrange__moves {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+}
+.rail-arrange__slot {
+  inline-size: var(--_tap-min);
+  block-size: var(--_tap-min);
+  display: grid;
+  place-items: center;
+}
+.rail-arrange__move {
+  min-inline-size: var(--_tap-min);
+  min-block-size: var(--_tap-min);
+  /* The arrow is one glyph and the name beside it is visually hidden, so the
+     button has no business growing with either: fixed to the tap floor and
+     clipped, it cannot be widened by content. */
+  inline-size: var(--_tap-min);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--rail-arrange-move-radius, 6px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.rail-arrange__grip {
+  /* The grip is two rules, drawn: it says the row moves, and the buttons
+     beside it are how. It is not a target, so it is not sized like one. */
+  inline-size: var(--rail-arrange-grip, 18px);
+  block-size: 2px;
+  margin-inline-start: var(--_space-3xs);
+  background: currentColor;
+  box-shadow: 0 5px 0 currentColor;
+  opacity: var(--rail-arrange-grip-opacity, 0.5);
+}
+.rail-arrange__switch {
+  flex: 0 0 auto;
+  inline-size: var(--rail-arrange-switch-width, 46px);
+  min-block-size: var(--_tap-min);
+  block-size: var(--rail-arrange-switch-height, 28px);
+  padding: var(--rail-arrange-switch-pad, 3px);
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: var(--rail-arrange-switch-radius, 999px);
+  background: var(--rail-arrange-switch-off, color-mix(in srgb, currentColor 22%, transparent));
+  cursor: pointer;
+}
+.rail-arrange__switch[aria-checked="true"] {
+  background: var(--rail-arrange-switch-on, var(--_accent));
+  justify-content: flex-end;
+}
+.rail-arrange__knob {
+  inline-size: var(--rail-arrange-knob, 22px);
+  block-size: var(--rail-arrange-knob, 22px);
+  border-radius: var(--rail-arrange-switch-radius, 999px);
+  background: var(--rail-arrange-knob-color, #fff);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-arrange__switch {
+    transition: background var(--_dur-fast) var(--_ease);
+  }
+}
+.rail-arrange__action {
+  inline-size: 100%;
+  min-block-size: max(var(--_tap-min), var(--rail-arrange-action-height, 44px));
+  margin-block-start: var(--_space-sm);
+  border: 0;
+  border-radius: var(--rail-arrange-action-radius, 8px);
+  background: var(--rail-arrange-action-bg, color-mix(in srgb, currentColor 12%, transparent));
+  color: inherit;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  cursor: pointer;
+}
+.rail-arrange button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailLegend — what each mark on the chart means.
+ * ------------------------------------------------------------------------- */
+
+.rail-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-sm);
+  padding: var(--_space-xs) var(--_space-sm);
+  border-radius: var(--rail-legend-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-legend-bg, color-mix(in srgb, currentColor 8%, transparent));
+}
+.rail-legend__keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-sm);
+  min-inline-size: 0;
+}
+.rail-legend__key {
+  display: flex;
+  align-items: center;
+  /* The mark belongs to the word beside it: measured at 4px the square read
+     as part of the letter "I" in "Intake", while the space between keys was
+     wider than the space inside one. */
+  gap: var(--_space-xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  min-inline-size: 0;
+}
+.rail-legend__mark {
+  flex: 0 0 auto;
+  inline-size: var(--rail-legend-mark, 14px);
+  background: var(--_key-tone, var(--_accent));
+}
+.rail-legend__mark[data-rail-mark="bar"] {
+  block-size: var(--rail-legend-mark, 14px);
+  border-radius: var(--rail-legend-bar-radius, 2px);
+}
+.rail-legend__mark[data-rail-mark="line"] {
+  block-size: var(--rail-legend-line, 2px);
+  border-radius: var(--rail-legend-line-radius, 1px);
+}
+.rail-legend__mark[data-rail-mark="band"] {
+  block-size: var(--rail-legend-band, 10px);
+  border-radius: var(--rail-legend-bar-radius, 2px);
+  opacity: var(--rail-legend-band-opacity, 0.55);
+}
+.rail-legend__mark[data-rail-mark="dot"] {
+  block-size: var(--rail-legend-mark, 14px);
+  border-radius: var(--rail-legend-dot-radius, 999px);
+}
+.rail-legend__explain {
+  flex: 0 0 auto;
+  min-inline-size: var(--_tap-min);
+  min-block-size: var(--_tap-min);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--rail-legend-explain-radius, 999px);
+  background: var(--rail-legend-explain-bg, color-mix(in srgb, currentColor 16%, transparent));
+  color: inherit;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  cursor: pointer;
+}
+.rail-legend button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailChoose — one of several, picked.
+ * ------------------------------------------------------------------------- */
+
+.rail-choose__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-choose-heading-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-align: center;
+}
+.rail-choose__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rail-choose__item + .rail-choose__item {
+  border-block-start: 1px solid var(--_border);
+}
+.rail-choose__choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  min-block-size: max(var(--_tap-min), var(--rail-choose-row-height, 56px));
+  padding-block: var(--_space-xs);
+  cursor: pointer;
+}
+.rail-choose__choice[data-rail-unavailable] {
+  cursor: default;
+  opacity: var(--rail-choose-unavailable-opacity, 0.55);
+}
+.rail-choose__input {
+  /* THE INPUT IS THE TARGET, not a 1px crumb parked off to one side. The
+     usual visually-hidden radio keeps the keyboard and the group — and then
+     the thing a thumb actually lands on is the label, while the control
+     itself measures 1x1. The DOM sweep caught exactly that at three widths.
+     Stretched over the whole row it is still invisible, still focusable, and
+     now the control and its target are the same object. */
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.rail-choose__text {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-choose__label {
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-choose__detail,
+.rail-choose__unavailable {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-choose__mark {
+  flex: 0 0 auto;
+  inline-size: var(--rail-choose-mark, 26px);
+  block-size: var(--rail-choose-mark, 26px);
+  display: grid;
+  place-items: center;
+  border-radius: var(--rail-choose-mark-radius, 999px);
+  box-shadow: inset 0 0 0 var(--rail-choose-ring, 2px)
+    var(--rail-choose-mark-rest, color-mix(in srgb, currentColor 45%, transparent));
+}
+/* A RING AND A DOT, NOT A FILLED DISC. Stacking the dot's inset on top of a
+   filled background paints one solid circle, which is the shape a CHECKBOX
+   uses when it is on — the two controls stop being distinguishable, and the
+   list stops looking like "one of these". */
+.rail-choose__mark::after {
+  content: "";
+  inline-size: var(--rail-choose-dot, 12px);
+  block-size: var(--rail-choose-dot, 12px);
+  border-radius: var(--rail-choose-mark-radius, 999px);
+  background: var(--rail-choose-mark-on, currentColor);
+  transform: scale(0);
+}
+.rail-choose__input:checked ~ .rail-choose__mark {
+  box-shadow: inset 0 0 0 var(--rail-choose-ring, 2px)
+    var(--rail-choose-mark-on, currentColor);
+}
+.rail-choose__input:checked ~ .rail-choose__mark::after {
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-choose__mark::after {
+    transition: transform var(--_dur-fast) var(--_ease);
+  }
+}
+.rail-choose__input:checked ~ .rail-choose__text .rail-choose__label {
+  font-weight: var(--rail-weight-bold, 700);
+}
+.rail-choose__input:focus-visible ~ .rail-choose__mark {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailSplits — a day per row, and how that day divided up.
+ * ------------------------------------------------------------------------- */
+
+.rail-splits__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-splits__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rail-splits__row {
+  padding-block: var(--_space-sm);
+}
+.rail-splits__row + .rail-splits__row {
+  border-block-start: 1px solid var(--_border);
+}
+.rail-splits__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.rail-splits__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  margin-block-end: var(--_space-xs);
+}
+.rail-splits__label {
+  font-size: calc(var(--rail-splits-label-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  min-inline-size: 0;
+}
+.rail-splits__summary {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+  text-align: end;
+  min-inline-size: 0;
+}
+.rail-splits__bar {
+  display: flex;
+  block-size: var(--rail-splits-height, 6px);
+  border-radius: var(--rail-splits-radius, 999px);
+  background: var(--rail-splits-rest, color-mix(in srgb, currentColor 14%, transparent));
+  overflow: hidden;
+}
+.rail-splits__part {
+  block-size: 100%;
+  background: var(--_part-tone, var(--_accent));
+  /* A part worth one percent must still be visible: below a pixel it is not
+     a small share, it is a missing one. */
+  min-inline-size: var(--rail-splits-min, 2px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-splits__part {
+    transition: inline-size var(--_dur-slow) var(--_ease);
+  }
+}
+.rail-splits a:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailFields — a name, what it is set to, and the way to change it.
+ * ------------------------------------------------------------------------- */
+
+.rail-fields__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-fields__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--rail-fields-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-fields-bg, color-mix(in srgb, currentColor 8%, transparent));
+  overflow: hidden;
+}
+.rail-fields__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  padding: var(--_space-sm);
+  min-block-size: max(var(--_tap-min), var(--rail-fields-row-height, 64px));
+}
+.rail-fields__row + .rail-fields__row {
+  border-block-start: 1px solid var(--_border);
+}
+.rail-fields__text {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+}
+.rail-fields__label {
+  font-size: calc(var(--rail-fields-label-size, 18px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-fields__value {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-fields__empty {
+  font-style: italic;
+}
+.rail-fields__act {
+  flex: 0 0 auto;
+  min-block-size: max(var(--_tap-min), var(--rail-fields-act-height, 40px));
+  padding-inline: var(--_space-md);
+  border: 0;
+  border-radius: var(--rail-fields-act-radius, 999px);
+  background: var(--rail-fields-act-bg, color-mix(in srgb, currentColor 16%, transparent));
+  color: inherit;
+  font: inherit;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  cursor: pointer;
+}
+.rail-fields__locked {
+  flex: 0 0 auto;
+  margin: 0;
+  max-inline-size: var(--rail-fields-locked-width, 40%);
+  text-align: end;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-fields button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailWeek — seven days, how full each one is, and the one you are on.
+ * ------------------------------------------------------------------------- */
+
+.rail-week__days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--_space-2xs);
+}
+.rail-week__cell {
+  min-inline-size: 0;
+}
+.rail-week__day {
+  position: relative;
+  inline-size: 100%;
+  min-block-size: max(var(--_tap-min), var(--rail-week-height, 62px));
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0;
+  padding: var(--_space-2xs) 0;
+  border: 0;
+  border-radius: var(--rail-week-radius, 999px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+/* SELECTED IS A GROUND; TODAY IS A DOT. Two marks, so a day can be both,
+   either or neither and still read correctly. */
+.rail-week__day[aria-pressed="true"] {
+  background: var(--rail-week-selected, color-mix(in srgb, currentColor 16%, transparent));
+}
+.rail-week__disc {
+  position: relative;
+  inline-size: var(--rail-week-disc, 34px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.rail-week__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rail-week-disc-radius, 999px);
+  background: conic-gradient(
+    var(--rail-week-ring, var(--_accent)) var(--_sweep, 0deg),
+    transparent 0
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--rail-week-ring-width, 2px)),
+    #000 calc(100% - var(--rail-week-ring-width, 2px))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--rail-week-ring-width, 2px)),
+    #000 calc(100% - var(--rail-week-ring-width, 2px))
+  );
+}
+.rail-week__number {
+  font-size: calc(var(--rail-week-number-size, 18px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  line-height: 1.1;
+}
+.rail-week__weekday {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+  line-height: 1.1;
+}
+.rail-week__day[data-rail-future] .rail-week__number {
+  opacity: var(--rail-week-future-opacity, 0.5);
+}
+.rail-week__dot {
+  inline-size: var(--rail-week-dot, 4px);
+  block-size: var(--rail-week-dot, 4px);
+  margin-block-start: var(--_space-3xs);
+  border-radius: var(--rail-week-radius, 999px);
+  background: var(--rail-week-today, var(--_accent-text));
+}
+.rail-week button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailLog — what happened today, in the order it happened.
+ * ------------------------------------------------------------------------- */
+
+.rail-log__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-log__groups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rail-log__group {
+  position: relative;
+  padding-inline-start: var(--rail-log-gutter, 56px);
+  padding-block-end: var(--_space-md);
+}
+/* The thread down the side: drawn, never announced. */
+.rail-log__group::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: var(--rail-log-thread, 18px);
+  inline-size: 1px;
+  background: var(--_border);
+}
+.rail-log__at {
+  position: relative;
+  inset-inline-start: calc(var(--rail-log-gutter, 56px) * -1);
+  inline-size: fit-content;
+  margin: 0 0 var(--_space-xs);
+  padding: var(--_space-3xs) var(--_space-2xs);
+  border-radius: var(--rail-log-at-radius, 6px);
+  background: var(--rail-log-at-bg, color-mix(in srgb, currentColor 12%, transparent));
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-log__empty {
+  margin: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-log__entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--_space-xs);
+}
+.rail-log__entry {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  padding: var(--_space-xs);
+  border-radius: var(--rail-log-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-log-bg, color-mix(in srgb, currentColor 8%, transparent));
+}
+.rail-log__open {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.rail-log__glyph {
+  flex: 0 0 auto;
+  inline-size: var(--rail-log-glyph, 40px);
+  block-size: var(--rail-log-glyph, 40px);
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--rail-log-glyph-size, 26px) * var(--_type));
+}
+.rail-log__text {
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+}
+.rail-log__title {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-log__meta,
+.rail-log__amount {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-log__act {
+  flex: 0 0 auto;
+  min-inline-size: max(var(--_tap-min), var(--rail-log-act, 36px));
+  min-block-size: max(var(--_tap-min), var(--rail-log-act, 36px));
+  inline-size: max(var(--_tap-min), var(--rail-log-act, 36px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rail-log-act-radius, 999px);
+  background: var(--rail-log-act-bg, color-mix(in srgb, currentColor 14%, transparent));
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.rail-log button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailTrend — one measure over several windows, and which way each went.
+ * ------------------------------------------------------------------------- */
+
+.rail-trend__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-trend-heading-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-trend__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rail-trend__row {
+  display: grid;
+  grid-template-columns: var(--rail-trend-period, 4.5rem) var(--rail-trend-spark, 3.5rem) 1fr auto;
+  align-items: center;
+  gap: var(--_space-sm);
+  padding-block: var(--_space-xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  min-block-size: var(--_tap-min);
+}
+.rail-trend__period,
+.rail-trend__way {
+  color: var(--_muted);
+  min-inline-size: 0;
+}
+.rail-trend__spark {
+  display: block;
+  min-inline-size: 0;
+}
+.rail-trend__change {
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-trend-change-size, 18px) * var(--_type));
+  min-inline-size: 0;
+}
+.rail-trend__way {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  justify-self: end;
+  text-align: end;
+}
+.rail-trend__arrow {
+  color: var(--rail-trend-arrow, var(--_accent-text));
+}
+.rail-trend__row[data-rail-way="flat"] .rail-trend__arrow {
+  color: var(--rail-trend-arrow-flat, var(--_muted));
+}
+
+/* -------------------------------------------------------------------------
+ * RailReadout — a number, and the paragraph that makes it mean something.
+ * ------------------------------------------------------------------------- */
+
+.rail-readout {
+  padding: var(--_space-sm);
+  border-radius: var(--rail-readout-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-readout-bg, color-mix(in srgb, currentColor 8%, transparent));
+}
+.rail-readout__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-readout-heading-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-readout__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--_space-md);
+}
+.rail-readout__item,
+.rail-readout__link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_space-sm);
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+}
+.rail-readout__block {
+  flex: 0 0 auto;
+  inline-size: var(--rail-readout-block, 116px);
+  min-block-size: var(--rail-readout-block, 116px);
+  display: grid;
+  place-content: center;
+  place-items: center;
+  border-radius: var(--rail-readout-block-radius, 8px);
+  background: var(--rail-readout-block-bg, color-mix(in srgb, currentColor 10%, transparent));
+  text-align: center;
+  padding: var(--_space-2xs);
+  /* The value is sometimes a WORD, not a figure. "Holding" at a fixed 30px
+     measured 106px inside 108px of clearance — not broken, and two pixels
+     from it, which a longer state or a denser brand closes immediately. The
+     block sizes its own text now. */
+  container-type: inline-size;
+}
+.rail-readout__value {
+  font-size: calc(
+    clamp(
+      var(--rail-readout-value-min, 18px),
+      var(--rail-readout-value-scale, 24cqi),
+      var(--rail-readout-value-size, 30px)
+    ) * var(--_type)
+  );
+  font-weight: var(--rail-weight-semibold, 600);
+  line-height: 1.1;
+}
+.rail-readout__unit {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-readout__text {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-2xs);
+}
+.rail-readout__title {
+  font-size: calc(var(--rail-readout-title-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-readout__body {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-readout a:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailLedger — the history, day by day, grouped by month.
+ * ------------------------------------------------------------------------- */
+
+.rail-ledger__group + .rail-ledger__group {
+  margin-block-start: var(--_space-lg);
+}
+.rail-ledger__title {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-ledger-title-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-ledger__entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--rail-ledger-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-ledger-bg, color-mix(in srgb, currentColor 8%, transparent));
+  overflow: hidden;
+}
+.rail-ledger__entry {
+  min-block-size: var(--_tap-min);
+}
+.rail-ledger__entry + .rail-ledger__entry {
+  border-block-start: 1px solid var(--_border);
+}
+.rail-ledger__entry,
+.rail-ledger__open {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  padding: var(--_space-sm);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+.rail-ledger__entry:has(.rail-ledger__open) {
+  padding: 0;
+}
+.rail-ledger__open {
+  cursor: pointer;
+}
+.rail-ledger__figures {
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+}
+.rail-ledger__value {
+  font-size: calc(var(--rail-ledger-value-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-ledger__when {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-ledger__state {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+/* A CHANGE IS A RING, A STATE IS A SQUARE. Same column, two kinds of fact:
+   one is arithmetic, the other is the system saying it did not do any. */
+.rail-ledger__mark {
+  inline-size: var(--rail-ledger-mark, 10px);
+  block-size: var(--rail-ledger-mark, 10px);
+  border: var(--rail-ledger-mark-width, 2px) solid
+    var(--rail-ledger-mark-color, var(--_accent-text));
+}
+.rail-ledger__state[data-rail-way="up"] .rail-ledger__mark,
+.rail-ledger__state[data-rail-way="down"] .rail-ledger__mark,
+.rail-ledger__state[data-rail-way="flat"] .rail-ledger__mark {
+  border-radius: var(--rail-ledger-ring-radius, 999px);
+}
+.rail-ledger__state[data-rail-way="state"] .rail-ledger__mark {
+  border-radius: var(--rail-ledger-square-radius, 2px);
+}
+.rail-ledger__state[data-rail-way="flat"] .rail-ledger__mark {
+  border-color: var(--rail-ledger-mark-flat, var(--_muted));
+}
+.rail-ledger button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: -2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailGoods — the heart, which is a second and separate press.
+ * ------------------------------------------------------------------------- */
+
+.rail-goods__save {
+  position: absolute;
+  inset-block-start: var(--_space-2xs);
+  inset-inline-start: var(--_space-2xs);
+  min-inline-size: max(var(--_tap-min), var(--rail-goods-save-size, 34px));
+  min-block-size: max(var(--_tap-min), var(--rail-goods-save-size, 34px));
+  inline-size: max(var(--_tap-min), var(--rail-goods-save-size, 34px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rail-goods-save-radius, 999px);
+  background: var(--rail-goods-save-bg, color-mix(in srgb, currentColor 12%, transparent));
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+/* The heart sits OPPOSITE the add button. Side by side, a thumb reaching for
+   "save" lands on "buy", and the two presses cost very different amounts. */
+.rail-goods__save[aria-pressed="true"] {
+  color: var(--rail-goods-save-on, var(--_accent-text));
+}
+.rail-goods__heart {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  line-height: 1;
+}
+
+/* -------------------------------------------------------------------------
+ * RailPlans — what you get, what it costs, and one press per card.
+ * ------------------------------------------------------------------------- */
+
+.rail-plans__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-plans__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--_space-md);
+}
+@container (min-width: 700px) {
+  .rail-plans__list {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+.rail-plans__cell {
+  min-inline-size: 0;
+}
+.rail-plans__plan {
+  position: relative;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-xs);
+  padding: var(--_space-md);
+  border-radius: var(--rail-plans-radius, var(--rail-card-radius, 16px));
+  background: var(--_plan-tone, var(--rail-plans-bg, color-mix(in srgb, currentColor 10%, transparent)));
+  overflow: hidden;
+}
+.rail-plans__art {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: var(--rail-plans-art, 45%);
+  max-block-size: var(--rail-plans-art-height, 45%);
+  object-fit: contain;
+  object-position: top right;
+}
+.rail-plans__flag {
+  align-self: start;
+  margin: 0;
+  padding: var(--_space-3xs) var(--_space-2xs);
+  border-radius: var(--rail-plans-flag-radius, 999px);
+  background: var(--rail-plans-flag-bg, color-mix(in srgb, currentColor 18%, transparent));
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-plans__name {
+  /* The art is behind it, so the name needs its own room: without this the
+     title runs under the mascot on a narrow card. */
+  max-inline-size: var(--rail-plans-name-width, 55%);
+  margin: 0;
+  font-size: calc(var(--rail-plans-name-size, 30px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.05;
+}
+.rail-plans__price {
+  margin: 0;
+}
+/* "/ month" is a phrase, not the "/mo" tail the unit span was built for: set
+   flush against the pence it rendered as "9.99/ month". A word needs a space
+   before it. */
+.rail-plans .rail-price__unit {
+  margin-inline-start: var(--_space-2xs);
+}
+.rail-plans__features {
+  list-style: none;
+  margin: var(--_space-xs) 0 var(--_space-md);
+  padding: 0;
+  display: grid;
+  gap: var(--_space-sm);
+}
+.rail-plans__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  min-inline-size: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-plans__glyph {
+  flex: 0 0 auto;
+  inline-size: var(--rail-plans-glyph, 22px);
+  display: grid;
+  place-items: center;
+}
+.rail-plans__act {
+  margin-block-start: auto;
+  min-block-size: max(var(--_tap-min), var(--rail-plans-act-height, 52px));
+  border: 0;
+  border-radius: var(--rail-plans-act-radius, 8px);
+  background: var(--rail-plans-act-bg, #fff);
+  color: var(--rail-plans-act-color, var(--_accent));
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  cursor: pointer;
+}
+.rail-plans__current {
+  margin: auto 0 0;
+  padding-block: var(--_space-sm);
+  text-align: center;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-plans button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailAsk — a question box with the questions already in it.
+ * ------------------------------------------------------------------------- */
+
+.rail-ask__title {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-ask-title-size, 24px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-ask__glyph {
+  flex: 0 0 auto;
+  inline-size: var(--rail-ask-glyph, 44px);
+  block-size: var(--rail-ask-glyph, 44px);
+  display: grid;
+  place-items: center;
+  border-radius: var(--rail-ask-glyph-radius, 999px);
+  background: var(--rail-ask-glyph-bg, color-mix(in srgb, currentColor 10%, transparent));
+}
+.rail-ask__form {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  padding: var(--_space-2xs);
+  border: 1px solid var(--_border);
+  border-radius: var(--rail-ask-field-radius, 8px);
+}
+.rail-ask__field {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  min-block-size: var(--_tap-min);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-ask__field:focus {
+  outline: none;
+}
+.rail-ask__form:focus-within {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+.rail-ask__send {
+  flex: 0 0 auto;
+  min-inline-size: max(var(--_tap-min), var(--rail-ask-send, 40px));
+  min-block-size: max(var(--_tap-min), var(--rail-ask-send, 40px));
+  inline-size: max(var(--_tap-min), var(--rail-ask-send, 40px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rail-ask-send-radius, 999px);
+  background: var(--rail-ask-send-bg, var(--_accent));
+  color: var(--rail-ask-send-color, #fff);
+  font: inherit;
+  cursor: pointer;
+}
+.rail-ask__suggestions {
+  list-style: none;
+  margin: var(--_space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-2xs);
+}
+.rail-ask__suggestion {
+  min-block-size: max(var(--_tap-min), var(--rail-ask-chip-height, 38px));
+  padding-inline: var(--_space-sm);
+  border: 0;
+  border-radius: var(--rail-ask-chip-radius, 999px);
+  background: var(--rail-ask-chip-bg, color-mix(in srgb, currentColor 10%, transparent));
+  color: inherit;
+  font: inherit;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  text-align: start;
+  cursor: pointer;
+}
+.rail-ask__disclosure {
+  margin: var(--_space-sm) 0 0;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-ask button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailPlace — where it is, how far, and how to get there.
+ * ------------------------------------------------------------------------- */
+
+.rail-place__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-place-heading-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-place__map {
+  display: block;
+  aspect-ratio: var(--rail-place-map-aspect, 16 / 9);
+  border-radius: var(--rail-place-radius, var(--rail-card-radius, 12px));
+  background: var(--rail-place-map-bg, color-mix(in srgb, currentColor 10%, transparent));
+  overflow: hidden;
+}
+.rail-place__map > * {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.rail-place__where {
+  display: grid;
+  gap: var(--_space-3xs);
+  padding-block: var(--_space-sm);
+}
+.rail-place__travel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  margin: 0;
+}
+.rail-place__time {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  font-size: calc(var(--rail-place-time-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  min-inline-size: 0;
+}
+.rail-place__distance {
+  color: var(--_muted);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-place__address {
+  font-style: normal;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-place__actions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--_space-2xs);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.rail-place__actions::-webkit-scrollbar {
+  display: none;
+}
+.rail-place__action-cell {
+  flex: 0 0 auto;
+}
+.rail-place__action {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  min-block-size: max(var(--_tap-min), var(--rail-place-act-height, 44px));
+  padding-inline: var(--_space-md);
+  border: 0;
+  border-radius: var(--rail-place-act-radius, 999px);
+  background: var(--rail-place-act-bg, color-mix(in srgb, currentColor 10%, transparent));
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  white-space: nowrap;
+  cursor: pointer;
+}
+.rail-place__action[data-rail-primary] {
+  background: var(--rail-place-primary-bg, var(--_accent));
+  color: var(--rail-place-primary-color, #fff);
+}
+.rail-place a:focus-visible,
+.rail-place button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailChannels — the sidebar: channels, grouped, one of them open.
+ * ------------------------------------------------------------------------- */
+
+.rail-channels {
+  display: grid;
+  gap: var(--_space-md);
+}
+.rail-channels__head {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.rail-channels__fold {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  min-block-size: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--_muted);
+  font: inherit;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-channels-tracking, 0.06em);
+  text-align: start;
+  text-transform: var(--rail-channels-case, uppercase);
+  cursor: pointer;
+}
+.rail-channels__chevron {
+  flex: 0 0 auto;
+  inline-size: 0;
+  block-size: 0;
+  border-inline-start: var(--rail-channels-chevron, 5px) solid transparent;
+  border-inline-end: var(--rail-channels-chevron, 5px) solid transparent;
+  border-block-start: var(--rail-channels-chevron, 5px) solid currentColor;
+}
+.rail-channels__fold[aria-expanded="false"] .rail-channels__chevron {
+  /* Pointing at what it would open. A rotate would be a transform on a
+     zero-sized box, which several engines round differently. */
+  border-block-start: 0;
+  border-block-end: var(--rail-channels-chevron, 5px) solid currentColor;
+}
+.rail-channels__title {
+  min-inline-size: 0;
+}
+.rail-channels__group-count {
+  flex: 0 0 auto;
+  min-inline-size: var(--rail-channels-badge, 20px);
+  padding-inline: var(--_space-3xs);
+  border-radius: var(--rail-channels-badge-radius, 999px);
+  background: var(--rail-channels-badge-bg, var(--_accent));
+  color: var(--rail-channels-badge-color, #fff);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-align: center;
+}
+.rail-channels__list {
+  list-style: none;
+  margin: var(--_space-2xs) 0 0;
+  padding: 0;
+}
+.rail-channels__channel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  min-block-size: max(var(--_tap-min), var(--rail-channels-row, 40px));
+  padding-inline: var(--_space-xs);
+  border-radius: var(--rail-channels-radius, 6px);
+  color: var(--_muted);
+  text-decoration: none;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-channels__channel[data-rail-unread] {
+  color: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-channels__channel[aria-current="page"] {
+  background: var(--rail-channels-active-bg, color-mix(in srgb, currentColor 12%, transparent));
+  color: inherit;
+}
+.rail-channels__glyph {
+  flex: 0 0 auto;
+}
+.rail-channels__name {
+  min-inline-size: 0;
+}
+/* The dot marks the ROW, at the leading edge, outside the text: inside it, a
+   long channel name pushes it off the screen. */
+.rail-channels__dot {
+  position: absolute;
+  inset-inline-start: calc(var(--rail-channels-dot, 6px) * -1);
+  inline-size: var(--rail-channels-dot, 6px);
+  block-size: var(--rail-channels-dot, 6px);
+  border-radius: var(--rail-channels-dot-radius, 999px);
+  background: var(--rail-channels-dot-color, currentColor);
+}
+.rail-channels__count {
+  margin-inline-start: auto;
+  min-inline-size: var(--rail-channels-badge, 20px);
+  padding-inline: var(--_space-3xs);
+  border-radius: var(--rail-channels-badge-radius, 999px);
+  background: var(--rail-channels-badge-bg, var(--_accent));
+  color: var(--rail-channels-badge-color, #fff);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  text-align: center;
+}
+.rail-channels a:focus-visible,
+.rail-channels button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailSwitcher — the column of places, down the edge of the screen.
+ * ------------------------------------------------------------------------- */
+
+/* THE RAIL RESERVES ITS OWN WIDTH, AND NOT WITH `max-content`.
+   Every kit root carries `container-type: inline-size`, which makes it
+   size-contained in the inline axis: its width STOPS depending on its
+   contents, so `max-content` computed to 0 and the 48px tiles rendered as 8px
+   slivers with their badges gone. Measured — and the rect for each tile still
+   said 48, because the tiles were laid out correctly inside a box that was
+   not. The width has to be stated. */
+.rail-switcher {
+  flex: 0 0 auto;
+  inline-size: var(
+    --rail-switcher-width,
+    calc(
+      var(--rail-switcher-size, 48px) + var(--rail-switcher-marker, 8px) +
+        var(--_space-2xs) * 3
+    )
+  );
+}
+.rail-switcher__list {
+  list-style: none;
+  margin: 0;
+  /* The marker hangs off the leading edge of each tile, and `overflow-y`
+     clips the PADDING box: without room here the bar and the dot are cut off
+     by the very scrolling that makes the rail usable. */
+  padding: var(--_space-2xs) var(--_space-2xs) var(--_space-2xs)
+    calc(var(--rail-switcher-marker, 8px) + var(--_space-2xs));
+  display: grid;
+  gap: var(--_space-2xs);
+  justify-items: center;
+  max-block-size: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.rail-switcher__list::-webkit-scrollbar {
+  display: none;
+}
+.rail-switcher__place,
+.rail-switcher__add {
+  position: relative;
+  flex: 0 0 auto;
+  inline-size: var(--rail-switcher-size, 48px);
+  min-inline-size: var(--rail-switcher-size, 48px);
+  block-size: var(--rail-switcher-size, 48px);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--rail-switcher-radius, 16px);
+  background: var(--rail-switcher-bg, color-mix(in srgb, currentColor 10%, transparent));
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  overflow: hidden;
+  cursor: pointer;
+}
+.rail-switcher__art {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+/* WHERE YOU ARE is a bar at the leading edge; WHAT HAPPENED is a dot. Drawn
+   the same, a person clicks into the room they were already in.
+   THE MARK BELONGS TO THE CELL, NOT THE TILE. The tile clips its own overflow
+   so a square photograph gets rounded corners — and that same clip ate the
+   marker, which hangs outside it by design. Measured: the tile rendered, the
+   mark did not. */
+.rail-switcher__cell:has(> [data-rail-unread])::before,
+.rail-switcher__cell:has(> [aria-current="page"])::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: calc(var(--rail-switcher-marker, 8px) * -1);
+  transform: translateY(-50%);
+  inline-size: var(--rail-switcher-marker, 8px);
+  border-radius: var(--rail-switcher-marker-radius, 999px);
+  background: var(--rail-switcher-marker-color, currentColor);
+}
+.rail-switcher__cell:has(> [data-rail-unread])::before {
+  block-size: var(--rail-switcher-marker, 8px);
+}
+/* Last, so it wins when a place is both open and unread: you are already
+   looking at the news. */
+.rail-switcher__cell:has(> [aria-current="page"])::before {
+  block-size: var(--rail-switcher-bar, 60%);
+}
+.rail-switcher__count {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  min-inline-size: var(--rail-switcher-badge, 18px);
+  padding-inline: var(--_space-3xs);
+  border-radius: var(--rail-switcher-badge-radius, 999px);
+  background: var(--rail-switcher-badge-bg, var(--_accent));
+  color: var(--rail-switcher-badge-color, #fff);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  text-align: center;
+}
+.rail-switcher__cell {
+  position: relative;
+  /* The marker hangs outside the tile, so the cell must not clip it. */
+  overflow: visible;
+}
+.rail-switcher a:focus-visible,
+.rail-switcher button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailSpot — a place, something said about it, and whether you can go now.
+ * ------------------------------------------------------------------------- */
+
+.rail-spot {
+  position: relative;
+  display: block;
+  border-radius: var(--rail-spot-radius, var(--rail-card-radius, 14px));
+  background: var(--rail-spot-bg, color-mix(in srgb, currentColor 8%, transparent));
+  overflow: hidden;
+}
+.rail-spot__link {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+}
+.rail-spot__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--rail-spot-aspect, 4 / 3);
+  background: var(--rail-spot-art-bg, color-mix(in srgb, currentColor 10%, transparent));
+}
+.rail-spot__art {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.rail-spot__quote {
+  position: absolute;
+  inset-inline: var(--_space-2xs);
+  inset-block-end: var(--_space-2xs);
+  display: grid;
+  gap: var(--_space-3xs);
+  padding: var(--_space-xs);
+  border-radius: var(--rail-spot-quote-radius, 10px);
+  /* A SCRIM OWNS ITS OWN TEXT COLOUR. The first version mixed the page's
+     `canvas` and let the text inherit — on a dark theme that painted light
+     letters on a milky film over the photograph, and axe passed it because a
+     contrast checker cannot evaluate text over an image at all. The gate was
+     measuring the wrong property; the screenshot was not. Both values are
+     tokens, so a brand can invert the pair together or not at all. */
+  background: var(--rail-spot-quote-bg, rgba(0, 0, 0, 0.62));
+  color: var(--rail-spot-quote-color, #fff);
+  /* The picture underneath is somebody's dinner, not a flat colour: without
+     a blur the words sit on whatever happens to be behind them. */
+  backdrop-filter: blur(var(--rail-spot-quote-blur, 8px));
+}
+.rail-spot__said {
+  font-size: calc(var(--rail-spot-quote-size, 17px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-spot__mark {
+  opacity: var(--rail-spot-mark-opacity, 0.7);
+}
+.rail-spot__who {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  /* Inherits the scrim's colour, not the page's muted grey: a grey chosen for
+     a card background is not a grey that survives over a photograph. */
+  opacity: var(--rail-spot-who-opacity, 0.8);
+}
+.rail-spot__faces {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+}
+.rail-spot__face {
+  inline-size: var(--rail-spot-face, 20px);
+  block-size: var(--rail-spot-face, 20px);
+  border-radius: var(--rail-spot-face-radius, 999px);
+  object-fit: cover;
+}
+.rail-spot__face + .rail-spot__face {
+  margin-inline-start: calc(var(--rail-spot-face, 20px) * -0.35);
+}
+.rail-spot__body {
+  display: grid;
+  gap: var(--_space-3xs);
+  padding: var(--_space-sm);
+}
+.rail-spot__name {
+  font-size: calc(var(--rail-spot-name-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-spot__facts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--_space-2xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+.rail-spot__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-spot__star {
+  color: var(--rail-spot-star, var(--_accent-text));
+}
+.rail-spot__count,
+.rail-spot__category,
+.rail-spot__distance,
+.rail-spot__note,
+.rail-spot__where {
+  color: var(--_muted);
+}
+.rail-spot__note,
+.rail-spot__where {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+}
+.rail-spot__status {
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--rail-spot-shut, var(--_muted));
+}
+.rail-spot__status[data-rail-open] {
+  color: var(--rail-spot-open, var(--_accent-text));
+}
+.rail-spot__save {
+  position: absolute;
+  inset-block-start: var(--_space-2xs);
+  inset-inline-end: var(--_space-2xs);
+  min-inline-size: max(var(--_tap-min), var(--rail-spot-save, 36px));
+  min-block-size: max(var(--_tap-min), var(--rail-spot-save, 36px));
+  inline-size: max(var(--_tap-min), var(--rail-spot-save, 36px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rail-spot-save-radius, 999px);
+  background: var(--rail-spot-save-bg, rgba(0, 0, 0, 0.55));
+  color: var(--rail-spot-save-color, #fff);
+  font: inherit;
+  cursor: pointer;
+}
+.rail-spot a:focus-visible,
+.rail-spot button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailPeek — the sheet that drops to a bar instead of going away.
+ * ------------------------------------------------------------------------- */
+
+.rail-peek {
+  position: fixed;
+  inset: 0;
+  z-index: var(--rail-peek-z, 60);
+  /* While peeking the page underneath must still take taps: only the bar is
+     the component, the rest of the screen is the site's. */
+  pointer-events: none;
+}
+.rail-peek__scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: var(--rail-peek-scrim, rgba(0, 0, 0, 0.45));
+  pointer-events: auto;
+  cursor: pointer;
+}
+.rail-peek__panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: grid;
+  gap: var(--_space-2xs);
+  padding: var(--_space-2xs) var(--_space-sm) var(--_space-md);
+  border-start-start-radius: var(--rail-peek-radius, 18px);
+  border-start-end-radius: var(--rail-peek-radius, 18px);
+  background: var(--rail-peek-bg, var(--_bg));
+  pointer-events: auto;
+}
+/* THE GROWTH IS THE MOTION, and on a FIXED bottom-anchored panel growing
+   costs the page nothing: it is out of flow, so nothing behind it reflows.
+   (The first version claimed the opposite and animated `transform` instead —
+   and then nothing moved at all, because the panel never translates: it
+   changes what is inside it. Filmed at 80/160/240ms, every frame was
+   identical. An animation you cannot see and one that does not exist are the
+   same thing from outside.)
+   `0fr -> 1fr` on a grid row is the one way to animate to an unknown height,
+   and `@starting-style` gives it a from-state on the frame it mounts. */
+.rail-peek__body {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.rail-peek__body > * {
+  min-block-size: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-peek__body {
+    transition:
+      grid-template-rows var(--_dur-base) var(--_ease),
+      opacity var(--_dur-base) var(--_ease);
+    overflow: hidden;
+  }
+  @starting-style {
+    .rail-peek__body {
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+  }
+  .rail-peek__scrim {
+    animation: rail-peek-in var(--_dur-base) var(--_ease);
+  }
+}
+@keyframes rail-peek-in {
+  from {
+    opacity: 0;
+  }
+}
+.rail-peek__grip {
+  justify-self: center;
+  inline-size: var(--rail-peek-grip, 36px);
+  block-size: var(--rail-peek-grip-height, 4px);
+  border-radius: var(--rail-peek-grip-radius, 999px);
+  background: var(--rail-peek-grip-color, color-mix(in srgb, currentColor 28%, transparent));
+}
+.rail-peek__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  inline-size: 100%;
+  min-block-size: max(var(--_tap-min), var(--rail-peek-bar-height, 56px));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.rail-peek__glyph {
+  flex: 0 0 auto;
+  inline-size: var(--rail-peek-glyph, 40px);
+  block-size: var(--rail-peek-glyph, 40px);
+  display: grid;
+  place-items: center;
+  border-radius: var(--rail-peek-glyph-radius, 999px);
+  overflow: hidden;
+}
+.rail-peek__lines {
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--_space-3xs);
+}
+.rail-peek__title {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-peek__note {
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-peek__head {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+}
+.rail-peek__heading {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  margin: 0;
+  font-size: calc(var(--rail-peek-heading-size, 20px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-peek__menu,
+.rail-peek__close {
+  flex: 0 0 auto;
+  /* Wide enough for its own glyph: at the bare tap floor the ellipsis wrapped
+     to two lines and rendered as a 2-over-1 cluster. */
+  min-inline-size: max(var(--_tap-min), var(--rail-peek-act, 36px));
+  min-block-size: max(var(--_tap-min), var(--rail-peek-act, 36px));
+  inline-size: max(var(--_tap-min), var(--rail-peek-act, 36px));
+  white-space: nowrap;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rail-peek-act-radius, 999px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rail-peek button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailBars — the optional axis, one label per column.
+ * ------------------------------------------------------------------------- */
+
+.rail-bars__axis {
+  list-style: none;
+  margin: var(--_space-3xs) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--rail-bars-gap, 3px);
+}
+.rail-bars__tick {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  /* The label is centred on ITS OWN column and allowed to spill over the
+     neighbours it does not have: a tick clipped to a 4px column is a tick
+     nobody can read. */
+  overflow: visible;
+  text-align: center;
+  white-space: nowrap;
+  font-size: calc(var(--rail-size-fine, 12px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* -------------------------------------------------------------------------
+ * RailRings — goals that share a centre.
+ * ------------------------------------------------------------------------- */
+
+.rail-rings__heading {
+  margin: 0 0 var(--_space-sm);
+  font-size: calc(var(--rail-rings-heading-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-rings__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+}
+.rail-rings__svg {
+  flex: 0 0 auto;
+  inline-size: var(--rail-rings-size, 150px);
+  max-inline-size: 50%;
+  aspect-ratio: 1;
+  /* Zero is at the top, not at three o'clock: a ring that starts on the right
+     reads as already a quarter done. */
+  transform: rotate(-90deg);
+}
+.rail-rings__rest,
+.rail-rings__arc {
+  fill: none;
+  stroke-linecap: round;
+}
+.rail-rings__rest {
+  stroke: var(--_ring-tone, var(--_accent));
+  opacity: var(--rail-rings-rest-opacity, 0.25);
+}
+.rail-rings__arc {
+  stroke: var(--_ring-tone, var(--_accent));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rail-rings__arc {
+    transition: stroke-dasharray var(--_dur-slow) var(--_ease);
+  }
+}
+.rail-rings__legend {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--_space-xs);
+}
+.rail-rings__entry {
+  min-inline-size: 0;
+}
+.rail-rings__label {
+  font-size: calc(var(--rail-rings-label-size, 20px) * var(--_type));
+}
+.rail-rings__figures {
+  margin: 0;
+  color: var(--_ring-tone, var(--_accent));
+  font-size: calc(var(--rail-rings-value-size, 26px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-rings__unit {
+  margin-inline-start: var(--_space-3xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+}
+
+/* -------------------------------------------------------------------------
+ * RailPhoto — a photograph, its cutline and its credit.
+ * ------------------------------------------------------------------------- */
+
+.rail-photo {
+  margin: 0;
+  display: grid;
+  gap: var(--_space-xs);
+}
+.rail-photo__frame {
+  position: relative;
+  display: block;
+}
+.rail-photo__art {
+  inline-size: 100%;
+  block-size: auto;
+  display: block;
+  border-radius: var(--rail-photo-radius, 0);
+}
+.rail-photo__expand {
+  position: absolute;
+  inset-block-end: var(--_space-2xs);
+  inset-inline-start: var(--_space-2xs);
+  min-inline-size: max(var(--_tap-min), var(--rail-photo-expand, 34px));
+  min-block-size: max(var(--_tap-min), var(--rail-photo-expand, 34px));
+  inline-size: max(var(--_tap-min), var(--rail-photo-expand, 34px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  border-radius: var(--rail-photo-expand-radius, 6px);
+  background: var(--rail-photo-expand-bg, rgba(0, 0, 0, 0.62));
+  color: var(--rail-photo-expand-color, #fff);
+  font: inherit;
+  cursor: pointer;
+}
+.rail-photo__caption {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-photo__credit {
+  margin-inline-start: var(--_space-3xs);
+  opacity: var(--rail-photo-credit-opacity, 0.85);
+}
+.rail-photo button:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+/* ---------------------------------------------------------------------------
+ * CHAPTERS — an index of the parts of a long section, pinned beside it.
+ * It READS the scroll and never takes it: no snap, no wheel handler, nothing
+ * that moves the page on its own. Measured on r/web_design, every mention of
+ * scrolljacking in one pull was a complaint.
+ */
+.rail-chapters {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--_gap);
+}
+.rail-chapters__index {
+  position: sticky;
+  inset-block-start: var(--rail-chapters-top, 0);
+  z-index: 1;
+  align-self: start;
+  padding-block: var(--_space-sm);
+  background: var(--rail-chapters-bg, transparent);
+}
+.rail-chapters__label {
+  margin: 0;
+  font-size: var(--rail-chapters-label-size, 0.75rem);
+  letter-spacing: var(--rail-chapters-label-track, 0.08em);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.rail-chapters__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rail-chapters;
+}
+.rail-chapters__item {
+  counter-increment: rail-chapters;
+  border-block-start: 1px solid var(--rail-chapters-rule, currentColor);
+}
+.rail-chapters__jump {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-chapters-note-gap, 2px);
+  width: 100%;
+  padding-block: var(--_space-sm);
+  padding-inline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  /* 0.58, NO 0.45. El gate de axe lo midio: a 0.45 el titulo inactivo compone
+     #74726f sobre #0a0a0a = 4,12:1, por debajo del 4,5:1 que pide el texto
+     normal. Atenuar texto POR DEBAJO del suelo de contraste no es jerarquia, es
+     texto ilegible — el mismo defecto que hace que `rail-inscribe` arranque en
+     0,62 y no en 0. A 0.58 compone ~#95918f y pasa con 6,4:1, y el capitulo
+     activo sigue destacando porque va a opacidad 1. */
+  opacity: var(--rail-chapters-dim, 0.58);
+}
+.rail-chapters__jump[aria-current] {
+  opacity: 1;
+}
+.rail-chapters__title::before {
+  content: counter(rail-chapters, decimal-leading-zero) " ";
+  opacity: 0.55;
+}
+.rail-chapters__note {
+  font-size: var(--rail-chapters-note-size, 0.8125rem);
+  opacity: 0.7;
+}
+.rail-chapters__scene {
+  position: relative;
+  min-inline-size: 0;
+}
+/* Los marcadores reparten el recorrido de la escena en tramos iguales. No
+   pintan nada: son la posicion contra la que se mide el capitulo activo. */
+.rail-chapters__mark {
+  position: absolute;
+  inset-inline-start: 0;
+  inline-size: 1px;
+  block-size: 1px;
+}
+.rail-chapters__mark:nth-child(1) { inset-block-start: 0; }
+.rail-chapters__mark:nth-child(2) { inset-block-start: 20%; }
+.rail-chapters__mark:nth-child(3) { inset-block-start: 40%; }
+.rail-chapters__mark:nth-child(4) { inset-block-start: 60%; }
+.rail-chapters__mark:nth-child(5) { inset-block-start: 80%; }
+.rail-chapters__mark:nth-child(n + 6) { inset-block-start: 95%; }
+@media (min-width: 48rem) {
+  .rail-chapters {
+    grid-template-columns: var(--rail-chapters-index-width, 15rem) 1fr;
+  }
+}
+.rail-chapters__jump {
+  transition: opacity var(--rail-chapters-ease, 240ms) ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* El indice sigue siguiendo; lo que se quita es el desvanecido, no el marcador. */
+  .rail-chapters__jump {
+    transition: none;
+  }
 }

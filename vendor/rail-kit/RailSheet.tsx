@@ -40,6 +40,17 @@ export type RailSheetProps = {
    * shrink (a search whose results narrow as you type, say).
    */
   holdHeight?: boolean;
+  /**
+   * "card" (the default) is the card, opened: a panel over the page with the
+   * picture beside or above the text. "takeover" is the promo that fills the
+   * screen, the one an app shows on sign-in: the picture across the top half
+   * and more, a large title, one line, one button you cannot miss, and the
+   * small print under it. It slides up from the bottom on a phone and fades in
+   * on a wide screen; with reduced motion it simply appears.
+   */
+  layout?: "card" | "takeover";
+  /** A small line under the actions: terms, what happens after, a link to the details. */
+  finePrint?: ReactNode;
   source: string;
   onSelect?: (info: {
     source: string;
@@ -74,12 +85,15 @@ export default function RailSheet({
   children,
   closeLabel = "Close",
   holdHeight = true,
+  layout = "card",
+  finePrint,
   source,
   onSelect,
   className,
 }: RailSheetProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const inner = useRef<HTMLDivElement>(null);
+  const text = useRef<HTMLDivElement>(null);
   /**
    * Whether this was driven by a pointer. It matters only ON CLOSE: the
    * browser returns focus to whatever opened the sheet, and on that element a
@@ -123,10 +137,21 @@ export default function RailSheet({
     if (open && !dialog.open) {
       fromPointer.current = modality.current === "pointer";
       dialog.showModal();
+      // The dialog is closed, never unmounted, so its text column keeps the
+      // scroll of the LAST thing read in it. One sheet shared by several
+      // cards then opened the next story scrolled to where the previous one
+      // ended, with its title up under the picture. Opening starts at the top.
+      if (text.current) text.current.scrollTop = 0;
     } else if (!open && dialog.open) {
       dialog.close();
     }
   }, [open]);
+
+  // A new title in a sheet that is already open is a different thing to
+  // read: start it at the top too.
+  useEffect(() => {
+    if (text.current) text.current.scrollTop = 0;
+  }, [title]);
 
   useEffect(() => {
     const dialog = ref.current;
@@ -185,8 +210,15 @@ export default function RailSheet({
   return (
     <dialog
       ref={ref}
-      className={["rail-sheet", className].filter(Boolean).join(" ")}
+      className={[
+        "rail-sheet",
+        layout === "takeover" && "rail-sheet--takeover",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       data-rail-sheet={source}
+      data-rail-sheet-layout={layout}
       aria-label={title}
       // The dialog fills only its own box, so a click that lands on the
       // element itself landed on the backdrop around it.
@@ -218,7 +250,7 @@ export default function RailSheet({
             on a phone. */}
         {open && figure && <figure className="rail-sheet__figure">{figure}</figure>}
 
-        <div className="rail-sheet__text">
+        <div ref={text} className="rail-sheet__text">
           {badge && <p className="rail-sheet__badge">{badge}</p>}
           <h2 className="rail-sheet__title">{title}</h2>
           {meta && <p className="rail-sheet__meta">{meta}</p>}
@@ -231,6 +263,7 @@ export default function RailSheet({
                   key={action.id ?? action.label}
                   className={`rail-card__cta rail-card__cta--${action.variant}`}
                   href={action.href}
+                  {...dataAttributes(action.data)}
                   onClick={() =>
                     onSelect?.({
                       source,
@@ -244,8 +277,21 @@ export default function RailSheet({
               ))}
             </div>
           )}
+          {finePrint && <div className="rail-sheet__fine">{finePrint}</div>}
         </div>
       </div>
     </dialog>
   );
+}
+
+/**
+ * An action's own data-* attributes, so a consumer's analytics layer can
+ * read the link it already listens for (data-analytics-event and friends)
+ * without the kit knowing its names. Keys are passed without the prefix.
+ */
+function dataAttributes(data: RailAction["data"]) {
+  if (!data) return {};
+  const out: Record<string, string> = {};
+  for (const [key, value] of Object.entries(data)) out[`data-${key}`] = value;
+  return out;
 }
