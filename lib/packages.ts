@@ -232,8 +232,8 @@ const COPY: Record<Locale, Copy> = {
       note: `${PRICE_TERMS.es} No son tarifas fijas.`,
     },
     closing: {
-      title: "¿Listo para crear algo increíble?",
-      lead: "Hablemos de tu proyecto.",
+      title: "¿Listo para empezar?",
+      lead: "Cuéntame qué necesitas y te respondo con una cotización por escrito.",
       call: "Llamar",
       email: "Enviar email",
     },
@@ -288,8 +288,8 @@ const COPY: Record<Locale, Copy> = {
       note: `${PRICE_TERMS.en} They are not fixed rates.`,
     },
     closing: {
-      title: "Ready to make something great?",
-      lead: "Let's talk about your project.",
+      title: "Ready to start?",
+      lead: "Tell me what you need and I will reply with a written quote.",
       call: "Call",
       email: "Send email",
     },
