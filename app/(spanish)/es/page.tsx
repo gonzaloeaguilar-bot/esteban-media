@@ -61,6 +61,7 @@ export default function SpanishHomePage() {
           mitad del encargo — las reseñas son lo que convence, van donde se
           decide, una sola vez. */}
       <ClientReviews locale="es" compact />
+      <CameraKitMethod locale="es" />
       {/* Un solo momento de contacto, no dos casi idénticos (dueño,
           2026-10-13, viendo la página en vivo: "these 2 sections are
           basically the same"). ContactCta ahora lleva la forma calmada de
@@ -68,7 +69,6 @@ export default function SpanishHomePage() {
           directos) como el pedido visible, con el formulario más largo
           como profundidad voluntaria dentro de un <details> nativo. */}
       <ContactCta locale="es" />
-      <CameraKitMethod locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"

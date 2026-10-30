@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { getGuides } from "@/lib/guides";
 import { FILMING_HOURLY, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
+import * as pricingModule from "@/lib/pricing";
 import baseline from "./fixtures/guide-figure-baseline.json";
 
 /**
@@ -34,6 +35,13 @@ for (const p of Object.values(PACKAGE_PRICES)) if (p.kind === "from") pricingFig
 for (const f of [SHORT_FORM.perVideoFrom, SHORT_FORM.marketMin, SHORT_FORM.marketMax, ...SHORT_FORM.weekly.map((o) => o.pricePerWeek)]) pricingFigures.add(usd(f));
 // Filming floor, owner fact 2026-10-14 (lib/pricing.ts FILMING_HOURLY).
 pricingFigures.add(usd(FILMING_HOURLY.amount));
+// 2026-10-28: every figure in lib/pricing.ts is published by definition (single source of truth).
+const visit = (v: unknown) => {
+  if (typeof v === "number" && Number.isFinite(v)) pricingFigures.add(usd(v));
+  else if (Array.isArray(v)) v.forEach(visit);
+  else if (v && typeof v === "object") Object.values(v as Record<string, unknown>).forEach(visit);
+};
+for (const value of Object.values(pricingModule)) if (typeof value !== "function") visit(value);
 
 describe("guide citable depth", () => {
   for (const locale of ["en", "es"] as const) {

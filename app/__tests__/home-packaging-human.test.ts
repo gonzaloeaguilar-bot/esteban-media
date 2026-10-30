@@ -36,10 +36,10 @@ for (const locale of ["en", "es"] as const) {
   describe(`home ${locale}: packaging after the chooser`, () => {
     it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
-      expect(prices).toContain("$640");
       expect(prices).toContain("$800");
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640\/(mo|month|mes)</);
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
+      expect(prices).toContain("$1,600");
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600\/[^<]+</);
     });
 
     it("1b. the top-level buyer routes keep private celebrations inside the project-card system", () => {
@@ -60,9 +60,17 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrationStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,800 · hasta 8 horas" : "from $2,800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $4,000 · hasta 8 horas" : "from $4,000 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,800 · medio día" : "from $1,800 · half day");
+      expect(celebrations).toContain("$3,200");
+      // Measurement rides on the shared track.js layer (one writer per event):
+      // the open tap, every package tap and the WhatsApp CTA all carry data-cta.
+      expect(celebrations).toContain(`data-cta="home_project_route_${locale}_private-celebrations"`);
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_${locale}_yacht-party-film"`.replace("yacht-party-film", locale === "es" ? "película-de-fiesta-en-yate" : "yacht-party-film"));
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_whatsapp_${locale}"`);
       expect(celebrations).not.toContain("em-private-celebrations__packages");
       expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
       expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
@@ -79,11 +87,10 @@ for (const locale of ["en", "es"] as const) {
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
-      expect(component).toContain("lg:max-w-6xl");
-      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}");
-      // An open card expands in place, in its own column; it never jumps to a full-width row below its sibling.
-      expect(css).not.toContain(".em-route-card[open]{grid-column:1/-1}");
-      expect(css).toContain(".em-route-card .em-path-offers,.em-route-card .em-single-list{grid-template-columns:minmax(0,1fr)}");
+      expect(css).toContain("@media(min-width:1100px){");
+      // An open card takes over all of the position and hides closed siblings
+      expect(css).toContain(".em-route-list:has(.em-route-card[open]) .em-route-card:not([open]){display:none!important}");
+      expect(css).toContain(".em-route-card[open]{grid-column:1/-1!important;width:100%!important}");
       expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
@@ -278,8 +285,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel.indexOf("em-funnel-summary")).toBeGreaterThan(-1);
       expect(funnel.indexOf("em-funnel-summary")).toBeLessThan(funnel.indexOf("<input"));
       expect(funnel).toContain(growth);
-      expect(funnel).toContain("$640");
       expect(funnel).toContain("$800");
+      expect(funnel).toContain("$1,600");
       expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
       expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });

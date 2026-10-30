@@ -232,7 +232,15 @@ export default function PortfolioPage() {
         <section className="border-b border-[#d6ccc0] py-6 sm:py-10" aria-labelledby="featured-work-heading">
           <Container size="xl">
             <div className="grid gap-5 lg:grid-cols-[1.25fr_.75fr] lg:items-center">
-              <PortfolioVideo videoId={liveItems[0].media.videoId} url={liveItems[0].media.url} poster={liveItems[0].media.poster} title={resolvePortfolioItemCopy(liveItems[0], "en").title} locale="en" orientation={mediaOrientation(liveItems[0].media)} />
+              <PortfolioVideo
+                videoId={liveItems[0].media.videoId}
+                url={liveItems[0].media.url}
+                poster={liveItems[0].media.poster}
+                title={resolvePortfolioItemCopy(liveItems[0], "en").title}
+                locale="en"
+                orientation={mediaOrientation(liveItems[0].media)}
+                hideExtraLinks
+              />
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Featured project</p>
                 <h2 id="featured-work-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{resolvePortfolioItemCopy(liveItems[0], "en").title}</h2>

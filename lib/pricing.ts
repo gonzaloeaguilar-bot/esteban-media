@@ -125,8 +125,8 @@ export type PackagePrice =
 
 export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
   arranque: { kind: "from", amount: 100, unit: "video" },
-  crecimiento: { kind: "from", amount: 640, unit: "month" },
-  "presencia-local": { kind: "from", amount: 800, unit: "production-day" },
+  crecimiento: { kind: "from", amount: 800, unit: "month" },
+  "presencia-local": { kind: "from", amount: 1600, unit: "month" },
   "todo-incluido": { kind: "custom" },
 };
 
@@ -152,10 +152,22 @@ export type RealEstatePlan = {
 };
 
 export const REAL_ESTATE_PLANS: RealEstatePlan[] = [
-  { id: "essential", price: 450, properties: 1, productionDays: 2, drone: "add-on", postsPerWeek: "2" },
-  { id: "plus", price: 700, properties: 2, productionDays: 3, drone: "add-on", postsPerWeek: "3–4" },
-  { id: "premium", price: 1250, properties: 3, productionDays: 3, drone: "included", postsPerWeek: "5" },
+  { id: "essential", price: 600, properties: 1, productionDays: 2, drone: "add-on", postsPerWeek: "2" },
+  { id: "plus", price: 950, properties: 2, productionDays: 3, drone: "add-on", postsPerWeek: "3–4" },
+  { id: "premium", price: 1500, properties: 3, productionDays: 3, drone: "included", postsPerWeek: "5" },
 ];
+
+/** Drone photography add-on on the smaller real estate plans (catalog 2026: +$99). */
+export const REAL_ESTATE_DRONE_PHOTO_ADD_ON = 99;
+
+/** Real estate listing media (catalog 2026): photo tiers by home size, add-ons and fees. */
+export const REAL_ESTATE_MEDIA_PRICES = {
+  photoTiers: [199, 249, 299, 399, 499],
+  zillow3dTourFrom: 149,
+  premiumListingVideoPerMinute: 200,
+  outOfAreaFee: 75,
+  reshootFee: 100,
+} as const;
 
 export const REAL_ESTATE_PLAN_TERMS = {
   minimumMonths: 3,
@@ -282,13 +294,13 @@ export const RESTAURANT_PROMO = {
 // A real shoot with the product in front of the camera. AI-assisted images made
 // from supplied photos are a different service and have no published floor.
 export const PRODUCT_PHOTO_SESSION = {
-  from: 280,
+  from: 350,
   unit: "session",
-  source: "owner-authorized starting price 2026-08-28 (docs/pricing-basis.md)",
+  source: "owner-authorized $280 2026-08-28 (docs/pricing-basis.md); raised to $350 in the 2026-10-28 market review (Squareshot Miami minimum order $300)",
 } as const;
 
 // On-location raw video capture (no editing): market $300-1,000 half-day,
-// starting floor from PRICING_BANDS["on-location"].baseMin ($400).
+// starting floor from PRICING_BANDS["on-location"].baseMin ($400: the accessible recording-only option, owner 2026-10-28).
 export const ON_LOCATION_CAPTURE = {
   from: PRICING_BANDS["on-location"].baseMin,
   unit: "half-day",
@@ -297,7 +309,7 @@ export const ON_LOCATION_CAPTURE = {
 
 
 // Filming (on-location recording) hourly floor. Owner fact confirmed 2026-10-18:
-// filming starts at $100 per hour with a 4-hour minimum call ($400 floor on site).
+// filming from $100 per hour with a 4-hour minimum ($400 floor): owner decision 2026-10-28 to keep an accessible recording-only option even though the market review put the pro band at $100–250/h.
 // Copy reads it through filmingHourlyText(); never hard-code the figure.
 export const FILMING_HOURLY = {
   amount: 100,
@@ -321,6 +333,19 @@ export function filmingHourlyText(locale: "en" | "es"): string {
 // On-site crew, multi-camera, yacht and turnkey catalog (2026-10-18)
 // ---------------------------------------------------------------------------
 
+/**
+ * Owner decision 2026-10-28: every published figure is a STARTING point and
+ * the final quote is always open to conversation. Render this line wherever a
+ * price list ends (pricing page, home route cards, the catalog PDF).
+ */
+export const PRICE_TERMS = {
+  en: "Every price is a starting point: the final quote follows your scope, and we can always talk it through.",
+  es: "Todos los precios son puntos de partida: la cotización final sigue tu alcance y siempre podemos conversarla.",
+} as const;
+export function priceTermsText(locale: "en" | "es"): string {
+  return PRICE_TERMS[locale];
+}
+
 export const CREW_RECORDING_RATES = {
   solo: {
     hourly: 100,
@@ -331,11 +356,11 @@ export const CREW_RECORDING_RATES = {
     description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
   },
   twoPerson: {
-    hourly: 160,
+    hourly: 200,
     minimumHours: 4,
-    minimumAmount: 640,
-    halfDay: 640,
-    fullDay: 1280,
+    minimumAmount: 800,
+    halfDay: 800,
+    fullDay: 1600,
     description: "2-person event crew: Lead 4K DP + dedicated mobile content creator with dual iPhones for vertical Reels, BTS & attendee soundbites",
   },
   multiCamera: {
@@ -360,22 +385,22 @@ export const YACHT_PRODUCTION = {
 
 export const COMMERCIAL_VIDEO_TIERS = {
   basic: {
-    from: 1000,
+    from: 1500,
     duration: "60–90 seconds",
     crew: "Solo videographer",
     scope: "Founder-led product demo on client location",
     revisions: 1,
   },
   brandNarrative: {
-    from: 3000,
+    from: 3500,
     duration: "60–120 seconds",
     crew: "2-person production crew",
     scope: "Cinematic brand film with 3 social ad hook variations",
     revisions: 2,
   },
   actorsAndStudio: {
-    fromMin: 6500,
-    fromMax: 8500,
+    fromMin: 8500,
+    fromMax: 12000,
     duration: "30–60s hero commercial + multi-format cutdowns",
     crew: "3 to 4 person commercial crew",
     scope: "Studio soundstage rental, actor casting (1-2 actors + commercial buyout), HMUA stylist, custom sound mix",
@@ -388,7 +413,7 @@ export const KICKSTARTER_LAUNCH = {
   unit: "project",
   shootHours: 3.5,
   videoLength: "60–90 seconds",
-  source: "3-tier commercial production: $1,000 basic demo, $3,000 brand narrative, $6,500-$8,500+ with actors and studio",
+  source: "3-tier commercial production, 2026-10-28 market review: basic demo, brand narrative, actors and studio (see COMMERCIAL_VIDEO_TIERS)",
 } as const;
 
 /** The one answer-first price line for commercial videos, EN or ES. */
@@ -410,15 +435,15 @@ export const ON_SITE_ADD_ONS = {
 } as const;
 
 export const TURNKEY_PRODUCTION_BUNDLES = {
-  soloHalfDay: 750,
-  soloFullDay: 1600,
-  twoPersonHalfDay: 1250,
-  twoPersonFullDay: 2400,
+  soloHalfDay: 950,
+  soloFullDay: 2000,
+  twoPersonHalfDay: 1600,
+  twoPersonFullDay: 3000,
   multiCamHalfDay: 1750,
   multiCamFullDay: 3600,
-  yachtHalfDay: 1450,
-  yachtFullDay: 2800,
-  kickstarterLaunch: 1000,
+  yachtHalfDay: 1800,
+  yachtFullDay: 3200,
+  kickstarterLaunch: 1500,
 } as const;
 
 /**
@@ -431,8 +456,13 @@ export const TURNKEY_PRODUCTION_BUNDLES = {
  */
 export const CELEBRATION_FILM_BUNDLES = {
   halfDay: 1200,
-  fullDay: 2200,
-  twoPersonFullDay: 3400,
+  fullDay: 2800,
+  twoPersonFullDay: 4000,
+  // Yacht celebrations use the published turnkey yacht rate card (half-day
+  // minimum; full day includes licensed marine drone tracking). Same numbers
+  // the FAQ answer in lib/owner-fact-answers.ts already states publicly.
+  yachtHalfDay: TURNKEY_PRODUCTION_BUNDLES.yachtHalfDay,
+  yachtFullDay: TURNKEY_PRODUCTION_BUNDLES.yachtFullDay,
 } as const;
 
 /**

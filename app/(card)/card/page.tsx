@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Download,
@@ -7,7 +8,6 @@ import {
   MessageCircle,
   Phone,
   Play,
-  Send,
   Star,
 } from "lucide-react";
 
@@ -139,10 +139,14 @@ export default function NfcContactCardPage() {
                   </span>
                 ) : visual === "play" ? (
                   <span className="em-scene em-scene--reel">
-                    <span className="em-reel__bars"><i /><i /><i /></span>
-                    <span className="em-reel__frame"><span className="em-reel__play"><Play fill="currentColor" /></span></span>
-                    <span className="em-reel__rail"><span className="em-reel__like"><Heart fill="currentColor" /><small>1.2K</small></span><span><MessageCircle /><small>86</small></span><span><Send /><small>312</small></span></span>
-                    <span className="em-reel__handle">@estebanmorenomedia</span>
+                    <span className="em-reel__strip">
+                      <span className="em-reel__thumb"><Image src="/portfolio/juanchis-burguer.jpg" alt="" fill sizes="120px" /></span>
+                      <span className="em-reel__thumb em-reel__thumb--live"><video src="/real-estate-reels/brickell-loop.mp4" poster="/real-estate-reels/brickell-loop-poster.jpg" autoPlay loop muted playsInline preload="metadata" /><span className="em-reel__live">REEL</span></span>
+                      <span className="em-reel__thumb"><Image src="/portfolio/bar-door-monkey.jpg" alt="" fill sizes="120px" /></span>
+                      <span className="em-reel__thumb"><Image src="/portfolio/exatlon.jpg" alt="" fill sizes="120px" /></span>
+                      <span className="em-reel__thumb"><Image src="/portfolio/event-conference-filming.jpg" alt="" fill sizes="120px" /></span>
+                    </span>
+                    <span className="em-reel__rail"><span className="em-reel__like"><Heart fill="currentColor" /><small>1.2K</small></span><span><MessageCircle /><small>86</small></span></span>
                   </span>
                 ) : visual === "maps" ? (
                   <span className="em-scene em-scene--maps">
