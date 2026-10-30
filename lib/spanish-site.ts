@@ -1640,7 +1640,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         paragraphs: [
           "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
           "Un restaurante de Miami-Dade puede centrar cada video en un plato, una bebida, la preparación o el ambiente del salón. Ese enfoque ayuda a que la persona entienda qué se ofrece sin intentar mostrar todo el menú en una sola pieza. Antes de editar, indica el nombre correcto del plato, dónde se publicará el video y qué quieres que haga la persona después de verlo.",
-          "Las tomas de ingredientes, manos, emplatado y servicio pueden ordenarse según el material que ya tengas. Si todavía vas a grabar, la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) ayuda a preparar una lista breve de escenas. Mira también [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey): un video promocional publicado de 55 segundos, grabado y editado por Esteban en 2020; no se le atribuyen reservas ni ventas.",
+          "Las tomas de ingredientes, manos, emplatado y servicio pueden ordenarse según el material que ya tengas. Si todavía vas a grabar, la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) ayuda a preparar una lista breve de escenas. Conoce proyectos reales en el sector gastronómico como [Juanchis Burguer](/es/portafolio/juanchis-burguer) (edición de video para hamburguesería artesanal), [Portosole](/es/portafolio/portosole) (ambiente y cocina de restaurante italiano) y [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey); no se les atribuyen reservas ni ventas directas.",
         ],
         bullets: [
           "Enfoque en 1 o 2 platos insignia con primeros planos de emplatado y texturas",
@@ -1679,13 +1679,13 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "Captura selectiva en locación en Miami-Dade y atención directa en español",
         paragraphs: [
           "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se evalúa de manera selectiva analizando la disponibilidad, el horario de cocina y el alcance del rodaje dentro de las [áreas de servicio](/es/areas). Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
-          "Contar con atención directa en español facilita coordinar con el equipo de cocina y gerencia de forma rápida y fluida en el sur de la Florida. Conoce nuestro trabajo publicado en el sector con el proyecto [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y explora también opciones complementarias como [fotografía de comida asistida por IA](/es/fotografia-de-comida-con-ia-restaurantes).",
+          "Contar con atención directa en español facilita coordinar con el equipo de cocina y gerencia de forma rápida y fluida en el sur de la Florida. Conoce nuestro trabajo publicado en el sector con [Juanchis Burguer](/es/portafolio/juanchis-burguer), [Portosole](/es/portafolio/portosole) y [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey), y explora también opciones complementarias como [fotografía de comida asistida por IA](/es/fotografia-de-comida-con-ia-restaurantes).",
         ],
         bullets: [
           "Coordinación de rodaje en cocina y salón adaptada a la dinámica del restaurante",
           "Planificación de lista de tomas (shot list) para optimizar el tiempo del chef y staff",
           "Atención directa y fluida en español para restaurantes del sur de la Florida",
-          "Respaldo en proyectos reales verificados como [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey)",
+          "Respaldo en proyectos reales verificados como [Juanchis Burguer](/es/portafolio/juanchis-burguer), [Portosole](/es/portafolio/portosole) y [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey)",
         ],
       },
     ],
@@ -1719,6 +1719,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Esta página ofrece fotografía de alimentos o sesiones fotográficas?",
         answer:
           "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance y la disponibilidad de la sesión por separado. Consulta [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale); el video publicado de Bar Door Monkey no se presenta como muestra de fotos.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición o producción de video para restaurantes en Miami?",
+        answer:
+          `La edición de un Reel individual con material propio suministrado por el restaurante parte desde ${usd(SHORT_FORM.perVideoFrom)} dentro del paquete Arranque, o desde ${usd(RESTAURANT_PROMO.from)} por proyecto promocional completo. Si se requiere filmación selectiva en cocina o salón, se cotiza según las horas de rodaje y la locación en Miami-Dade.`,
+      },
+      {
+        question: "¿Cuál es el tiempo de entrega de un Reel gastronómico?",
+        answer:
+          "La primera entrega de un Reel editado con material del cliente se realiza habitualmente en 48 horas hábiles tras recibir los archivos en la nube, lo que permite anunciar platos de temporada, menús especiales y eventos sin retrasos.",
       },
     ],
   },
@@ -2552,6 +2562,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         answer:
           "Los archivos de video y tomas aéreas se comparten mediante transferencia segura en la nube. Tras la primera entrega, puedes enviar comentarios consolidados con marcas de tiempo para ajustar ritmo, música y llamadas a la acción.",
       },
+      {
+        question: "¿Cuánto cuesta la edición o producción de video para yates en Fort Lauderdale?",
+        answer:
+          `La edición con clips existentes suministrados por el cliente inicia desde ${usd(SHORT_FORM.perVideoFrom)} por video vertical dentro del paquete Arranque o desde ${usd(RESTAURANT_PROMO.from)} para piezas promocionales extensas. Si se requiere media jornada de filmación náutica en marina o muelle en Broward, se cotiza según las horas de rodaje y la embarcación.`,
+      },
+      {
+        question: "¿Cuál es el tiempo de entrega para videos de corretaje o chárter náutico?",
+        answer:
+          "Los cortes horizontales y verticales editados con material suministrado se entregan habitualmente en 3 a 5 días hábiles, permitiendo revisiones centralizadas en la nube antes de su publicación en portales náuticos y redes sociales.",
+      },
     ],
   },
   {
@@ -3277,6 +3297,16 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Cómo se adaptan los subtítulos a videos verticales en redes?",
         answer:
           "Los textos se ajustan en tamaño y posición para no ser tapados por botones de redes sociales o descripciones de usuario.",
+      },
+      {
+        question: "¿Cuánto cuesta el servicio de subtitulado bilingüe en inglés y español?",
+        answer:
+          `El subtitulado bilingüe y formateo de videos cortos parte desde ${usd(SHORT_FORM.perVideoFrom)} por video dentro del paquete Arranque, entregando archivos SRT y cortes con subtítulos quemados dentro de zonas seguras. Para conferencias, webinars o videos corporativos de mayor duración, la cotización se ajusta por minuto de audio.`,
+      },
+      {
+        question: "¿Cuál es el plazo habitual de entrega para subtítulos bilingües?",
+        answer:
+          "Para videos cortos de hasta 60 segundos, la entrega se realiza en 24 a 48 horas hábiles. Para capacitaciones o ponencias de 15 a 45 minutos, el plazo estándar es de 3 a 5 días hábiles incluyendo revisión humana de terminología especializada.",
       },
     ],
   },
@@ -6204,7 +6234,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataforma se publicará primero?",
     ],
     projectFit:
-      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
+      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
       {
         // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8

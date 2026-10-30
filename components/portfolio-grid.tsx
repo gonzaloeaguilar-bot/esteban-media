@@ -170,7 +170,6 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
                     locale === "es"
                       ? `/es/portafolio/${item.id}`
                       : `/portfolio/${item.id}`;
-                  const isYouTube = item.media.kind === "youtube";
                   const duration =
                     item.media.kind === "youtube"
                       ? formatDuration(item.media.duration)
