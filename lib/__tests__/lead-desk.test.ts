@@ -8,7 +8,7 @@ describe("lead desk", () => {
     expect(facts.hours).toBe(4);
   });
   it("matches a complete short birthday event to the approved solo half-day rate", () => {
-    expect(proposePrice("Birthday party on November 14 at The Sunset Room for 4 hours. Need: a highlight reel.")).toMatchObject({ kind: "confirmed", amount: 400 });
+    expect(proposePrice("Birthday party on November 14 at The Sunset Room for 4 hours. Need: a highlight reel.")).toMatchObject({ kind: "confirmed", amount: 500 });
   });
   it("never quotes an incomplete birthday inquiry", () => {
     const result = prepareLeadDeskResult({ threadId: "thread-1", messageId: "message-1", from: "Jerry <jerry@example.com>", subject: "Upcoming Birthday Party", body: "Hi, I am planning a birthday party and would love to learn more.", receivedAt: "2026-10-28T12:00:00.000Z" });

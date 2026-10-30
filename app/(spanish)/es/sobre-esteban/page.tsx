@@ -149,12 +149,12 @@ export default function SpanishAboutPage() {
                 Confianza
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight">
-                Lo que falta publicar también queda claro.
+                Prueba real, publicada.
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                La credibilidad empieza con hechos verificables: no usamos prueba
-                inventada. Cuando haya material real, esta página mostrará los
-                testimonios y ejemplos correspondientes.
+                La credibilidad empieza con hechos verificables: el portafolio
+                publica proyectos reales con sus créditos y esta página solo
+                afirma lo que se puede comprobar. Nada de prueba inventada.
               </p>
             </div>
             <div className="grid gap-3">
