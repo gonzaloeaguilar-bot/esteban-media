@@ -24,6 +24,8 @@ const content: GeoServicePageContent = {
   serviceType: "Real estate video editing",
   areaServed: "Miami / Fort Lauderdale / Palm Beach / Remote",
   answerService: "real estate Reels editing",
+  answerFirst:
+    "Real estate Reels editing turns footage an agent already has (walkthroughs, drone clips, exteriors and short agent pieces to camera) into short listing videos a buyer can actually inspect: rooms in a sensible order, vertical crops that protect the features that sell, and the agent guiding the tour instead of starring in it. Esteban Moreno Media edits remotely from Fort Lauderdale for agents and teams across South Florida and beyond, in Spanish first with intermediate English available. Send the original clips, the listing-safe facts and the must-show features; per-shoot rates are published, and every project gets a written quote before editing starts.",
   craftHeading: "What property Reels need from the edit.",
   craft: [
     {
