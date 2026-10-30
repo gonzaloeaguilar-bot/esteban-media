@@ -50,7 +50,7 @@ const COPY: Record<Locale, PlanCopy> = {
     everyPlan: {
       title: "Todos los planes incluyen",
       items: [
-        "Media de propiedad y gestión de redes en una sola factura, con contenido hecho de tus propias sesiones.",
+        "Fotos y video de tus propiedades y la gestión de tus redes en una sola factura, con contenido hecho de tus propias sesiones.",
         "De 20 a 30 fotos editadas por propiedad, según la propiedad.",
         "Flexibilidad: si un mes no tienes listado, esa sesión pasa al mes siguiente. Después vence, y no se guardan más de dos a la vez.",
       ],

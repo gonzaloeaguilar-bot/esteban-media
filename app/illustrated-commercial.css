@@ -63,6 +63,10 @@
 .em-plan-details ul{padding-left:18px;font-size:15px;line-height:1.6;margin:12px 0;list-style:disc}
 .em-plan-details li{margin-bottom:9px}
 .em-plan-details h4{font-size:16px;font-weight:600;margin:18px 0 8px}
+.em-plan-every{margin-top:12px}
+.em-plan-every ul{padding-left:18px;font-size:15px;line-height:1.6;margin:12px 0;list-style:disc}
+.em-plan-every li{margin-bottom:9px}
+.em-plan-every h4{font-size:16px;font-weight:600;margin:18px 0 8px}
 .em-plan-full-rows>div{display:flex;justify-content:space-between;gap:16px;font-size:14px;line-height:1.5;padding:10px 0;border-bottom:1px solid #e3dacf}
 .em-plan-full-rows dd{font-weight:600;text-align:right;flex-shrink:0}
 .em-visual-plans :is(a,button,summary):focus-visible{outline:2px solid #9f3c27;outline-offset:4px}
