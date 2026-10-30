@@ -31,6 +31,8 @@ const EXPECTED: Record<string, string> = {
   "/sobre-esteban": "/es/sobre-esteban",
   "/videografo-en-miami": "/es/videografo-en-miami",
   "/white-label-video-editing-for-agencies": "/services/white-label-video-editing-for-agencies",
+  "/es/servicios/edicion-de-video-para-reels": "/es/editor-de-reels-fort-lauderdale",
+  "/servicios/edicion-de-video-para-reels": "/es/editor-de-reels-fort-lauderdale",
 };
 
 function readRedirects(): Map<string, string> {
