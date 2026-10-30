@@ -274,6 +274,9 @@ export function HomePortfolioRail({
               <span className="em-phone-video__live">Now playing</span>
             </span>
             <span className="em-phone-video__screen">
+              {item.poster ? (
+                <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
+              ) : null}
               {item.embedUrl && item.id === litId && !reduced ? (
                 <iframe
                   className="em-phone-video__embed"
@@ -296,9 +299,7 @@ export function HomePortfolioRail({
                   tabIndex={-1}
                   aria-hidden="true"
                 />
-              ) : (
-                <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
-              )}
+              ) : null}
             </span>
             <span className="em-phone-video__info">
               <strong>{item.title}</strong>
