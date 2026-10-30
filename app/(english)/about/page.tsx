@@ -51,13 +51,13 @@ export default function AboutPage() {
       />
       <section className="py-12 sm:py-16">
         <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-start">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 About
               </p>
               <h1 className="mt-4 max-w-3xl font-serif em-display">
-                Esteban Moreno: edit-led, business-minded, personal by design.
+                Esteban Moreno: <span className="whitespace-nowrap">edit-led</span>, business-minded, personal by design.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Esteban Moreno López works publicly as Esteban Moreno, the
