@@ -480,6 +480,12 @@ export type SpanishNichePage = {
   sectionsHeading?: string;
   /** Summary line under the disclosure title; names what is inside the fold. */
   sectionsDestinations?: string;
+  /**
+   * Page-specific "En corto" answer. The generic answer-first text is the
+   * same paragraph on every niche page; a page whose work differs in kind
+   * (subtitling, remote editing) states its own answer here instead.
+   */
+  answerFirst?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
   /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
@@ -3263,7 +3269,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Subtítulos Bilingües / EN y ES",
     h1: "Subtitulado bilingüe profesional en inglés y español para video.",
     lead:
-      "Traducción precisa, sincronización milimétrica y diseño de subtítulos legibles para audiencias bilingües en Estados Unidos y Latinoamérica.",
+      "Traducción precisa, sincronización al ritmo de la voz y subtítulos legibles para audiencias bilingües en Estados Unidos y Latinoamérica.",
+    answerFirst:
+      "El subtitulado bilingüe lo hace Esteban Moreno Media desde Fort Lauderdale. Envías el video y recibes los subtítulos en español y en inglés revisados línea por línea contra el audio, no generados por una máquina: el texto dice lo que la persona dijo, en el orden en que lo dijo. Esteban trabaja en español primero, con inglés intermedio, y así se presenta el servicio: el español sale natural y el inglés se revisa con cuidado antes de entregar. La entrega puede ser con los subtítulos quemados en el video, como archivo SRT o en los dos formatos, con las líneas dentro de las zonas seguras de cada plataforma. Cada proyecto recibe una cotización por escrito antes de empezar.",
     keyword: "servicio de subtitulado bilingüe de video",
     location: "Remoto / Miami / Fort Lauderdale",
     availability: "confirmed",
@@ -6580,6 +6588,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué referencias, logotipo o tipografías debe seguir la edición?",
       "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
     ],
+    sectionsHeading: "Estrategia, formato y edición remota para negocios",
+    answerFirst: `El editor remoto es Esteban Moreno Media, con base en Fort Lauderdale y clientes en todo Estados Unidos y Latinoamérica. Tú grabas con tu celular o tu cámara, subes el material a Drive o Dropbox y Esteban lo convierte en Reels, videos de YouTube, anuncios o clips para tu sitio, sin que nadie tenga que viajar. Todo se conversa en español, por mensajes o notas de voz, y cada entrega llega con su ronda de cambios. La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o por semana si publicas seguido; cada proyecto recibe una cotización por escrito antes de empezar.`,
     fitQuestion: "¿Cuándo encaja la edición remota?",
     projectFit:
       "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
@@ -9746,7 +9756,7 @@ export const spanishTrustQuestions = [
   {
     question: "¿Por qué una página en español?",
     answer:
-      "Porque muchos dueños, agentes, restaurantes y creadores en Broward, Miami-Dade y Palm Beach prefieren explicar el proyecto en español. Eso reduce fricción y evita malos entendidos en el scope.",
+      "Porque muchos dueños, agentes, restaurantes y creadores en Broward, Miami-Dade y Palm Beach prefieren explicar el proyecto en español. Eso reduce fricción y evita malos entendidos sobre el alcance del trabajo.",
   },
   {
     question: "¿Hay prueba real publicada?",
