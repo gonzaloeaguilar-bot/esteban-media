@@ -110,34 +110,6 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
         </Container>
       </section>
 
-      {/* Answer-first sections (loop row 68): question headings, one fact-bearing answer each */}
-      <section
-        className="border-b border-[#e2d9cd] py-12 sm:py-16"
-        data-section="case_studies_answers"
-      >
-        <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-2">
-            {copy.answers.map((answer, index) => (
-              <div key={answer.question} className={index === 2 ? "lg:col-span-2 lg:max-w-3xl" : undefined}>
-                <h2 className="font-serif text-3xl leading-tight sm:text-4xl">
-                  {answer.question}
-                </h2>
-                {index === 2 ? (
-                  <details className="mt-4">
-                    <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
-                      {locale === "es" ? "Leer los límites" : "Read the limits"}
-                    </summary>
-                    <p className="mt-3 leading-7 text-[#3f4548]">{answer.text}</p>
-                  </details>
-                ) : (
-                  <p className="mt-4 leading-7 text-[#3f4548]">{answer.text}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {groups.map((group) => (
         <section
           key={group.discipline}
@@ -215,6 +187,34 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
           </Container>
         </section>
       ))}
+
+      {/* Answer-first sections (loop row 68): question headings, one fact-bearing answer each */}
+      <section
+        className="border-b border-[#e2d9cd] py-12 sm:py-16"
+        data-section="case_studies_answers"
+      >
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-2">
+            {copy.answers.map((answer, index) => (
+              <div key={answer.question} className={index === 2 ? "lg:col-span-2 lg:max-w-3xl" : undefined}>
+                <h2 className="font-serif text-3xl leading-tight sm:text-4xl">
+                  {answer.question}
+                </h2>
+                {index === 2 ? (
+                  <details className="mt-4">
+                    <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                      {locale === "es" ? "Leer los límites" : "Read the limits"}
+                    </summary>
+                    <p className="mt-3 leading-7 text-[#3f4548]">{answer.text}</p>
+                  </details>
+                ) : (
+                  <p className="mt-4 leading-7 text-[#3f4548]">{answer.text}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section className="bg-[#e7ded2] py-12 sm:py-16">
         <Container size="xl">
