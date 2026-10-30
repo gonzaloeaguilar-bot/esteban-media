@@ -83,7 +83,7 @@ const ES_PACKAGES: PackageContent[] = [
     includes: [
       "Plan de contenido",
       "Calendario de publicación",
-      "Edición incluida",
+      "Edición incluida, hasta 8 videos al mes",
       "Reporte mensual",
     ],
     idealFor: "Ideal para marcas que ya publican pero necesitan orden, ritmo y una sola persona responsable del contenido.",
@@ -97,6 +97,7 @@ const ES_PACKAGES: PackageContent[] = [
     subtitle: "Producción en sitio",
     headline: ["Tu negocio.", "Tu espacio.", "Tu contenido."],
     includes: [
+      "Una sesión de producción en locación de medio día al mes",
       "Pre-producción y captura en locación",
       "Edición post-captura",
       "Entregables según formato",
@@ -147,7 +148,7 @@ const EN_PACKAGES: PackageContent[] = [
     name: "Growth",
     subtitle: "Monthly social plan",
     headline: ["From posting when you can", "to having a system."],
-    includes: ["Content plan", "Publishing calendar", "Editing included", "Monthly report"],
+    includes: ["Content plan", "Publishing calendar", "Editing included, up to 8 videos a month", "Monthly report"],
     idealFor: "For brands that already post but need order, rhythm and one person responsible for content.",
     image: { ...IMAGES.crecimiento, alt: "Vertical frame from one of Esteban's social videos" },
     need: { title: "I want to post consistently", line: "I need strategy, content and editing." },
@@ -159,6 +160,7 @@ const EN_PACKAGES: PackageContent[] = [
     subtitle: "On-site production",
     headline: ["Your business.", "Your space.", "Your content."],
     includes: [
+      "One half-day on-location production session per month",
       "Pre-production and on-location capture",
       "Post-capture editing",
       "Deliverables in the formats you need",

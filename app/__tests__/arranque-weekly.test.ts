@@ -36,8 +36,8 @@ function allCopy(locale: Locale): string[] {
 
 describe("Arranque weekly plan", () => {
   it("publishes the owner-approved weekly prices from lib/pricing.ts", () => {
-    expect(ARRANQUE_WEEKLY_OPTIONS.map((o) => [o.videosPerWeek, o.pricePerWeek, o.changesPerVideo])).toEqual([[1, 85, 1], [2, 160, 2]]);
-    expect(ARRANQUE_WEEKLY_OPTIONS.map(arranqueWeeklyPerVideo)).toEqual([85, 80]);
+    expect(ARRANQUE_WEEKLY_OPTIONS.map((o) => [o.videosPerWeek, o.pricePerWeek, o.changesPerVideo])).toEqual([[1, 85, 1], [2, 160, 2], [3, 240, 2]]);
+    expect(ARRANQUE_WEEKLY_OPTIONS.map(arranqueWeeklyPerVideo)).toEqual([85, 80, 80]);
     expect(ARRANQUE_WEEKLY_FROM).toEqual({ perWeek: 85, perVideo: 80 });
     expect(ARRANQUE_WEEKLY_TERMS).toEqual({ maxVideoSeconds: 90, maxFootageMinutes: 10, deliveryHoursMin: 48, deliveryHoursMax: 72, minimumWeeks: 4 });
   });
@@ -69,7 +69,7 @@ describe("Arranque weekly plan", () => {
     const c = arranqueWeeklyCopy(locale);
     expect(c.heading).toBe(locale === "es" ? "¿Cómo se paga el Arranque?" : "How do you pay for Starter?");
     expect(c.answer).toContain(locale === "es" ? "Una sola vez: $100 por video" : "Just once: $100 per video");
-    expect(c.answer).toContain(locale === "es" ? "Cada semana: $85 por 1 video o $160 por 2 videos" : "Every week: $85 for 1 video or $160 for 2 videos");
+    expect(c.answer).toContain(locale === "es" ? "Cada semana: $85 por 1 video, $160 por 2 videos o $240 por 3 videos" : "Every week: $85 for 1 video, $160 for 2 videos or $240 for 3 videos");
   });
 
   it("pricing card and creator pages render the SAME Starter options with clear weekly totals and no badge", () => {
@@ -114,7 +114,7 @@ describe("Arranque weekly plan", () => {
 
   it.each(locales)("%s: OfferCatalog prices equal the pricing constants", (locale) => {
     const node = arranqueWeeklyOfferJsonLd(locale, "https://x.test/p", "https://x.test/#business");
-    expect(node.itemListElement.map((o) => o.priceSpecification.price)).toEqual([85, 160]);
+    expect(node.itemListElement.map((o) => o.priceSpecification.price)).toEqual([85, 160, 240]);
     expect(node.itemListElement.every((o) => o.priceSpecification.priceCurrency === "USD")).toBe(true);
   });
 
