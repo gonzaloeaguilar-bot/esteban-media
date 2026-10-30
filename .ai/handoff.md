@@ -1,3 +1,11 @@
+# 2026-10-30 — Human-QA wave 3: English service pages end on the human close (branch spark/wave3-en, stacked on spark/wave2-es, PR open, not production)
+
+- GeoServicePage template: the page now ends on the ServiceInquiryRail. Order is FAQs, related services, NicheAnswers, PriorityLinks, then the quote rail last, so no answer block, directory or second contact pitch follows the human close on any of the 7 pages using this template (the real-estate page's reported "restart after Ask for a quote" disease).
+- Per-page "In short" answers via the answerOverride added in wave 2: Reels editor Fort Lauderdale and real-estate Reels now state their own answers in the page's voice; the price in the Reels answer interpolates from lib/pricing.ts (the price-single-source test caught a hand-typed figure during this branch's gates and it was fixed, not ledgered).
+- Restaurant promo page: "Tell us the location" and "Our portfolio project" voice slips fixed to the one-person voice; the colour mechanics paragraph in Editing approach no longer repeats the craft section's colour article nearly verbatim (it now points to the craft notes and keeps its unique local-brief content); the repeated opening-detail list was trimmed the same way; the tail was reordered so the page ends on the Get Started close instead of on EventSeasonLinks, SeasonalAnswer, NicheAnswers and PriorityLinks.
+- The "Who does it / Who can help" fold concatenation was already fixed at template level in wave 2 (both languages) and is inherited here.
+- Gates on this machine: full vitest green in chunks (670 + 1,279 + 1,845, plus the price-single-source re-run), typecheck clean, lint 0 errors / 23 pre-existing warnings, rail-adoption pass, rail-kit:check pass, build BUILD_ID DQoqzU6LjiYIv-tw_sMPPh. Built HTML re-read: new In short answers live on both GeoService pages, bottom order verified by marker position, restaurant voice and dedupe verified. Not merged; not production.
+---
 # 2026-10-30 — Human-QA wave 2: Spanish service pages in Esteban's voice (branch spark/wave2-es, PR open, not production)
 
 - Owner standard set this day: every Spanish page reads in clear, professional Latin American Spanish, written in Spanish rather than translated. This branch applies it to the three wave-2 service pages, /es/precios and /es/sobre-esteban.
