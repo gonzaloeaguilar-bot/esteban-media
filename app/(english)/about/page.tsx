@@ -51,79 +51,25 @@ export default function AboutPage() {
       />
       <section className="py-12 sm:py-16">
         <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-start">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 About
               </p>
               <h1 className="mt-4 max-w-3xl font-serif em-display">
-                Esteban Moreno: edit-led, business-minded, personal by design.
+                Esteban Moreno: <span className="whitespace-nowrap">edit-led</span>, business-minded, personal by design.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban Moreno López works publicly as Esteban Moreno, the
-                founder behind{" "}
+                Esteban Moreno López is a Spanish-first video editor in Fort
+                Lauderdale and the founder of{" "}
                 <Link href="/" className="underline underline-offset-4 hover:text-[#9f3c27]">
                   Esteban Moreno Media
-                </Link>{" "}
-                in Fort Lauderdale. The published service focuses on video
-                editing, AI-assisted creative, social planning, and scoped
-                production across South Florida, with local coverage detailed in
-                the{" "}
-                <Link
-                  href="/areas"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  service areas
-                </Link>{" "}
-                directory. Spanish-first visitors can also review the{" "}
-                <Link
-                  href="/es/servicios"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  video, website, and inquiry services overview
-                </Link>{" "}
-                before sharing a project. If the content plan is still taking
-                shape, the Spanish{" "}
-                <Link
-                  href="/es/evaluacion"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  Diagnóstico de Estrategia de Video
-                </Link>{" "}
-                can help clarify what to discuss first.
-              </p>
-              <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-                His{" "}
-                <Link
-                  href="/es/portafolio"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  selected work
-                </Link>{" "}
-                connects each selected project to its available credits and original video source. His Spanish{" "}
-                <Link
-                  href="/es/guias"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  practical video guides
-                </Link>{" "}
-                cover project preparation, published starting rates are outlined under{" "}
-                <Link
-                  href="/es/precios"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  precios y paquetes
                 </Link>
-                , while regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
-                <Link
-                  href="/es/eventos"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  eventos del año
-                </Link>{" "}
-                hub. His service is Spanish-first,
-                with intermediate English communication available for project
-                work.
+                . He edits Reels, TikToks, Shorts and longer videos for
+                businesses and creators across South Florida, plans the
+                content around them, and films on location when a project
+                needs it. Most work is remote and personal: you talk to the
+                person who edits your video.
               </p>
               <div className="mt-8 grid gap-3">
                 {principles.map((principle) => (
@@ -186,6 +132,50 @@ export default function AboutPage() {
       </section>
       <ClientReviews locale="en" />
       <AboutWhoIs locale="en" path="/about" />
+      {/* The directory and Spanish-hub links that used to open this page, kept
+          for the internal-link graph and for readers who want them, in the
+          footer area where they no longer push the person down the page. */}
+      <section className="border-t border-[#ddd4c8] py-10">
+        <Container size="xl">
+          <h2 className="font-serif text-2xl">Directories, Spanish pages and guides</h2>
+          <div className="mt-4 max-w-3xl space-y-4 text-sm leading-6 text-[#3f4548]">
+            <p>
+              Local coverage is detailed in the{" "}
+              <Link href="/areas" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                service areas
+              </Link>{" "}
+              directory. Spanish-first visitors can review the{" "}
+              <Link href="/es/servicios" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                video, website, and inquiry services overview
+              </Link>{" "}
+              before sharing a project. If the content plan is still taking shape, the Spanish{" "}
+              <Link href="/es/evaluacion" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                Diagnóstico de Estrategia de Video
+              </Link>{" "}
+              can help clarify what to discuss first.
+            </p>
+            <p>
+              His{" "}
+              <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                selected work
+              </Link>{" "}
+              connects each selected project to its available credits and original video source. His Spanish{" "}
+              <Link href="/es/guias" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                practical video guides
+              </Link>{" "}
+              cover project preparation, published starting rates are outlined under{" "}
+              <Link href="/es/precios" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                precios y paquetes
+              </Link>
+              , and regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
+              <Link href="/es/eventos" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                eventos del año
+              </Link>{" "}
+              hub.
+            </p>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }
