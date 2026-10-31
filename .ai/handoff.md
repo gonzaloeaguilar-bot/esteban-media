@@ -1,9 +1,14 @@
-## 2026-10-30 — Spanish site-wide pass, chunk 2 (spark/spanish-pass-2)
+## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
-- lib/spanish-site.ts: the last formal-plural FAQs rewritten to the one-person tú voice: the webinar-clips FAQ ("¿Puedes seleccionar las mejores partes del webinar?" / "Reviso la grabación e identifico...") and the VSL FAQ pair ("¿Debo grabar la voz en off o la gestionas tú?", "Entrego versiones horizontales..."). "ustedes" count in Spanish site data is now zero.
-- /es/portafolio reviewed: the hub copy already reads human ("Mira el trabajo.") and needed no changes. The remaining "material suministrado" strings elsewhere in the codebase are factual third-party attributions ("material suministrado por la agencia 300 Bees") in proof and case-study contexts, one of them pinned by the Sunny Isles proof test; left as-is on purpose.
+Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.
 
-Gates: niche suites green (429 tests), typecheck clean, lint 0 errors. Lastmod refreshed.
+- lib/llms-base.txt: bilingual subtitling service added to the hand-written Core Pages (EN) and Spanish Pages (ES) lists, plus two target questions (EN + ES) in the Core questions list. The subtitling service was absent from the facts file entirely.
+- /services/bilingual-video-subtitling-service: filler intro replaced with quotable facts; specific answer-first override (human line-by-line translation, SRT or burned-in in safe zones, shorts 24-48h, longer per minute of audio, Spanish-first honesty, written quote).
+- /services/hire-remote-video-editor: specific answer-first override (upload footage and brand assets, cut/color/audio/captions, no shoot or visit, US-wide, weekly creator plans, written quotes, Spanish-first).
+
+Gates: full suite green after lastmod refresh (3,797 tests), typecheck clean, lint 0 errors, rail-adoption pass, build green; built llms.txt carries the new subtitling entries (8 mentions).
+
+Also found the same night, separate thread: ChatGPT's local card for "La Familia Media" (a real, different Fort Lauderdale agency) carries Esteban Moreno Media's description text verbatim; logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-entity-confusion-la-familia-2026-10-30.md. Fix needs his listing URLs/access, outstanding since Oct 17.
 
 ## 2026-10-30 — Spanish site-wide pass, chunk 1 (spark/spanish-pass)
 
