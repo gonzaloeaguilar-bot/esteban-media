@@ -1,3 +1,10 @@
+## 2026-10-30 — Spanish site-wide pass, chunk 2 (spark/spanish-pass-2)
+
+- lib/spanish-site.ts: the last formal-plural FAQs rewritten to the one-person tú voice: the webinar-clips FAQ ("¿Puedes seleccionar las mejores partes del webinar?" / "Reviso la grabación e identifico...") and the VSL FAQ pair ("¿Debo grabar la voz en off o la gestionas tú?", "Entrego versiones horizontales..."). "ustedes" count in Spanish site data is now zero.
+- /es/portafolio reviewed: the hub copy already reads human ("Mira el trabajo.") and needed no changes. The remaining "material suministrado" strings elsewhere in the codebase are factual third-party attributions ("material suministrado por la agencia 300 Bees") in proof and case-study contexts, one of them pinned by the Sunny Isles proof test; left as-is on purpose.
+
+Gates: niche suites green (429 tests), typecheck clean, lint 0 errors. Lastmod refreshed.
+
 ## 2026-10-30 — Spanish site-wide pass, chunk 1 (spark/spanish-pass)
 
 Owner standard applied: español lindo (clear professional Latin American Spanish, tú forms, no calques) extended beyond the homepage.
