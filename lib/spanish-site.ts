@@ -1553,7 +1553,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Flujo de postproducción remota y material existente",
         paragraphs: [
-          "Muchas empresas de Miami ya cuentan con grabaciones realizadas con teléfonos inteligentes o cámaras propias en sus locales, eventos o demostraciones. A través de un flujo de postproducción remota, ese material se selecciona, recorta y transforma en piezas ágiles listas para publicar en redes sociales.",
+          "Muchas empresas de Miami ya tienen grabaciones hechas con el teléfono o con cámaras propias en sus locales, eventos o demostraciones. Con la edición remota, ese material se selecciona, se recorta y se convierte en piezas ágiles listas para publicar en redes sociales.",
           "El proceso inicia reuniendo los archivos de video en una carpeta compartida en la nube junto con una breve nota sobre el objetivo comercial de cada clip. Si quieres preparar tus archivos antes de enviarlos, revisa la [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video).",
         ],
         bullets: [
@@ -1566,7 +1566,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Producción selectiva en Miami-Dade y enfoque bilingüe",
         paragraphs: [
-          "Cuando un proyecto requiere captura de tomas nuevas en locación dentro del condado de Miami-Dade, la producción se evalúa de forma selectiva considerando la locación, el tipo de negocio y la planificación del contenido dentro de las [áreas de servicio](/es/areas).",
+          "Cuando un proyecto requiere captura de tomas nuevas en locación dentro del condado de Miami-Dade, la producción se confirma caso por caso según la locación, el tipo de negocio y la planificación del contenido dentro de las [áreas de servicio](/es/areas).",
           "En un entorno multicultural como el sur de la Florida, la comunicación directa en español facilita definir el tono, los ganchos y el estilo de cada video sin barreras de idioma, adaptando el contenido para audiencias hispanas o bilingües de la región.",
         ],
         bullets: [
@@ -1596,7 +1596,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Se realiza grabación en locación para Reels en Miami-Dade?",
         answer:
-          "La edición remota con material suministrado es el servicio prioritario confirmado. Si un proyecto en Miami-Dade necesita grabación en locación, la producción se evalúa de manera selectiva analizando el tipo de negocio, la locación y el alcance requerido.",
+          "La edición remota con el material que ya tienes es el servicio principal. Si un proyecto en Miami-Dade necesita grabación en locación, la producción se confirma caso por caso según el tipo de negocio, la locación y el alcance.",
       },
       {
         question: "¿Qué tipo de videos cortos funcionan mejor para empresas locales en Miami?",
@@ -1684,7 +1684,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Captura selectiva en locación en Miami-Dade y atención directa en español",
         paragraphs: [
-          "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se evalúa de manera selectiva analizando la disponibilidad, el horario de cocina y el alcance del rodaje dentro de las [áreas de servicio](/es/areas). Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
+          "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se confirma caso por caso según la disponibilidad, el horario de cocina y el alcance del rodaje dentro de las [áreas de servicio](/es/areas). Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
           "Contar con atención directa en español facilita coordinar con el equipo de cocina y gerencia de forma rápida y fluida en el sur de la Florida. Conoce nuestro trabajo publicado en el sector con [Juanchis Burguer](/es/portafolio/juanchis-burguer), [Portosole](/es/portafolio/portosole) y [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey), y explora también opciones complementarias como [fotografía de comida asistida por IA](/es/fotografia-de-comida-con-ia-restaurantes).",
         ],
         bullets: [
@@ -1699,7 +1699,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Puedo solicitar solo edición de video si ya grabamos material en la cocina o el salón?",
         answer:
-          "Sí. La edición de video con material existente suministrado por el restaurante es un servicio prioritario confirmado. Puedes transferir tus grabaciones verticales u horizontales por la nube y realizamos la selección, ritmo, color, subtítulos y música para entrega en redes sociales.",
+          "Sí. La edición de video con el material que el restaurante ya tiene es un servicio principal. Puedes transferir tus grabaciones verticales u horizontales por la nube y realizamos la selección, ritmo, color, subtítulos y música para entrega en redes sociales.",
       },
       {
         question: "¿Qué tipo de videos funcionan mejor para atraer comensales en redes sociales en Miami?",
@@ -1709,7 +1709,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Se puede coordinar grabación en locación dentro de Miami-Dade?",
         answer:
-          "La grabación en locación se evalúa de forma selectiva según el tipo de restaurante, la locación en Miami-Dade y el cronograma operativo del negocio. Se planifica en horarios convenientes para no interferir con el servicio a clientes.",
+          "La grabación en locación se confirma caso por caso según el tipo de restaurante, la locación en Miami-Dade y el horario del negocio. Se planifica en horarios convenientes para no interferir con el servicio a clientes.",
       },
       {
         question: "¿Los videos se entregan optimizados con subtítulos y formato vertical 9:16?",
@@ -1729,7 +1729,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Cuánto cuesta la edición o producción de video para restaurantes en Miami?",
         answer:
-          `La edición de un Reel individual con material propio suministrado por el restaurante parte desde ${usd(SHORT_FORM.perVideoFrom)} dentro del paquete Arranque, o desde ${usd(RESTAURANT_PROMO.from)} por proyecto promocional completo. Si se requiere filmación selectiva en cocina o salón, se cotiza según las horas de rodaje y la locación en Miami-Dade.`,
+          `La edición de un Reel individual con el material que el restaurante ya grabó parte desde ${usd(SHORT_FORM.perVideoFrom)} dentro del paquete Arranque, o desde ${usd(RESTAURANT_PROMO.from)} por proyecto promocional completo. Si hace falta grabar en la cocina o el salón, se cotiza según las horas de rodaje y la locación en Miami-Dade.`,
       },
       {
         question: "¿Cuál es el tiempo de entrega de un Reel gastronómico?",
@@ -2269,9 +2269,9 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
-        heading: "¿Cómo funciona el flujo de edición remota con material existente?",
+        heading: "¿Cómo funciona la edición remota con el material que ya tienes?",
         paragraphs: [
-          "Muchas empresas y creadores en el sur de la Florida ya cuentan con grabaciones realizadas con teléfonos inteligentes o cámaras propias en sus locales, eventos o jornadas de trabajo. A través de un flujo de postproducción remota, esos archivos se organizan, limpian y transforman en piezas ágiles listas para publicar en redes sociales sin necesidad de programar rodajes costosos.",
+          "Muchas empresas y creadores en el sur de la Florida ya tienen grabaciones hechas con el teléfono o con cámaras propias en sus locales, eventos o días de trabajo. Con la edición remota, esos archivos se organizan, se limpian y se convierten en piezas ágiles listas para publicar en redes sociales, sin necesidad de programar rodajes costosos.",
           "El proceso comienza reuniendo los archivos originales en una carpeta compartida en la nube con notas breves sobre el objetivo de cada clip. La edición recorta silencios, unifica color y sonido, y prepara versiones verticales adaptadas. Si necesitas atención enfocada en Miami-Dade, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami) para revisar el alcance de tus publicaciones.",
         ],
       },
@@ -2335,7 +2335,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Se trabaja de forma remota o con grabación en locación?",
         paragraphs: [
           "El modelo de trabajo está centrado en edición de video remota a partir de material existente que el cliente ya tiene grabado. Si tu empresa cuenta con tomas realizadas con teléfonos, cámaras propias o archivos de grabaciones anteriores, los clips se envían a través de almacenamiento en la nube y se procesan digitalmente sin necesidad de coordinar jornadas presenciales.",
-          "Para proyectos que requieren capturar imágenes nuevas en locación dentro de Miami-Dade o Broward, la producción presencial se evalúa de manera selectiva según la locación, la disponibilidad y los objetivos del proyecto. Esta separación clara permite mantener costos accesibles para quienes solo necesitan postproducción profesional y reservar la grabación para ideas que verdaderamente exigen cobertura local.",
+          "Para proyectos que requieren capturar imágenes nuevas en locación dentro de Miami-Dade o Broward, la producción presencial se confirma caso por caso según la locación, la disponibilidad y los objetivos del proyecto. Esta separación clara permite mantener costos accesibles para quienes solo necesitan postproducción profesional y reservar la grabación para ideas que verdaderamente exigen cobertura local.",
         ],
       },
       {
@@ -2356,7 +2356,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cuánto cuesta contratar un editor de video en Miami?",
         paragraphs: [
           `Las tarifas base indicativas de edición se estructuran por tipo de proyecto como referencia de un profesional independiente enfocado en edición, con el descuento introductorio aplicado. Los videos cortos de redes se cotizan como el paquete Arranque, ${esShortForm}; para videos de YouTube, de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)}; y para piezas corporativas o comerciales, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)} por proyecto.`,
-          "Estos valores son rangos de referencia para postproducción con material suministrado. El presupuesto definitivo requiere una cotización adaptada al volumen de tomas, la complejidad técnica y los tiempos de entrega. Puedes consultar todos los planes y paquetes mensuales en nuestra sección de [precios](/es/precios), incluyendo el paquete [Arranque](/es/precios/arranque) y el plan [Crecimiento](/es/precios/crecimiento).",
+          "Estos valores son rangos de referencia para editar el material que ya tienes. El presupuesto final llega en una cotización por escrito según cuánto material hay, la dificultad del trabajo y los tiempos de entrega. Puedes consultar todos los planes y paquetes mensuales en nuestra sección de [precios](/es/precios), incluyendo el paquete [Arranque](/es/precios/arranque) y el plan [Crecimiento](/es/precios/crecimiento).",
         ],
       },
       {
@@ -2386,7 +2386,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Se puede incluir grabación en locación en Miami?",
         answer:
-          "La grabación presencial se evalúa de manera selectiva por proyecto según la locación y el alcance requerido; la prioridad habitual del servicio es la edición remota.",
+          "La grabación presencial se confirma proyecto a proyecto según la locación y el alcance; la prioridad habitual del servicio es la edición remota.",
       },
     ],
   },
@@ -2527,7 +2527,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Náutica",
     h1: "Videos promocionales para yates, marinos y hospitalidad.",
     lead:
-      "Fort Lauderdale es la capital náutica de Florida. Editamos y producimos contenido audiovisual para servicios de chárter, brokers marinos, hoteles y marcas náuticas a partir de material suministrado por el cliente. Revisa el [área de servicio](/es/areas) al preparar tu proyecto. Consulta guías especializadas como [guías de edición de video con dron en Florida](/es/guias/guias-de-edicion-de-video-con-dron-florida) y [entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
+      "Fort Lauderdale es la capital náutica de Florida. Editamos y producimos contenido audiovisual para servicios de chárter, brokers marinos, hoteles y marcas náuticas a partir del material que ya grabaste. Revisa el [área de servicio](/es/areas) al preparar tu proyecto. Consulta guías especializadas como [guías de edición de video con dron en Florida](/es/guias/guias-de-edicion-de-video-con-dron-florida) y [entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
     keyword: "video para yates en Fort Lauderdale",
     location: "Fort Lauderdale / Broward",
     availability: "confirmed",
@@ -2556,7 +2556,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Pueden editar y estabilizar tomas aéreas capturadas desde embarcaciones?",
         answer:
-          "Sí. Estabilizamos clips aéreos suministrados por el cliente y aplicamos corrección de color para balancear la luz solar intensa, reflejos sobre el agua y tonos de madera teca en cubierta.",
+          "Sí. Estabilizamos los clips aéreos que envía el cliente y aplicamos corrección de color para balancear la luz solar intensa, reflejos sobre el agua y tonos de madera teca en cubierta.",
       },
       {
         question: "¿Se entregan versiones para redes sociales y páginas web de corretaje?",
@@ -2571,12 +2571,12 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Cuánto cuesta la edición o producción de video para yates en Fort Lauderdale?",
         answer:
-          `La edición con clips existentes suministrados por el cliente inicia desde ${usd(SHORT_FORM.perVideoFrom)} por video vertical dentro del paquete Arranque o desde ${usd(RESTAURANT_PROMO.from)} para piezas promocionales extensas. Si se requiere media jornada de filmación náutica en marina o muelle en Broward, se cotiza según las horas de rodaje y la embarcación.`,
+          `La edición con los clips que ya tiene el cliente parte desde ${usd(SHORT_FORM.perVideoFrom)} por video vertical dentro del paquete Arranque o desde ${usd(RESTAURANT_PROMO.from)} para piezas promocionales extensas. Si se requiere media jornada de filmación náutica en marina o muelle en Broward, se cotiza según las horas de rodaje y la embarcación.`,
       },
       {
         question: "¿Cuál es el tiempo de entrega para videos de corretaje o chárter náutico?",
         answer:
-          "Los cortes horizontales y verticales editados con material suministrado se entregan habitualmente en 3 a 5 días hábiles, permitiendo revisiones centralizadas en la nube antes de su publicación en portales náuticos y redes sociales.",
+          "Los cortes horizontales y verticales editados con tu material se entregan desde los 7 días, con revisiones en la nube antes de publicarlos en portales náuticos y redes sociales.",
       },
     ],
   },
@@ -2651,7 +2651,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Cómo funciona el servicio si estoy en Pembroke Pines?",
         answer:
-          "Puedes comenzar con un brief y material ya grabado. Esteban trabaja desde Fort Lauderdale; cualquier grabación en locación se evalúa según el alcance del proyecto.",
+          "Puedes comenzar con un brief y material ya grabado. Esteban trabaja desde Fort Lauderdale; cualquier grabación en locación se confirma según el alcance del proyecto.",
       },
       {
         question: "¿El portafolio incluye un proyecto hecho en Pembroke Pines?",
@@ -4975,7 +4975,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "Color y ritmo con textura natural",
         paragraphs: [
           "El tratamiento de color busca que el alimento se vea apetitoso y que conserve su textura natural. Exposición, balance de blancos, contraste y saturación se revisan entre clips para que luz de cocina, luz de mesa, salsas e ingredientes se sientan coherentes dentro de una misma pieza. No se presenta una corrección de color como sustituto de una buena toma ni como una promesa sobre el resultado comercial.",
-          "La base de trabajo es el [material suministrado por el cliente](/es/guias/entrega-para-edicion-remota-de-video). Pueden incluirse clips de smartphone o cámara de preparación, emplatado, bebidas, ambiente y mensajes a cámara, junto con los nombres correctos del menú y la intención de cada publicación. Las necesidades de rodaje se conversan por separado; no se presumen dentro de una edición remota.",
+          "La base del trabajo es el [material que envía el cliente](/es/guias/entrega-para-edicion-remota-de-video). Pueden incluirse clips de smartphone o cámara de preparación, emplatado, bebidas, ambiente y mensajes a cámara, junto con los nombres correctos del menú y la intención de cada publicación. Las necesidades de rodaje se conversan por separado; no se presumen dentro de una edición remota.",
           "Cuando el restaurante está en Miami, conviene indicar contexto local, plato, promoción, canal y ubicación antes de editar. Las [áreas de servicio](/es/areas) ayudan a separar una edición remota de una posible conversación de rodaje. Un video de bar, un especial de almuerzo y un reel de comedor pueden necesitar ritmos, textos y primeros planos distintos. La edición mantiene clara esa intención local sin prometer un resultado de reservas.",
         ],
       },
@@ -4998,7 +4998,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Qué material puede entregar un restaurante para editar un video promocional?",
         answer:
-          "El restaurante puede compartir material suministrado por el cliente: preparación, emplatado, bebidas, sala, personal, detalles de menú o mensajes a cámara. También ayuda incluir el nombre correcto de cada platillo, referencias, logo y los canales donde se publicará.",
+          "El restaurante puede compartir el material que ya tiene: preparación, emplatado, bebidas, sala, personal, detalles del menú o mensajes a cámara. También ayuda incluir el nombre correcto de cada platillo, referencias, logo y los canales donde se publicará.",
       },
       {
         question: "¿Cómo se estructura un reel corto de comida o menú?",
@@ -5550,7 +5550,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de Reels y video en Boca Raton",
     metadataTitle: "Reels y Edición de Video Boca Raton",
     description:
-      "Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton con los clips que ya grabaste. La grabación en Palm Beach County se evalúa proyecto por proyecto.",
+      "Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton con los clips que ya grabaste. La grabación en Palm Beach County se confirma proyecto por proyecto.",
     metaDescription:
       `Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton, desde ${usd(SHORT_FORM.perVideoFrom)} por video, con los clips que ya grabaste.`,
     eyebrow: "Boca Raton / Palm Beach County",
@@ -5591,7 +5591,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Esteban va a Boca Raton a grabar?",
         paragraphs: [
-          "La mayoría del trabajo en Boca Raton es edición a distancia, y eso no depende del viaje. Envías los clips originales, una referencia de un video que te guste y el texto principal, y apruebas la edición desde el teléfono. Boca Raton está a unas 20 millas al norte de Fort Lauderdale por la I-95, pero la grabación en locación en Palm Beach County se evalúa proyecto por proyecto: si una grabación tiene sentido y cuánto suma el traslado a la cotización se define para cada proyecto, cuando el objetivo está claro. No se promete disponibilidad fija para grabar en Boca Raton, así que pregunta antes de organizar un día de grabación alrededor de esa fecha. Si todavía no tienes material, la guía [cómo grabar video con iPhone para edición profesional](/es/guias/grabar-video-con-iphone-para-edicion-profesional) te ayuda a preparar los primeros clips antes de escribir.",
+          "La mayoría del trabajo en Boca Raton es edición a distancia, y eso no depende del viaje. Envías los clips originales, una referencia de un video que te guste y el texto principal, y apruebas la edición desde el teléfono. Boca Raton está a unas 20 millas al norte de Fort Lauderdale por la I-95, pero la grabación en locación en Palm Beach County se confirma proyecto por proyecto: si una grabación tiene sentido y cuánto suma el traslado a la cotización se define para cada proyecto, cuando el objetivo está claro. No se promete disponibilidad fija para grabar en Boca Raton, así que pregunta antes de organizar un día de grabación alrededor de esa fecha. Si todavía no tienes material, la guía [cómo grabar video con iPhone para edición profesional](/es/guias/grabar-video-con-iphone-para-edicion-profesional) te ayuda a preparar los primeros clips antes de escribir.",
         ],
       },
       {
@@ -5679,7 +5679,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Pueden editar material ya grabado de una propiedad en Sunny Isles?",
         answer:
-          "Sí. Esteban puede editar material suministrado por el cliente; el alcance, los formatos y el uso previsto se confirman para cada proyecto.",
+          "Sí. Esteban puede editar el material que ya tienes; el alcance, los formatos y el uso previsto se confirman en cada proyecto.",
       },
     ],
   },
@@ -5807,7 +5807,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Estructura de gancho y retención en los primeros 3 segundos",
         paragraphs: [
-          "Un anuncio de video efectivo para TikTok y Meta depende de los primeros segundos para detener el scroll. La edición organiza el material suministrado por el cliente para abrir con el gancho visual o auditivo más convincente: una demostración de producto, un problema reconocible, una pregunta directa o una toma de acción inmediata.",
+          "Un anuncio de video efectivo para TikTok y Meta depende de los primeros segundos para detener el scroll. La edición organiza el material que envía el cliente para abrir con el gancho visual o auditivo más convincente: una demostración de producto, un problema reconocible, una pregunta directa o una toma de acción inmediata.",
           "El ritmo editorial mantiene la atención eliminando pausas innecesarias, empleando cortes limpios y acelerando transiciones entre demostraciones de características y beneficios. Para entender la arquitectura técnica de estos formatos, consulta la [guía de Reels vs TikTok vs Shorts para negocios locales](/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales).",
         ],
       },
@@ -5826,9 +5826,9 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
-        heading: "Entrega de material y organización del flujo de postproducción",
+        heading: "Entrega de material y organización de la postproducción",
         paragraphs: [
-          "El proceso de trabajo se basa en material suministrado por el cliente: grabaciones de teléfono, tomas de producto con cámara, testimonios en video o metraje UGC. Organizar las tomas por concepto, producto y ángulo facilita una postproducción ágil y estructurada.",
+          "El trabajo parte del material que ya tienes: grabaciones de teléfono, tomas de producto con cámara, testimonios en video o metraje UGC. Organizar las tomas por concepto, producto y ángulo facilita una postproducción ágil y estructurada.",
           "Junto con el material grabado, compartir guiones, logotipos vectoriales, lineamientos de marca y la oferta exacta agiliza la integración de gráficos y llamados a la acción. Consulta la [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video) para preparar tus archivos.",
         ],
       },
@@ -5837,7 +5837,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Qué tipo de material debo entregar para la edición de anuncios de TikTok?",
         answer:
-          "Trabajamos con material suministrado por el cliente: grabaciones en smartphone o cámara, tomas de uso de producto, testimonios estilo UGC, demostraciones y recursos de marca (logos, fuentes, directrices de oferta).",
+          "Trabajamos con el material que ya tienes: grabaciones de teléfono o cámara, tomas de uso de producto, testimonios estilo UGC, demostraciones y recursos de marca (logos, fuentes, directrices de oferta).",
       },
       {
         question: "¿Entregan variaciones de ganchos (hooks) para pruebas publicitarias?",
@@ -6166,7 +6166,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cuándo conviene editar remoto y cuándo grabar en locación?",
         paragraphs: [
           "Si ya tienes clips del equipo, producto, servicio o local, la edición remota puede ser suficiente. El trabajo se enfoca en elegir las mejores tomas, ordenar la historia, limpiar el audio cuando aplique, agregar subtítulos y exportar en el formato correcto.",
-          "La captura en locación se evalúa proyecto por proyecto. Tiene sentido cuando no existe material útil, cuando el negocio necesita mostrar un espacio físico o cuando la oferta depende de personas, movimiento, producto o ambiente que no se puede explicar solo con texto.",
+          "La grabación en locación se confirma proyecto por proyecto. Tiene sentido cuando no existe material útil, cuando el negocio necesita mostrar un espacio físico o cuando la oferta depende de personas, movimiento, producto o ambiente que no se puede explicar solo con texto.",
         ],
       },
       {
@@ -6204,7 +6204,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿La producción local está disponible para cualquier idea?",
         answer:
-          "No se publica una disponibilidad universal. La producción en locación se evalúa de forma selectiva según el objetivo, el lugar, las personas involucradas y las necesidades de captura.",
+          "No se publica una disponibilidad universal. La producción en locación se confirma caso por caso según el objetivo, el lugar, las personas involucradas y lo que haya que grabar.",
       },
       {
         question: "¿Se puede atender el proyecto en español?",
@@ -6372,7 +6372,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta editar Reels en Miami?",
         paragraphs: [
-          `La edición de video corto y Reels en Miami parte de ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o ${esWeekly} si publicas cada semana. Ese precio cubre la postproducción de clips a partir de material suministrado.`,
+          `La edición de video corto y Reels en Miami parte de ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o ${esWeekly} si publicas cada semana. Ese precio cubre la edición de clips a partir del material que ya tienes.`,
           "Dado que cada proyecto varía según la cantidad de material en bruto, el ritmo de cortes, los subtítulos dinámicos y los formatos de entrega, el presupuesto final requiere una cotización a la medida. Puedes consultar las tarifas y detalles de nuestros planes en la página de [precios](/es/precios), incluyendo el paquete de edición [Arranque](/es/precios/arranque) y el plan mensual [Crecimiento](/es/precios/crecimiento).",
         ],
       },
@@ -6397,7 +6397,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿La grabación en Miami está incluida?",
         answer:
-          "No se asume automáticamente. La producción en locación se evalúa proyecto por proyecto tras analizar el objetivo comercial, la locación y la disponibilidad.",
+          "No se asume automáticamente. La producción en locación se confirma proyecto por proyecto, según el objetivo, la locación y la disponibilidad.",
       },
     ],
   },
@@ -8032,7 +8032,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Se pueden añadir infografías 3D y planos de planta en el montaje final?",
         answer:
-          "Sí. Combinamos las secuencias reales de la sala de ventas con infografías digitales y planos suministrados por el promotor.",
+          "Sí. Combinamos las secuencias reales de la sala de ventas con infografías digitales y los planos que entrega el promotor.",
       },
     ],
   },
@@ -8511,7 +8511,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     availability: "confirmed",
     icon: Film,
     bestFor: [
-      "Creadores de contenido y marcas con canales de YouTube que precisan un flujo de edición semanal confiable.",
+      "Creadores de contenido y marcas con canales de YouTube que necesitan una edición semanal confiable.",
       "Empresas que publican tutoriales detallados, análisis de mercado y documentales de marca de más de diez minutos.",
     ],
     scopingQuestions: [
