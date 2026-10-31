@@ -23,9 +23,9 @@ describe("real estate monthly plans", () => {
     expect(
       REAL_ESTATE_PLANS.map((p) => [p.id, p.price, p.properties, p.productionDays, p.drone, p.postsPerWeek]),
     ).toEqual([
-      ["essential", 600, 1, 2, "add-on", "2"],
-      ["plus", 950, 2, 3, "add-on", "3–4"],
-      ["premium", 1500, 3, 3, "included", "5"],
+      ["essential", 750, 1, 2, "add-on", "2"],
+      ["plus", 1250, 2, 3, "add-on", "3–4"],
+      ["premium", 1950, 3, 3, "included", "5"],
     ]);
     expect(REAL_ESTATE_PLAN_TERMS.minimumMonths).toBe(3);
     expect(REAL_ESTATE_PLAN_TERMS.cancelNoticeDays).toBe(30);

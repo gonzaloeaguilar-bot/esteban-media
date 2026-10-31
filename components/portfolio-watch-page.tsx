@@ -120,7 +120,7 @@ const labels = {
     discussLead:
       "Comparte la meta, fecha, ubicación y el material que ya existe para que Esteban pueda hacer las preguntas necesarias sobre el alcance.",
     personalPartner:
-      "Un proyecto así empieza conversando directamente con Esteban: qué necesita comunicar, dónde se verá y qué oficio le sirve mejor.",
+      "Un proyecto así empieza conversando directamente con Esteban: qué necesita comunicar, dónde se verá y qué servicio le sirve mejor.",
     contact: "Consultar un proyecto",
     iframe: (title: string) => `Reproductor de video: ${title}`,
   },

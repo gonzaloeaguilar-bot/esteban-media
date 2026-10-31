@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, CheckCircle2, DollarSign, Send, Sparkles, Clock, ShieldCheck } from "lucide-react";
+import { Calculator, CheckCircle2, DollarSign, MessageCircle, Send, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 import {
@@ -10,9 +10,11 @@ import {
   PRICING_BANDS,
   SHORT_FORM,
   VOLUME_MULTIPLIERS,
+  turnaroundFor,
   usd,
   type PricingBandId,
 } from "@/lib/pricing";
+import { whatsappHref } from "@/lib/packages";
 
 type Locale = "en" | "es";
 
@@ -86,7 +88,12 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   };
 
   const calculateEstimate = () => {
-    const standardTurnaround = isEs ? "3 - 5 Días Hábiles" : "3 - 5 Business Days";
+    // One published turnaround rule: standard editing starts at the owner's
+    // floor in lib/pricing.ts (TURNAROUND). The old "3 - 5 business days"
+    // contradicted the pricing and about pages, which publish that floor.
+    const standardTurnaround = isEs
+      ? `Desde ${turnaroundFor("arranque").minimumDays} días`
+      : `From ${turnaroundFor("arranque").minimumDays} days`;
     const expressTurnaround = isEs ? "24 - 48 Horas" : "24 - 48 Hours";
 
     if (isShortForm && weeklyOption) {
@@ -324,7 +331,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
             </label>
             <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
               {[
-                { id: "standard", label: isEs ? "Estándar (3 - 5 días)" : "Standard (3 - 5 days)" },
+                { id: "standard", label: isEs ? `Estándar (desde ${turnaroundFor("arranque").minimumDays} días)` : `Standard (from ${turnaroundFor("arranque").minimumDays} days)` },
                 { id: "express", label: isEs ? "Expreso (24 - 48 horas)" : "Express (24 - 48 hours)" },
               ].map((item) => (
                 <button
@@ -372,6 +379,20 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                   {isEs ? "Incluye corrección de color, mezcla de audio y revisiones." : "Includes color grading, audio mixing & review rounds."}
                 </span>
               </div>
+              <a
+                href={whatsappHref(
+                  site.phone.e164,
+                  isEs
+                    ? `Hola Esteban, usé la calculadora y mi estimación es ${estimate.priceRange} ${estimate.period}, entrega ${estimate.turnaround}. Quiero confirmar el alcance.`
+                    : `Hi Esteban, I used the calculator and my estimate is ${estimate.priceRange} ${estimate.period}, turnaround ${estimate.turnaround}. I want to confirm the scope.`,
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#1faa55] px-4 font-semibold text-white hover:bg-[#178a44]"
+              >
+                <MessageCircle className="size-4" aria-hidden="true" />
+                {isEs ? "Enviar esta estimación por WhatsApp" : "Send this estimate on WhatsApp"}
+              </a>
             </div>
           </div>
 
