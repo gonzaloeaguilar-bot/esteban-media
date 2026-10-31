@@ -7,6 +7,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeProjectPath } from "@/components/home-project-path";
+import { PersonalCraftExperience } from "@/components/personal-craft-experience";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -52,6 +53,7 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
+      <PersonalCraftExperience locale="es" />
       <HomeProjectPath locale="es" />
       {/* La prueba y el contacto van JUNTOS justo en la decisión, no una
           mención breve antes del selector y una repetición completa tres
@@ -59,6 +61,7 @@ export default function SpanishHomePage() {
           mitad del encargo — las reseñas son lo que convence, van donde se
           decide, una sola vez. */}
       <ClientReviews locale="es" compact />
+      <CameraKitMethod locale="es" />
       {/* Un solo momento de contacto, no dos casi idénticos (dueño,
           2026-10-13, viendo la página en vivo: "these 2 sections are
           basically the same"). ContactCta ahora lleva la forma calmada de
@@ -66,7 +69,6 @@ export default function SpanishHomePage() {
           directos) como el pedido visible, con el formulario más largo
           como profundidad voluntaria dentro de un <details> nativo. */}
       <ContactCta locale="es" />
-      <CameraKitMethod locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"

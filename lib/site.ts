@@ -33,6 +33,10 @@ export const site = {
   // canonical NAP values below; only the customer-facing email is centralized.
   email: "info@estebanmorenomedia.com",
   booking: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3mpFYiKvhJEh9RI6e-hFk2OYc3aYbrYrt2ycrLmFRRsvccRVXXnVKvIjIYWSCIr1z5djyik60q",
+  // Live Stripe Payment Link for customer payments (customer-set amount,
+  // $25 minimum), created 2026-10-29. The /pay route redirects here so
+  // printed QR codes never have to change when the Stripe link does.
+  pay: "https://buy.stripe.com/6oU7sLe5lfcT8InflRgUM00",
   phone: {
     display: "(305) 497-4478",
     e164: "+13054974478",
@@ -128,7 +132,7 @@ export const services: Service[] = [
       "Scoping questions cover the audience, publishing goal, channels, and content needs.",
     icon: CalendarRange,
     tags: ["Strategy", "Cadence", "Content plan"],
-    startingPrice: "Monthly packages start at $640/mo",
+    startingPrice: `Monthly packages start at ${usd(PACKAGE_PRICES.crecimiento.kind === "from" ? PACKAGE_PRICES.crecimiento.amount : 0)}/mo`,
   },
   {
     id: "on-location",
@@ -140,7 +144,7 @@ export const services: Service[] = [
       "Availability and scope are considered project by project after learning the location, goal, and capture needs.",
     icon: Video,
     tags: ["South Florida", "On location", "Project-specific"],
-    startingPrice: "Production days start at $800",
+    startingPrice: `Local Presence from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}/mo`,
   },
   {
     id: "website-design",

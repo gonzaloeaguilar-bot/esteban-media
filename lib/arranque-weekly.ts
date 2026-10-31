@@ -78,6 +78,7 @@ const INCLUDES: Record<Locale, { shared: string[]; byOption: Record<ArranqueWeek
     byOption: {
       "one-per-week": ["Guía de ideas para cada historia"],
       "two-per-week": ["Calendario de contenido", "Llamada de estrategia"],
+      "three-per-week": ["Calendario de contenido", "Llamada de estrategia"],
     },
   },
   en: {
@@ -88,6 +89,7 @@ const INCLUDES: Record<Locale, { shared: string[]; byOption: Record<ArranqueWeek
     byOption: {
       "one-per-week": ["Story and ideas guide"],
       "two-per-week": ["Content calendar", "Strategy call"],
+      "three-per-week": ["Content calendar", "Strategy call"],
     },
   },
 };
@@ -124,15 +126,15 @@ export function arranqueWeeklyWhatsapp(phoneE164: string, option: ArranqueWeekly
 
 export function arranqueWeeklyCopy(locale: Locale) {
   const es = locale === "es";
-  const [one, two] = ARRANQUE_WEEKLY_OPTIONS;
+  const [one, two, three] = ARRANQUE_WEEKLY_OPTIONS;
   const single = PACKAGE_PRICES.arranque;
   const onceUsd = usd(single.kind === "from" ? single.amount : 0);
   return {
     eyebrow: es ? "Paquete Arranque" : "Starter package",
     heading: es ? "¿Cómo se paga el Arranque?" : "How do you pay for Starter?",
     answer: es
-      ? `Según cada cuánto necesitas videos. Una sola vez: ${onceUsd} por video. Cada semana: ${usd(one.pricePerWeek)} por ${one.videosPerWeek} video o ${usd(two.pricePerWeek)} por ${two.videosPerWeek} videos. Tú grabas, Esteban edita.`
-      : `It depends on how often you need videos. Just once: ${onceUsd} per video. Every week: ${usd(one.pricePerWeek)} for ${one.videosPerWeek} video or ${usd(two.pricePerWeek)} for ${two.videosPerWeek} videos. You film, Esteban edits.`,
+      ? `Según cada cuánto necesitas videos. Una sola vez: ${onceUsd} por video. Cada semana: ${usd(one.pricePerWeek)} por ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} por ${two.videosPerWeek} videos o ${usd(three.pricePerWeek)} por ${three.videosPerWeek} videos. Tú grabas, Esteban edita.`
+      : `It depends on how often you need videos. Just once: ${onceUsd} per video. Every week: ${usd(one.pricePerWeek)} for ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} for ${two.videosPerWeek} videos or ${usd(three.pricePerWeek)} for ${three.videosPerWeek} videos. You film, Esteban edits.`,
     perWeek: es ? "/ semana" : "/ week",
     paidWeekly: es ? "Pago semanal, al inicio de cada semana" : "Paid weekly, at the start of each week",
     includesLabel: es ? "Incluye" : "Includes",

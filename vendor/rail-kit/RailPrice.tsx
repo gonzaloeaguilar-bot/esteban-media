@@ -57,6 +57,12 @@ export default function RailPrice({
 }: RailPriceProps) {
   const [whole, cents] = split(now);
 
+  // A word unit needs its space in TEXT, not just in layout. The visible gap
+  // comes from the unit span's margin, which text extraction and the
+  // screen-reader string below never see: without the space both read
+  // "$750per month" / "$750al mes". A slash unit ("/mo") takes no space.
+  const spacedUnit = unit ? (unit.startsWith("/") ? unit : ` ${unit}`) : "";
+
   // Derived, never passed: a discount prop can drift from the prices it claims
   // to describe, and then the card lies in a way nobody notices.
   const toNumber = (s: string) => Number(s.replace(/[^\d.]/g, ""));
@@ -86,11 +92,15 @@ export default function RailPrice({
             the one the rest of this kit already uses: hide the typographic
             pieces and put the whole price in visually-hidden text. */}
         <span className="rail-sr-only">
-          {`${currency ?? ""}${now}${unit ?? ""}`}
+          {`${currency ?? ""}${now}${spacedUnit}`}
         </span>
         <span className="rail-price__currency" aria-hidden="true">{currency}</span>
         <span className="rail-price__whole" aria-hidden="true">{whole}</span>
         {cents && <span className="rail-price__cents" aria-hidden="true">.{cents}</span>}
+        {/* Whitespace-only text nodes are dropped by the flex layout of
+            .rail-price__now (the margin does the visible spacing), but they
+            survive in textContent, so extraction reads the space too. */}
+        {unit && !unit.startsWith("/") ? " " : null}
         {unit && <span className="rail-price__unit" aria-hidden="true">{unit}</span>}
       </span>
       {was && (

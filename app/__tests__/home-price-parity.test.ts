@@ -63,15 +63,15 @@ for (const locale of ["en", "es"] as const) {
       for (const price of offers) expect(visible, `Offer $${price} is not visible`).toContain(price);
     });
 
-    it("the headline prices ($450/mo, $280/session, $100, $640, $800) are all in an Offer", () => {
-      for (const price of [450, 280, 100, 640, 800]) expect(offers, `$${price} has no Offer`).toContain(price);
+    it("the headline prices ($750/mo, $500/session, $100, $950, $1,600) are all in an Offer", () => {
+      for (const price of [750, 500, 100, 950, 1600]) expect(offers, `$${price} has no Offer`).toContain(price);
       for (const price of owned) expect(offers).toContain(price);
     });
 
     it("the two monthly prices are named as two products in the FAQ", () => {
       const answer = packageFaq(locale).find((q) => q.id === "plan-mensual")!.answer;
-      expect(answer).toContain("$640");
-      expect(answer).toContain("$450");
+      expect(answer).toContain("$950");
+      expect(answer).toContain("$750");
     });
 
     it("the answer line under the h1 carries the same Starter price", () => {

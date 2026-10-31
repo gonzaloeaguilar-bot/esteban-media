@@ -1,0 +1,17 @@
+{
+ "recorded_at": "2026-10-28",
+ "before": {
+  "app/(english)/services/reels-editor-fort-lauderdale/page.tsx": {
+   "title": "Reels Editor Fort Lauderdale | Clear Social Videos",
+   "description": "Turn supplied clips into clear Instagram Reels, TikTok videos, or Shorts with captions and one focused action. Fort Lauderdale and remote editing."
+  },
+  "lib/spanish-site.ts": {
+   "metadataTitle": "Editor de Reels Fort Lauderdale",
+   "description": "Edición de Reels, TikTok y videos cortos para negocios de Fort Lauderdale que ya tienen material o necesitan ordenar una idea."
+  },
+  "lib/guides.ts": {
+   "en.metadataTitle": "Best Instagram Reel Caption Styles",
+   "es.metadataTitle": "Subtítulos para Reels: Guía"
+  }
+ }
+}

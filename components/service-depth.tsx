@@ -245,10 +245,17 @@ export function ServiceAnswerFirst({
   service,
   locale = "en",
   sectionId = "answer-first",
+  answerOverride,
 }: {
   service: string;
   locale?: "en" | "es";
   sectionId?: string;
+  /**
+   * A page-specific answer in the page's own words. The generic answer is
+   * the same paragraph on every service page; pages whose work differs in
+   * kind from the standard offer pass their own answer instead.
+   */
+  answerOverride?: string;
 }) {
   const copy = answerFirstCopy[locale];
   return (
@@ -262,7 +269,7 @@ export function ServiceAnswerFirst({
         <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
           {copy.question(locale === "es" ? esServicePhrase(inSentence(service)) : enServicePhrase(inSentence(service)))}
         </h2>
-        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer(service)}</p>
+        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{answerOverride ?? copy.answer(service)}</p>
       </Container>
     </section>
   );
@@ -436,6 +443,7 @@ export function ServiceInquiryRail({
   sectionId = "service-inquiry",
   trackInterest = false,
   locale = "en",
+  relationship = "service",
   // Accented Spanish everywhere since loop round 3: 25 routes still printed
   // "Envia el proyecto en un mensaje util." without its accents.
   accentedSpanish = true,
@@ -444,10 +452,24 @@ export function ServiceInquiryRail({
   sectionId?: string;
   locale?: ServiceInquiryLocale;
   trackInterest?: boolean;
+  /** Keeps the direct-working relationship specific to the kind of work. */
+  relationship?: "service" | "event" | "digital";
   /** Spanish copy with accents; see inquiryCopy.esAccented. */
   accentedSpanish?: boolean;
 }) {
   const t = locale === "es" && accentedSpanish ? inquiryCopy.esAccented : inquiryCopy[locale];
+  const relationshipCopy = {
+    en: {
+      service: "You work directly with Esteban to define the useful starting point: the goal, the material you have, and where the finished work needs to live.",
+      event: "You work directly with Esteban to decide which moments matter, what coverage fits the occasion, and where the finished story will be shared.",
+      digital: "You work directly with Esteban to clarify the customer question first, then decide whether video, a website, social content, or a combination is the useful next move.",
+    },
+    es: {
+      service: "Trabajas directamente con Esteban para definir el mejor punto de partida: la meta, el material que ya tienes y dónde necesita vivir el trabajo final.",
+      event: "Trabajas directamente con Esteban para decidir qué momentos importan, qué cobertura le sirve a la ocasión y dónde se compartirá la historia final.",
+      digital: "Trabajas directamente con Esteban para aclarar primero la pregunta del cliente y después decidir si lo que ayuda es video, sitio web, contenido para redes o una combinación.",
+    },
+  }[locale][relationship];
   const message = t.message(service);
   const mailSubject = t.mailSubject(service);
   const mailBody = `${message}\n\n${t.mailBodySuffix}`;
@@ -470,6 +492,9 @@ export function ServiceInquiryRail({
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#eadfd3]">
               {t.lead}
+            </p>
+            <p className="mt-4 max-w-2xl border-l-2 border-[#f0b384] pl-4 text-sm leading-6 text-[#eadfd3]" data-personal-partner={relationship}>
+              {relationshipCopy}
             </p>
           </div>
 

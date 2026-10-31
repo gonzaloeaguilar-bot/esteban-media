@@ -1,4 +1,5 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -23,6 +24,8 @@ const content: GeoServicePageContent = {
   serviceType: "Short form video editing",
   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
+  answerFirst:
+    `Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
@@ -158,9 +161,12 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Reels Editor Fort Lauderdale | Clear Social Videos",
+  // 2026-10-28: GSC Aug-Oct shows "reel editor fort lauderdale" (11 impr, pos 9.1)
+  // and "editor de reels fort lauderdale" (15 impr, pos 11.5) with 0 clicks on
+  // this page; the title did not say "reel editor" and the snippet answered nothing.
+  title: "Reel Editor in Fort Lauderdale",
   description:
-    "Turn supplied clips into clear Instagram Reels, TikTok videos, or Shorts with captions and one focused action. Fort Lauderdale and remote editing.",
+    `Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
   path: content.path,
   locale: "en",
 });

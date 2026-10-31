@@ -7,14 +7,14 @@ import { Container } from "@/components/ui/container";
 import { withPageDate } from "@/lib/page-lastmod";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
-import { PRODUCT_PHOTO_SESSION } from "@/lib/pricing";
+import { PRODUCT_PHOTO_SESSION, usd } from "@/lib/pricing";
 
 const path = "/es/fotografia-de-producto-miami";
 
 export const metadata = buildPageMetadata({
   title: "Fotografía de producto en Miami | Fotos reales",
   description:
-    "Fotografía de producto real para vendedores de Amazon, marcas Shopify y negocios locales en Miami y Broward. Sesiones desde $280 según el alcance.",
+    `Fotografía de producto real para vendedores de Amazon, marcas Shopify y negocios locales en Miami y Broward. Sesiones desde ${usd(PRODUCT_PHOTO_SESSION.from)} según el alcance.`,
   path,
   locale: "es",
 });
