@@ -97,7 +97,7 @@ export default function BilingualVideoSubtitlingServicePage() {
                 Bilingual Video Subtitling Service.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Human translation precision, accurate speech synchronization, and high-contrast caption styling inside platform safe-zones for English and Spanish video.
+                Esteban Moreno Media subtitles short-form and business video in English and Spanish from Fort Lauderdale. Esteban translates and times every caption himself, and delivers SRT files or burned-in captions inside platform safe zones, with short videos back in 24 to 48 hours.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -128,7 +128,10 @@ export default function BilingualVideoSubtitlingServicePage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="bilingual video subtitling" />
+      <ServiceAnswerFirst
+        service="bilingual video subtitling"
+        answerOverride="Esteban Moreno Media is a one-person service run by Esteban Moreno in Fort Lauderdale. For bilingual subtitling, you send the video and Esteban translates between English and Spanish himself, checking every line against the audio rather than machine-generating it. Delivery is burned-in captions, an SRT file, or both, with lines kept inside each platform's safe zones. Short videos up to 60 seconds are delivered in 24 to 48 hours; longer recordings are quoted per minute of audio. Spanish is his first language and his English is intermediate, and the service is presented that way: the Spanish reads naturally and the English is reviewed with care before delivery. Every project gets a written quote before work starts."
+      />
 
       <ServiceDeepDive
         id={BILINGUAL_SUBTITLING_DEEP_DIVE.id}

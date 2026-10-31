@@ -22,31 +22,31 @@ const faqs = [
   {
     question: "¿Qué información conviene incluir al enviar el brief inicial?",
     answer:
-      "Indica qué necesitas publicar, la fecha estimada de entrega, las plataformas de destino (como Instagram Reels, TikTok, YouTube o sitio web) y si aportarás material propio grabado o requieres evaluar una jornada de rodaje en South Florida.",
+      "Cuéntame qué quieres publicar, para cuándo lo necesitas, dónde se va a ver (Instagram Reels, TikTok, YouTube o tu sitio web) y si ya tienes material grabado o hace falta grabar en South Florida.",
   },
   {
     question:
       "¿Cómo funciona el flujo de edición remota con material suministrado por el cliente?",
     answer:
-      "Transfieres tus archivos de video crudo y elementos de marca a una carpeta compartida en la nube (Google Drive, Dropbox, MASV o Frame.io). Esteban organiza el material, realiza el corte, corrección de color, balance de audio y subtítulos, y entrega una versión de revisión para comentarios.",
+      "Me envías tu material y tus elementos de marca por una carpeta compartida (Google Drive, Dropbox, MASV o Frame.io). Yo organizo todo, hago el corte, corrijo el color, balanceo el audio, agrego los subtítulos y te mando una versión de revisión para tus comentarios.",
   },
   {
     question:
       "¿En qué idioma se coordinan las consultas y revisiones del proyecto?",
     answer:
-      "La atención y comunicación del proyecto es principalmente en español, con nivel intermedio de inglés disponible para la definición de alcance y rondas de comentarios.",
+      "Todo se coordina en español. Si prefieres, también puedo trabajar en inglés intermedio para definir el alcance y revisar los cambios.",
   },
   {
     question:
       "¿Se ofrece grabación en locación dentro de Miami-Dade, Broward y Palm Beach?",
     answer:
-      "La captura en locación en Miami-Dade, Broward o Palm Beach County se evalúa de manera selectiva según la naturaleza del proyecto, las necesidades de rodaje y el cronograma de trabajo.",
+      "Sí, en proyectos seleccionados. Grabo en Broward y Miami-Dade cuando el alcance encaja, y Palm Beach lo reviso caso por caso. Escríbeme por WhatsApp con la ciudad, la fecha y qué necesitas grabar, y te confirmo antes de enviarte una cotización por escrito.",
   },
   {
     question:
       "¿Cómo se calculan las cotizaciones y presupuestos de cada proyecto?",
     answer:
-      "Cada proyecto recibe una cotización detallada según el volumen de material, los formatos requeridos, el ritmo de entrega y la complejidad técnica. También puedes estimar rangos iniciales en nuestra calculadora de presupuesto.",
+      "Cada proyecto tiene su propia cotización por escrito, según cuánto material tienes, los formatos que necesitas y qué tan rápido lo necesitas. Si quieres un rango inicial antes de escribir, prueba la calculadora de presupuesto.",
   },
 ] as const;
 
@@ -111,6 +111,10 @@ export default function SpanishContactPage() {
             <Link href="/es/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">Ver áreas de servicio y qué se debe confirmar</Link>
           </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
+            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE]} /></div>
+          </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>Indica el tipo de proyecto, la ciudad si necesitas grabación, la fecha deseada y dónde se publicará el video. Si ya tienes material, cuenta qué tienes.</p>
@@ -134,10 +138,6 @@ export default function SpanishContactPage() {
                 </section>
               ))}
             </div>
-          </details>
-          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
-            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE]} /></div>
           </details>
         </Container>
       </section>
