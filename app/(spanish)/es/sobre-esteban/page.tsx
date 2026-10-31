@@ -55,31 +55,12 @@ export default function SpanishAboutPage() {
                 Esteban Moreno: atención directa en español, con mirada creativa y de negocio.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban Moreno López trabaja públicamente como Esteban Moreno y
-                es el fundador de Esteban Moreno Media en Fort Lauderdale.
-                El servicio publicado se enfoca en edición de video, contenido
-                asistido por IA, planificación para redes y producción definida
-                según cada proyecto remoto o cobertura en{" "}
-                <Link
-                  href="/es/areas"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  tres condados como área de servicio
-                </Link>{" "}
-                en South Florida.
-              </p>
-              <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-                Su{" "}
-                <Link
-                  href="/es/portafolio"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  portafolio público
-                </Link>{" "}
-                conecta cada proyecto seleccionado con los
-                créditos disponibles y la fuente original del video. El español
-                es su idioma principal y también puede mantener comunicación de
-                trabajo en inglés intermedio.
+                Esteban Moreno López es editor de video en Fort Lauderdale y
+                fundador de Esteban Moreno Media. Edita Reels, TikToks, Shorts
+                y videos más largos para negocios y creadores del sur de
+                Florida, planifica el contenido y graba en locación cuando el
+                proyecto lo necesita. Casi todo el trabajo es remoto y
+                directo: hablas con la persona que edita tu video.
               </p>
               <div className="mt-8 grid gap-3">
                 {spanishProofPrinciples.map((principle) => (
@@ -180,6 +161,26 @@ export default function SpanishAboutPage() {
         </Container>
       </section>
       <AboutWhoIs locale="es" path="/es/sobre-esteban" />
+      {/* Los enlaces de directorio que antes abrían esta página, conservados
+          para el grafo de enlaces internos, en la zona de cierre. */}
+      <section className="border-t border-[#ddd4c8] py-10">
+        <Container size="xl">
+          <h2 className="font-serif text-2xl">Áreas de servicio y portafolio</h2>
+          <div className="mt-4 max-w-3xl space-y-4 text-sm leading-6 text-[#3f4548]">
+            <p>
+              La cobertura local cubre{" "}
+              <Link href="/es/areas" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                tres condados como área de servicio
+              </Link>{" "}
+              en South Florida. Su{" "}
+              <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                portafolio público
+              </Link>{" "}
+              conecta cada proyecto seleccionado con los créditos disponibles y la fuente original del video.
+            </p>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }

@@ -359,19 +359,20 @@ export default function ServicesPage() {
             <p className="mt-2 text-sm leading-6 text-[#252a2d]">Explore websites, inquiry follow-up, local presence, measurement, and automation.</p>
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
-              0→1 Growth Systems
+              Websites, chatbots and systems
             </p>
             <h2
               id="growth-systems-heading"
               className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
             >
-              What does Esteban Media build?
+              What else can Esteban build for a business?
             </h2>
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
-              Start with the business outcome: more qualified inquiries, a clearer
-              local presence, less manual follow-up, or a better way to see what is
-              working. Esteban Media combines websites, measured lead capture,
-              automation, and creative production around a confirmed scope.
+              Start with what you need the work to do: more inquiries you can
+              actually answer, a clearer local presence, less manual follow-up,
+              or a simple way to see what is working. I build the website, the
+              lead capture, the follow-up automation and the video content
+              around them, each piece scoped in writing before it starts.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]" data-section="web-line-proof">
               Websites, landing pages and AI chatbots are a published part of the work:{" "}
@@ -384,10 +385,10 @@ export default function ServicesPage() {
               <Link href="/services/landing-page-design" data-cta="services_web_landing" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">landing page design</Link>.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
-              {growthPillars.length} scoped building blocks, one accountable system
-              from first search to follow-up. Not a promise that every business
-              needs every tool: timing depends on confirmed scope, assets, access,
-              consent requirements, and client review cycles.
+              {growthPillars.length} building blocks, each scoped on its own.
+              Most businesses need one or two of them, not all of them, and the
+              timing depends on the scope we confirm in writing, the material
+              you already have, and your review rounds.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
               If you are still deciding what to ask for, start with the{" "}
