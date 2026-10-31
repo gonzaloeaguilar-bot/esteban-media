@@ -4,14 +4,15 @@
 // lib/pricing.ts so a price change moves the calculator, the table and the
 // answer sentence together:
 //   - single videos: Starter, from $100 per video (PACKAGE_PRICES.arranque);
-//   - the weekly Starter: $85 a week for 1 video, $160 a week for 2
-//     (ARRANQUE_WEEKLY_OPTIONS), paid weekly with a 4-week minimum.
+//   - the weekly Starter: $85 a week for 1 video, $160 a week for 2 and
+//     $240 a week for 3 (ARRANQUE_WEEKLY_OPTIONS, owner-approved 2026-10-29),
+//     paid weekly with a 4-week minimum.
 //
-// Claim discipline: no weekly price exists above two videos a week, so the
+// Claim discipline: no weekly price exists above three videos a week, so the
 // calculator never derives one (lib/pricing.ts SHORT_FORM says the same for
-// the 15/30-a-month options). Above two it shows the per-video figure and says
-// the rest is quoted. The "4 weeks" period is the plan's own minimum, not an
-// invented month.
+// the 15/30-a-month options). Above three it shows the per-video figure and
+// says the rest is quoted. The "4 weeks" period is the plan's own minimum,
+// not an invented month.
 
 import {
   ARRANQUE_WEEKLY_OPTIONS,
@@ -68,7 +69,8 @@ export function costFor(videosPerWeek: number): CostRow {
 
 export const COST_ROWS: readonly CostRow[] = VIDEOS_PER_WEEK_OPTIONS.map(costFor);
 
-const [ONE, TWO] = ARRANQUE_WEEKLY_OPTIONS;
+const [ONE, TWO, THREE] = ARRANQUE_WEEKLY_OPTIONS;
+const MAX_WEEKLY = ARRANQUE_WEEKLY_OPTIONS[ARRANQUE_WEEKLY_OPTIONS.length - 1];
 const one = costFor(ONE.videosPerWeek);
 const two = costFor(TWO.videosPerWeek);
 /** The 1-a-week plan's minimum spend, in single videos it would buy. */
@@ -86,12 +88,12 @@ export function resultSentence(row: CostRow, locale: CalcLocale): string {
     if (row.planPerPeriod !== null && row.savingPerPeriod !== null) {
       return `Con ${n} por semana, pagar por video cuesta ${usd(row.singlePerWeek)} por semana (${usd(row.singlePerPeriod)} en ${PERIOD_WEEKS} semanas). El plan semanal cuesta ${usd(row.planPerWeek!)} por semana (${usd(row.planPerPeriod)} en el mínimo de ${PERIOD_WEEKS} semanas): ${usd(row.savingPerPeriod)} menos.`;
     }
-    return `Con ${n} por semana, pagar por video cuesta ${usd(row.singlePerWeek)} por semana (${usd(row.singlePerPeriod)} en ${PERIOD_WEEKS} semanas). No hay precio semanal publicado para más de ${TWO.videosPerWeek} videos por semana: ese volumen se cotiza.`;
+    return `Con ${n} por semana, pagar por video cuesta ${usd(row.singlePerWeek)} por semana (${usd(row.singlePerPeriod)} en ${PERIOD_WEEKS} semanas). No hay precio semanal publicado para más de ${MAX_WEEKLY.videosPerWeek} videos por semana: ese volumen se cotiza.`;
   }
   if (row.planPerPeriod !== null && row.savingPerPeriod !== null) {
     return `At ${n} a week, paying per video costs ${usd(row.singlePerWeek)} a week (${usd(row.singlePerPeriod)} over ${PERIOD_WEEKS} weeks). The weekly plan costs ${usd(row.planPerWeek!)} a week (${usd(row.planPerPeriod)} over its ${PERIOD_WEEKS}-week minimum): ${usd(row.savingPerPeriod)} less.`;
   }
-  return `At ${n} a week, paying per video costs ${usd(row.singlePerWeek)} a week (${usd(row.singlePerPeriod)} over ${PERIOD_WEEKS} weeks). There is no published weekly price above ${TWO.videosPerWeek} videos a week, so that volume is quoted.`;
+  return `At ${n} a week, paying per video costs ${usd(row.singlePerWeek)} a week (${usd(row.singlePerPeriod)} over ${PERIOD_WEEKS} weeks). There is no published weekly price above ${MAX_WEEKLY.videosPerWeek} videos a week, so that volume is quoted.`;
 }
 
 export type CalcSection = { heading: string; paragraphs: string[] };
@@ -129,12 +131,12 @@ export type CalcCopy = {
 const T = ARRANQUE_WEEKLY_TERMS;
 
 /** Visible "updated" date; change it when a figure on the page changes. */
-export const REELS_COST_CALCULATOR_UPDATED = "2026-10-14";
+export const REELS_COST_CALCULATOR_UPDATED = "2026-10-30";
 
 export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
   en: {
     metadataTitle: "Reels Editing Cost Calculator: Per Video or Weekly",
-    metadataDescription: `What editing your Reels costs every 4 weeks: per video at ${usd(PER_VIDEO)} or the weekly plan at ${usd(ONE.pricePerWeek)} for 1 video and ${usd(TWO.pricePerWeek)} for 2. Free calculator with the method shown.`,
+    metadataDescription: `What editing your Reels costs every 4 weeks: per video at ${usd(PER_VIDEO)} or the weekly plan at ${usd(ONE.pricePerWeek)} for 1 video, ${usd(TWO.pricePerWeek)} for 2 and ${usd(THREE.pricePerWeek)} for 3. Free calculator with the method shown.`,
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Reels editing cost calculator",
     eyebrow: "Free calculator",
@@ -162,8 +164,8 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
       {
         heading: "How does the calculator work out the price?",
         paragraphs: [
-          `It multiplies, nothing more. The per-video column is videos per week times ${usd(PER_VIDEO)}, times ${PERIOD_WEEKS} weeks. The weekly-plan column is the published weekly price times ${PERIOD_WEEKS} weeks: ${usd(ONE.pricePerWeek)} for ${videos(ONE.videosPerWeek, "en")} a week and ${usd(TWO.pricePerWeek)} for ${videos(TWO.videosPerWeek, "en")}. The difference column is the first minus the second.`,
-          `${PERIOD_WEEKS} weeks is used because it is the weekly plan's minimum: you pay at the start of each week, and after ${PERIOD_WEEKS} weeks you can stop by saying so before the next one. Every figure comes from the same price list as the [Starter package](/pricing/starter), so the calculator, the pricing page and the written quote show the same numbers. There is no weekly price above ${TWO.videosPerWeek} videos a week, and the calculator does not make one up: from ${TWO.videosPerWeek + 1} a week it shows the per-video cost and marks the plan as quoted.`,
+          `It multiplies, nothing more. The per-video column is videos per week times ${usd(PER_VIDEO)}, times ${PERIOD_WEEKS} weeks. The weekly-plan column is the published weekly price times ${PERIOD_WEEKS} weeks: ${usd(ONE.pricePerWeek)} for ${videos(ONE.videosPerWeek, "en")} a week, ${usd(TWO.pricePerWeek)} for ${videos(TWO.videosPerWeek, "en")} and ${usd(THREE.pricePerWeek)} for ${videos(THREE.videosPerWeek, "en")}. The difference column is the first minus the second.`,
+          `${PERIOD_WEEKS} weeks is used because it is the weekly plan's minimum: you pay at the start of each week, and after ${PERIOD_WEEKS} weeks you can stop by saying so before the next one. Every figure comes from the same price list as the [Starter package](/pricing/starter), so the calculator, the pricing page and the written quote show the same numbers. There is no weekly price above ${MAX_WEEKLY.videosPerWeek} videos a week, and the calculator does not make one up: from ${MAX_WEEKLY.videosPerWeek + 1} a week it shows the per-video cost and marks the plan as quoted.`,
         ],
       },
       {
@@ -176,7 +178,7 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
       {
         heading: "What is included in each weekly video?",
         paragraphs: [
-          `Each weekly video runs up to ${T.maxVideoSeconds} seconds and is cut from up to ${T.maxFootageMinutes} minutes of your footage. It is delivered ${T.deliveryHoursMin}–${T.deliveryHoursMax} hours after the footage arrives, with ${ONE.changesPerVideo} round of changes on the 1-video plan and ${TWO.changesPerVideo} rounds on the 2-video plan. Captions are placed inside the platform's safe zones and the file is exported in the format Instagram, TikTok or YouTube Shorts needs.`,
+          `Each weekly video runs up to ${T.maxVideoSeconds} seconds and is cut from up to ${T.maxFootageMinutes} minutes of your footage. It is delivered ${T.deliveryHoursMin}–${T.deliveryHoursMax} hours after the footage arrives, with ${ONE.changesPerVideo} round of changes on the 1-video plan and ${TWO.changesPerVideo} rounds on the 2-video and 3-video plans. Captions are placed inside the platform's safe zones and the file is exported in the format Instagram, TikTok or YouTube Shorts needs.`,
           `A single video on Starter is the same edit with one revision round, without the weekly schedule. What moves a quote either way: a much longer video, a lot more raw footage, separate versions for each platform, bilingual captions, or animated graphics. If you need filming as well, that is a different service, quoted per production day. Esteban works in Spanish first, with intermediate English, so notes and changes can be sent in Spanish.`,
         ],
       },
@@ -184,8 +186,8 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
     faqHeading: "Questions about the cost",
     faqs: [
       { question: "What does one Reel cost to edit?", answer: `From ${usd(PER_VIDEO)} per video on Starter, from footage you supply, with one revision round.` },
-      { question: "What does the weekly plan cost?", answer: `${usd(ONE.pricePerWeek)} a week for 1 video or ${usd(TWO.pricePerWeek)} a week for 2 videos, paid weekly, with a ${PERIOD_WEEKS}-week minimum.` },
-      { question: "Can I do three or more videos a week?", answer: `Yes, but there is no published weekly price for that volume. Each video is ${usd(PER_VIDEO)} on Starter, or ask for a written quote through contact.` },
+      { question: "What does the weekly plan cost?", answer: `${usd(ONE.pricePerWeek)} a week for 1 video, ${usd(TWO.pricePerWeek)} a week for 2 videos or ${usd(THREE.pricePerWeek)} a week for 3 videos, paid weekly, with a ${PERIOD_WEEKS}-week minimum.` },
+      { question: "Can I do four or more videos a week?", answer: `Three a week is the top published weekly plan at ${usd(THREE.pricePerWeek)} a week. Above that there is no published weekly price: each video is ${usd(PER_VIDEO)} on Starter, or ask for a written quote through contact.` },
       { question: "Is filming included?", answer: "No. These prices are for editing footage you film yourself, usually on a phone." },
     ],
     ctaHeading: "Ready to send your first footage?",
@@ -205,7 +207,7 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
   },
   es: {
     metadataTitle: "Calculadora: Cuánto Cuesta Editar Reels al Mes",
-    metadataDescription: `Cuánto cuesta editar tus reels: desde ${usd(PER_VIDEO)} por video, o el plan semanal de ${usd(ONE.pricePerWeek)} por 1 video y ${usd(TWO.pricePerWeek)} por 2. Calcula tu mes gratis.`,
+    metadataDescription: `Cuánto cuesta editar tus reels: desde ${usd(PER_VIDEO)} por video, o el plan semanal de ${usd(ONE.pricePerWeek)} por 1 video, ${usd(TWO.pricePerWeek)} por 2 y ${usd(THREE.pricePerWeek)} por 3. Calcula tu mes gratis.`,
     breadcrumbHome: "Inicio",
     breadcrumbCurrent: "Calculadora de costo de edición de reels",
     eyebrow: "Calculadora gratis",
@@ -233,8 +235,8 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
       {
         heading: "¿Cómo calcula el precio la calculadora?",
         paragraphs: [
-          `Solo multiplica. La columna por video es videos por semana por ${usd(PER_VIDEO)}, por ${PERIOD_WEEKS} semanas. La columna del plan semanal es el precio semanal publicado por ${PERIOD_WEEKS} semanas: ${usd(ONE.pricePerWeek)} por ${videos(ONE.videosPerWeek, "es")} a la semana y ${usd(TWO.pricePerWeek)} por ${videos(TWO.videosPerWeek, "es")}. La diferencia es la primera menos la segunda.`,
-          `Se usan ${PERIOD_WEEKS} semanas porque es el mínimo del plan semanal: pagas al inicio de cada semana y, pasadas ${PERIOD_WEEKS} semanas, puedes parar avisando antes de la siguiente. Todas las cifras salen de la misma lista de precios del [paquete Arranque](/es/precios/arranque), así que la calculadora, la página de precios y la cotización escrita muestran lo mismo. No hay precio semanal para más de ${TWO.videosPerWeek} videos por semana y la calculadora no se inventa uno: desde ${TWO.videosPerWeek + 1} por semana muestra el costo por video y marca el plan como cotizado.`,
+          `Solo multiplica. La columna por video es videos por semana por ${usd(PER_VIDEO)}, por ${PERIOD_WEEKS} semanas. La columna del plan semanal es el precio semanal publicado por ${PERIOD_WEEKS} semanas: ${usd(ONE.pricePerWeek)} por ${videos(ONE.videosPerWeek, "es")} a la semana, ${usd(TWO.pricePerWeek)} por ${videos(TWO.videosPerWeek, "es")} y ${usd(THREE.pricePerWeek)} por ${videos(THREE.videosPerWeek, "es")}. La diferencia es la primera menos la segunda.`,
+          `Se usan ${PERIOD_WEEKS} semanas porque es el mínimo del plan semanal: pagas al inicio de cada semana y, pasadas ${PERIOD_WEEKS} semanas, puedes parar avisando antes de la siguiente. Todas las cifras salen de la misma lista de precios del [paquete Arranque](/es/precios/arranque), así que la calculadora, la página de precios y la cotización escrita muestran lo mismo. No hay precio semanal para más de ${MAX_WEEKLY.videosPerWeek} videos por semana y la calculadora no se inventa uno: desde ${MAX_WEEKLY.videosPerWeek + 1} por semana muestra el costo por video y marca el plan como cotizado.`,
         ],
       },
       {
@@ -247,7 +249,7 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
       {
         heading: "¿Qué incluye cada video del plan semanal?",
         paragraphs: [
-          `Cada video semanal dura hasta ${T.maxVideoSeconds} segundos y se edita con hasta ${T.maxFootageMinutes} minutos de tu material. Se entrega ${T.deliveryHoursMin}–${T.deliveryHoursMax} horas después de recibir el material, con ${ONE.changesPerVideo} ronda de cambios en el plan de 1 video y ${TWO.changesPerVideo} rondas en el de 2 videos. Los subtítulos van dentro de las zonas seguras de la plataforma y el archivo sale en el formato que piden Instagram, TikTok o YouTube Shorts.`,
+          `Cada video semanal dura hasta ${T.maxVideoSeconds} segundos y se edita con hasta ${T.maxFootageMinutes} minutos de tu material. Se entrega ${T.deliveryHoursMin}–${T.deliveryHoursMax} horas después de recibir el material, con ${ONE.changesPerVideo} ronda de cambios en el plan de 1 video y ${TWO.changesPerVideo} rondas en los planes de 2 y 3 videos. Los subtítulos van dentro de las zonas seguras de la plataforma y el archivo sale en el formato que piden Instagram, TikTok o YouTube Shorts.`,
           `Un video suelto del Arranque es la misma edición con una ronda de cambios, sin el calendario semanal. Lo que mueve una cotización en los dos casos: un video mucho más largo, mucho más material en bruto, versiones distintas para cada plataforma, subtítulos en dos idiomas o gráficos animados. Si además necesitas grabación, es otro servicio y se cotiza por jornada de producción. El idioma principal de Esteban es el español, así que puedes mandar notas y cambios en español.`,
         ],
       },
@@ -255,8 +257,8 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
     faqHeading: "Preguntas sobre el costo",
     faqs: [
       { question: "¿Cuánto cuesta editar un reel?", answer: `Desde ${usd(PER_VIDEO)} por video con el Arranque, usando el material que tú envías, con una ronda de cambios.` },
-      { question: "¿Cuánto cuesta el plan semanal?", answer: `${usd(ONE.pricePerWeek)} por semana por 1 video o ${usd(TWO.pricePerWeek)} por semana por 2 videos, con pago semanal y un mínimo de ${PERIOD_WEEKS} semanas.` },
-      { question: "¿Puedo hacer tres o más videos por semana?", answer: `Sí, pero no hay un precio semanal publicado para ese volumen. Cada video cuesta ${usd(PER_VIDEO)} con el Arranque, o pide una cotización escrita por contacto.` },
+      { question: "¿Cuánto cuesta el plan semanal?", answer: `${usd(ONE.pricePerWeek)} por semana por 1 video, ${usd(TWO.pricePerWeek)} por semana por 2 videos o ${usd(THREE.pricePerWeek)} por semana por 3 videos, con pago semanal y un mínimo de ${PERIOD_WEEKS} semanas.` },
+      { question: "¿Puedo hacer cuatro o más videos por semana?", answer: `Tres por semana es el plan semanal más alto publicado, a ${usd(THREE.pricePerWeek)} por semana. Por encima no hay un precio semanal publicado: cada video cuesta ${usd(PER_VIDEO)} con el Arranque, o pide una cotización escrita por contacto.` },
       { question: "¿La grabación está incluida?", answer: "No. Estos precios son para editar el material que grabas tú, normalmente con el celular." },
     ],
     ctaHeading: "¿Listo para mandar tu primer material?",

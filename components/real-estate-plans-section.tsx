@@ -73,13 +73,17 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
                   <div><dt>{c.rows.social}</dt><dd>{c.values.yes}</dd></div>
                   <div><dt>{c.rows.report}</dt><dd>{c.values.everyTwoWeeks}</dd></div>
                 </dl>
-                <h4>{c.everyPlan.title}</h4>
-                <ul>{c.everyPlan.items.map(item => <li key={item}>{item}</li>)}</ul>
                 <ul>{realEstateTerms(locale).map(line => <li key={line}>{line}</li>)}</ul>
               </details>
             </div>
           </article>;
         })}
+        {/* The every-plan list is identical for all three plans; it renders
+            once here instead of inside each plan's details fold. */}
+        <div className="em-plan-every">
+          <h4>{c.everyPlan.title}</h4>
+          <ul>{c.everyPlan.items.map(item => <li key={item}>{item}</li>)}</ul>
+        </div>
         <Link href={es ? "/es/precios/inmobiliaria" : "/pricing/real-estate"} className="em-plan-pricing-link" data-cta="real_estate_plans_per_shoot">{c.perShoot}<ArrowRight className="size-4" aria-hidden="true" /></Link>
       </Container>
     </section>
