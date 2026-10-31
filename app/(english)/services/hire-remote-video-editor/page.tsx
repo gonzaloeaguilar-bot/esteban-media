@@ -137,7 +137,10 @@ export default function HireRemoteVideoEditorPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="remote video editing" />
+      <ServiceAnswerFirst
+        service="remote video editing"
+        answerOverride="Esteban Moreno Media is run by Esteban Moreno from Fort Lauderdale, and remote editing is the core of the service: you upload your raw footage and brand assets to a shared folder, and Esteban cuts, colors, balances the audio and adds captions, with no shoot and no visit needed. Businesses anywhere in the United States can hire him this way. Weekly creator plans cover ongoing reels and Shorts; one-off projects get a written quote before work starts. Communication is Spanish-first, with intermediate English available."
+      />
       <OwnerFactAnswers path="/services/hire-remote-video-editor" />
 
       <section className="py-12 sm:py-16">

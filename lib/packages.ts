@@ -213,7 +213,7 @@ const COPY: Record<Locale, Copy> = {
         { id: "grabacion", title: "Grabación en locación sin edición", note: "Material 4K en bruto para tu equipo", href: "/es/produccion-de-video-fort-lauderdale", icon: "camera" },
         { id: "multicam", title: "Producción multicámara y conferencias", note: "2 a 3 cámaras con audio directo de consola", href: "/es/videografo-para-conferencias-fort-lauderdale", icon: "camera" },
         { id: "yate", title: "Producción audiovisual de yates y marina", note: "Solo o tripulación de 2 con opción de dron marino", href: "/es/marketing-de-video-para-alquiler-de-yates-miami", icon: "camera" },
-        { id: "kickstarter", title: "Video comercial o demo de producto", note: `Demo básico ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)} · Brand film ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)} · Actores y estudio ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}+`, href: "/es/editor-de-video-para-campanas-de-crowdfunding", icon: "camera" },
+        { id: "kickstarter", title: "Video comercial o demo de producto", note: `Demo básico ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)} · Video de marca ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)} · Actores y estudio ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}+`, href: "/es/editor-de-video-para-campanas-de-crowdfunding", icon: "camera" },
         { id: "mejora", title: "Mejora de fotos con IA", note: "Inmobiliaria y producto", href: "/es/fotos-con-ia-para-bienes-raices-miami", icon: "wand" },
         { id: "seo", title: "SEO local y visibilidad en buscadores de IA", href: "/es/presencia-local-seo", icon: "map" },
         { id: "auditoria", title: "Auditoría de sitio, embudo y competencia", href: "/es/auditoria-de-funnel-y-datos", icon: "gauge" },
