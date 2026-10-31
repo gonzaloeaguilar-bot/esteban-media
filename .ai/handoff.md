@@ -1,3 +1,43 @@
+## 2026-10-30 — Spanish site-wide pass, chunk 2 (spark/spanish-pass-2)
+
+- lib/spanish-site.ts: the last formal-plural FAQs rewritten to the one-person tú voice: the webinar-clips FAQ ("¿Puedes seleccionar las mejores partes del webinar?" / "Reviso la grabación e identifico...") and the VSL FAQ pair ("¿Debo grabar la voz en off o la gestionas tú?", "Entrego versiones horizontales..."). "ustedes" count in Spanish site data is now zero.
+- /es/portafolio reviewed: the hub copy already reads human ("Mira el trabajo.") and needed no changes. The remaining "material suministrado" strings elsewhere in the codebase are factual third-party attributions ("material suministrado por la agencia 300 Bees") in proof and case-study contexts, one of them pinned by the Sunny Isles proof test; left as-is on purpose.
+
+Gates: niche suites green (429 tests), typecheck clean, lint 0 errors. Lastmod refreshed.
+
+## 2026-10-30 — Spanish site-wide pass, chunk 1 (spark/spanish-pass)
+
+Owner standard applied: español lindo (clear professional Latin American Spanish, tú forms, no calques) extended beyond the homepage.
+
+- es/contacto: FAQ answers rewritten in one-person tú voice, same facts; Brief Builder fold moved to first, mirroring /contact.
+- es/servicios: growth deck section rewritten ("Sitios web, chatbots y sistemas", human heading and scoping); metadata and pillar copy de-calqued ("funnel" and "handoffs" gone).
+- lib/spanish-site.ts: corporate machinery removed across niche data: "se evalúa de manera selectiva" (12) becomes "se confirma caso por caso"; the "material suministrado" family (18) becomes "el material que ya tienes"; "flujo de postproducción remota" answers and headings rewritten. Factual alignment: the náutica niche promised edited cuts in 3 to 5 business days; now "desde los 7 días" per the unified turnaround floor. The subtitling niche keeps its own scope (shorts 24-48h, long-form 3-5 days).
+- KEPT on purpose: the Sunny Isles entry's "material suministrado por el cliente" strings; they are a guarded factual-proof boundary (sunny-isles tests) where the exact client-supplied-footage wording is load-bearing.
+
+Gates: full suite green (3,797 tests), typecheck clean, lint 0 errors, rail-adoption pass, build green. Lastmod: 16 pages updated.
+
+Not in this chunk: the remaining usted-form guide sentence, /es/portafolio.
+
+# 2026-10-30 — Human-QA wave 1: top pages lead with the person (branch spark/wave1-home, on current main)
+
+- /es homepage in the owner's Spanish standard (clear, professional Latin American Spanish): the chooser heading "Empieza por la meta. Elige el oficio que te ayuda." now reads "Empieza por la meta. Elige el camino que te sirve." (steps Propósito / Método / Siguiente paso); the chooser's real-estate card is titled "Bienes raíces" instead of the English "Real Estate"; the Premium perk "flexibilidad de rollover" now says "flexibilidad para pasar videos al mes siguiente"; the camera-kit eyebrow "LA MESA DE CÁMARA" now reads "EL EQUIPO DE CÁMARA"; the crowdfunding note's "Brand film" is "Video de marca"; the same oficio calque on portfolio watch pages became "qué servicio le sirve mejor".
+- /about and /es/sobre-esteban: the link-stuffed entity paragraphs that opened both pages are replaced by one human paragraph ("you talk to the person who edits your video" / "hablas con la persona que edita tu video"); every removed link survives in a quiet closing section ("Directories, Spanish pages and guides" / "Áreas de servicio y portafolio"), so the internal-link graph is unchanged and the person now leads.
+- /contact: the Brief Builder fold moved from last to first among the help folds; the Spanish-first note now sits directly under the intro instead of inside an FAQ answer; the two corporate-voice FAQ answers (on-location availability, how quotes work) rewritten in the one-person voice with the same facts.
+- /services: the folded business-systems section lost the agency voice ("0→1 Growth Systems" eyebrow and "one accountable system" deck copy now read "Websites, chatbots and systems" and plain first-person scoping). The 100+ link directory stays folded on this page for now: it is shared with the areas pages and four test suites pin its current placement, so moving it to its own index page is its own change, not folded into this wave.
+- 404: beyond Home it now offers the routes people actually want, See the work (/portfolio), a WhatsApp quote button, and the top Spanish routes (/es, /es/portafolio, /es/contacto).
+- Not in this wave, named honestly: /portfolio's category order and the ML Colombia / Banacol listings (the items back case studies and live niche proof links, so removal is a data decision for the owner), and the Healthy Smile / Bar Door Monkey page pair (word-count gates on case pages make the cut its own careful change).
+- Gates on this machine: full vitest green in chunks (508 + 1,267 + 1,859 + 184), typecheck clean, lint 0 errors / 15 warnings, rail-adoption pass, build green. Built HTML re-read: every marker above verified present and every removed string verified absent. Merged under the owner's 2026-10-30 standing rule (Spark PRs merge automatically once gates pass).
+
+---
+# 2026-10-30 — Human-QA wave 4: conversion cluster (branch spark/wave4-conversion, stacked on spark/wave3-en, PR open, not production)
+
+- Diagnóstico/Assessment: the tool now asks the 5 questions its intro promises (new Q5, who edits today). Nothing is pre-answered, so the panel no longer opens at 100/100; the score appears only when all five are answered, and the result names the weakest area, links the matching service, and offers a WhatsApp next step prefilled with the score and the weak point. Q3 jargon removed in both languages; "bases solidas" accent and "batching mensual" fixed.
+- Turnaround unified: the budget estimator's standard delivery reads the owner floor from lib/pricing.ts TURNAROUND (from 7 days) instead of "3 - 5 business days", which contradicted /pricing and /about. Weekly-plan 48-72h and express 24-48h remain as labeled exceptions. The estimate result gained a WhatsApp send-this-estimate action.
+- Case studies: production cases list before web/AI systems on the index in both languages; the answers and limits section moved below the projects. The five thin published-media cases no longer repeat the answer paragraph verbatim as the first paragraph of "What the public record confirms" (both languages); the section opens with a shorter distinct statement.
+- Caption guides: EN and ES caption-styles guides gained a done-for-you bilingual subtitling offer block with a WhatsApp action. No price figure, deliberately: the subtitling starting price still has two live sources and waits on the owner's ruling, the same call wave 2 made.
+- "$750per month" bug fixed at the source: RailPrice puts a space before word units in the accessible name and in extracted text (slash units unchanged). Arrived via a rail-kit checkout at the pinned ref plus the fix, re-synced with scripts/sync-rail-kit.mjs; only RailPrice.tsx differs among the 100 vendored files. A matching upstream rail-kit PR carries the fix for the other consumer sites.
+- Gates on this machine: full vitest green in chunks (486 + 201 + 104 targeted + 1,279 + 1,846), typecheck clean, lint 0 errors / 23 pre-existing warnings, rail-adoption pass, rail-kit:check pass, build BUILD_ID 18d-sS13GLdWti_IQx-MQ. Built HTML re-read: spaced prices in EN and ES, unanswered Diagnóstico panel with Q5, 7-day calculator floor, case-study order and single common paragraph, both guide offer blocks. Not merged; not production.
+---
 # 2026-10-30 — Human-QA wave 3: English service pages end on the human close (branch spark/wave3-en, stacked on spark/wave2-es, PR open, not production)
 
 - GeoServicePage template: the page now ends on the ServiceInquiryRail. Order is FAQs, related services, NicheAnswers, PriorityLinks, then the quote rail last, so no answer block, directory or second contact pitch follows the human close on any of the 7 pages using this template (the real-estate page's reported "restart after Ask for a quote" disease).
