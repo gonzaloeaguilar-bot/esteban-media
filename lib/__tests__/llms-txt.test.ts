@@ -93,7 +93,7 @@ describe("/llms.txt for AI crawlers", () => {
     // file cannot quote a price the site does not show.
     const allowed = new Set(
       [
-        ...Object.values(PACKAGE_PRICES).flatMap((p) => (p.kind === "from" ? [`$${p.amount}`] : [])),
+        ...Object.values(PACKAGE_PRICES).flatMap((p) => (p.kind === "from" ? [usd(p.amount)] : [])),
         // Owner facts 2026-10-14, single sources in lib/pricing.ts.
         usd(LANDING_PAGE_PRICE.from),
         usd(LANDING_PAGE_PRICE.typicalUpper),

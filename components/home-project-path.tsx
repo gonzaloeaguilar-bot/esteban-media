@@ -11,6 +11,11 @@ import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CELEBRATION_FILM_BUNDLES,
+  CHATBOT_PRICE,
+  LANDING_PAGE_PRICE,
+  PRICE_TERMS,
+  REAL_ESTATE_DRONE_PHOTO_ADD_ON,
+  COMMERCIAL_VIDEO_TIERS,
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
   ON_LOCATION_CAPTURE,
@@ -203,35 +208,35 @@ const routeVisuals: Record<RouteId, string> = {
   "web-commerce": "/portfolio/gains-from-geebs-scroll-current.png",
 };
 
-const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string }>>> = {
+const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string; price: string }>>> = {
   "ai-agents": {
     en: [
-      { title: "AI chatbots", detail: "Answer common questions and capture the right next step." },
-      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow." },
+      { title: "AI chatbots", detail: "Answer common questions, qualify leads, and guide the next step.", price: `From ${usd(CHATBOT_PRICE.from)} setup` },
+      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow.", price: "Quoted per project" },
     ],
     es: [
-      { title: "Chatbots con IA", detail: "Responde preguntas comunes y captura el siguiente paso correcto." },
-      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas." },
+      { title: "Chatbots con IA", detail: "Responde preguntas comunes, califica prospectos y guía siguientes pasos.", price: `Desde ${usd(CHATBOT_PRICE.from)} setup` },
+      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas.", price: "Cotización por proyecto" },
     ],
   },
   "seo-landing": {
     en: [
-      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers." },
-      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious." },
+      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious.", price: `From ${usd(LANDING_PAGE_PRICE.from)}` },
+      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers.", price: "Quoted per project" },
     ],
     es: [
-      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA." },
-      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro." },
+      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro.", price: `Desde ${usd(LANDING_PAGE_PRICE.from)}` },
+      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA.", price: "Cotización por proyecto" },
     ],
   },
   "web-commerce": {
     en: [
-      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch." },
-      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells." },
+      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch.", price: "Quoted per project" },
+      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells.", price: "Quoted per project" },
     ],
     es: [
-      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar." },
-      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende." },
+      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar.", price: "Cotización por proyecto" },
+      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende.", price: "Cotización por proyecto" },
     ],
   },
 };
@@ -248,7 +253,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: la sesión pasa al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "1 property per month (up to 3,000 SF)",
@@ -257,7 +262,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "2 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoot rolls to next month if no listing",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Plus")) {
@@ -269,7 +274,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3 a 4 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
             "Flexibilidad: las sesiones pasan al mes siguiente si no hay listado",
-            "Fotografía con dron disponible como adicional ($120)",
+            `Fotografía con dron disponible como adicional (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ]
         : [
             "2 properties per month (up to 3,000 SF each)",
@@ -278,7 +283,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "3–4 posts or reels per week (Instagram & TikTok)",
             "Social management & Metricool report every 2 weeks",
             "Rollover: shoots roll to next month if no listings",
-            "Drone photography available as add-on ($120)",
+            `Drone photography available as add-on (${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)})`,
           ];
     }
     if (name.includes("Premium")) {
@@ -290,7 +295,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "Fotografía aérea con dron INCLUIDA",
             "5 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
-            "Prioridad de calendario y flexibilidad de rollover",
+            "Prioridad de calendario y flexibilidad para pasar videos al mes siguiente",
           ]
         : [
             "3 properties per month (up to 3,000 SF each)",
@@ -392,7 +397,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
     ? {
-        "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
+        "real-estate": { title: "Bienes raíces", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
         editing: { title: "Creador de contenido", eyebrow: "Tú eres el canal", lead: "Edita tus clips, publica cada semana o graba un día de contenido conmigo." },
         production: { title: "Producciones y eventos", eyebrow: "Una producción especial", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
         "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual y grabación en tu negocio para tu marca." },
@@ -492,8 +497,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     return "Demo, brand film, or a production with actors and studio.";
   };
   const commercialScope = locale === "es"
-    ? "Elige el alcance al cotizar: demo básico desde $1,000; brand film desde $3,000; actores y estudio desde $6,500."
-    : "Choose the scope when you quote it: basic demo from $1,000; brand film from $3,000; actors and studio from $6,500.";
+    ? `Elige el alcance al cotizar: demo básico desde ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film desde ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actores y estudio desde ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`
+    : `Choose the scope when you quote it: basic demo from ${usd(COMMERCIAL_VIDEO_TIERS.basic.from)}; brand film from ${usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from)}; actors and studio from ${usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin)}.`;
   const creatorFilm = locale === "es"
     ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
     : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
@@ -502,14 +507,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         label: "Celebraciones sociales",
         title: "Fiestas y celebraciones",
         price: `Desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`,
-        lead: "Video de tu celebración para compartirlo y recordarlo.",
+        lead: "Video de tu celebración, en casa, en un salón o en un yate, para compartirlo y recordarlo.",
         selectedPackagePrefix: "Me interesa:",
         packages: [
-          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: "Película de mi celebración (desde $1,200, hasta 4 horas)" },
-          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: "Película de celebración de día completo (desde $2,200, hasta 8 horas)" },
-          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: "Producción de celebración con dos personas (desde $3,400, hasta 8 horas)" },
+          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: `Película de mi celebración (desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, hasta 4 horas)` },
+          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: `Película de celebración de día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, hasta 8 horas)` },
+          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: `Producción de celebración con dos personas (desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, hasta 8 horas)` },
+          { name: "Película de fiesta en yate", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · medio día`, includes: `Grabación a bordo en Miami o Fort Lauderdale y una película terminada de tu fiesta en yate. Mínimo medio día; el día completo (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) incluye tomas con dron marino con licencia.`, whatsapp: `Película de mi fiesta en yate (desde ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} medio día, desde ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} día completo con dron)` },
         ],
-        packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
+        packageNote: `${PRICE_TERMS.es} El traslado y cualquier extra se confirman por escrito antes de reservar.`,
         quote: "Cotizar mi celebración",
         guide: "Ver guía de fiestas privadas",
         guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
@@ -519,14 +525,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         label: "Social celebrations",
         title: "Parties and celebrations",
         price: `From ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`,
-        lead: "Video of your celebration to share and remember.",
+        lead: "Video of your celebration, at home, a venue, or on a yacht, to share and remember.",
         selectedPackagePrefix: "I'm interested in:",
         packages: [
-          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: "My celebration film (from $1,200, up to 4 hours)" },
-          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: "My full-day celebration film (from $2,200, up to 8 hours)" },
-          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: "My two-person celebration production (from $3,400, up to 8 hours)" },
+          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: `My celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)}, up to 4 hours)` },
+          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: `My full-day celebration film (from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)}, up to 8 hours)` },
+          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: `My two-person celebration production (from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)}, up to 8 hours)` },
+          { name: "Yacht party film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} · half day`, includes: `On-board filming in Miami or Fort Lauderdale and a finished film of your yacht party. Half-day minimum; a full day (from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)}) adds licensed marine drone tracking.`, whatsapp: `My yacht party film (from ${usd(CELEBRATION_FILM_BUNDLES.yachtHalfDay)} half day, from ${usd(CELEBRATION_FILM_BUNDLES.yachtFullDay)} full day with drone)` },
         ],
-        packageNote: "Travel and any extras are confirmed in writing before booking.",
+        packageNote: `${PRICE_TERMS.en} Travel and any extras are confirmed in writing before booking.`,
         quote: "Quote my celebration",
         guide: "Read the private-party guide",
         guideHref: "/services/private-party-videographer-south-florida",
@@ -588,7 +595,25 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
+                  {route.id in digitalRouteLinks && (
+                    <>
+                      <p className="em-route-card__label">{locale === "es" ? "Servicios disponibles" : "Available services"}</p>
+                      <ul className="em-digital-route-links" role="list" data-specialty={route.id}>
+                        {digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => (
+                          <li key={item.title} data-service-option={index}>
+                            <button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, item.price)}>
+                              <div className="flex flex-col gap-1">
+                                <strong className="em-path-offer-name">{item.title}</strong>
+                                <span className="em-digital-price">{item.price}</span>
+                                <span className="em-path-offer-inc">{item.detail}</span>
+                              </div>
+                              <ArrowRight size={16} aria-hidden="true" />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
@@ -617,14 +642,30 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><p className="em-route-card__label mt-5">{creatorFilm.label}</p><ul className="em-path-offers grid grid-cols-1 gap-2.5" role="list" data-lane="creator-filming"><li className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-creator-filming-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{creatorFilm.title}</strong><span className="em-path-offer-price">{`${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`}</span></p><p className="em-path-offer-inc">{creatorFilm.lead}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual("grabacion", locale).preparation}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${creatorFilm.title}`, `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`)}>{creatorFilm.action}<ArrowRight size={15} /></button></div></details></li></ul><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
-                  {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
+                  {route.id !== "editing" && (
+                    <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
+                  )}
+                  <button
+                    type="button"
+                    className="em-route-collapse-btn"
+                    onClick={(e) => {
+                      const card = e.currentTarget.closest<HTMLDetailsElement>("details.em-route-card");
+                      if (card) {
+                        card.open = false;
+                        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                      }
+                    }}
+                  >
+                    <ChevronDown className="size-4 rotate-180" aria-hidden="true" />
+                    {locale === "es" ? "Ver todas las opciones" : "View all project types"}
+                  </button>
                 </div>
               </details>
             );
           })}
           <details className="em-route-card" data-route="private-celebrations" name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
             <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
-              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
+              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.lead}</span><span className="em-route-card__price-badge">{privateCelebrations.price}</span></span>
               <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
                 <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-skyline-cover.jpg" alt={locale === "es" ? "Vista nocturna del skyline de Miami desde la cubierta de un yate" : "Miami skyline at night seen from a yacht deck"} fill sizes="(max-width: 639px) 640px, 1200px" priority />
                 <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-skyline-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-skyline-poster.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
@@ -634,10 +675,24 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <div className="em-route-card__body em-private-celebrations-card__body">
               <p>{privateCelebrations.lead}</p>
               <ul className="em-path-offers" role="list">
-                  {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
+                  {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer em-private-celebrations__package"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
               </ul>
               <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
               <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
+              <button
+                type="button"
+                className="em-route-collapse-btn"
+                onClick={(e) => {
+                  const card = e.currentTarget.closest<HTMLDetailsElement>("details.em-route-card");
+                  if (card) {
+                    card.open = false;
+                    card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  }
+                }}
+              >
+                <ChevronDown className="size-4 rotate-180" aria-hidden="true" />
+                {locale === "es" ? "Ver todas las opciones" : "View all project types"}
+              </button>
             </div>
           </details>
         </div>

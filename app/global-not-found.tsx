@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 import { SiteChrome, siteBodyClassName } from "@/components/site-chrome";
 import { Container } from "@/components/ui/container";
+import { whatsappHref } from "@/lib/packages";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,11 +38,39 @@ export default function GlobalNotFound() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
+                  href="/portfolio"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  See the work
+                </Link>
+                <a
+                  href={whatsappHref(site.phone.e164, "Hi Esteban, I landed on a page that does not exist, but I want to discuss a video project.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1faa55] px-6 text-sm font-medium text-white hover:bg-[#178a44]"
+                >
+                  <MessageCircle className="size-4" aria-hidden="true" />
+                  Get a quote on WhatsApp
+                </a>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-3" lang="es">
+                <Link
                   href="/es"
-                  lang="es"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   Volver al inicio en español
+                </Link>
+                <Link
+                  href="/es/portafolio"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Ver el trabajo
+                </Link>
+                <Link
+                  href="/es/contacto"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Contacto
                 </Link>
               </div>
             </Container>

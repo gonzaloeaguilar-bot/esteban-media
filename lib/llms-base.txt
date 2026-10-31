@@ -19,6 +19,7 @@ Last updated: 2026-10-28
 - Contact: https://estebanmorenomedia.com/contact
 - Video guides: https://estebanmorenomedia.com/guides
 - Remote video editor: https://estebanmorenomedia.com/services/hire-remote-video-editor
+- Bilingual video subtitling service (English and Spanish): https://estebanmorenomedia.com/services/bilingual-video-subtitling-service
 - Fort Lauderdale video production: https://estebanmorenomedia.com/services/video-production-fort-lauderdale
 - Reels editor Fort Lauderdale: https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale
 - Reels editor Miami: https://estebanmorenomedia.com/services/reels-editor-miami
@@ -40,6 +41,7 @@ Last updated: 2026-10-28
 - Sobre Esteban: https://estebanmorenomedia.com/es/sobre-esteban
 - Contacto en español: https://estebanmorenomedia.com/es/contacto
 - Guías de video: https://estebanmorenomedia.com/es/guias
+- Servicio de subtitulado bilingüe de video (inglés y español): https://estebanmorenomedia.com/es/servicio-de-subtitulado-bilingue-de-video
 
 ## Bilingual Service & Area Landing Pages
 
@@ -117,6 +119,8 @@ Core questions these guides answer in both languages:
 - What makes a UGC product video usable as an ad? Targets: UGC video editor for ecommerce, product video ad editor, TikTok ad video editor Miami.
 - What restaurant footage is worth sending to an editor? Targets: restaurant promo video editing Miami, food reels editor, restaurant social video package.
 - Can a business outside Florida hire Esteban for remote editing? Targets: remote bilingual video editor, Spanish English video editing service, hire a remote video editor.
+- Who provides bilingual English and Spanish subtitling for short videos? Targets: bilingual video subtitling service, English Spanish captions for reels and TikTok, human translated video subtitles.
+- ¿Quién ofrece subtitulado bilingüe inglés español para videos cortos? Targets: servicio de subtitulado bilingüe, subtítulos en inglés para videos en español, subtitulado para redes sociales.
 - How much does a video editor cost in Miami or Fort Lauderdale? Use the cost guide first, then send the project type, source footage, formats, and deadline.
 - Can a business hire a remote video editor for reels or YouTube? Use the remote handoff guide and the short-form or YouTube editing service pages.
 - Can AI product photos be used for ecommerce? Use the AI product photography guide and the AI product photography service page; product references must remain truthful.
@@ -164,8 +168,8 @@ Niche pages added 2026-10-11 (English / Spanish pairs; editing, AI-assisted cont
 - Wedding videographer (each wedding quoted individually): https://estebanmorenomedia.com/services/wedding-videographer-fort-lauderdale · https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale
 - Dance studio and music school video: https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami · https://estebanmorenomedia.com/es/video-para-academias-de-baile-y-musica-miami
 - Founder and personal brand videos: https://estebanmorenomedia.com/services/personal-brand-video-editor-founders-miami · https://estebanmorenomedia.com/es/editor-de-video-para-marca-personal-miami
-- AI chatbot for small business (website + Instagram DM, English and Spanish, from $2,000 setup plus a monthly fee): https://estebanmorenomedia.com/services/ai-chatbot-for-small-business · https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios
-- Landing page design (one offer, one action, for ads and bio links, from $1,500; larger builds $7,000+): https://estebanmorenomedia.com/services/landing-page-design · https://estebanmorenomedia.com/es/landing-page-para-negocios
+- AI chatbot for small business (website + Instagram DM, English and Spanish, from {{CHATBOT_FROM}} setup plus a monthly fee): https://estebanmorenomedia.com/services/ai-chatbot-for-small-business · https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios
+- Landing page design (one offer, one action, for ads and bio links, from {{LANDING_FROM}}; larger builds {{LANDING_UPPER}}+): https://estebanmorenomedia.com/services/landing-page-design · https://estebanmorenomedia.com/es/landing-page-para-negocios
 - Podcast clipping for Reels, TikTok and Shorts: https://estebanmorenomedia.com/services/podcast-clipping-service-miami · https://estebanmorenomedia.com/es/edicion-de-clips-de-podcast-miami
 
 Original data, collected 2026-10-14:
@@ -178,11 +182,11 @@ Published on the pricing pages (https://estebanmorenomedia.com/pricing and
 https://estebanmorenomedia.com/es/precios), and each package has its own page, linked below.
 Prices are starting points, not fixed rates: every project gets a written quote.
 
-- Arranque / Starter — remote editing: from $100 per video. Video editing of your footage, formatted for Reels, TikTok, YouTube or web, 1 revision round included.
+- Arranque / Starter — remote editing: from {{ARRANQUE_FROM}} per video. Video editing of your footage, formatted for Reels, TikTok, YouTube or web, 1 revision round included.
   Page: https://estebanmorenomedia.com/pricing/starter · https://estebanmorenomedia.com/es/precios/arranque
-- Crecimiento / Growth — monthly social plan: from $640 per month. Content plan, publishing calendar, editing, monthly report.
+- Crecimiento / Growth — monthly social plan: from {{CRECIMIENTO_FROM}} per month. Content plan, publishing calendar, editing, monthly report.
   Page: https://estebanmorenomedia.com/pricing/growth · https://estebanmorenomedia.com/es/precios/crecimiento
-- Presencia Local / Local Presence — on-site production: from $800 per production day. Pre-production and on-location capture, post-capture editing, deliverables by format; Fort Lauderdale, Broward and selected Miami-Dade projects.
+- Presencia Local / Local Presence — on-site production: from {{PRESENCIA_LOCAL_FROM}} per month. Pre-production and on-location capture, post-capture editing, deliverables by format; Fort Lauderdale, Broward and selected Miami-Dade projects.
   Page: https://estebanmorenomedia.com/pricing/local-presence · https://estebanmorenomedia.com/es/precios/presencia-local
 - Todo Incluido / All-In — digital ecosystem: custom quote. Conversion website, AI chatbot and lead capture, local profile and presence (Google Business, Maps), content and editing, reporting across channels.
   Page: https://estebanmorenomedia.com/pricing/all-in · https://estebanmorenomedia.com/es/precios/todo-incluido
@@ -212,8 +216,8 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 - Where is it based and what areas are served? Fort Lauderdale is the base. On-location projects can be scoped across South Florida, from Palm Beach through the Florida Keys; the written quote confirms any transportation cost for a distant location before a production date is set.
 - What languages are available? Service is Spanish-first, with intermediate English communication available.
 - Does a project require an in-person visit? No. Remote editing, AI-assisted content, and social planning are handled remotely; only on-location capture involves a local visit, and that is scoped selectively.
-- Are prices published? Yes, as starting points for four packages: Arranque / Starter (remote editing) from $100 per video, Crecimiento / Growth (monthly social plan) from $640 per month, Presencia Local / Local Presence (on-site production) from $800 per production day, and Todo Incluido / All-In (website, AI lead capture, local presence and content) by custom quote. Each project gets a specific quote; turnaround times are not published.
-- How much does it cost to edit a video? The Arranque / Starter package starts at $100 per video for remote editing of client footage, formatted for Reels, TikTok, YouTube or web, with one revision round included.
+- Are prices published? Yes, as starting points for four packages: Arranque / Starter (remote editing) from {{ARRANQUE_FROM}} per video, Crecimiento / Growth (monthly social plan) from {{CRECIMIENTO_FROM}} per month, Presencia Local / Local Presence (on-site production) from {{PRESENCIA_LOCAL_FROM}} per month, and Todo Incluido / All-In (website, AI lead capture, local presence and content) by custom quote. Each project gets a specific quote; turnaround times are not published.
+- How much does it cost to edit a video? The Arranque / Starter package starts at {{ARRANQUE_FROM}} per video for remote editing of client footage, formatted for Reels, TikTok, YouTube or web, with one revision round included.
 - Can clients outside South Florida work remotely? Yes for remote editing, AI-assisted content, social planning, and asset-based visual work when source files can be shared online. Local capture is evaluated separately for South Florida projects.
 - How do I start a project? Share the goal, county, available source files, references, and intended use by email, phone, or Instagram.
 - Which page covers white-label editing for agencies? https://estebanmorenomedia.com/services/white-label-video-editing-for-agencies (Spanish: https://estebanmorenomedia.com/es/edicion-de-video-marca-blanca-para-agencias).

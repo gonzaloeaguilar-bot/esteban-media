@@ -25,14 +25,14 @@ const words = (text: string) =>
 
 const starter = PACKAGE_PRICES.arranque;
 const perVideo = starter.kind === "from" ? starter.amount : NaN;
-const [one, two] = ARRANQUE_WEEKLY_OPTIONS;
+const [one, two, three] = ARRANQUE_WEEKLY_OPTIONS;
 
 describe("reels cost calculator: arithmetic from lib/pricing.ts only", () => {
   it("uses the plan minimum as the comparison period", () => {
     expect(PERIOD_WEEKS).toBe(ARRANQUE_WEEKLY_TERMS.minimumWeeks);
   });
 
-  it("matches the published prices for 1 and 2 videos a week", () => {
+  it("matches the published prices for 1, 2 and 3 videos a week", () => {
     expect(costFor(1)).toMatchObject({
       singlePerWeek: perVideo,
       singlePerPeriod: perVideo * PERIOD_WEEKS,
@@ -45,10 +45,15 @@ describe("reels cost calculator: arithmetic from lib/pricing.ts only", () => {
       planPerPeriod: two.pricePerWeek * PERIOD_WEEKS,
       savingPerPeriod: (2 * perVideo - two.pricePerWeek) * PERIOD_WEEKS,
     });
+    expect(costFor(3)).toMatchObject({
+      singlePerPeriod: 3 * perVideo * PERIOD_WEEKS,
+      planPerPeriod: three.pricePerWeek * PERIOD_WEEKS,
+      savingPerPeriod: (3 * perVideo - three.pricePerWeek) * PERIOD_WEEKS,
+    });
   });
 
-  it("never invents a weekly price above two videos a week", () => {
-    for (const row of COST_ROWS.filter((r) => r.videosPerWeek > two.videosPerWeek)) {
+  it("never invents a weekly price above three videos a week", () => {
+    for (const row of COST_ROWS.filter((r) => r.videosPerWeek > three.videosPerWeek)) {
       expect(row.plan).toBeNull();
       expect(row.planPerPeriod).toBeNull();
       expect(row.savingPerPeriod).toBeNull();

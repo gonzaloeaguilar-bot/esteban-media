@@ -1,6 +1,6 @@
 {
   "repo": "gonzaloeaguilar-bot/rail-kit",
-  "ref": "85006c6c410fed1057f6bf900043976f799f4b2f",
+  "ref": "7db953021bd2830a0a6729c6b66a9d3c6a802fb1",
   "vendorPath": "vendor/rail-kit",
   "files": {
     "Rail.tsx": "58dbed9c5a7803e79094f7e53019cc96e1579135a336725295cc11c66cbca3b2",
@@ -57,7 +57,7 @@
     "RailPoll.tsx": "644ca668ae4905aa76496778d4a7fa28bfeb8cb1fd771155ee040518227c1474",
     "RailPost.tsx": "1cc9f1de96a400142081ab08629a1ee05624d73e845e4c809cd92283e04e55ad",
     "RailPresence.tsx": "d3f683119c29b21b32fd3e7ae7bcf45967e1d8840d3d1de92855096aadcae752",
-    "RailPrice.tsx": "c55357bbdf65c6b295ae6611a0d52fc30c81e146a4308cd68904b83132059c5c",
+    "RailPrice.tsx": "5d0a6b34e2a26f8f65ee13241930b807ad8cb9da0ac0c7a9337f9e70eb0d220e",
     "RailProgress.tsx": "79a8224538b75127f2c29c3a5501b395f1f87a8dfd8a713e7cc3cc8742643fa5",
     "RailPromo.tsx": "021e2b2ea0528bf1636fe648b84d586c394e0448461db8a5f43eee1132073bc8",
     "RailPrompt.tsx": "da5b0d37d7b52e0ff9615d47e79b0fabf2a719bcf6fe336d0f1842513af1f6da",

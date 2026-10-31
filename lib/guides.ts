@@ -18,8 +18,14 @@ import {
   ARRANQUE_WEEKLY_TERMS,
   SHORT_FORM,
   filmingHourlyText,
+  TURNKEY_PRODUCTION_BUNDLES,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
+
+const fromAmount = (p: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) => (p.kind === "from" ? p.amount : 0);
+const ARRANQUE_FROM = fromAmount(PACKAGE_PRICES.arranque);
+const CRECIMIENTO_FROM = fromAmount(PACKAGE_PRICES.crecimiento);
+const PRESENCIA_LOCAL_FROM = fromAmount(PACKAGE_PRICES["presencia-local"]);
 import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
 import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparisons";
 
@@ -2897,7 +2903,7 @@ const guidePairs: readonly GuidePair[] = [
         "Compare Fort Lauderdale video editors and production studios for social media reels. Review published rates, deliverables, footage requirements, and workflows.",
       eyebrow: "Budgeting / Fort Lauderdale",
       answer:
-        "For small businesses in Fort Lauderdale hiring video editors for social media videos and Instagram Reels, dedicated remote editing packages start from $100 per video or $640 monthly, whereas full on-location commercial production days start from $800 to $2,500.",
+        `For small businesses in Fort Lauderdale hiring video editors for social media videos and Instagram Reels, dedicated remote editing packages start from ${usd(ARRANQUE_FROM)} per video or ${usd(CRECIMIENTO_FROM)} monthly, whereas full on-location commercial production days start from ${usd(TURNKEY_PRODUCTION_BUNDLES.soloHalfDay)} to ${usd(TURNKEY_PRODUCTION_BUNDLES.twoPersonFullDay)}.`,
       proof: {
         href: "/portfolio/my-dler",
         title: "My D'ler",
@@ -2931,11 +2937,11 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What are Esteban’s package starting prices?",
           paragraphs: [
-            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)). The [Fort Lauderdale service area page](/fort-lauderdale) lists what is available close to the base.",
+            `Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from ${usd(ARRANQUE_FROM)} per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from ${usd(CRECIMIENTO_FROM)}/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, the Local Presence plan starts from ${usd(PRESENCIA_LOCAL_FROM)} per month ([Local Presence package](/pricing/local-presence)). The [Fort Lauderdale service area page](/fort-lauderdale) lists what is available close to the base.`,
             "Compare the named package with the work you actually need. Ask the written proposal to distinguish supplied footage, filming, editing, and final versions so that the starting price and the complete scope stay connected.",
           ],
           bullets: [
-            "Editing-led boutique studio (Esteban Moreno Media): Clear starting packages ($100 per video / $640 per month), rapid turnaround, and bilingual English/Spanish delivery",
+            `Editing-led boutique studio (Esteban Moreno Media): Clear starting packages (${usd(ARRANQUE_FROM)} per video / ${usd(CRECIMIENTO_FROM)} per month), rapid turnaround, and bilingual English/Spanish delivery`,
           ],
         },
         {
@@ -2968,12 +2974,12 @@ const guidePairs: readonly GuidePair[] = [
         {
           question: "How much does it cost to hire a video editor in Fort Lauderdale for social media reels?",
           answer:
-            "Remote editing for single social media reels starts from $100 per video (Starter package), while ongoing monthly editing packages start from $640 per month (Growth package). On-location filming with post-production starts from $800 per production day.",
+            `Remote editing for single social media reels starts from ${usd(ARRANQUE_FROM)} per video (Starter package), while ongoing monthly editing packages start from ${usd(CRECIMIENTO_FROM)} per month (Growth package). On-location filming with post-production starts from ${usd(PRESENCIA_LOCAL_FROM)} per month (Local Presence).`,
         },
         {
           question: "What is the difference between hiring a freelance editor and a full video production company?",
           answer:
-            "Freelance marketplaces offer low-cost individual editors but require you to manage quality and workflow directly. Full production companies provide multi-person filming crews with day rates from $2,000 to $10,000+. Esteban Moreno Media offers an agile middle tier: direct, bilingual editing and social planning starting from $100 to $640, with selective on-location capture available in Fort Lauderdale.",
+            `Freelance marketplaces offer low-cost individual editors but require you to manage quality and workflow directly. Full production companies provide multi-person filming crews with day rates from $2,000 to $10,000+. Esteban Moreno Media offers an agile middle tier: direct, bilingual editing and social planning starting from ${usd(ARRANQUE_FROM)} to ${usd(CRECIMIENTO_FROM)}, with selective on-location capture available in Fort Lauderdale.`,
         },
         {
           question: "What files should a Fort Lauderdale business send to an editor for social media reels?",
@@ -2995,7 +3001,7 @@ const guidePairs: readonly GuidePair[] = [
         "Compara opciones de edición de video y productoras en Fort Lauderdale para reels de Instagram y TikTok. Conoce tarifas publicadas, entregables y flujos de trabajo.",
       eyebrow: "Presupuesto / Fort Lauderdale",
       answer:
-        "Para pequeños negocios en Fort Lauderdale que buscan editores de video para redes sociales y reels de Instagram, los paquetes de edición remota parten desde $100 por video o $640 al mes, mientras que las jornadas de producción en locación parten desde $800 a $2,500.",
+        `Para pequeños negocios en Fort Lauderdale que buscan editores de video para redes sociales y reels de Instagram, los paquetes de edición remota parten desde ${usd(ARRANQUE_FROM)} por video o ${usd(CRECIMIENTO_FROM)} al mes, mientras que las jornadas de producción en locación parten desde ${usd(TURNKEY_PRODUCTION_BUNDLES.soloHalfDay)} a ${usd(TURNKEY_PRODUCTION_BUNDLES.twoPersonFullDay)}.`,
       proof: {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",
@@ -3029,11 +3035,11 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Desde cuánto cuestan los paquetes de Esteban?",
           paragraphs: [
-            "Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde $100 por video ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde $640 al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, las jornadas de producción parten desde $800 ([paquete Presencia Local](/es/precios/presencia-local)).",
+            `Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde ${usd(ARRANQUE_FROM)} por video ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde ${usd(CRECIMIENTO_FROM)} al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, el plan Presencia Local parte desde ${usd(PRESENCIA_LOCAL_FROM)} al mes ([paquete Presencia Local](/es/precios/presencia-local)).`,
             "Compara el paquete con el trabajo que realmente necesitas para tu negocio. Pide que la propuesta escrita distinga el material que ya tienes, la grabación, la edición y las versiones finales. Así puedes relacionar el precio inicial con el pedido completo antes de contratar.",
           ],
           bullets: [
-            "Estudio de edición especializado (Esteban Moreno Media): Paquetes claros ($100 por video / $640 al mes), entregas rápidas y atención bilingüe en español e inglés",
+            `Estudio de edición especializado (Esteban Moreno Media): Paquetes claros (${usd(ARRANQUE_FROM)} por video / ${usd(CRECIMIENTO_FROM)} al mes), entregas rápidas y atención bilingüe en español e inglés`,
           ],
         },
         {
@@ -3066,12 +3072,12 @@ const guidePairs: readonly GuidePair[] = [
         {
           question: "¿Cuánto cuesta contratar un editor de video en Fort Lauderdale para reels y redes sociales?",
           answer:
-            "La edición remota de videos individuales para redes sociales parte desde $100 por video (paquete Arranque), mientras que los planes mensuales de contenido parten desde $640 al mes (paquete Crecimiento). Las grabaciones en locación con edición incluida parten desde $800 por día de producción.",
+            `La edición remota de videos individuales para redes sociales parte desde ${usd(ARRANQUE_FROM)} por video (paquete Arranque), mientras que los planes mensuales de contenido parten desde ${usd(CRECIMIENTO_FROM)} al mes (paquete Crecimiento). Las grabaciones en locación con edición incluida parten desde ${usd(PRESENCIA_LOCAL_FROM)} al mes (Presencia Local).`,
         },
         {
           question: "¿Cuál es la diferencia entre contratar un freelancer y una productora de video?",
           answer:
-            "Las plataformas freelance ofrecen editores independientes pero exigen supervisar la calidad directamente. Las productoras tradicionales proveen equipos de filmación completos con costos de $2,000 a $10,000+. Esteban Moreno Media ofrece un punto medio ágil: edición directa, profesional y bilingüe desde $100 a $640, con opción de grabación selectiva en Fort Lauderdale.",
+            `Las plataformas freelance ofrecen editores independientes pero exigen supervisar la calidad directamente. Las productoras tradicionales proveen equipos de filmación completos con costos de $2,000 a $10,000+. Esteban Moreno Media ofrece un punto medio ágil: edición directa, profesional y bilingüe desde ${usd(ARRANQUE_FROM)} a ${usd(CRECIMIENTO_FROM)}, con opción de grabación selectiva en Fort Lauderdale.`,
         },
         {
           question: "¿Qué archivos debe enviar un negocio de Fort Lauderdale a su editor de video?",

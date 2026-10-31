@@ -36,12 +36,12 @@ const faqs = [
   {
     question: "Is on-location videography available in Miami, Broward, and Palm Beach?",
     answer:
-      "Selective on-location camera capture in Miami-Dade, Broward, or Palm Beach County is evaluated on a project-by-project basis depending on scope, location requirements, and scheduling.",
+      "For selected projects, yes. Esteban films in Broward and Miami-Dade when the scope fits, and Palm Beach is considered case by case. Send the city, the date, and what you need filmed on WhatsApp, and he will confirm whether it fits before sending a written quote.",
   },
   {
     question: "How are project quotes and pricing estimates determined?",
     answer:
-      "Every project receives an individualized scoped quote based on source footage volume, deliverable formats, turnaround requirements, and narrative complexity. You can also explore starting ranges on our project budget calculator.",
+      "Every project gets its own written quote, based on how much footage you have, the formats you need, and how fast you need it. For a starting range before you write, try the project budget calculator.",
   },
 ] as const;
 
@@ -58,6 +58,7 @@ export default function ContactPage() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contact</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Tell Esteban about your video.</h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">Send a short message with what you need, when you need it, and whether you already have footage.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6066]">Spanish-first: write in Spanish whenever you like, Esteban answers in Spanish. English works too.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <a href={whatsappHref(site.phone.e164, "Hi Esteban, I saw your site and want to discuss a video project.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Message on WhatsApp</a>
             <a href={`mailto:${site.email}`} data-cta="contact_email" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Email Esteban</a>
@@ -75,6 +76,10 @@ export default function ContactPage() {
             <Link href="/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">See service areas and what needs confirmation</Link>
           </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
+            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" /></div>
+          </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>Include your project type, location if filming is needed, desired date, and where the finished video will be used. If you already have footage, say what you have. If you are still deciding what the content needs, Spanish-first visitors can begin with the <Link href="/es/evaluacion" className="underline">Diagnóstico de Estrategia de Video</Link> before writing the message.</p>
@@ -98,10 +103,6 @@ export default function ContactPage() {
                 </section>
               ))}
             </div>
-          </details>
-          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
-            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" /></div>
           </details>
         </Container>
       </section>
