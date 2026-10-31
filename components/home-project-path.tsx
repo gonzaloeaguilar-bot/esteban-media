@@ -295,7 +295,7 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "Fotografía aérea con dron INCLUIDA",
             "5 posts o reels por semana (Instagram y TikTok)",
             "Gestión de redes y reporte Metricool cada 2 semanas",
-            "Prioridad de calendario y flexibilidad de rollover",
+            "Prioridad de calendario y flexibilidad para pasar videos al mes siguiente",
           ]
         : [
             "3 properties per month (up to 3,000 SF each)",
@@ -397,7 +397,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
     ? {
-        "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
+        "real-estate": { title: "Bienes raíces", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
         editing: { title: "Creador de contenido", eyebrow: "Tú eres el canal", lead: "Edita tus clips, publica cada semana o graba un día de contenido conmigo." },
         production: { title: "Producciones y eventos", eyebrow: "Una producción especial", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
         "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual y grabación en tu negocio para tu marca." },
