@@ -48,6 +48,12 @@ export type GeoServicePageContent = {
   /** Noun phrase for the answer-first question; defaults to serviceType. */
   answerService?: string;
   /**
+   * Page-specific "In short" answer. The generic answer is the same
+   * paragraph on every service page; a page whose work differs in kind
+   * states its own answer here instead.
+   */
+  answerFirst?: string;
+  /**
    * H2 over the price sheet. Round 6 (2026-10-14): the old default lower-cased
    * the SEO name into "How much does reels editor fort lauderdale cost?" on all
    * five pages, the flagship included. Write the buyer's sentence instead.
@@ -236,7 +242,7 @@ export function GeoServicePage({
         </Container>
       </section>
 
-      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
+      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} answerOverride={content.answerFirst} />
       <OwnerFactAnswers path={content.path} />
 
       <ServiceCraft
@@ -273,10 +279,12 @@ export function GeoServicePage({
       {showcase}
 
       <ServiceFaqs heading={content.faqHeading} faqs={content.faqs} />
-      <ServiceInquiryRail service={content.inquiry} />
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
       <NicheAnswers path={content.path} fact={content.description} />
       <PriorityLinks path={content.path} locale="en" />
+      {/* The page ends on the human close: the quote rail renders last, so
+          no answer block, directory or second contact pitch follows it. */}
+      <ServiceInquiryRail service={content.inquiry} />
     </main>
   );
 }

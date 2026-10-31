@@ -245,10 +245,17 @@ export function ServiceAnswerFirst({
   service,
   locale = "en",
   sectionId = "answer-first",
+  answerOverride,
 }: {
   service: string;
   locale?: "en" | "es";
   sectionId?: string;
+  /**
+   * A page-specific answer in the page's own words. The generic answer is
+   * the same paragraph on every service page; pages whose work differs in
+   * kind from the standard offer pass their own answer instead.
+   */
+  answerOverride?: string;
 }) {
   const copy = answerFirstCopy[locale];
   return (
@@ -262,7 +269,7 @@ export function ServiceAnswerFirst({
         <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
           {copy.question(locale === "es" ? esServicePhrase(inSentence(service)) : enServicePhrase(inSentence(service)))}
         </h2>
-        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer(service)}</p>
+        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{answerOverride ?? copy.answer(service)}</p>
       </Container>
     </section>
   );

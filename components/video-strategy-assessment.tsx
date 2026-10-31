@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Send, Sparkles, Trophy } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, Send, Sparkles, Trophy } from "lucide-react";
 import { site } from "@/lib/site";
+import { whatsappHref } from "@/lib/packages";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
@@ -14,41 +15,106 @@ interface VideoStrategyAssessmentProps {
 export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessmentProps) {
   const isEs = locale === "es";
 
-  const [bilingual, setBilingual] = useState<string>("yes");
-  const [verticalRatio, setVerticalRatio] = useState<string>("high");
-  const [audioCaptions, setAudioCaptions] = useState<string>("yes");
-  const [frequency, setFrequency] = useState<string>("weekly");
+  // Nothing is pre-answered: the panel used to open at 100/100 because every
+  // default was the best option, which made the score meaningless.
+  const [bilingual, setBilingual] = useState<string>("");
+  const [verticalRatio, setVerticalRatio] = useState<string>("");
+  const [audioCaptions, setAudioCaptions] = useState<string>("");
+  const [frequency, setFrequency] = useState<string>("");
+  const [editing, setEditing] = useState<string>("");
 
   const [clientName, setClientName] = useState<string>("");
   const [clientEmail, setClientEmail] = useState<string>("");
   const [clientPhone, setClientPhone] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // Score Calculation
-  const calculateScore = () => {
-    let score = 50;
+  const points = {
+    bilingual: bilingual === "yes" ? 15 : bilingual === "no" ? 0 : null,
+    vertical: verticalRatio === "high" ? 15 : verticalRatio === "medium" ? 8 : verticalRatio === "low" ? 0 : null,
+    captions: audioCaptions === "yes" ? 10 : audioCaptions === "no" ? 0 : null,
+    frequency: frequency === "daily" || frequency === "weekly" ? 10 : frequency === "occasional" ? 0 : null,
+    editing: editing === "editor" ? 10 : editing === "self" ? 5 : editing === "none" ? 0 : null,
+  } as const;
 
-    if (bilingual === "yes") score += 15;
-    if (verticalRatio === "high") score += 15;
-    else if (verticalRatio === "medium") score += 8;
+  const answeredCount = Object.values(points).filter((value) => value !== null).length;
+  const totalQuestions = 5;
 
-    if (audioCaptions === "yes") score += 10;
-    if (frequency === "daily" || frequency === "weekly") score += 10;
+  // Score Calculation: only a complete set of answers earns a score.
+  const score =
+    answeredCount === totalQuestions
+      ? Math.min(
+          40 +
+            (points.bilingual ?? 0) +
+            (points.vertical ?? 0) +
+            (points.captions ?? 0) +
+            (points.frequency ?? 0) +
+            (points.editing ?? 0),
+          100,
+        )
+      : null;
 
-    return Math.min(score, 100);
-  };
+  // The weakest answered area drives the recommendation and the next step.
+  const weakestKey =
+    score === null
+      ? null
+      : (Object.keys(points) as (keyof typeof points)[]).reduce((weakest, key) =>
+          (points[key] ?? 0) < (points[weakest] ?? 0) ? key : weakest,
+        );
 
-  const score = calculateScore();
+  const weakestCopy = {
+    bilingual: {
+      label: isEs ? "Publicas en un solo idioma" : "You publish in one language",
+      text: isEs
+        ? "Tu punto más débil: publicas en un solo idioma. El subtitulado bilingüe abre el mismo video a las dos audiencias de South Florida."
+        : "Your weakest point: you publish in one language. Bilingual subtitling opens the same video to both South Florida audiences.",
+      href: isEs ? "/es/servicio-de-subtitulado-bilingue-de-video" : "/services/bilingual-video-subtitling-service",
+      linkLabel: isEs ? "Ver el servicio de subtitulado bilingüe" : "See bilingual subtitling",
+    },
+    vertical: {
+      label: isEs ? "Poco video vertical 9:16" : "Little 9:16 vertical video",
+      text: isEs
+        ? "Tu punto más débil: poco video vertical. Los Reels y Shorts en 9:16 son el formato que las plataformas empujan hoy."
+        : "Your weakest point: little vertical video. 9:16 Reels and Shorts are the format the platforms push today.",
+      href: isEs ? "/es/editor-de-reels-fort-lauderdale" : "/services/reels-editor-fort-lauderdale",
+      linkLabel: isEs ? "Ver edición de Reels" : "See Reels editing",
+    },
+    captions: {
+      label: isEs ? "Videos sin subtítulos claros" : "Videos without clear captions",
+      text: isEs
+        ? "Tu punto más débil: videos sin subtítulos o con audio difícil de seguir. La mayoría de tu audiencia mira sin sonido."
+        : "Your weakest point: videos without captions or with hard-to-follow audio. Most of your audience watches on mute.",
+      href: isEs ? "/es/servicio-de-subtitulado-bilingue-de-video" : "/services/bilingual-video-subtitling-service",
+      linkLabel: isEs ? "Ver subtitulado bilingüe" : "See bilingual subtitling",
+    },
+    frequency: {
+      label: isEs ? "Publicas poco" : "You publish rarely",
+      text: isEs
+        ? "Tu punto más débil: publicas poco. Un ritmo semanal sostenido vale más que un esfuerzo ocasional."
+        : "Your weakest point: you publish rarely. A steady weekly rhythm beats an occasional push.",
+      href: isEs ? "/es/precios" : "/pricing",
+      linkLabel: isEs ? "Ver planes y precios" : "See plans and pricing",
+    },
+    editing: {
+      label: isEs ? "La edición se acumula" : "Editing piles up",
+      text: isEs
+        ? "Tu punto más débil: la edición se acumula. Delegarla convierte tu material en publicaciones constantes."
+        : "Your weakest point: editing piles up. Delegating it turns your footage into steady publishing.",
+      href: isEs ? "/es/contratar-editor-de-video-remoto" : "/services/hire-remote-video-editor",
+      linkLabel: isEs ? "Ver edición remota" : "See remote editing",
+    },
+  } as const;
+
+  const weakest = weakestKey ? weakestCopy[weakestKey] : null;
 
   const getTierInfo = () => {
-    if (score >= 85) {
+    if (score !== null && score >= 85) {
       return {
         badge: isEs ? "Marca Digital de Alto Desempeño" : "High-Performance Digital Brand",
         desc: isEs
-          ? "Tu estrategia de video tiene bases solidas. Optimizar la edición rítmica y el batching mensual aumentará tu conversión."
-          : "Your video strategy has strong foundations. Fine-tuning editing pacing and batch production will scale conversion.",
+          ? "Tu estrategia de video tiene bases sólidas. Ajustar el ritmo de edición y producir tu contenido en lotes mensuales aumentará tu conversión."
+          : "Your video strategy has strong foundations. Fine-tuning editing pacing and a steady monthly production rhythm will scale conversion.",
       };
-    } else if (score >= 65) {
+    } else if (score !== null && score >= 65) {
       return {
         badge: isEs ? "Marca en Crecimiento con Oportunidad" : "Growth Brand with High Potential",
         desc: isEs
@@ -59,8 +125,8 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
     return {
       badge: isEs ? "Oportunidad de Transformación de Contenido" : "Content Transformation Opportunity",
       desc: isEs
-        ? "Tu marca se beneficiará enormemente de estructurar guiones direct-response y delegar la posproducción remota."
-        : "Your brand will benefit immensely from structuring direct-response scripts and delegating remote video editing.",
+        ? "Tu marca se beneficiará de guiones claros y de delegar la posproducción remota."
+        : "Your brand will benefit from clearer scripts and delegating remote post-production.",
     };
   };
 
@@ -105,7 +171,8 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
         `- ${isEs ? "Contenido Bilingüe EN/ES" : "Bilingual EN/ES Content"}: ${bilingual}\n` +
         `- ${isEs ? "Proporción 9:16 Vertical" : "9:16 Vertical Ratio"}: ${verticalRatio}\n` +
         `- ${isEs ? "Audio & Subtítulos" : "Audio & Captions"}: ${audioCaptions}\n` +
-        `- ${isEs ? "Frecuencia de Publicación" : "Publishing Frequency"}: ${frequency}\n`
+        `- ${isEs ? "Frecuencia de Publicación" : "Publishing Frequency"}: ${frequency}\n` +
+        `- ${isEs ? "Quién Edita" : "Who Edits"}: ${editing}\n`
     );
     return `mailto:${site.email}?subject=${subject}&body=${body}`;
   };
@@ -189,7 +256,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
           {/* Q3: AUDIO & CAPTIONS */}
           <div>
             <label className="block text-xs font-semibold uppercase text-[#5a6066]">
-              {isEs ? "3. ¿Masterizan audio de diálogo e incluyen subtítulos animados?" : "3. Do you master dialogue audio (-14 LUFS) & add animated captions?"}
+              {isEs ? "3. ¿Tus videos llevan subtítulos y el audio se escucha claro?" : "3. Do your videos include captions and clear, easy-to-follow audio?"}
             </label>
             <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
               {[
@@ -238,6 +305,32 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
               ))}
             </div>
           </div>
+          {/* Q5: WHO EDITS */}
+          <div>
+            <label className="block text-xs font-semibold uppercase text-[#5a6066]">
+              {isEs ? "5. ¿Quién edita tus videos hoy?" : "5. Who edits your videos today?"}
+            </label>
+            <div className="mt-2 grid grid-cols-3 gap-2 text-xs">
+              {[
+                { id: "editor", label: isEs ? "Un editor o agencia" : "An editor or agency" },
+                { id: "self", label: isEs ? "Yo o mi equipo" : "Me or my team" },
+                { id: "none", label: isEs ? "Nadie, se acumulan" : "Nobody, they pile up" },
+              ].map((opt) => (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => setEditing(opt.id)}
+                  className={`rounded-xl border p-3 font-medium transition-all ${
+                    editing === opt.id
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
+                      : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* SCORE DISPLAY & ACTION PLAN */}
@@ -249,17 +342,59 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
                 {isEs ? "Calificación de Estrategia" : "Strategy Score"}
               </span>
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white">
-                {score} / 100 Pts
+                {score === null
+                  ? isEs
+                    ? `${answeredCount} de ${totalQuestions}`
+                    : `${answeredCount} of ${totalQuestions}`
+                  : `${score} / 100 Pts`}
               </span>
             </div>
 
-            <div className="mt-4 border-b border-white/10 pb-6">
-              <div className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                {score}%
+            {score === null ? (
+              <div className="mt-4 border-b border-white/10 pb-6">
+                <p className="text-sm leading-relaxed text-[#d8d0c7]">
+                  {isEs
+                    ? "Responde las 5 preguntas y aquí aparece tu calificación, tu punto más débil y el servicio que lo resuelve."
+                    : "Answer all 5 questions and your score appears here, with your weakest point and the service that fixes it."}
+                </p>
               </div>
-              <div className="mt-2 text-xs font-semibold text-[#e85d3e]">{tierInfo.badge}</div>
-              <p className="mt-2 text-xs leading-relaxed text-[#d8d0c7]">{tierInfo.desc}</p>
-            </div>
+            ) : (
+              <div className="mt-4 border-b border-white/10 pb-6">
+                <div className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  {score}%
+                </div>
+                <div className="mt-2 text-xs font-semibold text-[#e85d3e]">{tierInfo.badge}</div>
+                <p className="mt-2 text-xs leading-relaxed text-[#d8d0c7]">{tierInfo.desc}</p>
+                {weakest ? (
+                  <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-xs leading-relaxed text-[#f6f1ea]">{weakest.text}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <a
+                        href={weakest.href}
+                        className="inline-flex min-h-10 items-center gap-2 rounded-full bg-white/10 px-4 text-xs font-semibold text-white hover:bg-white/20"
+                      >
+                        {weakest.linkLabel}
+                        <ArrowRight className="size-3.5" aria-hidden="true" />
+                      </a>
+                      <a
+                        href={whatsappHref(
+                          site.phone.e164,
+                          isEs
+                            ? `Hola Esteban, hice el diagnóstico de video y mi calificación fue ${score}/100. Mi punto más débil: ${weakest.label}. Quiero hablar del siguiente paso.`
+                            : `Hi Esteban, I took the video assessment and scored ${score}/100. My weakest point: ${weakest.label}. I want to talk about the next step.`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#1faa55] px-4 text-xs font-semibold text-white hover:bg-[#178a44]"
+                      >
+                        <MessageCircle className="size-3.5" aria-hidden="true" />
+                        {isEs ? "Hablarlo por WhatsApp" : "Talk it over on WhatsApp"}
+                      </a>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            )}
           </div>
 
           {submitted ? (
@@ -312,11 +447,19 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
 
               <button
                 type="submit"
-                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
+                disabled={score === null}
+                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <ArrowRight className="size-4" aria-hidden="true" />
                 {isEs ? "Obtener Plan de Acción de Video" : "Get Video Action Plan"}
               </button>
+              {score === null ? (
+                <p className="text-[11px] leading-relaxed text-[#d8d0c7]">
+                  {isEs
+                    ? "Responde las 5 preguntas para activar tu plan de acción."
+                    : "Answer all 5 questions to unlock your action plan."}
+                </p>
+              ) : null}
             </form>
           )}
         </div>
