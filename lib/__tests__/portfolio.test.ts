@@ -84,13 +84,13 @@ const verifiedYears: Record<string, number> = {
 describe("verified portfolio data", () => {
   it("declares the seven evidence-based categories in display order", () => {
     expect(PORTFOLIO_CATEGORY_IDS).toEqual([
+      "social-content",
+      "web-design",
       "business-promos",
       "events",
       "editing",
-      "social-content",
-      "narrative",
       "animation",
-      "web-design",
+      "narrative",
     ]);
   });
 
@@ -136,7 +136,9 @@ describe("verified portfolio data", () => {
       expect(item.media.url).toBe(
         `https://www.youtube.com/watch?v=${item.media.videoId}`,
       );
-      expect(item.media.aspect).toBe("16:9");
+      // A film is 16:9; a Short is 9:16 (verified 2026-10-28 via youtube.com/shorts/<id>).
+      expect(["16:9", "9:16"]).toContain(item.media.aspect);
+      expect(item.media.aspect === "9:16").toBe(["Hm-mI-RgvUY", "YTJW6zn14S8", "poIo-VCBeAw"].includes(item.media.videoId));
       expect(item.media.uploadDate).toMatch(
         /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/,
       );

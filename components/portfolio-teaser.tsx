@@ -1,5 +1,5 @@
 
-import { PORTFOLIO_ITEMS, type PortfolioItem } from "@/lib/portfolio";
+import { PORTFOLIO_ITEMS, mediaOrientation, type PortfolioItem } from "@/lib/portfolio";
 import { REELS_IN_DISPLAY_ORDER, realEstateReelsPath } from "@/lib/real-estate-reels";
 import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
@@ -75,6 +75,9 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
   const reelHref = realEstateReelsPath(locale);
+  const unboxingHref = isSpanish
+    ? "/es/video-de-unboxing-y-demostracion-de-producto-south-florida"
+    : "/services/product-unboxing-demo-video-south-florida";
 
   if (items.length === 0) {
     return null;
@@ -150,10 +153,26 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // starts the video immediately instead of navigating away.
                 embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&loop=1&playlist=BDRru8eXaj4&rel=0",
                 // The card is deliberately an iPhone-shaped editorial tile,
-                // while the published review itself is a widescreen film.
+                // while the published review itself is a widescreen film
+                // (youtube.com/shorts/BDRru8eXaj4 redirects to /watch, 2026-10-28).
                 playerAspect: "landscape" as const,
+                orientation: "landscape" as const,
               };
-            }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
+            }), {
+              id: "sony-alpha-7-iv-unboxing",
+              href: unboxingHref,
+              title: isSpanish ? "Unboxing Sony Alpha 7 IV" : "Sony Alpha 7 IV unboxing",
+              eyebrow: isSpanish ? "Unboxing de producto" : "Product unboxing",
+              poster: "/portfolio/sony-a7iv-unboxing.png",
+              posterAlt: isSpanish ? "Unboxing de una Sony Alpha 7 IV" : "Sony Alpha 7 IV unboxing",
+              phoneFrame: true,
+              videoSurface: true,
+              videoSurfaceLabel: "Sony Alpha 7 IV",
+              videoSrc: "/portfolio/sony-a7iv-unboxing.mp4",
+              // ffprobe 2026-10-28: 720x1280. A vertical clip, so it fills
+              // the phone screen and opens in a 9:16 stage.
+              orientation: "portrait" as const,
+            }, ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,
               href: reelHref,
               title: isSpanish ? reel.titleEs : reel.title,
@@ -164,6 +183,8 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 : `Frame from a property video: ${reel.title}`,
               isReel: true,
               videoSrc: reel.src,
+              // Every property Reel is 720x1280 or 576x1024 (ffprobe 2026-10-28).
+              orientation: "portrait" as const,
             })), ...items.map((item) => {
               const poster = getPoster(item);
               const isYouTubeVideo = item.media.kind === "youtube";
@@ -213,6 +234,9 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                   ? `https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${item.media.videoId}&rel=0`
                   : undefined,
                 videoSrc: item.media.kind === "video" ? item.media.src : undefined,
+                // From the item's own declared aspect: a Short is 9:16 and
+                // fills the phone; a film is 16:9 and stays whole.
+                orientation: mediaOrientation(item.media),
               };
             })]}
           />

@@ -1,3 +1,101 @@
+## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
+
+Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.
+
+- lib/llms-base.txt: bilingual subtitling service added to the hand-written Core Pages (EN) and Spanish Pages (ES) lists, plus two target questions (EN + ES) in the Core questions list. The subtitling service was absent from the facts file entirely.
+- /services/bilingual-video-subtitling-service: filler intro replaced with quotable facts; specific answer-first override (human line-by-line translation, SRT or burned-in in safe zones, shorts 24-48h, longer per minute of audio, Spanish-first honesty, written quote).
+- /services/hire-remote-video-editor: specific answer-first override (upload footage and brand assets, cut/color/audio/captions, no shoot or visit, US-wide, weekly creator plans, written quotes, Spanish-first).
+
+Gates: full suite green after lastmod refresh (3,797 tests), typecheck clean, lint 0 errors, rail-adoption pass, build green; built llms.txt carries the new subtitling entries (8 mentions).
+
+Also found the same night, separate thread: ChatGPT's local card for "La Familia Media" (a real, different Fort Lauderdale agency) carries Esteban Moreno Media's description text verbatim; logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-entity-confusion-la-familia-2026-10-30.md. Fix needs his listing URLs/access, outstanding since Oct 17.
+
+## 2026-10-30 — Spanish site-wide pass, chunk 1 (spark/spanish-pass)
+
+Owner standard applied: español lindo (clear professional Latin American Spanish, tú forms, no calques) extended beyond the homepage.
+
+- es/contacto: FAQ answers rewritten in one-person tú voice, same facts; Brief Builder fold moved to first, mirroring /contact.
+- es/servicios: growth deck section rewritten ("Sitios web, chatbots y sistemas", human heading and scoping); metadata and pillar copy de-calqued ("funnel" and "handoffs" gone).
+- lib/spanish-site.ts: corporate machinery removed across niche data: "se evalúa de manera selectiva" (12) becomes "se confirma caso por caso"; the "material suministrado" family (18) becomes "el material que ya tienes"; "flujo de postproducción remota" answers and headings rewritten. Factual alignment: the náutica niche promised edited cuts in 3 to 5 business days; now "desde los 7 días" per the unified turnaround floor. The subtitling niche keeps its own scope (shorts 24-48h, long-form 3-5 days).
+- KEPT on purpose: the Sunny Isles entry's "material suministrado por el cliente" strings; they are a guarded factual-proof boundary (sunny-isles tests) where the exact client-supplied-footage wording is load-bearing.
+
+Gates: full suite green (3,797 tests), typecheck clean, lint 0 errors, rail-adoption pass, build green. Lastmod: 16 pages updated.
+
+Not in this chunk: the remaining usted-form guide sentence, /es/portafolio.
+
+# 2026-10-30 — Human-QA wave 1: top pages lead with the person (branch spark/wave1-home, on current main)
+
+- /es homepage in the owner's Spanish standard (clear, professional Latin American Spanish): the chooser heading "Empieza por la meta. Elige el oficio que te ayuda." now reads "Empieza por la meta. Elige el camino que te sirve." (steps Propósito / Método / Siguiente paso); the chooser's real-estate card is titled "Bienes raíces" instead of the English "Real Estate"; the Premium perk "flexibilidad de rollover" now says "flexibilidad para pasar videos al mes siguiente"; the camera-kit eyebrow "LA MESA DE CÁMARA" now reads "EL EQUIPO DE CÁMARA"; the crowdfunding note's "Brand film" is "Video de marca"; the same oficio calque on portfolio watch pages became "qué servicio le sirve mejor".
+- /about and /es/sobre-esteban: the link-stuffed entity paragraphs that opened both pages are replaced by one human paragraph ("you talk to the person who edits your video" / "hablas con la persona que edita tu video"); every removed link survives in a quiet closing section ("Directories, Spanish pages and guides" / "Áreas de servicio y portafolio"), so the internal-link graph is unchanged and the person now leads.
+- /contact: the Brief Builder fold moved from last to first among the help folds; the Spanish-first note now sits directly under the intro instead of inside an FAQ answer; the two corporate-voice FAQ answers (on-location availability, how quotes work) rewritten in the one-person voice with the same facts.
+- /services: the folded business-systems section lost the agency voice ("0→1 Growth Systems" eyebrow and "one accountable system" deck copy now read "Websites, chatbots and systems" and plain first-person scoping). The 100+ link directory stays folded on this page for now: it is shared with the areas pages and four test suites pin its current placement, so moving it to its own index page is its own change, not folded into this wave.
+- 404: beyond Home it now offers the routes people actually want, See the work (/portfolio), a WhatsApp quote button, and the top Spanish routes (/es, /es/portafolio, /es/contacto).
+- Not in this wave, named honestly: /portfolio's category order and the ML Colombia / Banacol listings (the items back case studies and live niche proof links, so removal is a data decision for the owner), and the Healthy Smile / Bar Door Monkey page pair (word-count gates on case pages make the cut its own careful change).
+- Gates on this machine: full vitest green in chunks (508 + 1,267 + 1,859 + 184), typecheck clean, lint 0 errors / 15 warnings, rail-adoption pass, build green. Built HTML re-read: every marker above verified present and every removed string verified absent. Merged under the owner's 2026-10-30 standing rule (Spark PRs merge automatically once gates pass).
+
+---
+# 2026-10-30 — Human-QA wave 4: conversion cluster (branch spark/wave4-conversion, stacked on spark/wave3-en, PR open, not production)
+
+- Diagnóstico/Assessment: the tool now asks the 5 questions its intro promises (new Q5, who edits today). Nothing is pre-answered, so the panel no longer opens at 100/100; the score appears only when all five are answered, and the result names the weakest area, links the matching service, and offers a WhatsApp next step prefilled with the score and the weak point. Q3 jargon removed in both languages; "bases solidas" accent and "batching mensual" fixed.
+- Turnaround unified: the budget estimator's standard delivery reads the owner floor from lib/pricing.ts TURNAROUND (from 7 days) instead of "3 - 5 business days", which contradicted /pricing and /about. Weekly-plan 48-72h and express 24-48h remain as labeled exceptions. The estimate result gained a WhatsApp send-this-estimate action.
+- Case studies: production cases list before web/AI systems on the index in both languages; the answers and limits section moved below the projects. The five thin published-media cases no longer repeat the answer paragraph verbatim as the first paragraph of "What the public record confirms" (both languages); the section opens with a shorter distinct statement.
+- Caption guides: EN and ES caption-styles guides gained a done-for-you bilingual subtitling offer block with a WhatsApp action. No price figure, deliberately: the subtitling starting price still has two live sources and waits on the owner's ruling, the same call wave 2 made.
+- "$750per month" bug fixed at the source: RailPrice puts a space before word units in the accessible name and in extracted text (slash units unchanged). Arrived via a rail-kit checkout at the pinned ref plus the fix, re-synced with scripts/sync-rail-kit.mjs; only RailPrice.tsx differs among the 100 vendored files. A matching upstream rail-kit PR carries the fix for the other consumer sites.
+- Gates on this machine: full vitest green in chunks (486 + 201 + 104 targeted + 1,279 + 1,846), typecheck clean, lint 0 errors / 23 pre-existing warnings, rail-adoption pass, rail-kit:check pass, build BUILD_ID 18d-sS13GLdWti_IQx-MQ. Built HTML re-read: spaced prices in EN and ES, unanswered Diagnóstico panel with Q5, 7-day calculator floor, case-study order and single common paragraph, both guide offer blocks. Not merged; not production.
+---
+# 2026-10-30 — Human-QA wave 3: English service pages end on the human close (branch spark/wave3-en, stacked on spark/wave2-es, PR open, not production)
+
+- GeoServicePage template: the page now ends on the ServiceInquiryRail. Order is FAQs, related services, NicheAnswers, PriorityLinks, then the quote rail last, so no answer block, directory or second contact pitch follows the human close on any of the 7 pages using this template (the real-estate page's reported "restart after Ask for a quote" disease).
+- Per-page "In short" answers via the answerOverride added in wave 2: Reels editor Fort Lauderdale and real-estate Reels now state their own answers in the page's voice; the price in the Reels answer interpolates from lib/pricing.ts (the price-single-source test caught a hand-typed figure during this branch's gates and it was fixed, not ledgered).
+- Restaurant promo page: "Tell us the location" and "Our portfolio project" voice slips fixed to the one-person voice; the colour mechanics paragraph in Editing approach no longer repeats the craft section's colour article nearly verbatim (it now points to the craft notes and keeps its unique local-brief content); the repeated opening-detail list was trimmed the same way; the tail was reordered so the page ends on the Get Started close instead of on EventSeasonLinks, SeasonalAnswer, NicheAnswers and PriorityLinks.
+- The "Who does it / Who can help" fold concatenation was already fixed at template level in wave 2 (both languages) and is inherited here.
+- Gates on this machine: full vitest green in chunks (670 + 1,279 + 1,845, plus the price-single-source re-run), typecheck clean, lint 0 errors / 23 pre-existing warnings, rail-adoption pass, rail-kit:check pass, build BUILD_ID DQoqzU6LjiYIv-tw_sMPPh. Built HTML re-read: new In short answers live on both GeoService pages, bottom order verified by marker position, restaurant voice and dedupe verified. Not merged; not production.
+---
+# 2026-10-30 — Human-QA wave 2: Spanish service pages in Esteban's voice (branch spark/wave2-es, PR open, not production)
+
+- Owner standard set this day: every Spanish page reads in clear, professional Latin American Spanish, written in Spanish rather than translated. This branch applies it to the three wave-2 service pages, /es/precios and /es/sobre-esteban.
+- Per-page "En corto" answers: ServiceAnswerFirst takes an `answerOverride`; subtitulado and editor remoto state their own answers (subtitling reviewed line by line against the audio; remote editing from the client's own footage). The ES reels page keeps the generic answer on purpose: its opening is the cited GEO text behind the ChatGPT wins, guardrail is trim later repetition only.
+- Subtitulado: the "dominio nativo de inglés y español" claim is gone (honest position: español primero, inglés intermedio, cada línea revisada), "sincronización milimétrica" hype removed from the lead, usted forms (consulte/visite/revise) unified to tú. The page and the remote-editor page gained ServiceInquiryRail entries, so both now carry the "Copia esto" first message they were missing.
+- Template fixes: the niche fold summary no longer concatenates ("Quién lo hace y cuánto cuesta" + "La persona que hace el trabajo, los precios publicados y cómo empezar."); the Spanish niche closing block now reads "Cuéntame qué quieres lograr." with a written-quote promise instead of the anti-sales "sin asumir formatos..." line; remote editor's sections heading no longer says "video corto" on a page that sells long YouTube edits.
+- /es/precios: the identical "Todos los planes incluyen" block renders once after the three real-estate plans instead of inside each plan's fold (test now asserts exactly one render); "Media de propiedad" calque rewritten; the "¿Listo para crear algo increíble?" hype close replaced in both languages ("¿Listo para empezar?" / "Ready to start?" with a written-quote lead).
+- /es/sobre-esteban: the defensive "Lo que falta publicar también queda claro" section reframed to "Prueba real, publicada."; "en el scope" anglicism removed from the trust answers.
+- Checked and NOT changed: the "English footer business block" from the QA read does not exist in the built HTML (zero matches with scripts stripped); it lives only in the entity JSON-LD, where English is the schema convention. The "$750per month" concatenation is real but its root is the vendored RailPrice sr-only string, hash-pinned to the shared rail-kit repo; the vendored file was left untouched (rail-kit:check green) and the fix belongs upstream in rail-kit, then a sync.
+- Gates on this machine: full vitest green in chunks (3,775+ tests; illustrated-commercial updated to assert the single every-plan render), typecheck clean, lint 0 errors / 23 pre-existing warnings, rail-adoption pass, rail-kit:check pass, build BUILD_ID xABAmSUqt4b-5p3VO1l_r. Built HTML re-read page by page: every fix above is present and the reels opening is byte-identical. Not merged; not production.
+---
+# 2026-10-28 — Vertical video fills the rail phone and opens in a 9:16 stage (branch fix/vertical-video-fill-rail-and-modal-20261028, PR open, not production)
+
+- Owner screenshots ("todo tiene el problema"): every rail clip sat in one 16:9 strip in the top third of the phone card, and the player cropped a vertical Reel to a slice. Each portfolio item now declares `orientation` (lib `mediaOrientation()` from the declared aspect; the teaser sets it per source). Evidence: ffprobe gives 720x1280/576x1024 for all eight local MP4s; `youtube.com/shorts/<id>` answers 200 for Hm-mI-RgvUY, YTJW6zn14S8, poIo-VCBeAw, B4d_bFQV6T0 (now `9:16`) and 303-redirects for BDRru8eXaj4 and the other films (`16:9`).
+- Rail: `.em-phone-video[data-orientation]` — portrait owns the whole phone screen (video/poster cover, YouTube iframe as a centred 9:16 box), landscape keeps a whole 16:9 frame centred. Player: phone stage is a true 9:16 box `min(100%, 86svh*9/16)`, `object-fit: contain`, panel below; desktop keeps the #611 two-column layout, landscape stage is now a true 16:9 (was 663x336). Portfolio-page players (`PortfolioVideo`, its modal, watch page) take the same `orientation`.
+- Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
+
+---
+# 2026-10-28 — GEO daily execution selector (local, ready for review)
+
+- Added the deterministic draft-only selector at `scripts/esteban-geo-execution-queue.mjs`, its 5-test suite, a zero-cost daily `fleet-slot.sh` launchd template, and the governed executor contract in `docs/geo-execution-queue.md`.
+- Live-ledger acceptance selected `esteban:es:editor-de-reels-fort-lauderdale` for `/es/editor-de-reels-fort-lauderdale`; the selector records this as `eligible`, explicitly not as a successful executor dispatch. A cluster is suppressed for 28 days only after a valid executor-owned `dispatched` receipt. Citation and outcome evidence remain source-bound; no outcome is inferred.
+- Local checks: focused Vitest 5/5, full `pnpm test` completed with no failures, `node --check`, `plutil -lint launchd/com.esteban-media.geo-execution-selector.plist`, and `git diff --check` passed. This is local only: no launch agent was installed, site was not edited, and no production change or business outcome is claimed.
+- Next: `cto-qa-lead` independently reviews the selector/state contract. After governed release, install the template through the normal fleet process and verify a selector receipt before any executor consumes a brief.
+
+# 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
+
+- Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.
+- Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
+- Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
+
+# 2026-10-28 — Personal creative-partner GEO answers (local candidate)
+
+Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first helps a small business decide whether the first need is clearer messaging, useful footage, or a page/contact path; the second tells a prospective client what to send before asking Esteban for a quote. Both point readers to existing service, work, price, and contact pages and explicitly avoid universal packages, performance promises, or an invented fixed deliverable. Sitemap inventory is 573 routes, four new watched URLs are declared, and each guide has its server-rendered FAQ and visible update date through the existing guide renderer.
+
+Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
+
+# 2026-10-28 — Bilingual personal craft homepage interlude (local candidate; not production)
+
+- Added `components/personal-craft-experience.tsx` to `/` and `/es`, immediately after the work rail and before `HomeProjectPath`. It keeps the approved hero untouched and presents the source-bounded direct-partnership promise, three short commitments, existing chooser anchor, and a server-rendered native `<details>` with only existing service and portfolio links.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` passed 3/3; `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, `git diff --check`, the experience-contract validator, and `analytics-gate.py` passed. Local EN and ES raw HTML each returned 200 and contained their promise and disclosure. Browser keyboard activation expanded the English disclosure and exposed its existing links.
+- `human-consumption-gate.mjs --site esteban-media` has no configured site entry, so it returned `--site esteban-media not in config`; this is unavailable, not a passing visual result. The production build was started but has no terminal receipt in this constrained session. Independent visual review, a complete build receipt, PR/merge/deployment, real phone/desktop production rendering, and the T+7/T+14 comparable inquiry read remain required before any production or outcome claim.
+
+---
+
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 
 - Commit `27ed763f` repairs two visual regressions found during the follow-up desktop/tablet pass: the camera contact sheet's late phone styles had erased the intended paper prints and left dark title text on dark cards; the Great Reviewer widescreen YouTube source was filling a tall vertical desktop canvas with black.
@@ -97,6 +195,11 @@
 
 - PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
 - Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+# 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth candidate)
+
+- Source scope: `app/(english)/contact/page.tsx`, `app/__tests__/contact-conversion-proof.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/contact`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/contact` beneath the main brief section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (168 test files / 3,492 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/contact` on production.
 
 ---
 
@@ -213,7 +316,29 @@
 - Production verification: Vercel marked the merge commit `success`; canonical raw HTML returns the Fort Lauderdale-only `PostalAddress`, public phone/email, and `areaServed` with Florida Keys. Canonical `/llms.txt` returns the matching coverage, transport and no-local-office wording. `/areas` retains canonical and EN/ES/x-default alternates. `pnpm seo:indexnow:run` received HTTP 200 for all 567 sitemap URLs.
 - Local checks: full `pnpm test` 177 files / 3,691 tests; typecheck; lint 0 errors / 22 existing warnings; production build; Rail adoption 3/3; diff check. Governed independent review returned `REVIEW_VERDICT: APPROVE`. This is technical entity/discovery proof, not a citation, ranking, lead or revenue result.
 
+
+# 2026-10-28 — Draft-only Gmail Lead Desk (local worktree)
+
+- Worktree: `/Users/gonzalo/code/esteban-lead-desk`, branch `codex/esteban-lead-desk`, based on `main` at `267d9dba`. The parent checkout was left untouched because it contains unrelated edits.
+- Adds `lib/lead-desk.ts`, `scripts/run-lead-desk.ts`, targeted tests and `docs/lead-desk.md`. The runner reads only Gmail label `Esteban/Leads`, creates a client reply draft and an internal Esteban alert draft, keeps a local status log, and has no Gmail send endpoint.
+- Rate logic reads only `lib/pricing.ts`. A birthday request without date, venue, hours and deliverables asks for those details without showing a price. Complete solo 4-hour capture returns the owner-approved $400 half-day internal match; it still does not confirm availability.
+- Verification: `pnpm vitest run lib/__tests__/lead-desk.test.ts` passed 3/3; `pnpm typecheck` passed; `pnpm test` passed 166 files / 3,472 tests; `git diff --check` passed. The runner's no-token check stopped before Gmail access with `GMAIL_LEAD_DESK_ACCESS_TOKEN is required`.
+- Mailbox evidence: Google Workspace now displays `Gmail is set up!` and `Gmail is ready`. DNS reads returned root SPF `include:_spf.google.com`, Google DKIM, DMARC `p=none`, and MX `1 smtp.google.com.`. The birthday thread was manually labeled `Esteban/Leads` in the new mailbox.
+- Open before activation: obtain a scoped OAuth token for `info@...` with Gmail modify/compose access, choose Esteban's alert recipient, then run one controlled lead through to two drafts. Do not send client mail automatically.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
+
+# 2026-10-24 — Camera Bench + supplied unboxing refresh live
+
+- `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` now give the confirmed Sony Alpha 7 IV and Canon EOS Rebel T5i a larger, unified mobile swipe shelf and add the supplied Instagram unboxing Reel as an explicit external action. Instagram returns `x-frame-options: DENY`, so it must remain an external link rather than an embed.
+- Production: PR #537 merged as `d9769fb04a57c55825dae8f94f44daf2742dc542`; Vercel deployment `dpl_13v72fYK1weQTSD7rnd157Vi9ppW` reached Ready. `curl -fsSL https://estebanmorenomedia.com/es` returned HTTP/2 200 plus both camera names, the Spanish unboxing label, and `https://www.instagram.com/reel/DepBjEbBl9P/`.
+
+# 2026-10-21 — Social funnel contact repair (PR #507)
+
+- Branch `fix/social-funnel-conversion`, commit `8a2bc293`, adds a direct WhatsApp option in the chooser's first contact state. The message carries the selected project label, so a visitor can contact Esteban without entering name/email/phone after choosing a lane. This responds to the latest GA4 social funnel: 3 form starts and 0 submits, but it does not claim an outcome until live traffic is measured.
+- Regression: focused `home-packaging-human` passed 18/18; `pnpm typecheck`, lint (0 errors; existing warnings), and `pnpm build` passed. PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/507. Next: await CI/review, merge under normal authority, then verify the live mobile chooser and GA4 `home_path_funnel_direct_whatsapp` event.
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
 - Production evidence: `pnpm seo:verify` passed three consecutive reads on 2026-10-20: 530 indexable pages, 16 video-sitemap pages, 98 guide pages, 265 English and 265 Spanish routes, GA4 `G-W9CM4CE2MQ`, and a 1200x630 social card. The first full `pnpm check` exposed a distinct stale fixture: `es/chatbot-con-ia-para-negocios` intentionally changed with the Web AI service release but the Spanish text-parity snapshot was not refreshed. Rebuilding the exact fixture captured 194 routes; the parity check then passed all 194.
@@ -722,3 +847,29 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The supplied `https://link.amazon/B0f98xMnt` returned HTTP 404, so no Amazon/product button is in the implementation. The supplied photo is a reference only and is not shipped.
 - Checks: focused 4/4, `pnpm test` 178 files / 3,698 tests, typecheck, lint 0 errors / 22 existing warnings, analytics gate PASS, and a successful second `pnpm build` (608 pages). Local raw EN/ES HTML and desktop/390×844 interaction were checked.
 - No commit, PR, merge, deployment or independent review. Next: obtain a scoped independent review; then commit, PR, merge and canonical production phone/desktop proof. Durable record: `[[esteban-accessory-setup-candidate-2026-10-28]]`.
+# 2026-10-28 — Full-body camera leatherette (PR #603, rebuilt)
+
+- Owner (screenshot 2026-10-28): the whole chooser card must read as camera leatherette, not only the grip. `.em-camera-chooser__body` now tiles `public/illustrations/camera-leatherette-tile.png` (36.6 KB, 256px seamless pebble tile generated with PIL at 2x, shown at 128px) across the full body, with a brushed top-plate band over the top 22% where the flash/viewfinder/dial/shutter sit and a soft vignette. PR #603's 100 KB WebP was removed. Nothing new animates; the reduced-motion block is unchanged.
+- Measured on the local dev render with Playwright + PIL (`scratchpad/leatherette/measure.py`): grain luminance stddev inside a 60x60 body patch with text and lens masked = 7.97 (390x844) and 9.28 (1280x800), threshold > 4; serif title vs worst-case sampled background = 11.25:1 and 11.48:1, threshold 4.5:1.
+- Gates: `tsc --noEmit` 0, `eslint` 0 errors / 22 pre-existing warnings, `vitest run app/__tests__/home-packaging-human.test.ts` 38/38, `next build` exit 0 (612 pages). Not merged; production proof pending the merge.
+
+# 2026-10-28 — Celebration card: 4K landscape cover (PR pending)
+- Owner reported the "Parties and celebrations" card looked incomplete and low quality. Measured cause: the cover/loop were a 540x960 portrait clip stretched ~2x into a landscape card. Found the owner's 4K yacht clip (`IMG_6214.MOV`, 3840x2160 rotated portrait, 2.87s, Messages attachment 2026-10-28 16:12); cut a 2160x1215 landscape band (skyline + Ferris wheel + water) into `yacht-party-miami-skyline-{cover.jpg,poster.jpg,loop.mp4}` (loop 1600x900 h264 crf29, 1.3 MB, no audio). Served pixels now >= displayed device pixels at 390@3x and 1280@2x; autoplay muted inline verified; reduced-motion hides the loop. The 4K original of the earlier boat-passing clip (`yacht-party-miami.mp4`, 540x960) is not on this machine.
+# 2026-10-28 — Personal craft experience section (local only)
+
+- `components/personal-craft-experience.tsx` is rendered after `PortfolioTeaser` and before `HomeProjectPath` on the English and Spanish homepages. It sells Esteban as a direct creative partner through a source-bounded promise, three commitments, existing project chooser action, and server-rendered native `<details>` links to existing services/portfolio. It does not touch the approved hero or invent price, freebies, reviews or outcomes.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` 3/3; lint 0 errors / 22 existing warnings; typecheck 0; analytics gate PASS; `pnpm lastmod:update` changed two home records; `git diff --check` needs rerun after final edits. The full build and dev server could not finish while disk availability was 6.2 GiB and concurrent Next builds were active. No PR, production or visual approval claim.
+- Next: clean host build contention, run `pnpm build`, inspect 375x600 + 390x844 + desktop and raw EN/ES HTML, get Antigravity craft review, then open scoped PR.
+
+
+## 2026-10-28 — Prices: one source of truth (lib/pricing.ts)
+- Owner rule: every price on the site, FAQ answers, WhatsApp CTAs, llms.txt and the client catalog PDF must match and come from `lib/pricing.ts`. Enforced by `app/__tests__/price-single-source.test.ts` (no hand-typed `$N` outside pricing.ts except the ledgered market figures; llms-base.txt uses `{{TOKENS}}`; every `$N` in `public/deliverables/esteban-moreno-media-catalogo-2026.html` must exist in pricing.ts).
+- `lib/services-config.ts` no longer holds its own copies of rates; it reads pricing.ts. New constants: `REAL_ESTATE_DRONE_PHOTO_ADD_ON`, `REAL_ESTATE_MEDIA_PRICES`, `CELEBRATION_FILM_BUNDLES.yacht*`.
+- 2026-10-28 ladder (market review PDF sent to Esteban): filming $125/h ($500/$1,000), two-person $200/h ($800/$1,600), turnkey $950/$2,000 · $1,600/$3,000, yacht turnkey $1,800/$3,200, celebrations $1,200/$2,800/$4,000, Crecimiento $800/mo, Presencia Local $1,600/mo, RE plans $600/$950/$1,500, product photo $350, commercial $1,500/$3,500/$8,500–12,000.
+- Regenerate the catalog PDF after any price change: edit `public/deliverables/esteban-moreno-media-catalogo-2026.html`, render with Playwright to `esteban-moreno-media-catalogo-servicios-tarifas-2026.pdf`, copy both to the vault `deliverables/`.
+
+# 2026-10-30 — /pay payment redirect (Spark direct build, PR pending)
+- Built by Spark directly from its own VM (Track A), not through the CTO bridge: `app/pay/route.ts` answers GET /pay with a 307 redirect to the live Stripe Payment Link, now single-sourced as `site.pay` in `lib/site.ts` (customer-set amount, $25 minimum, live 2026-10-29). 307 on purpose: the printed QR points at /pay forever and the Stripe destination must never be cached as permanent.
+- Why a route handler and not next.config: `app/__tests__/redirect-integrity.test.ts` requires every config redirect destination to be a real app route, so an external Stripe destination there fails the suite.
+- Gates on Spark's VM: `pnpm test` 192 files / 3,796 tests passed (includes new `app/__tests__/pay-redirect.test.ts`, 2 tests), `pnpm typecheck` clean, `pnpm lint` 0 errors / 23 pre-existing warnings, `pnpm rail-adoption:check` passed.
+- Next: PR review and merge on Gonzalo's word; after deploy, smoke-test https://estebanmorenomedia.com/pay lands on the Stripe checkout, then point the configurable QR at /pay (until then the QR points at the Stripe link directly).

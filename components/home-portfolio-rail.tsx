@@ -38,6 +38,10 @@ export type HomePortfolioCard = {
   embedUrl?: string;
   /** The player respects the film's own frame independently of its card shell. */
   playerAspect?: "landscape";
+  /** How the film is framed. Portrait fills the phone screen and gets a 9:16
+      stage; landscape keeps a whole 16:9 frame. Falls back to `playerAspect`
+      and otherwise to portrait, the shape most of this portfolio is. */
+  orientation?: "portrait" | "landscape";
   href: string;
   title: string;
   eyebrow: string;
@@ -48,6 +52,12 @@ export type HomePortfolioCard = {
   /** What the still shows, for people who cannot see it. */
   posterAlt?: string;
 };
+
+/** Explicit orientation wins; the legacy `playerAspect` flag is honoured;
+    otherwise portrait, because Reels and Shorts are the bulk of this shelf. */
+export function cardOrientation(item: Pick<HomePortfolioCard, "orientation" | "playerAspect">): "portrait" | "landscape" {
+  return item.orientation ?? (item.playerAspect === "landscape" ? "landscape" : "portrait");
+}
 
 export function HomePortfolioRail({
   locale,
@@ -93,6 +103,7 @@ export function HomePortfolioRail({
         src: item.videoSrc,
         embedUrl: item.embedUrl,
         aspect: item.playerAspect,
+        orientation: cardOrientation(item),
         poster: item.poster,
       });
     }
@@ -249,7 +260,13 @@ export function HomePortfolioRail({
             order. `rail-sr-only` is the kit's own hidden-text class. */}
         <span className="rail-sr-only">{isSpanish ? "Ver " : "Watch "}</span>
         {item.videoSurface ? (
-          <span className="em-phone-video" aria-hidden="true">
+          /* data-orientation drives the screen shape in globals.css: a
+             portrait clip owns the whole phone screen (object-fit cover is
+             honest here, the frame IS a phone); a landscape film keeps its
+             whole 16:9 frame, centred, never cropped. Before 2026-10-28 every
+             source sat in one 16:9 strip in the top third of the phone, so a
+             9:16 Reel showed as a small letterboxed band over black. */
+          <span className="em-phone-video" data-orientation={cardOrientation(item)} aria-hidden="true">
             <span className="em-phone-video__top">
               <span className={`em-phone-video__wordmark em-phone-video__wordmark--${item.videoSurfaceBrand ?? "youtube"}`}>
                 {item.videoSurfaceBrand === "instagram" ? "Instagram" : "YouTube"}
@@ -257,6 +274,9 @@ export function HomePortfolioRail({
               <span className="em-phone-video__live">Now playing</span>
             </span>
             <span className="em-phone-video__screen">
+              {item.poster ? (
+                <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
+              ) : null}
               {item.embedUrl && item.id === litId && !reduced ? (
                 <iframe
                   className="em-phone-video__embed"
@@ -266,9 +286,20 @@ export function HomePortfolioRail({
                   tabIndex={-1}
                   onLoad={(event) => startPreview(event.currentTarget)}
                 />
-              ) : (
-                <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
-              )}
+              ) : item.videoSrc && item.id === litId && !reduced ? (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src={item.videoSrc}
+                  poster={item.poster}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  preload="auto"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                />
+              ) : null}
             </span>
             <span className="em-phone-video__info">
               <strong>{item.title}</strong>
@@ -334,6 +365,7 @@ export function HomePortfolioRail({
           src: i.videoSrc,
           embedUrl: i.embedUrl,
           aspect: i.playerAspect,
+          orientation: cardOrientation(i),
           poster: i.poster!,
         }))}
       locale={locale}

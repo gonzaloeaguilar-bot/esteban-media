@@ -11,6 +11,9 @@ interface PortfolioVideoProps {
   poster: string;
   title: string;
   locale: "en" | "es";
+  /** A Short plays in a 9:16 stage; a film in 16:9. Defaults to landscape. */
+  orientation?: "portrait" | "landscape";
+  hideExtraLinks?: boolean;
 }
 
 export function PortfolioVideo({
@@ -19,7 +22,10 @@ export function PortfolioVideo({
   poster,
   title,
   locale,
+  orientation = "landscape",
+  hideExtraLinks = false,
 }: PortfolioVideoProps) {
+  const portrait = orientation === "portrait";
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const playerRef = useRef<HTMLIFrameElement>(null);
@@ -46,7 +52,11 @@ export function PortfolioVideo({
 
   return (
     <div>
-      <div className="relative aspect-video overflow-hidden rounded-t-xl bg-[#101214]">
+      <div
+        className={`relative overflow-hidden rounded-t-xl bg-[#101214] ${portrait ? "mx-auto aspect-[9/16]" : "aspect-video"}`}
+        data-orientation={orientation}
+        style={portrait ? { width: "min(100%, calc(86svh * 9 / 16))" } : undefined}
+      >
         {isPlaying ? (
           <iframe
             ref={playerRef}
@@ -105,25 +115,27 @@ export function PortfolioVideo({
         {isPlaying ? loadedLabel : ""}
       </p>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 px-5 sm:px-6">
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e]/40 underline-offset-4 transition hover:text-[#7f2f20]"
-        >
-          {watchLabel}
-          <ExternalLink className="size-4" aria-hidden="true" />
-        </a>
-        <button
-          type="button"
-          onClick={() => setIsModalOpen(true)}
-          className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full border border-[#c84a2c]/30 bg-[var(--em-accent-ink)]/5 px-3 py-1 text-xs font-semibold text-[var(--em-accent-ink)] transition hover:bg-[var(--em-accent-ink)] hover:text-white"
-        >
-          <Sparkles className="size-3.5" aria-hidden="true" />
-          {locale === "es" ? "Reproducción Lightbox" : "Lightbox Player"}
-        </button>
-      </div>
+      {!hideExtraLinks ? (
+        <div className="flex flex-wrap items-center justify-between gap-2 px-5 sm:px-6">
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+          >
+            {watchLabel}
+            <ExternalLink className="size-4" aria-hidden="true" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full border border-[#c84a2c]/30 bg-[var(--em-accent-ink)]/5 px-3 py-1 text-xs font-semibold text-[var(--em-accent-ink)] transition hover:bg-[var(--em-accent-ink)] hover:text-white"
+          >
+            <Sparkles className="size-3.5" aria-hidden="true" />
+            {locale === "es" ? "Reproducción Lightbox" : "Lightbox Player"}
+          </button>
+        </div>
+      ) : null}
 
       <PortfolioVideoModal
         videoId={videoId}
@@ -131,6 +143,7 @@ export function PortfolioVideo({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         locale={locale}
+        orientation={orientation}
       />
     </div>
   );

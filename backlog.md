@@ -5,9 +5,16 @@
 
 ## 2026-10-24 — Camera Bench and product-unboxing refresh
 
+- [x] Add complete published Sony Alpha 7 IV and Canon EOS Rebel T5i specifications plus the supplied tagged Amazon links inside each opened camera disclosure. PR #601: local gates and rendered EN check pass; merge and production verification remain open in [[esteban-camera-amazon-specs-2026-10-28]].
+
+- [x] Replace the rejected desktop tilted paper-camera cards with a straight film-strip presentation. Branch `fix/camera-filmstrip-20261028`: two frames, visible sprocket holes, no cream card border or rotation; local 1440×900 and 390×844 reads plus repository gates passed. Release verification remains open.
+
 - [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
 
 - [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
+## 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth:2026-10-24:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/contact`: embed verified Google reviews (`ClientReviews`), linking brand searchers ("esteban moreno media" -> `/contact`) to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (168 files / 3,492 tests), and `priority-growth-project-verify.sh`.
 
 ## 2026-10-23 — Local GBP conversion proof on About page
 
@@ -46,7 +53,11 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-28: build deterministic draft-only GEO execution selector, source-bound brief contract, focused coverage, and a `fleet-slot.sh` launchd template. Local validation passed; it is not installed or production-active. Independent review and governed fleet installation remain required.
+
 - [ ] 2026-10-28: merge and production-verify homepage reel player repair in PR #591. The visible Great Reviewer card must mount the one muted looping YouTube player at phone width, show no simulated scrubber or second orange play control, and preserve the card’s details action. Record the canonical production URL and 390px rendered result before closing.
+
+- [ ] 2026-10-28: review and release the bilingual personal-craft homepage interlude. Confirm its complete optimized build, independently inspect the exact phone/desktop composition and native disclosure, then merge/deploy and verify canonical EN/ES raw HTML plus real rendered routes. At T+7 and T+14, compare homepage `home_contact_whatsapp`, `home_contact_email`, and `lead_submit` cohorts; qualified-inquiry impact is unmeasured until then.
 
 - [ ] 2026-10-28: release `feat/commercial-geo-guides-20261028` only after a fresh governed independent review, complete build receipt, valid PR checks, and canonical mobile/desktop production verification. Re-measure the three exact GSC query×page cohorts after 28 days; no rank, citation, inquiry, or revenue result is assumed.
 
@@ -65,6 +76,8 @@
 - [x] 2026-10-23: Prepare the content-depth refinement for `/guides/best-caption-styles-for-instagram-reels`: outcome-specific title and H1, a two-sentence answer-first opening, expanded safe-zone guidance, two closely related guide links, retained restaurant-editing service link, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` completed without failures. Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.
 
 - [x] 2026-10-22: Prepare the content-depth refinement for `/guides/corporate-video-production-cost-miami`: specific budget-and-comparison H1 and metadata, answer-first scope boundary, two quote-comparison FAQ answers, retained contextual internal links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; search and inquiry impact remain unmeasured.
+
+- [ ] Activate the local draft-only Lead Desk from `codex/esteban-lead-desk`: create the scoped Gmail OAuth consent for `info@estebanmorenomedia.com`, set Esteban's alert email, then verify one `Esteban/Leads` message creates exactly one client reply draft plus one owner-alert draft. Never enable automatic client sends. See `docs/lead-desk.md` and [[wiki/esteban-lead-desk-pricing-agent-2026-10-28]].
 
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
@@ -191,6 +204,9 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add interactive bilingual daily video script timer & pacing calculator surface (`/daily-script-timer` and `/es/temporizador-de-guiones-de-video`)
 
 ## P2 — Portfolio refinement
+
+- [ ] Restore the approved homepage work rail on current main: Great Reviewer first; Banacol and ML Colombia absent only from the home rail; complete portrait Reels rendered as phone-shaped cards. Add one combined order/exclusion/device-shell regression test and verify production on 375×600, 390×664, 390×844, and desktop. (2026-10-26 regression audit)
+- [ ] Restore EN→ES content parity missed by #505, #510, #516 and #527 (`/services/reels-editor-fort-lauderdale`, `/services`, `/about`, `/areas`, `/contact` and their Spanish pairs), then add a deterministic reciprocal-content/`<lastmod>` audit that catches locale-specific source changes without falsely refreshing pages for shared-template-only changes. Verify against the served sitemap after release. (2026-10-26 audit)
 
 - [ ] Replace the 480×360 `La Huelga` poster with an approved 16:9 high-resolution source
 - [ ] Complete Esteban/native-speaker voice review of the Spanish portfolio copy

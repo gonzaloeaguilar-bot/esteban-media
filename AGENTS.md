@@ -22,7 +22,7 @@ Read this file before changing the repository. Obsidian is the project-context s
 - Public name: Esteban Moreno Media
 - Owner: Esteban Moreno López
 - Technical/project operator: Gonzalo
-- Email: `esmolopez@gmail.com`
+- Email: `info@estebanmorenomedia.com`
 - Phone: `(305) 497-4478`
 - Base: Fort Lauderdale; service-area business with no public studio
 - Markets: Broward and Miami-Dade; Palm Beach County is an expansion area

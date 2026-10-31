@@ -36,14 +36,14 @@ for (const locale of ["en", "es"] as const) {
   describe(`home ${locale}: packaging after the chooser`, () => {
     it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
-      expect(prices).toContain("$640");
-      expect(prices).toContain("$800");
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640\/(mo|month|mes)</);
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
+      expect(prices).toContain("$950");
+      expect(prices).toContain("$1,600");
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$950\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600\/[^<]+</);
     });
 
-    it("1b. the top-level buyer routes include private celebrations and no parallel one-off card remains", () => {
-      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(7);
+    it("1b. the top-level buyer routes keep private celebrations inside the project-card system", () => {
+      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(8);
       expect(path).not.toContain("em-single-project-entry");
       expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
       expect(path).toContain(locale === "en" ? "Local businesses" : "Negocios locales");
@@ -58,18 +58,40 @@ for (const locale of ["en", "es"] as const) {
       const celebrationStart = path.indexOf('data-route="private-celebrations"');
       const celebrations = path.slice(celebrationStart);
       expect(celebrationStart).toBeGreaterThan(-1);
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
-      expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
-      expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200 · hasta 4 horas" : "from $1,200 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $2,800 · hasta 8 horas" : "from $2,800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "desde $4,000 · hasta 8 horas" : "from $4,000 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,800 · medio día" : "from $1,800 · half day");
+      expect(celebrations).toContain("$3,200");
+      // Measurement rides on the shared track.js layer (one writer per event):
+      // the open tap, every package tap and the WhatsApp CTA all carry data-cta.
+      expect(celebrations).toContain(`data-cta="home_project_route_${locale}_private-celebrations"`);
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_${locale}_yacht-party-film"`.replace("yacht-party-film", locale === "es" ? "película-de-fiesta-en-yate" : "yacht-party-film"));
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_whatsapp_${locale}"`);
+      expect(celebrations).not.toContain("em-private-celebrations__packages");
+      expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
+      expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
+      expect(celebrations).toContain('autoPlay');
+      expect(celebrations).toContain('playsInline');
+      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-skyline-poster.jpg"');
+      expect(celebrations).toContain('disableRemotePlayback');
+      expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
+      expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');
+      expect(celebrations).toContain('class="em-route-card__private-celebrations-cover"');
+      expect(celebrations).toContain('disablePictureInPicture');
     });
 
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
-      expect(component).toContain("lg:max-w-6xl");
-      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
-      expect(css).toContain(".em-route-card:last-child,.em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain("@media(min-width:1100px){");
+      // An open card takes over all of the position and hides closed siblings
+      expect(css).toContain(".em-route-list:has(.em-route-card[open]) .em-route-card:not([open]){display:none!important}");
+      expect(css).toContain(".em-route-card[open]{grid-column:1/-1!important;width:100%!important}");
+      expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
@@ -113,6 +135,8 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
       expect(component).toContain('autoPlay loop muted playsInline preload="metadata"');
       expect(css).toContain('.em-route-card__real-estate-loop{display:none}');
+      expect(component).toContain("privateCelebrationVideoRef");
+      expect(component).toContain("void video.play().catch(() => {})");
     });
 
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
@@ -138,7 +162,8 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:218px");
       expect(css).toContain(".em-camera-chooser__camera{position:absolute;inset:0;pointer-events:none}");
       expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:55px;left:25px;width:132px;height:132px");
-      expect(css).toContain("repeating-radial-gradient(ellipse at 18% 20%");
+      expect(css).toContain('/illustrations/camera-leatherette-tile.png');
+      expect(css).toContain("background-size:auto,100% 22%,100% 22%,auto,128px 128px");
       expect(css).toContain(".em-camera-chooser__dial{position:absolute;top:25px;right:88px;display:block");
       expect(css).toContain(".em-camera-chooser__grip{position:absolute;right:-3px;bottom:20px;display:block");
       expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:248px");
@@ -224,11 +249,14 @@ for (const locale of ["en", "es"] as const) {
       const celebrations = path.slice(celebrationsStart);
       expect(celebrationsStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
-      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "Desde $1,200 · hasta 4 horas" : "From $1,200 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
       expect(celebrations).toContain("https://wa.me/");
       expect(celebrations).toContain("home_private_celebrations_whatsapp");
-      expect(celebrations).toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).not.toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
+      expect(celebrations).toContain(locale === "es" ? "Película de tu celebración" : "Your celebration film");
+      expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,200" : "from $1,200");
     });
 
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
@@ -257,8 +285,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel.indexOf("em-funnel-summary")).toBeGreaterThan(-1);
       expect(funnel.indexOf("em-funnel-summary")).toBeLessThan(funnel.indexOf("<input"));
       expect(funnel).toContain(growth);
-      expect(funnel).toContain("$640");
-      expect(funnel).toContain("$800");
+      expect(funnel).toContain("$950");
+      expect(funnel).toContain("$1,600");
       expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
       expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });

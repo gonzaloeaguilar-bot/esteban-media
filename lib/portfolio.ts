@@ -12,13 +12,13 @@
 
 /** Keep in sync with `Portfolio.categories.*` in both message files. */
 export const PORTFOLIO_CATEGORY_IDS = [
+  "social-content",
+  "web-design",
   "business-promos",
   "events",
   "editing",
-  "social-content",
-  "narrative",
   "animation",
-  "web-design",
+  "narrative",
 ] as const;
 
 export type PortfolioCategoryId = (typeof PORTFOLIO_CATEGORY_IDS)[number];
@@ -57,7 +57,10 @@ export interface SelfHostedVideoSource {
  * A selected video from Esteban's public YouTube portfolio.
  *
  * `url` is always the canonical watch URL for `videoId`. `poster` is a local
- * approved still. Portfolio videos are landscape and therefore fixed to 16:9.
+ * approved still. Most portfolio films are landscape (16:9); a Short is
+ * vertical (9:16). Verified 2026-10-28 per id: `https://www.youtube.com/shorts/<id>`
+ * answers 200 for a real Short and 303-redirects to `/watch` for a landscape
+ * film. The player sizes its stage from this value, so it must be right.
  */
 export interface YouTubeSource {
   kind: "youtube";
@@ -68,7 +71,7 @@ export interface YouTubeSource {
   uploadDate: string;
   /** Public YouTube duration in ISO 8601 format. */
   duration: string;
-  aspect: "16:9";
+  aspect: "16:9" | "9:16";
   /** Public YouTube title for source-specific schema and sitemap entries. */
   title?: string;
 }
@@ -153,17 +156,89 @@ export interface PortfolioItem {
  */
 export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
   {
-    id: "gains-from-geebs-shorts", category: "social-content", title: "Gains From Geebs Short-Form Videos", titleI18nKey: "gains-from-geebs-shorts", descriptionI18nKey: "gains-from-geebs-shorts", creditsI18nKey: "gains-from-geebs-shorts", status: "live",
-    media: { kind: "youtube", videoId: "Hm-mI-RgvUY", url: "https://www.youtube.com/watch?v=Hm-mI-RgvUY", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-08-24T00:00:00-07:00", duration: "PT0M31S", aspect: "16:9" },
-    companionVideos: [{ kind: "youtube", videoId: "B4d_bFQV6T0", url: "https://www.youtube.com/watch?v=B4d_bFQV6T0", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-06-14T00:00:00-07:00", duration: "PT0M36S", aspect: "16:9", title: "Your workout plan has to fit your actual week" }],
+    id: "great-reviewer-iphone-18",
+    category: "social-content",
+    title: "The Great Reviewer: iPhone 18 Pro Max Content Reel",
+    titleI18nKey: "great-reviewer-iphone-18",
+    descriptionI18nKey: "great-reviewer-iphone-18",
+    creditsI18nKey: "great-reviewer-iphone-18",
+    year: 2026,
+    featured: true,
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "BDRru8eXaj4",
+      url: "https://www.youtube.com/watch?v=BDRru8eXaj4",
+      // Exact YouTube preview, mirrored locally so cards, social previews,
+      // JSON-LD, and the video sitemap all use the same stable image.
+      poster: "/portfolio/great-reviewer-iphone-18.jpg",
+      uploadDate: "2026-10-06T00:00:00-07:00",
+      duration: "PT8M54S",
+      aspect: "16:9",
+    },
   },
-  { id: "exatlon", category: "social-content", title: "Exatlón Intro Video", titleI18nKey: "exatlon", descriptionI18nKey: "exatlon", creditsI18nKey: "exatlon", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT9gcdgJnX/", poster: "/portfolio/exatlon.jpg", aspect: "16:9" } },
-  { id: "juanchis-burguer", category: "business-promos", title: "Juanchis Burguer Social Media Campaign", titleI18nKey: "juanchis-burguer", descriptionI18nKey: "juanchis-burguer", creditsI18nKey: "juanchis-burguer", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT8pOZgk2a/", poster: "/portfolio/juanchis-burguer.jpg", aspect: "16:9" } },
-  { id: "portosole", category: "business-promos", title: "Portosole Social Media Campaign", titleI18nKey: "portosole", descriptionI18nKey: "portosole", creditsI18nKey: "portosole", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT88jEAHY0/", poster: "/portfolio/portosole.jpg", aspect: "16:9" } },
   {
-    id: "punto-de-giro", category: "narrative", title: "Punto de Giro Documentary", titleI18nKey: "punto-de-giro", descriptionI18nKey: "punto-de-giro", creditsI18nKey: "punto-de-giro", status: "live",
-    media: { kind: "youtube", videoId: "jSKjcamLIG0", url: "https://www.youtube.com/watch?v=jSKjcamLIG0", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-04T00:00:00-07:00", duration: "PT1M11S", aspect: "16:9" },
-    companionVideos: [{ kind: "youtube", videoId: "gZGY9xNqCCY", url: "https://www.youtube.com/watch?v=gZGY9xNqCCY", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-06T00:00:00-07:00", duration: "PT4M37S", aspect: "16:9", title: "Detrás de cámara - Documental Punto de Giro" }],
+    id: "gains-from-geebs-shorts",
+    category: "social-content",
+    title: "Gains From Geebs Short-Form Videos",
+    titleI18nKey: "gains-from-geebs-shorts",
+    descriptionI18nKey: "gains-from-geebs-shorts",
+    creditsI18nKey: "gains-from-geebs-shorts",
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "Hm-mI-RgvUY",
+      url: "https://www.youtube.com/watch?v=Hm-mI-RgvUY",
+      poster: "/portfolio/gains-from-geebs-shorts.jpg",
+      uploadDate: "2026-08-24T00:00:00-07:00",
+      duration: "PT0M31S",
+      aspect: "9:16",
+    },
+    companionVideos: [
+      {
+        kind: "youtube",
+        videoId: "B4d_bFQV6T0",
+        url: "https://www.youtube.com/watch?v=B4d_bFQV6T0",
+        poster: "/portfolio/gains-from-geebs-shorts.jpg",
+        uploadDate: "2026-06-14T00:00:00-07:00",
+        duration: "PT0M36S",
+        aspect: "9:16",
+        title: "Your workout plan has to fit your actual week",
+      },
+    ],
+  },
+  {
+    id: "ml-colombia",
+    category: "social-content",
+    title: "ML Colombia",
+    titleI18nKey: "ml-colombia",
+    descriptionI18nKey: "ml-colombia",
+    creditsI18nKey: "ml-colombia",
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "poIo-VCBeAw",
+      url: "https://www.youtube.com/watch?v=poIo-VCBeAw",
+      poster: "/portfolio/ml-colombia.jpg",
+      uploadDate: "2022-08-31T17:10:32-07:00",
+      duration: "PT0M24S",
+      aspect: "9:16",
+    },
+  },
+  {
+    id: "exatlon",
+    category: "social-content",
+    title: "Exatlón Intro Video",
+    titleI18nKey: "exatlon",
+    descriptionI18nKey: "exatlon",
+    creditsI18nKey: "exatlon",
+    status: "live",
+    media: {
+      kind: "instagram",
+      url: "https://www.instagram.com/p/CBT9gcdgJnX/",
+      poster: "/portfolio/exatlon.jpg",
+      aspect: "16:9",
+    },
   },
   {
     id: "flas-concierge",
@@ -278,42 +353,40 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     },
   },
   {
-    id: "bar-door-monkey",
-    category: "business-promos",
-    title: "Bar Door Monkey Miami",
-    titleI18nKey: "bar-door-monkey",
-    descriptionI18nKey: "bar-door-monkey",
-    creditsI18nKey: "bar-door-monkey",
-    year: 2020,
-    location: "Miami",
+    id: "front-line-auto",
+    category: "web-design",
+    title: "Frontline Auto Repair & AI Service Concierge",
+    titleI18nKey: "front-line-auto",
+    descriptionI18nKey: "front-line-auto",
+    creditsI18nKey: "front-line-auto",
+    year: 2026,
+    location: "Miami / Broward",
+    websiteUrl: "https://frontlineautosfl.com/",
     featured: true,
     status: "live",
     media: {
-      kind: "youtube",
-      videoId: "m1PZOcutQHg",
-      url: "https://www.youtube.com/watch?v=m1PZOcutQHg",
-      poster: "/portfolio/bar-door-monkey.jpg",
-      uploadDate: "2022-08-31T17:06:40-07:00",
-      duration: "PT0M55S",
+      kind: "image",
+      src: "/portfolio/front-line-auto.jpg",
+      alt: "Frontline Auto Repair Platform & AI Service Concierge Bot",
       aspect: "16:9",
     },
   },
   {
-    id: "diana-jack",
-    category: "events",
-    title: "Diana & Jack",
-    titleI18nKey: "diana-jack",
-    descriptionI18nKey: "diana-jack",
-    creditsI18nKey: "diana-jack",
+    id: "ai-lead-automation",
+    category: "web-design",
+    title: "Conversational AI Lead Chatbots (Geebs & FLAS)",
+    titleI18nKey: "ai-lead-automation",
+    descriptionI18nKey: "ai-lead-automation",
+    creditsI18nKey: "ai-lead-automation",
+    year: 2026,
+    location: "South Florida",
+    websiteUrl: "https://fortlauderdaleautosale.com",
     featured: true,
     status: "live",
     media: {
-      kind: "youtube",
-      videoId: "3tjLDtVrhG4",
-      url: "https://www.youtube.com/watch?v=3tjLDtVrhG4",
-      poster: "/portfolio/diana-jack.jpg",
-      uploadDate: "2022-08-31T17:21:29-07:00",
-      duration: "PT1M12S",
+      kind: "image",
+      src: "/portfolio/ai-lead-automation.jpg",
+      alt: "Custom AI Conversational Lead Bots for Geebs & FLAS",
       aspect: "16:9",
     },
   },
@@ -355,6 +428,76 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
       poster: "/portfolio/healthy-smile.jpg",
       uploadDate: "2022-08-31T16:01:17-07:00",
       duration: "PT0M18S",
+      aspect: "9:16",
+    },
+  },
+  {
+    id: "bar-door-monkey",
+    category: "business-promos",
+    title: "Bar Door Monkey Miami",
+    titleI18nKey: "bar-door-monkey",
+    descriptionI18nKey: "bar-door-monkey",
+    creditsI18nKey: "bar-door-monkey",
+    year: 2020,
+    location: "Miami",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "m1PZOcutQHg",
+      url: "https://www.youtube.com/watch?v=m1PZOcutQHg",
+      poster: "/portfolio/bar-door-monkey.jpg",
+      uploadDate: "2022-08-31T17:06:40-07:00",
+      duration: "PT0M55S",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "juanchis-burguer",
+    category: "business-promos",
+    title: "Juanchis Burguer Social Media Campaign",
+    titleI18nKey: "juanchis-burguer",
+    descriptionI18nKey: "juanchis-burguer",
+    creditsI18nKey: "juanchis-burguer",
+    status: "live",
+    media: {
+      kind: "instagram",
+      url: "https://www.instagram.com/p/CBT8pOZgk2a/",
+      poster: "/portfolio/juanchis-burguer.jpg",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "portosole",
+    category: "business-promos",
+    title: "Portosole Social Media Campaign",
+    titleI18nKey: "portosole",
+    descriptionI18nKey: "portosole",
+    creditsI18nKey: "portosole",
+    status: "live",
+    media: {
+      kind: "instagram",
+      url: "https://www.instagram.com/p/CBT88jEAHY0/",
+      poster: "/portfolio/portosole.jpg",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "diana-jack",
+    category: "events",
+    title: "Diana & Jack",
+    titleI18nKey: "diana-jack",
+    descriptionI18nKey: "diana-jack",
+    creditsI18nKey: "diana-jack",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "3tjLDtVrhG4",
+      url: "https://www.youtube.com/watch?v=3tjLDtVrhG4",
+      poster: "/portfolio/diana-jack.jpg",
+      uploadDate: "2022-08-31T17:21:29-07:00",
+      duration: "PT1M12S",
       aspect: "16:9",
     },
   },
@@ -378,6 +521,24 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     },
   },
   {
+    id: "my-dler",
+    category: "animation",
+    title: "My D'ler",
+    titleI18nKey: "my-dler",
+    descriptionI18nKey: "my-dler",
+    creditsI18nKey: "my-dler",
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "vMvbC5yOzgs",
+      url: "https://www.youtube.com/watch?v=vMvbC5yOzgs",
+      poster: "/portfolio/my-dler.jpg",
+      uploadDate: "2024-01-23T14:21:54-08:00",
+      duration: "PT0M11S",
+      aspect: "16:9",
+    },
+  },
+  {
     id: "la-huelga",
     category: "narrative",
     title: "La Huelga",
@@ -397,100 +558,34 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     },
   },
   {
-    id: "ml-colombia",
-    category: "social-content",
-    title: "ML Colombia",
-    titleI18nKey: "ml-colombia",
-    descriptionI18nKey: "ml-colombia",
-    creditsI18nKey: "ml-colombia",
+    id: "punto-de-giro",
+    category: "narrative",
+    title: "Punto de Giro Documentary",
+    titleI18nKey: "punto-de-giro",
+    descriptionI18nKey: "punto-de-giro",
+    creditsI18nKey: "punto-de-giro",
     status: "live",
     media: {
       kind: "youtube",
-      videoId: "poIo-VCBeAw",
-      url: "https://www.youtube.com/watch?v=poIo-VCBeAw",
-      poster: "/portfolio/ml-colombia.jpg",
-      uploadDate: "2022-08-31T17:10:32-07:00",
-      duration: "PT0M24S",
+      videoId: "jSKjcamLIG0",
+      url: "https://www.youtube.com/watch?v=jSKjcamLIG0",
+      poster: "/portfolio/punto-de-giro.jpg",
+      uploadDate: "2016-05-04T00:00:00-07:00",
+      duration: "PT1M11S",
       aspect: "16:9",
     },
-  },
-  {
-    id: "great-reviewer-iphone-18",
-    category: "social-content",
-    title: "The Great Reviewer: iPhone 18 Pro Max Content Reel",
-    titleI18nKey: "great-reviewer-iphone-18",
-    descriptionI18nKey: "great-reviewer-iphone-18",
-    creditsI18nKey: "great-reviewer-iphone-18",
-    year: 2026,
-    featured: true,
-    status: "live",
-    media: {
-      kind: "youtube",
-      videoId: "BDRru8eXaj4",
-      url: "https://www.youtube.com/watch?v=BDRru8eXaj4",
-      // Exact YouTube preview, mirrored locally so cards, social previews,
-      // JSON-LD, and the video sitemap all use the same stable image.
-      poster: "/portfolio/great-reviewer-iphone-18.jpg",
-      uploadDate: "2026-10-06T00:00:00-07:00",
-      duration: "PT8M54S",
-      aspect: "16:9",
-    },
-  },
-  {
-    id: "my-dler",
-    category: "animation",
-    title: "My D'ler",
-    titleI18nKey: "my-dler",
-    descriptionI18nKey: "my-dler",
-    creditsI18nKey: "my-dler",
-    status: "live",
-    media: {
-      kind: "youtube",
-      videoId: "vMvbC5yOzgs",
-      url: "https://www.youtube.com/watch?v=vMvbC5yOzgs",
-      poster: "/portfolio/my-dler.jpg",
-      uploadDate: "2024-01-23T14:21:54-08:00",
-      duration: "PT0M11S",
-      aspect: "16:9",
-    },
-  },
-  {
-    id: "front-line-auto",
-    category: "web-design",
-    title: "Frontline Auto Repair & AI Service Concierge",
-    titleI18nKey: "front-line-auto",
-    descriptionI18nKey: "front-line-auto",
-    creditsI18nKey: "front-line-auto",
-    year: 2026,
-    location: "Miami / Broward",
-    websiteUrl: "https://frontlineautosfl.com/",
-    featured: true,
-    status: "live",
-    media: {
-      kind: "image",
-      src: "/portfolio/front-line-auto.jpg",
-      alt: "Frontline Auto Repair Platform & AI Service Concierge Bot",
-      aspect: "16:9",
-    },
-  },
-  {
-    id: "ai-lead-automation",
-    category: "web-design",
-    title: "Conversational AI Lead Chatbots (Geebs & FLAS)",
-    titleI18nKey: "ai-lead-automation",
-    descriptionI18nKey: "ai-lead-automation",
-    creditsI18nKey: "ai-lead-automation",
-    year: 2026,
-    location: "South Florida",
-    websiteUrl: "https://fortlauderdaleautosale.com",
-    featured: true,
-    status: "live",
-    media: {
-      kind: "image",
-      src: "/portfolio/ai-lead-automation.jpg",
-      alt: "Custom AI Conversational Lead Bots for Geebs & FLAS",
-      aspect: "16:9",
-    },
+    companionVideos: [
+      {
+        kind: "youtube",
+        videoId: "gZGY9xNqCCY",
+        url: "https://www.youtube.com/watch?v=gZGY9xNqCCY",
+        poster: "/portfolio/punto-de-giro.jpg",
+        uploadDate: "2016-05-06T00:00:00-07:00",
+        duration: "PT4M37S",
+        aspect: "16:9",
+        title: "Detrás de cámara - Documental Punto de Giro",
+      },
+    ],
   },
 ];
 
@@ -534,6 +629,19 @@ export function getPlaceholderItemCount(): number {
 
 export function getLivePortfolioItemCount(): number {
   return PORTFOLIO_ITEMS.filter((item) => item.status === "live").length;
+}
+
+/** How a film is framed, which decides the shape of every stage that plays it. */
+export type MediaOrientation = "portrait" | "landscape";
+
+/**
+ * Portrait when the source says so (9:16 or 4:5); a Short, a Reel or a TikTok
+ * is portrait by nature, so the data must carry that fact rather than let a
+ * 16:9 default crop it. Stills and unknown shapes count as landscape.
+ */
+export function mediaOrientation(media: MediaSource): MediaOrientation {
+  const aspect = "aspect" in media ? media.aspect : undefined;
+  return aspect === "9:16" || aspect === "4:5" ? "portrait" : "landscape";
 }
 
 export function isInstagramSource(

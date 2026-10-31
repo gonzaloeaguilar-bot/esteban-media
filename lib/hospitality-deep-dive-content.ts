@@ -6,6 +6,7 @@ import {
   PRICING_BANDS,
   shortFormWeeklyText,
   usd,
+  CREW_RECORDING_RATES,
 } from "@/lib/pricing";
 
 /**
@@ -239,7 +240,7 @@ export const CORPORATE_EVENT_FTL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos corporativos en Fort Lauderdale?",
     paragraphs: [
-      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde $80 por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre $400 y $750 por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
+      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
       "La edición varía según los entregables requeridos: un video resumen ágil para LinkedIn, grabaciones íntegras de conferencias magistrales o cápsulas verticales de testimonios. Especifica qué ponencias son prioritarias, los requisitos de audio y las fechas límite de entrega. La grabación presencial y la postproducción se coordinan de forma integral según el cronograma de tu evento en Fort Lauderdale.",
     ],
   },
@@ -263,7 +264,7 @@ export const NETWORKING_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos de networking y cócteles en Miami?",
     paragraphs: [
-      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde $80 por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre $400 y $750 por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
+      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
       "Los eventos de networking suelen demandar una pieza principal de sesenta a noventa segundos en formato horizontal y clips cortos verticales con entrevistas espontáneas a los asistentes. Definir si se priorizan los patrocinadores, los discursos de bienvenida o las interacciones entre invitados permite optimizar el tiempo de cámara durante el evento.",
     ],
   },
@@ -307,7 +308,7 @@ export const VLOG_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
     heading: "¿Cómo funciona el rodaje de vlogs en exteriores en Miami?",
     paragraphs: [
       "La filmación de vlogs en exteriores asigna al creador un camarógrafo dedicado que registra tomas en movimiento, segmentos de diálogo y material de apoyo por toda la ciudad. Esteban utiliza una cámara Sony Alpha 7 IV sobre estabilizador con micrófonos inalámbricos de alta calidad. Esta configuración ligera permite desplazarse con fluidez por restaurantes, eventos y zonas concurridas como Wynwood o Brickell sin cargar trípodes pesados.",
-      "El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a $80 la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.",
+      `El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a ${usd(CREW_RECORDING_RATES.solo.hourly)} la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.`,
     ],
   },
   {
@@ -420,13 +421,13 @@ export const BILINGUAL_SUBTITLING_ES_SECTIONS: readonly SpanishNicheSection[] = 
   {
     heading: "¿Por qué los subtítulos automáticos no sustituyen a la traducción profesional bilingüe?",
     paragraphs: [
-      "Las herramientas de transcripción automática cometen fallos frecuentes con términos técnicos, modismos regionales y nombres propios, generando errores que restan credibilidad a videos corporativos. El subtitulado bilingüe profesional requiere un editor con dominio nativo de inglés y español que comprenda el contexto y la intención de cada frase. Esteban transcribe el diálogo original con precisión, traduce el significado de manera natural y ajusta la sincronización al ritmo de la voz. En videos de capacitación corporativa, entrevistas con clientes y conferencias, una traducción exacta evita malentendidos y garantiza que audiencias internacionales sigan la información sin esfuerzo. Los subtítulos se diseñan con tipografía de alto contraste legible en pantallas móviles. Para recomendaciones de diseño de texto, consulte [mejores estilos de subtítulos para Instagram Reels](/es/guias/mejores-estilos-de-subtitulos-para-instagram-reels); para montaje de conversaciones, visite [edición de entrevistas](/services/interview-video-editing-service).",
+      "Las herramientas de transcripción automática cometen fallos frecuentes con términos técnicos, modismos regionales y nombres propios, generando errores que restan credibilidad a videos corporativos. El subtitulado bilingüe profesional requiere a una persona que comprenda el contexto y la intención de cada frase: Esteban trabaja en español primero, con inglés intermedio, y revisa cada línea en los dos idiomas contra el audio original. Esteban transcribe el diálogo original con precisión, traduce el significado de manera natural y ajusta la sincronización al ritmo de la voz. En videos de capacitación corporativa, entrevistas con clientes y conferencias, una traducción exacta evita malentendidos y garantiza que audiencias internacionales sigan la información sin esfuerzo. Los subtítulos se diseñan con tipografía de alto contraste legible en pantallas móviles. Para recomendaciones de diseño de texto, mira [mejores estilos de subtítulos para Instagram Reels](/es/guias/mejores-estilos-de-subtitulos-para-instagram-reels); para montaje de conversaciones, revisa [edición de entrevistas](/services/interview-video-editing-service).",
     ],
   },
   {
     heading: "¿Cómo se entregan los subtítulos bilingües para diferentes plataformas?",
     paragraphs: [
-      "Los subtítulos bilingües se entregan incrustados directamente en el video final o como archivos independientes en formato SRT compatibles con YouTube, LinkedIn y reproductores web. En videos verticales para Reels y TikTok, los textos se sitúan dentro de las zonas seguras de pantalla para evitar que nombres de usuario, descripciones o botones de interacción tapen las líneas de lectura. Se organizan en bloques de dos líneas breves para facilitar una lectura ágil sin pausar la reproducción. Cuando una campaña requiere versiones separadas en inglés y español del mismo metraje, Esteban entrega cortes adaptados para cada idioma con llamadas a la acción acordes a cada público. Para reutilizar conferencias y capacitaciones con subtítulos, consulte [servicio para webinars](/services/webinar-clip-editing-service); para opciones de paquetes, revise [precios](/es/precios).",
+      "Los subtítulos bilingües se entregan incrustados directamente en el video final o como archivos independientes en formato SRT compatibles con YouTube, LinkedIn y reproductores web. En videos verticales para Reels y TikTok, los textos se sitúan dentro de las zonas seguras de pantalla para evitar que nombres de usuario, descripciones o botones de interacción tapen las líneas de lectura. Se organizan en bloques de dos líneas breves para facilitar una lectura ágil sin pausar la reproducción. Cuando una campaña requiere versiones separadas en inglés y español del mismo metraje, Esteban entrega cortes adaptados para cada idioma con llamadas a la acción acordes a cada público. Para reutilizar conferencias y capacitaciones con subtítulos, mira [servicio para webinars](/services/webinar-clip-editing-service); para opciones de paquetes, mira [precios](/es/precios).",
     ],
   },
 ];

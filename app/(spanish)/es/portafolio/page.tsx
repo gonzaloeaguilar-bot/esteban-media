@@ -9,7 +9,7 @@ import {
 } from "@/components/portfolio-grid";
 import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
 import { Container } from "@/components/ui/container";
-import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
+import { PORTFOLIO_ITEMS, mediaOrientation } from "@/lib/portfolio";
 import { PageUpdated } from "@/components/page-updated";
 import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -84,7 +84,15 @@ export default function SpanishPortfolioPage() {
         <section className="border-b border-[#d6ccc0] py-6 sm:py-10" aria-labelledby="featured-work-heading">
           <Container size="xl">
             <div className="grid gap-5 lg:grid-cols-[1.25fr_.75fr] lg:items-center">
-              <PortfolioVideo videoId={liveItems[0].media.videoId} url={liveItems[0].media.url} poster={liveItems[0].media.poster} title={resolvePortfolioItemCopy(liveItems[0], "es").title} locale="es" />
+              <PortfolioVideo
+                videoId={liveItems[0].media.videoId}
+                url={liveItems[0].media.url}
+                poster={liveItems[0].media.poster}
+                title={resolvePortfolioItemCopy(liveItems[0], "es").title}
+                locale="es"
+                orientation={mediaOrientation(liveItems[0].media)}
+                hideExtraLinks
+              />
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Proyecto destacado</p>
                 <h2 id="featured-work-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{resolvePortfolioItemCopy(liveItems[0], "es").title}</h2>
