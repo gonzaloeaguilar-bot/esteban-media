@@ -6047,9 +6047,9 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Optimización de contenido largo para consumo rápido en redes.",
     faqs: [
       {
-        question: "¿Pueden seleccionar ustedes las mejores partes del webinar?",
+        question: "¿Puedes seleccionar las mejores partes del webinar?",
         answer:
-          "Sí. Revisamos la grabación para identificar los momentos con mayor gancho y valor informativo.",
+          "Sí. Reviso la grabación e identifico los momentos con mayor gancho y valor informativo.",
       },
     ],
   },
@@ -8342,14 +8342,14 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsDestinations: VSL_DIRECT_RESPONSE_ES_DESTINATIONS,
     faqs: [
       {
-        question: "¿El cliente debe suministrar la voz en off o la gestionan ustedes?",
+        question: "¿Debo grabar la voz en off o la gestionas tú?",
         answer:
-          "Habitualmente el cliente proporciona la locución grabada, aunque podemos recomendar locutores profesionales en inglés o español.",
+          "Normalmente tú envías la locución ya grabada, pero puedo recomendarte locutores profesionales en inglés o español.",
       },
       {
         question: "¿Entregan formatos horizontales para páginas web y versiones verticales para anuncios?",
         answer:
-          "Sí. Suministramos montajes panorámicos para sitios web y adaptaciones verticales diseñadas para campañas en redes sociales.",
+          "Sí. Entrego versiones horizontales para tu sitio web y versiones verticales para tus anuncios en redes sociales.",
       },
       {
         question: "¿Qué materiales iniciales se necesitan para comenzar la edición del VSL?",
