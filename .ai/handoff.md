@@ -1,3 +1,16 @@
+## 2026-10-30 — Spanish site-wide pass, chunk 1 (spark/spanish-pass)
+
+Owner standard applied: español lindo (clear professional Latin American Spanish, tú forms, no calques) extended beyond the homepage.
+
+- es/contacto: FAQ answers rewritten in one-person tú voice, same facts; Brief Builder fold moved to first, mirroring /contact.
+- es/servicios: growth deck section rewritten ("Sitios web, chatbots y sistemas", human heading and scoping); metadata and pillar copy de-calqued ("funnel" and "handoffs" gone).
+- lib/spanish-site.ts: corporate machinery removed across niche data: "se evalúa de manera selectiva" (12) becomes "se confirma caso por caso"; the "material suministrado" family (18) becomes "el material que ya tienes"; "flujo de postproducción remota" answers and headings rewritten. Factual alignment: the náutica niche promised edited cuts in 3 to 5 business days; now "desde los 7 días" per the unified turnaround floor. The subtitling niche keeps its own scope (shorts 24-48h, long-form 3-5 days).
+- KEPT on purpose: the Sunny Isles entry's "material suministrado por el cliente" strings; they are a guarded factual-proof boundary (sunny-isles tests) where the exact client-supplied-footage wording is load-bearing.
+
+Gates: full suite green (3,797 tests), typecheck clean, lint 0 errors, rail-adoption pass, build green. Lastmod: 16 pages updated.
+
+Not in this chunk: the remaining usted-form guide sentence, /es/portafolio.
+
 # 2026-10-30 — Human-QA wave 1: top pages lead with the person (branch spark/wave1-home, on current main)
 
 - /es homepage in the owner's Spanish standard (clear, professional Latin American Spanish): the chooser heading "Empieza por la meta. Elige el oficio que te ayuda." now reads "Empieza por la meta. Elige el camino que te sirve." (steps Propósito / Método / Siguiente paso); the chooser's real-estate card is titled "Bienes raíces" instead of the English "Real Estate"; the Premium perk "flexibilidad de rollover" now says "flexibilidad para pasar videos al mes siguiente"; the camera-kit eyebrow "LA MESA DE CÁMARA" now reads "EL EQUIPO DE CÁMARA"; the crowdfunding note's "Brand film" is "Video de marca"; the same oficio calque on portfolio watch pages became "qué servicio le sirve mejor".
