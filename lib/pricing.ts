@@ -125,7 +125,7 @@ export type PackagePrice =
 
 export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
   arranque: { kind: "from", amount: 100, unit: "video" },
-  crecimiento: { kind: "from", amount: 800, unit: "month" },
+  crecimiento: { kind: "from", amount: 950, unit: "month" },
   "presencia-local": { kind: "from", amount: 1600, unit: "month" },
   "todo-incluido": { kind: "custom" },
 };
@@ -152,9 +152,9 @@ export type RealEstatePlan = {
 };
 
 export const REAL_ESTATE_PLANS: RealEstatePlan[] = [
-  { id: "essential", price: 600, properties: 1, productionDays: 2, drone: "add-on", postsPerWeek: "2" },
-  { id: "plus", price: 950, properties: 2, productionDays: 3, drone: "add-on", postsPerWeek: "3–4" },
-  { id: "premium", price: 1500, properties: 3, productionDays: 3, drone: "included", postsPerWeek: "5" },
+  { id: "essential", price: 750, properties: 1, productionDays: 2, drone: "add-on", postsPerWeek: "2" },
+  { id: "plus", price: 1250, properties: 2, productionDays: 3, drone: "add-on", postsPerWeek: "3–4" },
+  { id: "premium", price: 1950, properties: 3, productionDays: 3, drone: "included", postsPerWeek: "5" },
 ];
 
 /** Drone photography add-on on the smaller real estate plans (catalog 2026: +$99). */
@@ -206,7 +206,7 @@ export function turnaroundFor(id: TurnaroundId): { minimumDays: number } {
 // reads as a fake reference price. The owner confirmed on 2026-10-08 that
 // Arranque is one video edit, so its $100 is per video, and the plain
 // comparison (from $80 per video weekly vs $100 for a single video) is published.
-export type ArranqueWeeklyOptionId = "one-per-week" | "two-per-week";
+export type ArranqueWeeklyOptionId = "one-per-week" | "two-per-week" | "three-per-week";
 
 export type ArranqueWeeklyOption = {
   id: ArranqueWeeklyOptionId;
@@ -219,6 +219,7 @@ export type ArranqueWeeklyOption = {
 export const ARRANQUE_WEEKLY_OPTIONS: ArranqueWeeklyOption[] = [
   { id: "one-per-week", videosPerWeek: 1, pricePerWeek: 85, changesPerVideo: 1 },
   { id: "two-per-week", videosPerWeek: 2, pricePerWeek: 160, changesPerVideo: 2 },
+  { id: "three-per-week", videosPerWeek: 3, pricePerWeek: 240, changesPerVideo: 2 },
 ];
 
 export const ARRANQUE_WEEKLY_TERMS = {
@@ -245,7 +246,7 @@ export const ARRANQUE_WEEKLY_FROM = {
 // "Starter is really just 1 video edit"). One price model for the package
 // card, the calculator and every guide that quotes the calculator:
 //   - once: from $100 per video (PACKAGE_PRICES.arranque);
-//   - every week: $85 for 1 video, $160 for 2 (ARRANQUE_WEEKLY_OPTIONS);
+//   - every week: $85 for 1 video, $160 for 2, $240 for 3 (ARRANQUE_WEEKLY_OPTIONS);
 //   - a 5-video pack is 5 single videos, with no invented discount.
 // The 15- and 30-video monthly calculator options are not offered for
 // short-form: no owner-set price exists for that volume, and deriving one
@@ -262,21 +263,21 @@ export const SHORT_FORM = {
   source: "market $100-500 per short-form video",
 } as const;
 
-/** "$85 a week for 1 video or $160 a week for 2 videos". */
+/** "$85 a week for 1 video, $160 a week for 2 videos or $240 a week for 3 videos". */
 export function shortFormWeeklyText(locale: "en" | "es"): string {
-  const [one, two] = SHORT_FORM.weekly;
+  const [one, two, three] = SHORT_FORM.weekly;
   return locale === "es"
-    ? `${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video o ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos`
-    : `${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video or ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos`;
+    ? `${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} por ${two.videosPerWeek} videos o ${usd(three.pricePerWeek)} por ${three.videosPerWeek} videos`
+    : `${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos or ${usd(three.pricePerWeek)} a week for ${three.videosPerWeek} videos`;
 }
 
-/** "from $100 per video, or $85 a week for 1 video and $160 a week for 2 videos". */
+/** "from $100 per video, or $85 a week for 1 video, $160 a week for 2 videos and $240 a week for 3 videos". */
 export function shortFormPriceText(locale: "en" | "es"): string {
-  const [one, two] = SHORT_FORM.weekly;
+  const [one, two, three] = SHORT_FORM.weekly;
   const from = usd(SHORT_FORM.perVideoFrom);
   return locale === "es"
-    ? `desde ${from} por video, o ${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video y ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos`
-    : `from ${from} per video, or ${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video and ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos`;
+    ? `desde ${from} por video, o ${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos y ${usd(three.pricePerWeek)} por semana por ${three.videosPerWeek} videos`
+    : `from ${from} per video, or ${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video, ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos and ${usd(three.pricePerWeek)} a week for ${three.videosPerWeek} videos`;
 }
 
 // Restaurant promo video (owner decision, re-confirmed 2026-10-13:
@@ -294,9 +295,9 @@ export const RESTAURANT_PROMO = {
 // A real shoot with the product in front of the camera. AI-assisted images made
 // from supplied photos are a different service and have no published floor.
 export const PRODUCT_PHOTO_SESSION = {
-  from: 350,
+  from: 500,
   unit: "session",
-  source: "owner-authorized $280 2026-08-28 (docs/pricing-basis.md); raised to $350 in the 2026-10-28 market review (Squareshot Miami minimum order $300)",
+  source: "owner-authorized $280 2026-08-28 (docs/pricing-basis.md); raised to $350 in the 2026-10-28 market review; raised to $500 in the 2026-10-29 price inventory that Stripe charges",
 } as const;
 
 // On-location raw video capture (no editing): market $300-1,000 half-day,
@@ -308,17 +309,18 @@ export const ON_LOCATION_CAPTURE = {
 } as const;
 
 
-// Filming (on-location recording) hourly floor. Owner fact confirmed 2026-10-18:
-// filming from $100 per hour with a 4-hour minimum ($400 floor): owner decision 2026-10-28 to keep an accessible recording-only option even though the market review put the pro band at $100–250/h.
-// Copy reads it through filmingHourlyText(); never hard-code the figure.
+// Filming (on-location recording) hourly floor. Owner decision 2026-10-29
+// (price inventory that Stripe charges): filming from $125 per hour with a
+// 4-hour minimum ($500 floor). Copy reads it through filmingHourlyText();
+// never hard-code the figure.
 export const FILMING_HOURLY = {
-  amount: 100,
+  amount: 125,
   currency: "USD",
   unit: "hour",
   isMinimum: true,
   minimumHours: 4,
-  minimumAmount: 400,
-  source: "owner fact confirmed 2026-10-28: filming from $100 per hour with 4-hour minimum call",
+  minimumAmount: 500,
+  source: "owner decision 2026-10-29: filming from $125 per hour with 4-hour minimum call (price inventory, Stripe parity)",
 } as const;
 
 /** "from $100 per hour of filming" / "desde $100 por hora de grabación". */
@@ -348,11 +350,11 @@ export function priceTermsText(locale: "en" | "es"): string {
 
 export const CREW_RECORDING_RATES = {
   solo: {
-    hourly: 100,
+    hourly: 125,
     minimumHours: 4,
-    minimumAmount: 400,
-    halfDay: 400,
-    fullDay: 800,
+    minimumAmount: 500,
+    halfDay: 500,
+    fullDay: 1000,
     description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
   },
   twoPerson: {
@@ -435,9 +437,9 @@ export const ON_SITE_ADD_ONS = {
 } as const;
 
 export const TURNKEY_PRODUCTION_BUNDLES = {
-  soloHalfDay: 950,
+  soloHalfDay: 1250,
   soloFullDay: 2000,
-  twoPersonHalfDay: 1600,
+  twoPersonHalfDay: 1900,
   twoPersonFullDay: 3000,
   multiCamHalfDay: 1750,
   multiCamFullDay: 3600,
@@ -508,3 +510,66 @@ export function chatbotPriceText(locale: "en" | "es"): string {
     ? `Un chatbot con IA empieza en ${from} de configuración, más una cuota mensual.`
     : `An AI chatbot starts at ${from} to set up, plus a monthly fee.`;
 }
+
+// ---------------------------------------------------------------------------
+// Services added 2026-10-29/30 (owner-approved; Stripe catalog carries the
+// same figures, so the site and checkout cannot drift). Source: the
+// owner-approved 2026-10-29 price inventory, plus the 2026-10-30
+// expansion batch ("Todo sí").
+// ---------------------------------------------------------------------------
+
+/** Recurring care and production plans sold outside the package ladder. */
+export const CARE_AND_PRODUCTION_PLANS = {
+  aiChatbotCare: {
+    amount: 750,
+    unit: "month",
+    setupFrom: 2000,
+    source: "owner approval 2026-10-29: AI Chatbot Care Plan $750/mo, setup separate from $2,000",
+  },
+  podcastMulticam: {
+    amount: 2000,
+    unit: "month",
+    source: "owner approval 2026-10-29: Podcast Multicam Production $2,000/mo, 4 episodes, 2 on-location multicam sessions",
+  },
+} as const;
+
+/** Extra revision rounds beyond the round included in an edit. */
+export const REVISION_ROUNDS = {
+  shortVideo: 50,
+  filmOrProject: 150,
+} as const;
+
+/** Bilingual subtitling, sold per short video or per minute of long-form. */
+export const SUBTITLING_PRICES = {
+  perShortVideo: 50,
+  longFormPerMinute: 5,
+  longFormMinimum: 75,
+  maxShortSeconds: 90,
+} as const;
+
+/**
+ * Express delivery rule (owner approval 2026-10-29): a percentage on the
+ * project total, confirmed in writing before work starts. Not a product.
+ */
+export const EXPRESS_RULES = {
+  rush24to48hMultiplier: 1.25,
+  sameDayMultiplier: 1.5,
+} as const;
+
+/** AI-assisted services (owner approval 2026-10-29). */
+export const AI_SERVICES = {
+  voiceoverPerVideo: 75,
+  bRollPerVideo: 150,
+  animationFrom: 500,
+  microShortFilmFrom: 600,
+} as const;
+
+/** Expansion batch (owner approval 2026-10-30, "Todo sí"). */
+export const EXPANSION_SERVICES = {
+  ugcAdPack5: 1250,
+  longFormRepurposing: 600,
+  corporateLocalizationFrom: 300,
+  droneSessionFrom: 300,
+  vslEditingFrom: 725,
+  tradeShowCoverageFrom: 900,
+} as const;

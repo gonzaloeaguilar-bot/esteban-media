@@ -20,20 +20,20 @@ import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
-  title: "Sistemas de Growth, Web y Producción Creativa",
+  title: "Sitios web, chatbots y producción creativa",
   description:
-    "Sitios web de conversión, captura de clientes con IA, presencia local, automatización y producción creativa desde Fort Lauderdale.",
+    "Sitios web que convierten visitas en consultas, chatbots con IA, presencia local, automatización y producción de video desde Fort Lauderdale.",
   path: "/es/servicios",
   locale: "es",
 });
 
 const pilaresGrowth = [
-  { titulo: "Sitios web de conversión", detalle: "Sitios mobile-first y páginas enfocadas en una oferta, una ruta de consulta medible y contenido listo para publicar.", icono: Laptop, href: "/es/sitios-web-de-conversion" },
-  { titulo: "Captura y seguimiento con IA", detalle: "Chatbots, flujos de DM, email y SMS definidos para enrutar consultas a la siguiente persona o paso. El consentimiento y acceso se confirman antes del lanzamiento.", icono: Bot, href: "/es/captura-y-automatizacion-de-clientes-con-ia" },
+  { titulo: "Sitios web que venden", detalle: "Sitios pensados para el celular y páginas enfocadas en una oferta, una forma clara de consultar y contenido listo para publicar.", icono: Laptop, href: "/es/sitios-web-de-conversion" },
+  { titulo: "Captura y seguimiento con IA", detalle: "Chatbots y flujos de mensajes, correo y SMS que llevan cada consulta al siguiente paso. El consentimiento y los accesos se confirman antes de lanzar.", icono: Bot, href: "/es/captura-y-automatizacion-de-clientes-con-ia" },
   { titulo: "Presencia local", detalle: "Un plan para Google Business Profile, Maps, Apple, Yelp, marketplaces de industria y páginas que explican claramente un servicio local.", icono: MapPin, href: "/es/presencia-local-seo" },
-  { titulo: "Auditoría de datos y funnel", detalle: "Revisamos recorrido, medición, handoffs y trabajo manual antes de decidir qué sistema construir primero.", icono: ChartLine, href: "/es/auditoria-de-funnel-y-datos" },
+  { titulo: "Auditoría de datos y embudo", detalle: "Revisamos el recorrido del cliente, la medición y el trabajo manual antes de decidir qué construir primero.", icono: ChartLine, href: "/es/auditoria-de-funnel-y-datos" },
   { titulo: "Automatización de operaciones", detalle: "Integraciones, reportes y operaciones asistidas por IA conectadas a herramientas aprobadas y con escalación humana.", icono: Workflow, href: "/es/automatizacion-de-operaciones" },
-  { titulo: "Producción creativa", detalle: "Video, fotografía, edición y activos sociales que dan a la web, campañas y seguimiento algo valioso alrededor de lo cual convertir.", icono: ClipboardCheck, href: "/es/produccion-creativa" },
+  { titulo: "Producción creativa", detalle: "Video, fotografía, edición y contenido para redes que le dan a tu web, tus campañas y tu seguimiento algo valioso que mostrar.", icono: ClipboardCheck, href: "/es/produccion-creativa" },
 ];
 
 const serviceProof: Record<
@@ -177,12 +177,12 @@ export default function SpanishServicesPage() {
             <summary className="cursor-pointer font-serif text-2xl">¿Qué otros sistemas puede crear Esteban?</summary>
             <p className="mt-2 text-sm leading-6 text-[#252a2d]">Sitios web, atención de consultas, presencia local, medición y automatización.</p>
           <section className="mt-12" aria-labelledby="sistemas-growth-heading">
-            <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas de growth 0→1</p>
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Sitios web, chatbots y sistemas</p>
             <h2 id="sistemas-growth-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-              Un sistema responsable, desde la primera búsqueda hasta el seguimiento.
+              ¿Qué más puede construir Esteban para tu negocio?
             </h2>
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
-              Son bloques definidos por alcance, no la promesa de que cada negocio necesita todas las herramientas. El tiempo depende del alcance, materiales, accesos, consentimiento y ciclos de revisión confirmados.
+              Empieza por lo que necesitas que el trabajo logre: más consultas que sí puedas atender, una presencia local más clara, menos seguimiento manual o una forma simple de ver qué está funcionando. Cada bloque se define por su propio alcance: la mayoría de los negocios necesita uno o dos, no todos, y los tiempos dependen del alcance que confirmemos por escrito, del material que ya tienes y de tus rondas de revisión.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]" data-section="web-line-proof">
               Los sitios web, las landing pages y los chatbots con IA son parte publicada del trabajo:{" "}
