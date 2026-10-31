@@ -1,0 +1,9 @@
+vault_path: /Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-geo-seo-findings-2026-10-29.md
+task: esteban-findings-to-knowledge-base
+bridge_issue: 181
+idempotency_key: spark-2026-10-29-902
+added_at: 2026-10-29T10:49:35-04:00
+cross_references:
+  - bridge_task: 180 (esteban-geo-citation-winning-plan)
+  - reconciliation_task: esteban-ga4-totals-reconcile
+status: ingested
