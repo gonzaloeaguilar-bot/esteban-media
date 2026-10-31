@@ -1744,7 +1744,7 @@ div.relative:has(> .em-carousel-track) {
     calc(clamp(34px, 9vw, 48px) - clamp(7px, 1.5vw, 10px)) 0 0;
 }
 .em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__body {
-  padding-bottom: clamp(22px, 5vw, 28px);
+  padding-bottom: clamp(26px, 5vw, 32px);
 }
 .em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure :is(img, picture) {
   width: 100%;
