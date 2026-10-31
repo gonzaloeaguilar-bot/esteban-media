@@ -55,6 +55,9 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
     }
     for (const term of [...realEstateTerms(locale), ...c.everyPlan.items]) expect(html).toContain(escape(term));
     expect(html.match(/class="em-plan-details"/g)).toHaveLength(3);
+    // The every-plan list is shared by all three plans and renders exactly once.
+    expect(html.split(escape(c.everyPlan.title)).length - 1).toBe(1);
+    for (const item of c.everyPlan.items) expect(html.split(escape(item)).length - 1).toBe(1);
     expect(html).not.toMatch(/<article[^>]*hidden/); // All plans work without hydration.
     expect(html).toContain(locale === "es" ? "Planes mensuales de bienes raíces." : "Monthly real estate plans.");
     expect(html).toContain(locale === "es" ? "Solo para bienes raíces" : "Real estate only");

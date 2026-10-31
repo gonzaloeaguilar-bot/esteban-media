@@ -330,12 +330,12 @@ describe("bilingual practical guides", () => {
 
     // Owner-authorized starting price (2026-08-28, docs/pricing-basis.md):
     // "Desde $280 por sesión" is a floor, never a closed quote.
-    expect(esGuide.answer).toContain("parten desde $350 por sesión");
+    expect(esGuide.answer).toContain("parten desde $500 por sesión");
     expect(esGuide.answer).toContain("no existe una tarifa única cerrada");
     // Market figures stay framed as market context, and the direct reference
     // is explicitly attributed to Esteban Moreno Media as a starting price.
     expect(prose).toMatch(/mercado/i);
-    expect(prose).toContain("parten desde $350 por sesión");
+    expect(prose).toContain("parten desde $500 por sesión");
     expect(prose).toContain("Es un precio inicial, nunca una cifra cerrada");
     expect(prose).toMatch(/Esteban Moreno Media/);
   });

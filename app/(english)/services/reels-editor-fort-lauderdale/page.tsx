@@ -24,6 +24,8 @@ const content: GeoServicePageContent = {
   serviceType: "Short form video editing",
   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
+  answerFirst:
+    `Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
