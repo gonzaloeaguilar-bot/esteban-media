@@ -44,7 +44,7 @@ describe("pricing module bands", () => {
     expect("social" in PRICING_BANDS).toBe(false);
     expect(SHORT_FORM.perVideoFrom).toBe(100);
     expect(SHORT_FORM.packOf).toBe(5);
-    expect(SHORT_FORM.weekly.map((o) => [o.videosPerWeek, o.pricePerWeek])).toEqual([[1, 85], [2, 160]]);
+    expect(SHORT_FORM.weekly.map((o) => [o.videosPerWeek, o.pricePerWeek])).toEqual([[1, 85], [2, 160], [3, 240]]);
     expect(basis).toMatch(/Short-form social \| \$100–500 per video \| \*\*from \$100 per video; \$85\/week \(1 video\) or \$160\/week \(2 videos\)\*\*/);
   });
 

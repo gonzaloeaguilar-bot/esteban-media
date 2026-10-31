@@ -76,7 +76,7 @@ const copy = {
     packageLink: "Choose a package",
   },
   es: {
-    eyebrow: "LA MESA DE CÁMARA",
+    eyebrow: "EL EQUIPO DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
     lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing.",
     kitTitle: "Cuerpos de cámara",
