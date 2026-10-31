@@ -37,8 +37,8 @@ export function NicheAnswers({ path, fact, omitCost = false }: { path: string; f
             title={es ? `Quién lo hace${showsCost ? " y cuánto cuesta" : ""}` : `Who does it${showsCost ? " and what it costs" : ""}`}
             destinations={
               es
-                ? `Quién te ayuda con ${entry.subject}${showsCost ? ", precios publicados" : ""} y cómo empezar.`
-                : `Who can help with ${entry.subject}${showsCost ? ", published prices" : ""} and how to start.`
+                ? `La persona que hace el trabajo${showsCost ? ", los precios publicados" : ""} y cómo empezar.`
+                : `The person who does the work${showsCost ? ", published prices" : ""} and how to start.`
             }
           >
             <div className="mt-8 space-y-10">

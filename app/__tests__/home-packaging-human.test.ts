@@ -36,9 +36,9 @@ for (const locale of ["en", "es"] as const) {
   describe(`home ${locale}: packaging after the chooser`, () => {
     it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
-      expect(prices).toContain("$800");
+      expect(prices).toContain("$950");
       expect(prices).toContain("$1,600");
-      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$950\/(mo|month|mes)</);
       expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,600\/[^<]+</);
     });
 
@@ -285,7 +285,7 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel.indexOf("em-funnel-summary")).toBeGreaterThan(-1);
       expect(funnel.indexOf("em-funnel-summary")).toBeLessThan(funnel.indexOf("<input"));
       expect(funnel).toContain(growth);
-      expect(funnel).toContain("$800");
+      expect(funnel).toContain("$950");
       expect(funnel).toContain("$1,600");
       expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
       expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");

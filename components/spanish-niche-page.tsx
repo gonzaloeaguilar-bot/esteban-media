@@ -1408,6 +1408,22 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     proofHref: "/es/portafolio/ml-colombia",
     proofLabel: "Ver video social publicado",
   },
+  "servicio-de-subtitulado-bilingue-de-video": {
+    serviceId: "es_bilingual_subtitling",
+    serviceName: "el subtitulado bilingüe de un video",
+    goalPrompt: "publicar el mismo video con subtítulos en español y en inglés",
+    assetPrompt: "el video terminado, en español, en inglés o en ambos idiomas",
+    proofHref: "/es/guias/mejores-estilos-de-subtitulos-para-instagram-reels",
+    proofLabel: "Ver la guía de estilos de subtítulos",
+  },
+  "contratar-editor-de-video-remoto": {
+    serviceId: "es_remote_video_editor",
+    serviceName: "la edición remota de mis videos",
+    goalPrompt: "convertir el material que ya grabé en videos listos para publicar",
+    assetPrompt: "los archivos originales en Drive o Dropbox, el logotipo y las referencias",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver un proyecto publicado",
+  },
   "editor-de-reels-miami": {
     serviceId: "es_reels_editor_miami",
     serviceName: "edicion de Reels en Miami",
@@ -1676,7 +1692,7 @@ export function SpanishNichePage({
           generic answer below quotes the package prices, so they skip it; their
           hero card already answers the question first. */}
       {isPendingConfirmation || QUOTE_ONLY_SLUGS.has(page.slug) ? null : (
-        <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" />
+        <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" answerOverride={page.answerFirst} />
       )}
       {sectorOffer ? <SectorQuotePath sector={sectorOffer} locale="es" /> : null}
 
@@ -1884,12 +1900,12 @@ export function SpanishNichePage({
                   Siguiente paso
                 </p>
                 <h2 className="mt-3 font-serif text-4xl">
-                  Comparte la meta, la zona y las referencias.
+                  Cuéntame qué quieres lograr.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Esa información ayuda a conversar sobre los servicios
-                  confirmados, sin asumir formatos, disponibilidad ni una forma de
-                  trabajo específica.
+                  Envía la meta, la zona y el material que ya tienes por correo,
+                  llamada o Instagram. Esteban te responde con un siguiente paso
+                  concreto y una cotización por escrito antes de empezar.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
