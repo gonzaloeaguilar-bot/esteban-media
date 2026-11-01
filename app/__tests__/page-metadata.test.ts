@@ -152,4 +152,24 @@ describe("complete page metadata", () => {
       "https://estebanmorenomedia.com/desk-recommendations",
     );
   });
+
+  it("verifies estate planning attorney video metadata and snippet CTR criteria", async () => {
+    const { metadata } = await import(
+      "../(english)/services/estate-planning-attorney-video-boca-raton/page"
+    );
+
+    expect(metadata.title).toEqual({
+      absolute: "Virtual Estate Planning Attorney Video Boca Raton FL",
+    });
+    expect(metadata.description).toBe(
+      "Virtual estate planning attorney video in Boca Raton FL: wealth preservation profiles, legacy trust explainers, Florida domicile videos, and legal marketing.",
+    );
+    expect(metadata.description?.toLowerCase()).toContain(
+      "virtual estate planning",
+    );
+    expect(metadata.description?.toLowerCase()).toContain("boca raton fl");
+    expect(metadata.alternates?.canonical).toBe(
+      "/services/estate-planning-attorney-video-boca-raton",
+    );
+  });
 });

@@ -17,10 +17,11 @@ import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
+// SNIPPET TEST 2026-11-01 (GSC: virtual estate planning boca raton fl, 4 impr, pos 40.3, 0 clicks; priority-growth:2026-11-01:esteban). Read GSC after 2026-12-01; if still 0 clicks, revert rather than iterate.
 export const metadata = buildPageMetadata({
-  title: "Estate Planning Attorney Video Boca Raton",
+  title: "Virtual Estate Planning Attorney Video Boca Raton FL",
   description:
-    "Estate planning attorney video in Boca Raton: wealth preservation profiles, family legacy trust explainers, Florida domicile transition videos, and ethical legal marketing.",
+    "Virtual estate planning attorney video in Boca Raton FL: wealth preservation profiles, legacy trust explainers, Florida domicile videos, and legal marketing.",
   path: "/services/estate-planning-attorney-video-boca-raton",
   locale: "en",
 });
@@ -35,17 +36,17 @@ export default function Page() {
       ),
       ...buildServicePageNodes({
         path: "/services/estate-planning-attorney-video-boca-raton",
-        name: "Estate Planning Attorney Video Boca Raton",
+        name: "Virtual Estate Planning Attorney Video Boca Raton FL",
         description:
-          "Estate planning attorney video in Boca Raton: wealth preservation profiles, family legacy trust explainers, Florida domicile transition videos, and ethical legal marketing.",
+          "Virtual estate planning attorney video in Boca Raton FL: wealth preservation profiles, legacy trust explainers, Florida domicile videos, and legal marketing.",
         crumb: "Estate Planning Attorney Video Boca",
       }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/estate-planning-attorney-video-boca-raton#service"),
-        name: "Estate Planning Attorney Video Boca Raton",
+        name: "Virtual Estate Planning Attorney Video Boca Raton FL",
         description:
-          "Estate planning attorney video in Boca Raton: wealth preservation profiles, family legacy trust explainers, Florida domicile transition videos, and ethical legal marketing.",
+          "Virtual estate planning attorney video in Boca Raton FL: wealth preservation profiles, legacy trust explainers, Florida domicile videos, and legal marketing.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Boca Raton / Palm Beach County",
         serviceType: "Estate planning attorney video marketing",

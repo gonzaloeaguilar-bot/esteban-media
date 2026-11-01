@@ -1,3 +1,7 @@
+## 2026-11-01 — Owned site CTR optimization for Boca Raton estate planning video (priority-growth:2026-11-01:esteban)
+
+- [x] Implement `owned_site_ctr` priority-growth recommendation on `/services/estate-planning-attorney-video-boca-raton`: optimize snippet title and description for target query "virtual estate planning boca raton fl" (GSC: 4 impr, pos 40.3, 0 clicks), update matching JSON-LD Schema Service and WebPage nodes, verify with `pnpm lastmod:update`, `npm test`, and `priority-growth-project-verify.sh`.
+
 ## 2026-10-24 — Website case studies candidate
 
 - [x] Add bilingual, source-bounded portfolio and case-study routes for Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer; refresh Gains From Geebs as a current website case. Correction: all four use current public UI captures; Geebs title, summary and project details match the visible direct-start/method/packages/results/resources UI. Local evidence: targeted suite 230/230, typecheck, lint (0 errors / 22 existing warnings), build `bhmP2jyU80Mh0ds7UxwsH`, rendered local Geebs route and matching 566-route sitemap/index-watch set.

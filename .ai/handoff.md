@@ -1,3 +1,13 @@
+## 2026-11-01 — Owned site CTR optimization for Boca Raton estate planning video (priority-growth:2026-11-01:esteban)
+
+- Source scope: `app/(english)/services/estate-planning-attorney-video-boca-raton/page.tsx`, `app/__tests__/page-metadata.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`.
+- Addresses GSC zero-click top opportunity query: "virtual estate planning boca raton fl" (position 40.3, 4 impressions, 0 clicks) targeting `/services/estate-planning-attorney-video-boca-raton`.
+- Aligns snippet title and meta description with high-intent search query:
+  - Title: "Virtual Estate Planning Attorney Video Boca Raton FL"
+  - Description: "Virtual estate planning attorney video in Boca Raton FL: wealth preservation profiles, legacy trust explainers, Florida domicile videos, and legal marketing." (157 characters, preserving concrete tokens and named entities).
+  - Also updates page structured data Service and WebPage nodes to match visible title and description.
+- Testing and verification: `pnpm lastmod:update`, `pnpm test app/__tests__/page-metadata.test.ts`, `pnpm test app/__tests__/page-lastmod.test.ts`, `npm test` (192 test files passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
 Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.
