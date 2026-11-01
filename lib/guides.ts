@@ -644,6 +644,24 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
       ],
+      faqs: [
+        {
+          question: "What is the most common omission in a video production RFP?",
+          answer: "The most frequent gap is leaving deliverables and aspect ratios unlisted. A video request should state exact target platforms (such as 9:16 vertical for social, 16:9 for websites or keynotes), approximate duration, and whether cutdowns, captions, or raw project files are expected.",
+        },
+        {
+          question: "How should a proposal distinguish editing existing clips from planning a new shoot?",
+          answer: "Specify whether usable footage already exists in cloud storage or on hard drives, or whether new production is required. Remote post-production from client-supplied material can start immediately without travel, while on-location filming requires crew, gear, site coordination, and scheduling.",
+        },
+        {
+          question: "Who should review and approve video revisions during the project?",
+          answer: "Designate a single decision-maker to consolidate and deliver feedback. Multi-stakeholder projects move significantly faster when conflicting internal revision notes are unified before submission to the editor.",
+        },
+        {
+          question: "Can an RFP request bilingual English and Spanish deliverables?",
+          answer: "Yes. Note upfront whether dialogue requires on-screen English subtitles, Spanish subtitles, bilingual graphics, or separate edits tailored to distinct language audiences.",
+        },
+      ],
     },
     es: {
       slug: "plantilla-brief-rfp-produccion-video-miami",
@@ -726,6 +744,24 @@ const guidePairs: readonly GuidePair[] = [
             "Pregunta de permisos: ¿qué autoridad o recinto debe confirmar los requisitos actuales?",
             "Pregunta de derechos: ¿qué dice el acuerdo firmado sobre uso, propiedad y archivos finales?",
           ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Cuál es la omisión más común en un RFP de producción de video?",
+          answer: "El vacío más frecuente es no especificar los formatos y relaciones de aspecto de entrega. La solicitud debe indicar plataformas destino (como 9:16 vertical para redes, 16:9 para web o presentaciones), duración aproximada y si se esperan versiones cortas, subtítulos o archivos de proyecto.",
+        },
+        {
+          question: "¿Cómo debe distinguir una propuesta entre editar clips existentes y planificar una grabación?",
+          answer: "Aclara si ya existe material grabado en carpetas de nube o discos, o si se requiere producción en locación. La postproducción remota con clips suministrados por el cliente puede iniciar sin traslados, mientras que una grabación requiere equipo técnico, coordinación del lugar y agenda.",
+        },
+        {
+          question: "¿Quién debe revisar y aprobar los cambios durante el proyecto?",
+          answer: "Asigna un único responsable para consolidar comentarios. Los proyectos avanzan con mayor agilidad cuando las notas internas de varios participantes se unifican antes de enviarse al editor.",
+        },
+        {
+          question: "¿Se pueden solicitar entregables bilingües en inglés y español?",
+          answer: "Sí. Indica desde el inicio si el contenido necesita subtítulos en inglés, subtítulos en español, gráficos bilingües o versiones adaptadas por idioma.",
         },
       ],
     },
