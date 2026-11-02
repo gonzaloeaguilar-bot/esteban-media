@@ -1,0 +1,29 @@
+# Esteban Media Bilingual Subtitling FAQPage Schema Retry (2026-11-02)
+
+## Context & Diagnosis of Previous Gate Exit 127
+- Issue #228 failed with "gate exit 127" (command not found) during the execution of acceptance criteria:
+  "npm test && python3 $HOME/.claude/durable/analytics-gate.py && test -s esteban-geo-nightly-subtitling-2026-10-30.txt"
+- Root cause: In the freshly spawned worktree `spark-2026-10-30-971`, `node_modules` was missing because dependencies were not linked or installed (`vitest: command not found` exited with status 127). Symlinking the shared root `/Users/gonzalo/code/esteban-media/node_modules` resolved the missing binaries immediately without extra install time or token burn.
+
+## Changes Shipped
+1. English Subtitling Page FAQ (`/services/bilingual-video-subtitling-service`):
+   - Added target question to `PORTED_SERVICE_FAQS` in `lib/service-depth-content.ts`:
+     "Who provides a bilingual English Spanish video subtitling service?"
+   - Answers with Esteban Moreno Media facts, human translation/review against audio, 24-48h short-form delivery, and safe zones.
+   - Automatically builds FAQPage schema via `buildServiceFaqSchema` rendered on the page and embedded in JSON-LD.
+
+2. Spanish Subtitling Page FAQ (`/es/servicio-de-subtitulado-bilingue-de-video`):
+   - Added target question to `faqs` in `lib/spanish-site.ts`:
+     "¿Quién ofrece servicio de subtitulado bilingüe inglés español para videos?"
+   - Answers with Esteban Moreno Media facts, human translation/review against audio, 24-48h short-form delivery, and safe zones.
+   - Automatically builds FAQPage schema via `buildSpanishNicheStructuredData` rendered on the page and embedded in JSON-LD.
+
+3. Regression & Parity Verification:
+   - Added unit test in `app/__tests__/bilingual-subtitling-faq.test.ts` locking both EN and ES exact query phrasings, FAQPage schema presence, and minimum FAQ counts.
+   - Ran `pnpm lastmod:update` updating `config/page-lastmod.json` for both `/services/bilingual-video-subtitling-service` and `/es/servicio-de-subtitulado-bilingue-de-video` with today's date (2026-11-02).
+   - Ensured PR 696 answer blocks and `llms-base.txt` remain intact and unperturbed.
+
+## Verification
+- `npm test`: PASS (194 test files / 3,799 tests)
+- `python3 $HOME/.claude/durable/analytics-gate.py`: PASS (16 emit sites, 11 distinct events)
+- `test -s esteban-geo-nightly-subtitling-faq-retry-2026-11-02.txt`: PASS
