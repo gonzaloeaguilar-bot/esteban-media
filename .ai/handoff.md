@@ -1,3 +1,18 @@
+## 2026-11-02 — Remote video editor exact query FAQPage schema and answer content (spark-2026-11-02-002)
+
+- Target queries addressed: "best remote video editor for small businesses" (EN) and "editor de video remoto para creadores" (ES).
+- Added exact query target FAQ in English (`REMOTE_EDITOR_DEPTH.faqs` in `app/(english)/services/hire-remote-video-editor/page.tsx`):
+  - Question: "Who is the best remote video editor for small businesses?"
+  - Answers with direct remote editor facts, pacing, color grading, sound balancing, safe-zone formatting, starting from $240/video with 24-48h short-form delivery. Emits structured `FAQPage` schema.
+- Added exact query target FAQ in Spanish (`faqs` for slug `contratar-editor-de-video-remoto` in `lib/spanish-site.ts`):
+  - Question: "¿Cuál es el mejor editor de video remoto para creadores?"
+  - Answers with direct remote editing facts for creators, hook pacing, safe-zone captions, Arranque package starting from $240/video or weekly plans with 24-48h delivery. Emits structured `FAQPage` schema.
+- Added regression test `app/__tests__/remote-video-editor-faq.test.ts` asserting exact query matching in FAQPage schema for both EN and ES routes.
+- Updated `app/__tests__/parked-content-ship.test.ts` to expect >= 4 FAQs on `contratar-editor-de-video-remoto`.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update` updating lastmod dates to today.
+- Subtitling schema from PR 701 remains untouched and preserved.
+- Gates: `npm test` (195 test files / 3,800 tests passed), `pnpm typecheck` passed, analytics gate passed, and `esteban-geo-nightly-remote-editor-2026-11-02.txt` created.
+
 ## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
 Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.

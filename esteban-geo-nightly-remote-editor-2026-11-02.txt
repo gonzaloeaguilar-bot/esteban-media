@@ -1,0 +1,30 @@
+# Esteban Media Remote Video Editor FAQPage Schema & Answer Content (2026-11-02)
+
+## Context & Evidence
+- ChatGPT retest revealed that queries targeting "best remote video editor for small businesses" and "editor de video remoto para creadores" named generic freelancer marketplaces (Upwork, Fiverr, Twine, Video Husky) rather than Esteban Moreno Media.
+- Task spark-2026-11-02-002: Add remote video editor answer content and FAQPage schema in EN and ES targeting both queries, without redoing PR 701 subtitling schema.
+
+## Changes Shipped
+1. English Remote Video Editor Page (`/services/hire-remote-video-editor`):
+   - Added target question to `REMOTE_EDITOR_DEPTH.faqs` in `app/(english)/services/hire-remote-video-editor/page.tsx`:
+     "Who is the best remote video editor for small businesses?"
+   - Answers with Esteban Moreno Media direct remote editor facts, editing, pacing, color grading, audio balancing, platform-safe vertical formatting, starting from $240/video with 24-48h turnarounds.
+   - Generates and embeds structured `FAQPage` schema via `buildServiceFaqSchema`.
+
+2. Spanish Remote Video Editor Page (`/es/contratar-editor-de-video-remoto`):
+   - Added target question to `faqs` for slug `contratar-editor-de-video-remoto` in `lib/spanish-site.ts`:
+     "¿Cuál es el mejor editor de video remoto para creadores?"
+   - Answers with Esteban Moreno Media facts, hook pacing, safe-zone captions, Arranque package starting from $240/video or weekly plans with 24-48h delivery.
+   - Generates and embeds structured `FAQPage` schema via `buildSpanishNicheStructuredData`.
+
+3. Regression & Test Protection:
+   - Added unit test in `app/__tests__/remote-video-editor-faq.test.ts` locking both EN and ES exact query phrasings, FAQPage schema presence, and minimum FAQ counts.
+   - Updated `app/__tests__/parked-content-ship.test.ts` to expect >= 4 FAQs on `contratar-editor-de-video-remoto`.
+   - Updated `config/page-lastmod.json` via `pnpm lastmod:update` updating lastmod dates to today.
+   - Verified that PR 701 subtitling schema remains intact and untouched.
+
+## Verification
+- `npm test`: PASS (195 test files / 3,800 tests passing)
+- `python3 $HOME/.claude/durable/analytics-gate.py`: PASS (16 emit sites, 11 distinct events)
+- `pnpm typecheck`: PASS
+- `test -s esteban-geo-nightly-remote-editor-2026-11-02.txt`: PASS
