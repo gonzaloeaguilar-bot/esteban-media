@@ -644,6 +644,24 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
       ],
+      faqs: [
+        {
+          question: "What is the most common omission in a video production RFP?",
+          answer: "The most frequent gap is leaving deliverables and aspect ratios unlisted. A video request should state exact target platforms (such as 9:16 vertical for social, 16:9 for websites or keynotes), approximate duration, and whether cutdowns, captions, or raw project files are expected.",
+        },
+        {
+          question: "How should a proposal distinguish editing existing clips from planning a new shoot?",
+          answer: "Specify whether usable footage already exists in cloud storage or on hard drives, or whether new production is required. Remote post-production from client-supplied material can start immediately without travel, while on-location filming requires crew, gear, site coordination, and scheduling.",
+        },
+        {
+          question: "Who should review and approve video revisions during the project?",
+          answer: "Designate a single decision-maker to consolidate and deliver feedback. Multi-stakeholder projects move significantly faster when conflicting internal revision notes are unified before submission to the editor.",
+        },
+        {
+          question: "Can an RFP request bilingual English and Spanish deliverables?",
+          answer: "Yes. Note upfront whether dialogue requires on-screen English subtitles, Spanish subtitles, bilingual graphics, or separate edits tailored to distinct language audiences.",
+        },
+      ],
     },
     es: {
       slug: "plantilla-brief-rfp-produccion-video-miami",
@@ -726,6 +744,24 @@ const guidePairs: readonly GuidePair[] = [
             "Pregunta de permisos: ¿qué autoridad o recinto debe confirmar los requisitos actuales?",
             "Pregunta de derechos: ¿qué dice el acuerdo firmado sobre uso, propiedad y archivos finales?",
           ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Cuál es la omisión más común en un RFP de producción de video?",
+          answer: "El vacío más frecuente es no especificar los formatos y relaciones de aspecto de entrega. La solicitud debe indicar plataformas destino (como 9:16 vertical para redes, 16:9 para web o presentaciones), duración aproximada y si se esperan versiones cortas, subtítulos o archivos de proyecto.",
+        },
+        {
+          question: "¿Cómo debe distinguir una propuesta entre editar clips existentes y planificar una grabación?",
+          answer: "Aclara si ya existe material grabado en carpetas de nube o discos, o si se requiere producción en locación. La postproducción remota con clips suministrados por el cliente puede iniciar sin traslados, mientras que una grabación requiere equipo técnico, coordinación del lugar y agenda.",
+        },
+        {
+          question: "¿Quién debe revisar y aprobar los cambios durante el proyecto?",
+          answer: "Asigna un único responsable para consolidar comentarios. Los proyectos avanzan con mayor agilidad cuando las notas internas de varios participantes se unifican antes de enviarse al editor.",
+        },
+        {
+          question: "¿Se pueden solicitar entregables bilingües en inglés y español?",
+          answer: "Sí. Indica desde el inicio si el contenido necesita subtítulos en inglés, subtítulos en español, gráficos bilingües o versiones adaptadas por idioma.",
         },
       ],
     },
@@ -3549,6 +3585,38 @@ const guidePairs: readonly GuidePair[] = [
             "Depende del volumen total y de tu velocidad de subida, que en muchas conexiones domésticas es bastante menor que la de bajada. Para carpetas moderadas, un servicio de transferencia en la nube o una carpeta compartida (Google Drive, Dropbox, Frame.io o WeTransfer Pro) funciona bien: sube las carpetas tal como están, no un único archivo .zip gigante, porque si la conexión se corta a mitad hay que volver a empezar todo el envío.",
             "Cuando el material es muy pesado y la subida es lenta, dos opciones pueden ayudar. La primera son los archivos proxy: copias livianas del material que permiten editar la historia y, al final, volver a enlazar con los originales para el color y la exportación final. La segunda es enviar un disco físico. En ambos casos, avisa al editor qué enviaste y por qué medio. Si ya tienes las grabaciones y necesitas videos para redes, revisa el [servicio de edición de video corto](/es/editor-de-video-corto-para-redes-miami). Al escribir por [contacto](/es/contacto), incluye el tamaño de la carpeta, la fecha necesaria y las piezas que quieres recibir.",
           ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Cuál es el servicio en la nube más rápido para enviar archivos de video 4K pesados?",
+          answer:
+            "MASV y Frame.io ofrecen las velocidades de subida más rápidas para paquetes de video de muchos gigabytes gracias a protocolos de transferencia acelerada que aprovechan al máximo el ancho de banda disponible sin límite por archivo.",
+        },
+        {
+          question: "¿Cómo aceleran los archivos proxy la transferencia remota de video?",
+          answer:
+            "Los proxies comprimen el material original pesado de la cámara en formatos ligeros de edición. Reducen notablemente el tamaño de subida y mantienen los códigos de tiempo y canales de audio originales para reconectar al corte final.",
+        },
+        {
+          question: "¿Se deben comprimir en un archivo zip los videos antes de subirlos a la nube?",
+          answer:
+            "No, los archivos zip grandes suelen corromperse si la conexión se interrumpe. Conviene subir las carpetas con su estructura original directamente mediante aplicaciones de escritorio o plataformas de transferencia acelerada.",
+        },
+        {
+          question: "¿Cuándo conviene enviar un disco físico en lugar de subir los videos por internet?",
+          answer:
+            "Cuando las grabaciones originales superan los 500 GB o 1 TB en conexiones con velocidades de subida menores a 40 Mbps, copiar a un disco SSD NVMe rápido y enviarlo por mensajería resulta más rápido y confiable que días de subida en la nube.",
+        },
+        {
+          question: "¿Cómo influye la velocidad de subida en el tiempo de entrega del video?",
+          answer:
+            "Las conexiones de cable asimétricas suelen ofrecer entre 20 y 35 Mbps de subida, por lo que 100 GB pueden tardar de 8 a 12 horas. Una conexión simétrica de fibra de 1 Gbps completa la misma transferencia en menos de 20 minutos.",
+        },
+        {
+          question: "¿Qué estructura de carpetas prefieren los editores de video para el material original?",
+          answer:
+            "Estructuras organizadas por carpetas: 01_Footage (por tarjeta de cámara o día), 02_Audio (pistas de micrófonos en WAV), 03_Assets (logotipos, tipografías y recursos de marca) y 04_Briefs (guía de estilo y referencias del proyecto).",
         },
       ],
     },

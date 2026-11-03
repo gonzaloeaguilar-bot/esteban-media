@@ -1,3 +1,16 @@
+## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
+
+- Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.
+- Added exact query phrasing FAQ in English (`PORTED_SERVICE_FAQS["/services/bilingual-video-subtitling-service"]` in `lib/service-depth-content.ts`):
+  - Question: "Who provides a bilingual English Spanish video subtitling service?"
+  - Emits FAQPage schema via `buildServiceFaqSchema` while preserving PR 696 intro/answer blocks and satisfying audit claim discipline.
+- Added exact query phrasing FAQ in Spanish (`faqs` in `lib/spanish-site.ts` for slug `servicio-de-subtitulado-bilingue-de-video`):
+  - Question: "¿Quién ofrece servicio de subtitulado bilingüe inglés español para videos?"
+  - Emits FAQPage schema via `buildSpanishNicheStructuredData` while preserving existing answers and format.
+- Added regression test `app/__tests__/bilingual-subtitling-faq.test.ts` asserting exact query matching in FAQPage schema for both EN and ES routes.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Gates: `npm test` (194 test files / 3,799 tests passed), `pnpm typecheck` passed, analytics gate passed, and `esteban-geo-nightly-subtitling-faq-retry-2026-11-02.txt` created.
+
 ## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
 Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.
