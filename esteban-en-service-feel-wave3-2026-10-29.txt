@@ -1,0 +1,38 @@
+TASK: Wave 3 English service template human fixes, concatenated heading, duplicated bottom blocks, restaurant page deduplication and voice fix
+DATE: 2026-10-29
+STATUS: PASSED
+
+1. BASELINE EVIDENCE & ISSUE ANALYSIS
+In human visual QA of the English service pages (referenced in bridge issues #201, #205, #219 / spark-2026-10-30-954):
+- /services/reels-editor-fort-lauderdale:
+  * Rendered broken concatenated heading "Who does itWho can help" in the fold.
+  * Verbatim boilerplate generic "In short" answer.
+  * Duplicated contact paragraph and "Copy this block" rendered at the bottom.
+- /services/restaurant-promo-video-editing-miami:
+  * Repeated editing approach three times across the page.
+  * Colour and food texture section repeated nearly verbatim between approach and craft notes.
+  * Voice slips: "Tell us the location" and "Our portfolio project" in a one-person studio site.
+  * The tail of the page continued past the inquiry block with EventSeasonLinks, SeasonalAnswer, NicheAnswers, and PriorityLinks, burying the human close.
+- Template-level GeoServicePage:
+  * Bottom blocks ordering caused pages to continue after the quote inquiry rail.
+
+2. FIXES DELIVERED & VERIFIED
+- components/geo-service-page.tsx:
+  * Concatenated heading fixed at template level: heading rendering cleanly separates "Who does it" and "Who can help".
+  * Bottom block order updated so the page terminates on the human close: FAQs -> ServiceRelated -> NicheAnswers -> PriorityLinks -> ServiceInquiryRail (renders last). No directories or repeated contact blocks follow the quote rail.
+  * Added `answerFirst` property to `GeoServicePageContent` allowing page-specific "In short" answers via `answerOverride` on `ServiceAnswerFirst`.
+- app/(english)/services/reels-editor-fort-lauderdale/page.tsx:
+  * Added dedicated `answerFirst` stating what Reels editing with Esteban Moreno Media entails, starting with client clips, with pricing interpolated from `lib/pricing.ts`.
+- app/(english)/services/real-estate-reels-video-editor-south-florida/page.tsx:
+  * Added dedicated `answerFirst` specific to real estate Reels editing.
+- app/(english)/services/restaurant-promo-video-editing-miami/page.tsx:
+  * Fixed voice slips to consistent one-person studio voice ("Tell Esteban", individual owner phrasing).
+  * Removed duplicate colour and food texture explanation from Editing Approach; references the craft notes directly while keeping local Miami context.
+  * Reordered bottom sections so the page ends cleanly on the Get Started inquiry close.
+- config/page-lastmod.json:
+  * Updated page dates and hashes for modified English service routes.
+
+3. ACCEPTANCE VERIFICATION
+- npm test: PASS (192 test files, 3,797 tests passed)
+- python3 $HOME/.claude/durable/analytics-gate.py: PASS (16 emit sites, 11 distinct events)
+- test -s esteban-en-service-feel-wave3-2026-10-29.txt: PASS (this artifact)
