@@ -322,9 +322,9 @@ export function HomePortfolioRail({
             className="object-cover"
           />
         )}
-        <span
+        <i
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none"
         />
       </>
     ) : undefined,
