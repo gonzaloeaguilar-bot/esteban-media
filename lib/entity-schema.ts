@@ -55,6 +55,13 @@ export const personEntityJsonLd = {
     "social media planning",
     "short-form video",
     "video editing",
+    "TikTok video editing",
+    "Instagram Reels editing",
+    "YouTube Shorts editing",
+    "bilingual video subtitling",
+    "remote video editing",
+    "real estate video editing",
+    "content day videography",
     "South Florida local business content",
   ],
 };
@@ -72,6 +79,21 @@ export const localBusinessEntityJsonLd = {
   // ceiling rather than inventing a fixed maximum.
   priceRange: `${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}-${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}+`,
   description: site.description,
+  knowsAbout: [
+    "Video editing",
+    "Short-form video",
+    "TikTok video editing",
+    "Instagram Reels editing",
+    "YouTube Shorts editing",
+    "Bilingual video subtitling",
+    "Remote video editing",
+    "Real estate video editing",
+    "Content day videography",
+    "AI-assisted content",
+    "Selectively scoped on-location video production",
+    "Social media planning",
+    "South Florida local business content",
+  ],
   // 180x180 app icon, the only square brand mark the repo ships (public/
   // has no separate logo asset). Meets Google's minimum recommended
   // logo size (112x112) for the Organization/LocalBusiness rich-result eligibility check.

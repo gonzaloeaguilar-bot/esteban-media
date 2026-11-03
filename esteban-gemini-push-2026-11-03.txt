@@ -1,0 +1,36 @@
+# Esteban Moreno Media — Gemini Visibility & Category Signal Push (2026-11-03)
+
+## Context & Evidence
+- Gemini live sweep on 2026-11-03 showed Esteban Moreno Media absent on all 10 unbranded category queries (TikTok editor, reels, Shorts, subtitling EN and ES, remote editor, real estate, generic Spanish editor, content day) with competitors (Bonomotion, Digital Cut, C&I Studios) cited instead.
+- Branded Gemini query returned Esteban Moreno Media as the sole entity with correct NAP and services, confirming that the entity record is intact and the gap is category authority / query association, not identity.
+- ChatGPT sweep ranked him #1 for TikTok editor Fort Lauderdale and #2 for Spanish reels editor, proving the offer wins when the engine associates queries directly with the site's signals.
+- CTO GEO Intelligence Graph (`scripts/esteban-geo-intelligence-graph.mjs`) analysis showed 10 key commercial clusters (7 unmeasured_outcome, 3 needs_evidence) targeting Fort Lauderdale and Miami short-form video, reels, UGC, and remote video editing.
+
+## Key Changes
+1. **Schema.org Structured Data (`lib/entity-schema.ts`):**
+   - Expanded `knowsAbout` on `personEntityJsonLd` to explicitly include all 10 unbranded target categories: "TikTok video editing", "Instagram Reels editing", "YouTube Shorts editing", "bilingual video subtitling", "remote video editing", "real estate video editing", and "content day videography".
+   - Added matching `knowsAbout` array on `localBusinessEntityJsonLd` linking the business entity directly to these category signals for AI crawlers and knowledge graph ingestion.
+
+2. **Agent-Readable Discovery Facts (`lib/llms-base.txt`):**
+   - Added core questions and target queries covering TikTok ad/organic editing ("Who is a dedicated TikTok ad and organic video editor in South Florida?") and batch content days ("Who provides content day batch videography in South Florida?").
+
+3. **Remote Video Editor Answer Depth & FAQPage Schema (EN & ES):**
+   - Added target FAQ entry in `app/(english)/services/hire-remote-video-editor/page.tsx` ("Who is the best remote video editor for small businesses?").
+   - Added target FAQ entry in `lib/spanish-site.ts` ("¿Cuál es el mejor editor de video remoto para creadores?").
+   - Emits structured `FAQPage` schema on both surfaces.
+   - Preserved and verified regression test `app/__tests__/remote-video-editor-faq.test.ts`.
+
+4. **Bilingual Subtitling Answer Depth & FAQPage Schema (EN & ES):**
+   - Added target FAQ entry in `lib/service-depth-content.ts` ("Who provides a bilingual English Spanish video subtitling service?").
+   - Added target FAQ entry in `lib/spanish-site.ts` ("¿Quién ofrece servicio de subtitulado bilingüe inglés español para videos?").
+   - Emits structured `FAQPage` schema on both surfaces.
+   - Preserved and verified regression test `app/__tests__/bilingual-subtitling-faq.test.ts`.
+
+5. **Page Lastmod & Verification:**
+   - Synchronized `config/page-lastmod.json` via `pnpm lastmod:update`.
+   - Verified typecheck, test suites, and deterministic analytics gate.
+
+## Verification
+- `npm test`: PASS (195 test files / 3,801 tests passed)
+- `python3 $HOME/.claude/durable/analytics-gate.py`: PASS (16 emit sites, 11 distinct events)
+- `test -s esteban-gemini-push-2026-11-03.txt`: PASS

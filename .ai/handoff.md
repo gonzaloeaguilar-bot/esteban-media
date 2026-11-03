@@ -1,3 +1,13 @@
+## 2026-11-03 — Gemini Visibility & Category Signal Push (spark-2026-11-03-101)
+
+- Strengthened entity and category signals across Schema.org structured data, llms-base facts, and high-intent service FAQPage schemas to address Esteban Moreno Media's absence across 10 unbranded Gemini queries.
+- `lib/entity-schema.ts`: Expanded `personEntityJsonLd.knowsAbout` and added `localBusinessEntityJsonLd.knowsAbout` covering TikTok video editing, Instagram Reels editing, YouTube Shorts editing, bilingual video subtitling, remote video editing, real estate video editing, and content day videography.
+- `lib/llms-base.txt`: Added core targeting questions for TikTok ad/organic editing and content day batch videography in South Florida.
+- Integrated exact query target FAQs and Schema.org `FAQPage` nodes for remote video editing (`/services/hire-remote-video-editor` and `/es/contratar-editor-de-video-remoto`) and bilingual subtitling (`/services/bilingual-video-subtitling-service` and `/es/servicio-de-subtitulado-bilingue-de-video`).
+- Added regression tests `app/__tests__/remote-video-editor-faq.test.ts` and `app/__tests__/bilingual-subtitling-faq.test.ts`.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Gates: `npm test` passing, `pnpm typecheck` clean, analytics gate passing, `test -s esteban-gemini-push-2026-11-03.txt` passing.
+
 ## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
 Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.
