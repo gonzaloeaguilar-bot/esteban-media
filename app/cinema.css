@@ -1620,7 +1620,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 .em-pk-card__credit {
   position: absolute;
-  inset: 0;
+  inset: 0 0 16px 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
