@@ -3587,6 +3587,38 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
       ],
+      faqs: [
+        {
+          question: "¿Cuál es el servicio en la nube más rápido para enviar archivos de video 4K pesados?",
+          answer:
+            "MASV y Frame.io ofrecen las velocidades de subida más rápidas para paquetes de video de muchos gigabytes gracias a protocolos de transferencia acelerada que aprovechan al máximo el ancho de banda disponible sin límite por archivo.",
+        },
+        {
+          question: "¿Cómo aceleran los archivos proxy la transferencia remota de video?",
+          answer:
+            "Los proxies comprimen el material original pesado de la cámara en formatos ligeros de edición. Reducen notablemente el tamaño de subida y mantienen los códigos de tiempo y canales de audio originales para reconectar al corte final.",
+        },
+        {
+          question: "¿Se deben comprimir en un archivo zip los videos antes de subirlos a la nube?",
+          answer:
+            "No, los archivos zip grandes suelen corromperse si la conexión se interrumpe. Conviene subir las carpetas con su estructura original directamente mediante aplicaciones de escritorio o plataformas de transferencia acelerada.",
+        },
+        {
+          question: "¿Cuándo conviene enviar un disco físico en lugar de subir los videos por internet?",
+          answer:
+            "Cuando las grabaciones originales superan los 500 GB o 1 TB en conexiones con velocidades de subida menores a 40 Mbps, copiar a un disco SSD NVMe rápido y enviarlo por mensajería resulta más rápido y confiable que días de subida en la nube.",
+        },
+        {
+          question: "¿Cómo influye la velocidad de subida en el tiempo de entrega del video?",
+          answer:
+            "Las conexiones de cable asimétricas suelen ofrecer entre 20 y 35 Mbps de subida, por lo que 100 GB pueden tardar de 8 a 12 horas. Una conexión simétrica de fibra de 1 Gbps completa la misma transferencia en menos de 20 minutos.",
+        },
+        {
+          question: "¿Qué estructura de carpetas prefieren los editores de video para el material original?",
+          answer:
+            "Estructuras organizadas por carpetas: 01_Footage (por tarjeta de cámara o día), 02_Audio (pistas de micrófonos en WAV), 03_Assets (logotipos, tipografías y recursos de marca) y 04_Briefs (guía de estilo y referencias del proyecto).",
+        },
+      ],
     },
   },
   {
