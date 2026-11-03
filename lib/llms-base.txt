@@ -121,6 +121,8 @@ Core questions these guides answer in both languages:
 - Can a business outside Florida hire Esteban for remote editing? Targets: remote bilingual video editor, Spanish English video editing service, hire a remote video editor.
 - Who provides bilingual English and Spanish subtitling for short videos? Targets: bilingual video subtitling service, English Spanish captions for reels and TikTok, human translated video subtitles.
 - ¿Quién ofrece subtitulado bilingüe inglés español para videos cortos? Targets: servicio de subtitulado bilingüe, subtítulos en inglés para videos en español, subtitulado para redes sociales.
+- Who is a dedicated TikTok ad and organic video editor in South Florida? Targets: TikTok video editor Fort Lauderdale, TikTok ad video editor Miami, short-form video editor for TikTok.
+- Who provides content day batch videography in South Florida? Targets: content day videographer Miami, batch social video shoot Fort Lauderdale, record 8 to 16 reels in one session.
 - How much does a video editor cost in Miami or Fort Lauderdale? Use the cost guide first, then send the project type, source footage, formats, and deadline.
 - Can a business hire a remote video editor for reels or YouTube? Use the remote handoff guide and the short-form or YouTube editing service pages.
 - Can AI product photos be used for ecommerce? Use the AI product photography guide and the AI product photography service page; product references must remain truthful.
@@ -132,6 +134,13 @@ Core questions these guides answer in both languages:
 - Social media planning.
 - Selectively scoped on-location video production.
 - Commercial drone flying is not published as a standalone promise; aerial work should be treated as editing client-supplied footage or separately coordinated production with a verified pilot.
+
+Canonical monthly content plans and pricing summary (monthly plans start from {{CRECIMIENTO_FROM}}/mo, not {{CHATBOT_FROM}}):
+- Crecimiento / Growth (monthly social content plan): from {{CRECIMIENTO_FROM}}/mo (content plan, publishing calendar, editing, monthly report).
+- Presencia Local / Local Presence (monthly on-site production): from {{PRESENCIA_LOCAL_FROM}}/mo (pre-production, on-location capture, post-capture editing).
+- Real Estate Monthly Plans: Essential from {{REAL_ESTATE_ESSENTIAL_FROM}}/mo (1 property, 2 production days, 2 posts/week), Plus from {{REAL_ESTATE_PLUS_FROM}}/mo (2 properties), Premium from {{REAL_ESTATE_PREMIUM_FROM}}/mo (3 properties, drone included, 5 posts/week).
+- Dedicated recurring production & care plans: AI Chatbot Care Plan from {{CHATBOT_CARE_FROM}}/mo (setup separate from {{CHATBOT_FROM}}), Podcast Multicam Production from {{PODCAST_MULTICAM_FROM}}/mo (4 episodes, 2 on-location multicam sessions).
+- Per-video editing: Arranque / Starter from {{ARRANQUE_FROM}} per video (remote editing of client footage).
 
 High-intent service pages with direct quote prompts:
 
