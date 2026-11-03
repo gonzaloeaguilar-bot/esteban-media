@@ -1,3 +1,14 @@
+## 2026-11-03 — Gemini Visibility, Category Signals & Pricing Summary Push (spark-2026-11-03-104)
+
+- Strengthened entity and category signals across Schema.org structured data, llms-base facts, and high-intent service FAQPage schemas to address Esteban Moreno Media's absence across 10 unbranded Gemini queries.
+- Corrected Gemini's conflation that "monthly content plans start at $2,000/mo" by adding a canonical monthly content plans and pricing summary to `lib/llms-base.txt` and `lib/llms-txt.ts` (Crecimiento from $950/mo, Presencia Local from $1,600/mo, Real Estate Essential from $750/mo, plus chatbot care and podcast multicam distinctions).
+- `lib/entity-schema.ts`: Expanded `personEntityJsonLd.knowsAbout` and added `localBusinessEntityJsonLd.knowsAbout` covering TikTok video editing, Instagram Reels editing, YouTube Shorts editing, bilingual video subtitling, remote video editing, real estate video editing, and content day videography.
+- `lib/llms-base.txt`: Added core targeting questions for TikTok ad/organic editing and content day batch videography in South Florida.
+- Integrated exact query target FAQs and Schema.org `FAQPage` nodes for remote video editing (`/services/hire-remote-video-editor` and `/es/contratar-editor-de-video-remoto`).
+- Added regression test `app/__tests__/remote-video-editor-faq.test.ts`.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Gates: `npm test` passing, `pnpm typecheck` clean, analytics gate passing, `test -s esteban-gemini-push-retry-2026-11-03.txt` passing.
+
 ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
 
 - Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.

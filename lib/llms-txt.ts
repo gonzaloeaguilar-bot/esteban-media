@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { CHATBOT_PRICE, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { CARE_AND_PRODUCTION_PLANS, CHATBOT_PRICE, LANDING_PAGE_PRICE, PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { join } from "node:path";
 
 import sitemap from "@/app/sitemap";
@@ -35,11 +35,19 @@ const BASE_PATH = join(process.cwd(), "lib/llms-base.txt");
 // the single source of truth. A hand-typed dollar figure in the base file is a
 // test failure (price-single-source.test.ts).
 const fromAmount = (p: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) => (p.kind === "from" ? p.amount : 0);
+const realEstateEssential = REAL_ESTATE_PLANS.find((p) => p.id === "essential");
+const realEstatePlus = REAL_ESTATE_PLANS.find((p) => p.id === "plus");
+const realEstatePremium = REAL_ESTATE_PLANS.find((p) => p.id === "premium");
 const PRICE_TOKENS: Record<string, string> = {
   ARRANQUE_FROM: usd(fromAmount(PACKAGE_PRICES.arranque)),
   CRECIMIENTO_FROM: usd(fromAmount(PACKAGE_PRICES.crecimiento)),
   PRESENCIA_LOCAL_FROM: usd(fromAmount(PACKAGE_PRICES["presencia-local"])),
   CHATBOT_FROM: usd(CHATBOT_PRICE.from),
+  CHATBOT_CARE_FROM: usd(CARE_AND_PRODUCTION_PLANS.aiChatbotCare.amount),
+  PODCAST_MULTICAM_FROM: usd(CARE_AND_PRODUCTION_PLANS.podcastMulticam.amount),
+  REAL_ESTATE_ESSENTIAL_FROM: usd(realEstateEssential ? realEstateEssential.price : 750),
+  REAL_ESTATE_PLUS_FROM: usd(realEstatePlus ? realEstatePlus.price : 1250),
+  REAL_ESTATE_PREMIUM_FROM: usd(realEstatePremium ? realEstatePremium.price : 1950),
   LANDING_FROM: usd(LANDING_PAGE_PRICE.from),
   LANDING_UPPER: usd(LANDING_PAGE_PRICE.typicalUpper),
 };
