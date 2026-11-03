@@ -3292,6 +3292,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsDestinations: BILINGUAL_SUBTITLING_ES_DESTINATIONS,
     faqs: [
       {
+        question: "¿Quién ofrece servicio de subtitulado bilingüe inglés español para videos?",
+        answer:
+          "Esteban Moreno Media ofrece subtitulado bilingüe profesional en inglés y español para videos corporativos, conferencias y contenido social desde Fort Lauderdale. Esteban traduce y revisa cada línea directamente contra el audio original, entregando archivos de subtítulos sincronizados SRT o subtítulos incrustados dentro de zonas seguras, con entregas en 24 a 48 horas para videos cortos.",
+      },
+      {
         question: "¿Cuál es la ventaja de la traducción humana sobre los subtítulos automáticos?",
         answer:
           "La revisión humana asegura que términos técnicos y giros lingüísticos se traduzcan con precisión sin errores que confundan a la audiencia.",

@@ -1,3 +1,7 @@
+## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry
+
+- [x] Retry #228: add FAQPage schema using the exact bilingual subtitling query phrasings in EN and ES to Esteban's subtitling pages. Diagnosed gate exit 127 (`sh: vitest: command not found` due to missing worktree `node_modules`). Added exact query questions in `lib/service-depth-content.ts` and `lib/spanish-site.ts` with FAQPage schema generation. Verified with `npm test`, `analytics-gate.py`, and `esteban-geo-nightly-subtitling-faq-retry-2026-11-02.txt`.
+
 ## 2026-10-24 — Website case studies candidate
 
 - [x] Add bilingual, source-bounded portfolio and case-study routes for Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer; refresh Gains From Geebs as a current website case. Correction: all four use current public UI captures; Geebs title, summary and project details match the visible direct-start/method/packages/results/resources UI. Local evidence: targeted suite 230/230, typecheck, lint (0 errors / 22 existing warnings), build `bhmP2jyU80Mh0ds7UxwsH`, rendered local Geebs route and matching 566-route sitemap/index-watch set.

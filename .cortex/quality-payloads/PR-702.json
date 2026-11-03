@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-702",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave (2026-11-03): targeting GSC impressions at position 6-15 lacking content depth / EN-ES parity. Fresh GSC snapshot from ~/.local/state/portfolio-bq-sync/esteban-gsc/snapshot-latest.json and review-2026-11-03.json showed /guides/fastest-way-to-send-large-video-files-to-editor earning 44 impressions at position 10.7 with 0 clicks. Audit revealed that the Spanish twin /es/guias/como-enviar-archivos-pesados-de-video-para-edicion lacked FAQ content entirely, creating an EN/ES parity gap and missing FAQPage structured data on the Spanish surface. Added 6 question-shaped Spanish FAQs matching the English topics (cloud transfer services, proxies, avoiding zip compression corruption, physical SSD handoff thresholds, asymmetric upload bottlenecks, structured folder organization), automatically rendering via RailFaq and buildGuideStructuredData FAQPage JSON-LD.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-transfer, branch feat/demand-wave-transfer-large-video-depth, move class 1 (content depth + FAQ/FAQPage JSON-LD parity). CTO dispatch charter demand-wave-esteban-charter.md.",
+    "hard_stops_checked": "Checked and clear. Zero invented clients/prices/reviews/stats/guarantees, no street address, no Part 107 drone-pilot claims, no aggregateRating. EN/ES parity restored. No new indexable URLs added, 0 sitemap count drift. All verification gates pass.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test, git diff --check, pnpm lastmod:update. New regression test app/__tests__/transfer-large-video-files-depth.test.ts verifies FAQ content and FAQPage schema in both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move in isolated worktree off fresh origin/main; verified lint, typecheck, full test suite (194 files / 3799 tests pass), and page-lastmod ledger."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on transfer protocols/proxies/physical drives, without hype or marketing buzzwords."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies file transfer procedures and proxy workflows without introducing speculative claims.",
+    "winner_rationale": "Priority 1 move class: A high-impression page (44 impressions) sitting at position 10.7 where the Spanish version lacked FAQ depth and schema. Adding bilingual FAQs and valid FAQPage schema directly addresses high-intent remote video editing handoff queries.",
+    "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test (all 194 test files / 3799 tests pass), pnpm lastmod:update clean, git diff --check clean.",
+    "debt_delta": "Net negative debt: introduces regression test app/__tests__/transfer-large-video-files-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+    "obsidian_handoff": "wiki/esteban-media-hot.md and hot.md updated with PR #702 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-17, 2026-12-01)."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move in isolated worktree off fresh origin/main; verified lint, typecheck, full test suite (194 files / 3799 tests pass), and page-lastmod ledger."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on transfer protocols/proxies/physical drives, without hype or marketing buzzwords."
+    }
+  },
+  "winner_rationale": "Priority 1 move class: A high-impression page (44 impressions) sitting at position 10.7 where the Spanish version lacked FAQ depth and schema. Adding bilingual FAQs and valid FAQPage schema directly addresses high-intent remote video editing handoff queries.",
+  "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies file transfer procedures and proxy workflows without introducing speculative claims.",
+  "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test (all 194 test files / 3799 tests pass), pnpm lastmod:update clean, git diff --check clean.",
+  "debt_delta": "Net negative debt: introduces regression test app/__tests__/transfer-large-video-files-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+  "obsidian_handoff": "wiki/esteban-media-hot.md and hot.md updated with PR #702 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-17, 2026-12-01)."
+}
