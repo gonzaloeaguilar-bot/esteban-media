@@ -18,9 +18,9 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Remote Video Editing Colombia",
+  title: "Video Editing Services for Colombia | Remote Bilingual Editor",
   description:
-    "Remote video editing and post-production for Colombian companies, agencies, and creators. Cloud-based workflows, bilingual direction, and fast turnarounds.",
+    "Video editing services and remote post-production for Colombian companies, agencies, and creators. Cloud workflows, bilingual direction, fast turnarounds.",
   path: "/services/remote-video-editing-colombia",
   locale: "en",
 });
