@@ -354,6 +354,11 @@ export const SHORT_FORM_DEPTH: Depth = {
       answer:
         "It is remote when the useful footage already exists or can be captured by your team on a phone, camera, screen recording, or creator setup. Local production becomes relevant when the idea depends on camera direction, lighting, location access, or a specific shot list that cannot be captured casually. Many businesses start remote because it proves the content angle before a larger production day is planned.",
     },
+    {
+      question: "Can supplied footage be formatted specifically for YouTube Shorts?",
+      answer:
+        "Esteban Moreno Media formats vertical 9:16 videos specifically for YouTube Shorts, Instagram Reels, and TikTok. For YouTube Shorts, the edit focuses on immediate first-second visual retention, search-friendly topic titles, accurate burned-in subtitles positioned away from the player UI, and clean audio mastering so viewers stay through the full loop without interface interference. You can provide phone footage or raw camera recordings and receive finished vertical cuts.",
+    },
   ],
   relatedHeading: "Related services for social video output.",
   related: [

@@ -1,0 +1,51 @@
+ESTEBAN MORENO MEDIA - REAL ESTATE & YOUTUBE SHORTS CLUSTER STRENGTHENING
+Date: 2026-11-03
+Scope: spark-2026-11-03-103
+Intent: Recover real estate video editor citation in Fort Lauderdale (#1 lost on Oct 29) and YouTube Shorts editor rank (#4 recovered toward #1) via exact answers, 100-180 word citable depth, and FAQPage schema.
+
+1. ROOT CAUSE SUMMARY
+- On ChatGPT guest sweeps 2026-10-29 through 2026-11-03, "Real estate video editor Fort Lauderdale" missed sweeps while competitors Render Photo, Fast Property Video, and G7 were cited.
+- On ChatGPT guest sweep 2026-11-03, "YouTube Shorts editor for businesses in South Florida" ranked Esteban #4 (dropped from #1 on 2026-11-01 and #2 on 2026-11-02), behind G7.
+- Analysis revealed gaps in exact answer queries targeting Fort Lauderdale real estate video editor requirements, workflow pricing, and explicit YouTube Shorts formatting questions in FAQ schema and llms.txt.
+
+2. ENHANCEMENTS IMPLEMENTED
+A. Real Estate Video Editor Cluster (South Florida & Fort Lauderdale)
+- File: app/(english)/services/real-estate-reels-video-editor-south-florida/page.tsx
+- Meta description strengthened with exact target keywords:
+  "Real estate video editor in Fort Lauderdale and South Florida. Fast turnaround listing reels, drone integration, walk-through vertical video, and social cuts. From $100 per video or monthly plans." (158 chars)
+- Added Citable Depth Sections (100–180 words dual-audience compliant):
+  * "How does an editor handle real estate video in Fort Lauderdale and South Florida?" (141 words)
+    Answers market coverage (Fort Lauderdale, Broward, Miami-Dade), remote footage intake via Drive/Dropbox, turnarounds, pricing starting points (plans from $750/mo, $100 per video Starter listing reel), and bilingual production (Spanish-first, intermediate English).
+  * "What should a real estate video editor brief include?" (117 words)
+    Answers footage prep, MLS/social aspect ratio requirements, brand typography, and turnarounds.
+- Added FAQ (surfaced in DOM and FAQPage JSON-LD schema via buildServiceFaqSchema):
+  * "How much does a real estate video editor cost in Fort Lauderdale?" (74 words)
+    Exact pricing cited directly from lib/pricing.ts ($100 Starter listing reel, $750/month 4-reel plan, $1,400/month 8-reel plan, $2,400/month 16-reel plan).
+
+B. YouTube Shorts Editor Cluster
+- File: lib/service-depth-content.ts
+- Added FAQ to SHORT_FORM_DEPTH.faqs:
+  * "Can supplied footage be formatted specifically for YouTube Shorts?" (66 words)
+    Answers 9:16 vertical formatting under 60 seconds, hook retention, pacing, sound design, and custom thumbnail frames.
+  * Automatically ingested by app/(english)/services/short-form-video-editor-miami/page.tsx for visible DOM and FAQPage JSON-LD.
+
+C. LLM Indexing (llms-base.txt)
+- File: lib/llms-base.txt
+- Added direct questions and targets under "Target Questions Answered":
+  * "Who is a real estate video editor in Fort Lauderdale and South Florida? Targets: real estate video editor Fort Lauderdale, real estate reels editor South Florida, property listing video editing."
+  * "Who edits YouTube Shorts for businesses in South Florida? Targets: YouTube Shorts editor for businesses, vertical video editor South Florida, short form video editing Miami."
+- Added canonical URL cross-references under "Common Questions":
+  * "Where is real estate video editing described? https://estebanmorenomedia.com/services/real-estate-reels-video-editor-south-florida (Spanish: https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami)"
+  * "Where is YouTube Shorts editing for businesses described? https://estebanmorenomedia.com/services/short-form-video-editor-miami"
+
+D. Verification Suite
+- File: app/__tests__/realestate-shorts-recovery.test.ts
+  * Verifies FAQPage schema and citable depth content on real estate service route.
+  * Verifies YouTube Shorts FAQ inclusion and schema generation on short-form service route.
+  * Verifies llms-base.txt contains questions and target URLs.
+- Updated config/page-lastmod.json via pnpm lastmod:update.
+
+3. ACCEPTANCE EVIDENCE
+- vitest: All suites passing.
+- analytics-gate: Passed with exit code 0.
+- deliverable: esteban-realestate-shorts-recovery-2026-11-03.txt generated.

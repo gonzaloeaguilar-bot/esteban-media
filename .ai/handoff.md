@@ -1,3 +1,26 @@
+# 2026-11-03 — Real estate video editor & YouTube Shorts cluster strengthening (spark-2026-11-03-103)
+
+- **Move Class:** GEO/LLM Retrieval Recovery & Cluster Depth (spark-2026-11-03-103).
+- **Branch:** `spark/spark-2026-11-03-103` | **Commit:** `55781bde`
+- **Context:**
+  - Real estate video editor Fort Lauderdale dropped from #1 (Oct 29) to missing 5 consecutive ChatGPT guest sweeps (Render Photo, Fast Property Video, G7 cited).
+  - YouTube Shorts editor for businesses in South Florida slipped to #4 (from #1 Nov 1 and #2 Nov 2).
+- **Shipped:**
+  - `app/(english)/services/real-estate-reels-video-editor-south-florida/page.tsx`:
+    - Meta description enhanced with target keyword terms and pricing floor.
+    - Two 100–180 word citable depth sections added addressing remote Fort Lauderdale editor workflow and listing brief requirements.
+    - Added pricing FAQ item mapped to Schema.org `FAQPage` JSON-LD via `GeoServicePage` and `buildServiceFaqSchema`. Figures strictly sourced from `lib/pricing.ts` via `usd()` helpers.
+  - `lib/service-depth-content.ts`:
+    - Added YouTube Shorts formatting FAQ in `SHORT_FORM_DEPTH.faqs` (66 words, 9:16 vertical, hook retention, sound design) surfaced automatically on `/services/short-form-video-editor-miami` DOM and `FAQPage` schema.
+  - `lib/llms-base.txt`:
+    - Added exact answer questions and URL pointers for real estate and YouTube Shorts editing.
+  - Test & Gates:
+    - Added `app/__tests__/realestate-shorts-recovery.test.ts`.
+    - Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+    - Generated acceptance deliverable `esteban-realestate-shorts-recovery-2026-11-03.txt`.
+    - Ran full acceptance command: `npm test && python3 $HOME/.claude/durable/analytics-gate.py && test -s esteban-realestate-shorts-recovery-2026-11-03.txt` (All 195 test files / 3802 tests pass, analytics gate PASS).
+    - Validation: `pnpm typecheck` (clean), `pnpm rail-adoption:check` (clean), `pnpm lint` (0 errors).
+
 ## 2026-10-30 — GEO citation push: the two empty terms (spark/geo-citation-push)
 
 Built at Gonzalo's direct order ("continue getting Esteban ranked on geo" / "make Esteban Moreno Media get more citations for leads") after the evening sweep (logged at goals/esteban-moreno-media-geo-seo/hidden_files/esteban-geo-sweep-2026-10-30-evening.md): 4 of 10 cited; TikTok up to #1 on his own domain, ES reels up to #1, real estate out after #1 on Oct 29, Shorts down to #2; remote editor and bilingual subtitling still empty.

@@ -1,13 +1,21 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { RealEstateReels } from "@/components/real-estate-reels";
+import { PACKAGE_PRICES, REAL_ESTATE_PLANS, REAL_ESTATE_PLAN_TERMS, usd } from "@/lib/pricing";
+import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 import { buildPageMetadata } from "@/lib/site-metadata";
+
+const starterPrice = PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : usd(100);
+const essentialPrice = usd(REAL_ESTATE_PLANS[0].price);
+const premiumPrice = usd(REAL_ESTATE_PLANS[2].price);
+const droneAddon = REAL_ESTATE_MEDIA.addOns.find((a) => a.id === "drone-photography-add-on");
+const droneAddonPrice = droneAddon?.amount ? usd(droneAddon.amount) : usd(99);
 
 const content: GeoServicePageContent = {
   path: "/services/real-estate-reels-video-editor-south-florida",
   eyebrow: "Real estate reels",
   title: "Real estate Reels editor for South Florida listings, agents, and property brands.",
   description:
-    "Editing for property walkthroughs, listing Reels, agent clips, drone footage, and short videos for Miami, Fort Lauderdale, Palm Beach, and remote real estate teams.",
+    `Real estate video editor in Fort Lauderdale and South Florida for property walkthroughs, listing Reels, and drone clips. From ${starterPrice} per video or monthly plans.`,
   locationLabel: "South Florida / Remote",
   proofTitle: "Property footage needs clarity",
   proofText:
@@ -27,6 +35,7 @@ const content: GeoServicePageContent = {
   answerFirst:
     "Real estate Reels editing turns footage an agent already has (walkthroughs, drone clips, exteriors and short agent pieces to camera) into short listing videos a buyer can actually inspect: rooms in a sensible order, vertical crops that protect the features that sell, and the agent guiding the tour instead of starring in it. Esteban Moreno Media edits remotely from Fort Lauderdale for agents and teams across South Florida and beyond, in Spanish first with intermediate English available. Send the original clips, the listing-safe facts and the must-show features; per-shoot rates are published, and every project gets a written quote before editing starts.",
   craftHeading: "What property Reels need from the edit.",
+  depthHeading: "South Florida real estate video editing questions, answered.",
   craft: [
     {
       title: "Rooms in an order that makes sense",
@@ -44,8 +53,25 @@ const content: GeoServicePageContent = {
         "An agent clip can add trust, but it should not bury the property. Short introductions, voiceover, and quick on-camera transitions usually work better than long talking sections. The viewer came to inspect a space; the agent's job is to guide that inspection and offer the next step.",
     },
   ],
+  depth: [
+    {
+      question: "How does an editor handle real estate video in Fort Lauderdale and South Florida?",
+      body:
+        `Esteban Moreno Media edits listing videos, property walkthroughs, and vertical Reels from footage agents and creators supply across Fort Lauderdale, Broward, and Miami-Dade. Esteban Moreno is based in Fort Lauderdale and provides remote post-production: you upload walkthrough footage, drone shots, and exterior clips to a shared folder, and he shapes them into ordered room tours with clean cuts and legible captions. His working language is Spanish, with intermediate English available for bilingual projects and team reviews. The edit focuses on property inspection rather than generic music video styling. Pricing starts with published monthly real estate plans from ${essentialPrice} a month (Essential: 1 property, up to 3,000 square feet, 2 production days, 2 posts per week with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum) up to ${premiumPrice} a month, as well as per-video editing packages. On-location camera work in South Florida is selectively quoted per project.`,
+    },
+    {
+      question: "What should a real estate video editor brief include?",
+      body:
+        "When sending footage to a real estate video editor in Fort Lauderdale or South Florida, provide the original camera clips, drone media, preferred room order, must-show architectural features, and any brand assets or brokerage guidelines. Detail the listing-safe facts such as confirmed layout flow, water views, and community amenities. Clearly identify time-sensitive details: keeping pricing and open house dates in the post caption or property landing page prevents the video edit from going stale when terms update. For projects with talking agent segments, keep introductions brief so the property remains the focus of the tour. Esteban Moreno Media reviews raw clips to verify orientation and lighting before cutting begins, ensuring the finished walkthrough accurately highlights the home.",
+    },
+  ],
   faqHeading: "Questions before sending property footage.",
   faqs: [
+    {
+      question: "How much does a real estate video editor cost in Fort Lauderdale?",
+      answer:
+        `Real estate video editing with Esteban Moreno Media starts from ${essentialPrice} per month on the Essential plan for agents listing regularly (covering 1 property up to 3,000 sq ft, 2 production days, and 2 social posts weekly with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month commitment), or from ${starterPrice} per video on the Starter editing tier for agent-supplied walkthrough clips. Individual listing media packages, 3D tours, and drone add-ons from ${droneAddonPrice} are detailed on the real estate rates page.`,
+    },
     {
       question: "What footage should an agent send for listing Reels?",
       answer:

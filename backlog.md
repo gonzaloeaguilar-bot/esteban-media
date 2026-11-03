@@ -1,3 +1,16 @@
+## 2026-11-03 — Real estate video editor & YouTube Shorts cluster recovery (spark-2026-11-03-103)
+
+- [x] Strengthen real estate video editor and YouTube Shorts editor service clusters with exact answer content, 100-180 word citable depth sections, and FAQPage schema to recover lost ChatGPT search citations.
+  - Target queries: "Real estate video editor Fort Lauderdale" (#1 lost on Oct 29) and "YouTube Shorts editor for businesses in South Florida" (#4 dropped from #1/#2).
+  - Target pages: `/services/real-estate-reels-video-editor-south-florida` and `/services/short-form-video-editor-miami`.
+  - Added citable depth and pricing FAQ in real estate service route sourcing prices from `lib/pricing.ts`.
+  - Added YouTube Shorts formatting FAQ in `lib/service-depth-content.ts`.
+  - Added target queries and URLs to `lib/llms-base.txt`.
+  - Added regression test `app/__tests__/realestate-shorts-recovery.test.ts`.
+  - Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+  - Generated `esteban-realestate-shorts-recovery-2026-11-03.txt`.
+  - Local verification: `npm test` (all 195 test files / 3802 tests pass), `python3 $HOME/.claude/durable/analytics-gate.py` (PASS), `pnpm typecheck` (clean), `pnpm rail-adoption:check` (clean), `pnpm lint` (0 errors).
+
 ## 2026-10-24 — Website case studies candidate
 
 - [x] Add bilingual, source-bounded portfolio and case-study routes for Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer; refresh Gains From Geebs as a current website case. Correction: all four use current public UI captures; Geebs title, summary and project details match the visible direct-start/method/packages/results/resources UI. Local evidence: targeted suite 230/230, typecheck, lint (0 errors / 22 existing warnings), build `bhmP2jyU80Mh0ds7UxwsH`, rendered local Geebs route and matching 566-route sitemap/index-watch set.
