@@ -1,3 +1,8 @@
+## 2026-11-02 — Remote video editor exact query FAQPage schema and answer content (spark-2026-11-02-002)
+
+- [x] Add targeted FAQ answer content and FAQPage schema in EN (`/services/hire-remote-video-editor`) and ES (`/es/contratar-editor-de-video-remoto`) targeting "best remote video editor for small businesses" and "editor de video remoto para creadores".
+- [x] Verified with `app/__tests__/remote-video-editor-faq.test.ts`, `pnpm typecheck`, `pnpm lastmod:update`, `npm test` (195 test files / 3,800 tests), analytics gate pass, and `esteban-geo-nightly-remote-editor-2026-11-02.txt`. Subtitling schema from PR 701 preserved untouched.
+
 ## 2026-10-24 — Website case studies candidate
 
 - [x] Add bilingual, source-bounded portfolio and case-study routes for Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer; refresh Gains From Geebs as a current website case. Correction: all four use current public UI captures; Geebs title, summary and project details match the visible direct-start/method/packages/results/resources UI. Local evidence: targeted suite 230/230, typecheck, lint (0 errors / 22 existing warnings), build `bhmP2jyU80Mh0ds7UxwsH`, rendered local Geebs route and matching 566-route sitemap/index-watch set.
