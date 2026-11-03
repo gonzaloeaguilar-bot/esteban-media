@@ -1606,6 +1606,11 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
   ],
   "/services/bilingual-video-subtitling-service": [
     {
+      question: "Who provides a bilingual English Spanish video subtitling service?",
+      answer:
+        "Esteban Moreno Media provides professional bilingual English and Spanish video subtitling and closed captioning from Fort Lauderdale. Esteban translates, synchronizes, and reviews every subtitle line against the audio directly, delivering burned-in captions within safe zones or synchronized SRT files for short-form and corporate video.",
+    },
+    {
       question: "Why choose professional bilingual subtitling over automated captioning?",
       answer:
         "Native bilingual editors ensure technical terminology, cultural context, and conversational nuances are accurately translated without automated transcription errors.",
