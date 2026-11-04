@@ -1,0 +1,286 @@
+diff --git a/.ai/handoff.md b/.ai/handoff.md
+index 9c070d47..d9ffdcf6 100644
+--- a/.ai/handoff.md
++++ b/.ai/handoff.md
+@@ -1,3 +1,23 @@
++## 2026-11-03 — Review and venue proof blocks on three money pages (feat/proof-blocks-money-pages)
++
++- Intent: Render existing Google review block (`ClientReviews` / `ReviewsBand`) and real venue names directly under hero/first answer on three money pages in visible text only (no `aggregateRating` / `Review` schema).
++- Updated Google Reviews snapshot (`data/google-reviews.json`): profile review count updated to 19, readAt updated to `2026-11-03` (aligned with live GBP merchant panel count of 19 reviews, 5.0 rating).
++- Updated `components/geo-service-page.tsx`:
++  - Added optional `venueLine?: string` to `GeoServicePageContent`.
++  - Mounted `<ClientReviews locale="en" compact />` and `<section data-section="service-venues">` immediately after `ServiceAnswerFirst` (above `OwnerFactAnswers`).
++- Updated `app/(english)/services/reels-editor-fort-lauderdale/page.tsx`:
++  - Added real venue line citing Fort Lauderdale Auto Sale and Port Everglades (metadata title/desc preserved for T+14 read).
++- Updated `app/(english)/services/video-production-fort-lauderdale/page.tsx`:
++  - Added real venue line citing Fort Lauderdale Auto Sale, Port Everglades, and Healthy Smile Miami.
++- Updated `app/(english)/services/short-form-video-editor-miami/page.tsx`:
++  - Directly rendered `<ClientReviews locale="en" compact />` and `<section data-section="service-venues">` citing Healthy Smile Miami, Bar Door Monkey, and Caro Sells Miami under the hero definition.
++- Added comprehensive regression test `app/__tests__/money-pages-proof-blocks.test.ts`:
++  - Validates all 3 pages server-render reviews band, review count 19, and the venue line.
++  - Confirms all venues named appear in `PORTFOLIO_ITEMS` or `caseStudyPairs`.
++  - Confirms zero `aggregateRating` or `"@type": "Review"` JSON-LD schema emitted.
++- Ran `pnpm lastmod:update`: updated `config/page-lastmod.json` for all 3 pages.
++- Gates passed: `pnpm typecheck`, `npm test` (196 test files / 3,807 tests passed), `pnpm rail-adoption:check`, `analytics-gate` passed, and `pnpm build` verified 617 routes. Local commit `270d8fa4` created.
++
+ ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
+ 
+ - Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.
+diff --git a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+index 67bc6dd8..7ae46cd2 100644
+--- a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
++++ b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+@@ -158,6 +158,7 @@ const content: GeoServicePageContent = {
+     proofHref: "/portfolio/ml-colombia",
+     proofLabel: "Review short-form proof",
+   },
++  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership web and AI concierge systems) and Port Everglades in Fort Lauderdale (marine and export video logistics context).",
+ };
+ 
+ export const metadata = buildPageMetadata({
+diff --git a/app/(english)/services/short-form-video-editor-miami/page.tsx b/app/(english)/services/short-form-video-editor-miami/page.tsx
+index a7642f86..3ea52b8f 100644
+--- a/app/(english)/services/short-form-video-editor-miami/page.tsx
++++ b/app/(english)/services/short-form-video-editor-miami/page.tsx
+@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
+ import { Container } from "@/components/ui/container";
+ import { PriceSheet } from "@/components/price-sheet";
+ import { PriorityLinks } from "@/components/priority-links";
++import { ClientReviews } from "@/components/client-reviews";
+ import { DefinitionAnswer } from "@/components/definition-answer";
+ import { PageUpdated } from "@/components/page-updated";
+ import {
+@@ -119,6 +120,15 @@ export default function ShortFormVideoEditorPage() {
+       </section>
+ 
+       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
++      <ClientReviews locale="en" compact />
++      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
++        <Container size="xl">
++          <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
++            <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
++            Healthy Smile Miami in Miami (on-location dental clinic video), Bar Door Monkey in Miami (restaurant video promo), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
++          </p>
++        </Container>
++      </section>
+ 
+       <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
+         <Container size="xl">
+diff --git a/app/(english)/services/video-production-fort-lauderdale/page.tsx b/app/(english)/services/video-production-fort-lauderdale/page.tsx
+index c9360953..d7be1140 100644
+--- a/app/(english)/services/video-production-fort-lauderdale/page.tsx
++++ b/app/(english)/services/video-production-fort-lauderdale/page.tsx
+@@ -120,6 +120,7 @@ const content: GeoServicePageContent = {
+     proofHref: "/portfolio",
+     proofLabel: "Review portfolio examples",
+   },
++  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership media systems), Port Everglades in Fort Lauderdale (marine and shipping video logistics), and Healthy Smile Miami (on-location medical clinic filming and sound).",
+ };
+ 
+ export const metadata = buildPageMetadata({
+diff --git a/app/__tests__/money-pages-proof-blocks.test.ts b/app/__tests__/money-pages-proof-blocks.test.ts
+new file mode 100644
+index 00000000..9254a0df
+--- /dev/null
++++ b/app/__tests__/money-pages-proof-blocks.test.ts
+@@ -0,0 +1,91 @@
++import React from "react";
++import { renderToStaticMarkup } from "react-dom/server";
++import { describe, expect, it } from "vitest";
++
++import ReelsEditorFtlPage from "../(english)/services/reels-editor-fort-lauderdale/page";
++import VideoProductionFtlPage from "../(english)/services/video-production-fort-lauderdale/page";
++import ShortFormMiamiPage from "../(english)/services/short-form-video-editor-miami/page";
++
++import { caseStudyPairs } from "@/lib/case-studies";
++import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
++
++describe("proof blocks on three money pages", () => {
++  const pages = [
++    {
++      path: "/services/reels-editor-fort-lauderdale",
++      render: () => renderToStaticMarkup(React.createElement(ReelsEditorFtlPage)),
++    },
++    {
++      path: "/services/video-production-fort-lauderdale",
++      render: () => renderToStaticMarkup(React.createElement(VideoProductionFtlPage)),
++    },
++    {
++      path: "/services/short-form-video-editor-miami",
++      render: () => renderToStaticMarkup(React.createElement(ShortFormMiamiPage)),
++    },
++  ];
++
++  it.each(pages)("$path server-renders the review band in HTML", ({ render }) => {
++    const html = render();
++    expect(html).toContain("em-revband");
++    expect(html).toContain("public reviews on Google");
++    expect(html).toContain("19 public reviews on Google");
++    expect(html).toContain("Real client feedback, verified on Google.");
++  });
++
++  it.each(pages)("$path renders venue proof line with only verified locations/venues", ({ render }) => {
++    const html = render();
++    expect(html).toContain("Where Esteban has filmed or edited for:");
++
++    // Collect all valid venue names and locations from portfolio and case-studies
++    const validNames = new Set<string>();
++
++    for (const item of PORTFOLIO_ITEMS) {
++      if (item.title) validNames.add(item.title);
++      if (item.location) validNames.add(item.location);
++    }
++
++    for (const study of caseStudyPairs) {
++      if (study.en.client) validNames.add(study.en.client);
++      if (study.en.location) validNames.add(study.en.location);
++    }
++
++    // Specific verified places used across the pages:
++    // - Fort Lauderdale Auto Sale / Fort Lauderdale Auto Sales
++    // - Port Everglades
++    // - Healthy Smile Miami
++    // - Bar Door Monkey / Bar Door Monkey Miami
++    // - Caro Sells Miami
++    const expectedVenues = [
++      "Fort Lauderdale Auto Sale",
++      "Port Everglades",
++      "Healthy Smile Miami",
++      "Bar Door Monkey",
++      "Caro Sells Miami",
++    ];
++
++    // Verify each expected venue appears in either PORTFOLIO_ITEMS or case-studies
++    for (const venue of expectedVenues) {
++      const existsInSource =
++        PORTFOLIO_ITEMS.some((p) => p.title.includes(venue) || (p.location && p.location.includes(venue))) ||
++        caseStudyPairs.some(
++          (cs) =>
++            cs.en.client.includes(venue) ||
++            (cs.en.location && cs.en.location.includes(venue)) ||
++            cs.en.summary.includes(venue) ||
++            (cs.en.answer && cs.en.answer.text.includes(venue)) ||
++            cs.en.title.includes(venue) ||
++            (cs.en.sections && cs.en.sections.some((s) => s.paragraphs.some((p) => p.includes(venue)))),
++        );
++      expect(existsInSource, `Venue ${venue} must exist in lib/portfolio.ts or lib/case-studies.ts`).toBe(true);
++    }
++  });
++
++  it("strictly omits aggregateRating and review schema markup", () => {
++    for (const { render: renderPage } of pages) {
++      const html = renderPage();
++      expect(html).not.toContain("aggregateRating");
++      expect(html).not.toMatch(/"@type"\s*:\s*"Review"/);
++    }
++  });
++});
+diff --git a/components/geo-service-page.tsx b/components/geo-service-page.tsx
+index b44a84a2..1a4bcb92 100644
+--- a/components/geo-service-page.tsx
++++ b/components/geo-service-page.tsx
+@@ -24,6 +24,8 @@ import { OwnerFactAnswers } from "@/components/owner-fact-answers";
+ import { PriorityLinks } from "@/components/priority-links";
+ import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+ import { withNicheService } from "@/lib/niche-answers";
++import { ClientReviews } from "@/components/client-reviews";
++import { renderFormattedText } from "@/components/formatted-text";
+ 
+ export type GeoServicePageContent = {
+   path: string;
+@@ -75,6 +77,8 @@ export type GeoServicePageContent = {
+   relatedHeading: string;
+   related: readonly RelatedService[];
+   inquiry: ServiceInquiry;
++  /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
++  venueLine?: string;
+ };
+ 
+ export function buildGeoServiceSchema(content: GeoServicePageContent) {
+@@ -243,6 +247,17 @@ export function GeoServicePage({
+       </section>
+ 
+       <ServiceAnswerFirst service={content.answerService ?? content.serviceType} answerOverride={content.answerFirst} />
++      <ClientReviews locale="en" compact />
++      {content.venueLine ? (
++        <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
++          <Container size="xl">
++            <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
++              <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
++              {renderFormattedText(content.venueLine)}
++            </p>
++          </Container>
++        </section>
++      ) : null}
+       <OwnerFactAnswers path={content.path} />
+ 
+       <ServiceCraft
+diff --git a/config/page-lastmod.json b/config/page-lastmod.json
+index 5c92677c..17344792 100644
+--- a/config/page-lastmod.json
++++ b/config/page-lastmod.json
+@@ -2108,8 +2108,8 @@
+   "hash": "cf7fbe22027e7ced"
+  },
+  "/services/reels-editor-fort-lauderdale": {
+-  "date": "2026-10-30",
+-  "hash": "c03c95a5a669e680"
++  "date": "2026-11-03",
++  "hash": "d7edc2f29609ffa6"
+  },
+  "/services/reels-editor-miami": {
+   "date": "2026-10-14",
+@@ -2137,7 +2137,7 @@
+  },
+  "/services/short-form-video-editor-miami": {
+   "date": "2026-11-03",
+-  "hash": "dec29875fb872790"
++  "hash": "385d3239edaac304"
+  },
+  "/services/small-business-video-hollywood-fl": {
+   "date": "2026-10-14",
+@@ -2220,8 +2220,8 @@
+   "hash": "f7129d7b2b8a5898"
+  },
+  "/services/video-production-fort-lauderdale": {
+-  "date": "2026-10-29",
+-  "hash": "abceab5aeb66dc61"
++  "date": "2026-11-03",
++  "hash": "8b941c0cfff64d90"
+  },
+  "/services/videographer-miami": {
+   "date": "2026-10-15",
+diff --git a/data/google-reviews.json b/data/google-reviews.json
+index f9b2e74e..a54c582b 100644
+--- a/data/google-reviews.json
++++ b/data/google-reviews.json
+@@ -1,10 +1,10 @@
+ {
+-  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps). The counts, the reviewer names and the review text are facts read at the source; the reviews below are VERBATIM reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot. The Places API returns a rotating sample of ~5 reviews per call, so `reviews` is every review whose full text has been read at the source so far (6 of the 18), not the whole profile.",
+-  "readAt": "2026-10-24",
++  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps). The counts, the reviewer names and the review text are facts read at the source; the reviews below are VERBATIM reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot. The Places API returns a rotating sample of ~5 reviews per call, so `reviews` is every review whose full text has been read at the source so far (6 of the 19), not the whole profile.",
++  "readAt": "2026-11-03",
+   "sourceCommand": "python3 ~/.claude/durable/esteban-review-watch.py --json",
+   "profile": {
+     "rating": 5,
+-    "reviewCount": 18,
++    "reviewCount": 19,
+     "reviewsSampled": 5
+   },
+   "sampledAuthors": [
+diff --git a/lib/__tests__/client-reviews.test.ts b/lib/__tests__/client-reviews.test.ts
+index a2d60d55..ab25a1f5 100644
+--- a/lib/__tests__/client-reviews.test.ts
++++ b/lib/__tests__/client-reviews.test.ts
+@@ -60,9 +60,9 @@ describe("published client reviews", () => {
+   it("publishes only the live Google profile snapshot, not unsourced review markup", () => {
+     expect(googleReviewSnapshot).toMatchObject({
+       rating: 5,
+-      reviewCount: 18,
++      reviewCount: 19,
+       sampledReviews: 5,
+-      readAt: "2026-10-24",
++      readAt: "2026-11-03",
+       sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
+     });
+     // The Places API sample is a rotating ~5-review window, not a roster, so

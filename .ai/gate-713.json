@@ -1,0 +1,29 @@
+{
+  "allowed": true,
+  "ledger_path": "/Users/gonzalo/.local/state/cortex-quality/ledger.jsonl",
+  "mode": "pr",
+  "project": "esteban-media",
+  "quality_result": {
+    "debt_delta": "net negative: one new regression test, no new dependencies.",
+    "findings": [],
+    "followup_tasks": [],
+    "hard_stops": [],
+    "missing_evidence": [],
+    "mode": "pr",
+    "next_safe_action": "Create a bounded follow-up task for any missing evidence, failed review role, hard stop, or debt increase before treating the work as sound.",
+    "project": "esteban-media",
+    "reviewer_roles": {
+      "builder": "ok",
+      "skeptic": "ok",
+      "taste": "ok"
+    },
+    "rubric_version": "2026-06-06",
+    "scores": {},
+    "status": "quality_passed"
+  },
+  "recorded": true,
+  "required_action": "none",
+  "status": "quality_enforced_passed",
+  "target_id": "PR-713",
+  "target_type": "pr"
+}

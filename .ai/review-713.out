@@ -1,0 +1,13 @@
+SKEPTIC: ok
+(a) every venue/client named exists in lib/portfolio.ts or lib/case-studies.ts (Fort Lauderdale Auto Sale: lib/portfolio.ts:246, lib/case-studies.ts:702,704; Port Everglades: lib/case-studies.ts:391,490; Healthy Smile Miami: lib/portfolio.ts:416, lib/case-studies.ts:1019,1054; Bar Door Monkey: lib/portfolio.ts:437; Caro Sells Miami: lib/portfolio.ts:283, lib/case-studies.ts:274,275).
+(b) no aggregateRating or Review JSON-LD added (verified in components/geo-service-page.tsx, page templates, and app/__tests__/money-pages-proof-blocks.test.ts:170-176).
+(c) review count source stated (data/google-reviews.json cites live GBP profile snapshot updated to 19 via sourceCommand `python3 ~/.claude/durable/esteban-review-watch.py --json`).
+(d) does the test fail if a venue is not in the sources (read it): yes, app/__tests__/money-pages-proof-blocks.test.ts:154-167 iterates over expected venues and verifies existence in PORTFOLIO_ITEMS or caseStudyPairs, asserting true with an explicit failure message.
+TASTE: ok
+(a) does the proof line read like a sentence a client would believe, not a keyword list: yes, conversational sentence with practical project context in parentheses rather than raw keyword stuffing.
+(b) placement under the first answer, not above it: yes, rendered directly following ServiceAnswerFirst / DefinitionAnswer, preceding technical specs and secondary sections.
+(c) phone-width wrap risk: low, uses max-w-4xl text-sm leading-6 within responsive Container padding.
+DEBT: none
+FINDINGS: none
+
+REVIEW_VERDICT: APPROVE
