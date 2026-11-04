@@ -4209,10 +4209,10 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "editor-de-video-freelance-vs-agencia-de-postproduccion",
-      metadataTitle: "Editor Freelance vs Agencia Video",
+      metadataTitle: "Editor de Video Freelance o Agencia",
       title: "Editor de video freelance vs agencia de posproducción: ¿Cuál conviene?",
       description:
-        "Compara trabajar directamente con un editor remoto especializado frente a contratar una agencia de posproducción integral.",
+        "Compara un editor de video freelance desde $100 por video frente a una agencia de postproducción ($100-$149/h). Cuál conviene para tu proyecto.",
       eyebrow: "Contratación / Guía de Decisión",
       answer:
         "Elige un editor remoto especializado para trato directo y entregas rápidas; contrata agencia para proyectos con múltiples equipos.",
