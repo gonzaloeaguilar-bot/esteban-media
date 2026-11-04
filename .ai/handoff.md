@@ -1,3 +1,14 @@
+## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity (feat/demand-wave-best-caption-styles-depth)
+
+- Resolved EN/ES parity gap on top demand guide `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in fresh 28-day review-2026-11-04):
+  - English guide had only 3 FAQs while Spanish counterpart `/es/guias/mejores-estilos-de-subtitulos-para-reels` had 5 FAQs.
+  - Added matching English FAQs addressing automatic captions and recommended font types in `lib/guides.ts`.
+  - Both locales now serve 5 comprehensive FAQs with valid Schema.org FAQPage structured data via `buildGuideStructuredData`.
+- Added unit test `app/__tests__/caption-styles-guide-depth.test.ts` verifying FAQ parity and structured data across locales.
+- Updated `lib/__tests__/guides.test.ts` to assert 5 FAQs for both EN and ES caption guides.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (all 198 test files / 3811 tests pass), and `git diff --check`.
+
 ## 2026-11-03 — Niche-specific answer-first openers on 8 service pages (feat/niche-answer-openers)
 
 - Replaced shared "In short" boilerplate paragraph with distinct 100-180 word answer-first openers on 8 service pages:

@@ -3337,6 +3337,16 @@ const guidePairs: readonly GuidePair[] = [
           answer:
             "Keep captions inside the central safe area so platform buttons, account labels, and crop behavior do not cover important words. Always preview the edit on the platform or phone layout before publishing.",
         },
+        {
+          question: "Do automatic captions work well enough for Reels?",
+          answer:
+            "Automatic captions work well as a rough draft. Platforms like Instagram, TikTok, and CapCut generate automatic subtitles, but human review is essential to fix misheard proper nouns, pricing, addresses, and technical terms before publishing.",
+        },
+        {
+          question: "What fonts work best for Instagram Reel subtitles?",
+          answer:
+            "Heavy-weight sans-serif typefaces work best because they stay readable on small mobile screens against bright and dark shots. A subtle shadow or background card ensures contrast when the video background changes rapidly.",
+        },
       ],
     },
     es: {

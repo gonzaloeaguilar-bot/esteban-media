@@ -1,3 +1,11 @@
+## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity
+
+- [x] Restore EN/ES FAQ parity on `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in GSC review-2026-11-04) by adding matching English FAQs for automatic subtitles and recommended fonts in `lib/guides.ts`.
+- [x] Add regression test `app/__tests__/caption-styles-guide-depth.test.ts` to assert 5 FAQs and FAQPage JSON-LD schema on both EN and ES pages.
+- [x] Update `lib/__tests__/guides.test.ts` to assert 5 FAQs for both locales.
+- [x] Run `pnpm lastmod:update` and commit `config/page-lastmod.json`.
+- [x] Acceptance gates passed: `pnpm lint && pnpm typecheck && pnpm test && git diff --check`.
+
 ## 2026-11-03 — Niche-specific answer-first openers on 8 service pages
 
 - [x] Replace shared "In short" boilerplate with niche-specific 100-180 word answer-first openers across 8 English service pages (`/services/webinar-clip-editing-service`, `/services/product-demo-video-production-miami`, `/services/amazon-product-video-production-miami`, `/services/crowdfunding-video-editor-miami`, `/services/ugc-ad-variation-video-editing`, `/services/video-podcast-editing-service-miami`, `/services/executive-interview-videographer-miami`, `/services/video-production-doral-miami`).
