@@ -913,3 +913,10 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Why a route handler and not next.config: `app/__tests__/redirect-integrity.test.ts` requires every config redirect destination to be a real app route, so an external Stripe destination there fails the suite.
 - Gates on Spark's VM: `pnpm test` 192 files / 3,796 tests passed (includes new `app/__tests__/pay-redirect.test.ts`, 2 tests), `pnpm typecheck` clean, `pnpm lint` 0 errors / 23 pre-existing warnings, `pnpm rail-adoption:check` passed.
 - Next: PR review and merge on Gonzalo's word; after deploy, smoke-test https://estebanmorenomedia.com/pay lands on the Stripe checkout, then point the configurable QR at /pay (until then the QR points at the Stripe link directly).
+
+# 2026-11-04 — Executive interview page content-depth candidate (local only)
+
+- Updated `/services/executive-interview-videographer-miami` to lead with the intended output (a clear leadership message or customer testimonial), give the direct use case before price detail, and distinguish on-location filming from supplied-footage editing and executive video-bio work in the existing visible FAQ and FAQPage schema.
+- The page already links to the relevant customer-testimonial guide, business-video service, interview-editing service, and pricing path through its server-rendered deep-dive sections. The generated page-lastmod ledger now records `2026-11-04` for this route.
+- Local evidence: `pnpm lastmod:update` (1 ledger entry refreshed), `npm run typecheck --silent`, and `npm test` all exited 0; `pnpm lint` completed with 0 errors and 23 pre-existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` exited 0; `git diff --check` passed.
+- Not committed, independently reviewed, deployed, or measured in Search Console. Next: `cto-qa-lead` reviews the exact local diff; after an authorized release, verify the canonical route's raw HTML and live render, then compare GSC impressions/clicks after a suitable observation window.
