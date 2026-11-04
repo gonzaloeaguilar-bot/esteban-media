@@ -60,9 +60,9 @@ describe("published client reviews", () => {
   it("publishes only the live Google profile snapshot, not unsourced review markup", () => {
     expect(googleReviewSnapshot).toMatchObject({
       rating: 5,
-      reviewCount: 18,
+      reviewCount: 19,
       sampledReviews: 5,
-      readAt: "2026-10-24",
+      readAt: "2026-11-03",
       sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
     });
     // The Places API sample is a rotating ~5-review window, not a roster, so
