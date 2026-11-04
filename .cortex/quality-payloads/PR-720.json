@@ -1,0 +1,54 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-720",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media/wiki/esteban-geo-ten-moves-plan-2026-11-04.md (moves 2 and 5): Perplexity cites the site most on Spanish prompts and asked for one name+city+Reels sentence; both engines cite the site on the reels-cost prompt but no page held a sourced price table.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, PR #720, worktree /Users/gonzalo/code/esteban-media-fix-spanish-openers.",
+    "hard_stops_checked": "Checked and clear per the independent review: every price traced to lib/pricing.ts or the sourced table; no invented clients/results; no drone/FAA, street address or aggregateRating; metadata of existing pages untouched.",
+    "verification": "pnpm typecheck, npm test, analytics-gate.py, rail-adoption:check all pass on the branch; CI validate pass.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff. First CI validate died at the build step with no conclusion (runner killed), re-run."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04 (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json): SKEPTIC: ok \u2014 (a) every price in the 8 Spanish openers traces to `lib/pricing.ts`: webinars (`PACKAGE_PRICES.arranque`), product-demo (`PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), amazon (`PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), crowdfunding (`PRICING_BANDS.corporate.baseMin/baseMax`, `PACKAGE_PRICES.arranque`), ugc (`PACKAGE_PRICES.arranque`, `EXPANSION_SERVICES.ugcAdPack5`), podcast (`PRICING_BANDS.youtube.baseMin/baseMax`, `PACKAGE_PRICES.arranque`), executive-interview (`CREW_RECORDING_RATES.solo.hourly/minimumAmount`, `PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), doral (`PACKAGE_PRICES[\"presencia-local\"]`, `PACKAGE_PRICES.arranque`); (b) no invented clients, results, turnarounds or guarantees (all emphasize written scopes and explicitly state no promised conversion metrics); (c) no drone/FAA, street address or aggregat"
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04: TASTE: ok \u2014 (a) natural Latin American Spanish throughout with zero machine-translation artifacts, proper commercial terminology, and natural phrasing; (b) each opener answers its niche question in the first sentence; (c) 100-180 words each (exact counts: webinars 120, product-demo 113, amazon 119, crowdfunding 117, ugc 107, podcast 121, executive-interview 114, doral 120). "
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement; findings none.",
+    "winner_rationale": "Answer-first, sourced, dual-audience pages are the citable unit; both moves were ranked in the 2026-11-03 fleet readout.",
+    "tests_or_validation": "pnpm typecheck && npm test && analytics-gate && rail-adoption:check; CI validate pass.",
+    "debt_delta": "Net negative or neutral: new regression tests, no new dependencies.",
+    "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md and hot.md.",
+    "ci_passed": "GitHub Actions validate on PR #720 head 3a5228be: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41857667998); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+    "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff. First CI validate died at the build step with no conclusion (runner killed), re-run."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04 (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json): SKEPTIC: ok \u2014 (a) every price in the 8 Spanish openers traces to `lib/pricing.ts`: webinars (`PACKAGE_PRICES.arranque`), product-demo (`PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), amazon (`PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), crowdfunding (`PRICING_BANDS.corporate.baseMin/baseMax`, `PACKAGE_PRICES.arranque`), ugc (`PACKAGE_PRICES.arranque`, `EXPANSION_SERVICES.ugcAdPack5`), podcast (`PRICING_BANDS.youtube.baseMin/baseMax`, `PACKAGE_PRICES.arranque`), executive-interview (`CREW_RECORDING_RATES.solo.hourly/minimumAmount`, `PACKAGE_PRICES.arranque`, `PACKAGE_PRICES[\"presencia-local\"]`), doral (`PACKAGE_PRICES[\"presencia-local\"]`, `PACKAGE_PRICES.arranque`); (b) no invented clients, results, turnarounds or guarantees (all emphasize written scopes and explicitly state no promised conversion metrics); (c) no drone/FAA, street address or aggregat"
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04: TASTE: ok \u2014 (a) natural Latin American Spanish throughout with zero machine-translation artifacts, proper commercial terminology, and natural phrasing; (b) each opener answers its niche question in the first sentence; (c) 100-180 words each (exact counts: webinars 120, product-demo 113, amazon 119, crowdfunding 117, ugc 107, podcast 121, executive-interview 114, doral 120). "
+    }
+  },
+  "reviewer_disagreement_reviewed": "No disagreement; findings none.",
+  "winner_rationale": "Answer-first, sourced pages are the citable unit.",
+  "tests_or_validation": "gates + CI pass.",
+  "debt_delta": "Net negative or neutral.",
+  "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md.",
+  "ci_passed": "GitHub Actions validate on PR #720 head 3a5228be: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41857667998); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+  "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
+}
