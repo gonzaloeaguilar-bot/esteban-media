@@ -10,7 +10,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS, CREW_RECORDING_RATES, EXPANSION_SERVICES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -2464,6 +2464,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Producción de video y contenido comercial en Doral.",
     lead:
       "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral, dentro de nuestras [áreas de servicio de edición y producción de video](/es/areas).",
+    answerFirst: `La producción de video B2B en Doral cubre presentaciones comerciales, recorridos de instalaciones y videos de producto para distribuidores, logística y marcas. Esteban Moreno Media tiene base en Fort Lauderdale y atiende Doral y Miami-Dade como negocio de área de servicio, sin estudio abierto al público. La grabación se realiza en tu instalación de Doral cuando el proyecto necesita imágenes nuevas; los días completos de producción parten desde ${esLocalFrom}. Si ya existe material útil, la edición se hace a distancia desde Fort Lauderdale y parte desde ${esStarterFrom} por video con el paquete Arranque. Antes de grabar, se confirma por escrito la ubicación, el acceso, las versiones finales y cualquier traslado. La atención es en español primero, con inglés intermedio disponible.`,
     keyword: "producción de video en Doral",
     location: "Doral / Miami-Dade",
     availability: "confirmed",
@@ -3086,6 +3087,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Video para entrevistas ejecutivas y testimonios corporativos en Miami.",
     lead:
       "Grabación en oficinas corporativas y locaciones de Miami con iluminación suave, microfonía doble y edición enfocada en liderazgo y marca.",
+    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación parte desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, con un mínimo de cuatro horas (${usd(CREW_RECORDING_RATES.solo.minimumAmount)}), e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y los días de producción con grabación y edición parten desde ${esLocalFrom}. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
     keyword: "videógrafo para entrevistas ejecutivas en Miami",
     location: "Miami-Dade / Broward / Remoto",
     availability: "confirmed",
@@ -4069,6 +4071,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Video comercial y demostraciones para productos de Amazon en Miami.",
     lead:
       "Producción en ciclorama e iluminación de estudio de alta fidelidad para destacar funciones, desempaques y cumplimiento de directrices en Amazon.",
+    answerFirst: `La producción de video para productos de Amazon en Miami crea demostraciones para fichas, Brand Stores y contenido vertical de Amazon Inspire. Esteban Moreno Media tiene base en Fort Lauderdale y estructura cada video para que las medidas, beneficios, desempaque y uso se entiendan sin depender del audio. Si tu marca ya tiene clips originales, la edición remota parte desde ${esStarterFrom} por video con el paquete Arranque. Para productos que necesitan filmación práctica, los días completos de producción parten desde ${esLocalFrom} con el paquete Presencia Local. Antes de filmar se confirma el formato, las funciones que deben verse y las versiones finales. La atención es en español primero, con inglés intermedio disponible para equipos de marca que lo necesiten.`,
     keyword: "video para productos de Amazon en Miami",
     location: "Miami / Doral / Coral Gables",
     availability: "confirmed",
@@ -4161,6 +4164,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Videos de demostración técnica y desempaque de productos en Miami.",
     lead:
       "Tomas cenitales, ensamblaje paso a paso y sonido de materiales para guías interactivas, códigos QR y páginas de soporte al cliente.",
+    answerFirst: `La producción de videos de demostración de producto en Miami explica el uso, el ensamblaje y el desempaque de hardware o productos de consumo con una secuencia clara. Esteban Moreno Media atiende marcas en Miami, Doral y Broward desde Fort Lauderdale. Si ya tienes material de demostración, la edición remota parte desde ${esStarterFrom} por video con el paquete Arranque e incluye ritmo, llamados de función en pantalla y balance de audio. Cuando hace falta grabar detalles de mesa, manos, ensamblaje o una demostración en locación, los días completos de producción parten desde ${esLocalFrom} con el paquete Presencia Local. Cada proyecto recibe una cotización escrita que define tomas, formatos y entregables antes de comenzar.`,
     keyword: "video de demostración de producto en Miami",
     location: "Miami / Doral / Fort Lauderdale",
     availability: "confirmed",
@@ -4207,6 +4211,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Edición de variaciones de anuncios UGC para escalar campañas de pago.",
     lead:
       "Montaje modular de ganchos iniciales, demostraciones y llamadas a la acción para anunciantes en Meta, TikTok y YouTube Shorts.",
+    answerFirst: `La edición de variaciones de anuncios UGC organiza clips de creadores en versiones directas para TikTok, Meta y campañas de redes pagadas. Esteban Moreno Media trabaja a distancia desde Fort Lauderdale: compartes los clips originales, los ganchos y los ángulos aprobados, y la edición combina aperturas, cuerpos y cierres con subtítulos dentro de zonas seguras. Un video corto parte desde ${esStarterFrom} por video con el paquete Arranque. Para una tanda dedicada de cinco variaciones UGC, el precio publicado es ${usd(EXPANSION_SERVICES.ugcAdPack5)}. El servicio no promete métricas de conversión; entrega formatos claros, versiones definidas y precios por proyecto para que el equipo pueda revisar el material antes de publicarlo.`,
     keyword: "edicion de variaciones de anuncios ugc",
     location: "Remoto / Miami / Fort Lauderdale",
     availability: "confirmed",
@@ -4692,6 +4697,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Edición profesional de video podcasts en Miami.",
     lead:
       "Transformamos grabaciones multicámara de podcast en episodios pulidos y clips cortos verticales optimizados para YouTube, Spotify e Instagram.",
+    answerFirst: `La edición de video podcast en Miami convierte grabaciones multicámara y entrevistas remotas en episodios completos y clips verticales para promoción. Esteban Moreno Media tiene base en Fort Lauderdale y trabaja a distancia con podcasts de Miami y South Florida: compartes las pistas de audio y los ángulos de cámara, y Esteban organiza cambios de cámara, nivelación de audio, color y subtítulos. La edición de episodios largos se cotiza en el rango publicado de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)}, según el alcance del calculador del sitio. Los clips cortos para redes parten desde ${esStarterFrom} por video con el paquete Arranque. No se ofrece un estudio físico de grabación; el servicio se concentra en la postproducción y en una cotización escrita antes de empezar.`,
     keyword: "edición de video podcast en Miami",
     location: "Miami-Dade / Remote",
     availability: "confirmed",
@@ -5940,6 +5946,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Videos emotivos y persuasivos para campañas de crowdfunding.",
     lead:
       "Cuenta la historia detrás de tu innovación con videos persuasivos diseñados para captar patrocinadores e inversores.",
+    answerFirst: `La edición de video para campañas de crowdfunding en Miami organiza material de producto, entrevistas del fundador y demostraciones en una historia para Kickstarter o Indiegogo. Esteban Moreno Media tiene base en Fort Lauderdale y realiza la postproducción a distancia: subes las tomas originales, los clips del producto y el esquema de campaña, y Esteban edita la estructura, el diálogo, el ritmo y la llamada a la acción. Los proyectos de lanzamiento y explicación se cotizan en el rango publicado de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}, mientras que los cortes cortos para redes parten desde ${esStarterFrom} por video. No se prometen resultados de financiación; cada proyecto recibe una cotización escrita que define el alcance antes de iniciar la edición.`,
     keyword: "editor de video para campañas de crowdfunding en Miami",
     location: "Wynwood / Miami-Dade",
     availability: "confirmed",
@@ -6036,6 +6043,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Transforma webinars grabados en clips virales para redes sociales.",
     lead:
       "Extrae los mejores consejos e ideas de tus eventos virtuales y conviertenlos en reels con subtítulos animados de alto impacto.",
+    answerFirst: `La edición de clips para webinars convierte grabaciones de Zoom, ponencias y eventos virtuales en videos cortos para LinkedIn, YouTube Shorts e Instagram Reels. Esteban Moreno Media tiene base en Fort Lauderdale y hace la selección y edición a distancia: compartes la grabación original o el enlace en la nube, y Esteban identifica momentos útiles, agrega subtítulos y entrega cortes 4:5, 1:1 o verticales 9:16. La edición remota parte desde ${esStarterFrom} por video con el paquete Arranque; los flujos semanales y los lotes de varios clips se cotizan por proyecto. Para equipos que publican liderazgo de pensamiento de forma recurrente, el alcance se define antes de editar. La atención es en español primero, con inglés intermedio disponible para equipos remotos.`,
     keyword: "edición de clips para webinars",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
@@ -6230,6 +6238,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
     lead:
       "Si buscas un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
+    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Envía los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
     keyword: "editor de reels Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
