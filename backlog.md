@@ -1,3 +1,14 @@
+## 2026-11-03 — Niche-specific answer-first openers on 8 service pages
+
+- [x] Replace shared "In short" boilerplate with niche-specific 100-180 word answer-first openers across 8 English service pages (`/services/webinar-clip-editing-service`, `/services/product-demo-video-production-miami`, `/services/amazon-product-video-production-miami`, `/services/crowdfunding-video-editor-miami`, `/services/ugc-ad-variation-video-editing`, `/services/video-podcast-editing-service-miami`, `/services/executive-interview-videographer-miami`, `/services/video-production-doral-miami`).
+- [x] Webinar page: include "LinkedIn" in H1 and lead, add button linking `/services/executive-linkedin-video-series-miami`, replace Healthy Smile proof with portfolio index link `/portfolio`.
+- [x] Product demo page: replace Bar Door Monkey proof with portfolio index link `/portfolio`.
+- [x] Executive interview page: state $125/hr on-location filming rate in opener.
+- [x] Doral page: clarify on-location filming in Doral and remote editing from Fort Lauderdale with transparent travel boundary.
+- [x] Add regression test `app/__tests__/niche-openers-distinct.test.ts`.
+- [x] Run `pnpm lastmod:update`.
+- [x] Acceptance gates passed: `pnpm typecheck && pnpm test && python3 $HOME/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check`.
+
 ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry
 
 - [x] Retry #228: add FAQPage schema using the exact bilingual subtitling query phrasings in EN and ES to Esteban's subtitling pages. Diagnosed gate exit 127 (`sh: vitest: command not found` due to missing worktree `node_modules`). Added exact query questions in `lib/service-depth-content.ts` and `lib/spanish-site.ts` with FAQPage schema generation. Verified with `npm test`, `analytics-gate.py`, and `esteban-geo-nightly-subtitling-faq-retry-2026-11-02.txt`.
