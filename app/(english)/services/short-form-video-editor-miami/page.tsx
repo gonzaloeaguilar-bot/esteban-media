@@ -25,8 +25,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Short Form Video Editor Miami",
-  description: `Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for influencers, creators and businesses in Miami and Fort Lauderdale. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Short Form Video Editor Miami | Reels, TikTok & YouTube Shorts",
+  description: `Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for influencers, creators and businesses in Miami and Fort Lauderdale. Editor de video / Reels en español. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
