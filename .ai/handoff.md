@@ -1,3 +1,23 @@
+## 2026-11-03 — Review and venue proof blocks on three money pages (feat/proof-blocks-money-pages)
+
+- Intent: Render existing Google review block (`ClientReviews` / `ReviewsBand`) and real venue names directly under hero/first answer on three money pages in visible text only (no `aggregateRating` / `Review` schema).
+- Updated Google Reviews snapshot (`data/google-reviews.json`): profile review count updated to 19, readAt updated to `2026-11-03` (aligned with live GBP merchant panel count of 19 reviews, 5.0 rating).
+- Updated `components/geo-service-page.tsx`:
+  - Added optional `venueLine?: string` to `GeoServicePageContent`.
+  - Mounted `<ClientReviews locale="en" compact />` and `<section data-section="service-venues">` immediately after `ServiceAnswerFirst` (above `OwnerFactAnswers`).
+- Updated `app/(english)/services/reels-editor-fort-lauderdale/page.tsx`:
+  - Added real venue line citing Fort Lauderdale Auto Sale and Port Everglades (metadata title/desc preserved for T+14 read).
+- Updated `app/(english)/services/video-production-fort-lauderdale/page.tsx`:
+  - Added real venue line citing Fort Lauderdale Auto Sale, Port Everglades, and Healthy Smile Miami.
+- Updated `app/(english)/services/short-form-video-editor-miami/page.tsx`:
+  - Directly rendered `<ClientReviews locale="en" compact />` and `<section data-section="service-venues">` citing Healthy Smile Miami, Bar Door Monkey, and Caro Sells Miami under the hero definition.
+- Added comprehensive regression test `app/__tests__/money-pages-proof-blocks.test.ts`:
+  - Validates all 3 pages server-render reviews band, review count 19, and the venue line.
+  - Confirms all venues named appear in `PORTFOLIO_ITEMS` or `caseStudyPairs`.
+  - Confirms zero `aggregateRating` or `"@type": "Review"` JSON-LD schema emitted.
+- Ran `pnpm lastmod:update`: updated `config/page-lastmod.json` for all 3 pages.
+- Gates passed: `pnpm typecheck`, `npm test` (196 test files / 3,807 tests passed), `pnpm rail-adoption:check`, `analytics-gate` passed, and `pnpm build` verified 617 routes. Local commit `270d8fa4` created.
+
 ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
 
 - Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.
