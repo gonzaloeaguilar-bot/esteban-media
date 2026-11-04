@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-718",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave (2026-11-04): targeting GSC impressions at position 6-15 lacking content depth / EN-ES parity. Fresh GSC snapshot from review-2026-11-04.json and candidates-2026-11-04.json showed /guides/best-caption-styles-for-instagram-reels earning 155 impressions at position 8.39 with 0 clicks. Audit revealed that the Spanish twin /es/guias/mejores-estilos-de-subtitulos-para-reels had 5 FAQs while the English page had only 3 FAQs, creating an EN/ES parity gap. Added 2 question-shaped English FAQs matching the Spanish topics (automatic captions review, font choices for mobile readability), automatically rendering via RailFaq and buildGuideStructuredData FAQPage JSON-LD.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, branch feat/demand-wave-best-caption-styles-depth, move class 1 (content depth + FAQ/FAQPage JSON-LD parity). CTO dispatch charter demand-wave-esteban-charter.md.",
+    "hard_stops_checked": "Checked and clear. Zero invented clients/prices/reviews/stats/guarantees, no street address, no Part 107 drone-pilot claims, no aggregateRating. EN/ES parity restored. No new indexable URLs added, 0 sitemap count drift. All verification gates pass.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test, git diff --check, pnpm lastmod:update. New regression test app/__tests__/caption-styles-guide-depth.test.ts verifies FAQ content and FAQPage schema in both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move in isolated feature branch off fresh origin/main; verified lint, typecheck, full test suite (198 files / 3811 tests pass), and page-lastmod ledger."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both caption guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on mobile typography and automatic captions review without marketing fluff."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies caption styles, automatic caption verification, and mobile font choices without introducing speculative claims.",
+    "winner_rationale": "Priority 1 move class: The #1 high-impression candidate page (155 impressions) sitting at position 8.39 where the English version lacked FAQ depth and parity with Spanish. Adding English FAQs and valid FAQPage schema directly addresses high-volume Reel caption search intent.",
+    "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test (all 198 test files / 3811 tests pass), pnpm lastmod:update clean, git diff --check clean.",
+    "debt_delta": "Net negative debt: introduces regression test app/__tests__/caption-styles-guide-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+    "obsidian_handoff": "wiki/esteban-media-hot.md updated with PR #718 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-18, 2026-12-02)."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move in isolated feature branch off fresh origin/main; verified lint, typecheck, full test suite (198 files / 3811 tests pass), and page-lastmod ledger."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both caption guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on mobile typography and automatic captions review without marketing fluff."
+    }
+  },
+  "winner_rationale": "Priority 1 move class: The #1 high-impression candidate page (155 impressions) sitting at position 8.39 where the English version lacked FAQ depth and parity with Spanish. Adding English FAQs and valid FAQPage schema directly addresses high-volume Reel caption search intent.",
+  "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies caption styles, automatic caption verification, and mobile font choices without introducing speculative claims.",
+  "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test (all 198 test files / 3811 tests pass), pnpm lastmod:update clean, git diff --check clean.",
+  "debt_delta": "Net negative debt: introduces regression test app/__tests__/caption-styles-guide-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+  "obsidian_handoff": "wiki/esteban-media-hot.md updated with PR #718 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-18, 2026-12-02)."
+}

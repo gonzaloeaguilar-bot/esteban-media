@@ -36,6 +36,8 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { restaurantIgStudyCopy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
 import { withPageDate } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
+import { estebanPriceRows, marketPriceRows, priceIndexAnswer, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
+import RailTable from "@/vendor/rail-kit/RailTable";
 
 
 const RELATED_GUIDE_COUNT = 6;
@@ -680,7 +682,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 {guide.title}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
-                <strong>{copy.answerLabel}</strong> {guide.answer}
+                <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
               {guide.heroProof ? (
                 <div className="mt-8 max-w-2xl">
@@ -781,6 +783,8 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 ) : null}
               </section>
             ))}
+
+            {guide.priceIndex ? <ReelsPriceIndex locale={locale} /> : null}
 
             {guide.faqs?.length ? (
               <section id="faq" className="scroll-mt-24" aria-labelledby="faq-heading">
@@ -942,5 +946,31 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
       </section>
       </KeepReading>
     </main>
+  );
+}
+
+function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
+  const es = locale === "es";
+  const label = es ? "Precios de Reels y edición de video corto consultados el 3 de noviembre de 2026" : "Reels and short-form editing prices checked November 3, 2026";
+  return (
+    <section id="price-index" data-section="reels_price_index" className="scroll-mt-24">
+      <h2 className="font-serif text-4xl leading-tight sm:text-5xl">{es ? "Tabla de precios publicados" : "Published price table"}</h2>
+      <p className="mt-4 text-base leading-8 text-[#252a2d] sm:text-lg">{es ? "Cada fila conserva el enlace consultado, su clasificación y la fecha de consulta. VERIFIED indica un precio en la página del proveedor; UNVERIFIED indica un marketplace o directorio. Las dos filas de ZipIn se mantienen porque la misma página publica cifras distintas." : "Every row keeps the checked link, its classification, and the date checked. VERIFIED means the provider page printed a price; UNVERIFIED means a marketplace or directory. Both ZipIn rows remain because the same provider page prints conflicting figures."}</p>
+      <div className="mt-6 overflow-x-auto">
+        <RailTable source="reels_price_index_market" label={label} nameLabel={es ? "Proveedor" : "Provider"} className="[--rail-table-cell-padding:10px_8px] [&_td]:align-top [&_td]:whitespace-nowrap [&_tbody_th]:align-top [&_thead_th]:whitespace-normal" columns={[
+          { id: "service", label: es ? "Servicio" : "Service" }, { id: "price", label: es ? "Precio" : "Price" }, { id: "unit", label: es ? "Unidad" : "Unit" }, { id: "tier", label: "Tier" }, { id: "source", label: es ? "Fuente" : "Source" }, { id: "checked", label: es ? "Consultado" : "Checked" },
+        ]} rows={marketPriceRows.map((row, index) => ({ id: `${row.provider}-${index}`, name: row.provider, cells: { service: row.service, price: row.price, unit: row.unit, tier: row.tier, source: <a href={row.href} rel="nofollow noopener" target="_blank" className="font-medium text-[#9f3c27] underline underline-offset-4">{es ? "Abrir fuente" : "Open source"}</a>, checked: <time dateTime={row.checkedOn}>{row.checkedOn}</time> } }))} />
+      </div>
+      <details className="mt-6 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+        <summary className="cursor-pointer font-medium text-[#252a2d]">{es ? "Cómo leer esta comparación" : "How to read this comparison"}</summary>
+        <p className="mt-3 text-sm leading-7 text-[#3f4548]">{es ? "Los servicios tienen alcances distintos: una edición remota, un paquete mensual, software y producción con grabación no son equivalentes. La tabla sirve para ver lo que cada página publicó, no para calcular un promedio local ni prometer un precio." : "These services have different scopes: remote editing, monthly packages, software, and production with filming are not like-for-like. The table shows what each page published; it does not calculate a local average or promise a price."}</p>
+      </details>
+      <h2 className="mt-12 font-serif text-4xl leading-tight sm:text-5xl">{es ? "Escalera publicada de Esteban" : "Esteban’s published ladder"}</h2>
+      <p className="mt-4 text-base leading-8 text-[#252a2d] sm:text-lg">{es ? "Estas cifras se leen directamente de la lista de precios publicada de Esteban y una cotización escrita confirma el alcance final." : "These figures are read directly from Esteban’s published pricing constants; a written quote confirms the final scope."}</p>
+      <div className="mt-6 overflow-x-auto">
+        <RailTable source="reels_price_index_esteban" label={es ? "Precios publicados de Esteban" : "Esteban published prices"} nameLabel={es ? "Servicio" : "Service"} className="[--rail-table-cell-padding:10px_8px] [&_td]:whitespace-nowrap" columns={[{ id: "price", label: es ? "Precio" : "Price" }, { id: "unit", label: es ? "Unidad" : "Unit" }]} rows={estebanPriceRows(locale).map((row) => ({ id: row.item, name: row.item, cells: { price: row.price, unit: row.unit } }))} />
+      </div>
+      <p className="mt-4 text-xs text-[#5a6066]"><time dateTime={REELS_PRICE_INDEX_CHECKED_ON}>{es ? `Actualizado ${REELS_PRICE_INDEX_CHECKED_ON}` : `Updated ${REELS_PRICE_INDEX_CHECKED_ON}`}</time></p>
+    </section>
   );
 }

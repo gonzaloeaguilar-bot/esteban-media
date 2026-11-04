@@ -25,7 +25,7 @@ const content: GeoServicePageContent = {
   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
   answerFirst:
-    `Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
+    `Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses. Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
@@ -128,6 +128,11 @@ const content: GeoServicePageContent = {
       title: "Remote editing handoff checklist",
       detail: "Prepare original clips, the message, references, and the first publishing channel before requesting an edit.",
       href: "/resources/remote-editing-handoff-checklist",
+    },
+    {
+      title: "South Florida Reels editing price index",
+      detail: "Compare dated published prices by provider, marketplace, and software before requesting a scoped quote.",
+      href: "/guides/reels-video-editing-prices-south-florida",
     },
     {
       title: "Reels and video in Hollywood, FL",

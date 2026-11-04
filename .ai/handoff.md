@@ -1,3 +1,14 @@
+## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity (feat/demand-wave-best-caption-styles-depth)
+
+- Resolved EN/ES parity gap on top demand guide `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in fresh 28-day review-2026-11-04):
+  - English guide had only 3 FAQs while Spanish counterpart `/es/guias/mejores-estilos-de-subtitulos-para-reels` had 5 FAQs.
+  - Added matching English FAQs addressing automatic captions and recommended font types in `lib/guides.ts`.
+  - Both locales now serve 5 comprehensive FAQs with valid Schema.org FAQPage structured data via `buildGuideStructuredData`.
+- Added unit test `app/__tests__/caption-styles-guide-depth.test.ts` verifying FAQ parity and structured data across locales.
+- Updated `lib/__tests__/guides.test.ts` to assert 5 FAQs for both EN and ES caption guides.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (all 198 test files / 3811 tests pass), and `git diff --check`.
+
 ## 2026-11-03 — Niche-specific answer-first openers on 8 service pages (feat/niche-answer-openers)
 
 - Replaced shared "In short" boilerplate paragraph with distinct 100-180 word answer-first openers on 8 service pages:
@@ -902,3 +913,18 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Why a route handler and not next.config: `app/__tests__/redirect-integrity.test.ts` requires every config redirect destination to be a real app route, so an external Stripe destination there fails the suite.
 - Gates on Spark's VM: `pnpm test` 192 files / 3,796 tests passed (includes new `app/__tests__/pay-redirect.test.ts`, 2 tests), `pnpm typecheck` clean, `pnpm lint` 0 errors / 23 pre-existing warnings, `pnpm rail-adoption:check` passed.
 - Next: PR review and merge on Gonzalo's word; after deploy, smoke-test https://estebanmorenomedia.com/pay lands on the Stripe checkout, then point the configurable QR at /pay (until then the QR points at the Stripe link directly).
+
+# 2026-11-04 — Executive interview page content-depth candidate (local only)
+
+- Updated `/services/executive-interview-videographer-miami` to lead with the intended output (a clear leadership message or customer testimonial), give the direct use case before price detail, and distinguish on-location filming from supplied-footage editing and executive video-bio work in the existing visible FAQ and FAQPage schema.
+- The page already links to the relevant customer-testimonial guide, business-video service, interview-editing service, and pricing path through its server-rendered deep-dive sections. The generated page-lastmod ledger now records `2026-11-04` for this route.
+- Local evidence: `pnpm lastmod:update` (1 ledger entry refreshed), `npm run typecheck --silent`, and `npm test` all exited 0; `pnpm lint` completed with 0 errors and 23 pre-existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` exited 0; `git diff --check` passed.
+- Not committed, independently reviewed, deployed, or measured in Search Console. Next: `cto-qa-lead` reviews the exact local diff; after an authorized release, verify the canonical route's raw HTML and live render, then compare GSC impressions/clicks after a suitable observation window.
+
+# 2026-11-04 — South Florida Reels editing price-index guide candidate (local only)
+
+- Added the reciprocal guide pair: `/guides/reels-video-editing-prices-south-florida` and `/es/guias/precios-edicion-de-reels-y-video-sur-de-florida`. Both use the established guide route, reciprocal hreflang, FAQPage schema, native `<details>`, and visible `2026-11-03` source dates.
+- `lib/reels-price-index.ts` holds all 21 rows from `.ai/price-index-sources.md`. Every row renders provider, service, price, unit, tier, outbound `rel="nofollow noopener"` source link, and check date. The conflicting ZipIn rows and no-public-price rows remain. The Esteban ladder is computed from `lib/pricing.ts` constants, never copied into page copy.
+- Internal links land from EN/ES pricing hubs and EN/ES Fort Lauderdale Reels pages. The sitemap / Search Console fixed watch set and inventory freeze now record the bilingual addition: 575 URLs, hash `9d4736a84c2c16fcc22cab9e390adf6935bff450dc47c2c2a579833963a9472a`.
+- Local evidence: `pnpm lastmod:update`, `pnpm typecheck`, `npm test` (full suite), `python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .` (PASS), `pnpm rail-adoption:check` (3/3), `pnpm build` (compiled and emitted both static HTML files), and `git diff --check` all passed. Raw built EN/ES HTML contains `reels_price_index_market`, both ZipIn rows, FAQPage, date line, and nofollow/noopener links.
+- Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` performs the governed exact-diff review; after an authorized release, verify both canonical production routes and run the scheduled comparable GSC/citation read. This worktree is confined by dispatch policy, so the required Obsidian/registry write-back remains for the top-level coordinator.
