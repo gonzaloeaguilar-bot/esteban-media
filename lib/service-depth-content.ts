@@ -1552,6 +1552,11 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
       answer:
         "Yes. Full-length interviews are edited for corporate websites, and key insights are cut into 9:16 vertical clips with accurate captions and branded title cards for LinkedIn.",
     },
+    {
+      question: "Should we book an executive interview shoot, editing-only service, or an executive video bio?",
+      answer:
+        "Choose this on-location interview service when you need the conversation filmed at your Miami office or venue. If you already have recorded interviews, the interview video editing service can shape supplied footage; if the assignment is a leadership profile or board-facing story, compare executive video bio production before requesting a written scope.",
+    },
   ],
   "/services/yacht-event-videographer-miami": [
     {
