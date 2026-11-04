@@ -327,7 +327,7 @@ export const spanishSite = {
   // Matches the /es h1 ("Video, IA y redes") and the meta description (edits video
   // for businesses in Fort Lauderdale and Miami); the old title promised "Sistemas
   // de Growth", which nothing on the page says (audit 2026-10-14, item 6).
-  title: "Esteban Moreno Media | Edición de Video en Fort Lauderdale",
+  title: "Editor de Video en Fort Lauderdale | Esteban Moreno Media",
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. En español y en inglés. Fort Lauderdale — cotiza rápido.",
   /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
@@ -2272,7 +2272,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cómo funciona la edición remota con el material que ya tienes?",
         paragraphs: [
           "Muchas empresas y creadores en el sur de la Florida ya tienen grabaciones hechas con el teléfono o con cámaras propias en sus locales, eventos o días de trabajo. Con la edición remota, esos archivos se organizan, se limpian y se convierten en piezas ágiles listas para publicar en redes sociales, sin necesidad de programar rodajes costosos.",
-          "El proceso comienza reuniendo los archivos originales en una carpeta compartida en la nube con notas breves sobre el objetivo de cada clip. La edición recorta silencios, unifica color y sonido, y prepara versiones verticales adaptadas. Si necesitas atención enfocada en Miami-Dade, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami) para revisar el alcance de tus publicaciones.",
+          "El proceso comienza reuniendo los archivos originales en una carpeta compartida en la nube con notas breves sobre el objetivo de cada clip. La edición recorta silencios, unifica color y sonido, y prepara versiones verticales adaptadas. Si necesitas atención enfocada en Miami-Dade, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami) o contrata a un [editor de reels Miami](/es/editor-de-reels-miami) para revisar el alcance de tus publicaciones.",
         ],
       },
       ...SHORT_FORM_SECTIONS_ES,
@@ -2341,7 +2341,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Qué tipos de video edita Esteban para negocios de Miami?",
         paragraphs: [
-          "La oferta de postproducción cubre los principales formatos que utilizan los negocios para promocionarse y vender. Para redes sociales verticales, editamos contenido corto como [editor de Reels en Miami](/es/editor-de-reels-miami), opciones en Broward como [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) y el servicio general de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami).",
+          "La oferta de postproducción cubre los principales formatos que utilizan los negocios para promocionarse y vender. Para redes sociales verticales, editamos contenido corto como [editor de reels Miami](/es/editor-de-reels-miami), opciones en Broward como [editor de reels Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) y el servicio general de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami).",
           "Para canales horizontales y plataformas de contenido largo, ofrecemos edición de video para YouTube y creativos publicitarios tipo [editor de video UGC](/es/editor-de-video-ugc-para-ecommerce). Cada tipo de video se edita con el ritmo, formato y llamadas a la acción adecuados para su canal.",
         ],
       },
@@ -2849,7 +2849,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "videografo-para-eventos-corporativos-fort-lauderdale",
     title: "Videógrafo para eventos corporativos en Fort Lauderdale",
-    metadataTitle: "Video Eventos Fort Lauderdale",
+    metadataTitle: "Video para Eventos en Florida",
     description:
       "Grabación y edición de video para eventos corporativos, conferencias y exposiciones en Fort Lauderdale y Broward.",
     eyebrow: "Eventos Corporativos Fort Lauderdale",
@@ -6357,7 +6357,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Qué diferencia un Reel de Miami de un video genérico?",
         paragraphs: [
           "Miami-Dade cuenta con negocios con alta carga visual: restaurantes, bienestar, bienes raíces, eventos, marcas de productos, servicios profesionales y proyectos bilingües. Un Reel genérico pierde impacto cuando no muestra el local, la persona, el producto o el contexto concreto que hace creíble la oferta ante la audiencia local.",
-          "La edición profesional conserva esos detalles distintivos mientras recorta pausas, vacilaciones y planos redundantes. El objetivo no es llenar segundos en pantalla, sino lograr que el espectador comprenda rápidamente por qué el negocio merece un mensaje, una visita o una llamada. Si también buscas cobertura en Broward, puedes consultar a nuestro [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) o revisar el servicio integral de [editor de video en Miami](/es/editor-de-video-miami).",
+          "La edición profesional conserva esos detalles distintivos mientras recorta pausas, vacilaciones y planos redundantes. El objetivo no es llenar segundos en pantalla, sino lograr que el espectador comprenda rápidamente por qué el negocio merece un mensaje, una visita o una llamada. Si también buscas cobertura en Broward, puedes consultar a nuestro [editor de reels Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) o revisar el servicio integral de [editor de video en Miami](/es/editor-de-video-miami).",
         ],
       },
       {

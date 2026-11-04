@@ -96,6 +96,8 @@ export default function SpanishHomePage() {
                   ? "/es/diseno-web-fort-lauderdale"
                   : service.id === "videografia"
                     ? "/es/produccion-de-video-fort-lauderdale"
+                  : service.id === "edicion"
+                    ? "/es/editor-de-video-miami"
                   : `/es/servicios#${service.id}`;
               return (
                 <Link key={service.id} href={href} className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4 hover:text-[#a93e29]">

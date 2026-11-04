@@ -15,6 +15,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Video Production Doral Miami",
@@ -109,7 +110,10 @@ export default function VideoProductionDoralPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="video production in Doral" />
+      <ServiceAnswerFirst
+        service="video production in Doral"
+        answerOverride={`B2B video production in Doral covers commercial overviews, facility walkthroughs, and distributor product videos for logistics companies and commercial brands. Esteban Moreno Media is based in Fort Lauderdale and serves Doral and Miami-Dade selectively as a service-area business, with no public walk-in studio. On-location filming takes place on site at your Doral facility, with full production days starting from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)}, while video editing is handled remotely from Fort Lauderdale starting from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. Filming in Doral is agreed project by project from Esteban's base in Fort Lauderdale, keeping travel boundaries transparent, with Spanish-first communication and intermediate English.`}
+      />
       <OwnerFactAnswers path="/services/video-production-doral-miami" />
 
       <section className="pb-12 sm:pb-16">

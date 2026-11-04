@@ -24,6 +24,8 @@ import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
 import { withNicheService } from "@/lib/niche-answers";
+import { ClientReviews } from "@/components/client-reviews";
+import { renderFormattedText } from "@/components/formatted-text";
 
 export type GeoServicePageContent = {
   path: string;
@@ -75,6 +77,8 @@ export type GeoServicePageContent = {
   relatedHeading: string;
   related: readonly RelatedService[];
   inquiry: ServiceInquiry;
+  /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
+  venueLine?: string;
 };
 
 export function buildGeoServiceSchema(content: GeoServicePageContent) {
@@ -243,6 +247,17 @@ export function GeoServicePage({
       </section>
 
       <ServiceAnswerFirst service={content.answerService ?? content.serviceType} answerOverride={content.answerFirst} />
+      <ClientReviews locale="en" compact />
+      {content.venueLine ? (
+        <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
+          <Container size="xl">
+            <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
+              <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
+              {renderFormattedText(content.venueLine)}
+            </p>
+          </Container>
+        </section>
+      ) : null}
       <OwnerFactAnswers path={content.path} />
 
       <ServiceCraft

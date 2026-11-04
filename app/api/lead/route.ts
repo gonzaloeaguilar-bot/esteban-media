@@ -73,6 +73,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
+        ...(stored.ok ? {} : { persisted: false, warning: "persistence_failed" }),
         leadId,
         message: isEs
           ? "¡Gracias! Tu solicitud ha sido recibida correctamente."

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CREW_RECORDING_RATES, usd } from "@/lib/pricing";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -17,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { CREW_RECORDING_RATES, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Executive Interview Videographer Miami",
@@ -128,7 +128,10 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="executive interview videography in Miami" />
+      <ServiceAnswerFirst
+        service="executive interview videography in Miami"
+        answerOverride={`Executive interview videography captures leadership messages, investor updates, and client case study testimonials across Miami-Dade and Broward. Esteban Moreno Media is based in Fort Lauderdale and provides on-location corporate interview filming at your office or venue billed at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour, with a 4-hour minimum (${usd(CREW_RECORDING_RATES.solo.minimumAmount)} floor), using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
+      />
 
       <ServiceDeepDive
         id={EXECUTIVE_INTERVIEW_DEEP_DIVE.id}

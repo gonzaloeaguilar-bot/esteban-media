@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Product Demo Video Production Miami",
@@ -114,13 +115,13 @@ export default function ProductDemoVideoMiamiPage() {
               <Laptop className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">What product demonstration proof is available?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Review verified product commercial pacing and close-up assembly footage. Watch our published <Link href="/portfolio/bar-door-monkey" className="underline decoration-[#e85d3e] underline-offset-4">Bar Door Monkey commercial spot</Link>.
+                Review verified commercial cinematography and editing across our published work in the <Link href="/portfolio" className="underline decoration-[#e85d3e] underline-offset-4">portfolio index</Link>.
               </p>
               <Link
-                href="/portfolio/bar-door-monkey"
+                href="/portfolio"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Watch Published Commercial Work
+                Explore Portfolio Index
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -128,7 +129,10 @@ export default function ProductDemoVideoMiamiPage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="product demo video production in Miami" />
+      <ServiceAnswerFirst
+        service="product demo video production in Miami"
+        answerOverride={`Product demo video production delivers clear walkthroughs, unboxing sequences, and assembly guides that explain physical products and hardware without customer confusion. Esteban Moreno Media is based in Fort Lauderdale and serves Miami, Doral, and Broward brands. For businesses with existing demonstration footage, remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package, adding on-screen feature callouts, pacing, and clean audio balancing. When an on-location shoot in South Florida is required to capture macro tabletop details, hands-on assembly, or laboratory demonstrations, full production days start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every project receives a scoped written quote before work begins.`}
+      />
 
       <ServiceDeepDive
         id={PRODUCT_DEMO_DEEP_DIVE.id}

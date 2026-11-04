@@ -1,3 +1,19 @@
+## 2026-11-03 — Niche-specific answer-first openers on 8 service pages (feat/niche-answer-openers)
+
+- Replaced shared "In short" boilerplate paragraph with distinct 100-180 word answer-first openers on 8 service pages:
+  - `/services/webinar-clip-editing-service` (answers webinar clipping into LinkedIn & 9:16 cuts, mentions LinkedIn in H1/lead, links `/services/executive-linkedin-video-series-miami`, points proof card to portfolio index instead of Healthy Smile, Starter from $100)
+  - `/services/product-demo-video-production-miami` (answers walkthroughs/unboxing, points proof card to portfolio index instead of Bar Door Monkey, Starter from $100, Local Presence from $1,600)
+  - `/services/amazon-product-video-production-miami` (answers Amazon marketplace compliance and video specs, Starter from $100, Local Presence from $1,600)
+  - `/services/crowdfunding-video-editor-miami` (answers Kickstarter/Indiegogo pitch edits, corporate calculator band $725–$1,450, Starter from $100)
+  - `/services/ugc-ad-variation-video-editing` (answers paid social creative variation batching, Starter from $100, 5-pack variations $1,250)
+  - `/services/video-podcast-editing-service-miami` (answers podcast video editing and multi-camera post-production, long-form band $450–$850, Starter from $100)
+  - `/services/executive-interview-videographer-miami` (answers corporate interview videography with $125/hr filming rate and 4-hr minimum call, Starter from $100, Local Presence from $1,600)
+  - `/services/video-production-doral-miami` (answers B2B commercial video in Doral, local production from $1,600, remote editing from $100, transparent Fort Lauderdale base travel boundary)
+- Price discipline: figures are referenced directly from `lib/pricing.ts` constants via `usd()`, ensuring parity with `app/__tests__/price-single-source.test.ts`.
+- Added regression test `app/__tests__/niche-openers-distinct.test.ts` verifying all 8 openers are distinct from each other and the generic text, meet 100-180 word bounds, and adhere to specific niche linking/content requirements.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `pnpm typecheck`, `pnpm test` (196/196 test files, 3,802 tests), analytics gate (`python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .`), and `pnpm rail-adoption:check`.
+
 ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
 
 - Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.

@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   // than iterated: 0.8 impressions a day cannot carry more work than this.
   title: {
     absolute:
-      "Fort Lauderdale Video Production & Editing | Esteban Moreno",
+      "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
   },
   description:
-    "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
+    "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
   // Next REPLACES a nested openGraph/twitter object instead of merging it with
   // the root layout's, so spreading the root defaults is what keeps og:image,
   // og:url, og:type, og:site_name, og:locale and the large twitter card on "/".
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
   // with no image and a "summary" card (SEO/GEO audit 2026-10-10, finding 1).
   openGraph: {
     ...englishRootMetadata.openGraph,
-    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
+    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
     description:
-      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
+      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
   },
   twitter: {
     ...englishRootMetadata.twitter,
-    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
+    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
     description:
-      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
+      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
   },
 };
 
