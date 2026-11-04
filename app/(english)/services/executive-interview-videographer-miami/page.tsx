@@ -19,9 +19,9 @@ import { withNicheService } from "@/lib/niche-answers";
 import { CREW_RECORDING_RATES, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
-  title: "Executive Interview Videographer Miami",
+  title: "Executive Interview Videographer Miami for Leadership Videos",
   description:
-    "Executive interview videography and corporate testimonial filming in Miami offices and venues, with professional lighting, dual audio, and clean editing.",
+    "Executive interview videographer in Miami for clear leadership videos and customer testimonials, with on-location filming and editing options.",
   path: "/services/executive-interview-videographer-miami",
   locale: "en",
 });
@@ -95,10 +95,10 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
                 Miami / Corporate Leadership &amp; Testimonials
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Executive Interview Videographer in Miami.
+                Executive Interview Videos for Leadership Messages and Testimonials.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                On-location filming for executive leadership interviews, investor updates, and client case study testimonials across Miami. Studio-grade lighting, noise-isolated dual audio, and professional brand editing.
+                Need an executive interview video that makes a leadership message or customer testimonial clear? Esteban Moreno Media films on location at Miami offices and venues, then can shape the recording into a full interview or shorter LinkedIn-ready cuts.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -130,7 +130,7 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
       </section>
       <ServiceAnswerFirst
         service="executive interview videography in Miami"
-        answerOverride={`Executive interview videography captures leadership messages, investor updates, and client case study testimonials across Miami-Dade and Broward. Esteban Moreno Media is based in Fort Lauderdale and provides on-location corporate interview filming at your office or venue billed at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour, with a 4-hour minimum (${usd(CREW_RECORDING_RATES.solo.minimumAmount)} floor), using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
+        answerOverride={`Executive interview videography records a clear leadership message or customer testimonial for your website, sales conversations, or LinkedIn. Esteban Moreno Media films on location across Miami-Dade and Broward, with options for a full horizontal interview and shorter vertical cuts. On-location corporate interview filming at your office or venue is billed at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour, with a 4-hour minimum (${usd(CREW_RECORDING_RATES.solo.minimumAmount)} floor), using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
       />
 
       <ServiceDeepDive

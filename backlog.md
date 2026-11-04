@@ -1,4 +1,17 @@
+## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity
+
+- [x] Restore EN/ES FAQ parity on `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in GSC review-2026-11-04) by adding matching English FAQs for automatic subtitles and recommended fonts in `lib/guides.ts`.
+- [x] Add regression test `app/__tests__/caption-styles-guide-depth.test.ts` to assert 5 FAQs and FAQPage JSON-LD schema on both EN and ES pages.
+- [x] Update `lib/__tests__/guides.test.ts` to assert 5 FAQs for both locales.
+- [x] Run `pnpm lastmod:update` and commit `config/page-lastmod.json`.
+- [x] Acceptance gates passed: `pnpm lint && pnpm typecheck && pnpm test && git diff --check`.
+
 ## 2026-11-03 — Niche-specific answer-first openers on 8 service pages
+
+## 2026-11-04 — Executive interview content depth follow-through
+
+- [x] Update the existing executive-interview service route with outcome-specific metadata, answer-first opening, a filming-versus-editing-versus-video-bio decision FAQ, and the generated lastmod record.
+- [ ] `cto-qa-lead`: independently review the local diff; after authorized release, confirm raw HTML and rendered canonical page, then let `cto-seo-lead` compare a later GSC window. No ranking, click, or inquiry impact is claimed before that read.
 
 - [x] Replace shared "In short" boilerplate with niche-specific 100-180 word answer-first openers across 8 English service pages (`/services/webinar-clip-editing-service`, `/services/product-demo-video-production-miami`, `/services/amazon-product-video-production-miami`, `/services/crowdfunding-video-editor-miami`, `/services/ugc-ad-variation-video-editing`, `/services/video-podcast-editing-service-miami`, `/services/executive-interview-videographer-miami`, `/services/video-production-doral-miami`).
 - [x] Webinar page: include "LinkedIn" in H1 and lead, add button linking `/services/executive-linkedin-video-series-miami`, replace Healthy Smile proof with portfolio index link `/portfolio`.
@@ -204,6 +217,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Product and measurement
 
+- [x] Add distinct 100–180-word Spanish answer-first openers to the eight existing niche-page twins and place the Esteban + Fort Lauderdale + Instagram Reels sentence in both Reels bodies (local commit pending independent review and release).
+
 - [x] Harden the Search Console index-watch warning path for the Top 20 growth batch: current neutral/excluded URLs now persist in `neutralWatch`, 7+ day neutral pages emit a `neutral_seven_day_watch` warning and render a follow-up table in the managed note, recovered URLs clear from neutral tracking, and legacy state backfills the current 63 neutral URLs. Verified 2026-10-01 with `pnpm exec vitest run scripts/search-console-index-watch.test.mjs` (28 tests) and `pnpm index-watch:status` reporting `pass 193`, `neutral 63`, `fail 0`, `unknown 0`, `pendingNotificationCount 0`, and `neutralWatchCount 63`.
 - [x] Add the shared-component adoption path for Esteban AI contributions: `.ai/service-page-template.md` tells contributors to use `components/service-depth.tsx`, `app/__tests__/rail-adoption.test.ts` blocks new dense hand-rolled page files, `.github/workflows/rail-adoption.yml` runs the gate weekly/manual, and `/services/yacht-hospitality-video-fort-lauderdale` is the migrated model page. Verified 2026-10-01 with `pnpm check` exit 0: rail-kit check, adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity across 87 Spanish routes.
 - [x] Align the bilingual homepage hero with the primary technology inquiry lanes (AI lead capture, automated customer workflows, and conversion websites), preserving the existing privacy-safe homepage intake and its consent-scoped language
@@ -217,6 +232,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 - [x] Run the live weekly search/index digest on 2026-08-12 and connect qualified-action evidence to the zero-token portfolio GA4 ingest
 - [x] Add interactive bilingual daily video script timer & pacing calculator surface (`/daily-script-timer` and `/es/temporizador-de-guiones-de-video`)
+- [x] Build the EN/ES South Florida Reels editing price-index guides from the verified 2026-11-03 source table, with `pricing.ts`-derived Esteban ladder, sitemap/watch-set coverage, and local gates. Local candidate only; independent review and production verification remain.
 
 ## P2 — Portfolio refinement
 

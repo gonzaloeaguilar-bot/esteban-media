@@ -50,7 +50,7 @@ const RULES: [Theme, RegExp][] = [
   // a price. Every real pricing guide here says cost, precio, pricing, tarifa,
   // budget or cuanto-cuesta, so the word buys nothing and costs two wrong
   // drawings.
-  ["price", /cost|cuanto-cuesta|precio|pricing|\btarifa\b|budget|presupuesto/],
+  ["price", /cost|cuanto-cuesta|precio|prices?|pricing|\btarifa\b|budget|presupuesto/],
   ["files", /archivo|file|send|enviar|entrega|handoff|delivery|raw|formato|format|aspect|relacion-de-aspecto|pesado|large/],
   ["audio", /audio|sonido|sound|mezcl|\bmix\b|voice|voz/],
   // Strategy is tested BEFORE short-form: "how-to-script-social-video-ads" is a

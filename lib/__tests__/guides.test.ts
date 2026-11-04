@@ -86,15 +86,15 @@ describe("bilingual practical guides", () => {
     }
   });
 
-  it("returns exactly 49 guides for English", () => {
+  it("returns exactly 50 guides for English", () => {
     const guides = getGuides("en");
-    expect(guides).toHaveLength(49);
+    expect(guides).toHaveLength(50);
     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
   });
 
-  it("returns exactly 49 guides for Spanish", () => {
+  it("returns exactly 50 guides for Spanish", () => {
     const guides = getGuides("es");
-    expect(guides).toHaveLength(49);
+    expect(guides).toHaveLength(50);
     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
   });
 
@@ -102,13 +102,13 @@ describe("bilingual practical guides", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(49);
-    expect(spanishGuides).toHaveLength(49);
+    expect(englishGuides).toHaveLength(50);
+    expect(spanishGuides).toHaveLength(50);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(49);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(49);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(50);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(50);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(60);
@@ -128,9 +128,9 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(98);
-    expect(new Set(metadataTitles).size).toBe(98);
-    expect(new Set(descriptions).size).toBe(98);
+    expect(new Set(canonicalPaths).size).toBe(100);
+    expect(new Set(metadataTitles).size).toBe(100);
+    expect(new Set(descriptions).size).toBe(100);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);
@@ -356,7 +356,8 @@ describe("bilingual practical guides", () => {
     // Round 6 (2026-10-14): the Spanish guide gained "¿Cómo hacer subtítulos
     // para Reels?" and two FAQs (automatic subtitles, fonts) from autocomplete.
     expect(esGuide.sections).toHaveLength(4);
-    expect(enGuide.faqs).toHaveLength(3);
+    // Caption styles guide: both EN and ES have 5 FAQs, restoring parity and covering autocomplete/FAQ intent
+    expect(enGuide.faqs).toHaveLength(5);
     expect(esGuide.faqs).toHaveLength(5);
 
     const enProse = JSON.stringify(enGuide.sections);
