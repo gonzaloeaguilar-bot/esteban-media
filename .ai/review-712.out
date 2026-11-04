@@ -1,0 +1,18 @@
+SKEPTIC: ok
+(a) All prices trace to `lib/pricing.ts` (Starter $100, Local Presence $1,600, hourly filming $125/hr with 4-hr minimum call $500, corporate calculator band $725-$1,450, long-form podcast band $450-$850, 5-pack UGC $1,250).
+(b) Zero invented clients, results, turnarounds, counts, or guarantees; unverified claims are explicitly disclaimed.
+(c) No drone/FAA claims, no street address, and no aggregateRating schema introduced.
+(d) Test `app/__tests__/niche-openers-distinct.test.ts` verifies all 8 openers are distinct from each other via Set size 8 and array uniqueness checks, failing if any two openers match.
+
+TASTE: ok
+(a) Each opener directly answers the specific niche question and format in its opening sentence.
+(b) Word count strictly meets the 100-180 threshold across all 8 openers (ranging between 100 and 113 words).
+(c) Tone matches the site: plain, factual, Spanish-first/intermediate English noted, service-area constraints stated, zero hype.
+
+DEBT:
+Zero net test or dependency debt; clean standalone unit test suite added and all page dates synchronized via `config/page-lastmod.json`. Note: sandbox/macOS seat restriction prevents writing `.ai/review-712.out` directly to the read-only sandbox mount.
+
+FINDINGS:
+none
+
+REVIEW_VERDICT: APPROVE

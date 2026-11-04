@@ -1,0 +1,490 @@
+diff --git a/.ai/handoff.md b/.ai/handoff.md
+index 9c070d47..39f776b9 100644
+--- a/.ai/handoff.md
++++ b/.ai/handoff.md
+@@ -1,3 +1,19 @@
++## 2026-11-03 — Niche-specific answer-first openers on 8 service pages (feat/niche-answer-openers)
++
++- Replaced shared "In short" boilerplate paragraph with distinct 100-180 word answer-first openers on 8 service pages:
++  - `/services/webinar-clip-editing-service` (answers webinar clipping into LinkedIn & 9:16 cuts, mentions LinkedIn in H1/lead, links `/services/executive-linkedin-video-series-miami`, points proof card to portfolio index instead of Healthy Smile, Starter from $100)
++  - `/services/product-demo-video-production-miami` (answers walkthroughs/unboxing, points proof card to portfolio index instead of Bar Door Monkey, Starter from $100, Local Presence from $1,600)
++  - `/services/amazon-product-video-production-miami` (answers Amazon marketplace compliance and video specs, Starter from $100, Local Presence from $1,600)
++  - `/services/crowdfunding-video-editor-miami` (answers Kickstarter/Indiegogo pitch edits, corporate calculator band $725–$1,450, Starter from $100)
++  - `/services/ugc-ad-variation-video-editing` (answers paid social creative variation batching, Starter from $100, 5-pack variations $1,250)
++  - `/services/video-podcast-editing-service-miami` (answers podcast video editing and multi-camera post-production, long-form band $450–$850, Starter from $100)
++  - `/services/executive-interview-videographer-miami` (answers corporate interview videography with $125/hr filming rate and 4-hr minimum call, Starter from $100, Local Presence from $1,600)
++  - `/services/video-production-doral-miami` (answers B2B commercial video in Doral, local production from $1,600, remote editing from $100, transparent Fort Lauderdale base travel boundary)
++- Price discipline: figures are referenced directly from `lib/pricing.ts` constants via `usd()`, ensuring parity with `app/__tests__/price-single-source.test.ts`.
++- Added regression test `app/__tests__/niche-openers-distinct.test.ts` verifying all 8 openers are distinct from each other and the generic text, meet 100-180 word bounds, and adhere to specific niche linking/content requirements.
++- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
++- Validation gates passed: `pnpm typecheck`, `pnpm test` (196/196 test files, 3,802 tests), analytics gate (`python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .`), and `pnpm rail-adoption:check`.
++
+ ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry (spark-2026-11-02-001)
+ 
+ - Diagnosed gate exit 127 from previous run (#228): worktree `node_modules` was missing/unlinked, causing `sh: vitest: command not found` (exit 127). Resolved via symlink to shared repository `node_modules`.
+diff --git a/app/(english)/services/amazon-product-video-production-miami/page.tsx b/app/(english)/services/amazon-product-video-production-miami/page.tsx
+index 23c90bf7..0b568ed2 100644
+--- a/app/(english)/services/amazon-product-video-production-miami/page.tsx
++++ b/app/(english)/services/amazon-product-video-production-miami/page.tsx
+@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
+ import { EventSeasonLinks } from "@/components/event-content-page";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Amazon Product Video Miami",
+@@ -128,7 +129,10 @@ export default function AmazonProductVideoMiamiPage() {
+         </Container>
+       </section>
+ 
+-      <ServiceAnswerFirst service="amazon product video in Miami" />
++      <ServiceAnswerFirst
++        service="amazon product video in Miami"
++        answerOverride={`Amazon product video production creates compliant marketplace videos, main-image demonstration shorts, and Brand Store videos for e-commerce sellers in Miami and Doral. Esteban Moreno Media is based in Fort Lauderdale and structures product videos to adhere to Amazon guidelines, emphasizing dimensions, core benefits, unboxing flow, and sound-off readability. Remote editing for sellers who already have raw clips starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. For brands needing hands-on filming, full production days start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package, with written scopes confirming deliverables before filming starts. Communication is Spanish-first, with intermediate English available for brand teams.`}
++      />
+ 
+       <ServiceDeepDive
+         id={AMAZON_PRODUCT_DEEP_DIVE.id}
+diff --git a/app/(english)/services/crowdfunding-video-editor-miami/page.tsx b/app/(english)/services/crowdfunding-video-editor-miami/page.tsx
+index cf15be0b..e4e66174 100644
+--- a/app/(english)/services/crowdfunding-video-editor-miami/page.tsx
++++ b/app/(english)/services/crowdfunding-video-editor-miami/page.tsx
+@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
+ import { absoluteUrl, site } from "@/lib/site";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Crowdfunding Video Editor Miami",
+@@ -122,7 +123,10 @@ export default function CrowdfundingVideoEditorMiamiPage() {
+           </div>
+         </Container>
+       </section>
+-      <ServiceAnswerFirst service="Crowdfunding video editing" />
++      <ServiceAnswerFirst
++        service="Crowdfunding video editing"
++        answerOverride={`Crowdfunding video editing shapes pitch footage, founder interviews, and product demonstrations into structured campaign videos for Kickstarter and Indiegogo. Esteban Moreno Media is based in Fort Lauderdale and provides remote post-production: you upload the raw footage, product clips, and campaign outline, and Esteban edits the story, pacing, dialogue, and call to action. For campaign edits that require medium explainer structuring, the site budget calculator puts corporate and launch project editing at ${usd(PRICING_BANDS.corporate.baseMin)} to ${usd(PRICING_BANDS.corporate.baseMax)}, while short social teaser cuts start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video. Where campaign results are still ahead, Esteban focuses on clean story craft and transparent pricing rather than unverified outcome claims. Every project receives a written quote before editing begins.`}
++      />
+ 
+       <section className="pb-12 sm:pb-16">
+         <Container size="xl">
+diff --git a/app/(english)/services/executive-interview-videographer-miami/page.tsx b/app/(english)/services/executive-interview-videographer-miami/page.tsx
+index ccf6304c..20b8ab9c 100644
+--- a/app/(english)/services/executive-interview-videographer-miami/page.tsx
++++ b/app/(english)/services/executive-interview-videographer-miami/page.tsx
+@@ -1,5 +1,4 @@
+ import Link from "next/link";
+-import { CREW_RECORDING_RATES, usd } from "@/lib/pricing";
+ import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
+ 
+ import { Container } from "@/components/ui/container";
+@@ -17,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
+ import { EventSeasonLinks } from "@/components/event-content-page";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { CREW_RECORDING_RATES, PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Executive Interview Videographer Miami",
+@@ -128,7 +128,10 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
+           </div>
+         </Container>
+       </section>
+-      <ServiceAnswerFirst service="executive interview videography in Miami" />
++      <ServiceAnswerFirst
++        service="executive interview videography in Miami"
++        answerOverride={`Executive interview videography captures leadership messages, investor updates, and client case study testimonials across Miami-Dade and Broward. Esteban Moreno Media is based in Fort Lauderdale and provides on-location corporate interview filming at your office or venue billed at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour, with a 4-hour minimum (${usd(CREW_RECORDING_RATES.solo.minimumAmount)} floor), using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
++      />
+ 
+       <ServiceDeepDive
+         id={EXECUTIVE_INTERVIEW_DEEP_DIVE.id}
+diff --git a/app/(english)/services/product-demo-video-production-miami/page.tsx b/app/(english)/services/product-demo-video-production-miami/page.tsx
+index bbc42f04..39cd6136 100644
+--- a/app/(english)/services/product-demo-video-production-miami/page.tsx
++++ b/app/(english)/services/product-demo-video-production-miami/page.tsx
+@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
+ import { EventSeasonLinks } from "@/components/event-content-page";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Product Demo Video Production Miami",
+@@ -114,13 +115,13 @@ export default function ProductDemoVideoMiamiPage() {
+               <Laptop className="size-8 text-[#e85d3e]" aria-hidden="true" />
+               <h2 className="mt-5 font-serif text-3xl">What product demonstration proof is available?</h2>
+               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+-                Review verified product commercial pacing and close-up assembly footage. Watch our published <Link href="/portfolio/bar-door-monkey" className="underline decoration-[#e85d3e] underline-offset-4">Bar Door Monkey commercial spot</Link>.
++                Review verified commercial cinematography and editing across our published work in the <Link href="/portfolio" className="underline decoration-[#e85d3e] underline-offset-4">portfolio index</Link>.
+               </p>
+               <Link
+-                href="/portfolio/bar-door-monkey"
++                href="/portfolio"
+                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+               >
+-                Watch Published Commercial Work
++                Explore Portfolio Index
+                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+               </Link>
+             </div>
+@@ -128,7 +129,10 @@ export default function ProductDemoVideoMiamiPage() {
+         </Container>
+       </section>
+ 
+-      <ServiceAnswerFirst service="product demo video production in Miami" />
++      <ServiceAnswerFirst
++        service="product demo video production in Miami"
++        answerOverride={`Product demo video production delivers clear walkthroughs, unboxing sequences, and assembly guides that explain physical products and hardware without customer confusion. Esteban Moreno Media is based in Fort Lauderdale and serves Miami, Doral, and Broward brands. For businesses with existing demonstration footage, remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package, adding on-screen feature callouts, pacing, and clean audio balancing. When an on-location shoot in South Florida is required to capture macro tabletop details, hands-on assembly, or laboratory demonstrations, full production days start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every project receives a scoped written quote before work begins.`}
++      />
+ 
+       <ServiceDeepDive
+         id={PRODUCT_DEMO_DEEP_DIVE.id}
+diff --git a/app/(english)/services/ugc-ad-variation-video-editing/page.tsx b/app/(english)/services/ugc-ad-variation-video-editing/page.tsx
+index 964edc36..10b41fe6 100644
+--- a/app/(english)/services/ugc-ad-variation-video-editing/page.tsx
++++ b/app/(english)/services/ugc-ad-variation-video-editing/page.tsx
+@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
+ import { EventSeasonLinks } from "@/components/event-content-page";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { EXPANSION_SERVICES, PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "UGC Ad Variation Video Editing",
+@@ -128,7 +129,10 @@ export default function UgcAdVariationVideoEditingPage() {
+         </Container>
+       </section>
+ 
+-      <ServiceAnswerFirst service="ugc ad variation video editing" />
++      <ServiceAnswerFirst
++        service="ugc ad variation video editing"
++        answerOverride={`UGC ad variation video editing organizes creator raw clips into modular, direct-response video variations for TikTok, Meta, and paid social campaigns. Esteban Moreno Media is based in Fort Lauderdale and manages paid creative editing remotely: you supply raw creator footage, hook scripts, and angles, and Esteban edits multiple hook-and-body combinations with captions and safe-zone compliance. Single short video edits start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package, while dedicated creative expansion packages such as a 5-pack of UGC ad variations are priced at ${usd(EXPANSION_SERVICES.ugcAdPack5)}. Rather than projecting unverified ad conversion metrics, Esteban delivers disciplined creative formatting, fast turnarounds, and clear per-project pricing for growth teams.`}
++      />
+ 
+       <ServiceDeepDive
+         id={UGC_AD_VARIATION_DEEP_DIVE.id}
+diff --git a/app/(english)/services/video-podcast-editing-service-miami/page.tsx b/app/(english)/services/video-podcast-editing-service-miami/page.tsx
+index 2b9dc56d..e89b2689 100644
+--- a/app/(english)/services/video-podcast-editing-service-miami/page.tsx
++++ b/app/(english)/services/video-podcast-editing-service-miami/page.tsx
+@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
+ import { absoluteUrl, site } from "@/lib/site";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Video Podcast Editing Service Miami",
+@@ -133,7 +134,10 @@ export default function VideoPodcastEditingServiceMiamiPage() {
+           </div>
+         </Container>
+       </section>
+-      <ServiceAnswerFirst service="Podcast video editing" />
++      <ServiceAnswerFirst
++        service="Podcast video editing"
++        answerOverride={`Video podcast editing turns multi-camera studio recordings and remote interviews into clean full episodes and vertical promotional clips. Esteban Moreno Media is based in Fort Lauderdale and provides remote podcast editing across Miami and South Florida. You share raw audio tracks and video angles, and Esteban handles camera switching, audio leveling, color balance, and caption overlays. Editing for long-form episodes falls into the ${usd(PRICING_BANDS.youtube.baseMin)} to ${usd(PRICING_BANDS.youtube.baseMax)} range based on the site calculator, while short promotional social clips start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. No physical recording studio is provided; Esteban focuses strictly on post-production. Communication is Spanish-first, with intermediate English available.`}
++      />
+ 
+       <section className="pb-12 sm:pb-16">
+         <Container size="xl">
+diff --git a/app/(english)/services/video-production-doral-miami/page.tsx b/app/(english)/services/video-production-doral-miami/page.tsx
+index ef81d270..99cd3894 100644
+--- a/app/(english)/services/video-production-doral-miami/page.tsx
++++ b/app/(english)/services/video-production-doral-miami/page.tsx
+@@ -15,6 +15,7 @@ import { absoluteUrl, site } from "@/lib/site";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { OwnerFactAnswers } from "@/components/owner-fact-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Video Production Doral Miami",
+@@ -109,7 +110,10 @@ export default function VideoProductionDoralPage() {
+           </div>
+         </Container>
+       </section>
+-      <ServiceAnswerFirst service="video production in Doral" />
++      <ServiceAnswerFirst
++        service="video production in Doral"
++        answerOverride={`B2B video production in Doral covers commercial overviews, facility walkthroughs, and distributor product videos for logistics companies and commercial brands. Esteban Moreno Media is based in Fort Lauderdale and serves Doral and Miami-Dade selectively as a service-area business, with no public walk-in studio. On-location filming takes place on site at your Doral facility, with full production days starting from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)}, while video editing is handled remotely from Fort Lauderdale starting from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. Filming in Doral is agreed project by project from Esteban's base in Fort Lauderdale, keeping travel boundaries transparent, with Spanish-first communication and intermediate English.`}
++      />
+       <OwnerFactAnswers path="/services/video-production-doral-miami" />
+ 
+       <section className="pb-12 sm:pb-16">
+diff --git a/app/(english)/services/webinar-clip-editing-service/page.tsx b/app/(english)/services/webinar-clip-editing-service/page.tsx
+index ef9d3cbd..74842bb0 100644
+--- a/app/(english)/services/webinar-clip-editing-service/page.tsx
++++ b/app/(english)/services/webinar-clip-editing-service/page.tsx
+@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
+ import { absoluteUrl, site } from "@/lib/site";
+ import { NicheAnswers } from "@/components/niche-answers";
+ import { withNicheService } from "@/lib/niche-answers";
++import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+ 
+ export const metadata = buildPageMetadata({
+   title: "Webinar Clip Editing Service",
+@@ -82,10 +83,10 @@ export default function WebinarClipEditingServicePage() {
+                 Virtual Events & Webinars
+               </p>
+               <h1 className="mt-4 max-w-4xl font-serif em-display">
+-                Webinar Clip & Snippet Video Editing.
++                Webinar Clip & Snippet Video Editing for LinkedIn & Social.
+               </h1>
+               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
+-                Extract high-value moments from Zoom recordings and virtual events, turning long webinars into viral 9:16 social clips.
++                Extract high-value moments from Zoom recordings and virtual events, turning long webinars into viral LinkedIn, YouTube Shorts, and 9:16 social clips.
+               </p>
+               <div className="mt-8 flex flex-wrap gap-3">
+                 <Link
+@@ -95,6 +96,12 @@ export default function WebinarClipEditingServicePage() {
+                   Edit Webinar Clips
+                   <ArrowRight className="size-4" aria-hidden="true" />
+                 </Link>
++                <Link
++                  href="/services/executive-linkedin-video-series-miami"
++                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
++                >
++                  Executive LinkedIn Series
++                </Link>
+               </div>
+             </div>
+ 
+@@ -102,13 +109,30 @@ export default function WebinarClipEditingServicePage() {
+               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
+               <h2 className="mt-5 font-serif text-3xl">Webinar clip proof</h2>
+               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+-                Our portfolio project <strong>Healthy Smile</strong> proves published short-form content snippet editing.
++                Explore our published work across video editing, motion design, and digital content delivery in the{" "}
++                <Link
++                  href="/portfolio"
++                  className="underline underline-offset-4 hover:text-[#9f3c27]"
++                >
++                  portfolio index
++                </Link>
++                .
+               </p>
++              <Link
++                href="/portfolio"
++                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
++              >
++                Explore Portfolio Index
++                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
++              </Link>
+             </div>
+           </div>
+         </Container>
+       </section>
+-      <ServiceAnswerFirst service="Webinar clip editing" />
++      <ServiceAnswerFirst
++        service="Webinar clip editing"
++        answerOverride={`Webinar clip editing turns full-length Zoom recordings, keynotes, and virtual events into short video clips for LinkedIn, YouTube Shorts, and Instagram Reels. Esteban Moreno Media is based in Fort Lauderdale and handles webinar video clipping remotely: you share the raw event recording or cloud link, and Esteban extracts the strongest moments, adds captions, and delivers 4:5, 1:1, or 9:16 vertical cuts. Remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package, with weekly posting workflows available and larger multi-clip event batches quoted per project. For teams planning recurring thought leadership content, see our dedicated executive LinkedIn video series. Communication is Spanish-first, with intermediate English available for South Florida and remote teams.`}
++      />
+ 
+       <section className="pb-12 sm:pb-16">
+         <Container size="xl">
+diff --git a/app/__tests__/niche-openers-distinct.test.ts b/app/__tests__/niche-openers-distinct.test.ts
+new file mode 100644
+index 00000000..87eb1bd9
+--- /dev/null
++++ b/app/__tests__/niche-openers-distinct.test.ts
+@@ -0,0 +1,87 @@
++import * as React from "react";
++import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
++import { renderToStaticMarkup } from "react-dom/server";
++
++import WebinarClipEditingServicePage from "../(english)/services/webinar-clip-editing-service/page";
++import ProductDemoVideoMiamiPage from "../(english)/services/product-demo-video-production-miami/page";
++import AmazonProductVideoMiamiPage from "../(english)/services/amazon-product-video-production-miami/page";
++import CrowdfundingVideoEditorMiamiPage from "../(english)/services/crowdfunding-video-editor-miami/page";
++import UGCAdVariationVideoEditingPage from "../(english)/services/ugc-ad-variation-video-editing/page";
++import VideoPodcastEditingServiceMiamiPage from "../(english)/services/video-podcast-editing-service-miami/page";
++import ExecutiveInterviewVideographerMiamiPage from "../(english)/services/executive-interview-videographer-miami/page";
++import VideoProductionDoralPage from "../(english)/services/video-production-doral-miami/page";
++
++beforeAll(() => vi.stubGlobal("React", React));
++afterAll(() => vi.unstubAllGlobals());
++
++describe("niche-specific answer-first openers on 8 service pages", () => {
++  const pages = [
++    { name: "webinar-clip-editing-service", Component: WebinarClipEditingServicePage },
++    { name: "product-demo-video-production-miami", Component: ProductDemoVideoMiamiPage },
++    { name: "amazon-product-video-production-miami", Component: AmazonProductVideoMiamiPage },
++    { name: "crowdfunding-video-editor-miami", Component: CrowdfundingVideoEditorMiamiPage },
++    { name: "ugc-ad-variation-video-editing", Component: UGCAdVariationVideoEditingPage },
++    { name: "video-podcast-editing-service-miami", Component: VideoPodcastEditingServiceMiamiPage },
++    { name: "executive-interview-videographer-miami", Component: ExecutiveInterviewVideographerMiamiPage },
++    { name: "video-production-doral-miami", Component: VideoProductionDoralPage },
++  ];
++
++  const genericPrefix =
++    "Esteban Moreno Media is a Fort Lauderdale-based service-area business run by Esteban Moreno";
++
++  it("renders distinct niche-specific answer-first openers for all 8 pages", () => {
++    const openers: string[] = [];
++
++    for (const { name, Component } of pages) {
++      const html = renderToStaticMarkup(React.createElement(Component));
++
++      // Extract the paragraph inside the answer-first section
++      const match = html.match(
++        /<section[^>]*data-section="answer-first"[^>]*>[\s\S]*?<p[^>]*class="[^"]*text-base[^"]*"[^>]*>([\s\S]*?)<\/p>/,
++      );
++      expect(match, `Opener paragraph not found on page ${name}`).toBeTruthy();
++
++      const opener = match![1].trim();
++      const words = opener.split(/\s+/).filter(Boolean);
++
++      // Verify word count is between 100 and 180 words
++      expect(words.length, `Word count for ${name} should be between 100 and 180`).toBeGreaterThanOrEqual(100);
++      expect(words.length, `Word count for ${name} should be between 100 and 180`).toBeLessThanOrEqual(180);
++
++      // Verify it does NOT start with the generic boilerplate
++      expect(opener).not.toContain(genericPrefix);
++
++      // Verify uniqueness across the 8 pages
++      expect(openers).not.toContain(opener);
++      openers.push(opener);
++    }
++
++    expect(new Set(openers).size).toBe(8);
++  });
++
++  it("verifies specific required content across individual niche pages", () => {
++    // Webinar page
++    const webinarHtml = renderToStaticMarkup(React.createElement(WebinarClipEditingServicePage));
++    expect(webinarHtml).toContain("LinkedIn");
++    expect(webinarHtml).toContain('href="/services/executive-linkedin-video-series-miami"');
++    expect(webinarHtml).not.toContain("Healthy Smile");
++    expect(webinarHtml).toContain('href="/portfolio"');
++
++    // Product demo page
++    const productDemoHtml = renderToStaticMarkup(React.createElement(ProductDemoVideoMiamiPage));
++    const productDemoProofCard = productDemoHtml.match(/<div class="rounded-lg border[^>]*>[\s\S]*?What product demonstration proof is available[\s\S]*?<\/div>/);
++    expect(productDemoProofCard, "Product demo proof card should exist").toBeTruthy();
++    expect(productDemoProofCard![0]).not.toContain("Bar Door Monkey");
++    expect(productDemoProofCard![0]).toContain('href="/portfolio"');
++
++    // Executive interview page
++    const execInterviewHtml = renderToStaticMarkup(React.createElement(ExecutiveInterviewVideographerMiamiPage));
++    expect(execInterviewHtml).toContain("$125 per hour");
++
++    // Doral page
++    const doralHtml = renderToStaticMarkup(React.createElement(VideoProductionDoralPage));
++    expect(doralHtml).toContain("on site at your Doral facility");
++    expect(doralHtml).toContain("video editing is handled remotely");
++    expect(doralHtml).toContain("agreed project by project from Esteban&#x27;s base in Fort Lauderdale");
++  });
++});
+diff --git a/backlog.md b/backlog.md
+index 5b6aac56..efa744da 100644
+--- a/backlog.md
++++ b/backlog.md
+@@ -1,3 +1,14 @@
++## 2026-11-03 — Niche-specific answer-first openers on 8 service pages
++
++- [x] Replace shared "In short" boilerplate with niche-specific 100-180 word answer-first openers across 8 English service pages (`/services/webinar-clip-editing-service`, `/services/product-demo-video-production-miami`, `/services/amazon-product-video-production-miami`, `/services/crowdfunding-video-editor-miami`, `/services/ugc-ad-variation-video-editing`, `/services/video-podcast-editing-service-miami`, `/services/executive-interview-videographer-miami`, `/services/video-production-doral-miami`).
++- [x] Webinar page: include "LinkedIn" in H1 and lead, add button linking `/services/executive-linkedin-video-series-miami`, replace Healthy Smile proof with portfolio index link `/portfolio`.
++- [x] Product demo page: replace Bar Door Monkey proof with portfolio index link `/portfolio`.
++- [x] Executive interview page: state $125/hr on-location filming rate in opener.
++- [x] Doral page: clarify on-location filming in Doral and remote editing from Fort Lauderdale with transparent travel boundary.
++- [x] Add regression test `app/__tests__/niche-openers-distinct.test.ts`.
++- [x] Run `pnpm lastmod:update`.
++- [x] Acceptance gates passed: `pnpm typecheck && pnpm test && python3 $HOME/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check`.
++
+ ## 2026-11-02 — Bilingual subtitling exact query phrasing FAQPage schema retry
+ 
+ - [x] Retry #228: add FAQPage schema using the exact bilingual subtitling query phrasings in EN and ES to Esteban's subtitling pages. Diagnosed gate exit 127 (`sh: vitest: command not found` due to missing worktree `node_modules`). Added exact query questions in `lib/service-depth-content.ts` and `lib/spanish-site.ts` with FAQPage schema generation. Verified with `npm test`, `analytics-gate.py`, and `esteban-geo-nightly-subtitling-faq-retry-2026-11-02.txt`.
+diff --git a/config/page-lastmod.json b/config/page-lastmod.json
+index 11e4e019..93c04777 100644
+--- a/config/page-lastmod.json
++++ b/config/page-lastmod.json
+@@ -1664,8 +1664,8 @@
+   "hash": "7a61c2565cf6067a"
+  },
+  "/services/amazon-product-video-production-miami": {
+-  "date": "2026-10-19",
+-  "hash": "721cf1b2439d0794"
++  "date": "2026-11-03",
++  "hash": "7dc96b2e1160cbdf"
+  },
+  "/services/architecture-design-video-miami": {
+   "date": "2026-10-13",
+@@ -1848,8 +1848,8 @@
+   "hash": "39cb12aa1939f7cd"
+  },
+  "/services/crowdfunding-video-editor-miami": {
+-  "date": "2026-10-27",
+-  "hash": "6567ff8ea6e1e523"
++  "date": "2026-11-03",
++  "hash": "95a6761374f09462"
+  },
+  "/services/custom-operations-automation": {
+   "date": "2026-10-14",
+@@ -1880,8 +1880,8 @@
+   "hash": "8d4b6fdf2cc1862b"
+  },
+  "/services/executive-interview-videographer-miami": {
+-  "date": "2026-10-28",
+-  "hash": "e0a596e3a2f19829"
++  "date": "2026-11-03",
++  "hash": "52ae275a558a6eda"
+  },
+  "/services/executive-linkedin-video-series-miami": {
+   "date": "2026-10-19",
+@@ -2072,8 +2072,8 @@
+   "hash": "a35851733462ca59"
+  },
+  "/services/product-demo-video-production-miami": {
+-  "date": "2026-10-18",
+-  "hash": "5e631dc18c735189"
++  "date": "2026-11-03",
++  "hash": "f17090085fddd609"
+  },
+  "/services/product-photography-miami": {
+   "date": "2026-10-24",
+@@ -2180,8 +2180,8 @@
+   "hash": "f23240d4f432a2f3"
+  },
+  "/services/ugc-ad-variation-video-editing": {
+-  "date": "2026-10-19",
+-  "hash": "ab806b1c19df6744"
++  "date": "2026-11-03",
++  "hash": "3108464ef2028b18"
+  },
+  "/services/ugc-video-editor-ecommerce": {
+   "date": "2026-10-28",
+@@ -2204,8 +2204,8 @@
+   "hash": "50241679410ca847"
+  },
+  "/services/video-podcast-editing-service-miami": {
+-  "date": "2026-10-13",
+-  "hash": "af3e983b20926673"
++  "date": "2026-11-03",
++  "hash": "8f5af93c6a7235dd"
+  },
+  "/services/video-production-boca-raton": {
+   "date": "2026-10-14",
+@@ -2216,8 +2216,8 @@
+   "hash": "445ee46f185278ac"
+  },
+  "/services/video-production-doral-miami": {
+-  "date": "2026-10-14",
+-  "hash": "f7129d7b2b8a5898"
++  "date": "2026-11-03",
++  "hash": "f0d57cf283798c78"
+  },
+  "/services/video-production-fort-lauderdale": {
+   "date": "2026-10-29",
+@@ -2244,8 +2244,8 @@
+   "hash": "7132e3b37d931053"
+  },
+  "/services/webinar-clip-editing-service": {
+-  "date": "2026-10-13",
+-  "hash": "56a468cfeb965c79"
++  "date": "2026-11-03",
++  "hash": "9424d078f8cbda5d"
+  },
+  "/services/website-design-fort-lauderdale": {
+   "date": "2026-10-14",
