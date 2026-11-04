@@ -1,0 +1,54 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-712",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Fleet readout 2026-11-03 (esteban-geo-seo-gap-fleet-2026-11-03, gaps C16-C21): the first answer paragraph was byte-identical (md5 prefix 1d78d62c) on 8 service pages; a two-engine probe (Perplexity Sonar, GPT-4o-mini:online) cited none of them on their buyer prompts while citing the domain on 19/33 prompts elsewhere. Crawl is not the blocker (robots allows GPTBot/PerplexityBot; UA fetches 200).",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree esteban-media-fix-niche-openers, branch feat/niche-answer-openers, move class: GEO content depth (answer-first openers), tracker esteban-geo-ten-moves-plan-2026-11-04 move 2 precursor.",
+    "hard_stops_checked": "Checked and clear: every price traced to lib/pricing.ts or the page's own calculator text; no invented clients/results/turnarounds; no drone/FAA, street address or aggregateRating; reels-editor page, homepage, pricing and metadata titles untouched.",
+    "verification": "pnpm typecheck clean; npm test 196 files pass; analytics-gate.py PASS; pnpm rail-adoption:check clean; new test app/__tests__/niche-openers-distinct.test.ts asserts the 8 rendered openers differ from each other and from the generic text.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex built in isolated worktree feat/niche-answer-openers via cto-dispatch (record 20261104T000046Z-cto-geo-lead); acceptance pnpm typecheck && npm test && analytics-gate && rail-adoption:check passed (196 files / 3802 tests)."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04 (record 20261104T030820Z-cto-qa-lead): (a) All prices trace to `lib/pricing.ts` (Starter $100, Local Presence $1,600, hourly filming $125/hr with 4-hr minimum call $500, corporate calculator band $725-$1,450, long-form podcast band $450-$850, 5-pack UGC $1,250). (b) Zero invented clients, results, turnarounds, counts, or guarantees; unverified claims are explicitly disclaimed. (c) No drone/FAA claims, no street address, and no aggregateRating schema introduced. (d) Test `app/__tests__/niche-openers-distinct.test.ts` verifies all 8 openers are distinct from each other via Set size 8 and array uniqueness checks, failing if any two op"
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04: (a) Each opener directly answers the specific niche question and format in its opening sentence. (b) Word count strictly meets the 100-180 threshold across all 8 openers (ranging between 100 and 113 words). (c) Tone matches the site: plain, factual, Spanish-first/intermediate English noted, service-area constraints stated, zero hype. "
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement: builder (Codex), skeptic and taste (Antigravity) all ok; findings none.",
+    "winner_rationale": "Pages that exist but are never cited share one generic opener; a niche-specific answer with a real number is the lowest-cost change that makes each page answer its own prompt.",
+    "tests_or_validation": "pnpm typecheck && npm test && python3 ~/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check (all pass on the branch).",
+    "debt_delta": "Net negative: one new regression test, no new dependencies; page-lastmod ledger refreshed.",
+    "obsidian_handoff": "client-esteban-media/wiki/esteban-geo-ten-moves-plan-2026-11-04.md and hot.md carry PR #712; re-probe dates 2026-11-06 and 2026-11-17.",
+    "ci_passed": "GitHub Actions validate on PR #712 head e455074e: pass (lint, typecheck, test, build, Spanish hub indexability); Vercel preview: pass. Read via gh pr checks 712 on 2026-11-04.",
+    "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions 20261104T030820Z-cto-qa-lead-esteban-media); builder Codex via cto-dispatch 20261104T000046Z. Lead (cto-geo-lead) read the diff and the test file."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex built in isolated worktree feat/niche-answer-openers via cto-dispatch (record 20261104T000046Z-cto-geo-lead); acceptance pnpm typecheck && npm test && analytics-gate && rail-adoption:check passed (196 files / 3802 tests)."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04 (record 20261104T030820Z-cto-qa-lead): (a) All prices trace to `lib/pricing.ts` (Starter $100, Local Presence $1,600, hourly filming $125/hr with 4-hr minimum call $500, corporate calculator band $725-$1,450, long-form podcast band $450-$850, 5-pack UGC $1,250). (b) Zero invented clients, results, turnarounds, counts, or guarantees; unverified claims are explicitly disclaimed. (c) No drone/FAA claims, no street address, and no aggregateRating schema introduced. (d) Test `app/__tests__/niche-openers-distinct.test.ts` verifies all 8 openers are distinct from each other via Set size 8 and array uniqueness checks, failing if any two op"
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04: (a) Each opener directly answers the specific niche question and format in its opening sentence. (b) Word count strictly meets the 100-180 threshold across all 8 openers (ranging between 100 and 113 words). (c) Tone matches the site: plain, factual, Spanish-first/intermediate English noted, service-area constraints stated, zero hype. "
+    }
+  },
+  "reviewer_disagreement_reviewed": "No disagreement: builder (Codex), skeptic and taste (Antigravity) all ok; findings none.",
+  "winner_rationale": "Pages that exist but are never cited share one generic opener; a niche-specific answer with a real number is the lowest-cost change that makes each page answer its own prompt.",
+  "tests_or_validation": "pnpm typecheck && npm test && analytics-gate && rail-adoption:check pass.",
+  "debt_delta": "Net negative: one new regression test, no new dependencies.",
+  "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md, hot.md.",
+  "ci_passed": "GitHub Actions validate on PR #712 head e455074e: pass (lint, typecheck, test, build, Spanish hub indexability); Vercel preview: pass. Read via gh pr checks 712 on 2026-11-04.",
+  "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions 20261104T030820Z-cto-qa-lead-esteban-media); builder Codex via cto-dispatch 20261104T000046Z. Lead (cto-geo-lead) read the diff and the test file."
+}
