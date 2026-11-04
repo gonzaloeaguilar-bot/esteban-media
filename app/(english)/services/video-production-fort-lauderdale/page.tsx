@@ -120,6 +120,7 @@ const content: GeoServicePageContent = {
     proofHref: "/portfolio",
     proofLabel: "Review portfolio examples",
   },
+  venueLine: "Fort Lauderdale Auto Sale in Fort Lauderdale (dealership media systems), Port Everglades in Fort Lauderdale (marine and shipping video logistics), and Healthy Smile Miami (on-location medical clinic filming and sound).",
 };
 
 export const metadata = buildPageMetadata({

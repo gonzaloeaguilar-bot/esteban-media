@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
 import { PriorityLinks } from "@/components/priority-links";
+import { ClientReviews } from "@/components/client-reviews";
 import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
 import {
@@ -119,6 +120,15 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <ClientReviews locale="en" compact />
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
+        <Container size="xl">
+          <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
+            <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
+            Healthy Smile Miami in Miami (on-location dental clinic video), Bar Door Monkey in Miami (restaurant video promo), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
+          </p>
+        </Container>
+      </section>
 
       <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
         <Container size="xl">

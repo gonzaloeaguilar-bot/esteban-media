@@ -158,6 +158,7 @@ const content: GeoServicePageContent = {
     proofHref: "/portfolio/ml-colombia",
     proofLabel: "Review short-form proof",
   },
+  venueLine: "Fort Lauderdale Auto Sale in Fort Lauderdale (dealership web and AI concierge systems) and Port Everglades in Fort Lauderdale (marine and export video logistics context).",
 };
 
 export const metadata = buildPageMetadata({
