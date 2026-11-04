@@ -71,6 +71,8 @@ export const site = {
   // This is an identity reference only; it does not substantiate a rate, review,
   // crew size, or project scope on this site.
   clutch: "https://clutch.co/profile/esteban-moreno-media",
+  theManifest: "https://themanifest.com/company/esteban-moreno-media",
+  youtubeChannel: "https://www.youtube.com/@estebanmorenomedia",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   // Deliberately unset in source. See docs/microsoft-clarity-activation.md.

@@ -30,9 +30,11 @@ const SOURCE_DIRS = ["app", "lib", "components"];
 
 /** Third-party market figures that are allowed as literals, by file. */
 const MARKET_FIGURES: Record<string, string[]> = {
-  "lib/guides.ts": ["$50", "$150", "$2,000", "$10,000", "$2,500", "$100", "$149"],
+  "lib/guides.ts": ["$50", "$150", "$2,000", "$10,000", "$2,500", "$100", "$149", "$250", "$1,200"],
   "lib/guide-comparisons.ts": ["$100", "$149", "$3.50", "$200", "$10,000"],
   "lib/reels-price-index.ts": ["$750", "$2,000", "$2,700", "$3,500", "$300", "$800", "$20", "$16", "$14", "$200", "$500", "$1,000", "$2.5", "$2,200", "$1,800", "$75", "$450", "$990", "$5,000", "$1,200", "$250", "$3,500", "$15,000", "$10", "$60", "$100", "$15", "$29", "$50"],
+  "lib/fort-lauderdale-editors-compared.ts": ["$250", "$1,200", "$100", "$1,200", "$2,500", "$75", "$450", "$2,000", "$30"],
+  "components/reels-capcut-comparison.tsx": ["$15", "$35", "$25", "$150"],
 };
 
 function walk(dir: string, out: string[] = []): string[] {

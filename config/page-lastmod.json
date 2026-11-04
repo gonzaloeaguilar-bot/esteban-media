@@ -527,6 +527,10 @@
   "date": "2026-10-14",
   "hash": "40854728ec6872a0"
  },
+ "/es/guias/editores-de-video-fort-lauderdale-comparados": {
+  "date": "2026-11-04",
+  "hash": "8975a68a9758c33a"
+ },
  "/es/guias/entrega-para-edicion-remota-de-video": {
   "date": "2026-10-07",
   "hash": "0bb274f16f1198aa"
@@ -717,7 +721,7 @@
  },
  "/es/portafolio": {
   "date": "2026-11-04",
-  "hash": "208ed5236584908c"
+  "hash": "e1fcf76eeba4780b"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -1487,6 +1491,10 @@
   "date": "2026-10-15",
   "hash": "8406ca00f1e25bd4"
  },
+ "/guides/video-editors-fort-lauderdale-compared": {
+  "date": "2026-11-04",
+  "hash": "359ada9f70467d36"
+ },
  "/guides/video-production-cost-fort-lauderdale": {
   "date": "2026-10-28",
   "hash": "a3724735ebc14a6c"
@@ -1509,7 +1517,7 @@
  },
  "/portfolio": {
   "date": "2026-11-04",
-  "hash": "33a203a74e59debd"
+  "hash": "9d004fd79f66563d"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -2117,7 +2125,7 @@
  },
  "/services/reels-editor-fort-lauderdale": {
   "date": "2026-11-04",
-  "hash": "68c7d4704d8f15cc"
+  "hash": "2b48fc2d0beb8416"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",

@@ -1,4 +1,5 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -178,5 +179,10 @@ export const metadata = buildPageMetadata({
 });
 
 export default function ReelsEditorFortLauderdalePage() {
-  return <GeoServicePage content={content} />;
+  return (
+    <GeoServicePage
+      content={content}
+      showcase={<ReelsCapCutComparison />}
+    />
+  );
 }

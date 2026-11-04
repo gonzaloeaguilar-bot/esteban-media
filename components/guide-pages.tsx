@@ -38,6 +38,7 @@ import { withPageDate } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { estebanPriceRows, marketPriceRows, priceIndexAnswer, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
 import RailTable from "@/vendor/rail-kit/RailTable";
+import { FortLauderdaleEditorsTable } from "@/components/fort-lauderdale-editors-table";
 
 
 const RELATED_GUIDE_COUNT = 6;
@@ -785,6 +786,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             ))}
 
             {guide.priceIndex ? <ReelsPriceIndex locale={locale} /> : null}
+            {guide.editorsComparison ? <FortLauderdaleEditorsTable locale={locale} /> : null}
 
             {guide.faqs?.length ? (
               <section id="faq" className="scroll-mt-24" aria-labelledby="faq-heading">
