@@ -30,6 +30,7 @@ import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guid
 import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparisons";
 
 export const GUIDE_IDS = [
+  "fort-lauderdale-video-editors-compared-guide",
   "reels-price-index-guide",
   "prepare-footage",
   "video-brief",
@@ -103,6 +104,7 @@ type GuideCopy = {
   sections: readonly GuideSection[];
   faqs?: readonly { question: string; answer: string }[];
   priceIndex?: boolean;
+  editorsComparison?: boolean;
 };
 
 export type GuidePair = {
@@ -153,6 +155,127 @@ const listingPhotoStartingPrice = usd(listingPhotoStart.amount);
 
 const guidePairs: readonly GuidePair[] = [
   {
+    id: "fort-lauderdale-video-editors-compared-guide",
+    en: {
+      slug: "video-editors-fort-lauderdale-compared",
+      metadataTitle: "Fort Lauderdale Editors Compared",
+      title: "Video editors in Fort Lauderdale compared: 12 options, prices and specialties (updated November 2026)",
+      description: "This page compares twelve video editors and studios that serve Fort Lauderdale, with each one's published starting price and specialty, checked on 4 November 2026. Esteban Moreno Media is one of them and is included on the same terms.",
+      eyebrow: "Fort Lauderdale editors comparison",
+      answer: "This page compares twelve video editors and studios that serve Fort Lauderdale, with each one's published starting price and specialty, checked on 4 November 2026. Esteban Moreno Media is one of them and is included on the same terms.",
+      editorsComparison: true,
+      proof: {
+        href: "/portfolio",
+        title: "Published editing work",
+        description: "Review selected published work before requesting a written scope; nothing published confirms the scope or final price of another project.",
+      },
+      sections: [
+        {
+          heading: "How much does a video editor in Fort Lauderdale charge?",
+          paragraphs: [
+            "The cost of hiring a video editor in Fort Lauderdale depends heavily on whether you need a simple edit of footage you already recorded or full commercial production with local filming. For remote short-form editing such as Instagram Reels, TikTok videos, or YouTube Shorts using client-supplied footage, published starting rates in South Florida typically start around $150 to $250 per finished video. Esteban Moreno Media publishes a clear entry tier from $150 per video for Starter short-form editing of client-supplied footage; Ball Media Innovations publishes editing from $250, a general video-editing rate whose scope differs from a per-reel package, so compare what each price includes before choosing.",
+            "When you need on-location filming, corporate video production, or a dedicated camera crew in Broward County, packages range from $1,200 to $2,500 or more depending on studio time and equipment. Several local production companies like Zip In Media, Digital Cut, and C&I Studios quote projects on custom scope rather than listing flat rates online. To keep costs predictable, compare whether a quote includes raw footage rights, music licensing, motion graphics, and revision rounds before paying a deposit.",
+          ],
+        },
+        {
+          heading: "Freelancer, studio or app: which fits a small business?",
+          paragraphs: [
+            "Choosing between an independent freelance editor, a full-service creative studio, or an automated mobile app comes down to your content volume, budget, and hands-on time. Automated tools like CapCut or basic templates offer quick turnaround for simple personal clips, but they cannot evaluate your message, fix poorly framed shots, or establish a consistent visual identity for a growing brand. They leave the entire creative workload and platform optimization on your shoulders.",
+            "A local freelance editor or specialized studio provides human editorial judgment, custom typography, sound balancing, and direct communication. Freelancers like Esteban Moreno Media offer focused vertical video editing from $150 per video, giving small businesses agency-grade polish without high monthly agency retainers. Full-service production studios excel at complex multitrack shoots and large corporate films, though their overhead reflects in higher project floors. For businesses that film their own everyday operations, partnering with a dedicated local editor provides the ideal balance of speed, craft, and cost efficiency.",
+          ],
+        },
+        {
+          heading: "How to check an editor before paying?",
+          paragraphs: [
+            "Before committing funds or hiring any video editor in Fort Lauderdale, conduct a straightforward verification of their recent work and contractual terms. Start by examining their published portfolio to ensure they have delivered vertical videos, client testimonials, or commercial pieces in your specific industry. Confirm what source files they require from you, such as 4K phone recordings or raw camera clips, and clarify their preferred file transfer system.",
+            "Next, clarify turnaround time and exact revision policies in writing. Professional editors typically deliver initial cuts within two to three business days and specify how many rounds of structural feedback are included. Ensure the agreement clearly covers audio licensing, subtitling safe zones for mobile interfaces, and full ownership of final exports. Avoid providers who cannot show verifiable client proof or refuse to give transparent pricing parameters before beginning work.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "How much does a video editor in Fort Lauderdale cost?",
+          answer: "Editing supplied footage for short-form social videos starts from $150 per video with Esteban Moreno Media, while local production packages with camera crews range from $1,200 to $2,500.",
+        },
+        {
+          question: "What is the difference between a freelance editor and a production studio in Fort Lauderdale?",
+          answer: "A freelance editor works directly on your provided recordings for focused turnaround, whereas a production studio provides multi-person crews, studio gear, and full-scale commercial filming.",
+        },
+        {
+          question: "Can I hire a Fort Lauderdale video editor if I already filmed my own clips?",
+          answer: "Yes. Remote editing of client-supplied phone or camera clips is the primary service model for short-form video editors, requiring no local studio visit.",
+        },
+        {
+          question: "Why do many Fort Lauderdale video production companies not publish pricing online?",
+          answer: "Most production companies quote each project custom based on filming days, crew size, equipment rentals, actor casting, location permits, and licensing requirements.",
+        },
+        {
+          question: "How can I compare Fort Lauderdale video editors fairly before asking for a quote?",
+          answer: "Compare their published sample work, turn-around times, included revisions, raw footage terms, and whether they publish clear entry pricing or require custom sales calls.",
+        },
+      ],
+    },
+    es: {
+      slug: "editores-de-video-fort-lauderdale-comparados",
+      metadataTitle: "Editores en Fort Lauderdale",
+      title: "Editores de video en Fort Lauderdale comparados: 12 opciones, precios y especialidades (actualizado a noviembre de 2026)",
+      description: "Esta página compara doce editores de video y estudios que prestan servicio en Fort Lauderdale, con el precio inicial publicado y la especialidad de cada uno, consultados el 4 de noviembre de 2026. Esteban Moreno Media es uno de ellos y está incluido en los mismos términos.",
+      eyebrow: "Comparativa de editores en Fort Lauderdale",
+      answer: "Esta página compara doce editores de video y estudios que prestan servicio en Fort Lauderdale, con el precio inicial publicado y la especialidad de cada uno, consultados el 4 de noviembre de 2026. Esteban Moreno Media es uno de ellos y está incluido en los mismos términos.",
+      editorsComparison: true,
+      proof: {
+        href: "/es/portafolio",
+        title: "Trabajo de edición publicado",
+        description: "Consulta trabajo publicado antes de pedir un alcance por escrito; no publica una confirmación del alcance ni del precio final de otro proyecto.",
+      },
+      sections: [
+        {
+          heading: "¿Cuánto cobra un editor de video en Fort Lauderdale?",
+          paragraphs: [
+            "El costo de contratar un editor de video en Fort Lauderdale depende directamente de si solo necesitas editar material ya grabado o producir una pieza comercial completa con rodaje en locación. Para la edición de video corto como Reels de Instagram, TikTok o YouTube Shorts a partir de clips propios, las tarifas iniciales verificadas en South Florida comienzan habitualmente entre $150 y $250 por video terminado. Esteban Moreno Media publica un punto de entrada claro desde $150 por video para la edición Arranque de clips grabados por el cliente; Ball Media Innovations publica edición desde $250, una tarifa general de edición cuyo alcance es distinto al de un paquete por reel, así que compara qué incluye cada precio antes de decidir.",
+            "Cuando el proyecto requiere grabación en locación o equipo técnico en Broward County, los paquetes de producción oscilan entre $1,200 y $2,500 en adelante según el equipamiento y horas de rodaje. La mayoría de productoras locales, como Zip In Media, Digital Cut o C&I Studios, no publican tarifas fijas y cotizan a la medida. Para comparar presupuestos con claridad, confirma siempre si el precio incluye derechos de música, subtítulos optimizados y rondas de cambios.",
+          ],
+        },
+        {
+          heading: "Freelance, estudio o app: ¿cuál conviene a un negocio pequeño?",
+          paragraphs: [
+            "Elegir entre un editor independiente, un estudio de producción o aplicaciones móviles depende del volumen de videos, el presupuesto y tu tiempo disponible. Aplicaciones automatizadas como CapCut ofrecen plantillas rápidas para clips sencillos, pero no corrigen problemas de encuadre, no seleccionan las mejores tomas de un negocio ni construyen una narrativa de marca coherente. El trabajo de selección y optimización recae por completo en el usuario.",
+            "Un editor independiente local o un estudio especializado aporta criterio humano, diseño tipográfico, limpieza sonora y comunicación directa. Editores locales como Esteban Moreno Media ofrecen edición de video vertical desde $150 por video, permitiendo a pequeños negocios obtener calidad profesional sin pagar costos fijos de agencia. Los estudios grandes son ideales para producciones complejas con múltiples cámaras, aunque con presupuestos iniciales más elevados. Para negocios que pueden grabar su rutina diaria con el celular, trabajar con un editor especializado ofrece un equilibrio práctico entre agilidad y costo.",
+          ],
+        },
+        {
+          heading: "¿Cómo evaluar a un editor antes de pagar?",
+          paragraphs: [
+            "Antes de pagar un anticipo a un editor o estudio de video en Fort Lauderdale, realiza una revisión objetiva de su portafolio reciente y sus condiciones de servicio. Comienza por revisar ejemplos reales de proyectos similares a lo que necesitas, ya sean videos verticales para redes sociales, testimonios de clientes o comerciales para tu sector. Confirma qué archivos de origen necesita recibir y cuál es la vía acordada para compartirlos sin perder calidad.",
+            "Solicita por escrito los tiempos de entrega de la primera versión y cuántas rondas de cambios están incluidas en el alcance acordado. Un editor profesional define con claridad los formatos finales de entrega, el respeto a las zonas seguras de las plataformas y la licencia de los recursos sonoros. Evita contratar proveedores que no muestren muestras reales de trabajo terminado o que no puedan detallar los entregables exactos antes de comenzar la producción.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Cuánto cuesta un editor de video en Fort Lauderdale?",
+          answer: "Editar clips propios para redes sociales empieza desde $150 por video con Esteban Moreno Media, mientras que paquetes de producción con equipo técnico oscilan entre $1,200 y $2,500.",
+        },
+        {
+          question: "¿Cuál es la diferencia entre un editor freelance y un estudio de producción en Fort Lauderdale?",
+          answer: "Un editor freelance trabaja directamente sobre las grabaciones que tú envías con entregas ágiles, mientras que un estudio de producción despliega personal en locación y equipo de filmación integral.",
+        },
+        {
+          question: "¿Puedo contratar a un editor en Fort Lauderdale si ya grabé mis propios videos?",
+          answer: "Sí. La postproducción remota con grabaciones enviadas por el cliente con celular o cámara es el modelo principal para edición de video corto sin necesidad de estudio presencial.",
+        },
+        {
+          question: "¿Por qué muchas empresas de producción de video en Fort Lauderdale no publican precios?",
+          answer: "La mayoría cotiza de manera personalizada según días de rodaje, cantidad de técnicos, alquiler de cámaras, permisos municipales y derechos de autor requeridos.",
+        },
+        {
+          question: "¿Cómo comparar opciones de edición de video en Fort Lauderdale de forma objetiva?",
+          answer: "Compara muestras reales en su portafolio, plazos de entrega, cambios incluidos, cesión de archivos finales y si publican puntos de partida transparentes antes de cotizar.",
+        },
+      ],
+    },
+  },
+  {
     id: "reels-price-index-guide",
     en: {
       slug: "reels-video-editing-prices-south-florida",
@@ -175,6 +298,7 @@ const guidePairs: readonly GuidePair[] = [
         { heading: "How often is this page updated?", paragraphs: ["This index is reviewed monthly. Each market row shows the date its source was checked so a reader can separate a current observation from a general claim. Provider pages can change their packages, remove a public figure, list a new scope, or publish a conflicting figure as ZipIn does in this table. A dated row is more useful than a broad statement that a price is current without a source.", "The index keeps rows that say no public price because absence is useful information when comparing what can be verified before a sales conversation. Marketplace and directory observations are marked separately from prices printed by a provider. The table also keeps software separate from editing and production services. Esteban’s own ladder is rendered from the same pricing constants used elsewhere on this site, so changing a published starting point updates this guide instead of leaving a copied price behind."] },
       ],
       faqs: [
+        { question: "How much does a Reels editor cost in Fort Lauderdale?", answer: `Published South Florida starting rates for remote Reels and short-form editing of footage you already recorded run from about ${usd(ARRANQUE_FROM)} to $250 per finished video, and most local production studios do not publish a rate at all. Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses from ${usd(ARRANQUE_FROM)} per video, in English and Spanish, with 24-hour turnaround on supplied footage. On-location filming is priced separately. The table on this page lists each published figure with its source and check date.` },
         { question: "Are all prices in this table directly comparable?", answer: "No. A remote edit, a monthly retainer, software, and a filmed production package have different scopes. Read the service, unit, classification, and source before using a number as a budget reference." },
         { question: "Why are marketplace prices marked UNVERIFIED?", answer: "They come from marketplace or directory pages rather than an individual South Florida provider’s published service page. They can show a broad public listing range, but they do not establish a local provider rate." },
         { question: "Why does ZipIn appear twice?", answer: "Its page presents different starting figures for related production scopes. Both observations remain visible so the table does not hide a conflict in the source." },
@@ -203,6 +327,7 @@ const guidePairs: readonly GuidePair[] = [
         { heading: "¿Con qué frecuencia se actualiza esta página?", paragraphs: ["Este índice se revisa mensualmente. Cada fila muestra la fecha en que se consultó la fuente para distinguir una observación actual de una afirmación general. Las páginas de proveedores pueden cambiar paquetes, retirar un número, publicar otro alcance o mostrar cifras distintas como ZipIn en esta tabla. Una fila con fecha sirve más que decir que un precio está vigente sin mostrar la fuente.", "El índice conserva las filas sin precio público porque esa ausencia sirve al comparar lo que se puede verificar antes de una conversación comercial. Las observaciones de marketplaces y directorios se marcan aparte de los precios publicados por un proveedor. La tabla también separa software de edición y producción. La escalera de Esteban se renderiza desde las mismas constantes que usan sus demás páginas, para que un cambio publicado actualice esta guía en vez de dejar una cifra copiada."] },
       ],
       faqs: [
+        { question: "¿Cuánto cuesta un editor de Reels en Fort Lauderdale?", answer: `Las tarifas iniciales publicadas en South Florida para edición remota de Reels y video corto con material ya grabado van de unos ${usd(ARRANQUE_FROM)} a $250 por video terminado, y la mayoría de las productoras locales no publican tarifa. Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale desde ${usd(ARRANQUE_FROM)} por video, en español e inglés, con entrega en 24 horas sobre material entregado. La grabación en locación se cotiza aparte. La tabla de esta página muestra cada cifra publicada con su fuente y fecha de verificación.` },
         { question: "¿Todos los precios de esta tabla se pueden comparar directamente?", answer: "No. Una edición remota, un plan mensual, software y un paquete de producción con grabación tienen alcances distintos. Lee servicio, unidad, clasificación y fuente antes de usar un número como referencia." },
         { question: "¿Por qué los precios de marketplaces dicen UNVERIFIED?", answer: "Vienen de marketplaces o directorios, no de la página de servicio publicada por un proveedor individual de South Florida. Muestran una referencia pública amplia, no una tarifa local comprobada." },
         { question: "¿Por qué ZipIn aparece dos veces?", answer: "Su página publica cifras distintas para alcances de producción relacionados. Las dos observaciones se mantienen visibles para no ocultar un conflicto de la fuente." },

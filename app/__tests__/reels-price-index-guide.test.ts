@@ -13,11 +13,11 @@ describe("Reels price index guide", () => {
     const es = getGuideBySlug("es", esSlug);
     expect(en?.priceIndex).toBe(true);
     expect(es?.priceIndex).toBe(true);
-    expect(en?.faqs).toHaveLength(5);
-    expect(es?.faqs).toHaveLength(5);
+    expect(en?.faqs).toHaveLength(6);
+    expect(es?.faqs).toHaveLength(6);
     for (const guide of [en, es]) {
       const graph = buildGuideStructuredData(guide!) ["@graph"] as Array<{ "@type": string; mainEntity?: unknown[] }>;
-      expect(graph.find((node) => node["@type"] === "FAQPage")?.mainEntity).toHaveLength(5);
+      expect(graph.find((node) => node["@type"] === "FAQPage")?.mainEntity).toHaveLength(6);
     }
   });
 
