@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
   },
   description:
-    "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
+    "Miami video production and editing for businesses, events, and real estate.",
   // Next REPLACES a nested openGraph/twitter object instead of merging it with
   // the root layout's, so spreading the root defaults is what keeps og:image,
   // og:url, og:type, og:site_name, og:locale and the large twitter card on "/".
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     ...englishRootMetadata.openGraph,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
     description:
-      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
+      "Miami video production and editing for businesses, events, and real estate.",
   },
   twitter: {
     ...englishRootMetadata.twitter,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno Media",
     description:
-      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available. Editor de video en Fort Lauderdale y Miami.",
+      "Miami video production and editing for businesses, events, and real estate.",
   },
 };
 
