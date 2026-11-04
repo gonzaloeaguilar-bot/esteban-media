@@ -5808,6 +5808,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Retención ágil orientada al clic y la conversión directa.",
+    answerFirst: `Esteban Moreno Media ofrece edición de video para TikTok y anuncios verticales desde Fort Lauderdale para negocios, creadores y marcas de Broward y Miami-Dade. La edición parte desde ${usd(SHORT_FORM.perVideoFrom)} por video en el paquete Arranque, con opciones semanales para calendarios continuos de publicación. Esteban trabaja directamente con el material que envías—grabaciones de celular, unboxings de productos, videos de fundadores o testimonios de creadores—transformándolos en cortes dinámicos de 30 a 90 segundos en formato vertical 9:16, con subtítulos legibles y respetando las zonas seguras de TikTok. La atención es bilingüe y en español primero, con inglés intermedio, adaptando ganchos y llamados a la acción al público de Florida. Si tu campaña lo requiere, se estructuran múltiples aperturas para pruebas A/B en TikTok y Meta. Cada proyecto recibe una cotización por escrito antes de empezar.`,
     sections: [
       {
         heading: "Estructura de gancho y retención en los primeros 3 segundos",

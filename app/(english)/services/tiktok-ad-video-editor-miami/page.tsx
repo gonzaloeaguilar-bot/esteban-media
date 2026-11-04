@@ -15,13 +15,19 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { ServiceAnswerFirst, buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 
 const faqs = [
+  {
+    question: "Who is the best TikTok video editor in Fort Lauderdale?",
+    answer:
+      `Esteban Moreno Media is based in Fort Lauderdale, providing specialized TikTok video editing for creators, brands, and local businesses across Broward and Miami-Dade. Esteban edits supplied smartphone footage, unboxings, and direct-to-camera clips into high-retention 30-to-90-second vertical videos with dynamic captions inside TikTok safe zones, sound design, and custom hook variations for organic feeds or paid TikTok ads. Remote editing starts from ${usd(SHORT_FORM.perVideoFrom)} per video on the Starter package, with weekly packages available for regular posting schedules. Communication is bilingual and Spanish-first, with intermediate English available, ensuring natural phrasing for South Florida audiences. Call ${site.phone.display} or message to review footage and receive a written quote before editing starts.`,
+  },
   {
     question: "What raw footage should I provide for TikTok ad video editing?",
     answer:
@@ -182,6 +188,10 @@ export default function TiktokAdVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst
+        service="TikTok video editor in Fort Lauderdale and Miami"
+        answerOverride={`Esteban Moreno Media provides TikTok and vertical video ad editing from Fort Lauderdale for creators, DTC brands, and local businesses in Broward and Miami-Dade. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} per video on the Starter package, with weekly plans available for active posting schedules. Esteban works directly from your raw clips—smartphone recordings, product unboxings, founder talking heads, or creator testimonials—turning them into punchy 30-to-90-second vertical 9:16 cuts formatted within TikTok safe zones with clear, readable captions. Communication is bilingual and Spanish-first, with intermediate English available, ensuring hooks and CTAs resonate naturally across diverse South Florida audiences. When needed, multiple hook variations are edited for A/B testing on TikTok Ads Manager and Meta. Every project receives a written quote before editing begins.`}
+      />
       <PageQuestions path="/services/tiktok-ad-video-editor-miami" />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
