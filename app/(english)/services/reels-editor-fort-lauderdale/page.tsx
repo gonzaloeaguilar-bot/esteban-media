@@ -130,6 +130,11 @@ const content: GeoServicePageContent = {
       href: "/resources/remote-editing-handoff-checklist",
     },
     {
+      title: "South Florida Reels editing price index",
+      detail: "Compare dated published prices by provider, marketplace, and software before requesting a scoped quote.",
+      href: "/guides/reels-video-editing-prices-south-florida",
+    },
+    {
       title: "Reels and video in Hollywood, FL",
       detail: "Remote Reels editing for Hollywood businesses, between Fort Lauderdale and Miami.",
       href: "/services/small-business-video-hollywood-fl",
