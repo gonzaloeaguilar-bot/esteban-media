@@ -230,6 +230,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 - [x] Run the live weekly search/index digest on 2026-08-12 and connect qualified-action evidence to the zero-token portfolio GA4 ingest
 - [x] Add interactive bilingual daily video script timer & pacing calculator surface (`/daily-script-timer` and `/es/temporizador-de-guiones-de-video`)
+- [x] Build the EN/ES South Florida Reels editing price-index guides from the verified 2026-11-03 source table, with `pricing.ts`-derived Esteban ladder, sitemap/watch-set coverage, and local gates. Local candidate only; independent review and production verification remain.
 
 ## P2 — Portfolio refinement
 
