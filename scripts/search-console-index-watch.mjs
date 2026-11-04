@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Demand-backed Reels editing price-index pair (2026-11-04).
+  "https://estebanmorenomedia.com/guides/reels-video-editing-prices-south-florida",
+  "https://estebanmorenomedia.com/es/guias/precios-edicion-de-reels-y-video-sur-de-florida",
   // Owner-requested bilingual personal-creative-advisor guides (2026-10-28).
   "https://estebanmorenomedia.com/guides/do-i-need-video-social-media-or-a-website-for-my-small-business",
   "https://estebanmorenomedia.com/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio",

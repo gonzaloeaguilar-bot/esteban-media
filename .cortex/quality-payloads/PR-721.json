@@ -1,0 +1,54 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-721",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media/wiki/esteban-geo-ten-moves-plan-2026-11-04.md (moves 2 and 5): Perplexity cites the site most on Spanish prompts and asked for one name+city+Reels sentence; both engines cite the site on the reels-cost prompt but no page held a sourced price table.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, PR #721, worktree /Users/gonzalo/code/esteban-media-feat-price-index.",
+    "hard_stops_checked": "Checked and clear per the independent review: every price traced to lib/pricing.ts or the sourced table; no invented clients/results; no drone/FAA, street address or aggregateRating; metadata of existing pages untouched.",
+    "verification": "pnpm typecheck, npm test, analytics-gate.py, rail-adoption:check all pass on the branch; CI validate pass.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex built in worktree esteban-media-feat-price-index via cto-dispatch 2026-11-04 15:18Z on the reopened window; lead ran typecheck, npm test (199 files / 3,820 tests), analytics gate and rail-adoption and committed the staged work."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04 (cto-decisions/20261104T153713Z-cto-qa-lead-esteban-media-1793806635475683000-22343-0e66ef19780f39de.json): SKEPTIC: ok \u2014 (a) every competitor price in the rendered table matches .ai/price-index-sources.md row for row with source URL and date 2026-11-03, and both ZipIn rows are explicitly noted as conflicting; (b) Esteban's ladder rows and opening answer derive exclusively from lib/pricing.ts constants/helpers (`packageAmount`, `ARRANQUE_WEEKLY_OPTIONS`, `arranqueWeeklyPerVideo`, `PACKAGE_PRICES`, `REAL_ESTATE_PLANS`, `PRICING_BANDS`, `SHORT_FORM.perVideoFrom`), with zero price literals in guide body copy; (c) no \"best\" or \"cheapest\" claims made regarding Esteban, no aggregateRating schema present, and zero drone claims in the guide pair; (d) hreflang pairs (`en-US`, `es-US`, `x-default`) are fully reciprocal and both routes render via `getGuideBySlug`; (e) FAQPage JSON-LD `mainEntity` questions (5 in EN, 5 in ES) exactly match the visible guide FAQ questions. "
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04: TASTE: ok \u2014 (a) first screen directly answers the cost question in one sentence with a concrete range and starting number (`priceIndexAnswer`); (b) all 5 sections in both languages fall between 143 and 157 words under question-shaped headings, with depth positioned under a native `<details>` element (`How to read this comparison` / `C\u00f3mo leer esta comparaci\u00f3n`); (c) Spanish copy reads natural, idioms are correct, and professional tone is maintained throughout; (d) tables are wrapped in horizontal scroll containers (`overflow-x-auto`) using standard RailTable layout with cell padding configured to prevent mobile layout breakage. "
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement; findings none.",
+    "winner_rationale": "Answer-first, sourced, dual-audience pages are the citable unit; both moves were ranked in the 2026-11-03 fleet readout.",
+    "tests_or_validation": "pnpm typecheck && npm test && analytics-gate && rail-adoption:check; CI validate pass.",
+    "debt_delta": "Net negative or neutral: new regression tests, no new dependencies.",
+    "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md and hot.md.",
+    "ci_passed": "GitHub Actions validate on PR #721 head d0be6517: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41858895354); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+    "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T153713Z-cto-qa-lead-esteban-media-1793806635475683000-22343-0e66ef19780f39de.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex built in worktree esteban-media-feat-price-index via cto-dispatch 2026-11-04 15:18Z on the reopened window; lead ran typecheck, npm test (199 files / 3,820 tests), analytics gate and rail-adoption and committed the staged work."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04 (cto-decisions/20261104T153713Z-cto-qa-lead-esteban-media-1793806635475683000-22343-0e66ef19780f39de.json): SKEPTIC: ok \u2014 (a) every competitor price in the rendered table matches .ai/price-index-sources.md row for row with source URL and date 2026-11-03, and both ZipIn rows are explicitly noted as conflicting; (b) Esteban's ladder rows and opening answer derive exclusively from lib/pricing.ts constants/helpers (`packageAmount`, `ARRANQUE_WEEKLY_OPTIONS`, `arranqueWeeklyPerVideo`, `PACKAGE_PRICES`, `REAL_ESTATE_PLANS`, `PRICING_BANDS`, `SHORT_FORM.perVideoFrom`), with zero price literals in guide body copy; (c) no \"best\" or \"cheapest\" claims made regarding Esteban, no aggregateRating schema present, and zero drone claims in the guide pair; (d) hreflang pairs (`en-US`, `es-US`, `x-default`) are fully reciprocal and both routes render via `getGuideBySlug`; (e) FAQPage JSON-LD `mainEntity` questions (5 in EN, 5 in ES) exactly match the visible guide FAQ questions. "
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04: TASTE: ok \u2014 (a) first screen directly answers the cost question in one sentence with a concrete range and starting number (`priceIndexAnswer`); (b) all 5 sections in both languages fall between 143 and 157 words under question-shaped headings, with depth positioned under a native `<details>` element (`How to read this comparison` / `C\u00f3mo leer esta comparaci\u00f3n`); (c) Spanish copy reads natural, idioms are correct, and professional tone is maintained throughout; (d) tables are wrapped in horizontal scroll containers (`overflow-x-auto`) using standard RailTable layout with cell padding configured to prevent mobile layout breakage. "
+    }
+  },
+  "reviewer_disagreement_reviewed": "No disagreement; findings none.",
+  "winner_rationale": "Answer-first, sourced pages are the citable unit.",
+  "tests_or_validation": "gates + CI pass.",
+  "debt_delta": "Net negative or neutral.",
+  "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md.",
+  "ci_passed": "GitHub Actions validate on PR #721 head d0be6517: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41858895354); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+  "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T153713Z-cto-qa-lead-esteban-media-1793806635475683000-22343-0e66ef19780f39de.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
+}

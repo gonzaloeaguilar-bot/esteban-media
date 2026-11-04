@@ -313,7 +313,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-11-04",
-  "hash": "f1228a2aafd9a46e"
+  "hash": "816d68b9118790ea"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-11-03",
@@ -599,6 +599,10 @@
   "date": "2026-10-14",
   "hash": "4be8e6c2c6c3ad14"
  },
+ "/es/guias/precios-edicion-de-reels-y-video-sur-de-florida": {
+  "date": "2026-11-04",
+  "hash": "90cf1e7381ad294d"
+ },
  "/es/guias/preparar-material-para-edicion-de-video": {
   "date": "2026-10-07",
   "hash": "b97a0891e3c3d5ea"
@@ -712,8 +716,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-10-29",
-  "hash": "3524f274617005ac"
+  "date": "2026-11-04",
+  "hash": "208ed5236584908c"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -808,8 +812,8 @@
   "hash": "2f0c94ff1fd3c57b"
  },
  "/es/precios": {
-  "date": "2026-10-29",
-  "hash": "f11dd1f2d6cc75e8"
+  "date": "2026-11-04",
+  "hash": "29c7e6fa824f433e"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -1443,6 +1447,10 @@
   "date": "2026-10-14",
   "hash": "6c7f35a6f9ed4721"
  },
+ "/guides/reels-video-editing-prices-south-florida": {
+  "date": "2026-11-04",
+  "hash": "f8c13f5e1ab7fcd6"
+ },
  "/guides/reels-vs-tiktok-vs-shorts-for-local-business": {
   "date": "2026-10-07",
   "hash": "a0b4bd62c2dfa183"
@@ -1500,8 +1508,8 @@
   "hash": "2d4f6f989971a2b4"
  },
  "/portfolio": {
-  "date": "2026-10-29",
-  "hash": "5c8dd822e106be47"
+  "date": "2026-11-04",
+  "hash": "33a203a74e59debd"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -1592,8 +1600,8 @@
   "hash": "6846745c85c7096e"
  },
  "/pricing": {
-  "date": "2026-10-29",
-  "hash": "d7722c3f281129a6"
+  "date": "2026-11-04",
+  "hash": "490621e92d38916e"
  },
  "/pricing/all-in": {
   "date": "2026-09-29",
@@ -2109,7 +2117,7 @@
  },
  "/services/reels-editor-fort-lauderdale": {
   "date": "2026-11-04",
-  "hash": "16660ed80d565f25"
+  "hash": "68c7d4704d8f15cc"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",

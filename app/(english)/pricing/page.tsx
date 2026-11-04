@@ -107,6 +107,10 @@ export default function PricingPage() {
             <Link href="/services" className="underline hover:text-[#9f3c27]">
               every service
             </Link>
+            , compare the{" "}
+            <Link href="/guides/reels-video-editing-prices-south-florida" className="underline hover:text-[#9f3c27]">
+              South Florida Reels editing price index
+            </Link>
             , or review the{" "}
             <Link
               href="/services/white-label-video-editing-for-agencies"

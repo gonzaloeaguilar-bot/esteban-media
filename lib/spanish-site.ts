@@ -6256,7 +6256,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataforma se publicará primero?",
     ],
     projectFit:
-      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
+      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. Para comparar precios publicados antes de pedir una cotización, consulta el [índice de edición de Reels en South Florida](/es/guias/precios-edicion-de-reels-y-video-sur-de-florida). La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
       {
         // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8
