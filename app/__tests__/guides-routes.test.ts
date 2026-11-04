@@ -15,12 +15,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 describe("guide routes", () => {
-  it("pre-renders 50 localized detail routes in each language", async () => {
+  it("pre-renders 51 localized detail routes in each language", async () => {
     const enParams = await generateEnglishParams();
     const esParams = await generateSpanishParams();
 
-    expect(enParams).toHaveLength(50);
-    expect(esParams).toHaveLength(50);
+    expect(enParams).toHaveLength(51);
+    expect(esParams).toHaveLength(51);
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-cost-fort-lauderdale");
     expect(esParams.map(({ slug }) => slug)).toContain("cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-rfp-template-miami");
@@ -29,6 +29,8 @@ describe("guide routes", () => {
     expect(esParams.map(({ slug }) => slug)).toContain("que-enviar-a-un-videografo-antes-de-pedir-cotizacion");
     expect(enParams.map(({ slug }) => slug)).toContain("reels-video-editing-prices-south-florida");
     expect(esParams.map(({ slug }) => slug)).toContain("precios-edicion-de-reels-y-video-sur-de-florida");
+    expect(enParams.map(({ slug }) => slug)).toContain("video-editors-fort-lauderdale-compared");
+    expect(esParams.map(({ slug }) => slug)).toContain("editores-de-video-fort-lauderdale-comparados");
   });
 
   it("keeps the RFP template localized, answer-first, and bounded to buyer questions", async () => {

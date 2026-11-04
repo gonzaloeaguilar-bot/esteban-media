@@ -104,7 +104,10 @@ export const localBusinessEntityJsonLd = {
     site.vimeo,
     site.nextdoor,
     site.clutch,
+    site.theManifest,
+    site.youtubeChannel,
   ],
+  knowsLanguage: ["en", "es"],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {
     "@type": "ContactPoint",

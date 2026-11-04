@@ -72,13 +72,22 @@ describe("Google Business Profile entity link", () => {
 
   it("lists verified business directory and portfolio profiles on the business only", () => {
     // Portfolio/directory URLs were live-checked; Clutch was verified in its
-    // authenticated public profile UI on 2026-10-18.
-    const directories = [site.behance, site.vimeo, site.nextdoor, site.clutch];
+    // authenticated public profile UI on 2026-10-18; The Manifest and YouTube channel on 2026-11-04.
+    const directories = [
+      site.behance,
+      site.vimeo,
+      site.nextdoor,
+      site.clutch,
+      site.theManifest,
+      site.youtubeChannel,
+    ];
     expect(directories).toEqual([
       "https://www.behance.net/estebanmoreno15",
       "https://vimeo.com/user175241719",
       "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
       "https://clutch.co/profile/esteban-moreno-media",
+      "https://themanifest.com/company/esteban-moreno-media",
+      "https://www.youtube.com/@estebanmorenomedia",
     ]);
     for (const url of directories) {
       expect(localBusinessEntityJsonLd.sameAs).toContain(url);

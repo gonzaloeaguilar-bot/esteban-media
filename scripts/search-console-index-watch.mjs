@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Fort Lauderdale editors comparison guide pair (2026-11-04).
+  "https://estebanmorenomedia.com/guides/video-editors-fort-lauderdale-compared",
+  "https://estebanmorenomedia.com/es/guias/editores-de-video-fort-lauderdale-comparados",
   // Demand-backed Reels editing price-index pair (2026-11-04).
   "https://estebanmorenomedia.com/guides/reels-video-editing-prices-south-florida",
   "https://estebanmorenomedia.com/es/guias/precios-edicion-de-reels-y-video-sur-de-florida",
