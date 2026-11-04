@@ -20,6 +20,7 @@ const LEAD_FORMS = [
   "components/contact-cta.tsx",
   "components/hero-project-intake.tsx",
   "components/website-project-intake.tsx",
+  "components/home-path-funnel.tsx",
 ];
 
 afterEach(() => {
@@ -186,5 +187,12 @@ describe("confirmed lead instrumentation", () => {
       foundQuery: "video editor miami",
     });
     expect(foundViaPayload("google_search", "x".repeat(500)).foundQuery).toHaveLength(200);
+  });
+
+  it("fires lead event on success in home-path-funnel", () => {
+    const funnel = source("components/home-path-funnel.tsx");
+    expect(funnel).toContain('trackLeadSubmit("home-path-funnel", locale)');
+    expect(funnel).toContain('trackFunnelEvent("lead"');
+    expect(funnel).toContain('error_type: "persistence_failed"');
   });
 });

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, X } from "lucide-react";
 
-import { trackFunnelEvent } from "@/lib/analytics-events";
+import { trackFunnelEvent, trackLeadSubmit } from "@/lib/analytics-events";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
@@ -156,8 +156,20 @@ export function HomePathFunnel({
         }),
       });
       if (!response.ok) throw new Error("lead request failed");
+      const data = await response.json().catch(() => null);
+      if (data && data.persisted === false) {
+        trackFunnelEvent("form_error", {
+          form_id: "home_path_funnel",
+          error_type: "persistence_failed",
+          error_code: "persistence_failed",
+          field: "submit",
+          lane: laneId,
+          locale,
+        });
+      }
       trackFunnelEvent("form_submit", { form_id: "home_path_funnel", lane: laneId, locale });
-      trackFunnelEvent("lead", { lead_source: "home-path-funnel", lead_type: "home-path-funnel", lane: laneId, locale });
+      trackFunnelEvent("lead", { form_id: "home_path_funnel", lead_source: "home-path-funnel", lead_type: "home-path-funnel", lane: laneId, locale });
+      trackLeadSubmit("home-path-funnel", locale);
       setSentReach(trimmedReach);
       setStep("done");
     } catch {

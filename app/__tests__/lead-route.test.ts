@@ -94,6 +94,9 @@ describe("POST /api/lead", () => {
     expect(response.status).toBe(200);
     const body = await response.json();
     const row = JSON.parse(fetchMock.mock.calls[0][1]!.body as string);
+    expect(body.success).toBe(true);
+    expect(body.persisted).toBe(false);
+    expect(body.warning).toBe("persistence_failed");
     expect(body.leadId).toBe(row.lead_ref);
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([storeUrl, emailUrl]);
   });
