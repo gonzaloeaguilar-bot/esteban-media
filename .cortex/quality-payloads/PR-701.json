@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-701",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "debt_delta": "net negative debt: introduces regression test app/__tests__/bilingual-subtitling-faq.test.ts; reuses existing railfaq and buildspanishnichestructureddata schema pipeline without adding new dependencies.",
+    "findings": [],
+    "followup_tasks": [],
+    "hard_stops": [],
+    "missing_evidence": [],
+    "mode": "general",
+    "next_safe_action": "Create a bounded follow-up task for any missing evidence, failed review role, hard stop, or debt increase before treating the work as sound.",
+    "project": "esteban-media",
+    "reviewer_roles": {
+      "builder": "ok",
+      "skeptic": "ok",
+      "taste": "ok"
+    },
+    "rubric_version": "2026-06-06",
+    "scores": {},
+    "status": "quality_passed",
+    "deterministic_gate": "cortex_quality_gate.py enforce independently reran the PR quality payload"
+  },
+  "evidence": {
+    "obsidian_context": "Bilingual subtitling FAQ schema parity retry for PR 701 (spark-2026-11-02-001 / issue #229 / PR #701). Unmerged change carrying exact query phrasing FAQPage schema for bilingual subtitling pages in EN and ES.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, branch spark/spark-2026-11-03-102.",
+    "hard_stops_checked": "Checked and clear. Zero invented clients/prices/reviews/stats/guarantees, no street address, EN/ES parity maintained, no new indexable URLs added.",
+    "verification": "npm test, pnpm typecheck, test -s esteban-pr701-quality-fix-2026-11-03.txt.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder fixed failing Cortex quality evidence check on PR 701."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic pass: zero banned claims, complete EN/ES schema parity, Cortex quality payload and PR body evidence aligned."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Content complies with dual-audience principles and exact query phrasing FAQPage schema."
+      }
+    },
+    "winner_rationale": "Enables merging of PR 701 carrying high-value bilingual subtitling FAQ schema.",
+    "tests_or_validation": "npm test passed, cortex quality evidence check validated.",
+    "debt_delta": "Net negative debt: satisfies quality enforcement gate."
+  }
+}

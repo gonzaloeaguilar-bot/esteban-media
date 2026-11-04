@@ -10,6 +10,16 @@ import UGCAdVariationVideoEditingPage from "../(english)/services/ugc-ad-variati
 import VideoPodcastEditingServiceMiamiPage from "../(english)/services/video-podcast-editing-service-miami/page";
 import ExecutiveInterviewVideographerMiamiPage from "../(english)/services/executive-interview-videographer-miami/page";
 import VideoProductionDoralPage from "../(english)/services/video-production-doral-miami/page";
+import ReelsEditorFortLauderdalePage from "../(english)/services/reels-editor-fort-lauderdale/page";
+import WebinarClipsSpanishPage from "../(spanish)/es/edicion-de-clips-para-webinars/page";
+import UGCAdVariationsSpanishPage from "../(spanish)/es/edicion-de-variaciones-de-anuncios-ugc/page";
+import PodcastVideoSpanishPage from "../(spanish)/es/edicion-de-video-podcast-miami/page";
+import CrowdfundingSpanishPage from "../(spanish)/es/editor-de-video-para-campanas-de-crowdfunding/page";
+import ReelsFortLauderdaleSpanishPage from "../(spanish)/es/editor-de-reels-fort-lauderdale/page";
+import ExecutiveInterviewSpanishPage from "../(spanish)/es/videografo-para-entrevistas-ejecutivas-miami/page";
+import AmazonProductSpanishPage from "../(spanish)/es/video-para-productos-de-amazon-miami/page";
+import ProductDemoSpanishPage from "../(spanish)/es/video-de-demostracion-de-producto-miami/page";
+import DoralSpanishPage from "../(spanish)/es/produccion-de-video-doral-miami/page";
 
 beforeAll(() => vi.stubGlobal("React", React));
 afterAll(() => vi.unstubAllGlobals());
@@ -83,5 +93,46 @@ describe("niche-specific answer-first openers on 8 service pages", () => {
     expect(doralHtml).toContain("on site at your Doral facility");
     expect(doralHtml).toContain("video editing is handled remotely");
     expect(doralHtml).toContain("agreed project by project from Esteban&#x27;s base in Fort Lauderdale");
+  });
+
+  it("renders distinct Spanish answer-first openers for the 8 paired niche pages", () => {
+    const pages = [
+      { name: "webinars", Component: WebinarClipsSpanishPage },
+      { name: "product-demo", Component: ProductDemoSpanishPage },
+      { name: "amazon", Component: AmazonProductSpanishPage },
+      { name: "crowdfunding", Component: CrowdfundingSpanishPage },
+      { name: "ugc", Component: UGCAdVariationsSpanishPage },
+      { name: "podcast", Component: PodcastVideoSpanishPage },
+      { name: "executive-interview", Component: ExecutiveInterviewSpanishPage },
+      { name: "doral", Component: DoralSpanishPage },
+    ];
+    const genericPrefix = "Esteban Moreno Media es un negocio de servicio con base en Fort Lauderdale";
+    const openers: string[] = [];
+
+    for (const { name, Component } of pages) {
+      const html = renderToStaticMarkup(React.createElement(Component));
+      const match = html.match(
+        /<section[^>]*data-section="en-corto"[^>]*>[\s\S]*?<p[^>]*class="[^"]*text-base[^"]*"[^>]*>([\s\S]*?)<\/p>/,
+      );
+      expect(match, `Opener paragraph not found on Spanish page ${name}`).toBeTruthy();
+
+      const opener = match![1].trim();
+      const words = opener.split(/\s+/).filter(Boolean);
+      expect(words.length, `Word count for Spanish ${name} should be between 100 and 180`).toBeGreaterThanOrEqual(100);
+      expect(words.length, `Word count for Spanish ${name} should be between 100 and 180`).toBeLessThanOrEqual(180);
+      expect(opener).not.toContain(genericPrefix);
+      expect(openers).not.toContain(opener);
+      openers.push(opener);
+    }
+
+    expect(new Set(openers).size).toBe(8);
+  });
+
+  it("renders the required Esteban, Fort Lauderdale, and Instagram Reels sentence on both Reels pages", () => {
+    const englishHtml = renderToStaticMarkup(React.createElement(ReelsEditorFortLauderdalePage));
+    const spanishHtml = renderToStaticMarkup(React.createElement(ReelsFortLauderdaleSpanishPage));
+
+    expect(englishHtml).toContain("Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses.");
+    expect(spanishHtml).toContain("Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale.");
   });
 });

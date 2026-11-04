@@ -30,6 +30,7 @@ import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guid
 import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparisons";
 
 export const GUIDE_IDS = [
+  "reels-price-index-guide",
   "prepare-footage",
   "video-brief",
   "video-production-rfp-template",
@@ -101,6 +102,7 @@ type GuideCopy = {
   heroProof?: GuideProofLink;
   sections: readonly GuideSection[];
   faqs?: readonly { question: string; answer: string }[];
+  priceIndex?: boolean;
 };
 
 export type GuidePair = {
@@ -150,6 +152,65 @@ if (listingPhotoStart.amount === null || !listingTour.note) {
 const listingPhotoStartingPrice = usd(listingPhotoStart.amount);
 
 const guidePairs: readonly GuidePair[] = [
+  {
+    id: "reels-price-index-guide",
+    en: {
+      slug: "reels-video-editing-prices-south-florida",
+      metadataTitle: "South Florida Reels Prices",
+      title: "What do Reels and short-form video edits cost in South Florida?",
+      description: "Compare published Reels, short-form editing, and video-production prices from South Florida providers, marketplaces, and software, checked November 3, 2026.",
+      eyebrow: "South Florida price index",
+      answer: "Use the dated published-price table to compare the service, unit, classification, and source before asking any provider for a written scope. The table is a starting point for a budget conversation, not a promise that unlike services cost the same.",
+      priceIndex: true,
+      proof: {
+        href: "/portfolio",
+        title: "Published editing work",
+        description: "Review selected published work before requesting a written scope; nothing published confirms the scope or final price of another project.",
+      },
+      sections: [
+        { heading: "What drives the price of a Reels edit?", paragraphs: ["The main difference is scope, not the word Reels. A remote edit can begin with supplied clips, one intended platform, captions, and a defined revision path. A production package can add planning, a crew, a camera setup, a location, people on camera, multiple finished versions, and coordination before editing begins. Software subscriptions are another category: they can help create clips, but they are not a like-for-like substitute for someone reviewing footage and shaping a message. Read each row’s service description and unit before comparing its figure.", "A useful quote names the source footage, the intended length and channels, captions or graphics, revisions, filming needs, approvals, and final exports. That makes it possible to compare proposals without treating a lower entry figure as the same deliverable. The table records what each source published on its checked date; it does not rank providers or promise that a future project will have the same scope."] },
+        { heading: "Per video vs weekly vs monthly: which is cheaper?", paragraphs: ["A per-video scope is easier to understand when you have one clear clip and want to test a format, announce an offer, or finish footage already filmed. Weekly or monthly arrangements can lower the effective price of each edit when the footage, approval process, and publishing cadence repeat. They also introduce commitments: a package may include a set number of videos, management work, filming, or a minimum term that is not visible in a single-edit offer.", "Compare the unit before you compare the number. Ask whether the plan includes only editing or also planning, capture, thumbnails, captions, posting, revisions, or a long-form source video. A lower monthly entry point can be a different service than a higher single-project figure. Esteban’s table separates the published one-off, weekly, monthly, real-estate, and on-location starting points so a written scope can confirm which model fits the work."] },
+        { heading: "What is included at the Starter editing level?", paragraphs: ["Starter editing is the entry point for an existing clip that needs to become a focused vertical video. The useful starting brief is the original footage, one message, the intended platform, any required wording, a reference for pacing, and the person who approves changes. Those inputs let the edit protect safe areas for platform controls, make captions readable, remove repeated takes, and finish with one clear action instead of a list of competing asks.", "The published starting point is not a promise that every request has the same duration, source quality, versions, or turnaround. A recording with missing scenes, unclear audio, multiple products, or a separate local shoot may need a different scope. The written quote is where the final deliverables and timing are confirmed. If you have several clips ready to publish on a recurring rhythm, compare the weekly rows rather than assuming a one-off edit and an ongoing program contain the same work."] },
+        { heading: "When does on-location filming make sense?", paragraphs: ["On-location filming makes sense when the footage needed to explain the offer does not exist yet. That can mean showing a person at work, a space, a product detail, a process, or a local setting that a supplied phone clip cannot show. Editing and filming solve different problems: one shapes usable material that already exists; the other creates the material before the edit begins. A project can need either one or both, but they should not be assumed to be bundled together.", "Before asking about a local shoot, share the address or service area, access limits, the moments that matter, the people or products that can be filmed, and where the finished clips will be used. That gives the quote a real basis for planning and permissions. The on-location band in Esteban’s ladder is an indicative published starting range, not a fixed production package. A written scope confirms the location, capture needs, versions, and any travel considerations."] },
+        { heading: "How often is this page updated?", paragraphs: ["This index is reviewed monthly. Each market row shows the date its source was checked so a reader can separate a current observation from a general claim. Provider pages can change their packages, remove a public figure, list a new scope, or publish a conflicting figure as ZipIn does in this table. A dated row is more useful than a broad statement that a price is current without a source.", "The index keeps rows that say no public price because absence is useful information when comparing what can be verified before a sales conversation. Marketplace and directory observations are marked separately from prices printed by a provider. The table also keeps software separate from editing and production services. Esteban’s own ladder is rendered from the same pricing constants used elsewhere on this site, so changing a published starting point updates this guide instead of leaving a copied price behind."] },
+      ],
+      faqs: [
+        { question: "Are all prices in this table directly comparable?", answer: "No. A remote edit, a monthly retainer, software, and a filmed production package have different scopes. Read the service, unit, classification, and source before using a number as a budget reference." },
+        { question: "Why are marketplace prices marked UNVERIFIED?", answer: "They come from marketplace or directory pages rather than an individual South Florida provider’s published service page. They can show a broad public listing range, but they do not establish a local provider rate." },
+        { question: "Why does ZipIn appear twice?", answer: "Its page presents different starting figures for related production scopes. Both observations remain visible so the table does not hide a conflict in the source." },
+        { question: "Does this index guarantee a project price?", answer: "No. A written quote confirms the footage, filming needs, deliverables, timing, revisions, location, and final price for a specific project." },
+        { question: "How can I ask for a comparable editing quote?", answer: "Send original footage, the intended platform, the one message the video needs to carry, references, required wording, and the person who can approve changes. Add filming details only when new footage is needed." },
+      ],
+    },
+    es: {
+      slug: "precios-edicion-de-reels-y-video-sur-de-florida",
+      metadataTitle: "Precios de Reels Florida",
+      title: "¿Cuánto cuesta editar Reels y video corto en South Florida?",
+      description: "Compara precios publicados de edición de Reels, video corto y producción en South Florida, marketplaces y software, consultados el 3 de noviembre de 2026.",
+      eyebrow: "Índice de precios de South Florida",
+      answer: "Usa la tabla con fecha, servicio, unidad, clasificación y fuente para comparar antes de pedir un alcance por escrito. Sirve como punto de partida para hablar de presupuesto, no como promesa de que servicios distintos cuestan lo mismo.",
+      priceIndex: true,
+      proof: {
+        href: "/es/portafolio",
+        title: "Trabajo de edición publicado",
+        description: "Consulta trabajo publicado antes de pedir un alcance por escrito; no publica una confirmación del alcance ni del precio final de otro proyecto.",
+      },
+      sections: [
+        { heading: "¿Qué define el precio de editar un Reel?", paragraphs: ["La diferencia principal es el alcance, no la palabra Reels. Una edición remota puede comenzar con clips enviados, una plataforma, subtítulos y una ruta clara de cambios. Un paquete de producción puede sumar planificación, equipo, cámara, locación, personas en cámara, versiones finales y coordinación antes de editar. Las suscripciones de software son otra categoría: pueden ayudar a crear clips, pero no son el mismo servicio que una persona revisando material y dando forma a un mensaje. Lee el servicio y la unidad de cada fila antes de comparar una cifra.", "Una cotización útil nombra el material de origen, duración y canales, subtítulos o gráficos, cambios, necesidad de grabación, aprobaciones y archivos finales. Así puedes comparar propuestas sin asumir que una cifra inicial más baja trae el mismo trabajo. La tabla registra lo que cada fuente publicó en la fecha de consulta; no califica proveedores ni promete que un proyecto futuro tendrá el mismo alcance."] },
+        { heading: "¿Por video, semanal o mensual: qué conviene más?", paragraphs: ["Un alcance por video es más fácil de entender cuando tienes un clip claro y quieres probar un formato, anunciar algo o terminar material ya grabado. Un acuerdo semanal o mensual puede bajar el costo efectivo de cada edición si el material, las aprobaciones y el ritmo de publicación se repiten. También puede traer compromisos: un paquete puede incluir cierta cantidad de videos, gestión, grabación o un mínimo de tiempo que no aparece en una edición individual.", "Compara la unidad antes de comparar el número. Pregunta si el plan incluye solo edición o también planificación, grabación, miniaturas, subtítulos, publicación, cambios o un video largo de origen. Una entrada mensual menor puede ser un servicio distinto de un proyecto individual mayor. La tabla de Esteban separa sus puntos de partida publicados por video, semana, mes, inmuebles y grabación para que una cotización escrita confirme el modelo adecuado."] },
+        { heading: "¿Qué incluye el nivel de edición Arranque?", paragraphs: ["La edición Arranque es el punto de entrada para un clip existente que debe convertirse en un video vertical claro. El brief útil incluye archivos originales, una idea, la plataforma, texto obligatorio, una referencia de ritmo y quién aprueba los cambios. Esos datos permiten proteger las zonas seguras, hacer legibles los subtítulos, cortar tomas repetidas y cerrar con una sola acción clara en lugar de varios pedidos compitiendo.", "El precio inicial publicado no promete que todas las solicitudes tengan la misma duración, calidad de origen, versiones o tiempo de entrega. Una grabación con escenas faltantes, audio poco claro, varios productos o una grabación local aparte puede requerir otro alcance. La cotización por escrito confirma entregables y tiempo. Si tienes varios clips para publicar cada semana, compara las filas semanales en vez de asumir que una edición individual y un programa continuo contienen el mismo trabajo."] },
+        { heading: "¿Cuándo conviene grabar en locación?", paragraphs: ["La grabación en locación conviene cuando todavía no existe el material necesario para explicar la oferta. Puede ser mostrar a una persona trabajando, un espacio, un detalle de producto, un proceso o un contexto local que un clip de celular no alcanza a mostrar. Edición y grabación resuelven problemas distintos: una organiza material útil que ya existe; la otra crea el material antes de editar. Un proyecto puede necesitar una, la otra o ambas, pero no se deben asumir como un paquete único.", "Antes de preguntar por una grabación local, comparte la dirección o zona de servicio, límites de acceso, los momentos importantes, las personas o productos que se pueden filmar y dónde vivirán los videos terminados. Eso da una base real para planear y confirmar permisos. La banda de grabación en la escalera de Esteban es un punto de partida publicado, no un paquete fijo. La cotización escrita confirma locación, captura, versiones y posibles traslados."] },
+        { heading: "¿Con qué frecuencia se actualiza esta página?", paragraphs: ["Este índice se revisa mensualmente. Cada fila muestra la fecha en que se consultó la fuente para distinguir una observación actual de una afirmación general. Las páginas de proveedores pueden cambiar paquetes, retirar un número, publicar otro alcance o mostrar cifras distintas como ZipIn en esta tabla. Una fila con fecha sirve más que decir que un precio está vigente sin mostrar la fuente.", "El índice conserva las filas sin precio público porque esa ausencia sirve al comparar lo que se puede verificar antes de una conversación comercial. Las observaciones de marketplaces y directorios se marcan aparte de los precios publicados por un proveedor. La tabla también separa software de edición y producción. La escalera de Esteban se renderiza desde las mismas constantes que usan sus demás páginas, para que un cambio publicado actualice esta guía en vez de dejar una cifra copiada."] },
+      ],
+      faqs: [
+        { question: "¿Todos los precios de esta tabla se pueden comparar directamente?", answer: "No. Una edición remota, un plan mensual, software y un paquete de producción con grabación tienen alcances distintos. Lee servicio, unidad, clasificación y fuente antes de usar un número como referencia." },
+        { question: "¿Por qué los precios de marketplaces dicen UNVERIFIED?", answer: "Vienen de marketplaces o directorios, no de la página de servicio publicada por un proveedor individual de South Florida. Muestran una referencia pública amplia, no una tarifa local comprobada." },
+        { question: "¿Por qué ZipIn aparece dos veces?", answer: "Su página publica cifras distintas para alcances de producción relacionados. Las dos observaciones se mantienen visibles para no ocultar un conflicto de la fuente." },
+        { question: "¿Este índice garantiza el precio de un proyecto?", answer: "No. Una cotización por escrito confirma material, grabación, entregables, tiempo, cambios, locación y precio final para un proyecto específico." },
+        { question: "¿Cómo pido una cotización de edición comparable?", answer: "Envía archivos originales, la plataforma, el mensaje que debe llevar el video, referencias, texto obligatorio y quién aprueba cambios. Agrega detalles de grabación solo si hace falta material nuevo." },
+      ],
+    },
+  },
   {
     id: "small-business-content-decision-guide",
     en: {
@@ -3336,6 +3397,16 @@ const guidePairs: readonly GuidePair[] = [
           question: "Where should captions be placed on vertical video?",
           answer:
             "Keep captions inside the central safe area so platform buttons, account labels, and crop behavior do not cover important words. Always preview the edit on the platform or phone layout before publishing.",
+        },
+        {
+          question: "Do automatic captions work well enough for Reels?",
+          answer:
+            "Automatic captions work well as a rough draft. Platforms like Instagram, TikTok, and CapCut generate automatic subtitles, but human review is essential to fix misheard proper nouns, pricing, addresses, and technical terms before publishing.",
+        },
+        {
+          question: "What fonts work best for Instagram Reel subtitles?",
+          answer:
+            "Heavy-weight sans-serif typefaces work best because they stay readable on small mobile screens against bright and dark shots. A subtle shadow or background card ensures contrast when the video background changes rapidly.",
         },
       ],
     },
