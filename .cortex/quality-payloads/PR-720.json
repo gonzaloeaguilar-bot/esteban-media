@@ -11,7 +11,7 @@
     "reviewer_ensemble": {
       "builder": {
         "status": "ok",
-        "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff. First CI validate died at the build step with no conclusion (runner killed), re-run."
+        "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff; merge of origin/main after #721 regenerated page-lastmod."
       },
       "skeptic": {
         "status": "ok",
@@ -27,13 +27,13 @@
     "tests_or_validation": "pnpm typecheck && npm test && analytics-gate && rail-adoption:check; CI validate pass.",
     "debt_delta": "Net negative or neutral: new regression tests, no new dependencies.",
     "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md and hot.md.",
-    "ci_passed": "GitHub Actions validate on PR #720 head 3a5228be: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41857667998); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+    "ci_passed": "GitHub Actions validate on PR #720 head 6dd9d93f: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41869134500); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
     "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
   },
   "reviewer_ensemble": {
     "builder": {
       "status": "ok",
-      "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff. First CI validate died at the build step with no conclusion (runner killed), re-run."
+      "note": "Codex built in worktree esteban-media-fix-spanish-openers via cto-dispatch 2026-11-04 15:18Z (record 20261104T151851Z); acceptance ran typecheck, npm test (198 files / 3,813 tests), analytics gate and rail-adoption; lead re-ran the distinctness test (4/4) and read the diff; merge of origin/main after #721 regenerated page-lastmod."
     },
     "skeptic": {
       "status": "ok",
@@ -49,6 +49,6 @@
   "tests_or_validation": "gates + CI pass.",
   "debt_delta": "Net negative or neutral.",
   "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md.",
-  "ci_passed": "GitHub Actions validate on PR #720 head 3a5228be: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41857667998); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
+  "ci_passed": "GitHub Actions validate on PR #720 head 6dd9d93f: pass (lint, typecheck, test, build, Spanish hub indexability) (runs/41869134500); Vercel preview pass. Read via gh pr checks on 2026-11-04.",
   "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions/20261104T152613Z-cto-qa-lead-esteban-media-1793805977530029000-83877-193752dd74816d83.json); builder Codex via cto-dispatch; lead cto-geo-lead read the diff and ran the gates."
 }
