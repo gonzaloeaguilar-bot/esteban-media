@@ -1,0 +1,54 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-713",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Competitor study 2026-11-03 (fleet readout gap D27): pages AI engines cite for Fort Lauderdale video prompts show reviews on the money page and name real places; Esteban's three money pages showed neither. GBP merchant panel read 2026-11-03: 19 reviews at 5.0 while the site said 18.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree esteban-media-fix-proof-blocks, branch feat/proof-blocks-money-pages, move: visible proof (reviews band + venue line) on /services/reels-editor-fort-lauderdale, /services/video-production-fort-lauderdale, /services/short-form-video-editor-miami.",
+    "hard_stops_checked": "Checked and clear: venue names only from lib/portfolio.ts or lib/case-studies.ts (Fort Lauderdale Auto Sales, Port Everglades, Healthy Smile Miami, Bar Door Monkey, Caro Sells Miami); no aggregateRating or Review JSON-LD; review count source is the live GBP panel (data/google-reviews.json readAt 2026-11-03); reels-editor metadata untouched.",
+    "verification": "pnpm typecheck clean; npm test 196 files / 3807 tests pass; analytics-gate.py PASS; rail-adoption:check clean; new test app/__tests__/money-pages-proof-blocks.test.ts (7 tests) asserts the band renders on the three routes and every venue exists in the sources.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex built in isolated worktree feat/proof-blocks-money-pages via cto-dispatch (record 20261103T222000Z..D); acceptance pnpm typecheck && npm test && analytics-gate && rail-adoption:check passed (196 files / 3807 tests); one spelling fix (client name Fort Lauderdale Auto Sales) applied by the lead afterwards."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04 (record 20261104T030825Z-cto-qa-lead): (a) every venue/client named exists in lib/portfolio.ts or lib/case-studies.ts (Fort Lauderdale Auto Sale: lib/portfolio.ts:246, lib/case-studies.ts:702,704; Port Everglades: lib/case-studies.ts:391,490; Healthy Smile Miami: lib/portfolio.ts:416, lib/case-studies.ts:1019,1054; Bar Door Monkey: lib/portfolio.ts:437; Caro Sells Miami: lib/portfolio.ts:283, lib/case-studies.ts:274,275). (b) no aggregateRating or Review JSON-LD added (verified in components/geo-service-page.tsx, page templates, and app/__tests__/money-pages-proof-blocks.test.ts:170-176). (c) review count source stated (data/google-reviews.json cites live GBP profile snapshot updated to 19 via sourceCommand `python3 ~/.claude/dur"
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Antigravity independent review 2026-11-04: (a) does the proof line read like a sentence a client would believe, not a keyword list: yes, conversational sentence with practical project context in parentheses rather than raw keyword stuffing. (b) placement under the first answer, not above it: yes, rendered directly following ServiceAnswerFirst / DefinitionAnswer, preceding technical specs and secondary sections. (c) phone-width wrap risk: low, uses max-w-4xl text-sm leading-6 within responsive Container padding. "
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement: builder (Codex), skeptic and taste (Antigravity) all ok; findings none.",
+    "winner_rationale": "Reviews and real places are the two visible-proof elements that co-occur with citations on competitor pages; this adds both with facts the repo already holds.",
+    "tests_or_validation": "pnpm typecheck && npm test && python3 ~/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check (all pass on the branch).",
+    "debt_delta": "Net negative: one new regression test, review count moved to the data snapshot, no new dependencies.",
+    "obsidian_handoff": "client-esteban-media/wiki/esteban-geo-ten-moves-plan-2026-11-04.md and hot.md carry PR #713; cache-busted curl of the three URLs after deploy must contain the proof line.",
+    "ci_passed": "GitHub Actions validate on PR #713 (head 43d16931, runs/41759358036): pass (lint, typecheck, test, build, Spanish hub indexability) after the self-hosted runner was reloaded; Vercel preview: pass. Read via gh pr checks 713 on 2026-11-04.",
+    "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok (every venue traced to lib/portfolio.ts or lib/case-studies.ts with line numbers; no aggregateRating/Review JSON-LD; review-count source stated; test fails on an unsourced venue) + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions 20261104T030825Z-cto-qa-lead-esteban-media); builder Codex via cto-dispatch. Lead (cto-geo-lead) read the diff, fixed the client-name spelling, and ran the gates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex built in isolated worktree feat/proof-blocks-money-pages via cto-dispatch (record 20261103T222000Z..D); acceptance pnpm typecheck && npm test && analytics-gate && rail-adoption:check passed (196 files / 3807 tests); one spelling fix (client name Fort Lauderdale Auto Sales) applied by the lead afterwards."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04 (record 20261104T030825Z-cto-qa-lead): (a) every venue/client named exists in lib/portfolio.ts or lib/case-studies.ts (Fort Lauderdale Auto Sale: lib/portfolio.ts:246, lib/case-studies.ts:702,704; Port Everglades: lib/case-studies.ts:391,490; Healthy Smile Miami: lib/portfolio.ts:416, lib/case-studies.ts:1019,1054; Bar Door Monkey: lib/portfolio.ts:437; Caro Sells Miami: lib/portfolio.ts:283, lib/case-studies.ts:274,275). (b) no aggregateRating or Review JSON-LD added (verified in components/geo-service-page.tsx, page templates, and app/__tests__/money-pages-proof-blocks.test.ts:170-176). (c) review count source stated (data/google-reviews.json cites live GBP profile snapshot updated to 19 via sourceCommand `python3 ~/.claude/dur"
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Antigravity independent review 2026-11-04: (a) does the proof line read like a sentence a client would believe, not a keyword list: yes, conversational sentence with practical project context in parentheses rather than raw keyword stuffing. (b) placement under the first answer, not above it: yes, rendered directly following ServiceAnswerFirst / DefinitionAnswer, preceding technical specs and secondary sections. (c) phone-width wrap risk: low, uses max-w-4xl text-sm leading-6 within responsive Container padding. "
+    }
+  },
+  "reviewer_disagreement_reviewed": "No disagreement: builder (Codex), skeptic and taste (Antigravity) all ok; findings none.",
+  "winner_rationale": "Reviews and real places co-occur with citations on competitor pages; added with facts the repo already holds.",
+  "tests_or_validation": "pnpm typecheck && npm test && analytics-gate && rail-adoption:check pass.",
+  "debt_delta": "Net negative: one new regression test, no new dependencies.",
+  "obsidian_handoff": "esteban-geo-ten-moves-plan-2026-11-04.md, hot.md.",
+  "ci_passed": "GitHub Actions validate on PR #713 (head 43d16931, runs/41759358036): pass (lint, typecheck, test, build, Spanish hub indexability) after the self-hosted runner was reloaded; Vercel preview: pass. Read via gh pr checks 713 on 2026-11-04.",
+  "pr_review_complete": "Independent review complete 2026-11-04: Antigravity skeptic ok (every venue traced to lib/portfolio.ts or lib/case-studies.ts with line numbers; no aggregateRating/Review JSON-LD; review-count source stated; test fails on an unsourced venue) + taste ok, FINDINGS none, REVIEW_VERDICT APPROVE (cto-decisions 20261104T030825Z-cto-qa-lead-esteban-media); builder Codex via cto-dispatch. Lead (cto-geo-lead) read the diff, fixed the client-name spelling, and ran the gates."
+}

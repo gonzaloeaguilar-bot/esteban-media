@@ -16,11 +16,11 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
-  title: "Remote Video Editing Colombia",
-  description:
-    "Remote video editing and post-production for Colombian companies, agencies, and creators. Cloud-based workflows, bilingual direction, and fast turnarounds.",
+  title: "Video Editing Services Colombia | Remote Bilingual Editor",
+  description: `Remote video editing services for Colombian companies, agencies, and creators. Cloud workflows, native Spanish direction, and fast turnaround from ${usd(SHORT_FORM.perVideoFrom)}.`,
   path: "/services/remote-video-editing-colombia",
   locale: "en",
 });

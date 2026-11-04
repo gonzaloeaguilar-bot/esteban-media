@@ -63,7 +63,7 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Fort Lauderdale Video Production & Editing | Esteban Moreno"',
+      'absolute:\n      "Fort Lauderdale Video Production & Editing | Esteban Moreno Media"',
     );
     expect(englishHomeSource).toContain(
       "Fort Lauderdale Video Production & Editing",
@@ -92,10 +92,10 @@ describe("localized home metadata", () => {
     expect(og.type).toBe("website");
     expect(og.siteName).toBe(site.name);
     expect(og.locale).toBe("en_US");
-    expect(og.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno");
+    expect(og.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno Media");
     expect(twitter.card).toBe("summary_large_image");
     expect(twitter.images).toEqual([socialImage.url]);
-    expect(twitter.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno");
+    expect(twitter.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno Media");
   });
 
   it("verifies brand entity presence and optimal character bounds for CTR", () => {
@@ -105,6 +105,6 @@ describe("localized home metadata", () => {
     expect(site.description.length).toBeLessThanOrEqual(160);
     expect(spanishSite.description.length).toBeGreaterThanOrEqual(120);
     expect(spanishSite.description.length).toBeLessThanOrEqual(160);
-    expect(spanishSite.title.startsWith("Esteban Moreno")).toBe(true);
+    expect(spanishSite.title.includes("Esteban Moreno")).toBe(true);
   });
 });

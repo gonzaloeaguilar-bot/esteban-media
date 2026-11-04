@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Crowdfunding Video Editor Miami",
@@ -122,7 +123,10 @@ export default function CrowdfundingVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="Crowdfunding video editing" />
+      <ServiceAnswerFirst
+        service="Crowdfunding video editing"
+        answerOverride={`Crowdfunding video editing shapes pitch footage, founder interviews, and product demonstrations into structured campaign videos for Kickstarter and Indiegogo. Esteban Moreno Media is based in Fort Lauderdale and provides remote post-production: you upload the raw footage, product clips, and campaign outline, and Esteban edits the story, pacing, dialogue, and call to action. For campaign edits that require medium explainer structuring, the site budget calculator puts corporate and launch project editing at ${usd(PRICING_BANDS.corporate.baseMin)} to ${usd(PRICING_BANDS.corporate.baseMax)}, while short social teaser cuts start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video. Where campaign results are still ahead, Esteban focuses on clean story craft and transparent pricing rather than unverified outcome claims. Every project receives a written quote before editing begins.`}
+      />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
