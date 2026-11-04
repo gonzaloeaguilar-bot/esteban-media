@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Amazon Product Video Miami",
@@ -128,7 +129,10 @@ export default function AmazonProductVideoMiamiPage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="amazon product video in Miami" />
+      <ServiceAnswerFirst
+        service="amazon product video in Miami"
+        answerOverride={`Amazon product video production creates compliant marketplace videos, main-image demonstration shorts, and Brand Store videos for e-commerce sellers in Miami and Doral. Esteban Moreno Media is based in Fort Lauderdale and structures product videos to adhere to Amazon guidelines, emphasizing dimensions, core benefits, unboxing flow, and sound-off readability. Remote editing for sellers who already have raw clips starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. For brands needing hands-on filming, full production days start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package, with written scopes confirming deliverables before filming starts. Communication is Spanish-first, with intermediate English available for brand teams.`}
+      />
 
       <ServiceDeepDive
         id={AMAZON_PRODUCT_DEEP_DIVE.id}

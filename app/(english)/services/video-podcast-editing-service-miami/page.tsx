@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Video Podcast Editing Service Miami",
@@ -133,7 +134,10 @@ export default function VideoPodcastEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="Podcast video editing" />
+      <ServiceAnswerFirst
+        service="Podcast video editing"
+        answerOverride={`Video podcast editing turns multi-camera studio recordings and remote interviews into clean full episodes and vertical promotional clips. Esteban Moreno Media is based in Fort Lauderdale and provides remote podcast editing across Miami and South Florida. You share raw audio tracks and video angles, and Esteban handles camera switching, audio leveling, color balance, and caption overlays. Editing for long-form episodes falls into the ${usd(PRICING_BANDS.youtube.baseMin)} to ${usd(PRICING_BANDS.youtube.baseMax)} range based on the site calculator, while short promotional social clips start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package. No physical recording studio is provided; Esteban focuses strictly on post-production. Communication is Spanish-first, with intermediate English available.`}
+      />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { EXPANSION_SERVICES, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "UGC Ad Variation Video Editing",
@@ -128,7 +129,10 @@ export default function UgcAdVariationVideoEditingPage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="ugc ad variation video editing" />
+      <ServiceAnswerFirst
+        service="ugc ad variation video editing"
+        answerOverride={`UGC ad variation video editing organizes creator raw clips into modular, direct-response video variations for TikTok, Meta, and paid social campaigns. Esteban Moreno Media is based in Fort Lauderdale and manages paid creative editing remotely: you supply raw creator footage, hook scripts, and angles, and Esteban edits multiple hook-and-body combinations with captions and safe-zone compliance. Single short video edits start from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video on the Starter package, while dedicated creative expansion packages such as a 5-pack of UGC ad variations are priced at ${usd(EXPANSION_SERVICES.ugcAdPack5)}. Rather than projecting unverified ad conversion metrics, Esteban delivers disciplined creative formatting, fast turnarounds, and clear per-project pricing for growth teams.`}
+      />
 
       <ServiceDeepDive
         id={UGC_AD_VARIATION_DEEP_DIVE.id}
