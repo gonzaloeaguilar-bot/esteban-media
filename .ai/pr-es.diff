@@ -1,0 +1,314 @@
+diff --git a/.ai/handoff.md b/.ai/handoff.md
+index f758ac31..8792ac95 100644
+--- a/.ai/handoff.md
++++ b/.ai/handoff.md
+@@ -920,3 +920,10 @@ Configuration-gated conversion-observability implementation is present locally,
+ - The page already links to the relevant customer-testimonial guide, business-video service, interview-editing service, and pricing path through its server-rendered deep-dive sections. The generated page-lastmod ledger now records `2026-11-04` for this route.
+ - Local evidence: `pnpm lastmod:update` (1 ledger entry refreshed), `npm run typecheck --silent`, and `npm test` all exited 0; `pnpm lint` completed with 0 errors and 23 pre-existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` exited 0; `git diff --check` passed.
+ - Not committed, independently reviewed, deployed, or measured in Search Console. Next: `cto-qa-lead` reviews the exact local diff; after an authorized release, verify the canonical route's raw HTML and live render, then compare GSC impressions/clicks after a suitable observation window.
++
++# 2026-11-04 — Spanish niche openers and Reels entity sentence (local commit pending)
++
++- Added page-specific, server-rendered Spanish answer-first copy for the eight existing hreflang twins: webinar clips, product demo, Amazon product video, crowdfunding, UGC ad variations, video podcast, executive interviews, and Doral video production. Each opener is 100–180 words, begins by answering its niche question, and reads price values only through `lib/pricing.ts` constants.
++- Added the requested first body sentences to the two Reels answer-first blocks: `Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses.` and `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale.` Metadata was not changed.
++- Evidence: `pnpm vitest run app/__tests__/niche-openers-distinct.test.ts` passed 4/4; `pnpm lastmod:update` refreshed 9 routes; `pnpm typecheck` passed; `npm test` passed 198 files / 3,813 tests; `python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .` passed (17 emit sites / 11 events); `pnpm rail-adoption:check` passed 3/3; `git diff --check` passed.
++- Local only until the parent coordinator obtains the mandated independent review, opens a PR, merges, deploys, and verifies raw production HTML. No citation, ranking, inquiry, or revenue outcome is claimed.
+diff --git a/.ai/spec-spanish-openers.md b/.ai/spec-spanish-openers.md
+new file mode 100644
+index 00000000..834366ce
+--- /dev/null
++++ b/.ai/spec-spanish-openers.md
+@@ -0,0 +1,12 @@
++# Spec: Spanish twins of the niche openers + the one sentence Perplexity asked for
++
++Evidence (2026-11-03): Perplexity Sonar cites estebanmorenomedia.com most reliably on Spanish prompts (reels-editor-ftl-es 2/2 runs) and, asked directly what would make it cite the site on "who is a good Instagram Reels editor in Fort Lauderdale", answered: a sentence combining business name + Fort Lauderdale + Instagram Reels editing in one place. PR #712 (merged 2026-11-04) added English answer-first openers on 8 pages (webinar clips, product demo, Amazon product video, crowdfunding, UGC ad variations, video podcast, executive interview, Doral); their Spanish twins still carry the generic opener.
++
++Do, and nothing else:
++1. For each Spanish twin of those 8 pages (find them via the hreflang pairs in the sitemap or lib/spanish-site.ts), write a Spanish answer-first opener of 100-180 words that answers the niche question in the first sentence and carries the same price fact as the English twin, taken only from lib/pricing.ts. Natural Latin American Spanish, no machine-translation tone. If a Spanish twin does not exist for one, skip it and say so in the commit message; do not create pages.
++2. On /services/reels-editor-fort-lauderdale add, in the body (not metadata), the exact sentence "Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses." as the first sentence of the answer-first block or directly after it. On /es/editor-de-reels-fort-lauderdale: "Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale." Do not change either page's metadata title or description.
++3. Extend app/__tests__/niche-openers-distinct.test.ts to the Spanish openers (distinct from each other and from the Spanish generic text), and add a test that the two sentences in step 2 appear in the rendered HTML.
++4. Run pnpm lastmod:update.
++
++Acceptance: pnpm typecheck && npm test && python3 $HOME/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check
++Commit as: feat(geo): Spanish niche openers and the Reels sentence on both reels pages
+diff --git a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+index 7ae46cd2..87a8a863 100644
+--- a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
++++ b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+@@ -25,7 +25,7 @@ const content: GeoServicePageContent = {
+   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
+   answerService: "Reels editing in Fort Lauderdale",
+   answerFirst:
+-    `Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
++    `Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses. Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
+   craftHeading: "What Fort Lauderdale Reels need from the edit.",
+   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
+   craft: [
+diff --git a/app/__tests__/niche-openers-distinct.test.ts b/app/__tests__/niche-openers-distinct.test.ts
+index 87eb1bd9..3449a552 100644
+--- a/app/__tests__/niche-openers-distinct.test.ts
++++ b/app/__tests__/niche-openers-distinct.test.ts
+@@ -10,6 +10,16 @@ import UGCAdVariationVideoEditingPage from "../(english)/services/ugc-ad-variati
+ import VideoPodcastEditingServiceMiamiPage from "../(english)/services/video-podcast-editing-service-miami/page";
+ import ExecutiveInterviewVideographerMiamiPage from "../(english)/services/executive-interview-videographer-miami/page";
+ import VideoProductionDoralPage from "../(english)/services/video-production-doral-miami/page";
++import ReelsEditorFortLauderdalePage from "../(english)/services/reels-editor-fort-lauderdale/page";
++import WebinarClipsSpanishPage from "../(spanish)/es/edicion-de-clips-para-webinars/page";
++import UGCAdVariationsSpanishPage from "../(spanish)/es/edicion-de-variaciones-de-anuncios-ugc/page";
++import PodcastVideoSpanishPage from "../(spanish)/es/edicion-de-video-podcast-miami/page";
++import CrowdfundingSpanishPage from "../(spanish)/es/editor-de-video-para-campanas-de-crowdfunding/page";
++import ReelsFortLauderdaleSpanishPage from "../(spanish)/es/editor-de-reels-fort-lauderdale/page";
++import ExecutiveInterviewSpanishPage from "../(spanish)/es/videografo-para-entrevistas-ejecutivas-miami/page";
++import AmazonProductSpanishPage from "../(spanish)/es/video-para-productos-de-amazon-miami/page";
++import ProductDemoSpanishPage from "../(spanish)/es/video-de-demostracion-de-producto-miami/page";
++import DoralSpanishPage from "../(spanish)/es/produccion-de-video-doral-miami/page";
+ 
+ beforeAll(() => vi.stubGlobal("React", React));
+ afterAll(() => vi.unstubAllGlobals());
+@@ -84,4 +94,45 @@ describe("niche-specific answer-first openers on 8 service pages", () => {
+     expect(doralHtml).toContain("video editing is handled remotely");
+     expect(doralHtml).toContain("agreed project by project from Esteban&#x27;s base in Fort Lauderdale");
+   });
++
++  it("renders distinct Spanish answer-first openers for the 8 paired niche pages", () => {
++    const pages = [
++      { name: "webinars", Component: WebinarClipsSpanishPage },
++      { name: "product-demo", Component: ProductDemoSpanishPage },
++      { name: "amazon", Component: AmazonProductSpanishPage },
++      { name: "crowdfunding", Component: CrowdfundingSpanishPage },
++      { name: "ugc", Component: UGCAdVariationsSpanishPage },
++      { name: "podcast", Component: PodcastVideoSpanishPage },
++      { name: "executive-interview", Component: ExecutiveInterviewSpanishPage },
++      { name: "doral", Component: DoralSpanishPage },
++    ];
++    const genericPrefix = "Esteban Moreno Media es un negocio de servicio con base en Fort Lauderdale";
++    const openers: string[] = [];
++
++    for (const { name, Component } of pages) {
++      const html = renderToStaticMarkup(React.createElement(Component));
++      const match = html.match(
++        /<section[^>]*data-section="en-corto"[^>]*>[\s\S]*?<p[^>]*class="[^"]*text-base[^"]*"[^>]*>([\s\S]*?)<\/p>/,
++      );
++      expect(match, `Opener paragraph not found on Spanish page ${name}`).toBeTruthy();
++
++      const opener = match![1].trim();
++      const words = opener.split(/\s+/).filter(Boolean);
++      expect(words.length, `Word count for Spanish ${name} should be between 100 and 180`).toBeGreaterThanOrEqual(100);
++      expect(words.length, `Word count for Spanish ${name} should be between 100 and 180`).toBeLessThanOrEqual(180);
++      expect(opener).not.toContain(genericPrefix);
++      expect(openers).not.toContain(opener);
++      openers.push(opener);
++    }
++
++    expect(new Set(openers).size).toBe(8);
++  });
++
++  it("renders the required Esteban, Fort Lauderdale, and Instagram Reels sentence on both Reels pages", () => {
++    const englishHtml = renderToStaticMarkup(React.createElement(ReelsEditorFortLauderdalePage));
++    const spanishHtml = renderToStaticMarkup(React.createElement(ReelsFortLauderdaleSpanishPage));
++
++    expect(englishHtml).toContain("Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses.");
++    expect(spanishHtml).toContain("Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale.");
++  });
+ });
+diff --git a/backlog.md b/backlog.md
+index efc7d389..85cff47d 100644
+--- a/backlog.md
++++ b/backlog.md
+@@ -217,6 +217,8 @@ Production is live. This file tracks repository implementation; account/access w
+ 
+ ## P1 — Product and measurement
+ 
++- [x] Add distinct 100–180-word Spanish answer-first openers to the eight existing niche-page twins and place the Esteban + Fort Lauderdale + Instagram Reels sentence in both Reels bodies (local commit pending independent review and release).
++
+ - [x] Harden the Search Console index-watch warning path for the Top 20 growth batch: current neutral/excluded URLs now persist in `neutralWatch`, 7+ day neutral pages emit a `neutral_seven_day_watch` warning and render a follow-up table in the managed note, recovered URLs clear from neutral tracking, and legacy state backfills the current 63 neutral URLs. Verified 2026-10-01 with `pnpm exec vitest run scripts/search-console-index-watch.test.mjs` (28 tests) and `pnpm index-watch:status` reporting `pass 193`, `neutral 63`, `fail 0`, `unknown 0`, `pendingNotificationCount 0`, and `neutralWatchCount 63`.
+ - [x] Add the shared-component adoption path for Esteban AI contributions: `.ai/service-page-template.md` tells contributors to use `components/service-depth.tsx`, `app/__tests__/rail-adoption.test.ts` blocks new dense hand-rolled page files, `.github/workflows/rail-adoption.yml` runs the gate weekly/manual, and `/services/yacht-hospitality-video-fort-lauderdale` is the migrated model page. Verified 2026-10-01 with `pnpm check` exit 0: rail-kit check, adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity across 87 Spanish routes.
+ - [x] Align the bilingual homepage hero with the primary technology inquiry lanes (AI lead capture, automated customer workflows, and conversion websites), preserving the existing privacy-safe homepage intake and its consent-scoped language
+diff --git a/config/page-lastmod.json b/config/page-lastmod.json
+index ba02833f..20cdc835 100644
+--- a/config/page-lastmod.json
++++ b/config/page-lastmod.json
+@@ -240,8 +240,8 @@
+   "hash": "7a53772db8f63774"
+  },
+  "/es/edicion-de-variaciones-de-anuncios-ugc": {
+-  "date": "2026-10-19",
+-  "hash": "11abaa274f343034"
++  "date": "2026-11-04",
++  "hash": "b2a7d3e49f8a7c9d"
+  },
+  "/es/edicion-de-video-con-dron-miami": {
+   "date": "2026-08-14",
+@@ -296,8 +296,8 @@
+   "hash": "c5f23e94bacc5d64"
+  },
+  "/es/edicion-de-video-podcast-miami": {
+-  "date": "2026-10-14",
+-  "hash": "7e11289f8d23e654"
++  "date": "2026-11-04",
++  "hash": "c8a034a7cc4e08ed"
+  },
+  "/es/edicion-de-video-promocional-para-restaurantes-miami": {
+   "date": "2026-10-30",
+@@ -312,8 +312,8 @@
+   "hash": "60be7a8353dbee74"
+  },
+  "/es/editor-de-reels-fort-lauderdale": {
+-  "date": "2026-10-29",
+-  "hash": "b63ec45c80cd0805"
++  "date": "2026-11-04",
++  "hash": "f1228a2aafd9a46e"
+  },
+  "/es/editor-de-reels-miami": {
+   "date": "2026-11-03",
+@@ -332,8 +332,8 @@
+   "hash": "b13ff421f3bfeb9c"
+  },
+  "/es/editor-de-video-para-campanas-de-crowdfunding": {
+-  "date": "2026-08-14",
+-  "hash": "47005fbf054ca61e"
++  "date": "2026-11-04",
++  "hash": "35c520110dafc415"
+  },
+  "/es/editor-de-video-para-marca-personal-miami": {
+   "date": "2026-10-14",
+@@ -856,8 +856,8 @@
+   "hash": "9782b0eea118ec21"
+  },
+  "/es/produccion-de-video-doral-miami": {
+-  "date": "2026-10-14",
+-  "hash": "4696bc32c104e051"
++  "date": "2026-11-04",
++  "hash": "1e87bfd6cab61531"
+  },
+  "/es/produccion-de-video-fort-lauderdale": {
+   "date": "2026-10-30",
+@@ -956,8 +956,8 @@
+   "hash": "d1e7f2a3adeec883"
+  },
+  "/es/video-de-demostracion-de-producto-miami": {
+-  "date": "2026-10-19",
+-  "hash": "7def20df0885294d"
++  "date": "2026-11-04",
++  "hash": "3b8af41dd29e94ea"
+  },
+  "/es/video-de-marca-de-lujo-jupiter": {
+   "date": "2026-07-26",
+@@ -1112,8 +1112,8 @@
+   "hash": "8d3732ef0cf345ff"
+  },
+  "/es/video-para-productos-de-amazon-miami": {
+-  "date": "2026-10-19",
+-  "hash": "d3cbb8142c879256"
++  "date": "2026-11-04",
++  "hash": "df78ce8dc0574ddd"
+  },
+  "/es/video-para-quinceaneras-miami": {
+   "date": "2026-10-14",
+@@ -1204,8 +1204,8 @@
+   "hash": "ac965d6e4d4bb7cf"
+  },
+  "/es/videografo-para-entrevistas-ejecutivas-miami": {
+-  "date": "2026-10-18",
+-  "hash": "698e1dbd2bf66ef5"
++  "date": "2026-11-04",
++  "hash": "b5ed115f78b042d6"
+  },
+  "/es/videografo-para-eventos-corporativos-fort-lauderdale": {
+   "date": "2026-11-03",
+@@ -2108,8 +2108,8 @@
+   "hash": "cf7fbe22027e7ced"
+  },
+  "/services/reels-editor-fort-lauderdale": {
+-  "date": "2026-11-03",
+-  "hash": "d7edc2f29609ffa6"
++  "date": "2026-11-04",
++  "hash": "16660ed80d565f25"
+  },
+  "/services/reels-editor-miami": {
+   "date": "2026-10-14",
+diff --git a/lib/spanish-site.ts b/lib/spanish-site.ts
+index 7ae81eb7..1c9a36f0 100644
+--- a/lib/spanish-site.ts
++++ b/lib/spanish-site.ts
+@@ -10,7 +10,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
+ import { eventLanguageAlternates } from "@/lib/events";
+ import { packageRoutes } from "@/lib/package-routes";
+ import type { LucideIcon } from "lucide-react";
+-import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
++import { ARRANQUE_WEEKLY_TERMS, CREW_RECORDING_RATES, EXPANSION_SERVICES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+ import {
+   Anchor,
+   Building2,
+@@ -2464,6 +2464,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Producción de video y contenido comercial en Doral.",
+     lead:
+       "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral, dentro de nuestras [áreas de servicio de edición y producción de video](/es/areas).",
++    answerFirst: `La producción de video B2B en Doral cubre presentaciones comerciales, recorridos de instalaciones y videos de producto para distribuidores, logística y marcas. Esteban Moreno Media tiene base en Fort Lauderdale y atiende Doral y Miami-Dade como negocio de área de servicio, sin estudio abierto al público. La grabación se realiza en tu instalación de Doral cuando el proyecto necesita imágenes nuevas; los días completos de producción parten desde ${esLocalFrom}. Si ya existe material útil, la edición se hace a distancia desde Fort Lauderdale y parte desde ${esStarterFrom} por video con el paquete Arranque. Antes de grabar, se confirma por escrito la ubicación, el acceso, las versiones finales y cualquier traslado. La atención es en español primero, con inglés intermedio disponible.`,
+     keyword: "producción de video en Doral",
+     location: "Doral / Miami-Dade",
+     availability: "confirmed",
+@@ -3086,6 +3087,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Video para entrevistas ejecutivas y testimonios corporativos en Miami.",
+     lead:
+       "Grabación en oficinas corporativas y locaciones de Miami con iluminación suave, microfonía doble y edición enfocada en liderazgo y marca.",
++    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación parte desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, con un mínimo de cuatro horas (${usd(CREW_RECORDING_RATES.solo.minimumAmount)}), e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y los días de producción con grabación y edición parten desde ${esLocalFrom}. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
+     keyword: "videógrafo para entrevistas ejecutivas en Miami",
+     location: "Miami-Dade / Broward / Remoto",
+     availability: "confirmed",
+@@ -4069,6 +4071,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Video comercial y demostraciones para productos de Amazon en Miami.",
+     lead:
+       "Producción en ciclorama e iluminación de estudio de alta fidelidad para destacar funciones, desempaques y cumplimiento de directrices en Amazon.",
++    answerFirst: `La producción de video para productos de Amazon en Miami crea demostraciones para fichas, Brand Stores y contenido vertical de Amazon Inspire. Esteban Moreno Media tiene base en Fort Lauderdale y estructura cada video para que las medidas, beneficios, desempaque y uso se entiendan sin depender del audio. Si tu marca ya tiene clips originales, la edición remota parte desde ${esStarterFrom} por video con el paquete Arranque. Para productos que necesitan filmación práctica, los días completos de producción parten desde ${esLocalFrom} con el paquete Presencia Local. Antes de filmar se confirma el formato, las funciones que deben verse y las versiones finales. La atención es en español primero, con inglés intermedio disponible para equipos de marca que lo necesiten.`,
+     keyword: "video para productos de Amazon en Miami",
+     location: "Miami / Doral / Coral Gables",
+     availability: "confirmed",
+@@ -4161,6 +4164,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Videos de demostración técnica y desempaque de productos en Miami.",
+     lead:
+       "Tomas cenitales, ensamblaje paso a paso y sonido de materiales para guías interactivas, códigos QR y páginas de soporte al cliente.",
++    answerFirst: `La producción de videos de demostración de producto en Miami explica el uso, el ensamblaje y el desempaque de hardware o productos de consumo con una secuencia clara. Esteban Moreno Media atiende marcas en Miami, Doral y Broward desde Fort Lauderdale. Si ya tienes material de demostración, la edición remota parte desde ${esStarterFrom} por video con el paquete Arranque e incluye ritmo, llamados de función en pantalla y balance de audio. Cuando hace falta grabar detalles de mesa, manos, ensamblaje o una demostración en locación, los días completos de producción parten desde ${esLocalFrom} con el paquete Presencia Local. Cada proyecto recibe una cotización escrita que define tomas, formatos y entregables antes de comenzar.`,
+     keyword: "video de demostración de producto en Miami",
+     location: "Miami / Doral / Fort Lauderdale",
+     availability: "confirmed",
+@@ -4207,6 +4211,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Edición de variaciones de anuncios UGC para escalar campañas de pago.",
+     lead:
+       "Montaje modular de ganchos iniciales, demostraciones y llamadas a la acción para anunciantes en Meta, TikTok y YouTube Shorts.",
++    answerFirst: `La edición de variaciones de anuncios UGC organiza clips de creadores en versiones directas para TikTok, Meta y campañas de redes pagadas. Esteban Moreno Media trabaja a distancia desde Fort Lauderdale: compartes los clips originales, los ganchos y los ángulos aprobados, y la edición combina aperturas, cuerpos y cierres con subtítulos dentro de zonas seguras. Un video corto parte desde ${esStarterFrom} por video con el paquete Arranque. Para una tanda dedicada de cinco variaciones UGC, el precio publicado es ${usd(EXPANSION_SERVICES.ugcAdPack5)}. El servicio no promete métricas de conversión; entrega formatos claros, versiones definidas y precios por proyecto para que el equipo pueda revisar el material antes de publicarlo.`,
+     keyword: "edicion de variaciones de anuncios ugc",
+     location: "Remoto / Miami / Fort Lauderdale",
+     availability: "confirmed",
+@@ -4692,6 +4697,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Edición profesional de video podcasts en Miami.",
+     lead:
+       "Transformamos grabaciones multicámara de podcast en episodios pulidos y clips cortos verticales optimizados para YouTube, Spotify e Instagram.",
++    answerFirst: `La edición de video podcast en Miami convierte grabaciones multicámara y entrevistas remotas en episodios completos y clips verticales para promoción. Esteban Moreno Media tiene base en Fort Lauderdale y trabaja a distancia con podcasts de Miami y South Florida: compartes las pistas de audio y los ángulos de cámara, y Esteban organiza cambios de cámara, nivelación de audio, color y subtítulos. La edición de episodios largos se cotiza en el rango publicado de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)}, según el alcance del calculador del sitio. Los clips cortos para redes parten desde ${esStarterFrom} por video con el paquete Arranque. No se ofrece un estudio físico de grabación; el servicio se concentra en la postproducción y en una cotización escrita antes de empezar.`,
+     keyword: "edición de video podcast en Miami",
+     location: "Miami-Dade / Remote",
+     availability: "confirmed",
+@@ -5940,6 +5946,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Videos emotivos y persuasivos para campañas de crowdfunding.",
+     lead:
+       "Cuenta la historia detrás de tu innovación con videos persuasivos diseñados para captar patrocinadores e inversores.",
++    answerFirst: `La edición de video para campañas de crowdfunding en Miami organiza material de producto, entrevistas del fundador y demostraciones en una historia para Kickstarter o Indiegogo. Esteban Moreno Media tiene base en Fort Lauderdale y realiza la postproducción a distancia: subes las tomas originales, los clips del producto y el esquema de campaña, y Esteban edita la estructura, el diálogo, el ritmo y la llamada a la acción. Los proyectos de lanzamiento y explicación se cotizan en el rango publicado de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}, mientras que los cortes cortos para redes parten desde ${esStarterFrom} por video. No se prometen resultados de financiación; cada proyecto recibe una cotización escrita que define el alcance antes de iniciar la edición.`,
+     keyword: "editor de video para campañas de crowdfunding en Miami",
+     location: "Wynwood / Miami-Dade",
+     availability: "confirmed",
+@@ -6036,6 +6043,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Transforma webinars grabados en clips virales para redes sociales.",
+     lead:
+       "Extrae los mejores consejos e ideas de tus eventos virtuales y conviertenlos en reels con subtítulos animados de alto impacto.",
++    answerFirst: `La edición de clips para webinars convierte grabaciones de Zoom, ponencias y eventos virtuales en videos cortos para LinkedIn, YouTube Shorts e Instagram Reels. Esteban Moreno Media tiene base en Fort Lauderdale y hace la selección y edición a distancia: compartes la grabación original o el enlace en la nube, y Esteban identifica momentos útiles, agrega subtítulos y entrega cortes 4:5, 1:1 o verticales 9:16. La edición remota parte desde ${esStarterFrom} por video con el paquete Arranque; los flujos semanales y los lotes de varios clips se cotizan por proyecto. Para equipos que publican liderazgo de pensamiento de forma recurrente, el alcance se define antes de editar. La atención es en español primero, con inglés intermedio disponible para equipos remotos.`,
+     keyword: "edición de clips para webinars",
+     location: "Miami-Dade / Broward",
+     availability: "confirmed",
+@@ -6230,6 +6238,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
+     lead:
+       "Si buscas un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
++    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Envía los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
+     keyword: "editor de reels Fort Lauderdale",
+     location: "Fort Lauderdale / Broward County",
+     availability: "confirmed",
