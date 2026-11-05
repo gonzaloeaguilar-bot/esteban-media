@@ -60,6 +60,7 @@ export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   "/es/calculadora-de-ritmo-de-video": [ES.reelsCosto, ES.precios, ES.reelsMiami, ES.podcast],
   "/es/video-para-restaurantes-miami": [ES.estudio, ES.restaurantes, ES.comida, ES.reelsMiami, ES.precios],
   "/services/restaurant-promo-video-editing-miami": [EN.study, EN.reelsMiami, EN.reelsCost, EN.pricing],
+  "/es/edicion-de-video-promocional-para-restaurantes-miami": [ES.estudio, ES.reelsMiami, ES.comida, ES.precios],
   "/es/editor-de-video-corto-para-redes-miami": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
 };
 
