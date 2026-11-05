@@ -928,3 +928,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Internal links land from EN/ES pricing hubs and EN/ES Fort Lauderdale Reels pages. The sitemap / Search Console fixed watch set and inventory freeze now record the bilingual addition: 575 URLs, hash `9d4736a84c2c16fcc22cab9e390adf6935bff450dc47c2c2a579833963a9472a`.
 - Local evidence: `pnpm lastmod:update`, `pnpm typecheck`, `npm test` (full suite), `python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .` (PASS), `pnpm rail-adoption:check` (3/3), `pnpm build` (compiled and emitted both static HTML files), and `git diff --check` all passed. Raw built EN/ES HTML contains `reels_price_index_market`, both ZipIn rows, FAQPage, date line, and nofollow/noopener links.
 - Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` performs the governed exact-diff review; after an authorized release, verify both canonical production routes and run the scheduled comparable GSC/citation read. This worktree is confined by dispatch policy, so the required Obsidian/registry write-back remains for the top-level coordinator.
+
+# 2026-11-04 — Spanish contact internal-link candidate (local only)
+
+- Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
+- `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
+- Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.

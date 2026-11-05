@@ -215,6 +215,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Release ESTEBAN-03 Pembroke Pines EN/ES pages; both production URLs returned 200 with reciprocal language links on 2026-10-11.
 - [ ] Compare settled GSC query/page and qualified inquiries for the Pembroke Pines pair before claiming a search outcome.
 
+- [x] Add three contextual internal links from `/about`, `/contact`, and `/areas` to `/es/contacto`; refresh the generated lastmod ledger and pass typecheck/test. Local candidate only: independent review and production verification remain.
+
 ## P1 — Product and measurement
 
 - [x] Add distinct 100–180-word Spanish answer-first openers to the eight existing niche-page twins and place the Esteban + Fort Lauderdale + Instagram Reels sentence in both Reels bodies (local commit pending independent review and release).

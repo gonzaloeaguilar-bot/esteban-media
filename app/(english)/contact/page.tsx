@@ -58,7 +58,7 @@ export default function ContactPage() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contact</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Tell Esteban about your video.</h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">Send a short message with what you need, when you need it, and whether you already have footage.</p>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6066]">Spanish-first: write in Spanish whenever you like, Esteban answers in Spanish. English works too.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6066]">Spanish-first: write in Spanish whenever you like, Esteban answers in Spanish. English works too. Prefer the Spanish page? Use <Link href="/es/contacto" className="underline underline-offset-4 hover:text-[#9f3c27]">contacto en español</Link> to send your project details.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <a href={whatsappHref(site.phone.e164, "Hi Esteban, I saw your site and want to discuss a video project.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Message on WhatsApp</a>
             <a href={`mailto:${site.email}`} data-cta="contact_email" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Email Esteban</a>
