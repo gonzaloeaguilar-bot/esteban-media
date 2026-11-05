@@ -69,7 +69,12 @@ export default function AboutPage() {
                 businesses and creators across South Florida, plans the
                 content around them, and films on location when a project
                 needs it. Most work is remote and personal: you talk to the
-                person who edits your video.
+                person who edits your video. If you would rather describe the
+                project in Spanish, use the{" "}
+                <Link href="/es/contacto" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                  contacto en español
+                </Link>{" "}
+                page to send Esteban the brief.
               </p>
               <div className="mt-8 grid gap-3">
                 {principles.map((principle) => (

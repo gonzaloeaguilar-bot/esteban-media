@@ -293,7 +293,14 @@ export default function AreasPage() {
                     video, website, and inquiry services overview
                   </Link>{" "}
                   brings those options together before the project details are
-                  sent. When the content plan is still being defined, Spanish-first
+                  sent. When the details are ready, Spanish-first clients can use{" "}
+                  <Link
+                    href="/es/contacto"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    contacto en español
+                  </Link>{" "}
+                  to send the brief. When the content plan is still being defined, Spanish-first
                   clients can begin with the{" "}
                   <Link
                     href="/es/evaluacion"
