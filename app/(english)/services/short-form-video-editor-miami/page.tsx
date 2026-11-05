@@ -25,8 +25,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Short Form Video Editor Miami | Reels, TikTok & YouTube Shorts",
-  description: `Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for influencers, creators and businesses in Miami and Fort Lauderdale. Editor de video / Reels en español. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Miami Short-Form Video Editor | Turn Raw Clips into Reels",
+  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami and Fort Lauderdale. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -80,10 +80,18 @@ export default function ShortFormVideoEditorPage() {
                 Reels / Shorts / TikTok
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Short-Form Video Editing for Reels & TikTok.
+                Miami Short-Form Video Editor for Reels, TikToks & Shorts.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                High-retention 9:16 vertical editing with bold captions, visual hooks, and sound design to keep audiences watching.
+                Send your raw vertical clips and the platform you plan to use; Esteban Moreno Media turns them into clear Reels, TikToks, and YouTube Shorts for creators and businesses in Miami. Editing is remote when your footage is ready to use—use the{" "}
+                <Link href="/guides/remote-video-editing-handoff" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  remote editing handoff guide
+                </Link>{" "}
+                to prepare it—or scope{" "}
+                <Link href="/services/video-production-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  local video production
+                </Link>{" "}
+                separately when the footage still needs to be filmed.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
