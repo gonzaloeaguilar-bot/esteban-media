@@ -354,6 +354,11 @@ export const SHORT_FORM_DEPTH: Depth = {
       answer:
         "It is remote when the useful footage already exists or can be captured by your team on a phone, camera, screen recording, or creator setup. Local production becomes relevant when the idea depends on camera direction, lighting, location access, or a specific shot list that cannot be captured casually. Many businesses start remote because it proves the content angle before a larger production day is planned.",
     },
+    {
+      question: "Do I need a short-form video editor or a videographer?",
+      answer:
+        "Choose an editor when you already have usable clips and need them shaped into a finished Reel, TikTok, or Short. Choose a videographer when the footage does not exist yet or the project needs on-location camera direction, lighting, audio, or a planned shot list. If the project needs both, the written quote should name the filming work and the finished edits separately so the scope is clear.",
+    },
   ],
   relatedHeading: "Related services for social video output.",
   related: [

@@ -81,6 +81,10 @@
 
 # Esteban Moreno Media — Backlog
 
+## 2026-11-05 — Demand wave: Miami Reels intent consolidation
+
+- [ ] `cto-qa-lead`: review PR #728's Spanish restaurant-to-general-Reels link, then after an authorized merge verify the served canonical HTML and compare the next settled GSC query-page split for `editor de reels miami`. No ranking, click, or inquiry result is assumed.
+
 - [x] 2026-10-28: build deterministic draft-only GEO execution selector, source-bound brief contract, focused coverage, and a `fleet-slot.sh` launchd template. Local validation passed; it is not installed or production-active. Independent review and governed fleet installation remain required.
 
 - [ ] 2026-10-28: merge and production-verify homepage reel player repair in PR #591. The visible Great Reviewer card must mount the one muted looping YouTube player at phone width, show no simulated scrubber or second orange play control, and preserve the card’s details action. Record the canonical production URL and 390px rendered result before closing.
