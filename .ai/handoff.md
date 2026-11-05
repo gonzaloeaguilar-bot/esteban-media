@@ -1,3 +1,10 @@
+## 2026-11-05 — Demand wave: consolidate Miami Reels intent (PR #728, open; not production)
+
+- Fresh authenticated Search Console live API, 2026-10-06 through 2026-11-02: `editor de reels miami` earned 8 impressions split across `/services/short-form-video-editor-miami` (6, position 11.5), `/es/editor-de-reels-fort-lauderdale` (1, position 10), and `/services/restaurant-promo-video-editing-miami` (1, position 9).
+- The dedicated Spanish Miami Reels destination already exists. The English restaurant page already linked its matching general Reels page; the Spanish restaurant page now adds the matching server-rendered route to `/es/editor-de-reels-miami`, separating general Reels work from restaurant-specific promotion without adding a URL or a claim.
+- Commit `92160ac4`; PR #728. Local validation: lint (0 errors, 23 existing warnings), typecheck, full test suite (200 files, 3,832 tests), rail adoption, lastmod update, and diff check. Not merged, deployed, visually reviewed, or measured.
+- Next: `cto-qa-lead` reviews PR #728. If merged by the authorized path, verify the Spanish restaurant page's raw canonical HTML contains the new link, then compare the exact GSC query-page split in a later settled window. No ranking, click, or inquiry effect is claimed before that read.
+
 ## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity (feat/demand-wave-best-caption-styles-depth)
 
 - Resolved EN/ES parity gap on top demand guide `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in fresh 28-day review-2026-11-04):
