@@ -1,0 +1,6 @@
+Review the price-index PR of gonzaloeaguilar-bot/esteban-media (diff in .ai/pr-pi.diff, branch feat/reels-editing-price-index) as the SKEPTIC and TASTE reviewer. Context: new EN+ES guide pair with a 21-row competitor price table from .ai/price-index-sources.md and Esteban's ladder from lib/pricing.ts.
+Report in this exact structure, no prose outside it:
+SKEPTIC: ok|fail — one line each: (a) every competitor price in the rendered table matches .ai/price-index-sources.md row for row, with source URL and date, and the two ZipIn rows are flagged as conflicting; (b) every Esteban number comes from lib/pricing.ts constants/helpers, no literals in body copy; (c) no "best/cheapest" claim about Esteban, no aggregateRating, no drone claims; (d) hreflang pair reciprocal and both routes render; (e) FAQ JSON-LD questions equal the visible questions.
+TASTE: ok|fail — one line each: (a) first screen answers the cost question in one sentence with a number; (b) sections 100-180 words under question headings, depth in native details; (c) Spanish reads natural; (d) table readable at phone width (no horizontal overflow risk beyond a scroll container).
+DEBT: one line.
+FINDINGS: bullet list with file:line, or "none".

@@ -1,0 +1,742 @@
+diff --git a/.ai/handoff.md b/.ai/handoff.md
+index f758ac31..01e0e1fe 100644
+--- a/.ai/handoff.md
++++ b/.ai/handoff.md
+@@ -920,3 +920,11 @@ Configuration-gated conversion-observability implementation is present locally,
+ - The page already links to the relevant customer-testimonial guide, business-video service, interview-editing service, and pricing path through its server-rendered deep-dive sections. The generated page-lastmod ledger now records `2026-11-04` for this route.
+ - Local evidence: `pnpm lastmod:update` (1 ledger entry refreshed), `npm run typecheck --silent`, and `npm test` all exited 0; `pnpm lint` completed with 0 errors and 23 pre-existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` exited 0; `git diff --check` passed.
+ - Not committed, independently reviewed, deployed, or measured in Search Console. Next: `cto-qa-lead` reviews the exact local diff; after an authorized release, verify the canonical route's raw HTML and live render, then compare GSC impressions/clicks after a suitable observation window.
++
++# 2026-11-04 — South Florida Reels editing price-index guide candidate (local only)
++
++- Added the reciprocal guide pair: `/guides/reels-video-editing-prices-south-florida` and `/es/guias/precios-edicion-de-reels-y-video-sur-de-florida`. Both use the established guide route, reciprocal hreflang, FAQPage schema, native `<details>`, and visible `2026-11-03` source dates.
++- `lib/reels-price-index.ts` holds all 21 rows from `.ai/price-index-sources.md`. Every row renders provider, service, price, unit, tier, outbound `rel="nofollow noopener"` source link, and check date. The conflicting ZipIn rows and no-public-price rows remain. The Esteban ladder is computed from `lib/pricing.ts` constants, never copied into page copy.
++- Internal links land from EN/ES pricing hubs and EN/ES Fort Lauderdale Reels pages. The sitemap / Search Console fixed watch set and inventory freeze now record the bilingual addition: 575 URLs, hash `9d4736a84c2c16fcc22cab9e390adf6935bff450dc47c2c2a579833963a9472a`.
++- Local evidence: `pnpm lastmod:update`, `pnpm typecheck`, `npm test` (full suite), `python3 /Users/gonzalo/.claude/durable/analytics-gate.py --repo .` (PASS), `pnpm rail-adoption:check` (3/3), `pnpm build` (compiled and emitted both static HTML files), and `git diff --check` all passed. Raw built EN/ES HTML contains `reels_price_index_market`, both ZipIn rows, FAQPage, date line, and nofollow/noopener links.
++- Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` performs the governed exact-diff review; after an authorized release, verify both canonical production routes and run the scheduled comparable GSC/citation read. This worktree is confined by dispatch policy, so the required Obsidian/registry write-back remains for the top-level coordinator.
+diff --git a/.ai/price-index-sources.md b/.ai/price-index-sources.md
+new file mode 100644
+index 00000000..34a23826
+--- /dev/null
++++ b/.ai/price-index-sources.md
+@@ -0,0 +1,64 @@
++# South Florida Reels and short-form video editing price index: source table
++
++Re-fetched 2026-11-03 (run date; every number below was fetched this session, none carried from the lost run). Fetch method: curl_cffi, impersonate chrome, with safari / chrome124 fallbacks. Esteban's own ladder is from `~/code/esteban-media/lib/pricing.ts` (line numbers in section 3).
++
++Labels: VERIFIED = price printed on the provider's own page. UNVERIFIED = marketplace / directory / third-party page. Location column says whether the provider is South Florida based or remote. Only prices that were on the fetched page are listed; anything not found is marked.
++
++## 1. Providers (rows added in blocks of 5)
++
++| # | Provider | Location | Service | Price as stated | Unit | Source URL | Fetched | Label |
++|---|---|---|---|---|---|---|---|---|
++| 1 | Mark Studios | Palm Beach County FL (own page) | Monthly plan, Starter: 1 long video + 4 Shorts + 2 thumbnails | $750 | per month | https://www.markstudios.com/pricing | 2026-11-03 | VERIFIED |
++| 2 | Mark Studios | same | Monthly plans Growth / Scale / Unlimited | $2,000 (4 YouTube + 8 Shorts) / $2,700 (4 long + 24 Shorts) / $3,500 (unlimited requests) | per month | https://www.markstudios.com/pricing | 2026-11-03 | VERIFIED |
++| 3 | Robbie (Robert) Santana | Miami / remote | Per-project edit, Starter: up to 60 s social edit, captions EN or ES, 1 revision | $300 | per project | https://robbiesantana.com/ | 2026-11-03 | VERIFIED |
++| 4 | Robbie Santana | Miami / remote | Professional: corporate/commercial edit up to 3 min, grading, 2 revisions | $800 | per project | https://robbiesantana.com/ | 2026-11-03 | VERIFIED |
++| 5 | Inside Editors | Remote (US office Cambridge MA; not South Florida) | Vertical short-form edit, up to 2 min | $20 single; $16 (5+ videos); $14 (10+ per week) | per video | https://insideeditors.com/video-editing-pricing/ | 2026-11-03 | VERIFIED |
++| 6 | Inside Editors | Remote | Short-form / social subscription tiers (page lists $200 / $500 / $1,000 per month by channel size, up to 30 / 60 / 60+ videos per month; social management $1,000 and $5,000 per month). "$200 per month" entry is the YouTube channel-management tier, not a Reels edit plan | $200 entry | per month | https://insideeditors.com/video-editing-pricing/ | 2026-11-03 | VERIFIED |
++| 7 | Increditors | Remote (offices US/UK/UAE) | Reels / short-form monthly package "Reels Pricing" | From $2.5K | per month | https://increditors.com/ | 2026-11-03 | VERIFIED (the "12 reels" count from the lost run was NOT found on the page: UNKNOWN) |
++| 8 | ZipIn Media | Plantation, serves Miami / Fort Lauderdale / Boca Raton | Production package, up to 1 min, 2 h production, single camera, interview style | $2,200 | per package | https://zipinmedia.com/ | 2026-11-03 | VERIFIED |
++| 9 | ZipIn Media | same | Same page, FAQ "starting rates": $1,800 for a 45 s video incl. 2 h production (conflicts with the $2,200 / 1 min card on the same page). Also $3,400 (2 min, 4 h) and $4,600 (3 min, 6 h) | $1,800 FAQ vs $2,200 card | per package | https://zipinmedia.com/ | 2026-11-03 | VERIFIED (internal conflict) |
++| 10 | ZipIn Media | same | Hourly corporate videographer guide: solo $75-$250/h, small crew $200-$450/h, half day from about $600, full day $1,200-$3,500 | $75-$450 | per hour | https://zipinmedia.com/corporate-videography-how-much-per-hour/ | 2026-11-03 | VERIFIED (provider's own guide, a generic range not a price list) |
++| 11 | FLF Corporate | Miami page on a France-based studio (Nantes/Paris pages exist) | Monthly creative and growth retainer (recurring video cuts, SEO/GEO pages, ads) | From $990 | per month | https://flfcorporate.com/en/corporate-video-production-miami/ | 2026-11-03 | VERIFIED |
++| 12 | FLF Corporate | same | Production sprint (Miami, 5-8 business days) / flagship film (1-2 shoot days) | From $2,000 / $5,000-$15,000 | per project | https://flfcorporate.com/en/corporate-video-production-miami/ | 2026-11-03 | VERIFIED |
++| 13 | Ball Media Innovations | Miami and Orlando | Corporate video from $1,200; editing services from $250; real estate video from $750; interviews from $750 | $1,200 / $250 / $750 | from, per project | https://www.ballmediainnovations.com/our-pricing/ | 2026-11-03 | VERIFIED |
++| 14 | Bono Motion | Miami | Typical professional video project (FAQ) | $3,500-$15,000+ | per project | https://bonomotion.com/ | 2026-11-03 | VERIFIED (its /video-production-pricing/ page carries no number, only "custom pricing") |
++| 15 | Shorts Creation | Miami (786 number; films local Miami clients) | Done-for-you short-form: Tier 1 = 15 videos/month, Tier 2 = 30/month, Tier 3 = 30+ | no price published on page | per month | https://shortscreation.com/ | 2026-11-03 | NO PUBLIC PRICE (no /pricing page; 404) |
++| 16 | Opticvault Marketing | Miami | Contractor marketing retainer, not a video-editing price. Only retainer figure is a case-study example ($1,650/month); fees are quoted in writing within 24 h | no editing price | n/a | https://opticvaultmarketing.com/pricing/ | 2026-11-03 | NO PUBLIC PRICE for video editing (not comparable; excluded from the summary) |
++| 17 | Upwork (marketplace) | Directory, not Miami-specific (Miami and "reels editors" URLs returned 404/403 on all four impersonations tried; the US short-form category page loaded on chrome) | Short-form video editor: "about $75 for a simple single-video edit to $3,000+ per month for batch production"; hourly $10-$60. Sample profiles on page: $10, $15, $15, $30/h (Truckee CA, Pakistan, Vietnam) | $75 single edit; $10-$60/h | per video / per hour | https://www.upwork.com/hire/short-form-video-editors/ | 2026-11-03 | UNVERIFIED (marketplace editorial, no South Florida filter) |
++| 18 | Fiverr (marketplace) | Directory, global | "instagram reels editor" search, gig starting prices: From $15, $35, $60, $100 (agencies). Category page: from $10 / 3 min, $15 / 2 min, $50 / 1 min | $10-$100 starting | per gig / per minute | https://www.fiverr.com/search/gigs?query=instagram%20reels%20editor | 2026-11-03 | UNVERIFIED (marketplace listing, no Miami filter) |
++| 19 | Thumbtack (directory) | Miami and Fort Lauderdale videographer pages (loaded on safari) | No Reels edit price. Only national averages: event videography $500-$760, wedding videography $990-$1,260 | n/a | per event | https://www.thumbtack.com/fl/miami/videographers | 2026-11-03 | UNVERIFIED; NO PUBLIC REELS PRICE (video-editing URLs returned 404) |
++| 20 | Opus Clip (software) | n/a | AI clipping: Starter $15, Pro $29 per month billed monthly ($14.50 on yearly billing), Free $0 | $15 / $29 | per month | https://www.opus.pro/pricing | 2026-11-03 | VERIFIED |
++| 21 | Kapwing (software) | n/a | Pro $16 per month, Business $50 per month (shown on the default/annual toggle with "Save 33%"; monthly price not read), Free $0 | $16 / $50 | per month | https://www.kapwing.com/pricing | 2026-11-03 | VERIFIED |
++
++Retrieval notes: Upwork and Fiverr did NOT return 403 here; safari/chrome impersonation returned HTTP 200 on category pages, but neither exposes a Miami-filtered public range (Upwork's Miami URLs: 404 / 403). Inside Editors and Increditors have no /pricing page (404); prices are on the home / video-editing-pricing pages. Opticvault is a contractor ad agency and publishes no video-editing price.
++
++## 2. Not re-verified / dropped from the lost run
++- Increditors "12 reels for $2,500": only "From $2.5K/month" re-fetched. The 12-reel count is UNKNOWN.
++- Mark Studios Fiverr price: the Fiverr search card for Mark Studios was cut off; not recorded.
++- Kapwing monthly (non-annual) price: not read.
++
++## 3. Esteban's own ladder (`/Users/gonzalo/code/esteban-media/lib/pricing.ts`)
++| Item | Value | Lines |
++|---|---|---|
++| PACKAGE_PRICES arranque (one video edit) | from $100 per video | 126-127 |
++| PACKAGE_PRICES crecimiento | from $950 per month | 128 |
++| PACKAGE_PRICES presencia-local | from $1,600 per month | 129 |
++| PACKAGE_PRICES todo-incluido | custom | 130 |
++| ARRANQUE_WEEKLY_OPTIONS | $85/wk (1 video), $160/wk (2), $240/wk (3) = $85 / $80 / $80 per video; 4-week minimum, 48-72 h delivery, max 90 s video | 219-223, terms 225-233 |
++| SHORT_FORM market context | $100-500 per short-form video (his own stated comparable) | 257-264 |
++| PRICING_BANDS youtube | $450-850 | 38-45 |
++| PRICING_BANDS corporate | $725-1,450 | 46-53 |
++| PRICING_BANDS realestate | $575-1,075 | 54-61 |
++| PRICING_BANDS ecommerce | $400-775 | 62-69 |
++| PRICING_BANDS on-location (half day) | $400-775 | 71-78 |
++| REAL_ESTATE_PLANS | essential $750 (1 property, 2 prod days, 2 posts/wk), plus $1,250 (2, 3 days, 3-4/wk), premium $1,950 (3, 3 days, 5/wk), 3-month minimum | 154-158, terms 172-177 |
++| Real estate per-minute listing video / photo tiers | $200 per minute; photos $199-$499 | 164-170 |
++
++Caveat: the file's header notes say the market comparables ("$100-500 per short-form video") are Esteban's own cited bands per docs/pricing-basis.md, which was not re-read here; treat that range as his claim, not a source.
++
++## 4. Where Esteban sits (fetched numbers only; per-provider prices are on different scopes, so these are positions, not like-for-like)
++1. Per-video Reels edit: Esteban $100 once, $80-85 on a weekly plan. Below Robbie Santana ($300 / 60 s) and Upwork's "about $75" single edit is the only listed figure under his one-off price; Fiverr starts $15-$100 and Inside Editors $14-$20 (remote, 2-min cap) sit well below him.
++2. Monthly short-form: Esteban from $950 (Crecimiento; contents not re-read) vs Mark Studios $750 (1 long + 4 Shorts), FLF $990, Increditors from $2,500, Mark Studios Growth $2,000: he sits mid-low among South Florida / US monthly plans, above Mark Starter, below Increditors.
++3. Premium tier: Presencia Local from $1,600/month and real estate Premium $1,950 are under FLF projects ($2,000-$15,000), ZipIn ($2,200+), Ball ($1,200+ video), Bono ($3,500-$15,000+).
++4. Cheapest in the local (Miami / Broward) set for a one-off edit: $100 vs Robbie $300; no local competitor publishes a per-video price below $100 except marketplaces.
++5. Gaps: Shorts Creation and Opticvault publish no price; Upwork/Fiverr/Thumbtack have no Miami-filtered range, so the local median cannot be computed. No claim is made about how price affects ranking or lead volume.
+diff --git a/.ai/spec-price-index.md b/.ai/spec-price-index.md
+new file mode 100644
+index 00000000..a150ac40
+--- /dev/null
++++ b/.ai/spec-price-index.md
+@@ -0,0 +1,15 @@
++# Spec: "South Florida Reels and short-form video editing price index" guide, EN + ES (move 5)
++
++Why: AI engines cite the page that holds the number. On 2026-11-03 both Perplexity Sonar and GPT-4o-mini:online cited estebanmorenomedia.com on "How much does a Reels editor cost in South Florida?", but no page compares published market prices with a dated source per row. The competitor table is in .ai/price-index-sources.md (21 rows, each with source URL, fetch date 2026-11-03, and VERIFIED/UNVERIFIED tier). Esteban's own ladder must come only from lib/pricing.ts (PACKAGE_PRICES, SHORT_FORM, ARRANQUE_WEEKLY_OPTIONS, PRICING_BANDS, REAL_ESTATE_PLANS) via the existing helpers, never hardcoded.
++
++Build, following the existing guides pattern (lib/guides.ts entries + the [slug] guide route, hreflang pairs, buildGuideStructuredData, RailFaq native <details>):
++1. English guide at /guides/reels-video-editing-prices-south-florida and Spanish twin at /es/guias/precios-edicion-de-reels-y-video-sur-de-florida (same PR, reciprocal hreflang, declared the way existing EN/ES guide pairs are).
++2. Answer-first opening (first screen, one sentence with a number): what a Reels edit costs in South Florida today, from the table's lowest verified local price to the highest, and where Esteban's $100 sits. No "best" or "cheapest" claims about Esteban; positions only.
++3. A table with ALL rows from .ai/price-index-sources.md: provider, service, price, unit, tier (VERIFIED on the provider's page / UNVERIFIED marketplace or directory), source link (rel="nofollow noopener"), checked date. Keep the two conflicting ZipIn rows and say they conflict. "No public price" rows stay as rows that say so.
++4. Esteban's ladder as its own small table rendered from lib/pricing.ts constants (per-video, weekly options, Crecimiento, Presencia Local, real-estate plans, on-location band minimum) using the existing helpers (usd(), SHORT_FORM.weekly).
++5. Sections of 100-180 words under question headings: "What drives the price of a Reels edit?", "Per video vs weekly vs monthly: which is cheaper?", "What is included at $100?", "When does on-location filming make sense?", "How often is this page updated?" (monthly; visible updated date and per-row fetch date). Depth in native <details>. 4-6 FAQs in FAQPage JSON-LD matching visible text.
++6. Visible "Updated 2026-11-03" line; run pnpm lastmod:update; link the EN page from /pricing and from the reels-editor-fort-lauderdale related-links block if one exists; the ES page from the ES pricing/reels pages.
++7. Tests: both pages render; every table row has a source URL and a date; the Esteban ladder values equal the pricing.ts constants; FAQ JSON-LD matches visible questions. No aggregateRating. No drone claims. No price literals in body copy except inside the sources table.
++
++Acceptance: pnpm typecheck && npm test && python3 $HOME/.claude/durable/analytics-gate.py --repo . && pnpm rail-adoption:check
++Commit as: feat(geo): South Florida Reels editing price index guide, EN + ES
+diff --git a/app/(english)/pricing/page.tsx b/app/(english)/pricing/page.tsx
+index 65477a29..7756621f 100644
+--- a/app/(english)/pricing/page.tsx
++++ b/app/(english)/pricing/page.tsx
+@@ -107,6 +107,10 @@ export default function PricingPage() {
+             <Link href="/services" className="underline hover:text-[#9f3c27]">
+               every service
+             </Link>
++            , compare the{" "}
++            <Link href="/guides/reels-video-editing-prices-south-florida" className="underline hover:text-[#9f3c27]">
++              South Florida Reels editing price index
++            </Link>
+             , or review the{" "}
+             <Link
+               href="/services/white-label-video-editing-for-agencies"
+diff --git a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+index 7ae46cd2..fd6df14a 100644
+--- a/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
++++ b/app/(english)/services/reels-editor-fort-lauderdale/page.tsx
+@@ -129,6 +129,11 @@ const content: GeoServicePageContent = {
+       detail: "Prepare original clips, the message, references, and the first publishing channel before requesting an edit.",
+       href: "/resources/remote-editing-handoff-checklist",
+     },
++    {
++      title: "South Florida Reels editing price index",
++      detail: "Compare dated published prices by provider, marketplace, and software before requesting a scoped quote.",
++      href: "/guides/reels-video-editing-prices-south-florida",
++    },
+     {
+       title: "Reels and video in Hollywood, FL",
+       detail: "Remote Reels editing for Hollywood businesses, between Fort Lauderdale and Miami.",
+diff --git a/app/(spanish)/es/precios/page.tsx b/app/(spanish)/es/precios/page.tsx
+index c3d7cfca..3d0ee1f0 100644
+--- a/app/(spanish)/es/precios/page.tsx
++++ b/app/(spanish)/es/precios/page.tsx
+@@ -115,6 +115,10 @@ export default function SpanishPricingPage() {
+             <Link href="/es/servicios" className="underline hover:text-[#9f3c27]">
+               todos los servicios
+             </Link>
++            , compara el{" "}
++            <Link href="/es/guias/precios-edicion-de-reels-y-video-sur-de-florida" className="underline hover:text-[#9f3c27]">
++              índice de precios de edición de Reels en South Florida
++            </Link>
+             .
+           </p>
+         </Container>
+diff --git a/app/__tests__/cohort-consolidation.test.ts b/app/__tests__/cohort-consolidation.test.ts
+index 995cb19b..86deb931 100644
+--- a/app/__tests__/cohort-consolidation.test.ts
++++ b/app/__tests__/cohort-consolidation.test.ts
+@@ -163,7 +163,7 @@ describe("consolidation arithmetic matches the published baseline", () => {
+     // Reviewer website portfolio and case-study routes (2026-10-24).
+     // +1 = demand-backed Miami corporate-video destination (2026-10-27).
+     // +4 = bilingual personal-creative-advisor and quote-preparation guides (2026-10-28).
+-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4);
++    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2);
+   });
+ 
+   it("never lists a redirect source in the sitemap", () => {
+diff --git a/app/__tests__/guides-routes.test.ts b/app/__tests__/guides-routes.test.ts
+index d2284c5d..4ae7f8f2 100644
+--- a/app/__tests__/guides-routes.test.ts
++++ b/app/__tests__/guides-routes.test.ts
+@@ -15,18 +15,20 @@ import { readFileSync } from "node:fs";
+ import { join } from "node:path";
+ 
+ describe("guide routes", () => {
+-  it("pre-renders 49 localized detail routes in each language", async () => {
++  it("pre-renders 50 localized detail routes in each language", async () => {
+     const enParams = await generateEnglishParams();
+     const esParams = await generateSpanishParams();
+ 
+-    expect(enParams).toHaveLength(49);
+-    expect(esParams).toHaveLength(49);
++    expect(enParams).toHaveLength(50);
++    expect(esParams).toHaveLength(50);
+     expect(enParams.map(({ slug }) => slug)).toContain("video-production-cost-fort-lauderdale");
+     expect(esParams.map(({ slug }) => slug)).toContain("cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
+     expect(enParams.map(({ slug }) => slug)).toContain("video-production-rfp-template-miami");
+     expect(esParams.map(({ slug }) => slug)).toContain("plantilla-brief-rfp-produccion-video-miami");
+     expect(enParams.map(({ slug }) => slug)).toContain("do-i-need-video-social-media-or-a-website-for-my-small-business");
+     expect(esParams.map(({ slug }) => slug)).toContain("que-enviar-a-un-videografo-antes-de-pedir-cotizacion");
++    expect(enParams.map(({ slug }) => slug)).toContain("reels-video-editing-prices-south-florida");
++    expect(esParams.map(({ slug }) => slug)).toContain("precios-edicion-de-reels-y-video-sur-de-florida");
+   });
+ 
+   it("keeps the RFP template localized, answer-first, and bounded to buyer questions", async () => {
+diff --git a/app/__tests__/price-single-source.test.ts b/app/__tests__/price-single-source.test.ts
+index 66ff3069..0e400ebb 100644
+--- a/app/__tests__/price-single-source.test.ts
++++ b/app/__tests__/price-single-source.test.ts
+@@ -32,6 +32,7 @@ const SOURCE_DIRS = ["app", "lib", "components"];
+ const MARKET_FIGURES: Record<string, string[]> = {
+   "lib/guides.ts": ["$50", "$150", "$2,000", "$10,000", "$2,500", "$100", "$149"],
+   "lib/guide-comparisons.ts": ["$100", "$149", "$3.50", "$200", "$10,000"],
++  "lib/reels-price-index.ts": ["$750", "$2,000", "$2,700", "$3,500", "$300", "$800", "$20", "$16", "$14", "$200", "$500", "$1,000", "$2.5", "$2,200", "$1,800", "$75", "$450", "$990", "$5,000", "$1,200", "$250", "$3,500", "$15,000", "$10", "$60", "$100", "$15", "$29", "$50"],
+ };
+ 
+ function walk(dir: string, out: string[] = []): string[] {
+diff --git a/app/__tests__/reels-price-index-guide.test.ts b/app/__tests__/reels-price-index-guide.test.ts
+new file mode 100644
+index 00000000..bedf6116
+--- /dev/null
++++ b/app/__tests__/reels-price-index-guide.test.ts
+@@ -0,0 +1,41 @@
++import { describe, expect, it } from "vitest";
++
++import { buildGuideStructuredData, getGuideBySlug } from "@/lib/guides";
++import { estebanPriceRows, marketPriceRows, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
++import { ARRANQUE_WEEKLY_OPTIONS, PACKAGE_PRICES, PRICING_BANDS, REAL_ESTATE_PLANS, SHORT_FORM, arranqueWeeklyPerVideo, usd } from "@/lib/pricing";
++
++describe("Reels price index guide", () => {
++  const enSlug = "reels-video-editing-prices-south-florida";
++  const esSlug = "precios-edicion-de-reels-y-video-sur-de-florida";
++
++  it("renders the declared EN and ES guide pair with reciprocal FAQPage questions", () => {
++    const en = getGuideBySlug("en", enSlug);
++    const es = getGuideBySlug("es", esSlug);
++    expect(en?.priceIndex).toBe(true);
++    expect(es?.priceIndex).toBe(true);
++    expect(en?.faqs).toHaveLength(5);
++    expect(es?.faqs).toHaveLength(5);
++    for (const guide of [en, es]) {
++      const graph = buildGuideStructuredData(guide!) ["@graph"] as Array<{ "@type": string; mainEntity?: unknown[] }>;
++      expect(graph.find((node) => node["@type"] === "FAQPage")?.mainEntity).toHaveLength(5);
++    }
++  });
++
++  it("keeps every sourced market row linkable and dated", () => {
++    expect(marketPriceRows).toHaveLength(21);
++    for (const row of marketPriceRows) {
++      expect(row.href).toMatch(/^https:\/\//);
++      expect(row.checkedOn).toBe(REELS_PRICE_INDEX_CHECKED_ON);
++      expect(row.price.length).toBeGreaterThan(0);
++    }
++  });
++
++  it("derives Esteban's ladder from pricing constants", () => {
++    const rows = estebanPriceRows("en");
++    expect(rows.map((row) => row.price)).toContain(`From ${usd(SHORT_FORM.perVideoFrom)}`);
++    expect(rows.map((row) => row.price)).toContain(`From ${usd(PACKAGE_PRICES.crecimiento.kind === "from" ? PACKAGE_PRICES.crecimiento.amount : 0)}`);
++    for (const option of ARRANQUE_WEEKLY_OPTIONS) expect(rows.map((row) => row.price)).toContain(`${usd(option.pricePerWeek)} (${usd(arranqueWeeklyPerVideo(option))} per video)`);
++    for (const plan of REAL_ESTATE_PLANS) expect(rows.map((row) => row.price)).toContain(usd(plan.price));
++    expect(rows.map((row) => row.price)).toContain(usd(PRICING_BANDS["on-location"].baseMin));
++  });
++});
+diff --git a/app/__tests__/sitemap.test.ts b/app/__tests__/sitemap.test.ts
+index da7c09fd..2c797177 100644
+--- a/app/__tests__/sitemap.test.ts
++++ b/app/__tests__/sitemap.test.ts
+@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
+ describe("portfolio sitemap entries", () => {
+   const entries = sitemap();
+ 
+-  it("publishes the exact 573-URL consolidated inventory, each URL once", () => {
++  it("publishes the exact 575-URL consolidated inventory, each URL once", () => {
+     const urls = entries.map((entry) => entry.url);
+ 
+     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
+@@ -63,8 +63,8 @@ describe("portfolio sitemap entries", () => {
+     // +20 = wave 5 high-value demand-backed niches (2026-10-18): med spa, contractor florida, quinceanera, podcast multicam, personal injury, private school, exotic car, car dealership, boat show exhibitor, art basel.
+     // +20 = wave 6 high-value demand-backed niches (2026-10-19): private aviation, equestrian polo, yacht refit boatyard, country club golf, luxury pool builder, regenerative medicine, b2b case study, interior design millwork, estate planning attorney, boutique hotel resort.
+     // +40 = waves 7 and 8 high-value demand-backed niches (2026-10-19): multicam panel, corporate town hall, executive retreat keys, brand activation, pre-construction sales gallery, commercial office leasing, cosmetic dentistry veneers, concierge doctor, bar bat mitzvah, destination wedding palm beach, online course production, vsl direct response, monthly repurposing retainer, b2b saas explainer, executive linkedin series, youtube long-form editing, product unboxing demo, airbnb luxe vacation rental, waterfront restaurant, marina facility.
+-    expect(entries).toHaveLength(573);
+-    expect(new Set(urls)).toHaveLength(573);
++    expect(entries).toHaveLength(575);
++    expect(new Set(urls)).toHaveLength(575);
+   });
+ 
+   it("pairs real product photography pages with reciprocal language alternatives", () => {
+diff --git a/backlog.md b/backlog.md
+index efc7d389..05ff49fc 100644
+--- a/backlog.md
++++ b/backlog.md
+@@ -230,6 +230,7 @@ Production is live. This file tracks repository implementation; account/access w
+ - [x] Add route metadata, sitemap, portfolio schema, and data tests
+ - [x] Run the live weekly search/index digest on 2026-08-12 and connect qualified-action evidence to the zero-token portfolio GA4 ingest
+ - [x] Add interactive bilingual daily video script timer & pacing calculator surface (`/daily-script-timer` and `/es/temporizador-de-guiones-de-video`)
++- [x] Build the EN/ES South Florida Reels editing price-index guides from the verified 2026-11-03 source table, with `pricing.ts`-derived Esteban ladder, sitemap/watch-set coverage, and local gates. Local candidate only; independent review and production verification remain.
+ 
+ ## P2 — Portfolio refinement
+ 
+diff --git a/components/guide-illustration.tsx b/components/guide-illustration.tsx
+index 3d55db3d..631cf8ba 100644
+--- a/components/guide-illustration.tsx
++++ b/components/guide-illustration.tsx
+@@ -50,7 +50,7 @@ const RULES: [Theme, RegExp][] = [
+   // a price. Every real pricing guide here says cost, precio, pricing, tarifa,
+   // budget or cuanto-cuesta, so the word buys nothing and costs two wrong
+   // drawings.
+-  ["price", /cost|cuanto-cuesta|precio|pricing|\btarifa\b|budget|presupuesto/],
++  ["price", /cost|cuanto-cuesta|precio|prices?|pricing|\btarifa\b|budget|presupuesto/],
+   ["files", /archivo|file|send|enviar|entrega|handoff|delivery|raw|formato|format|aspect|relacion-de-aspecto|pesado|large/],
+   ["audio", /audio|sonido|sound|mezcl|\bmix\b|voice|voz/],
+   // Strategy is tested BEFORE short-form: "how-to-script-social-video-ads" is a
+diff --git a/components/guide-pages.tsx b/components/guide-pages.tsx
+index 7520b0e1..e241dc3b 100644
+--- a/components/guide-pages.tsx
++++ b/components/guide-pages.tsx
+@@ -36,6 +36,8 @@ import { isConsolidatedPath } from "@/lib/consolidation";
+ import { restaurantIgStudyCopy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
+ import { withPageDate } from "@/lib/page-lastmod";
+ import { absoluteUrl } from "@/lib/site";
++import { estebanPriceRows, marketPriceRows, priceIndexAnswer, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
++import RailTable from "@/vendor/rail-kit/RailTable";
+ 
+ 
+ const RELATED_GUIDE_COUNT = 6;
+@@ -680,7 +682,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
+                 {guide.title}
+               </h1>
+               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
+-                <strong>{copy.answerLabel}</strong> {guide.answer}
++                <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
+               </p>
+               {guide.heroProof ? (
+                 <div className="mt-8 max-w-2xl">
+@@ -782,6 +784,8 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
+               </section>
+             ))}
+ 
++            {guide.priceIndex ? <ReelsPriceIndex locale={locale} /> : null}
++
+             {guide.faqs?.length ? (
+               <section id="faq" className="scroll-mt-24" aria-labelledby="faq-heading">
+                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.faqEyebrow}</p>
+@@ -944,3 +948,29 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
+     </main>
+   );
+ }
++
++function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
++  const es = locale === "es";
++  const label = es ? "Precios de Reels y edición de video corto consultados el 3 de noviembre de 2026" : "Reels and short-form editing prices checked November 3, 2026";
++  return (
++    <section id="price-index" data-section="reels_price_index" className="scroll-mt-24">
++      <h2 className="font-serif text-4xl leading-tight sm:text-5xl">{es ? "Tabla de precios publicados" : "Published price table"}</h2>
++      <p className="mt-4 text-base leading-8 text-[#252a2d] sm:text-lg">{es ? "Cada fila conserva el enlace consultado, su clasificación y la fecha de consulta. VERIFIED indica un precio en la página del proveedor; UNVERIFIED indica un marketplace o directorio. Las dos filas de ZipIn se mantienen porque la misma página publica cifras distintas." : "Every row keeps the checked link, its classification, and the date checked. VERIFIED means the provider page printed a price; UNVERIFIED means a marketplace or directory. Both ZipIn rows remain because the same provider page prints conflicting figures."}</p>
++      <div className="mt-6 overflow-x-auto">
++        <RailTable source="reels_price_index_market" label={label} nameLabel={es ? "Proveedor" : "Provider"} className="[--rail-table-cell-padding:10px_8px] [&_td]:align-top [&_td]:whitespace-nowrap [&_tbody_th]:align-top [&_thead_th]:whitespace-normal" columns={[
++          { id: "service", label: es ? "Servicio" : "Service" }, { id: "price", label: es ? "Precio" : "Price" }, { id: "unit", label: es ? "Unidad" : "Unit" }, { id: "tier", label: "Tier" }, { id: "source", label: es ? "Fuente" : "Source" }, { id: "checked", label: es ? "Consultado" : "Checked" },
++        ]} rows={marketPriceRows.map((row, index) => ({ id: `${row.provider}-${index}`, name: row.provider, cells: { service: row.service, price: row.price, unit: row.unit, tier: row.tier, source: <a href={row.href} rel="nofollow noopener" target="_blank" className="font-medium text-[#9f3c27] underline underline-offset-4">{es ? "Abrir fuente" : "Open source"}</a>, checked: <time dateTime={row.checkedOn}>{row.checkedOn}</time> } }))} />
++      </div>
++      <details className="mt-6 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
++        <summary className="cursor-pointer font-medium text-[#252a2d]">{es ? "Cómo leer esta comparación" : "How to read this comparison"}</summary>
++        <p className="mt-3 text-sm leading-7 text-[#3f4548]">{es ? "Los servicios tienen alcances distintos: una edición remota, un paquete mensual, software y producción con grabación no son equivalentes. La tabla sirve para ver lo que cada página publicó, no para calcular un promedio local ni prometer un precio." : "These services have different scopes: remote editing, monthly packages, software, and production with filming are not like-for-like. The table shows what each page published; it does not calculate a local average or promise a price."}</p>
++      </details>
++      <h2 className="mt-12 font-serif text-4xl leading-tight sm:text-5xl">{es ? "Escalera publicada de Esteban" : "Esteban’s published ladder"}</h2>
++      <p className="mt-4 text-base leading-8 text-[#252a2d] sm:text-lg">{es ? "Estas cifras se leen directamente de la lista de precios publicada de Esteban y una cotización escrita confirma el alcance final." : "These figures are read directly from Esteban’s published pricing constants; a written quote confirms the final scope."}</p>
++      <div className="mt-6 overflow-x-auto">
++        <RailTable source="reels_price_index_esteban" label={es ? "Precios publicados de Esteban" : "Esteban published prices"} nameLabel={es ? "Servicio" : "Service"} className="[--rail-table-cell-padding:10px_8px] [&_td]:whitespace-nowrap" columns={[{ id: "price", label: es ? "Precio" : "Price" }, { id: "unit", label: es ? "Unidad" : "Unit" }]} rows={estebanPriceRows(locale).map((row) => ({ id: row.item, name: row.item, cells: { price: row.price, unit: row.unit } }))} />
++      </div>
++      <p className="mt-4 text-xs text-[#5a6066]"><time dateTime={REELS_PRICE_INDEX_CHECKED_ON}>{es ? `Actualizado ${REELS_PRICE_INDEX_CHECKED_ON}` : `Updated ${REELS_PRICE_INDEX_CHECKED_ON}`}</time></p>
++    </section>
++  );
++}
+diff --git a/config/indexable-inventory-freeze.json b/config/indexable-inventory-freeze.json
+index 2232cc49..e55dcd46 100644
+--- a/config/indexable-inventory-freeze.json
++++ b/config/indexable-inventory-freeze.json
+@@ -2,8 +2,8 @@
+   "status": "demand_gated",
+   "effectiveDate": "2026-08-28",
+   "baselineRevisedOn": "2026-10-24",
+-  "approvedSitemapUrlCount": 573,
+-  "approvedSitemapUrlSetSha256": "41e7c4d869f383988e8f7de88bde7b8a025fcbe72557055fa6107d0d2c5a6c9c",
++  "approvedSitemapUrlCount": 575,
++  "approvedSitemapUrlSetSha256": "9d4736a84c2c16fcc22cab9e390adf6935bff450dc47c2c2a579833963a9472a",
+   "allowedNewIndexableUrls": 4,
+   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
+   "consolidationExecuted": {
+diff --git a/config/page-lastmod.json b/config/page-lastmod.json
+index ba02833f..8b3eae49 100644
+--- a/config/page-lastmod.json
++++ b/config/page-lastmod.json
+@@ -312,8 +312,8 @@
+   "hash": "60be7a8353dbee74"
+  },
+  "/es/editor-de-reels-fort-lauderdale": {
+-  "date": "2026-10-29",
+-  "hash": "b63ec45c80cd0805"
++  "date": "2026-11-04",
++  "hash": "db3040d291978fa7"
+  },
+  "/es/editor-de-reels-miami": {
+   "date": "2026-11-03",
+@@ -599,6 +599,10 @@
+   "date": "2026-10-14",
+   "hash": "4be8e6c2c6c3ad14"
+  },
++ "/es/guias/precios-edicion-de-reels-y-video-sur-de-florida": {
++  "date": "2026-11-04",
++  "hash": "90cf1e7381ad294d"
++ },
+  "/es/guias/preparar-material-para-edicion-de-video": {
+   "date": "2026-10-07",
+   "hash": "b97a0891e3c3d5ea"
+@@ -712,8 +716,8 @@
+   "hash": "d74d81e801a1289f"
+  },
+  "/es/portafolio": {
+-  "date": "2026-10-29",
+-  "hash": "3524f274617005ac"
++  "date": "2026-11-04",
++  "hash": "208ed5236584908c"
+  },
+  "/es/portafolio/ai-lead-automation": {
+   "date": "2026-10-14",
+@@ -808,8 +812,8 @@
+   "hash": "2f0c94ff1fd3c57b"
+  },
+  "/es/precios": {
+-  "date": "2026-10-29",
+-  "hash": "f11dd1f2d6cc75e8"
++  "date": "2026-11-04",
++  "hash": "29c7e6fa824f433e"
+  },
+  "/es/precios/arranque": {
+   "date": "2026-10-14",
+@@ -1443,6 +1447,10 @@
+   "date": "2026-10-14",
+   "hash": "6c7f35a6f9ed4721"
+  },
++ "/guides/reels-video-editing-prices-south-florida": {
++  "date": "2026-11-04",
++  "hash": "f8c13f5e1ab7fcd6"
++ },
+  "/guides/reels-vs-tiktok-vs-shorts-for-local-business": {
+   "date": "2026-10-07",
+   "hash": "a0b4bd62c2dfa183"
+@@ -1500,8 +1508,8 @@
+   "hash": "2d4f6f989971a2b4"
+  },
+  "/portfolio": {
+-  "date": "2026-10-29",
+-  "hash": "5c8dd822e106be47"
++  "date": "2026-11-04",
++  "hash": "33a203a74e59debd"
+  },
+  "/portfolio/ai-lead-automation": {
+   "date": "2026-10-14",
+@@ -1592,8 +1600,8 @@
+   "hash": "6846745c85c7096e"
+  },
+  "/pricing": {
+-  "date": "2026-10-29",
+-  "hash": "d7722c3f281129a6"
++  "date": "2026-11-04",
++  "hash": "490621e92d38916e"
+  },
+  "/pricing/all-in": {
+   "date": "2026-09-29",
+@@ -2108,8 +2116,8 @@
+   "hash": "cf7fbe22027e7ced"
+  },
+  "/services/reels-editor-fort-lauderdale": {
+-  "date": "2026-11-03",
+-  "hash": "d7edc2f29609ffa6"
++  "date": "2026-11-04",
++  "hash": "f09dee116885d7d9"
+  },
+  "/services/reels-editor-miami": {
+   "date": "2026-10-14",
+diff --git a/lib/__tests__/guides.test.ts b/lib/__tests__/guides.test.ts
+index 94e9ed9d..6771b129 100644
+--- a/lib/__tests__/guides.test.ts
++++ b/lib/__tests__/guides.test.ts
+@@ -86,15 +86,15 @@ describe("bilingual practical guides", () => {
+     }
+   });
+ 
+-  it("returns exactly 49 guides for English", () => {
++  it("returns exactly 50 guides for English", () => {
+     const guides = getGuides("en");
+-    expect(guides).toHaveLength(49);
++    expect(guides).toHaveLength(50);
+     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
+   });
+ 
+-  it("returns exactly 49 guides for Spanish", () => {
++  it("returns exactly 50 guides for Spanish", () => {
+     const guides = getGuides("es");
+-    expect(guides).toHaveLength(49);
++    expect(guides).toHaveLength(50);
+     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
+   });
+ 
+@@ -102,13 +102,13 @@ describe("bilingual practical guides", () => {
+     const englishGuides = getGuides("en");
+     const spanishGuides = getGuides("es");
+ 
+-    expect(englishGuides).toHaveLength(49);
+-    expect(spanishGuides).toHaveLength(49);
++    expect(englishGuides).toHaveLength(50);
++    expect(spanishGuides).toHaveLength(50);
+     expect(englishGuides.map(({ id }) => id)).toEqual(
+       spanishGuides.map(({ id }) => id),
+     );
+-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(49);
+-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(49);
++    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(50);
++    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(50);
+ 
+     for (const guide of [...englishGuides, ...spanishGuides]) {
+       expect(guide.answer.length).toBeGreaterThan(60);
+@@ -128,9 +128,9 @@ describe("bilingual practical guides", () => {
+     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
+     const descriptions = allGuides.map(({ description }) => description);
+ 
+-    expect(new Set(canonicalPaths).size).toBe(98);
+-    expect(new Set(metadataTitles).size).toBe(98);
+-    expect(new Set(descriptions).size).toBe(98);
++    expect(new Set(canonicalPaths).size).toBe(100);
++    expect(new Set(metadataTitles).size).toBe(100);
++    expect(new Set(descriptions).size).toBe(100);
+ 
+     for (const guide of allGuides) {
+       const metadata = buildGuideMetadata(guide);
+diff --git a/lib/guides.ts b/lib/guides.ts
+index ca55a354..a0f2ef1b 100644
+--- a/lib/guides.ts
++++ b/lib/guides.ts
+@@ -30,6 +30,7 @@ import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guid
+ import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparisons";
+ 
+ export const GUIDE_IDS = [
++  "reels-price-index-guide",
+   "prepare-footage",
+   "video-brief",
+   "video-production-rfp-template",
+@@ -101,6 +102,7 @@ type GuideCopy = {
+   heroProof?: GuideProofLink;
+   sections: readonly GuideSection[];
+   faqs?: readonly { question: string; answer: string }[];
++  priceIndex?: boolean;
+ };
+ 
+ export type GuidePair = {
+@@ -150,6 +152,65 @@ if (listingPhotoStart.amount === null || !listingTour.note) {
+ const listingPhotoStartingPrice = usd(listingPhotoStart.amount);
+ 
+ const guidePairs: readonly GuidePair[] = [
++  {
++    id: "reels-price-index-guide",
++    en: {
++      slug: "reels-video-editing-prices-south-florida",
++      metadataTitle: "South Florida Reels Prices",
++      title: "What do Reels and short-form video edits cost in South Florida?",
++      description: "Compare published Reels, short-form editing, and video-production prices from South Florida providers, marketplaces, and software, checked November 3, 2026.",
++      eyebrow: "South Florida price index",
++      answer: "Use the dated published-price table to compare the service, unit, classification, and source before asking any provider for a written scope. The table is a starting point for a budget conversation, not a promise that unlike services cost the same.",
++      priceIndex: true,
++      proof: {
++        href: "/portfolio",
++        title: "Published editing work",
++        description: "Review selected published work before requesting a written scope; nothing published confirms the scope or final price of another project.",
++      },
++      sections: [
++        { heading: "What drives the price of a Reels edit?", paragraphs: ["The main difference is scope, not the word Reels. A remote edit can begin with supplied clips, one intended platform, captions, and a defined revision path. A production package can add planning, a crew, a camera setup, a location, people on camera, multiple finished versions, and coordination before editing begins. Software subscriptions are another category: they can help create clips, but they are not a like-for-like substitute for someone reviewing footage and shaping a message. Read each row’s service description and unit before comparing its figure.", "A useful quote names the source footage, the intended length and channels, captions or graphics, revisions, filming needs, approvals, and final exports. That makes it possible to compare proposals without treating a lower entry figure as the same deliverable. The table records what each source published on its checked date; it does not rank providers or promise that a future project will have the same scope."] },
++        { heading: "Per video vs weekly vs monthly: which is cheaper?", paragraphs: ["A per-video scope is easier to understand when you have one clear clip and want to test a format, announce an offer, or finish footage already filmed. Weekly or monthly arrangements can lower the effective price of each edit when the footage, approval process, and publishing cadence repeat. They also introduce commitments: a package may include a set number of videos, management work, filming, or a minimum term that is not visible in a single-edit offer.", "Compare the unit before you compare the number. Ask whether the plan includes only editing or also planning, capture, thumbnails, captions, posting, revisions, or a long-form source video. A lower monthly entry point can be a different service than a higher single-project figure. Esteban’s table separates the published one-off, weekly, monthly, real-estate, and on-location starting points so a written scope can confirm which model fits the work."] },
++        { heading: "What is included at the Starter editing level?", paragraphs: ["Starter editing is the entry point for an existing clip that needs to become a focused vertical video. The useful starting brief is the original footage, one message, the intended platform, any required wording, a reference for pacing, and the person who approves changes. Those inputs let the edit protect safe areas for platform controls, make captions readable, remove repeated takes, and finish with one clear action instead of a list of competing asks.", "The published starting point is not a promise that every request has the same duration, source quality, versions, or turnaround. A recording with missing scenes, unclear audio, multiple products, or a separate local shoot may need a different scope. The written quote is where the final deliverables and timing are confirmed. If you have several clips ready to publish on a recurring rhythm, compare the weekly rows rather than assuming a one-off edit and an ongoing program contain the same work."] },
++        { heading: "When does on-location filming make sense?", paragraphs: ["On-location filming makes sense when the footage needed to explain the offer does not exist yet. That can mean showing a person at work, a space, a product detail, a process, or a local setting that a supplied phone clip cannot show. Editing and filming solve different problems: one shapes usable material that already exists; the other creates the material before the edit begins. A project can need either one or both, but they should not be assumed to be bundled together.", "Before asking about a local shoot, share the address or service area, access limits, the moments that matter, the people or products that can be filmed, and where the finished clips will be used. That gives the quote a real basis for planning and permissions. The on-location band in Esteban’s ladder is an indicative published starting range, not a fixed production package. A written scope confirms the location, capture needs, versions, and any travel considerations."] },
++        { heading: "How often is this page updated?", paragraphs: ["This index is reviewed monthly. Each market row shows the date its source was checked so a reader can separate a current observation from a general claim. Provider pages can change their packages, remove a public figure, list a new scope, or publish a conflicting figure as ZipIn does in this table. A dated row is more useful than a broad statement that a price is current without a source.", "The index keeps rows that say no public price because absence is useful information when comparing what can be verified before a sales conversation. Marketplace and directory observations are marked separately from prices printed by a provider. The table also keeps software separate from editing and production services. Esteban’s own ladder is rendered from the same pricing constants used elsewhere on this site, so changing a published starting point updates this guide instead of leaving a copied price behind."] },
++      ],
++      faqs: [
++        { question: "Are all prices in this table directly comparable?", answer: "No. A remote edit, a monthly retainer, software, and a filmed production package have different scopes. Read the service, unit, classification, and source before using a number as a budget reference." },
++        { question: "Why are marketplace prices marked UNVERIFIED?", answer: "They come from marketplace or directory pages rather than an individual South Florida provider’s published service page. They can show a broad public listing range, but they do not establish a local provider rate." },
++        { question: "Why does ZipIn appear twice?", answer: "Its page presents different starting figures for related production scopes. Both observations remain visible so the table does not hide a conflict in the source." },
++        { question: "Does this index guarantee a project price?", answer: "No. A written quote confirms the footage, filming needs, deliverables, timing, revisions, location, and final price for a specific project." },
++        { question: "How can I ask for a comparable editing quote?", answer: "Send original footage, the intended platform, the one message the video needs to carry, references, required wording, and the person who can approve changes. Add filming details only when new footage is needed." },
++      ],
++    },
++    es: {
++      slug: "precios-edicion-de-reels-y-video-sur-de-florida",
++      metadataTitle: "Precios de Reels Florida",
++      title: "¿Cuánto cuesta editar Reels y video corto en South Florida?",
++      description: "Compara precios publicados de edición de Reels, video corto y producción en South Florida, marketplaces y software, consultados el 3 de noviembre de 2026.",
++      eyebrow: "Índice de precios de South Florida",
++      answer: "Usa la tabla con fecha, servicio, unidad, clasificación y fuente para comparar antes de pedir un alcance por escrito. Sirve como punto de partida para hablar de presupuesto, no como promesa de que servicios distintos cuestan lo mismo.",
++      priceIndex: true,
++      proof: {
++        href: "/es/portafolio",
++        title: "Trabajo de edición publicado",
++        description: "Consulta trabajo publicado antes de pedir un alcance por escrito; no publica una confirmación del alcance ni del precio final de otro proyecto.",
++      },
++      sections: [
++        { heading: "¿Qué define el precio de editar un Reel?", paragraphs: ["La diferencia principal es el alcance, no la palabra Reels. Una edición remota puede comenzar con clips enviados, una plataforma, subtítulos y una ruta clara de cambios. Un paquete de producción puede sumar planificación, equipo, cámara, locación, personas en cámara, versiones finales y coordinación antes de editar. Las suscripciones de software son otra categoría: pueden ayudar a crear clips, pero no son el mismo servicio que una persona revisando material y dando forma a un mensaje. Lee el servicio y la unidad de cada fila antes de comparar una cifra.", "Una cotización útil nombra el material de origen, duración y canales, subtítulos o gráficos, cambios, necesidad de grabación, aprobaciones y archivos finales. Así puedes comparar propuestas sin asumir que una cifra inicial más baja trae el mismo trabajo. La tabla registra lo que cada fuente publicó en la fecha de consulta; no califica proveedores ni promete que un proyecto futuro tendrá el mismo alcance."] },
++        { heading: "¿Por video, semanal o mensual: qué conviene más?", paragraphs: ["Un alcance por video es más fácil de entender cuando tienes un clip claro y quieres probar un formato, anunciar algo o terminar material ya grabado. Un acuerdo semanal o mensual puede bajar el costo efectivo de cada edición si el material, las aprobaciones y el ritmo de publicación se repiten. También puede traer compromisos: un paquete puede incluir cierta cantidad de videos, gestión, grabación o un mínimo de tiempo que no aparece en una edición individual.", "Compara la unidad antes de comparar el número. Pregunta si el plan incluye solo edición o también planificación, grabación, miniaturas, subtítulos, publicación, cambios o un video largo de origen. Una entrada mensual menor puede ser un servicio distinto de un proyecto individual mayor. La tabla de Esteban separa sus puntos de partida publicados por video, semana, mes, inmuebles y grabación para que una cotización escrita confirme el modelo adecuado."] },
++        { heading: "¿Qué incluye el nivel de edición Arranque?", paragraphs: ["La edición Arranque es el punto de entrada para un clip existente que debe convertirse en un video vertical claro. El brief útil incluye archivos originales, una idea, la plataforma, texto obligatorio, una referencia de ritmo y quién aprueba los cambios. Esos datos permiten proteger las zonas seguras, hacer legibles los subtítulos, cortar tomas repetidas y cerrar con una sola acción clara en lugar de varios pedidos compitiendo.", "El precio inicial publicado no promete que todas las solicitudes tengan la misma duración, calidad de origen, versiones o tiempo de entrega. Una grabación con escenas faltantes, audio poco claro, varios productos o una grabación local aparte puede requerir otro alcance. La cotización por escrito confirma entregables y tiempo. Si tienes varios clips para publicar cada semana, compara las filas semanales en vez de asumir que una edición individual y un programa continuo contienen el mismo trabajo."] },
++        { heading: "¿Cuándo conviene grabar en locación?", paragraphs: ["La grabación en locación conviene cuando todavía no existe el material necesario para explicar la oferta. Puede ser mostrar a una persona trabajando, un espacio, un detalle de producto, un proceso o un contexto local que un clip de celular no alcanza a mostrar. Edición y grabación resuelven problemas distintos: una organiza material útil que ya existe; la otra crea el material antes de editar. Un proyecto puede necesitar una, la otra o ambas, pero no se deben asumir como un paquete único.", "Antes de preguntar por una grabación local, comparte la dirección o zona de servicio, límites de acceso, los momentos importantes, las personas o productos que se pueden filmar y dónde vivirán los videos terminados. Eso da una base real para planear y confirmar permisos. La banda de grabación en la escalera de Esteban es un punto de partida publicado, no un paquete fijo. La cotización escrita confirma locación, captura, versiones y posibles traslados."] },
++        { heading: "¿Con qué frecuencia se actualiza esta página?", paragraphs: ["Este índice se revisa mensualmente. Cada fila muestra la fecha en que se consultó la fuente para distinguir una observación actual de una afirmación general. Las páginas de proveedores pueden cambiar paquetes, retirar un número, publicar otro alcance o mostrar cifras distintas como ZipIn en esta tabla. Una fila con fecha sirve más que decir que un precio está vigente sin mostrar la fuente.", "El índice conserva las filas sin precio público porque esa ausencia sirve al comparar lo que se puede verificar antes de una conversación comercial. Las observaciones de marketplaces y directorios se marcan aparte de los precios publicados por un proveedor. La tabla también separa software de edición y producción. La escalera de Esteban se renderiza desde las mismas constantes que usan sus demás páginas, para que un cambio publicado actualice esta guía en vez de dejar una cifra copiada."] },
++      ],
++      faqs: [
++        { question: "¿Todos los precios de esta tabla se pueden comparar directamente?", answer: "No. Una edición remota, un plan mensual, software y un paquete de producción con grabación tienen alcances distintos. Lee servicio, unidad, clasificación y fuente antes de usar un número como referencia." },
++        { question: "¿Por qué los precios de marketplaces dicen UNVERIFIED?", answer: "Vienen de marketplaces o directorios, no de la página de servicio publicada por un proveedor individual de South Florida. Muestran una referencia pública amplia, no una tarifa local comprobada." },
++        { question: "¿Por qué ZipIn aparece dos veces?", answer: "Su página publica cifras distintas para alcances de producción relacionados. Las dos observaciones se mantienen visibles para no ocultar un conflicto de la fuente." },
++        { question: "¿Este índice garantiza el precio de un proyecto?", answer: "No. Una cotización por escrito confirma material, grabación, entregables, tiempo, cambios, locación y precio final para un proyecto específico." },
++        { question: "¿Cómo pido una cotización de edición comparable?", answer: "Envía archivos originales, la plataforma, el mensaje que debe llevar el video, referencias, texto obligatorio y quién aprueba cambios. Agrega detalles de grabación solo si hace falta material nuevo." },
++      ],
++    },
++  },
+   {
+     id: "small-business-content-decision-guide",
+     en: {
+diff --git a/lib/reels-price-index.ts b/lib/reels-price-index.ts
+new file mode 100644
+index 00000000..99ba1d6a
+--- /dev/null
++++ b/lib/reels-price-index.ts
+@@ -0,0 +1,85 @@
++import {
++  ARRANQUE_WEEKLY_OPTIONS,
++  PACKAGE_PRICES,
++  PRICING_BANDS,
++  REAL_ESTATE_PLANS,
++  SHORT_FORM,
++  arranqueWeeklyPerVideo,
++  usd,
++} from "@/lib/pricing";
++
++export const REELS_PRICE_INDEX_CHECKED_ON = "2026-11-03";
++
++export type PriceIndexLocale = "en" | "es";
++
++export type MarketPriceRow = {
++  provider: string;
++  service: string;
++  price: string;
++  unit: string;
++  tier: "VERIFIED" | "UNVERIFIED" | "NO PUBLIC PRICE";
++  href: string;
++  checkedOn: string;
++};
++
++/**
++ * Source-backed observations transcribed from .ai/price-index-sources.md.
++ * Keep the source URL and fetch date on every row: summary copy is not a
++ * substitute for the underlying observation.
++ */
++export const marketPriceRows: readonly MarketPriceRow[] = [
++  ["Mark Studios", "Starter: 1 long video, 4 Shorts and 2 thumbnails", "$750", "per month", "VERIFIED", "https://www.markstudios.com/pricing"],
++  ["Mark Studios", "Growth / Scale / Unlimited monthly plans", "$2,000 / $2,700 / $3,500", "per month", "VERIFIED", "https://www.markstudios.com/pricing"],
++  ["Robbie Santana", "Starter social edit up to 60 seconds, captions and one revision", "$300", "per project", "VERIFIED", "https://robbiesantana.com/"],
++  ["Robbie Santana", "Professional corporate or commercial edit up to 3 minutes", "$800", "per project", "VERIFIED", "https://robbiesantana.com/"],
++  ["Inside Editors", "Vertical short-form edit, up to 2 minutes", "$20 single; $16 (5+); $14 (10+ weekly)", "per video", "VERIFIED", "https://insideeditors.com/video-editing-pricing/"],
++  ["Inside Editors", "Short-form/social subscriptions; $200 entry is channel management, not a Reels plan", "$200 / $500 / $1,000", "per month", "VERIFIED", "https://insideeditors.com/video-editing-pricing/"],
++  ["Increditors", "Reels Pricing monthly package", "From $2.5K", "per month", "VERIFIED", "https://increditors.com/"],
++  ["ZipIn Media", "Up to 1 minute, 2-hour production, single camera, interview style", "$2,200", "per package", "VERIFIED", "https://zipinmedia.com/"],
++  ["ZipIn Media", "FAQ starting rate for 45 seconds with 2-hour production; conflicts with its $2,200 card", "$1,800 FAQ vs $2,200 card", "per package", "VERIFIED", "https://zipinmedia.com/"],
++  ["ZipIn Media", "Corporate videographer guide: solo, crew, half day and full day ranges", "$75–$450", "per hour", "VERIFIED", "https://zipinmedia.com/corporate-videography-how-much-per-hour/"],
++  ["FLF Corporate", "Monthly creative and growth retainer", "From $990", "per month", "VERIFIED", "https://flfcorporate.com/en/corporate-video-production-miami/"],
++  ["FLF Corporate", "Production sprint / flagship film", "From $2,000 / $5,000–$15,000", "per project", "VERIFIED", "https://flfcorporate.com/en/corporate-video-production-miami/"],
++  ["Ball Media Innovations", "Corporate video / editing / real estate / interview", "$1,200 / $250 / $750", "from, per project", "VERIFIED", "https://www.ballmediainnovations.com/our-pricing/"],
++  ["Bono Motion", "Typical professional video project", "$3,500–$15,000+", "per project", "VERIFIED", "https://bonomotion.com/"],
++  ["Shorts Creation", "Done-for-you short-form tiers", "No public price", "per month", "NO PUBLIC PRICE", "https://shortscreation.com/"],
++  ["Opticvault Marketing", "Marketing retainer; no comparable editing price", "No public editing price", "n/a", "NO PUBLIC PRICE", "https://opticvaultmarketing.com/pricing/"],
++  ["Upwork", "Short-form video editor category", "$75 single edit; $10–$60/hour", "per video / hour", "UNVERIFIED", "https://www.upwork.com/hire/short-form-video-editors/"],
++  ["Fiverr", "Instagram Reels editor listings", "$10–$100 starting", "per gig / minute", "UNVERIFIED", "https://www.fiverr.com/search/gigs?query=instagram%20reels%20editor"],
++  ["Thumbtack", "Miami/Fort Lauderdale videographer listings; no public Reels edit rate", "No public Reels price", "per event", "UNVERIFIED", "https://www.thumbtack.com/fl/miami/videographers"],
++  ["Opus Clip", "AI clipping Starter / Pro", "$15 / $29", "per month", "VERIFIED", "https://www.opus.pro/pricing"],
++  ["Kapwing", "Pro / Business on annual toggle", "$16 / $50", "per month", "VERIFIED", "https://www.kapwing.com/pricing"],
++].map(([provider, service, price, unit, tier, href]) => ({ provider, service, price, unit, tier: tier as MarketPriceRow["tier"], href, checkedOn: REELS_PRICE_INDEX_CHECKED_ON }));
++
++const packageAmount = (id: keyof typeof PACKAGE_PRICES) => {
++  const price = PACKAGE_PRICES[id];
++  if (price.kind !== "from") throw new Error(`Price index requires a published price for ${id}`);
++  return price.amount;
++};
++
++export function estebanPriceRows(locale: PriceIndexLocale) {
++  const es = locale === "es";
++  const monthly = es ? "al mes" : "per month";
++  const perVideo = es ? "por video" : "per video";
++  return [
++    { item: es ? "Edición Arranque" : "Starter editing", price: `From ${usd(packageAmount("arranque"))}`, unit: perVideo },
++    ...ARRANQUE_WEEKLY_OPTIONS.map((option) => ({
++      item: es ? `Edición semanal: ${option.videosPerWeek} video${option.videosPerWeek === 1 ? "" : "s"}` : `Weekly editing: ${option.videosPerWeek} video${option.videosPerWeek === 1 ? "" : "s"}`,
++      price: `${usd(option.pricePerWeek)} (${usd(arranqueWeeklyPerVideo(option))} ${perVideo})`,
++      unit: es ? "por semana" : "per week",
++    })),
++    { item: es ? "Crecimiento" : "Growth", price: `From ${usd(packageAmount("crecimiento"))}`, unit: monthly },
++    { item: es ? "Presencia Local" : "Local Presence", price: `From ${usd(packageAmount("presencia-local"))}`, unit: monthly },
++    ...REAL_ESTATE_PLANS.map((plan) => ({ item: es ? `Plan inmobiliario: ${plan.id}` : `Real-estate plan: ${plan.id}`, price: usd(plan.price), unit: monthly })),
++    { item: es ? "Banda mínima de grabación en locación" : "On-location filming band minimum", price: usd(PRICING_BANDS["on-location"].baseMin), unit: es ? "por media jornada" : "per half day" },
++  ];
++}
++
++export function priceIndexAnswer(locale: PriceIndexLocale) {
++  const localLow = usd(300);
++  const localHigh = usd(4600);
++  const own = usd(SHORT_FORM.perVideoFrom);
++  return locale === "es"
++    ? `Las páginas locales verificadas de esta tabla muestran desde ${localLow} por una edición corta hasta ${localHigh} por un paquete de producción; la edición Arranque de Esteban empieza en ${own} por video y se cotiza según el alcance.`
++    : `Verified local pages in this table run from ${localLow} for a short edit to ${localHigh} for a production package; Esteban’s Starter editing begins at ${own} per video and is scoped by project.`;
++}
+diff --git a/lib/spanish-site.ts b/lib/spanish-site.ts
+index 7ae81eb7..08a8b851 100644
+--- a/lib/spanish-site.ts
++++ b/lib/spanish-site.ts
+@@ -6247,7 +6247,7 @@ export const spanishNichePages: SpanishNichePage[] = [
+       "¿En qué plataforma se publicará primero?",
+     ],
+     projectFit:
+-      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
++      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. Para comparar precios publicados antes de pedir una cotización, consulta el [índice de edición de Reels en South Florida](/es/guias/precios-edicion-de-reels-y-video-sur-de-florida). La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
+     sections: [
+       {
+         // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8
+diff --git a/scripts/search-console-index-watch.mjs b/scripts/search-console-index-watch.mjs
+index 627a8ca6..c9a8dcf7 100644
+--- a/scripts/search-console-index-watch.mjs
++++ b/scripts/search-console-index-watch.mjs
+@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
+ ];
+ export const WATCH_URLS = [
+   ...LEGACY_V1_WATCH_URLS,
++  // Demand-backed Reels editing price-index pair (2026-11-04).
++  "https://estebanmorenomedia.com/guides/reels-video-editing-prices-south-florida",
++  "https://estebanmorenomedia.com/es/guias/precios-edicion-de-reels-y-video-sur-de-florida",
+   // Owner-requested bilingual personal-creative-advisor guides (2026-10-28).
+   "https://estebanmorenomedia.com/guides/do-i-need-video-social-media-or-a-website-for-my-small-business",
+   "https://estebanmorenomedia.com/es/guias/necesito-video-redes-o-pagina-web-para-mi-negocio",
+diff --git a/scripts/search-console-index-watch.test.mjs b/scripts/search-console-index-watch.test.mjs
+index 8fc9ead0..0be3e38a 100644
+--- a/scripts/search-console-index-watch.test.mjs
++++ b/scripts/search-console-index-watch.test.mjs
+@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
+   it("keeps the fixed watch set identical to the application sitemap", () => {
+     const urls = sitemap().map((entry) => entry.url).sort();
+ 
+-    expect(WATCH_URLS).toHaveLength(573); // Includes the current sitemap, including personal-creative-advisor routes.
++    expect(WATCH_URLS).toHaveLength(575); // Includes the current sitemap, including the Reels price-index pair.
+     expect([...WATCH_URLS].sort()).toEqual(urls);
+     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
+   });
