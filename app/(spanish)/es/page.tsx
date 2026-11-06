@@ -105,6 +105,9 @@ export default function SpanishHomePage() {
                 </Link>
               );
             })}
+            <Link href="/es/editor-de-reels-fort-lauderdale" className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4 hover:text-[#a93e29]">
+              Editor de video y Reels en Fort Lauderdale
+            </Link>
           </nav>
         </Container>
       </section>

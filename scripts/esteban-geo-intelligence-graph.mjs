@@ -17,7 +17,7 @@ const ROOT = join(homedir(), ".local/share/portfolio-ops");
 const DEFAULT_STATE = join(homedir(), ".local/state/esteban-media-geo-graph/latest.json");
 const ORIGIN = "https://estebanmorenomedia.com";
 const OWNED_HOST = "estebanmorenomedia.com";
-const QUERY_STOPWORDS = new Set(["a", "an", "and", "de", "del", "el", "en", "for", "in", "la", "los", "miami", "of", "para", "the", "video", "with"]);
+export const MAX_CITATION_AGE_DAYS = 14;
 
 function args(argv = process.argv.slice(2)) {
   const value = (key) => argv.find((arg) => arg.startsWith(`--${key}=`))?.slice(key.length + 3);
@@ -57,16 +57,36 @@ async function readJsonl(path) {
   }
 }
 
-function tokens(value) {
-  return new Set(String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
-    .match(/[a-z0-9]+/g)?.filter((token) => token.length > 2 && !QUERY_STOPWORDS.has(token)) || []);
+export function normalizeQuery(value) {
+  return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().match(/[a-z0-9]+/g)?.join(" ") || "";
 }
 
-function matchesQuery(prompt, query) {
-  const left = tokens(prompt); const right = tokens(query);
-  if (!left.size || !right.size) return false;
-  const shared = [...left].filter((token) => right.has(token)).length;
-  return shared >= Math.min(2, left.size, right.size);
+function candidatePromptId(candidate) {
+  return candidate.prompt_id || candidate.promptId || candidate.source?.prompt_id || candidate.source?.promptId || null;
+}
+
+/**
+ * Evidence may only be reused for the exact approved prompt ID, or for the
+ * exact normalized query. Similarity matching turns a different buyer intent
+ * into fabricated evidence, so it is deliberately forbidden here.
+ */
+export function matchesApprovedPrompt(candidate, row) {
+  const approvedId = candidatePromptId(candidate);
+  if (approvedId && row.prompt_id && approvedId === row.prompt_id) return true;
+  const candidateQuery = normalizeQuery(candidate.query);
+  const observedQuery = normalizeQuery(row.prompt || row.query);
+  return Boolean(candidateQuery && observedQuery && candidateQuery === observedQuery);
+}
+
+function citationEligibility(row, { now, maxCitationAgeDays = MAX_CITATION_AGE_DAYS } = {}) {
+  const observedAt = Date.parse(row.ts || row.observed_at || "");
+  const age = Number.isFinite(observedAt) && now ? (Date.parse(now) - observedAt) / 86400000 : NaN;
+  if (String(row.status || "").toLowerCase() !== "ok") return "provider result unavailable";
+  if (String(row.citation_coverage || "").toLowerCase() !== "complete") return "citation coverage is unverified";
+  if (row.our_citation !== true) return "owned citation is false or absent";
+  if (!Number.isFinite(age) || age < 0 || age > maxCitationAgeDays) return "citation observation is stale or timestamp is invalid";
+  return null;
 }
 
 function hostFromUrl(value) {
@@ -89,7 +109,7 @@ function latestPromptEngineRows(rows) {
 }
 
 function serpObservation(candidate, rows) {
-  const matching = latestPromptEngineRows(rows.filter((row) => row.site === "esteban" && matchesQuery(row.query, candidate.query)));
+  const matching = latestPromptEngineRows(rows.filter((row) => row.site === "esteban" && matchesApprovedPrompt(candidate, row)));
   if (!matching.length) return { status: "unmeasured", reason: "no matching SERP snapshot" };
   const google = matching.find((row) => row.engine === "google" && row.status === "ok");
   if (google) return { status: "observed", engine: "google", observed_at: google.ts || null, query: google.query, our_position: google.our_position ?? null, features: google.features || [], local_pack_present: google.local_pack_present ?? null, ai_overview_present: google.ai_overview_present ?? null };
@@ -97,8 +117,8 @@ function serpObservation(candidate, rows) {
   return { status: "unmeasured", reason: latest.error_detail || `SERP status ${latest.status || "unknown"}`, engine: latest.engine || "unknown", observed_at: latest.ts || null, fallback: fallback ? { engine: fallback.engine, features: fallback.features || [], our_position: fallback.our_position ?? null } : null };
 }
 
-export function marketOwnershipEvidence(candidate, rows, { ownedHost = OWNED_HOST, serpRows = [] } = {}) {
-  const matching = latestPromptEngineRows(rows.filter((row) => row.brand === "esteban" && matchesQuery(row.prompt, candidate.query)));
+export function marketOwnershipEvidence(candidate, rows, { ownedHost = OWNED_HOST, serpRows = [], now = new Date().toISOString(), maxCitationAgeDays = MAX_CITATION_AGE_DAYS } = {}) {
+  const matching = latestPromptEngineRows(rows.filter((row) => row.brand === "esteban" && matchesApprovedPrompt(candidate, row)));
   if (!matching.length) {
     return {
       citation_observation: { status: "unmeasured", reason: "no matching AI-citation prompt observation" },
@@ -110,15 +130,15 @@ export function marketOwnershipEvidence(candidate, rows, { ownedHost = OWNED_HOS
       our_delta: { status: "unmeasured", reason: "no source-bound competitor observation for this query" },
     };
   }
-  const measured = matching.filter((row) => String(row.status).toLowerCase() === "ok");
+  const measured = matching.filter((row) => !citationEligibility(row, { now, maxCitationAgeDays }));
   const context = candidate.source?.semrushUi
     ? { status: "observed_modeled", source: "Semrush UI export", ...candidate.source.semrushUi }
     : { status: "unmeasured", reason: "no matching Semrush UI export" };
   if (!measured.length) {
     return {
-      citation_observation: { status: "unmeasured", reason: `latest matching citation observations are ${[...new Set(matching.map((row) => row.status || "UNMEASURED"))].join(", ")}`, observations: matching.map((row) => ({ engine: row.engine || "unknown", prompt: row.prompt, observed_at: row.ts || null, status: row.status || "UNMEASURED", reason: row.reason || null })) },
+      citation_observation: { status: "needs_measurement", reason: "matching citation observations are not current, complete, and owned-citation verified", observations: matching.map((row) => ({ engine: row.engine || "unknown", prompt_id: row.prompt_id || null, prompt: row.prompt, observed_at: row.ts || null, status: row.status || "UNMEASURED", reason: citationEligibility(row, { now, maxCitationAgeDays }) || row.reason || null })) },
       winning_domains: [], commercial_serp_context: context, serp_observation: serpObservation(candidate, serpRows), reusable_patterns: [],
-      our_delta: { status: "unmeasured", reason: "citation transport or provider result is unavailable" },
+      our_delta: { status: "needs_measurement", reason: "no current complete owned-citation observation for this exact prompt" },
     };
   }
   const domains = new Map();
@@ -173,13 +193,18 @@ export function clusterFromCandidate(candidate, route, outcome = { status: "unme
   const serviceArea = candidate.areaTier
     ? { status: "observed", tier: candidate.areaTier, place: candidate.place || null }
     : { status: "needs_evidence", reason: "service area not approved" };
-  const edges = { service_area: serviceArea, demand, coverage, conversion_route: route, outcome, market_ownership: marketOwnership };
+  const marketOwnershipEdge = {
+    ...marketOwnership,
+    status: marketOwnership.citation_observation?.status === "observed" ? "observed" : "needs_measurement",
+  };
+  const edges = { service_area: serviceArea, demand, coverage, conversion_route: route, outcome, market_ownership: marketOwnershipEdge };
   const missing = Object.entries(edges).filter(([, edge]) => edge.status === "needs_evidence").map(([name]) => name);
-  const state = missing.length ? "needs_evidence" : outcome.status === "unmeasured_outcome" ? "unmeasured_outcome" : "ready_to_review";
+  const measurement = Object.entries(edges).filter(([, edge]) => edge.status === "needs_measurement").map(([name]) => name);
+  const state = missing.length ? "needs_evidence" : measurement.length ? "needs_measurement" : outcome.status === "unmeasured_outcome" ? "unmeasured_outcome" : "ready_to_review";
   return {
     cluster_id: `esteban:${candidate.language}:${candidate.query.toLowerCase().replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "")}`,
     query: candidate.query, service: candidate.intent, proposed_action: candidate.action,
-    target: candidate.target, state, missing_edges: missing, edges,
+    target: candidate.target, state, missing_edges: missing, measurement_edges: measurement, edges,
     evidence_confidence: candidate.source?.gscImpressions > 0 ? "medium" : "low",
     observed_at: new Date().toISOString(),
   };
@@ -190,7 +215,7 @@ export async function runGraph(options = args()) {
   const citationRows = await readJsonl(options.citations);
   const serpRows = await readJsonl(options.serp);
   const clusters = await Promise.all(farm.snapshot.candidates.map(async (candidate) =>
-    clusterFromCandidate(candidate, await conversionRoute(candidate.target, options), undefined, marketOwnershipEvidence(candidate, citationRows, { serpRows }))));
+    clusterFromCandidate(candidate, await conversionRoute(candidate.target, options), undefined, marketOwnershipEvidence(candidate, citationRows, { serpRows, now: new Date().toISOString() }))));
   const ledger = { schema: GRAPH_SCHEMA, generated_at: new Date().toISOString(), mode: "draft-only", source_snapshot: farm.snapshot.coverage, clusters };
   if (!options.dryRun) await atomicWrite(options.state, `${JSON.stringify(ledger, null, 2)}\n`);
   return ledger;
