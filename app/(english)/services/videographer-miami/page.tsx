@@ -94,6 +94,21 @@ const content: GeoServicePageContent = {
       answer:
         "The address, the goal of the video, where it will be published, the date you need it, any footage you already have and one reference video you like. A specific first message gets a specific quote back.",
     },
+    {
+      question: "How long does it take to get the finished video?",
+      answer:
+        "Turnaround is agreed in the written quote before booking. The quote names the delivery date for the finished videos, so you know when to expect the edit before the shoot happens.",
+    },
+    {
+      question: "What equipment do you use for a Miami shoot?",
+      answer:
+        "The equipment is chosen for the project: a camera that matches the format (vertical, horizontal, or both), lighting for the location, and audio gear for interviews. The specific kit is confirmed in the quote.",
+    },
+    {
+      question: "What's included in a typical shoot?",
+      answer:
+        "A typical shoot includes planning, on-location filming, and the edit. The quote separates filming time from editing, and names the number of finished videos, the rounds of changes, and the delivery format.",
+    },
   ],
   relatedHeading: "Related Miami and video services.",
   related: [
