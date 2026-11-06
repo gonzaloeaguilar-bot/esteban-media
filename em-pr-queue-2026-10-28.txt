@@ -1,0 +1,284 @@
+ESTEBAN MEDIA PULL REQUEST QUEUE STATE - 2026-10-28
+======================================================================
+
+PR #654: fix: Add a new FAQ entry titled 'How to create video content for restaurants? 
+  State: OPEN (Draft: False)
+  Mergeable: MERGEABLE
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/654
+
+PR #653: feat(card): six end-to-end motifs on /card, no photography
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T02:43:54Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/653
+
+PR #652: feat(seo): reel editor Fort Lauderdale EN/ES titles and caption guide snippet
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T02:44:36Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/652
+
+PR #651: feat(card): custom WhatsApp, Google Maps and Google review scenes on /card
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/651
+
+PR #650: chore(analytics): sort legacy map and record guide-pages handoff 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/650
+
+PR #649: docs(camera-bench): record unboxing video handoff and experience contract 
+  State: OPEN (Draft: False)
+  Mergeable: MERGEABLE
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/649
+
+PR #648: fix: Update the page title to "About Esteban Moreno | Media Producer" and the 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/648
+
+PR #647: fix(camera-chooser): honour reduced motion on tap and stop remounting the lens image 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/647
+
+PR #646: feat(lead-desk): capture inquiry channel and ask one origin question 
+  State: OPEN (Draft: False)
+  Mergeable: MERGEABLE
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/646
+
+PR #645: docs: publish only the shared inbox as the contact email
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T01:47:28Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/645
+
+PR #644: feat(lead-desk): capture inquiry channel and ask one origin question 
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T23:21:30Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/644
+
+PR #643: feat(lead-desk): capture inquiry channel and ask one origin question 
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T23:06:02Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/643
+
+PR #642: feat(card): homepage route-card treatment for the six NFC actions
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T23:57:32Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/642
+
+PR #641: fix(home): play Sony unboxing clip 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/641
+
+PR #640: chore(rail-kit): vendor sync to gonzaloeaguilar-bot/rail-kit@94717953 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/640
+
+PR #639: feat: add owner-supplied event and unboxing media 
+  State: OPEN (Draft: False)
+  Mergeable: CONFLICTING
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/639
+
+PR #638: feat: add owner-supplied event and unboxing media 
+  State: OPEN (Draft: False)
+  Mergeable: CONFLICTING
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/638
+
+PR #637: feat: cover the whole camera chooser body in leatherette 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/637
+
+PR #636: feat: add leatherette texture to camera chooser 
+  State: CLOSED (Draft: False)
+  Mergeable: CONFLICTING
+  Closed At: 2026-10-29T02:43:39Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/636
+
+PR #635: fix: cut celebration card cover from the owner's 4K yacht clip 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/635
+
+PR #634: fix: explicitly start iPhone reel preview 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/634
+
+PR #633: feat: add leatherette texture to camera chooser 
+  State: CLOSED (Draft: False)
+  Mergeable: CONFLICTING
+  Closed At: 2026-10-28T22:20:24Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/633
+
+PR #632: feat(pricing): single source of truth + 2026-10-28 ladder, yacht celebration tier, catalog PDF regenerated
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/632
+
+PR #631: fix(camera-chooser): phone details, lens ring, tap-to-focus
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T23:29:16Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/631
+
+PR #630: feat(camera-kit): play the unboxing clip inline instead of behind a disclosure 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/630
+
+PR #629: fix: open home route cards in place instead of a full-width row 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/629
+
+PR #628: fix: fill the phone card and the player with vertical video 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/628
+
+PR #627: fix: capture reel requests before contact handoff 
+  State: OPEN (Draft: False)
+  Mergeable: UNKNOWN
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/627
+
+PR #626: fix: explicitly start iPhone reel preview 
+  State: CLOSED (Draft: False)
+  Mergeable: CONFLICTING
+  Closed At: 2026-10-28T22:05:49Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/626
+
+PR #625: feat: add leatherette texture to camera chooser 
+  State: CLOSED (Draft: False)
+  Mergeable: CONFLICTING
+  Closed At: 2026-10-28T22:05:51Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/625
+
+PR #624: fix: cut celebration card cover from the owner's 4K yacht clip
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T22:04:19Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/624
+
+PR #623: fix: fill the phone card and the player with vertical video
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:55:57Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/623
+
+PR #622: docs(camera-bench): record unboxing video handoff and experience contract
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T00:08:20Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/622
+
+PR #621: feat(camera-kit): play the unboxing clip inline, full 9:16, no disclosure
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:55:04Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/621
+
+PR #620: chore(analytics): sort legacy map and record guide-pages handoff
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T00:04:04Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/620
+
+PR #619: chore(rail-kit): vendor sync to gonzaloeaguilar-bot/rail-kit@94717953
+  State: CLOSED (Draft: False)
+  Mergeable: MERGEABLE
+  Closed At: 2026-10-28T21:38:32Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/619
+
+PR #618: fix/celebration pricing clarity
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T01:25:44Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/618
+
+PR #617: fix: open home route cards in place instead of a full-width row
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:38:53Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/617
+
+PR #616: feat(lead-desk): add Gmail inquiry lead desk runner and tests
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T22:59:05Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/616
+
+PR #615: feat/esteban geo execution loop 20261028
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T00:04:30Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/615
+
+PR #614: feat/esteban personal craft experience
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-29T01:48:24Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/614
+
+PR #613: Fix compact Camera Bench accessory card
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:26:35Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/613
+
+PR #612: Fix celebration card autoplay and desktop size
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:09:40Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/612
+
+PR #611: fix: capture reel requests before contact handoff 
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T21:27:41Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/611
+
+PR #610: chore(seo): refresh commercial page metadata 
+  State: CLOSED (Draft: False)
+  Mergeable: UNKNOWN
+  Closed At: 2026-10-28T21:27:22Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/610
+
+PR #609: fix: explicitly start iPhone reel preview 
+  State: CLOSED (Draft: False)
+  Mergeable: CONFLICTING
+  Closed At: 2026-10-28T21:22:30Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/609
+
+PR #608: feat: add leatherette texture to camera chooser 
+  State: CLOSED (Draft: False)
+  Mergeable: MERGEABLE
+  Closed At: 2026-10-28T21:47:41Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/608
+
+PR #607: Use the clearest real yacht footage for celebrations
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T20:58:05Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/607
+
+PR #606: Fix Camera Bench unboxing playback
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T20:54:58Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/606
+
+PR #605: Use a clear celebration cover on the homepage
+  State: MERGED (Draft: False)
+  Mergeable: UNKNOWN
+  Merged At: 2026-10-28T20:49:29Z
+  URL: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/605
+
