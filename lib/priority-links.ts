@@ -46,6 +46,7 @@ const ES: Record<string, PriorityLink> = {
   podcast: { href: "/es/edicion-de-clips-de-podcast-miami", label: "Clips de podcast para redes en Miami", description: "Un episodio convertido en clips verticales con subtítulos." },
   estudio: { href: restaurantIgStudyPaths.es, label: "Estudio: qué publican los restaurantes de Miami en Instagram", description: `Datos propios de ${STUDY.accounts} cuentas de restaurantes y ${STUDY.posts} publicaciones: formatos, duración de los Reels y frecuencia.` },
   miamiBeach: { href: "/es/edicion-de-video-miami-beach", label: "Edición de video en Miami Beach", description: "Proyectos de Miami Beach editados en remoto." },
+  reelsFtl: { href: "/es/editor-de-reels-fort-lauderdale", label: "Editor de Reels en Fort Lauderdale", description: "Edición remota de Reels para negocios de Broward a partir de clips propios." },
 };
 
 export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
@@ -61,7 +62,7 @@ export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   "/es/video-para-restaurantes-miami": [ES.estudio, ES.restaurantes, ES.comida, ES.reelsMiami, ES.precios],
   "/services/restaurant-promo-video-editing-miami": [EN.study, EN.reelsMiami, EN.reelsCost, EN.pricing],
   "/es/edicion-de-video-promocional-para-restaurantes-miami": [ES.estudio, ES.reelsMiami, ES.comida, ES.precios],
-  "/es/editor-de-video-corto-para-redes-miami": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
+  "/es/editor-de-video-corto-para-redes-miami": [ES.reelsMiami, ES.reelsFtl, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
 };
 
 export function priorityLinksFor(path: string): readonly PriorityLink[] {
