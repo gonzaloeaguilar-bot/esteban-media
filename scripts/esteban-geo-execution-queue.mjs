@@ -23,11 +23,13 @@ function successfulDispatch(previous, clusterId) {
 }
 
 export function eligible(cluster, previous, now) {
-  if (cluster.proposed_action !== "improve_existing" || cluster.state !== "unmeasured_outcome" || (cluster.missing_edges || []).length) return false;
+  if (cluster.proposed_action !== "improve_existing" || cluster.state !== "unmeasured_outcome" || (cluster.missing_edges || []).length || (cluster.measurement_edges || []).length) return false;
+  if (cluster.edges?.market_ownership?.citation_observation?.status !== "observed") return false;
   const prior = successfulDispatch(previous, cluster.cluster_id);
   return !prior || ageDays(prior.at, now) >= 28;
 }
 export function choose(graph, previous, now) { return (graph.clusters || []).find((cluster) => eligible(cluster, previous, now)) || null; }
+function measurementHold(graph) { return (graph.clusters || []).find((cluster) => cluster.state === "needs_measurement" || (cluster.measurement_edges || []).length) || null; }
 function brief(cluster, now) {
   const market = cluster.edges?.market_ownership || {};
   return { schema: SCHEMA, generated_at: now, mode: "governed-execution-brief", action: "dispatch_one_existing_page_repair",
@@ -42,9 +44,13 @@ function brief(cluster, now) {
 export async function run(options = parse()) {
   const graph = await load(options.graph); const previous = await load(options.state, { dispatched: {} });
   const cluster = choose(graph, previous, options.now);
+  const hold = !cluster ? measurementHold(graph) : null;
   const dispatches = previous.dispatched || {};
   const receipt = cluster ? { ...brief(cluster, options.now), status: "eligible", dispatched: dispatches,
     selector_receipt: { status: "eligible", at: options.now, cluster_id: cluster.cluster_id, note: "Selection is not a successful dispatch receipt." } } :
+    hold ? { schema: SCHEMA, generated_at: options.now, mode: "governed-execution-brief", status: "needs_measurement", dispatched: dispatches,
+      cluster_id: hold.cluster_id, query: hold.query, target: hold.target, measurement_edges: hold.measurement_edges || [],
+      selector_receipt: { status: "needs_measurement", at: options.now, cluster_id: hold.cluster_id, note: "No execution candidate: exact-prompt citation evidence needs a fresh complete owned-citation measurement." } } :
     { schema: SCHEMA, generated_at: options.now, mode: "governed-execution-brief", status: "no_eligible_candidate", dispatched: dispatches,
       selector_receipt: { status: "no_eligible_candidate", at: options.now } };
   await atomic(options.state, receipt); return receipt;

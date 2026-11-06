@@ -2,7 +2,7 @@
 
 `scripts/esteban-geo-execution-queue.mjs` is a daily, zero-cost selector. It reads the draft-only GEO graph and writes at most one source-bound action brief. It does not change a page, invoke an LLM, send outreach, or publish content.
 
-The selector accepts only an `improve_existing` cluster that has no `missing_edges` and is marked `unmeasured_outcome`. It preserves observed and `unmeasured` evidence verbatim. It does not convert unavailable evidence into zero or claim a business outcome.
+The selector accepts only an `improve_existing` cluster that has no `missing_edges` or `measurement_edges`, is marked `unmeasured_outcome`, and carries a current complete owned-citation observation. Citation evidence must match the candidate's exact approved prompt ID or the exact normalized query; token overlap is never a match. Observations older than 14 days, incomplete/unverified coverage, and `our_citation: false` are `needs_measurement`, never execution evidence. It does not convert unavailable evidence into zero or claim a business outcome.
 
 `dispatched[cluster_id]` is executor-owned durable state. A cluster is suppressed for 28 days only when it has a receipt with `status: "dispatched"` and a valid `at` timestamp. Failed or pending receipts remain eligible. The selector's `selector_receipt` explicitly records that selecting a cluster is not a dispatch success.
 
