@@ -5,17 +5,19 @@ import { describe, expect, it } from "vitest";
 import EnglishReelsPage from "../(english)/services/reels-editor-fort-lauderdale/page";
 import EnglishShortFormPage from "../(english)/services/short-form-video-editor-miami/page";
 import SpanishReelsPage from "../(spanish)/es/editor-de-reels-fort-lauderdale/page";
+import SpanishShortFormPage from "../(spanish)/es/editor-de-video-corto-para-redes-miami/page";
 import SpanishHomePage from "../(spanish)/es/page";
 import SpanishAreasPage from "../(spanish)/es/areas/page";
 
 const pages = [
-  ["English Fort Lauderdale Reels", EnglishReelsPage, "en"],
-  ["Spanish Fort Lauderdale Reels", SpanishReelsPage, "es"],
-  ["English short-form", EnglishShortFormPage, "en"],
+  ["English Fort Lauderdale Reels", EnglishReelsPage, "en", "Fort Lauderdale Reels editing page"],
+  ["Spanish Fort Lauderdale Reels", SpanishReelsPage, "es", "edición de Reels en Fort Lauderdale"],
+  ["English short-form Miami", EnglishShortFormPage, "en", "Miami short-form video editing page"],
+  ["Spanish short-form Miami", SpanishShortFormPage, "es", "edición de video corto en Miami"],
 ] as const;
 
 describe("food creator choice wedge", () => {
-  it.each(pages)("%s serves both buyer choices with distinct WhatsApp payloads", (_name, Page, locale) => {
+  it.each(pages)("%s serves both buyer choices with route-specific WhatsApp payloads", (_name, Page, locale, source) => {
     const html = renderToStaticMarkup(React.createElement(Page));
     const restaurantCta = `food_creator_choice_${locale}_restaurant_whatsapp`;
     const creatorCta = `food_creator_choice_${locale}_creator_whatsapp`;
@@ -33,6 +35,18 @@ describe("food creator choice wedge", () => {
     expect(decodeURIComponent(restaurantPayload!)).not.toEqual(decodeURIComponent(creatorPayload!));
     expect(decodeURIComponent(restaurantPayload!)).toMatch(/restaurant|restaurante/i);
     expect(decodeURIComponent(creatorPayload!)).toMatch(/food-and-places|comida y lugares/i);
+    expect(decodeURIComponent(restaurantPayload!)).toContain(source);
+    expect(decodeURIComponent(creatorPayload!)).toContain(source);
+  });
+
+  it("keeps the English and Spanish Miami short-form routes in choice-path parity", () => {
+    const en = renderToStaticMarkup(React.createElement(EnglishShortFormPage));
+    const es = renderToStaticMarkup(React.createElement(SpanishShortFormPage));
+    for (const html of [en, es]) {
+      expect(html).toContain("food_creator_choice_");
+      expect(html).toContain("restaurant_whatsapp");
+      expect(html).toContain("creator_whatsapp");
+    }
   });
 
   it("routes the Spanish home and Fort Lauderdale area hub directly to the Spanish Reels page", () => {

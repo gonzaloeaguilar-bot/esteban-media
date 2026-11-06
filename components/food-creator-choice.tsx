@@ -5,6 +5,7 @@ import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
 type Locale = "en" | "es";
+type SourcePage = "fort-lauderdale-reels" | "miami-short-form";
 
 const copy = {
   en: {
@@ -15,13 +16,13 @@ const copy = {
       title: "I run a restaurant or food business",
       detail: "I have clips of dishes, the space, or the team and want a clear Reel for the business.",
       action: "Ask about restaurant editing",
-      message: "Hi Esteban, I run a restaurant or food business and already have clips to edit into a Reel. I found you through the Fort Lauderdale Reels editing page.",
+      message: "Hi Esteban, I run a restaurant or food business and already have clips to edit into a Reel.",
     },
     creator: {
       title: "I make food-and-places videos",
       detail: "I have phone clips for a food, restaurant, or places account and want help turning them into posts.",
       action: "Ask about food-creator editing",
-      message: "Hi Esteban, I make food-and-places videos and already have clips to edit into posts. I found you through the Fort Lauderdale Reels editing page.",
+      message: "Hi Esteban, I make food-and-places videos and already have clips to edit into posts.",
     },
   },
   es: {
@@ -32,13 +33,13 @@ const copy = {
       title: "Tengo un restaurante o negocio de comida",
       detail: "Tengo clips de platos, del local o del equipo y quiero un Reel claro para el negocio.",
       action: "Consultar edición para restaurante",
-      message: "Hola Esteban, tengo un restaurante o negocio de comida y ya tengo clips para editar en un Reel. Llegué desde la página de edición de Reels en Fort Lauderdale.",
+      message: "Hola Esteban, tengo un restaurante o negocio de comida y ya tengo clips para editar en un Reel.",
     },
     creator: {
       title: "Hago videos de comida y lugares",
       detail: "Tengo clips del celular para una cuenta de comida, restaurantes o lugares y quiero convertirlos en publicaciones.",
       action: "Consultar edición para creador de comida",
-      message: "Hola Esteban, hago videos de comida y lugares y ya tengo clips para editar en publicaciones. Llegué desde la página de edición de Reels en Fort Lauderdale.",
+      message: "Hola Esteban, hago videos de comida y lugares y ya tengo clips para editar en publicaciones.",
     },
   },
 } as const;
@@ -48,7 +49,18 @@ const copy = {
  * the Reels pages. The distinct data-cta values and message text let GA4 and
  * the received WhatsApp conversation preserve the selected path.
  */
-export function FoodCreatorChoice({ locale }: { locale: Locale }) {
+const sourceLine: Record<Locale, Record<SourcePage, string>> = {
+  en: {
+    "fort-lauderdale-reels": " I found you through the Fort Lauderdale Reels editing page.",
+    "miami-short-form": " I found you through the Miami short-form video editing page.",
+  },
+  es: {
+    "fort-lauderdale-reels": " Llegué desde la página de edición de Reels en Fort Lauderdale.",
+    "miami-short-form": " Llegué desde la página de edición de video corto en Miami.",
+  },
+};
+
+export function FoodCreatorChoice({ locale, sourcePage }: { locale: Locale; sourcePage: SourcePage }) {
   const c = copy[locale];
   const choices = [
     ["restaurant", c.restaurant],
@@ -68,7 +80,7 @@ export function FoodCreatorChoice({ locale }: { locale: Locale }) {
                 <h3 className="font-serif text-2xl leading-tight">{choice.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-[#252a2d]">{choice.detail}</p>
                 <a
-                  href={whatsappHref(site.phone.e164, choice.message)}
+                  href={whatsappHref(site.phone.e164, `${choice.message}${sourceLine[locale][sourcePage]}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta={`food_creator_choice_${locale}_${id}_whatsapp`}

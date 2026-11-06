@@ -183,7 +183,7 @@ export default function ReelsEditorFortLauderdalePage() {
   return (
     <GeoServicePage
       content={content}
-      showcase={<><FoodCreatorChoice locale="en" /><ReelsCapCutComparison /></>}
+      showcase={<><FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" /><ReelsCapCutComparison /></>}
     />
   );
 }
