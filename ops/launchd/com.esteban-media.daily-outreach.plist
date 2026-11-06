@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.esteban-media.daily-outreach</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/gonzalo/code/esteban-media/scripts/compliant-outreach-dispatcher.mjs</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/gonzalo/code/esteban-media</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>TZ</key>
+    <string>America/New_York</string>
+    <!-- DRY-RUN by default: with ESTEBAN_SEND_LIVE unset the dispatcher writes
+         public/leads/outreach-dryrun-drafts.json and sends NOTHING.
+         To GO LIVE, add both of these keys (and keep RESEND_API_KEY in .env.local):
+           <key>ESTEBAN_SEND_LIVE</key><string>1</string>
+           <key>ESTEBAN_POSTAL_ADDRESS</key><string>Esteban Moreno Media, PO Box ..., City, FL ZIP</string>
+         The dispatcher fails closed if the postal address is missing. -->
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>8</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>LowPriorityIO</key>
+  <true/>
+  <key>Nice</key>
+  <integer>10</integer>
+  <key>ThrottleInterval</key>
+  <integer>60</integer>
+  <key>Umask</key>
+  <integer>63</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/gonzalo/.local/state/esteban-media-daily-outreach/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/gonzalo/.local/state/esteban-media-daily-outreach/launchd.err.log</string>
+</dict>
+</plist>
