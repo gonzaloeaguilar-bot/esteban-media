@@ -19,8 +19,8 @@ const aboutDescription =
   "Meet Esteban Moreno, founder of Esteban Moreno Media in Fort Lauderdale. Spanish-first video editing, AI-assisted content, social planning, and scoped projects.";
 
 export const metadata = buildPageMetadata({
-  title: "Esteban Moreno | Founder & Video Editor",
-  description: aboutDescription,
+  title: "About Esteban Moreno | Media Producer",
+  description: "Esteban Moreno media production services in Miami, Florida.",
   path: "/about",
   locale: "en",
   type: "profile",
