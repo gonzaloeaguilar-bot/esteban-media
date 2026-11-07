@@ -84,7 +84,13 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
                 YouTube Video Editing Service in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Maximize viewer watch time with dynamic pacing, chapter markers, lower third graphics, and crisp audio post-production.
+                Send raw long-form footage for a scoped YouTube edit with pacing, chapter markers, explanatory graphics, and audio post-production. This page is for a full YouTube episode, not vertical social cuts.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                For supplied footage that needs vertical versions for Reels, TikTok, or YouTube Shorts, use the{" "}
+                <Link href="/services/short-form-video-editor-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  Miami short-form editing page
+                </Link>.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
