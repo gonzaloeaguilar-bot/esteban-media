@@ -1,3 +1,11 @@
+## 2026-11-05 — Demand wave: editor vs videographer guide FAQ depth and EN/ES parity
+
+- [x] Restore EN/ES FAQ parity on `/guides/video-editor-vs-videographer` and `/es/guias/editor-de-video-vs-videografo` by adding matching Spanish FAQ for evaluating raw footage readiness in `lib/guides.ts`.
+- [x] Add regression test `app/__tests__/editor-vs-videographer-depth.test.ts` to assert 7 FAQs and FAQPage JSON-LD schema on both EN and ES pages.
+- [x] Update `lib/__tests__/guides.test.ts` to assert 7 FAQs for both locales.
+- [x] Run `pnpm lastmod:update` and commit `config/page-lastmod.json`.
+- [x] Acceptance gates passed: `pnpm lint && pnpm typecheck && pnpm test && git diff --check`.
+
 ## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity
 
 - [x] Restore EN/ES FAQ parity on `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in GSC review-2026-11-04) by adding matching English FAQs for automatic subtitles and recommended fonts in `lib/guides.ts`.

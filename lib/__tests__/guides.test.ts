@@ -418,7 +418,7 @@ describe("bilingual practical guides", () => {
     expect(enGuide.sections[0].heading).toBe("What is a videographer?");
     expect(esGuide.sections[0].heading).toBe("¿Qué es un videógrafo y para qué sirve?");
     expect(enGuide.faqs).toHaveLength(7);
-    expect(esGuide.faqs).toHaveLength(6);
+    expect(esGuide.faqs).toHaveLength(7);
 
     const enProse = JSON.stringify(enGuide.sections);
     const esProse = JSON.stringify(esGuide.sections);

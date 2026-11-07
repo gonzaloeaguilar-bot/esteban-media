@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-728",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave (2026-11-05): targeting GSC impressions at position 6-15 lacking content depth / EN-ES parity. Fresh GSC snapshot from review-2026-11-05.json and candidates-2026-11-05.json showed /guides/video-editor-vs-videographer earning impressions on page 1. Audit of guide pairs in lib/guides.ts revealed an EN/ES FAQ parity gap on the editor-vs-videographer guide pair: English had 7 FAQs while Spanish /es/guias/editor-de-video-vs-videografo had only 6 FAQs (missing the counterpart for evaluating existing raw footage readiness before editing). Added the matching Spanish FAQ question and answer, restoring full bilingual FAQ parity and Schema.org FAQPage structured data via buildGuideStructuredData.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, branch feat/demand-wave-editor-vs-videographer-faq-parity, move class 1 (content depth + FAQ/FAQPage JSON-LD parity). CTO dispatch charter demand-wave-esteban-charter.md.",
+    "hard_stops_checked": "Checked and clear. Zero invented clients/prices/reviews/stats/guarantees, no street address, no Part 107 drone-pilot claims, no aggregateRating. EN/ES parity restored. No new indexable URLs added, 0 sitemap count drift. All verification gates pass.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test, git diff --check, pnpm lastmod:update. New regression test app/__tests__/editor-vs-videographer-depth.test.ts verifies FAQ parity (7 FAQs each) and FAQPage schema in both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move in isolated feature branch off fresh origin/main; verified lint, typecheck, tests, and page-lastmod ledger."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both editor-vs-videographer guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on raw footage readiness and audio clarity without marketing buzzwords."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies footage readiness evaluation without introducing speculative claims.",
+    "winner_rationale": "Priority 1 move class: High-intent candidate page where the Spanish version lacked FAQ parity with English. Adding the matching Spanish FAQ and updating FAQPage schema directly fulfills search intent for assessing raw video assets before hiring an editor.",
+    "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test, pnpm lastmod:update clean, git diff --check clean.",
+    "debt_delta": "Net negative debt: introduces regression test app/__tests__/editor-vs-videographer-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+    "obsidian_handoff": "wiki/esteban-media-hot.md updated with PR #728 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-19, 2026-12-03)."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move in isolated feature branch off fresh origin/main; verified lint, typecheck, tests, and page-lastmod ledger."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic pass: zero banned claims, complete EN/ES parity restored across both editor-vs-videographer guides, zero inventory drift, and strict Schema.org FAQPage compliance."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "FAQ content adheres to dual-audience principles: concise answers (<60 words each), actionable guidance on raw footage readiness and audio clarity without marketing buzzwords."
+    }
+  },
+  "winner_rationale": "Priority 1 move class: High-intent candidate page where the Spanish version lacked FAQ parity with English. Adding the matching Spanish FAQ and updating FAQPage schema directly fulfills search intent for assessing raw video assets before hiring an editor.",
+  "reviewer_disagreement_reviewed": "No disagreement between passes. Content accurately clarifies footage readiness evaluation without introducing speculative claims.",
+  "tests_or_validation": "pnpm lint (0 errors), pnpm typecheck (clean), pnpm test, pnpm lastmod:update clean, git diff --check clean.",
+  "debt_delta": "Net negative debt: introduces regression test app/__tests__/editor-vs-videographer-depth.test.ts; reuses existing RailFaq component and buildGuideStructuredData schema pipeline without adding new dependencies.",
+  "obsidian_handoff": "wiki/esteban-media-hot.md updated with PR #728 link, move class 1 (content depth + FAQ/FAQPage JSON-LD parity), and follow-up GSC review dates (2026-11-19, 2026-12-03)."
+}
