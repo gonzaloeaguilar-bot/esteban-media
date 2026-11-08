@@ -7,11 +7,11 @@ const content: GeoServicePageContent = {
   eyebrow: "Miami reels editor",
   title: "Reels editor in Miami for business clips, product videos, and social ads.",
   description:
-    "Short-form editing for Miami businesses that need supplied footage turned into readable, fast-moving Reels, TikTok videos, Shorts, and ad variations.",
+    "The Miami page for Instagram Reels editing from supplied footage. For multi-platform Reels, TikTok, and YouTube Shorts versions, use the linked short-form editing hub.",
   locationLabel: "Miami / Remote",
   proofTitle: "Miami short-form intent",
   proofText:
-    "Miami already has a short-form page, but searchers also use the plain phrase Reels editor. This page answers that wording directly and links back to the deeper editing hub.",
+    "This page owns the direct Miami Reels question. Use the short-form editing hub when one supplied-footage project needs versions for Reels, TikTok, or YouTube Shorts.",
   proofHref: "/services/short-form-video-editor-miami",
   proofLabel: "View the short-form editing hub",
   primaryCta: "Ask about Miami Reels editing",
@@ -90,7 +90,7 @@ const content: GeoServicePageContent = {
   related: [
     {
       title: "Short-Form Video Editor Miami",
-      detail: "A broader hub for Reels, TikTok, Shorts, captions, and social cuts.",
+      detail: "The multi-platform hub for supplied-footage versions across Reels, TikTok, and YouTube Shorts.",
       href: "/services/short-form-video-editor-miami",
     },
     {

@@ -94,6 +94,13 @@ export default function ShortFormVideoEditorPage() {
                 </Link>{" "}
                 separately when the footage still needs to be filmed.
               </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                Need an edit specifically for Instagram Reels in Miami? Start with the{" "}
+                <Link href="/services/reels-editor-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  Miami Reels editing page
+                </Link>{" "}
+                instead. This page is the broader route when the same supplied footage needs versions for Reels, TikTok, or YouTube Shorts.
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"

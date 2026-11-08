@@ -9,14 +9,16 @@
  * becomes a made-up vendor metric.
  */
 
-import { readFile } from "node:fs/promises";
+import { mkdir, open, readFile, rename, unlink } from "node:fs/promises";
 import { homedir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const DEFAULT_MEASUREMENT_PATH = join(homedir(), ".local/state/esteban-media-seo-measurement/latest.json");
 export const DEFAULT_CITATION_PATH = join(homedir(), ".local/share/portfolio-ops/geo-citations.jsonl");
+export const DEFAULT_WRONG_INTENT_EXCLUSIONS_PATH = join(homedir(), ".local/state/esteban-media-seo-measurement/wrong-intent-exclusions.json");
 export const OWNED_DOMAIN = "estebanmorenomedia.com";
+export const MAX_CITATION_AGE_DAYS = 14;
 
 const help = `Usage: node scripts/free-capture-score.mjs [report] [options]
 
@@ -27,6 +29,12 @@ Options:
   --measurement=PATH  Search Console measurement snapshot (default: local latest.json)
   --citations=PATH    Citation JSONL ledger (default: local geo-citations.jsonl)
   --query=TEXT        Score one exact GSC query; otherwise rank all query-page rows
+  --exclusions=PATH   Persisted wrong-intent exclusion ledger (default: local state)
+  exclude --query=TEXT --reason=TEXT
+                      Persist an exact normalized wrong-intent query exclusion
+  include --query=TEXT
+                      Remove an exact normalized wrong-intent query exclusion
+  list-exclusions     Print the persisted wrong-intent query exclusions
   --json              Emit machine-readable JSON
   --help              Show this help
 `;
@@ -38,31 +46,36 @@ function option(argv, name) {
 export function parseArgs(argv = process.argv.slice(2)) {
   if (argv.includes("--help") || argv.includes("-h")) return { help: true };
   const command = argv.find((arg) => !arg.startsWith("--")) || "report";
-  if (command !== "report") throw new Error(`Unknown command: ${command}`);
+  if (!["report", "exclude", "include", "list-exclusions"].includes(command)) throw new Error(`Unknown command: ${command}`);
   return {
     command,
     measurementPath: resolve(option(argv, "measurement") || DEFAULT_MEASUREMENT_PATH),
     citationPath: resolve(option(argv, "citations") || DEFAULT_CITATION_PATH),
+    exclusionsPath: resolve(option(argv, "exclusions") || DEFAULT_WRONG_INTENT_EXCLUSIONS_PATH),
     query: option(argv, "query")?.trim().toLowerCase() || null,
+    reason: option(argv, "reason")?.trim() || null,
     json: argv.includes("--json"),
   };
 }
 
 export function normalise(value) {
-  return String(value || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 }
 
-function meaningfulTokens(value) {
-  return new Set(normalise(value).split(" ").filter((token) => token.length > 2));
+function ownedCitationUrl(value, ownedDomain = OWNED_DOMAIN) {
+  try {
+    const host = new URL(value).hostname.toLowerCase().replace(/^www\./, "");
+    return host === ownedDomain || host.endsWith(`.${ownedDomain}`);
+  } catch {
+    return false;
+  }
 }
 
 export function citationMatchesQuery(prompt, query) {
-  const promptTokens = meaningfulTokens(prompt);
-  const queryTokens = meaningfulTokens(query);
-  if (!promptTokens.size || !queryTokens.size) return false;
-  let overlap = 0;
-  for (const token of queryTokens) if (promptTokens.has(token)) overlap += 1;
-  return overlap / queryTokens.size >= 0.75;
+  const normalizedPrompt = normalise(prompt);
+  const normalizedQuery = normalise(query);
+  return Boolean(normalizedPrompt && normalizedQuery && normalizedPrompt === normalizedQuery);
 }
 
 export function isBrandedQuery(query) {
@@ -70,10 +83,73 @@ export function isBrandedQuery(query) {
   return value.includes("esteban") || value.includes("moreno");
 }
 
-export function readCitationRows(text) {
+export function isFreshCompleteOwnedCitation(row, { now = new Date().toISOString(), maxCitationAgeDays = MAX_CITATION_AGE_DAYS } = {}) {
+  const observedAt = Date.parse(row?.ts || row?.observed_at || "");
+  const current = Date.parse(now);
+  const ageDays = (current - observedAt) / 86400000;
+  return row?.brand === "esteban"
+    && String(row.status || "").toLowerCase() === "ok"
+    && String(row.citation_coverage || "").toLowerCase() === "complete"
+    && row.our_citation === true
+    && Number.isFinite(observedAt)
+    && Number.isFinite(current)
+    && ageDays >= 0
+    && ageDays <= maxCitationAgeDays
+    && Array.isArray(row.cited_urls)
+    && row.cited_urls.some((url) => ownedCitationUrl(url));
+}
+
+export function readCitationRows(text, options = {}) {
   return text.split("\n").filter(Boolean).flatMap((line) => {
     try { return [JSON.parse(line)]; } catch { return []; }
-  }).filter((row) => row.brand === "esteban" && row.status === "ok" && row.citation_coverage === "complete");
+  }).filter((row) => isFreshCompleteOwnedCitation(row, options));
+}
+
+function validExclusions(value) {
+  const rows = Array.isArray(value?.exclusions) ? value.exclusions : [];
+  const unique = new Map();
+  for (const row of rows) {
+    const normalizedQuery = normalise(row?.normalizedQuery || row?.query);
+    if (!normalizedQuery || !String(row?.reason || "").trim()) continue;
+    unique.set(normalizedQuery, {
+      query: String(row.query || normalizedQuery).trim(), normalizedQuery,
+      reason: String(row.reason).trim(), excludedAt: row.excludedAt || null,
+    });
+  }
+  return [...unique.values()].sort((left, right) => left.normalizedQuery.localeCompare(right.normalizedQuery));
+}
+
+export async function readWrongIntentExclusions(path) {
+  try {
+    return validExclusions(JSON.parse(await readFile(path, "utf8")));
+  } catch (error) {
+    if (error.code === "ENOENT") return [];
+    throw new Error(`Could not read wrong-intent exclusions at ${path}: ${error.message}`);
+  }
+}
+
+async function atomicWrite(path, content) {
+  await mkdir(dirname(path), { recursive: true });
+  const temporary = `${path}.${process.pid}.${Date.now()}.tmp`;
+  let handle;
+  try {
+    handle = await open(temporary, "wx", 0o600);
+    await handle.writeFile(content); await handle.sync(); await handle.close(); handle = null;
+    await rename(temporary, path);
+  } catch (error) {
+    await handle?.close().catch(() => {}); await unlink(temporary).catch(() => {}); throw error;
+  }
+}
+
+export async function writeWrongIntentExclusions(path, exclusions, now = new Date().toISOString()) {
+  const payload = { schema: "esteban-media.wrong-intent-exclusions.v1", updatedAt: now, exclusions: validExclusions({ exclusions }) };
+  await atomicWrite(path, `${JSON.stringify(payload, null, 2)}\n`);
+  return payload.exclusions;
+}
+
+export function isWrongIntentExcluded(query, exclusions) {
+  const normalizedQuery = normalise(query);
+  return exclusions.some((entry) => entry.normalizedQuery === normalizedQuery);
 }
 
 export function scoreParts(row, citationRows) {
@@ -95,7 +171,7 @@ export function recommendation(total, candidate = {}) {
   return "hold — insufficient owned evidence for a content change";
 }
 
-export function buildCandidates(measurement, citationRows, query = null) {
+export function buildCandidates(measurement, citationRows, query = null, wrongIntentExclusions = []) {
   const rows = measurement?.rows?.queryPage || [];
   return rows.map((row) => ({
     query: String(row.keys?.[0] || "").trim(),
@@ -104,7 +180,7 @@ export function buildCandidates(measurement, citationRows, query = null) {
     impressions: Number(row.impressions) || 0,
     ctr: Number(row.ctr) || 0,
     position: Number(row.position),
-  })).filter((row) => row.query && row.page && !isBrandedQuery(row.query) && (!query || normalise(row.query) === normalise(query)))
+  })).filter((row) => row.query && row.page && !isBrandedQuery(row.query) && !isWrongIntentExcluded(row.query, wrongIntentExclusions) && (!query || normalise(row.query) === normalise(query)))
     .map((row) => ({ ...row, score: scoreParts(row, citationRows) }))
     .sort((left, right) => right.score.total - left.score.total || right.impressions - left.impressions || left.position - right.position)
     .slice(0, query ? 10 : 25);
@@ -117,8 +193,9 @@ export function buildReport(measurement, citationRows, candidates, sources) {
     "# Esteban free capture score",
     "",
     `- Search Console window: ${window.startDate || "unknown"} through ${window.endDate || "unknown"}; generated ${generatedAt}.`,
-    `- Citation observations read: ${citationRows.length}; owned-domain citation matches are a recorded observation, not traffic, causation, or an AI-ranking factor.`,
-    `- Sources: settled Search Console snapshot \`${sources.measurementPath}\`; citation ledger \`${sources.citationPath}\`.`,
+    `- Eligible citation observations read: ${citationRows.length}; each is fresh (14 days or less), complete, cites the owned domain, and must exactly normalized-match the query. This is a recorded observation, not traffic, causation, or an AI-ranking factor.`,
+    `- Wrong-intent exclusions loaded: ${sources.wrongIntentExclusions || 0}; only exact normalized query matches are held.`,
+    `- Sources: settled Search Console snapshot \`${sources.measurementPath}\`; citation ledger \`${sources.citationPath}\`; wrong-intent ledger \`${sources.exclusionsPath}\`.`,
     "- This is a 0–10 capture score, not a proprietary difficulty metric. SERP resistance is unmeasured until a reproducible, separately sourced SERP input is supplied.",
     "",
     "| Query | Page | Impr. | Clicks | Pos. | Capture | Decision |",
@@ -131,17 +208,36 @@ export function buildReport(measurement, citationRows, candidates, sources) {
   return `${lines.join("\n")}\n`;
 }
 
-export async function run(args) {
-  const [measurementText, citationsText] = await Promise.all([readFile(args.measurementPath, "utf8"), readFile(args.citationPath, "utf8")]);
+export async function run(args, { now = new Date().toISOString() } = {}) {
+  const [measurementText, citationsText, wrongIntentExclusions] = await Promise.all([readFile(args.measurementPath, "utf8"), readFile(args.citationPath, "utf8"), readWrongIntentExclusions(args.exclusionsPath)]);
   const measurement = JSON.parse(measurementText);
-  const citations = readCitationRows(citationsText);
-  const candidates = buildCandidates(measurement, citations, args.query);
-  return { schema: "esteban-media.free-capture-score.v1", generatedAt: new Date().toISOString(), sources: { measurementPath: args.measurementPath, citationPath: args.citationPath, measurementGeneratedAt: measurement.generatedAt || null, measurementWindow: measurement.window || null, citationObservations: citations.length }, candidates, report: buildReport(measurement, citations, candidates, args) };
+  const citations = readCitationRows(citationsText, { now });
+  const candidates = buildCandidates(measurement, citations, args.query, wrongIntentExclusions);
+  const sources = { measurementPath: args.measurementPath, citationPath: args.citationPath, exclusionsPath: args.exclusionsPath, measurementGeneratedAt: measurement.generatedAt || null, measurementWindow: measurement.window || null, citationObservations: citations.length, wrongIntentExclusions: wrongIntentExclusions.length };
+  return { schema: "esteban-media.free-capture-score.v1", generatedAt: now, sources, candidates, report: buildReport(measurement, citations, candidates, sources) };
 }
 
 async function main() {
   const args = parseArgs();
   if (args.help) { console.log(help); return; }
+  if (args.command === "list-exclusions") {
+    const exclusions = await readWrongIntentExclusions(args.exclusionsPath);
+    console.log(args.json ? JSON.stringify({ exclusions }, null, 2) : `${exclusions.map((entry) => `${entry.query}\t${entry.reason}`).join("\n")}\n`);
+    return;
+  }
+  if (args.command === "exclude" || args.command === "include") {
+    const normalizedQuery = normalise(args.query);
+    if (!normalizedQuery) throw new Error(`${args.command} requires --query=TEXT`);
+    if (args.command === "exclude" && !args.reason) throw new Error("exclude requires --reason=TEXT");
+    const existing = await readWrongIntentExclusions(args.exclusionsPath);
+    const retained = existing.filter((entry) => entry.normalizedQuery !== normalizedQuery);
+    const exclusions = args.command === "exclude"
+      ? [...retained, { query: args.query, normalizedQuery, reason: args.reason, excludedAt: new Date().toISOString() }]
+      : retained;
+    const saved = await writeWrongIntentExclusions(args.exclusionsPath, exclusions);
+    console.log(args.json ? JSON.stringify({ exclusions: saved }, null, 2) : `${args.command === "exclude" ? "Excluded" : "Included"} exact normalized query: ${normalizedQuery}\n`);
+    return;
+  }
   const result = await run(args);
   console.log(args.json ? JSON.stringify(result, null, 2) : result.report);
 }
