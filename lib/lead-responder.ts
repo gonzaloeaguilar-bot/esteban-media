@@ -20,7 +20,10 @@ export type LeadSource =
   | "landing-page-intake"
   | "pembroke-pines-small-business-video"
   | "home-path-funnel"
-  | "reel-funnel";
+  | "reel-funnel"
+  | "caption-safe-zone"
+  | "footage-handoff"
+  | "executive-interview";
 
 const LEAD_SOURCES = new Set<LeadSource>([
   "brief-builder",
@@ -40,6 +43,9 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "pembroke-pines-small-business-video",
   "home-path-funnel",
   "reel-funnel",
+  "caption-safe-zone",
+  "footage-handoff",
+  "executive-interview",
 ]);
 
 /**
