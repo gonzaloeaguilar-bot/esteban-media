@@ -29,6 +29,7 @@ const HUBS: Record<Locale, { href: string; label: string }[]> = {
     { href: "/es/precios", label: "Precios" },
     { href: "/es/editor-de-video-corto-para-redes-miami", label: "Editor de video corto en Miami" },
     { href: "/es/editor-de-reels-fort-lauderdale", label: "editor de reels Fort Lauderdale" },
+    { href: "/es/produccion-de-video-fort-lauderdale", label: "editor de video Fort Lauderdale" },
     { href: "/es/editor-de-reels-miami", label: "editor de reels Miami" },
   ],
 };
