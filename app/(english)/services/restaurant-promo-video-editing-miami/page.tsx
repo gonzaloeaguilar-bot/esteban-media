@@ -210,6 +210,9 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               <p>
                 Plan a shoot only when an essential scene is missing: the preparation, the dining room, the owner explanation, or the product detail that makes the offer understandable. New filming is scoped separately around the venue and the content goal. Before either route, use the <Link href="/guides/video-content-ideas-for-restaurants" className="underline underline-offset-4 hover:text-[#9f3c27]">restaurant video content guide</Link> to make a short shot list, then compare the finished work in <Link href="/portfolio/juanchis-burguer" className="underline underline-offset-4 hover:text-[#9f3c27]">Juanchis Burguer</Link>, <Link href="/portfolio/portosole" className="underline underline-offset-4 hover:text-[#9f3c27]">Portosole</Link>, and <Link href="/portfolio/bar-door-monkey" className="underline underline-offset-4 hover:text-[#9f3c27]">Bar Door Monkey Miami</Link>.
               </p>
+              <p>
+                This page is for a restaurant&apos;s own promotion. If you run a food-and-places account and have your own visit footage to turn into posts, use the <Link href="/services/food-and-places-creator-video-editing-miami" className="underline underline-offset-4 hover:text-[#9f3c27]">food and places creator editing page</Link> instead. The footage, account, and final publishing decision stay with the person who is asking for the edit.
+              </p>
             </div>
           </div>
         </Container>
