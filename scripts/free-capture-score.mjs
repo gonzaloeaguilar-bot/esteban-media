@@ -15,7 +15,19 @@ import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const DEFAULT_MEASUREMENT_PATH = join(homedir(), ".local/state/esteban-media-seo-measurement/latest.json");
-export const DEFAULT_CITATION_PATH = join(homedir(), ".local/share/portfolio-ops/geo-citations.jsonl");
+// Each engine writes its own current receipt. The old portfolio-wide ledger is
+// retained as an explicit override only: it stopped advancing while these
+// per-engine receipts continued to record Esteban observations.
+export const DEFAULT_CITATION_PATHS = [
+  join(homedir(), ".claude/state/geo-citation/esteban.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-sonarpro.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-gpt.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-gemini.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-claude.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-grok.jsonl"),
+  join(homedir(), ".claude/state/geo-citation/esteban-meta.jsonl"),
+];
+export const DEFAULT_CITATION_PATH = DEFAULT_CITATION_PATHS[0];
 export const OWNED_DOMAIN = "estebanmorenomedia.com";
 
 const help = `Usage: node scripts/free-capture-score.mjs [report] [options]
@@ -25,7 +37,9 @@ This never calls paid keyword/SERP APIs and never changes external systems.
 
 Options:
   --measurement=PATH  Search Console measurement snapshot (default: local latest.json)
-  --citations=PATH    Citation JSONL ledger (default: local geo-citations.jsonl)
+  --citations=PATH[,PATH]
+                     Citation JSONL receipt(s). Defaults to all five current
+                     Esteban engine receipts; a missing receipt stays unmeasured.
   --query=TEXT        Score one exact GSC query; otherwise rank all query-page rows
   --json              Emit machine-readable JSON
   --help              Show this help
@@ -42,7 +56,8 @@ export function parseArgs(argv = process.argv.slice(2)) {
   return {
     command,
     measurementPath: resolve(option(argv, "measurement") || DEFAULT_MEASUREMENT_PATH),
-    citationPath: resolve(option(argv, "citations") || DEFAULT_CITATION_PATH),
+    citationPaths: (option(argv, "citations") || DEFAULT_CITATION_PATHS.join(","))
+      .split(",").map((path) => resolve(path.trim())).filter(Boolean),
     query: option(argv, "query")?.trim().toLowerCase() || null,
     json: argv.includes("--json"),
   };
@@ -72,7 +87,20 @@ export function isBrandedQuery(query) {
 
 export function readCitationRows(text) {
   return text.split("\n").filter(Boolean).flatMap((line) => {
-    try { return [JSON.parse(line)]; } catch { return []; }
+    try {
+      const row = JSON.parse(line);
+      // v3 stores one engine run with its prompt results nested under
+      // `results`. Flatten only completed prompt observations so the scorer
+      // can use the current engine receipts without mistaking an unavailable
+      // engine for a zero citation.
+      if (row?.schema === "geo-citation-probe.v3" && row.brand === "esteban") {
+        return Object.entries(row.results || {}).flatMap(([prompt, result]) =>
+          result?.status === "measured"
+            ? [{ brand: row.brand, engine: row.engine, prompt, status: "ok", citation_coverage: "complete", our_citation: Number(result.url_cited) > 0, checked_at: row.checked_at }]
+            : []);
+      }
+      return [row];
+    } catch { return []; }
   }).filter((row) => row.brand === "esteban" && row.status === "ok" && row.citation_coverage === "complete");
 }
 
@@ -132,11 +160,20 @@ export function buildReport(measurement, citationRows, candidates, sources) {
 }
 
 export async function run(args) {
-  const [measurementText, citationsText] = await Promise.all([readFile(args.measurementPath, "utf8"), readFile(args.citationPath, "utf8")]);
+  const [measurementText, ...citationTexts] = await Promise.all([
+    readFile(args.measurementPath, "utf8"),
+    ...args.citationPaths.map(async (path) => {
+      try { return await readFile(path, "utf8"); } catch (error) {
+        if (error.code === "ENOENT") return "";
+        throw error;
+      }
+    }),
+  ]);
   const measurement = JSON.parse(measurementText);
-  const citations = readCitationRows(citationsText);
+  const citations = citationTexts.flatMap(readCitationRows);
   const candidates = buildCandidates(measurement, citations, args.query);
-  return { schema: "esteban-media.free-capture-score.v1", generatedAt: new Date().toISOString(), sources: { measurementPath: args.measurementPath, citationPath: args.citationPath, measurementGeneratedAt: measurement.generatedAt || null, measurementWindow: measurement.window || null, citationObservations: citations.length }, candidates, report: buildReport(measurement, citations, candidates, args) };
+  const citationPath = args.citationPaths.join(",");
+  return { schema: "esteban-media.free-capture-score.v1", generatedAt: new Date().toISOString(), sources: { measurementPath: args.measurementPath, citationPath, citationPaths: args.citationPaths, measurementGeneratedAt: measurement.generatedAt || null, measurementWindow: measurement.window || null, citationObservations: citations.length }, candidates, report: buildReport(measurement, citations, candidates, { ...args, citationPath }) };
 }
 
 async function main() {

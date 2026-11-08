@@ -21,7 +21,7 @@ import { CREW_RECORDING_RATES, PACKAGE_PRICES, usd } from "@/lib/pricing";
 export const metadata = buildPageMetadata({
   title: "Executive Interview Videographer Miami for Leadership Videos",
   description:
-    "Executive interview videographer in Miami for clear leadership videos and customer testimonials, with on-location filming and editing options.",
+    "Executive interview videographer in Miami for clear leadership videos and customer testimonials, with scoped travel and editing-only options for supplied footage.",
   path: "/services/executive-interview-videographer-miami",
   locale: "en",
 });
@@ -48,7 +48,7 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
         description:
           "Executive interview videography, corporate testimonial video production, and LinkedIn thought-leadership editing in Miami.",
         provider: { "@id": absoluteUrl("/#business") },
-        areaServed: "Miami-Dade County / Remote",
+        areaServed: "Miami-Dade and Broward / Remote editing; travel quoted by scope",
         serviceType: "Corporate video production",
       },
     ],

@@ -155,6 +155,20 @@ export function ReelsCostCalculatorPage({ locale }: { locale: CalcLocale }) {
               >
                 {c.ctaGuide}
               </Link>
+              <Link
+                href={c.hrefs.reels}
+                data-cta="reels_cost_calculator_local_editor"
+                className="inline-flex min-h-12 items-center px-2 font-medium text-[#9f3c27] underline underline-offset-4"
+              >
+                {locale === "es" ? "Ver edición de Reels en Fort Lauderdale" : "See Reels editing in Fort Lauderdale"}
+              </Link>
+              <Link
+                href={c.hrefs.shortForm}
+                data-cta="reels_cost_calculator_short_form_service"
+                className="inline-flex min-h-12 items-center px-2 font-medium text-[#9f3c27] underline underline-offset-4"
+              >
+                {locale === "es" ? "Ver edición de video corto en Miami" : "See short-form editing in Miami"}
+              </Link>
             </div>
           </section>
         </div>

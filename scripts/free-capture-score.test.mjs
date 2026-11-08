@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, readCitationRows, recommendation, scoreParts } from "./free-capture-score.mjs";
+import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, parseArgs, readCitationRows, recommendation, scoreParts } from "./free-capture-score.mjs";
 
 const measurement = {
   generatedAt: "2026-10-24T12:00:00.000Z",
@@ -24,6 +24,17 @@ describe("free capture score", () => {
 
   it("keeps only complete Esteban citation observations", () => {
     expect(readCitationRows(citationText)).toHaveLength(2);
+  });
+
+  it("flattens measured v3 engine receipts while keeping unavailable prompts out", () => {
+    const receipt = JSON.stringify({
+      schema: "geo-citation-probe.v3", brand: "esteban", engine: "gemini", checked_at: "2026-11-05T00:00:00Z",
+      results: {
+        "short-form-editor-miami": { status: "measured", url_cited: 2 },
+        "video-production-ftl": { status: "unmeasured", url_cited: 0 },
+      },
+    });
+    expect(readCitationRows(receipt)).toEqual([expect.objectContaining({ prompt: "short-form-editor-miami", our_citation: true })]);
   });
 
   it("excludes Esteban-branded discovery from a non-brand opportunity queue", () => {
@@ -51,5 +62,11 @@ describe("free capture score", () => {
     expect(report).toContain("0–10 capture score");
     expect(report).toContain("SERP resistance is unmeasured");
     expect(report).not.toContain("keyword difficulty");
+  });
+
+  it("defaults to the current per-engine Esteban receipts, not the stale shared ledger", () => {
+    const args = parseArgs([]);
+    expect(args.citationPaths).toHaveLength(7);
+    expect(args.citationPaths.every((path) => path.includes(".claude/state/geo-citation/esteban"))).toBe(true);
   });
 });

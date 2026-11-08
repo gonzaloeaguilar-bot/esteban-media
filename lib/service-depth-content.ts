@@ -1557,6 +1557,11 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
       answer:
         "Choose this on-location interview service when you need the conversation filmed at your Miami office or venue. If you already have recorded interviews, the interview video editing service can shape supplied footage; if the assignment is a leadership profile or board-facing story, compare executive video bio production before requesting a written scope.",
     },
+    {
+      question: "Can Esteban quote an executive interview project outside Miami, such as Orlando?",
+      answer:
+        "Esteban is based in Fort Lauderdale. For a project outside Miami-Dade and Broward, send the venue, date, shoot length, people on camera, audio needs, finished versions, and whether footage already exists. He can confirm availability, travel cost, and the right filming or editing-only scope in writing before a date is booked. Remote editing of supplied interviews does not require travel.",
+    },
   ],
   "/services/yacht-event-videographer-miami": [
     {
@@ -1593,6 +1598,11 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
     },
   ],
   "/services/remote-video-editing-colombia": [
+    {
+      question: "Can a company outside Colombia use remote video editing for supplied footage?",
+      answer:
+        "Yes. Remote editing is based on the footage and brief, not the filming location: a team sends original files, intended audience, reference links, brand assets, and the publishing platform. Esteban reviews the scope before accepting a project and can return finished social edits, subtitles, or longer cuts without an on-location shoot.",
+    },
     {
       question: "How do Colombian companies hand off raw footage for remote editing?",
       answer:

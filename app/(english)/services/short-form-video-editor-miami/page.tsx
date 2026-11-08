@@ -120,6 +120,21 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Published work you can inspect</p>
+            <h2 id="published-short-form-work" className="mt-3 font-serif text-3xl">Look at the work before you ask for a quote.</h2>
+            <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+              These public sources show finished short-form work. They show the edit itself, not views, sales, campaign results, or a promise that a new project will perform the same way.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link href="/case-studies/gains-from-geebs-shorts" className="inline-flex min-h-11 items-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">View published short-form videos</Link>
+              <Link href="/case-studies/juanchis-burguer" className="inline-flex min-h-11 items-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">View a Miami restaurant campaign</Link>
+            </div>
+          </div>
+        </Container>
+      </section>
       <ClientReviews locale="en" compact />
       <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
         <Container size="xl">

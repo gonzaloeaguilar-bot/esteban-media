@@ -7,6 +7,8 @@ import { whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
+const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff"] as const;
+
 const contactDescription =
   "Contact Esteban Moreno Media for video editing, AI content creation, social planning, and scoped South Florida production. Send your brief or project details.";
 
@@ -77,7 +79,7 @@ export default function ContactPage() {
           </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
-            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" /></div>
+          <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" querySources={CAPTURE_SOURCES} /></div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
