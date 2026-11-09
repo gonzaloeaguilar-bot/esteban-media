@@ -13,6 +13,7 @@ export function GET() {
     `EMAIL;TYPE=WORK:${site.email}`,
     `URL:${siteUrl}`,
     `X-SOCIALPROFILE;TYPE=instagram:${site.instagramBusiness}`,
+    `X-SOCIALPROFILE;TYPE=tiktok:${site.tiktok}`,
     "END:VCARD",
   ].join("\r\n");
 

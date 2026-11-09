@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Copy, Check, Folder, Sparkles, Send } from "lucide-react";
-import { site } from "@/lib/site";
 
 type Locale = "en" | "es";
 
@@ -162,17 +162,18 @@ export function FootageHandoffChecklist({ locale = "en" }: FootageHandoffCheckli
             </h4>
             <p className="mt-1 text-[11px] leading-relaxed text-[#d8d0c7]">
               {isEs
-                ? "Comparte el enlace de tu carpeta de Google Drive o WeTransfer Pro con Esteban Moreno."
-                : "Share your Google Drive or WeTransfer Pro folder link with Esteban Moreno."}
+                ? "Abre un brief para compartir qué material tienes, el enlace de la carpeta y los formatos que necesitas."
+                : "Open a brief to share what footage you have, the folder link, and the formats you need."}
             </p>
 
-            <a
-              href={`mailto:${site.email}?subject=${encodeURIComponent(isEs ? "Entrega de Material de Video para Edición" : "Video Footage Handoff for Editing")}`}
+            <Link
+              href={isEs ? "/es/contacto?source=footage-handoff" : "/contact?source=footage-handoff"}
+              data-cta="footage_handoff_brief"
               className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               <Send className="size-3.5" aria-hidden="true" />
-              {isEs ? "Enviar Enlace de Carpeta por Email" : "Send Folder Link via Email"}
-            </a>
+              {isEs ? "Preparar brief de entrega" : "Build a handoff brief"}
+            </Link>
           </div>
         </div>
       </div>

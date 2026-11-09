@@ -165,9 +165,14 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
         <Container size="xl">
           <p className="em-cine-caption__lead">
             {isSpanish
-              ? "Edición de video y producción de contenido para negocios, agentes y creadores que quieren que su trabajo se vea tan bien como realmente es."
+              ? "Para negocios y agentes con material ya grabado: edición de video, Reels y contenido claro para publicar."
               : "Video editing and content production for businesses, agents, and creators who want their work to look as good as it really is."}
           </p>
+          {isSpanish ? (
+            <Link href="/es/editor-de-reels-fort-lauderdale" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#a93e29] underline underline-offset-4">
+              Editar Reels y video en Fort Lauderdale
+            </Link>
+          ) : null}
           {/* The detail folds. The lead sentence above stays visible, so the
               block still says what this is; the long explanation and the
               area list open on tap. Native <details>, so the full text ships

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  CENTRAL_FLORIDA_CAPTURE_SOURCES,
   formatLeadSummary,
   generateLeadId,
   validateLeadPayload,
@@ -28,6 +29,15 @@ describe("lead-responder", () => {
         phone: "5550100",
         email: "client@example.com",
         source: "brief-builder",
+      })
+    ).toEqual({ valid: true });
+
+    expect(
+      validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
+        email: "client@example.com",
+        source: "caption-safe-zone",
       })
     ).toEqual({ valid: true });
 
@@ -123,5 +133,16 @@ describe("lead-responder", () => {
     const summary = formatLeadSummary({ source: "contact", email: "a@example.com" });
     expect(summary).not.toContain("Found via");
     expect(summary).not.toContain("What they typed");
+  });
+
+  it.each(CENTRAL_FLORIDA_CAPTURE_SOURCES)("accepts %s as an attributable Central Florida source", (source) => {
+    expect(
+      validateLeadPayload({
+        name: "Central Florida test",
+        email: "test@example.com",
+        phone: "5550100",
+        source,
+      }),
+    ).toEqual({ valid: true });
   });
 });
