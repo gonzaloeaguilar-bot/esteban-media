@@ -32,6 +32,14 @@ describe("free capture score", () => {
     expect(readCitationRows(citationText, { now })).toHaveLength(2);
   });
 
+  it("reads the normalized latest-successful engine snapshot without allowing a failed retry to erase it", () => {
+    const snapshot = JSON.stringify({
+      schema: "esteban-media.geo-citation-successful-receipts.v1",
+      engines: [{ checked_at: "2026-11-05T12:00:00.000Z", prompts: { "reels-editor-ftl-en": { url_cited: 2, cited_urls: [["https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale", 2]] } } }],
+    });
+    expect(readCitationRows(snapshot, { now })).toEqual([expect.objectContaining({ prompt: "reels-editor-ftl-en", our_citation: true })]);
+  });
+
   it("excludes Esteban-branded discovery from a non-brand opportunity queue", () => {
     expect(isBrandedQuery("Esteban Moreno Media")).toBe(true);
     expect(isBrandedQuery("moreno-media.com")).toBe(true);

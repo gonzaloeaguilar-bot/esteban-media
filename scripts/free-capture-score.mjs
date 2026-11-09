@@ -15,7 +15,7 @@ import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const DEFAULT_MEASUREMENT_PATH = join(homedir(), ".local/state/esteban-media-seo-measurement/latest.json");
-export const DEFAULT_CITATION_PATH = join(homedir(), ".local/share/portfolio-ops/geo-citations.jsonl");
+export const DEFAULT_CITATION_PATH = join(homedir(), ".local/state/esteban-media-geo-citation/latest-successful.json");
 export const DEFAULT_WRONG_INTENT_EXCLUSIONS_PATH = join(homedir(), ".local/state/esteban-media-seo-measurement/wrong-intent-exclusions.json");
 export const OWNED_DOMAIN = "estebanmorenomedia.com";
 export const MAX_CITATION_AGE_DAYS = 14;
@@ -100,6 +100,14 @@ export function isFreshCompleteOwnedCitation(row, { now = new Date().toISOString
 }
 
 export function readCitationRows(text, options = {}) {
+  const snapshot = (() => { try { return JSON.parse(text); } catch { return null; } })();
+  if (snapshot?.schema === "esteban-media.geo-citation-successful-receipts.v1") {
+    return (snapshot.engines || []).flatMap((engine) => Object.entries(engine.prompts || {}).map(([prompt, result]) => ({
+      brand: "esteban", status: "ok", citation_coverage: "complete", prompt,
+      our_citation: Number(result?.url_cited) > 0, ts: engine.checked_at,
+      cited_urls: (result?.cited_urls || []).map((entry) => Array.isArray(entry) ? entry[0] : entry),
+    }))).filter((row) => isFreshCompleteOwnedCitation(row, options));
+  }
   return text.split("\n").filter(Boolean).flatMap((line) => {
     try { return [JSON.parse(line)]; } catch { return []; }
   }).filter((row) => isFreshCompleteOwnedCitation(row, options));
