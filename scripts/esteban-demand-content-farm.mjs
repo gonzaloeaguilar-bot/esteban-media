@@ -7,17 +7,21 @@
  * writes site content, opens a PR, or publishes. A Semrush UI export is used
  * only when an already-ingested `slug: esteban` row exists.
  */
-import { mkdir, open, readFile, rename, stat, unlink } from "node:fs/promises";
+import { mkdir, open, readFile, readdir, rename, stat, unlink } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
 export const FARM_SCHEMA = "esteban-media.demand-content-farm.v1";
 const HOME = homedir();
 const ROOT = join(HOME, ".local/share/portfolio-ops");
+const ESTEBAN_CITATION_DIR = join(HOME, ".claude/state/geo-citation");
 const DEFAULTS = {
   coverage: join(ROOT, "esteban-coverage/latest.json"),
   semrush: join(ROOT, "semrush-ui.jsonl"),
-  citations: join(ROOT, "geo-citations.jsonl"),
+  // Esteban's collector writes one receipt per engine here. The old shared
+  // portfolio file is not a substitute for those engine observations.
+  citations: "",
+  citationDir: ESTEBAN_CITATION_DIR,
   state: join(HOME, ".local/state/esteban-media-demand-content-farm/latest.json"),
   queue: join(HOME, "obsidian-wiki/client-esteban-media/wiki/esteban-demand-content-queue.md"),
   guideUrl: "https://estebanmorenomedia.com/es/guias",
@@ -37,6 +41,7 @@ function args(argv = process.argv.slice(2)) {
     coverage: value("coverage") || DEFAULTS.coverage,
     semrush: value("semrush") || DEFAULTS.semrush,
     citations: value("citations") || DEFAULTS.citations,
+    citationDir: value("citation-dir") || DEFAULTS.citationDir,
     state: value("state") || DEFAULTS.state,
     queue: value("queue") || DEFAULTS.queue,
     guideUrl: value("guide-url") || DEFAULTS.guideUrl,
@@ -166,6 +171,23 @@ function citationObservation(text) {
   return { status: latest.status || "UNMEASURED", source: `${latest.engine || "unknown"} ${latest.ts || "undated"}`, reason: latest.reason || null };
 }
 
+async function probeCitationObservation(directory) {
+  let files = [];
+  try { files = (await readdir(directory)).filter((file) => /^esteban-[a-z0-9-]+\.jsonl$/i.test(file)); } catch (error) { if (error.code !== "ENOENT") throw error; }
+  const snapshots = [];
+  for (const file of files) {
+    const rows = (await readText(join(directory, file))).split("\n").flatMap((line) => { try { return [JSON.parse(line)]; } catch { return []; } });
+    const latest = rows.sort((a, b) => String(b.checked_at || "").localeCompare(String(a.checked_at || "")))[0];
+    if (latest) snapshots.push({ file, latest });
+  }
+  if (!snapshots.length) return { status: "UNMEASURED", source: "per-engine Esteban citation receipts absent" };
+  const completed = snapshots.filter(({ latest }) => Object.values(latest.results || {}).some((result) => result?.status === "measured"));
+  const newest = snapshots.sort((a, b) => String(b.latest.checked_at || "").localeCompare(String(a.latest.checked_at || "")))[0];
+  return completed.length
+    ? { status: "MEASURED", source: `${completed.length}/${snapshots.length} per-engine receipts; latest ${newest.latest.checked_at || "undated"}` }
+    : { status: "UNMEASURED", source: `${snapshots.length} per-engine receipts without a completed prompt`, reason: newest.latest.errors ? `${newest.latest.errors} probe error(s)` : null };
+}
+
 export function buildCandidates(rows, guideSet, semrush, citation) {
   const seen = new Set();
   return rows.filter((row) => VALID_STATUSES.has(row.status)).map((row) => {
@@ -224,7 +246,9 @@ export async function runFarm(options = args()) {
   const guides = await fetchGuides(options.guideUrl);
   const semrushText = await readText(options.semrush);
   const semrush = parseSemrush(semrushText);
-  const citation = citationObservation(await readText(options.citations));
+  const citation = options.citations
+    ? citationObservation(await readText(options.citations))
+    : await probeCitationObservation(options.citationDir);
   const generatedAt = new Date().toISOString();
   const snapshot = {
     schema: FARM_SCHEMA, generatedAt, mode: "draft-only", coverage: { path: coverage.csv, date: coverage.date, ageHours: await fileAgeHours(coverage.csv), status: coverage.status || "unknown" },
