@@ -19,6 +19,7 @@ import { ScriptAndOverlayKit } from "@/components/script-and-overlay-kit";
 import { VideoStrategyAssessment } from "@/components/video-strategy-assessment";
 import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import { CaptionGuideOffer } from "@/components/caption-guide-offer";
+import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
@@ -840,6 +841,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             {(guide.id === "bilingual-video-strategy-guide" || guide.id.includes("bilingue")) && (
               <div className="my-10">
                 <VideoStrategyAssessment locale={locale} />
+              </div>
+            )}
+
+            {guide.id === "caption-styles-reels-guide" && (
+              <div className="my-10">
+                <CaptionSafeZoneDiagnostic locale={locale} />
               </div>
             )}
 

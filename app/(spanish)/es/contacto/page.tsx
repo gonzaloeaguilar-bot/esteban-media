@@ -7,6 +7,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 const PEMBROKE_PINES_SOURCE = "pembroke-pines-small-business-video" as const;
+const CAPTION_SAFE_ZONE_SOURCE = "caption-safe-zone" as const;
+const FOOTAGE_HANDOFF_SOURCE = "footage-handoff" as const;
 
 const contactDescriptionEs =
   "Contacta a Esteban Moreno Media en español para edición de video, contenido con IA y producción en South Florida. Envía tu brief o detalles del proyecto.";
@@ -112,7 +114,7 @@ export default function SpanishContactPage() {
           </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
-            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE]} /></div>
+            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE]} /></div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>

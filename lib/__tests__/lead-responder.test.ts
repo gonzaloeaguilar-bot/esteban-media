@@ -36,6 +36,15 @@ describe("lead-responder", () => {
         name: "Client",
         phone: "5550100",
         email: "client@example.com",
+        source: "caption-safe-zone",
+      })
+    ).toEqual({ valid: true });
+
+    expect(
+      validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
+        email: "client@example.com",
         source: "pembroke-pines-small-business-video",
       })
     ).toEqual({ valid: true });
