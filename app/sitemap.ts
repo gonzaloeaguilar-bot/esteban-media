@@ -75,6 +75,9 @@ export const sitemapRoutes = [
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/resources/video-project-brief-template", priority: 0.85 },
   { path: "/resources/remote-editing-handoff-checklist", priority: 0.85 },
+  // Central Florida supplied-footage experiment: remote editing only, not a local-filming claim.
+  { path: "/guides/central-florida-footage-editing", priority: 0.7 },
+  { path: "/es/guias/edicion-remota-central-florida", priority: 0.7 },
   // Original data study (2026-10-14); the ES twin ships through spanishRoutes.
   { path: restaurantIgStudyPaths.en, priority: 0.8 },
   { path: "/resources/ai-product-photo-truth-checklist", priority: 0.85 },
