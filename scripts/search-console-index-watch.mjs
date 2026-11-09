@@ -42,6 +42,11 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Central Florida supplied-footage editing guide pair (2026-11-08). These
+  // routes describe remote post-production only; they do not assert local
+  // production coverage or regulated-industry credentials.
+  "https://estebanmorenomedia.com/guides/central-florida-footage-editing",
+  "https://estebanmorenomedia.com/es/guias/edicion-remota-central-florida",
   // Fort Lauderdale editors comparison guide pair (2026-11-04).
   "https://estebanmorenomedia.com/guides/video-editors-fort-lauderdale-compared",
   "https://estebanmorenomedia.com/es/guias/editores-de-video-fort-lauderdale-comparados",
