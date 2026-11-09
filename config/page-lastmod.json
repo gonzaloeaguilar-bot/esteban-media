@@ -85,7 +85,7 @@
  },
  "/contact": {
   "date": "2026-11-08",
-  "hash": "3770acdbc78cb376"
+  "hash": "2f8846a07a7e4044"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -217,7 +217,7 @@
  },
  "/es/contacto": {
   "date": "2026-11-08",
-  "hash": "9e858c42982e1782"
+  "hash": "87098c099c6eef00"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-10-30",
@@ -510,6 +510,10 @@
  "/es/guias/edicion-de-video-con-ia-vs-editor-profesional": {
   "date": "2026-10-07",
   "hash": "158ba3c0ca1af52f"
+ },
+ "/es/guias/edicion-remota-central-florida": {
+  "date": "2026-11-08",
+  "hash": "4d00d0e829ca16da"
  },
  "/es/guias/edicion-remota-vs-estudio-local": {
   "date": "2026-10-07",
@@ -1322,6 +1326,10 @@
  "/guides/bilingual-video-marketing-strategy-south-florida": {
   "date": "2026-10-07",
   "hash": "ca218abab005605d"
+ },
+ "/guides/central-florida-footage-editing": {
+  "date": "2026-11-08",
+  "hash": "121fc19fe0789133"
  },
  "/guides/color-grading-vs-color-correction-guide": {
   "date": "2026-10-07",

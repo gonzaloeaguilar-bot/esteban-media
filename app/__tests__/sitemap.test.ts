@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 577-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 579-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -65,8 +65,9 @@ describe("portfolio sitemap entries", () => {
     // +40 = waves 7 and 8 high-value demand-backed niches (2026-10-19): multicam panel, corporate town hall, executive retreat keys, brand activation, pre-construction sales gallery, commercial office leasing, cosmetic dentistry veneers, concierge doctor, bar bat mitzvah, destination wedding palm beach, online course production, vsl direct response, monthly repurposing retainer, b2b saas explainer, executive linkedin series, youtube long-form editing, product unboxing demo, airbnb luxe vacation rental, waterfront restaurant, marina facility.
     // +2 = Reels editing price index guide (2026-11-04).
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
-    expect(entries).toHaveLength(577);
-    expect(new Set(urls)).toHaveLength(577);
+    // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
+    expect(entries).toHaveLength(579);
+    expect(new Set(urls)).toHaveLength(579);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

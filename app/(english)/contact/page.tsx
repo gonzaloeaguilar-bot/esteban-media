@@ -3,6 +3,7 @@ import { CalendarClock, Mail, MessageCircle } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
+import { CENTRAL_FLORIDA_CAPTURE_SOURCES } from "@/lib/lead-responder";
 import { whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -10,7 +11,7 @@ import { absoluteUrl, site } from "@/lib/site";
 const contactDescription =
   "Contact Esteban Moreno Media for video editing, AI content creation, social planning, and scoped South Florida production. Send your brief or project details.";
 
-const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff", "executive-interview"] as const;
+const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff", "executive-interview", ...CENTRAL_FLORIDA_CAPTURE_SOURCES] as const;
 
 export const metadata = buildPageMetadata({
   title: "Contact Esteban Moreno Media | Video Editing & Production",

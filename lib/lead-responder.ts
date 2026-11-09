@@ -23,7 +23,12 @@ export type LeadSource =
   | "reel-funnel"
   | "caption-safe-zone"
   | "footage-handoff"
-  | "executive-interview";
+  | "executive-interview"
+  | "orlando-executive-footage"
+  | "winter-park-overflow-edit"
+  | "lake-nona-expert-footage"
+  | "kissimmee-bilingual-event-edit"
+  | "sanford-testimonial-edit";
 
 const LEAD_SOURCES = new Set<LeadSource>([
   "brief-builder",
@@ -46,7 +51,24 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "caption-safe-zone",
   "footage-handoff",
   "executive-interview",
+  "orlando-executive-footage",
+  "winter-park-overflow-edit",
+  "lake-nona-expert-footage",
+  "kissimmee-bilingual-event-edit",
+  "sanford-testimonial-edit",
 ]);
+
+/**
+ * Central Florida is measured as five supplied-footage editing hypotheses,
+ * not as a claim that Esteban provides local filming in these cities.
+ */
+export const CENTRAL_FLORIDA_CAPTURE_SOURCES = [
+  "orlando-executive-footage",
+  "winter-park-overflow-edit",
+  "lake-nona-expert-footage",
+  "kissimmee-bilingual-event-edit",
+  "sanford-testimonial-edit",
+] as const satisfies readonly LeadSource[];
 
 /**
  * "How did you find us?" answers. ChatGPT is the best-converting source in GA4

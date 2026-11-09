@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(577); // Includes the current sitemap, including the Reels price-index and Fort Lauderdale editors comparison pairs.
+    expect(WATCH_URLS).toHaveLength(579); // Includes the current sitemap, including the Central Florida supplied-footage guide pair.
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });
