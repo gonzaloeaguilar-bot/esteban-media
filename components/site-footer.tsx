@@ -11,6 +11,7 @@ export function SiteFooter() {
       phoneDisplay={site.phone.display}
       phoneHref={site.phone.href}
       instagram={site.instagram}
+      tiktok={site.tiktok}
       youtube={site.youtube}
       directories={[
         { label: "Behance", href: site.behance },

@@ -100,6 +100,7 @@ export const localBusinessEntityJsonLd = {
     site.googleBusinessProfile,
     site.bingPlaces,
     site.instagramBusiness,
+    site.tiktok,
     site.behance,
     site.vimeo,
     site.nextdoor,

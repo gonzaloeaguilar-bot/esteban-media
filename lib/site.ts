@@ -60,6 +60,10 @@ export const site = {
   // 2026-10-07: display name "Esteban Moreno Media", bio lists video editing and
   // the Fort Lauderdale / Broward / Miami-Dade / Palm Beach area, links this site.
   instagramBusiness: "https://www.instagram.com/estebanmorenomedia/",
+  // Public business account verified on 2026-11-08. It belongs to the business
+  // entity (not Esteban's personal Person profile); its public bio names the
+  // South Florida service area and the account currently has one published video.
+  tiktok: "https://www.tiktok.com/@estebanmorenomedia",
   // Directory and portfolio profiles. Each returned HTTP 200 to curl_cffi
   // (impersonate=chrome) on 2026-10-14. Nextdoor 301s /page/... to the
   // canonical /pages/.../ form, which is the one stored here. Business sameAs
