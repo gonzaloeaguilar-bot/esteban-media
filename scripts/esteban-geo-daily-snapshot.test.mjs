@@ -1,0 +1,8 @@
+import { describe, expect, it } from "vitest";
+import { buildSnapshot, GEO_DAILY_SNAPSHOT_SCHEMA, summarizeCitations } from "./esteban-geo-daily-snapshot.mjs";
+const at = "2026-11-09T12:00:00.000Z";
+describe("Esteban GEO daily snapshot", () => {
+  it("keeps a missing source explicitly unmeasured", () => { const snapshot = buildSnapshot({}, { date: "2026-11-09", generatedAt: at, maxCitationAgeHours: 72 }); expect(snapshot.schema).toBe(GEO_DAILY_SNAPSHOT_SCHEMA); expect(snapshot.no_blended_score).toBe(true); expect(snapshot.sources.gbp).toMatchObject({ status: "unmeasured", reason: "missing_gbp_receipt" }); expect(snapshot.sources.lead_outcomes.status).toBe("unmeasured"); });
+  it("marks old successful citation evidence stale without discarding it", () => { const citations = { path: "/tmp/citations.json", schema: "esteban-media.geo-citation-successful-receipts.v1", generated_at: "2026-11-05T00:00:00Z", engines: [{ engine: "gpt", checked_at: "2026-11-05T00:00:00Z", citation_rate: 0.5, named_rate: 0.5 }] }; expect(summarizeCitations(citations, at, 72)).toMatchObject({ status: "stale", latest_checked_at: "2026-11-05T00:00:00Z", engines: [{ engine: "gpt" }] }); });
+  it("never treats scheduled Metricool posts as social performance", () => { const snapshot = buildSnapshot({ metricool: { path: "/tmp/metricool.json", checked_at: at, brands: { esteban: { status: "api_ok", scheduled_count: 4, networks: { tiktok: 4 } } } } }, { date: "2026-11-09", generatedAt: at, maxCitationAgeHours: 72 }); expect(snapshot.sources.metricool).toMatchObject({ status: "observed", scheduled_count: 4, performance_status: "unmeasured" }); });
+});
