@@ -102,7 +102,9 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href="/contact?source=executive-interview"
+                  data-cta="executive_interview_brief"
+                  data-section="executive_interview_hero"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Book Executive Interview

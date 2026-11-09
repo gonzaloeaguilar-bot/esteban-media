@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Phone, PlaySquare, Send } from "lucide-react";
+import { Mail, Music2, Phone, PlaySquare, Send } from "lucide-react";
 
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 
@@ -13,6 +13,7 @@ type FooterProps = {
   phoneDisplay: string;
   phoneHref: string;
   instagram: string;
+  tiktok: string;
   youtube: string;
   directories: { label: string; href: string }[];
   domain: string;
@@ -186,6 +187,14 @@ export function SiteFooterClient(props: FooterProps) {
             >
               <Send className="size-4" aria-hidden="true" />
               Instagram
+            </a>
+            <a
+              href={props.tiktok}
+              rel="me"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+            >
+              <Music2 className="size-4" aria-hidden="true" />
+              TikTok
             </a>
             <a
               href={props.youtube}

@@ -84,8 +84,8 @@
   "hash": "0d2248a88579ee5d"
  },
  "/contact": {
-  "date": "2026-11-04",
-  "hash": "15d771c583fc305f"
+  "date": "2026-11-08",
+  "hash": "2f8846a07a7e4044"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -216,8 +216,8 @@
   "hash": "f313bc63f0bf99e3"
  },
  "/es/contacto": {
-  "date": "2026-10-30",
-  "hash": "c9c7b4e3e89b99d9"
+  "date": "2026-11-08",
+  "hash": "87098c099c6eef00"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-10-30",
@@ -510,6 +510,10 @@
  "/es/guias/edicion-de-video-con-ia-vs-editor-profesional": {
   "date": "2026-10-07",
   "hash": "158ba3c0ca1af52f"
+ },
+ "/es/guias/edicion-remota-central-florida": {
+  "date": "2026-11-08",
+  "hash": "4d00d0e829ca16da"
  },
  "/es/guias/edicion-remota-vs-estudio-local": {
   "date": "2026-10-07",
@@ -1323,6 +1327,10 @@
   "date": "2026-10-07",
   "hash": "ca218abab005605d"
  },
+ "/guides/central-florida-footage-editing": {
+  "date": "2026-11-08",
+  "hash": "121fc19fe0789133"
+ },
  "/guides/color-grading-vs-color-correction-guide": {
   "date": "2026-10-07",
   "hash": "be75bc5353c1fe8b"
@@ -1896,8 +1904,8 @@
   "hash": "8d4b6fdf2cc1862b"
  },
  "/services/executive-interview-videographer-miami": {
-  "date": "2026-11-04",
-  "hash": "fc5d664ffc2f009d"
+  "date": "2026-11-08",
+  "hash": "4ec7fad0b07455ff"
  },
  "/services/executive-linkedin-video-series-miami": {
   "date": "2026-10-19",
