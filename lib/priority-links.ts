@@ -51,11 +51,17 @@ const ES: Record<string, PriorityLink> = {
 
 export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   "/services/reels-editor-fort-lauderdale": [EN.reelsMiami, EN.reelsCost, EN.pricing, EN.westPalm, EN.ugc],
+  // Graph-qualified existing route: people looking for a Miami Reels editor
+  // need the decision path (cost, supplied-footage scope and adjacent formats),
+  // not a second near-duplicate location page.
+  "/services/reels-editor-miami": [EN.reelsCost, EN.pricing, EN.repurposing, EN.ugc, EN.founders],
   "/services/short-form-video-editor-miami": [EN.reelsCost, EN.pricing, EN.repurposing, EN.podcast, EN.founders],
   "/guides/best-caption-styles-for-instagram-reels": [EN.reelsMiami, EN.reelsCost, EN.pricing, EN.repurposing],
   "/guides/fastest-way-to-send-large-video-files-to-editor": [EN.pricing, EN.reelsCost, EN.podcast, EN.ugc],
   "/guides/video-editor-vs-videographer": [EN.pricing, EN.reelsMiami, EN.founders],
   "/es/editor-de-reels-fort-lauderdale": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.precios],
+  "/es/editor-de-reels-miami": [ES.reelsCosto, ES.precios, ES.videoMiami, ES.reelsFtl],
+  "/es/edicion-de-variaciones-de-anuncios-ugc": [ES.reelsMiami, ES.reelsCosto, ES.precios, ES.videoMiami],
   "/es/guias/mejores-estilos-de-subtitulos-para-reels": [ES.reelsMiami, ES.reelsCosto, ES.precios, ES.comida],
   "/es/guias/editor-de-video-vs-videografo": [ES.videoMiami, ES.precios, ES.reelsMiami, ES.restaurantes],
   "/es/calculadora-de-ritmo-de-video": [ES.reelsCosto, ES.precios, ES.reelsMiami, ES.podcast],

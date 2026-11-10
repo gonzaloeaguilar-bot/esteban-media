@@ -23,6 +23,8 @@
     "seo:measurement:status": "node scripts/esteban-seo-measurement-report.mjs status",
     "seo:citation-normalize": "node scripts/normalize-geo-citation-receipts.mjs",
     "seo:capture-score": "node scripts/normalize-geo-citation-receipts.mjs && node scripts/free-capture-score.mjs report",
+    "geo:snapshot": "node scripts/normalize-geo-citation-receipts.mjs && node scripts/esteban-geo-daily-snapshot.mjs run",
+    "geo:snapshot:status": "node scripts/esteban-geo-daily-snapshot.mjs status",
     "seo:free-discovery": "node scripts/free-opportunity-discovery.mjs",
     "weekly-digest:dry-run": "node scripts/esteban-media-weekly-digest.mjs dry-run",
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
@@ -44,6 +46,7 @@
     "rail-adoption:check": "vitest run app/__tests__/rail-adoption.test.ts",
     "followups": "node scripts/followup-due.mjs",
     "lead-desk:run": "node --experimental-strip-types --no-warnings scripts/run-lead-desk.ts",
+    "lead:disposition": "node --experimental-strip-types --no-warnings scripts/record-lead-disposition.ts",
     "events:check": "node --experimental-strip-types --no-warnings scripts/events-check.mjs",
     "text-parity": "node scripts/text-parity.mjs check .next/server/app app/__tests__/fixtures/spanish-niche-text-baseline.json",
     "lastmod:update": "PAGE_LASTMOD_UPDATE=1 vitest run app/__tests__/page-lastmod.test.ts"
