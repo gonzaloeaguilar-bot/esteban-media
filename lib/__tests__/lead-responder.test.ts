@@ -118,6 +118,15 @@ describe("lead-responder", () => {
     expect(summary).not.toContain("x".repeat(201));
   });
 
+  it("formats TikTok as a distinct discovery source", () => {
+    const summary = formatLeadSummary({
+      source: "contact",
+      email: "tiktok@example.com",
+      foundVia: "tiktok",
+    });
+    expect(summary).toContain("Found via: TikTok");
+  });
+
   it("keeps the typed words on one line so they cannot forge summary lines", () => {
     const summary = formatLeadSummary({
       source: "contact",

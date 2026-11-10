@@ -82,6 +82,7 @@ export const FOUND_VIA_OPTIONS = [
   "google_search",
   "google_maps",
   "instagram",
+  "tiktok",
   "referral",
   "other",
 ] as const;
@@ -94,6 +95,7 @@ export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
   google_search: "Búsqueda en Google / Google search",
   google_maps: "Google Maps",
   instagram: "Instagram",
+  tiktok: "TikTok",
   referral: "Recomendación / Referral",
   other: "Otro / Other",
 };
