@@ -37,6 +37,7 @@ export async function POST(request: Request) {
       leadRef,
       userAgent: request.headers.get("user-agent") || "",
       isTest: request.headers.get("x-esteban-test") === "1",
+      outcomeSchemaV1: process.env.ESTEBAN_LEAD_OUTCOME_SCHEMA_V1 === "1",
     }));
     if (!stored.ok) {
       console.error("Lead persistence failed:", { reason: stored.reason, status: stored.status });
