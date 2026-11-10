@@ -1,4 +1,4 @@
-import type { LeadPayload } from "@/lib/lead-responder";
+import { isFoundVia, type LeadPayload } from "@/lib/lead-responder";
 
 interface StoreOptions {
   fetchImpl?: typeof fetch;
@@ -16,9 +16,9 @@ function text(value: unknown, limit = 2000): string | null {
 
 export function buildLeadRow(
   payload: LeadPayload,
-  meta: { leadRef: string; userAgent: string; isTest: boolean },
+  meta: { leadRef: string; userAgent: string; isTest: boolean; outcomeSchemaV1?: boolean },
 ): Record<string, unknown> {
-  return {
+  const row: Record<string, unknown> = {
     lead_ref: text(meta.leadRef),
     source: text(payload.source),
     locale: payload.locale === "es" ? "es" : "en",
@@ -35,6 +35,14 @@ export function buildLeadRow(
     user_agent: text(meta.userAgent, 200),
     is_test: meta.isTest,
   };
+
+  // The production table predates this column. Do not make an un-applied
+  // migration turn a valid public inquiry into a failed insert. Operators turn
+  // this on only after migrations/20261109_lead_outcomes.sql is applied.
+  if (meta.outcomeSchemaV1) {
+    row.found_via = isFoundVia(payload.foundVia) ? payload.foundVia : null;
+  }
+  return row;
 }
 
 function configuration(env: NodeJS.ProcessEnv) {

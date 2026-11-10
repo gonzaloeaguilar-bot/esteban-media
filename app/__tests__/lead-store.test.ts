@@ -85,6 +85,16 @@ describe("buildLeadRow", () => {
     expect(row.name).toBeNull();
     expect(row.notes).toBeNull();
   });
+
+  it("adds coarse found-via attribution only after the outcome migration flag is enabled", () => {
+    expect(buildLeadRow({ ...payload, foundVia: "chatgpt" }, meta)).not.toHaveProperty("found_via");
+    expect(buildLeadRow({ ...payload, foundVia: "chatgpt" }, { ...meta, outcomeSchemaV1: true })).toMatchObject({
+      found_via: "chatgpt",
+    });
+    expect(buildLeadRow({ ...payload, foundVia: "not-a-source" as never }, { ...meta, outcomeSchemaV1: true })).toMatchObject({
+      found_via: null,
+    });
+  });
 });
 
 describe("insertLead", () => {

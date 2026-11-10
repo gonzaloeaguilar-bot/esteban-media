@@ -43,3 +43,17 @@ record remains `unmeasured_outcome` rather than `ready_to_review`.
 - The output distinguishes `ready_to_review`, `needs_evidence`, and
   `unmeasured_outcome`; it does not claim a lead, booking, sale, citation, or
   ranking.
+
+## Scheduled runtime
+
+`launchd/com.esteban-media.geo-intelligence-graph.plist` is the tracked source
+for the scheduled graph. It deliberately keeps the `$0` fleet admission gate,
+but allows a weekly graph run to wait for up to one hour instead of returning
+`EX_TEMPFAIL` (75) after the fleet's default ten-minute burst window. It also
+uses the canonical `/Users/gonzalo/code/esteban-media` checkout rather than an
+ephemeral release worktree.
+
+After this file is reviewed and merged, the fleet owner installs it with
+`launchctl bootout` followed by `launchctl bootstrap`, then verifies both the
+job's `last exit code` and a newer `latest.json` receipt. The LaunchAgent being
+loaded or a green local test is not a runtime receipt.
