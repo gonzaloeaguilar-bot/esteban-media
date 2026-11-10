@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.esteban-media.geo-intelligence-graph</string>
+  <key>ProgramArguments</key><array>
+    <string>/Users/gonzalo/.claude/durable/fleet-slot.sh</string><string>--</string>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/gonzalo/code/esteban-media/scripts/esteban-geo-intelligence-graph.mjs</string>
+  </array>
+  <key>EnvironmentVariables</key><dict>
+    <key>FLEET_SLOT_MAX_WAIT_SECONDS</key><string>3600</string>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/bin:/bin</string>
+    <key>TZ</key><string>America/New_York</string>
+  </dict>
+  <key>FleetSlotManaged</key><true/>
+  <key>LowPriorityIO</key><true/>
+  <key>Nice</key><integer>10</integer>
+  <key>ProcessType</key><string>Background</string>
+  <key>RunAtLoad</key><true/>
+  <key>StandardErrorPath</key><string>/Users/gonzalo/.local/state/esteban-media-geo-graph/launchd.err.log</string>
+  <key>StandardOutPath</key><string>/Users/gonzalo/.local/state/esteban-media-geo-graph/launchd.out.log</string>
+  <key>StartCalendarInterval</key><dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>20</integer><key>Weekday</key><integer>1</integer></dict>
+  <key>ThrottleInterval</key><integer>300</integer>
+  <key>WorkingDirectory</key><string>/Users/gonzalo/code/esteban-media</string>
+</dict></plist>

@@ -91,6 +91,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         google_search: "Búsqueda en Google",
         google_maps: "Google Maps",
         instagram: "Instagram",
+        tiktok: "TikTok",
         referral: "Me lo recomendaron",
         other: "Otro",
       }
@@ -100,6 +101,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         google_search: "Google search",
         google_maps: "Google Maps",
         instagram: "Instagram",
+        tiktok: "TikTok",
         referral: "Someone recommended you",
         other: "Something else",
       };

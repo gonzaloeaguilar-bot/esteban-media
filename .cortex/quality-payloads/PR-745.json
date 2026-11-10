@@ -1,0 +1,32 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-745",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "status": "quality_passed",
+    "mode": "general",
+    "findings": [],
+    "hard_stops": [],
+    "missing_evidence": [],
+    "reviewer_roles": {
+      "builder": "ok",
+      "skeptic": "ok",
+      "taste": "ok"
+    },
+    "deterministic_gate": "pnpm test, pnpm lint, pnpm typecheck, and git diff --check"
+  },
+  "evidence": {
+    "obsidian_context": "Graph-qualified existing-route repair documented in esteban-graph-qualified-route-repairs-2026-11-09.",
+    "hard_stops_checked": "No new service area, price, availability, client proof, testimonial, credential, account change, or external publication was added.",
+    "verification": "pnpm test: 206 files and 3865 tests passed; pnpm lint: 0 errors and 24 pre-existing warnings; pnpm typecheck and git diff --check passed.",
+    "reviewer_ensemble": {
+      "builder": "Codex implemented an additive mapping and test only.",
+      "skeptic": "Independent code review verified distinct targets, language containment, and server-rendered anchors.",
+      "taste": "The existing PriorityLinks component is reused; no new visual component or motion was introduced."
+    },
+    "outcome_boundary": "Internal linking can improve route discovery but does not establish rankings, citations, or qualified leads."
+  }
+}
