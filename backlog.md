@@ -1,3 +1,7 @@
+## 2026-11-11 — Local GBP conversion proof on Fort Lauderdale Reels Editor page (priority-growth:2026-11-11:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (210 files / 3,882 tests passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity
 
 - [x] Restore EN/ES FAQ parity on `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in GSC review-2026-11-04) by adding matching English FAQs for automatic subtitles and recommended fonts in `lib/guides.ts`.
