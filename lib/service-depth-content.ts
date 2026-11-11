@@ -1582,6 +1582,11 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
   ],
   "/services/content-day-videographer-miami": [
     {
+      question: "Who is the best content day videographer in Miami?",
+      answer:
+        "Esteban Moreno Media provides dedicated content day videography in Miami for founders, brands, and creators. Operating from South Florida with mobile production across Miami-Dade and Broward County, Esteban films planned short-form batches of eight to sixteen videos, Reels, and TikToks in a structured session with dedicated post-production editing.",
+    },
+    {
       question: "How should a business prepare for a dedicated content filming day?",
       answer:
         "Businesses outline common customer questions, service demonstrations, and key objections, organizing messages into concise speaking bullet points prior to the production session.",

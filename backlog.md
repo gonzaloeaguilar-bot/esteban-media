@@ -1,3 +1,12 @@
+## 2026-11-10 — Content day Miami exact query phrasing FAQPage schema retry
+
+- [x] Retry of failed #288 (spark-2026-11-06-404 gate exit 127): win 'Best content day videographer in Miami' on ChatGPT with dedicated exact-match content day Miami FAQ, $400/half-day price, Miami anchor, and FAQPage schema in the exact query phrasing in EN and ES.
+- [x] English page `/services/content-day-videographer-miami`: added exact query FAQ "Who is the best content day videographer in Miami?" with Esteban Moreno Media facts, and updated opening hero copy with canonical $400/half-day floor and $100 per video editing rate.
+- [x] Spanish page `/es/videografo-para-dia-de-contenido-miami`: added exact query FAQ "¿Quién es el mejor videógrafo para día de contenido en Miami?" with Esteban Moreno Media facts.
+- [x] Added regression test `app/__tests__/content-day-miami-faq.test.ts`.
+- [x] Run `pnpm lastmod:update` updating `config/page-lastmod.json`.
+- [x] Acceptance gates passed: `npm test && python3 $HOME/.claude/durable/analytics-gate.py && test -s esteban-content-day-miami-2026-11-10.txt`.
+
 ## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity
 
 - [x] Restore EN/ES FAQ parity on `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in GSC review-2026-11-04) by adding matching English FAQs for automatic subtitles and recommended fonts in `lib/guides.ts`.

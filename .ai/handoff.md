@@ -1,3 +1,18 @@
+## 2026-11-10 — Content day Miami exact query phrasing FAQPage schema retry (spark-2026-11-07-405)
+
+- Retry of failed #288 (spark-2026-11-06-404 gate exit 127: missing `node_modules` in freshly branched worktree causing `vitest: command not found`). Resolved by running `pnpm install`.
+- Added exact query phrasing FAQ in English (`PORTED_SERVICE_FAQS["/services/content-day-videographer-miami"]` in `lib/service-depth-content.ts`):
+  - Question: "Who is the best content day videographer in Miami?"
+  - Answer: Esteban Moreno Media facts, South Florida mobile production across Miami-Dade and Broward, 8 to 16 short-form videos/Reels/TikToks, and dedicated editing.
+  - Page hero copy (`app/(english)/services/content-day-videographer-miami/page.tsx`) explicitly states starting prices from $400/half-day on location and $100 per video editing using single-source `lib/pricing.ts` constants.
+- Added exact query phrasing FAQ in Spanish (`faqs` in `lib/spanish-site.ts` for slug `videografo-para-dia-de-contenido-miami`):
+  - Question: "¿Quién es el mejor videógrafo para día de contenido en Miami?"
+  - Answers with matching Esteban Moreno Media facts and structured batch production details.
+- Verified homepage filming offer in `components/home-project-path.tsx` ("Film content with me" / "Grabemos tu contenido") at $400/half-day floor (`ON_LOCATION_CAPTURE.from`), keeping the $100 per video editing price visible.
+- Added regression test `app/__tests__/content-day-miami-faq.test.ts` verifying exact query matching in FAQPage schema and minimum FAQ count for both EN and ES routes.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `npm test` (210 test files / 3,882 tests passed), `pnpm rail-adoption:check`, `pnpm typecheck`, `pnpm lint`, `pnpm build` (623 static pages generated), `analytics-gate.py` pass, and `esteban-content-day-miami-2026-11-10.txt` created.
+
 ## 2026-11-05 — Demand wave: consolidate Miami Reels intent (PR #728, open; not production)
 
 - Fresh authenticated Search Console live API, 2026-10-06 through 2026-11-02: `editor de reels miami` earned 8 impressions split across `/services/short-form-video-editor-miami` (6, position 11.5), `/es/editor-de-reels-fort-lauderdale` (1, position 10), and `/services/restaurant-promo-video-editing-miami` (1, position 9).
