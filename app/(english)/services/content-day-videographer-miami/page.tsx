@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { ON_LOCATION_CAPTURE, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Content Day Videographer Miami",
@@ -97,7 +98,7 @@ export default function ContentDayVideographerMiamiPage() {
                 Content Day Videographer in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Record eight to sixteen high-impact short-form videos in one structured half-day session with studio lighting, wireless audio, and on-camera direction.
+                Record eight to sixteen high-impact short-form videos in one structured half-day session with studio lighting, wireless audio, and on-camera direction. Dedicated content day videography starts from {usd(ON_LOCATION_CAPTURE.from)} per half-day on-location across Miami, with professional video editing available from {usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

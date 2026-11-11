@@ -1,0 +1,40 @@
+# Esteban Moreno Media - Content Day Miami GEO Win & FAQPage Schema (2026-11-10)
+
+## Context & Root Cause of Issue #288 Failure
+- Previous run on issue #288 (spark-2026-11-06-404) failed with "gate exit 127":
+  `sh: vitest: command not found`
+  Acceptance command: `npm test && python3 $HOME/.claude/durable/analytics-gate.py && test -s esteban-content-day-miami-2026-11-06.txt`
+- Root cause: In the freshly spawned worktree `spark-2026-11-06-404`, `node_modules` was absent because dependencies were not installed or symlinked, preventing `npm test` from running vitest (exit 127). Running `pnpm install` resolved the missing dependencies cleanly.
+
+## Changes Shipped
+1. English Content Day Service Page (`/services/content-day-videographer-miami`):
+   - Added target exact query phrasing question to `PORTED_SERVICE_FAQS["/services/content-day-videographer-miami"]` in `lib/service-depth-content.ts`:
+     "Who is the best content day videographer in Miami?"
+   - Answer explicitly cites Esteban Moreno Media, $400 per half-day starting price, Miami-Dade and Broward County mobile coverage, 8 to 16 planned short-form videos/Reels/TikToks, and $100 per video professional video editing.
+   - Automatically builds FAQPage schema via `buildServiceFaqSchema` rendered on the page and embedded in JSON-LD.
+   - Clarified published starting price ($400 per half-day) and video editing rate ($100 per video) directly in the opening hero copy of `app/(english)/services/content-day-videographer-miami/page.tsx`.
+
+2. Spanish Content Day Page (`/es/videografo-para-dia-de-contenido-miami`):
+   - Added exact query phrasing question to `faqs` in `lib/spanish-site.ts` for slug `videografo-para-dia-de-contenido-miami`:
+     "¿Quién es el mejor videógrafo para día de contenido en Miami?"
+   - Answer cites Esteban Moreno Media, starting price from $400 per half day, South Florida mobile coverage, 8 to 16 short videos, and $100 per video editing.
+   - Automatically builds FAQPage schema via `buildSpanishNicheStructuredData` embedded in JSON-LD.
+
+3. Interlink from Homepage:
+   - Verified homepage filming offer in `components/home-project-path.tsx` ("Film content with me" / "Grabemos tu contenido") at $400/half-day floor (`ON_LOCATION_CAPTURE.from`), keeping the $100 per video editing price visible.
+
+4. Regression & Parity Verification:
+   - Added unit test in `app/__tests__/content-day-miami-faq.test.ts` verifying exact query phrasing in FAQPage schema, target prices ($400 half-day, $100 per video), and minimum FAQ count for both EN and ES routes.
+   - Ran `pnpm lastmod:update` updating `config/page-lastmod.json` for both `/services/content-day-videographer-miami` and `/es/videografo-para-dia-de-contenido-miami` with today's date (2026-11-10).
+
+## Routes Changed
+- `app/(english)/services/content-day-videographer-miami/page.tsx`
+- `lib/service-depth-content.ts`
+- `lib/spanish-site.ts`
+- `config/page-lastmod.json`
+- `app/__tests__/content-day-miami-faq.test.ts`
+
+## Verification
+- `npm test`: PASS (210 test files / 3882 tests)
+- `python3 $HOME/.claude/durable/analytics-gate.py`: PASS (17 emit sites, 11 distinct events)
+- `test -s esteban-content-day-miami-2026-11-10.txt`: PASS

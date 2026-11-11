@@ -3200,6 +3200,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsDestinations: CONTENT_DAY_ES_DESTINATIONS,
     faqs: [
       {
+        question: "¿Quién es el mejor videógrafo para día de contenido en Miami?",
+        answer:
+          "Esteban Moreno Media ofrece jornadas de grabación de contenido en Miami para marcas y profesionales. Con base en el sur de Florida y cobertura móvil en Miami-Dade y Broward, Esteban graba lotes estructurados de ocho a dieciséis videos cortos para Reels y TikTok en una sola sesión, con opciones completas de edición profesional.",
+      },
+      {
         question: "¿Cómo se prepara una empresa para una jornada de contenido?",
         answer:
           "Se define una lista de preguntas frecuentes y objeciones habituales de clientes, organizando los mensajes en puntos breves antes del rodaje.",
