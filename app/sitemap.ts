@@ -111,6 +111,10 @@ export const sitemapRoutes = [
   { path: "/services/video-production-doral-miami", priority: 0.85 },
   { path: "/services/real-estate-video-coral-gables", priority: 0.85 },
   { path: "/services/yacht-hospitality-video-fort-lauderdale", priority: 0.85 },
+  // Yacht charter hub, AI chatbot hub, and bilingual web/video hub, 2026-11-11.
+  { path: "/services/yacht-charter-video-production-fort-lauderdale", priority: 0.85 },
+  { path: "/services/ai-chatbots-lead-automation-fort-lauderdale", priority: 0.85 },
+  { path: "/services/bilingual-web-design-video-south-florida", priority: 0.85 },
   { path: "/services/corporate-video-production-brickell", priority: 0.85 },
   { path: "/services/small-business-video-pembroke-pines", priority: 0.85 },
   { path: "/services/plastic-surgery-video-marketing-miami", priority: 0.85 },

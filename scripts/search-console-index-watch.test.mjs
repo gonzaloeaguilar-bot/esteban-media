@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(579); // Includes the current sitemap, including the Central Florida supplied-footage guide pair.
+    expect(WATCH_URLS).toHaveLength(582); // Includes the current sitemap, including the yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

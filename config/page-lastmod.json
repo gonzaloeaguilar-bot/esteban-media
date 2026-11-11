@@ -44,8 +44,8 @@
   "hash": "5992ef4801d2f3ba"
  },
  "/case-studies/flas-concierge": {
-  "date": "2026-10-30",
-  "hash": "d7e65176e2224db8"
+  "date": "2026-11-11",
+  "hash": "8b41e5ee7ef4be4a"
  },
  "/case-studies/gains-from-geebs": {
   "date": "2026-10-24",
@@ -1528,8 +1528,8 @@
   "hash": "9d004fd79f66563d"
  },
  "/portfolio/ai-lead-automation": {
-  "date": "2026-10-14",
-  "hash": "741ff16f0b6c4002"
+  "date": "2026-11-11",
+  "hash": "bd3ad4483708eb14"
  },
  "/portfolio/banacol": {
   "date": "2026-10-14",
@@ -1540,8 +1540,8 @@
   "hash": "f7750c022914edcb"
  },
  "/portfolio/caro-sells-miami": {
-  "date": "2026-10-24",
-  "hash": "299aa4c447d049f4"
+  "date": "2026-11-11",
+  "hash": "5e624653f490c376"
  },
  "/portfolio/diana-jack": {
   "date": "2026-10-14",
@@ -1616,8 +1616,8 @@
   "hash": "6846745c85c7096e"
  },
  "/pricing": {
-  "date": "2026-11-04",
-  "hash": "490621e92d38916e"
+  "date": "2026-11-11",
+  "hash": "2d079600f63833b2"
  },
  "/pricing/all-in": {
   "date": "2026-09-29",
@@ -1664,8 +1664,12 @@
   "hash": "654449bb41e05a45"
  },
  "/services/ai-chatbot-for-small-business": {
-  "date": "2026-10-16",
-  "hash": "22ea9db9e7a4acc5"
+  "date": "2026-11-11",
+  "hash": "6e4a03396970e035"
+ },
+ "/services/ai-chatbots-lead-automation-fort-lauderdale": {
+  "date": "2026-11-11",
+  "hash": "229dfa861a2ea14f"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1727,9 +1731,13 @@
   "date": "2026-11-02",
   "hash": "9979c9ed74e44386"
  },
+ "/services/bilingual-web-design-video-south-florida": {
+  "date": "2026-11-11",
+  "hash": "31a741fdd5593a3a"
+ },
  "/services/boat-listing-video-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "9b9c6a01f68e6242"
+  "date": "2026-11-11",
+  "hash": "f7c703740628b584"
  },
  "/services/boat-show-exhibitor-video-fort-lauderdale": {
   "date": "2026-10-19",
@@ -1980,8 +1988,8 @@
   "hash": "4dc065b062a250bc"
  },
  "/services/landing-page-design": {
-  "date": "2026-10-16",
-  "hash": "ccead9e66dba25e8"
+  "date": "2026-11-11",
+  "hash": "09ac4ec85ef66f6c"
  },
  "/services/local-presence-seo": {
   "date": "2026-10-14",
@@ -2133,7 +2141,7 @@
  },
  "/services/reels-editor-fort-lauderdale": {
   "date": "2026-11-11",
-  "hash": "b4ce766480f2ebad"
+  "hash": "4a307a6953debb6f"
  },
  "/services/reels-editor-miami": {
   "date": "2026-11-08",
@@ -2188,8 +2196,8 @@
   "hash": "ebefac5c61a2c908"
  },
  "/services/superyacht-charter-marketing-video-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "c937c8cfb081c01e"
+  "date": "2026-11-11",
+  "hash": "e28b01a51aebbad4"
  },
  "/services/surprise-proposal-videographer-miami": {
   "date": "2026-10-18",
@@ -2272,8 +2280,8 @@
   "hash": "9424d078f8cbda5d"
  },
  "/services/website-design-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "ced075da43d665c1"
+  "date": "2026-11-11",
+  "hash": "de6d1e85cfa427e4"
  },
  "/services/wedding-videographer-fort-lauderdale": {
   "date": "2026-10-14",
@@ -2295,13 +2303,17 @@
   "date": "2026-10-20",
   "hash": "b3bcdab04b41d44f"
  },
+ "/services/yacht-charter-video-production-fort-lauderdale": {
+  "date": "2026-11-11",
+  "hash": "bdc02f390a35c5fd"
+ },
  "/services/yacht-event-videographer-miami": {
   "date": "2026-10-18",
   "hash": "5969f75e65152f0f"
  },
  "/services/yacht-hospitality-video-fort-lauderdale": {
-  "date": "2026-10-15",
-  "hash": "2f6288dc02cb1d60"
+  "date": "2026-11-11",
+  "hash": "e1e7a0d70f85644e"
  },
  "/services/yacht-party-videographer-miami": {
   "date": "2026-10-19",

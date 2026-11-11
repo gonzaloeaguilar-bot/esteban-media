@@ -1,5 +1,14 @@
 import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service-depth";
 import { priceSentence } from "@/lib/packages";
+import {
+  CARE_AND_PRODUCTION_PLANS,
+  SHORT_FORM,
+  TURNKEY_PRODUCTION_BUNDLES,
+  YACHT_PRODUCTION,
+  chatbotPriceText,
+  landingPagePriceText,
+  usd,
+} from "@/lib/pricing";
 
 /**
  * The vertical-specific depth for the pilot pages.
@@ -247,6 +256,212 @@ export const YACHT_HOSPITALITY_DEPTH: Depth = {
       title: "Restaurant Promo Video Editing",
       detail: "Package hospitality footage into polished cuts for dining and venue promotion.",
       href: "/services/restaurant-promo-video-editing-miami",
+    },
+    {
+      title: "Yacht Charter Video Production",
+      detail: "Charter films, dockside capture, and booking Reels for Fort Lauderdale yacht brokers.",
+      href: "/services/yacht-charter-video-production-fort-lauderdale",
+    },
+  ],
+};
+
+export const YACHT_CHARTER_DEPTH: Depth = {
+  craftHeading: "What a charter film has to prove before anyone books.",
+  craft: [
+    {
+      title: "The vessel, named and shown",
+      detail:
+        "A charter film has to let a viewer say which vessel this is and what a day on it would be like. Wide exterior passes establish the boat, but the material that supports a booking is usually closer: guests boarding, shaded seating, clean cabins, catering, water toys, and the crew at work. When the edit does not connect those details to the vessel itself, the piece drifts into a lifestyle montage that could belong to any boat, and a charter buyer learns nothing they can act on.",
+    },
+    {
+      title: "A day that can actually be booked",
+      detail:
+        "The film has to connect the experience to a booking route: half-day or full-day, how many guests, what is included, and where the boat departs from. Those are the facts a broker or guest needs before they write. Where a detail is commercially sensitive, such as the charter rate or availability, it stays the operator's to confirm and publish, and the edit leaves room for it rather than inventing it.",
+    },
+    {
+      title: "Motion that stays readable",
+      detail:
+        "Everything the camera stands on is moving, and a tilting horizon reads as amateur faster than almost any other flaw. On deck that means a gimbal and a deliberately level reference; in the edit it means stabilisation and rotation applied before anything is cropped, because cropping first throws away the margin the correction needs. Interiors and deck spaces need slower shots so a viewer can read the layout; water sports and arrival moments survive much faster cutting.",
+    },
+  ],
+  faqHeading: "Practical answers before a charter shoot or edit.",
+  faqs: [
+    {
+      question: "How much does yacht charter video production cost in Fort Lauderdale?",
+      answer:
+        `Remote editing of supplied footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video. A half-day yacht shoot starts at ${usd(YACHT_PRODUCTION.halfDaySolo)} for raw footage, or ${usd(TURNKEY_PRODUCTION_BUNDLES.yachtHalfDay)} turnkey with the edit included, and a full day runs up to ${usd(TURNKEY_PRODUCTION_BUNDLES.yachtFullDay)}. For recurring production, the Local Presence plan is ${priceSentence("en", "presencia-local")}. Every project gets a written quote before work begins, so the final figure follows the vessel, the locations, the formats, and how fast the footage is needed.`,
+    },
+    {
+      question: "What footage should a charter broker or captain send for editing?",
+      answer:
+        "Useful material includes drone sweeps, cabin walkthroughs, dockside arrivals, cruising footage, wake sports, guest hospitality moments, catering, crew details, and captain commentary, plus still photos from a broker or a prior shoot. The folder should also carry the vessel name, the specifications that are safe to publish, brand assets, booking contact details, and any shots that must not be used. That gives the edit a clear commercial purpose instead of a general recap of a nice day on the water.",
+    },
+    {
+      question: "Can you edit existing drone and crew footage without booking a shoot day?",
+      answer:
+        `Yes. Charter brokers and captains anywhere in the United States or the Caribbean can upload existing drone clips, cabin walkthroughs, and guest lifestyle footage through a shared cloud folder. Remote marine editing starts at ${usd(SHORT_FORM.perVideoFrom)} per video and covers stabilisation, colour matching, sound design, and captions in English and Spanish. On-location filming in Fort Lauderdale is scoped separately, so a broker who already has usable footage pays for the edit only.`,
+    },
+    {
+      question: "What formats do we get for a charter listing?",
+      answer:
+        "A charter project usually needs more than one output. A brokerage portal or fleet page uses a calmer 16:9 film that explains the vessel and the onboard experience, while Instagram Reels, TikTok, and Shorts need a vertical cut that opens with the strongest moving-water or hospitality moment. Safe zones matter because vessel names, booking lines, and platform controls can collide on a phone, so placements are planned before export rather than fixed after it.",
+    },
+  ],
+  relatedHeading: "Related services for yacht charter and marine video.",
+  related: [
+    {
+      title: "Superyacht Charter Marketing Video",
+      detail: "Luxury charter films, stateroom walkthroughs, and broker marketing for superyachts.",
+      href: "/services/superyacht-charter-marketing-video-fort-lauderdale",
+    },
+    {
+      title: "Yacht Hospitality Video",
+      detail: "Editing for yacht charters, marine brokers, and hospitality operators in Fort Lauderdale.",
+      href: "/services/yacht-hospitality-video-fort-lauderdale",
+    },
+    {
+      title: "Boat Listing Video",
+      detail: "Dockside walkthroughs and specification graphics for brokerage sales.",
+      href: "/services/boat-listing-video-fort-lauderdale",
+    },
+    {
+      title: "Video Editing Pricing",
+      detail: "Starting prices for editing, filming, and monthly production plans.",
+      href: "/pricing",
+    },
+  ],
+};
+
+export const AI_CHATBOT_LEAD_AUTOMATION_DEPTH: Depth = {
+  craftHeading: "What a lead bot has to do before it earns the handoff.",
+  craft: [
+    {
+      title: "Answers only from approved material",
+      detail:
+        "A bot earns trust by answering only from what the business has approved: published services, prices, hours, and qualification rules. It never promises a vehicle hold, a financing rate, an appointment slot, or a term the business has not approved, and it never invents a price or policy to fill a gap. When a prospect asks an edge-case question or meets the buying criteria, the bot captures their contact details and hands the conversation to a person.",
+    },
+    {
+      title: "Qualification before contact details",
+      detail:
+        "The useful questions come first: what the person needs, which product or service they mean, and when they want it. Only then does the bot ask for a name and a way to reach them, so a serious inquiry arrives with the context a person needs to answer it. A form that asks for contact details before it understands the request sends the team inquiries they cannot act on.",
+    },
+    {
+      title: "Two languages, one review",
+      detail:
+        "Customers in Broward and Miami-Dade write in English one day and Spanish the next, so the bot answers in the language the customer writes in. Both versions of every answer are reviewed together, so the Spanish version is written for the customer and not translated word for word. That review is where a bot stops sounding like a form and starts sounding like the business.",
+    },
+  ],
+  faqHeading: "Practical answers before a chatbot build.",
+  faqs: [
+    {
+      question: "How much does an AI chatbot cost for a Fort Lauderdale small business?",
+      answer:
+        `${chatbotPriceText("en")} The AI Chatbot Care plan is ${usd(CARE_AND_PRODUCTION_PLANS.aiChatbotCare.amount)} a month. Where a project lands above that starting price depends on how many channels it runs on, your website, Instagram DMs, or both, how many languages it answers in, and where the finished inquiry has to go. Esteban reviews the channels and accounts already in use first, then agrees what to connect, and the written quote after that review sets the build price and the monthly fee.`,
+    },
+    {
+      question: "What chatbots has Esteban Moreno Media already built?",
+      answer:
+        "Four published projects, each with its own portfolio page. Fort Lauderdale Auto Sale runs a website concierge for Buy-Here-Pay-Here pre-qualification, inventory questions, and lead capture. Front Line Auto runs a service concierge for repair scheduling, service quotes, and bilingual intake. Gains From Geebs runs an Instagram DM bot for coaching inquiries and plan selection. TitanForge runs a DM bot for lead qualification, instant booking, and client intake.",
+    },
+    {
+      question: "Can the chatbot answer customers in English and Spanish?",
+      answer:
+        "Yes. Bilingual intake is already in the published work: the Fort Lauderdale Auto Sale concierge handles English and Spanish shoppers, and the Front Line Auto concierge was built for bilingual service intake. The bot answers in the language the customer writes in, and the inquiry the team receives is organised the same way either way. Esteban works in Spanish first, so a Spanish-speaking business can run the whole project, from the first call to the review of every answer, in Spanish.",
+    },
+    {
+      question: "Can I get an AI chatbot for WhatsApp?",
+      answer:
+        "The chatbots published so far run on websites and in Instagram DMs; none of them is a WhatsApp bot yet. If WhatsApp is where your customers write, say so in the first message and it is checked during the review of your accounts, before anything is quoted, instead of being promised up front. Text messages need the customer's consent and the right platform account before they can be switched on, so that is checked at the start, not at the end.",
+    },
+  ],
+  relatedHeading: "Related services and proof for AI lead automation.",
+  related: [
+    {
+      title: "AI Chatbot for Small Business",
+      detail: "Website and Instagram DM chatbots that answer common questions and pass serious inquiries to a person.",
+      href: "/services/ai-chatbot-for-small-business",
+    },
+    {
+      title: "Conversational AI Lead Chatbots",
+      detail: "The Geebs Instagram DM bot and the FLAS concierge, side by side.",
+      href: "/portfolio/ai-lead-automation",
+    },
+    {
+      title: "FLAS AI Concierge Case Study",
+      detail: "How the Fort Lauderdale Auto Sale concierge pre-qualifies buyers and captures leads.",
+      href: "/case-studies/flas-concierge",
+    },
+    {
+      title: "Landing Page Design",
+      detail: "One page built for one offer, with the bot answering the questions that stop a form being sent.",
+      href: "/services/landing-page-design",
+    },
+  ],
+};
+
+export const BILINGUAL_WEB_VIDEO_DEPTH: Depth = {
+  craftHeading: "What a bilingual site and its video have to share.",
+  craft: [
+    {
+      title: "One offer, two readers",
+      detail:
+        "A bilingual site is not one page run through translation. Each language version is written for its own reader, with its own page, its own metadata, and its own call to action, so an English buyer and a Spanish buyer both land on copy that reads as if it was written for them. A Spanish ad that lands on an English page breaks the promise the ad just made, and the same is true in reverse.",
+    },
+    {
+      title: "Video that lands on the page it promises",
+      detail:
+        "Short video earns its place when it sends people somewhere specific: the Reel about one offer points to the page for that offer, not to a home page where the visitor has to look for it. The page then carries the same proof the video showed, real work, real reviews, and one action, so the visitor who tapped through does not have to start over.",
+    },
+    {
+      title: "Proof you can click",
+      detail:
+        "A bilingual build is judged on the sites that are already live, not on a mockup. Caro Sells Miami runs English and Spanish buyer paths for real estate, DuPont Realty South Florida serves buyers in English and French with market-area guidance, and the Great Reviewer site pairs its review platform with short video. Each one opens from its portfolio page, so the work can be inspected before a quote is discussed.",
+    },
+  ],
+  faqHeading: "Practical answers before a bilingual website and video project.",
+  faqs: [
+    {
+      question: "How much does a bilingual website and video package cost in South Florida?",
+      answer:
+        `${landingPagePriceText("en")} A full bilingual business website is quoted per project, in writing, after the scope is agreed. Remote video editing for the Reels that send traffic to the page starts at ${usd(SHORT_FORM.perVideoFrom)} per video. There is no fixed package price for a combined build, because the page count, the languages, and the video volume change what the work costs.`,
+    },
+    {
+      question: "Are the Spanish and English pages built natively or auto-translated?",
+      answer:
+        "Every bilingual site is built with dedicated English and Spanish pages, each written for its own reader, instead of a machine-translation overlay on top of one language. That matters on a phone, where an overlay can break layouts, and in search, where each language version needs its own page to rank. The Spanish copy is written in clear, professional Latin American Spanish, and the English copy is written for conversion, not translated word for word.",
+    },
+    {
+      question: "What live bilingual websites has Esteban Moreno Media built?",
+      answer:
+        "Caro Sells Miami is a bilingual real estate platform with English and Spanish buyer paths and building discovery. DuPont Realty South Florida serves buyers in English and French with market-area guidance and direct inquiry. The Great Reviewer website pairs its review platform with short-form video. Each project has its own portfolio page with what it included, so the work can be reviewed before a quote.",
+    },
+    {
+      question: "Why combine website design and short-form video with one studio?",
+      answer:
+        "Most small business websites launch with slow stock footage that hurts trust, while their Instagram Reels point traffic to outdated pages. Building the website, the commercial video, the 9:16 Reels, and the lead capture under one roof keeps page speed fast, visual branding consistent, and the conversion path unified, so the visitor who taps a Reel lands on the page for the same offer.",
+    },
+  ],
+  relatedHeading: "Related services and proof for bilingual web and video.",
+  related: [
+    {
+      title: "Website Design in Fort Lauderdale",
+      detail: "Full websites with the chatbot built in, mobile-first and bilingual when you need it.",
+      href: "/services/website-design-fort-lauderdale",
+    },
+    {
+      title: "Caro Sells Miami",
+      detail: "A bilingual real estate platform with English and Spanish buyer paths.",
+      href: "/portfolio/caro-sells-miami",
+    },
+    {
+      title: "Landing Page Design",
+      detail: "One page built for one offer and one action, for ads, QR codes, and your Instagram bio.",
+      href: "/services/landing-page-design",
+    },
+    {
+      title: "Reels Editor in Fort Lauderdale",
+      detail: "The short videos that send people to the page in the first place.",
+      href: "/services/reels-editor-fort-lauderdale",
     },
   ],
 };
