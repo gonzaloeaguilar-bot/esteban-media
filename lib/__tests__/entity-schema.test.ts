@@ -70,12 +70,14 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
   });
 
-  it("lists verified business directory and portfolio profiles on the business only", () => {
-    // Portfolio/directory URLs were live-checked; Clutch was verified in its
-    // authenticated public profile UI on 2026-10-18; The Manifest and YouTube channel on 2026-11-04.
+  it("lists business directory and portfolio profiles on the business only", () => {
+    // Yelp is an owner-directed identity reference. Other portfolio/directory
+    // URLs were live-checked; Clutch was verified in its authenticated public
+    // profile UI on 2026-10-18; The Manifest and YouTube channel on 2026-11-04.
     const directories = [
       site.behance,
       site.vimeo,
+      site.yelp,
       site.nextdoor,
       site.tiktok,
       site.clutch,
@@ -85,6 +87,7 @@ describe("Google Business Profile entity link", () => {
     expect(directories).toEqual([
       "https://www.behance.net/estebanmoreno15",
       "https://vimeo.com/user175241719",
+      "https://www.yelp.com/biz/esteban-moreno-media-fort-lauderdale",
       "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
       "https://www.tiktok.com/@estebanmorenomedia",
       "https://clutch.co/profile/esteban-moreno-media",
