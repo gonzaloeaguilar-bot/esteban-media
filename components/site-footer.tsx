@@ -16,6 +16,7 @@ export function SiteFooter() {
       directories={[
         { label: "Behance", href: site.behance },
         { label: "Vimeo", href: site.vimeo },
+        { label: "Yelp", href: site.yelp },
         { label: "Nextdoor", href: site.nextdoor },
       ]}
       domain={site.domain}
