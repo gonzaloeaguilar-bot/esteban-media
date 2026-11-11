@@ -1,3 +1,9 @@
+## 2026-11-11 — Local GBP conversion proof on Fort Lauderdale Reels Editor page (priority-growth candidate)
+
+- Source scope: `app/(english)/services/reels-editor-fort-lauderdale/page.tsx`, `app/__tests__/reels-editor-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for the top opportunity query/page "editor de reels fort lauderdale" -> `/services/reels-editor-fort-lauderdale`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/services/reels-editor-fort-lauderdale` below the main service content and showcase, bridging local business searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (210 files / 3,882 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews candidate commit.
+
 ## 2026-11-05 — Demand wave: consolidate Miami Reels intent (PR #728, open; not production)
 
 - Fresh authenticated Search Console live API, 2026-10-06 through 2026-11-02: `editor de reels miami` earned 8 impressions split across `/services/short-form-video-editor-miami` (6, position 11.5), `/es/editor-de-reels-fort-lauderdale` (1, position 10), and `/services/restaurant-promo-video-editing-miami` (1, position 9).
