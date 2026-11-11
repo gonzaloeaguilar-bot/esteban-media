@@ -1,3 +1,4 @@
+import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
@@ -181,9 +182,12 @@ export const metadata = buildPageMetadata({
 
 export default function ReelsEditorFortLauderdalePage() {
   return (
-    <GeoServicePage
-      content={content}
-      showcase={<><FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" /><ReelsCapCutComparison /></>}
-    />
+    <>
+      <GeoServicePage
+        content={content}
+        showcase={<><FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" /><ReelsCapCutComparison /></>}
+      />
+      <ClientReviews locale="en" />
+    </>
   );
 }
