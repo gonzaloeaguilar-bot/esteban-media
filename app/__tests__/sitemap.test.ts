@@ -66,8 +66,9 @@ describe("portfolio sitemap entries", () => {
     // +2 = Reels editing price index guide (2026-11-04).
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
     // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
-    expect(entries).toHaveLength(579);
-    expect(new Set(urls)).toHaveLength(579);
+    // +3 = yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
+    expect(entries).toHaveLength(582);
+    expect(new Set(urls)).toHaveLength(582);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

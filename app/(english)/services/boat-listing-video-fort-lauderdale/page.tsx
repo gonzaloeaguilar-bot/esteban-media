@@ -149,7 +149,11 @@ export default function BoatListingVideoFortLauderdalePage() {
                   Listing a boat or yacht in Fort Lauderdale?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Share vessel make, length, marina slip location, and broker listing timeline for an itemized production quote.
+                  Share vessel make, length, marina slip location, and broker listing timeline for an itemized production quote. For charter-side production too, see our{" "}
+                  <Link href="/services/yacht-charter-video-production-fort-lauderdale" className="underline decoration-[#e85d3e] underline-offset-4">
+                    yacht charter video production
+                  </Link>{" "}
+                  hub.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
