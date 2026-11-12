@@ -166,7 +166,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +2 = Reels editing price index guide (2026-11-04).
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
     // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2);
+    // +3 = yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3);
   });
 
   it("never lists a redirect source in the sitemap", () => {

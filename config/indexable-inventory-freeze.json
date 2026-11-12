@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 579,
-  "approvedSitemapUrlSetSha256": "181ed91e5a3d5307a4e1b1121432ff9ed4ea8ae1b47cffcfb0bb060e9a0ea668",
+  "approvedSitemapUrlCount": 582,
+  "approvedSitemapUrlSetSha256": "be4c1e2bc8b08d6672318c5b63e57cc31ef07e0b807e26acacd52ba6148f8bf4",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,19 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-11",
+      "url": [
+        "/services/yacht-charter-video-production-fort-lauderdale",
+        "/services/ai-chatbots-lead-automation-fort-lauderdale",
+        "/services/bilingual-web-design-video-south-florida"
+      ],
+      "orderedBy": "Gonzalo (active session, 2026-11-11: direct build, 'Fix all of it')",
+      "kind": "exact-match service hubs for the yacht charter, AI chatbot, and bilingual web/video lines",
+      "demandEvidence": "Two exact-match service URLs returned HTTP 404 on a live check 2026-11-11 (/services/ai-chatbots-lead-automation-fort-lauderdale and /services/bilingual-web-design-video-south-florida) while the proof behind them was already live: the AI portfolio /portfolio/ai-lead-automation with four published chatbots (FLAS concierge, Front Line Auto concierge, Geebs DM bot, TitanForge DM bot) and the bilingual builds Caro Sells Miami, DuPont Realty South Florida, and Great Reviewer. The yacht charter hub gives the live marine line (superyacht, boat listing, and yacht hospitality pages, all returning 200) an exact-match charter destination instead of relying on the superyacht page. Three URLs, within one demand-wave allowance of 4. No ranking, citation, or lead claim is made for any of the three.",
+      "followUpDate": "2026-12-11",
+      "followUp": "Check GSC impressions and indexed status for all three URLs, repeat the AI-answer prompts for yacht charter video, AI chatbots, and bilingual web design in Fort Lauderdale, and read attributable qualified inquiries. Zero impressions and zero contact intent at 30 days means the hub is merged into the nearest service page or dropped from the sitemap."
+    },
     {
       "on": "2026-11-08",
       "url": [

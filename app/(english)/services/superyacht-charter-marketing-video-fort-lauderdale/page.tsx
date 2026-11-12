@@ -149,7 +149,11 @@ export default function SuperyachtCharterMarketingVideoFortLauderdalePage() {
                   Marketing a superyacht for the upcoming charter season?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Share your vessel length, home marina or shipyard location, and marketing delivery goals for a written quote.
+                  Share your vessel length, home marina or shipyard location, and marketing delivery goals for a written quote. For the full charter marketing view, see our{" "}
+                  <Link href="/services/yacht-charter-video-production-fort-lauderdale" className="underline decoration-[#e85d3e] underline-offset-4">
+                    yacht charter video production
+                  </Link>{" "}
+                  hub in Fort Lauderdale.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
