@@ -1,6 +1,8 @@
 import { filmingHourlyText } from "@/lib/pricing";
 import Link from "next/link";
 
+import { ClientReviews } from "@/components/client-reviews";
+import { ContactCta } from "@/components/contact-cta";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
 import { PricingAnswer, pricingHubExtraFaq } from "@/components/pricing-answer";
@@ -125,6 +127,8 @@ export default function PricingPage() {
 
       <PackagesSection locale="en" />
       <PricingAnswer locale="en" />
+      <ClientReviews locale="en" compact />
+      <ContactCta locale="en" />
       <ClosingCredits locale="en" />
     </main>
   );
