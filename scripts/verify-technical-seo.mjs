@@ -12,8 +12,9 @@ const baseUrl = normalizeOrigin(
 );
 const measurementId = "G-W9CM4CE2MQ";
 const htmlCache = new Map();
-const fetchAttempts = 3;
-const retryDelayMs = 250;
+const fetchAttempts = Number(process.env.SEO_VERIFY_FETCH_ATTEMPTS || 4);
+const retryDelayMs = Number(process.env.SEO_VERIFY_RETRY_DELAY_MS || 500);
+const fetchTimeoutMs = Number(process.env.SEO_VERIFY_TIMEOUT_MS || 20_000);
 
 function normalizeOrigin(value) {
   const url = new URL(value);
@@ -31,7 +32,7 @@ async function fetchResponse(pathname) {
       const response = await fetch(new URL(pathname, baseUrl), {
         headers: { "User-Agent": "esteban-media-technical-seo-verifier/1.0" },
         redirect: "follow",
-        signal: AbortSignal.timeout(10_000),
+        signal: AbortSignal.timeout(fetchTimeoutMs),
       });
 
       if (response.status < 500 || attempt === fetchAttempts) {
