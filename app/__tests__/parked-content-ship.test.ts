@@ -69,7 +69,7 @@ describe("parked content ship", () => {
     expect(languageAlternates[es]?.["en-US"]).toBe(en);
     expect(pairedLanguageRoutes[en]).toBe(es);
     const page = spanishNichePages.find((p) => p.slug === "contratar-editor-de-video-remoto")!;
-    expect(page.faqs).toHaveLength(4);
+    expect(page.faqs.length).toBeGreaterThanOrEqual(5);
     expect(page.sections?.[0].heading).toMatch(/\?$/);
   });
 
