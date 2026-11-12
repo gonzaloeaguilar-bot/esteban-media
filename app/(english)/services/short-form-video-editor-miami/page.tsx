@@ -90,7 +90,7 @@ export default function ShortFormVideoEditorPage() {
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
-                  Start Short-Form Editing
+                  Get Reels Edited — From $100/Video
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
@@ -238,6 +238,23 @@ export default function ShortFormVideoEditorPage() {
       <Container size="xl">
         <PageUpdated path="/services/short-form-video-editor-miami" locale="en" className="pb-10 text-xs text-[#5a6066]" />
       </Container>
+      <ShortFormStickyCta />
     </main>
+  );
+}
+
+function ShortFormStickyCta() {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
+      <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
+        <Link
+          href="/contact"
+          data-cta="short_form_sticky_cta"
+          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
+        >
+          Get Reels Edited — From $100/Video
+        </Link>
+      </div>
+    </div>
   );
 }
