@@ -6,7 +6,6 @@ import { PriceSheet } from "@/components/price-sheet";
 import { PriorityLinks } from "@/components/priority-links";
 import { ClientReviews } from "@/components/client-reviews";
 import { DefinitionAnswer } from "@/components/definition-answer";
-import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { PageUpdated } from "@/components/page-updated";
 import {
   ServiceAnswerFirst,
@@ -26,8 +25,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Miami Short-Form Video Editor | Turn Raw Clips into Reels",
-  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami and Fort Lauderdale. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Short Form Video Editor Miami | Reels, TikTok & YouTube Shorts",
+  description: `Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for influencers, creators and businesses in Miami and Fort Lauderdale. Editor de video / Reels en español. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -81,32 +80,17 @@ export default function ShortFormVideoEditorPage() {
                 Reels / Shorts / TikTok
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Miami Short-Form Video Editor for Reels, TikToks & Shorts.
+                Short-Form Video Editing for Reels & TikTok.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Send your raw vertical clips and the platform you plan to use; Esteban Moreno Media turns them into clear Reels, TikToks, and YouTube Shorts for creators and businesses in Miami. Editing is remote when your footage is ready to use—use the{" "}
-                <Link href="/guides/remote-video-editing-handoff" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  remote editing handoff guide
-                </Link>{" "}
-                to prepare it—or scope{" "}
-                <Link href="/services/video-production-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  local video production
-                </Link>{" "}
-                separately when the footage still needs to be filmed.
-              </p>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                Need an edit specifically for Instagram Reels in Miami? Start with the{" "}
-                <Link href="/services/reels-editor-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  Miami Reels editing page
-                </Link>{" "}
-                instead. This page is the broader route when the same supplied footage needs versions for Reels, TikTok, or YouTube Shorts.
+                High-retention 9:16 vertical editing with bold captions, visual hooks, and sound design to keep audiences watching.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
-                  Start Short-Form Editing
+                  Get Reels Edited — From $100/Video
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
@@ -136,6 +120,21 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Published work you can inspect</p>
+            <h2 id="published-short-form-work" className="mt-3 font-serif text-3xl">Look at the work before you ask for a quote.</h2>
+            <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+              These public sources show finished short-form work. They show the edit itself, not views, sales, campaign results, or a promise that a new project will perform the same way.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link href="/case-studies/gains-from-geebs-shorts" className="inline-flex min-h-11 items-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">View published short-form videos</Link>
+              <Link href="/case-studies/juanchis-burguer" className="inline-flex min-h-11 items-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">View a Miami restaurant campaign</Link>
+            </div>
+          </div>
+        </Container>
+      </section>
       <ClientReviews locale="en" compact />
       <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
         <Container size="xl">
@@ -224,7 +223,6 @@ export default function ShortFormVideoEditorPage() {
         sections={SHORT_FORM_DEEP_DIVE_EN.sections}
       />
       <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} />
-      <FoodCreatorChoice locale="en" sourcePage="miami-short-form" />
       <ServiceInquiryRail
         service={{
           serviceId: "short_form_video",
@@ -240,6 +238,23 @@ export default function ShortFormVideoEditorPage() {
       <Container size="xl">
         <PageUpdated path="/services/short-form-video-editor-miami" locale="en" className="pb-10 text-xs text-[#5a6066]" />
       </Container>
+      <ShortFormStickyCta />
     </main>
+  );
+}
+
+function ShortFormStickyCta() {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
+      <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
+        <Link
+          href="/contact"
+          data-cta="short_form_sticky_cta"
+          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
+        >
+          Get Reels Edited — From $100/Video
+        </Link>
+      </div>
+    </div>
   );
 }
