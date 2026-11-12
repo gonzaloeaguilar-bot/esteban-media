@@ -101,6 +101,20 @@ export default function ShortFormVideoEditorPage() {
                 </Link>{" "}
                 instead. This page is the broader route when the same supplied footage needs versions for Reels, TikTok, or YouTube Shorts.
               </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                Busca un{" "}
+                <Link href="/es/editor-de-reels-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de reels miami
+                </Link>{" "}
+                en español para clips verticales de Instagram, TikTok y YouTube Shorts.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                Para edición de videos de YouTube en Miami, usa el{" "}
+                <Link href="/es/videografo-para-vlogs-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de youtube miami
+                </Link>{" "}
+                que cubre vlogs y contenido largo para la plataforma.
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"

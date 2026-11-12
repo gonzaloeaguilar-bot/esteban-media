@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
@@ -68,6 +69,14 @@ export default function Home() {
       <PortfolioTeaser locale="en" />
       <PersonalCraftExperience locale="en" />
       <HomeProjectPath locale="en" />
+      {/* Internal link for "videographer near me" query canonicalization */}
+      <p className="mx-auto max-w-4xl mt-8 text-sm leading-6 text-[#252a2d]">
+        If you are searching for a{" "}
+        <Link href="/services/videographer-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+          videographer near me
+        </Link>
+        {" in Fort Lauderdale or Miami-Dade, the dedicated videographer page explains on-location filming, editing pricing, and how to scope a shoot from the Fort Lauderdale base."}
+      </p>
       {/* Proof and contact now sit TOGETHER right at the decision, not one
           compact mention above the chooser plus a full repeat three screens
           later. Owner, 2026-10-12: "be convinced" is half the ask — the
