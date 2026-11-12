@@ -17,6 +17,7 @@ import {
   type ServiceInquiry,
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
+import { ContactCta } from "@/components/contact-cta";
 import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -297,9 +298,28 @@ export function GeoServicePage({
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
       <NicheAnswers path={content.path} fact={content.description} />
       <PriorityLinks path={content.path} locale="en" />
+      <ContactCta locale="en" />
       {/* The page ends on the human close: the quote rail renders last, so
           no answer block, directory or second contact pitch follows it. */}
       <ServiceInquiryRail service={content.inquiry} />
+      <GeoServiceStickyCta content={content} />
     </main>
+  );
+}
+
+
+function GeoServiceStickyCta({ content }: { content: GeoServicePageContent }) {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
+      <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
+        <Link
+          href="/contact"
+          data-cta={`geo_service_sticky_${content.path.split("/").pop()}`}
+          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
+        >
+          {content.primaryCta}
+        </Link>
+      </div>
+    </div>
   );
 }
