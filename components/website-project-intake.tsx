@@ -17,6 +17,8 @@ type WebsiteProjectIntakeProps = {
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
 export function WebsiteProjectIntake({ locale, source = "website-design-intake" }: WebsiteProjectIntakeProps) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [projectNeed, setProjectNeed] = useState("");
   const [foundVia, setFoundVia] = useState<FoundVia | "">("");
@@ -35,6 +37,8 @@ export function WebsiteProjectIntake({ locale, source = "website-design-intake" 
         body: JSON.stringify({
           source,
           locale,
+          name,
+          phone,
           email,
           notes: projectNeed,
           ...foundViaPayload(foundVia, foundQuery),
@@ -45,6 +49,8 @@ export function WebsiteProjectIntake({ locale, source = "website-design-intake" 
 
       trackLeadSubmit(source, locale, foundVia || "not_answered");
       setSubmitState("success");
+      setName("");
+      setPhone("");
       setEmail("");
       setProjectNeed("");
       setFoundVia("");
@@ -65,7 +71,39 @@ export function WebsiteProjectIntake({ locale, source = "website-design-intake" 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-7 grid gap-4 text-left sm:grid-cols-[1fr_1.35fr_auto] sm:items-end">
+    <form onSubmit={handleSubmit} className="mt-7 grid gap-4 text-left sm:grid-cols-2">
+      <div>
+        <label htmlFor={`website-intake-name-${locale}`} className="text-sm font-medium text-[#252a2d]">
+          {isSpanish ? "Nombre" : "Name"}
+        </label>
+        <input
+          id={`website-intake-name-${locale}`}
+          name="name"
+          type="text"
+          autoComplete="name"
+          required
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className="mt-1.5 min-h-12 w-full rounded-lg border border-[#b9afa2] bg-white px-3 text-base text-[#101214] placeholder:text-[#5a6066] focus:border-[#c84a2c] focus:outline-none"
+          placeholder={isSpanish ? "Tu nombre" : "Your name"}
+        />
+      </div>
+      <div>
+        <label htmlFor={`website-intake-phone-${locale}`} className="text-sm font-medium text-[#252a2d]">
+          {isSpanish ? "Teléfono" : "Phone number"}
+        </label>
+        <input
+          id={`website-intake-phone-${locale}`}
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+          className="mt-1.5 min-h-12 w-full rounded-lg border border-[#b9afa2] bg-white px-3 text-base text-[#101214] placeholder:text-[#5a6066] focus:border-[#c84a2c] focus:outline-none"
+          placeholder="+1 (954) 000-0000"
+        />
+      </div>
       <div>
         <label htmlFor={`website-intake-email-${locale}`} className="text-sm font-medium text-[#252a2d]">
           Email
@@ -96,15 +134,17 @@ export function WebsiteProjectIntake({ locale, source = "website-design-intake" 
           placeholder={isSpanish ? "¿Qué debe resolver tu sitio?" : "What should your website solve?"}
         />
       </div>
-      <button
-        type="submit"
-        disabled={submitState === "submitting"}
-        className="min-h-12 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#101214] disabled:cursor-wait disabled:opacity-70"
-      >
-        {submitState === "submitting"
-          ? isSpanish ? "Enviando…" : "Sending…"
-          : isSpanish ? "Enviar proyecto" : "Send project"}
-      </button>
+      <div className="sm:col-span-2">
+        <button
+          type="submit"
+          disabled={submitState === "submitting"}
+          className="min-h-12 w-full rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#101214] disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+        >
+          {submitState === "submitting"
+            ? isSpanish ? "Enviando…" : "Sending…"
+            : isSpanish ? "Enviar proyecto" : "Send project"}
+        </button>
+      </div>
       <FoundViaField
         locale={locale}
         idPrefix="website-intake"
@@ -113,12 +153,12 @@ export function WebsiteProjectIntake({ locale, source = "website-design-intake" 
         onFoundViaChange={setFoundVia}
         onFoundQueryChange={setFoundQuery}
         disabled={submitState === "submitting"}
-        className="sm:col-span-3"
+        className="sm:col-span-2"
         labelClassName="text-sm font-medium text-[#252a2d]"
         controlClassName="mt-1.5 min-h-11 w-full rounded-lg border border-[#b9afa2] bg-white px-3 text-base text-[#101214] placeholder:text-[#5a6066] focus:border-[#c84a2c] focus:outline-none disabled:opacity-70"
       />
       {submitState === "error" && (
-        <p role="alert" className="sm:col-span-3 text-sm text-[#9f3c27]">
+        <p role="alert" className="sm:col-span-2 text-sm text-[#9f3c27]">
           {isSpanish
             ? "No se pudo enviar. Inténtalo de nuevo o usa el formulario de contacto."
             : "The form could not be sent. Please try again or use the contact form."}
