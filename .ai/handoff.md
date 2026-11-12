@@ -1,3 +1,11 @@
+## 2026-11-11 — Remote editor + Gemini entity rebuild (re-author of PRs #705 and #708, both dirty / needs-reauthor)
+
+- Rebuilds the missing scope of #705 (remote video editor exact-query FAQPage schema EN and ES) and #708 (entity knowsAbout + Gemini category signals) on current main, as one combined PR: both PRs touch the same remote FAQ lines, so splitting them would conflict.
+- EN `/services/hire-remote-video-editor` and ES `/es/contratar-editor-de-video-remoto` gain the exact-query first FAQ ("Who is the best remote video editor for small businesses?" / "¿Cuál es el mejor editor de video remoto para creadores?"), priced from the Arranque variable ($100 per video), with 24 to 48-hour short-form turnaround. Regression test `app/__tests__/remote-video-editor-faq.test.ts` locks both.
+- `lib/entity-schema.ts`: person `knowsAbout` gains TikTok, Reels, Shorts, bilingual subtitling, remote, real estate, and content day categories; `localBusinessEntityJsonLd` gains a matching `knowsAbout` array. `lib/llms-base.txt` gains the TikTok ad/organic editor and content day batch videography core questions.
+- Already landed, not rebuilt: bilingual subtitling exact-query FAQs EN and ES plus `bilingual-subtitling-faq.test.ts` (PR #701 scope), and the three #755 hubs (merged tonight, verified live).
+- Correction to the #705/#708 handoff text: it claimed "$240/video" as the per-video price. That is wrong; $240 is the weekly 3-video price. The code uses `SHORT_FORM.perVideoFrom`, which is the Arranque $100 per video, and the rebuilt copy renders $100.
+
 ## 2026-11-11 — Local GBP conversion proof on Fort Lauderdale Reels Editor page (priority-growth candidate)
 
 - Source scope: `app/(english)/services/reels-editor-fort-lauderdale/page.tsx`, `app/__tests__/reels-editor-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for the top opportunity query/page "editor de reels fort lauderdale" -> `/services/reels-editor-fort-lauderdale`.
