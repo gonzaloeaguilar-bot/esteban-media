@@ -170,6 +170,10 @@ export const WATCH_URLS = [
   // Web/landing/chatbot line (2026-10-14, vault esteban-web-chatbot-seo-geo-2026-10-14).
   "https://estebanmorenomedia.com/services/ai-chatbot-for-small-business",
   "https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios",
+  // AI chatbot and bilingual web/video hubs (2026-11-11): exact-match service
+  // destinations for the published chatbot portfolio and bilingual builds.
+  "https://estebanmorenomedia.com/services/ai-chatbots-lead-automation-fort-lauderdale",
+  "https://estebanmorenomedia.com/services/bilingual-web-design-video-south-florida",
   "https://estebanmorenomedia.com/services/landing-page-design",
   "https://estebanmorenomedia.com/es/landing-page-para-negocios",
   // Corporate and networking event expansion (2026-10-18).
@@ -500,6 +504,9 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/wellness-spa-video-marketing-miami",
   "https://estebanmorenomedia.com/services/yacht-charter-video-marketing-miami",
   "https://estebanmorenomedia.com/services/yacht-hospitality-video-fort-lauderdale",
+  // Yacht charter hub (2026-11-11): exact-match charter destination for the
+  // live marine line (superyacht, boat listing, yacht hospitality).
+  "https://estebanmorenomedia.com/services/yacht-charter-video-production-fort-lauderdale",
   // Added 2026-10-10 by owner decision: the 26 indexable, self-canonical pages
   // that were not in the sitemap (growth systems, daily tools, case-study hubs,
   // /lens, /fort-lauderdale).
