@@ -1,0 +1,67 @@
+# Esteban Moreno Media — Remote editor + Gemini entity rebuild (2026-11-11)
+
+Re-author of PR #705 and PR #708, both open, dirty (mergeable false),
+labelled needs-reauthor, based on Nov 3 heads. Rebuilt on current main
+(4f5fd5b, includes merged PR #755) as one combined PR: both PRs touch the
+same remote-editor FAQ lines, so separate PRs would conflict.
+
+## What was missing in main at rebuild time (verified by grep, 2026-11-11)
+- EN `/services/hire-remote-video-editor`: no "Who is the best remote video
+  editor for small businesses?" FAQ. ES `/es/contratar-editor-de-video-remoto`:
+  no "¿Cuál es el mejor editor de video remoto para creadores?" FAQ.
+  Both pages had 4 FAQs each.
+- `lib/entity-schema.ts`: person `knowsAbout` had 6 items, no TikTok /
+  Reels / Shorts / subtitling / remote / real estate / content day
+  categories. `localBusinessEntityJsonLd` had no `knowsAbout` at all.
+- `lib/llms-base.txt`: no TikTok ad/organic editor or content day batch
+  videography core questions.
+- No `app/__tests__/remote-video-editor-faq.test.ts` in main.
+
+## What already landed, not rebuilt
+- Bilingual subtitling exact-query FAQs EN
+  ("Who provides a bilingual English Spanish video subtitling service?")
+  and ES, plus `app/__tests__/bilingual-subtitling-faq.test.ts`
+  (PR #701 scope).
+- PR #755 three hubs (yacht charter, AI chatbots, bilingual web),
+  merged 2026-11-11 and verified live 21:30 EST.
+
+## Changes in this rebuild
+1. EN remote page: exact-query FAQ first in `REMOTE_EDITOR_DEPTH.faqs`.
+2. ES remote page: exact-query FAQ first in `contratar-editor-de-video-remoto`
+   faqs, in clear professional Latin American Spanish.
+3. `app/__tests__/remote-video-editor-faq.test.ts` (new) and
+   `app/__tests__/parked-content-ship.test.ts` now expects >= 5 FAQs.
+4. Entity schema: person `knowsAbout` +7 categories; localBusiness
+   `knowsAbout` added (13 items).
+5. `lib/llms-base.txt`: TikTok ad/organic editor + content day batch
+   videography core questions.
+6. `.ai/handoff.md` and `backlog.md` entries for this rebuild.
+7. `config/page-lastmod.json` refreshed via `lastmod:update`.
+
+## Price correction (verified in lib/pricing.ts)
+- The #705/#708 handoff text claimed "$240/video" as the per-video price.
+  That is wrong: $240 is the weekly price for 3 videos. The code uses
+  `SHORT_FORM.perVideoFrom`, which is `PACKAGE_PRICES.arranque.amount`
+  = $100 per video. The rebuilt copy renders $100 per video, the higher-price
+  rule is not triggered because there is only one per-video source price.
+- No new price figure was published in this rebuild; every price renders
+  from `lib/pricing.ts`.
+
+## Gates (run on the VM, branch spark/esteban-remote-gemini-rebuild-2026-11-11, base 4f5fd5b)
+- rail-kit check: PASS (100 files match rail-kit@7db953021bd2)
+- rail-adoption: PASS (3/3)
+- lint: 0 errors, 26 warnings (pre-existing warnings, none in changed files)
+- typecheck: PASS
+- tests: 211 files / 3,892 tests PASS (was 210 / 3,891 on #755; +1 new test file)
+- production build: PASS, all routes prerendered as static HTML; rendered
+  output verified to contain the new EN and ES FAQs, FAQPage schema, and
+  $100 per video / $100 por video
+- Spanish hub indexability: PASS (4 hubs have no noindex links; 201
+  top-level titles stay within the brand-suffix rule)
+- text-parity: FAILS with 754 problems on this branch, and FAILS with the
+  identical 754 problems on clean main at HEAD (stash test, same count,
+  same ES remote page flagged on both). The baseline fixture is stale
+  relative to main; this change adds zero new text-parity problems.
+  Do NOT merge on text-parity alone until the baseline is refreshed or
+  the gate is explicitly waived.
+- lastmod:update: 2 changed (EN + ES remote pages, 2026-11-11), 582 total

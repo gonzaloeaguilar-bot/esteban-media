@@ -20,6 +20,7 @@ import { VideoStrategyAssessment } from "@/components/video-strategy-assessment"
 import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import { CaptionGuideOffer } from "@/components/caption-guide-offer";
 import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
+import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
@@ -719,7 +720,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
 
             <nav
               aria-label={copy.contentsLabel}
-              className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6"
+              className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 lg:sticky lg:top-24"
             >
               <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
                 {copy.contentsLabel}
@@ -846,6 +847,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
 
             {guide.id === "caption-styles-reels-guide" && (
               <div className="my-10">
+                <CaptionTypographyPresets locale={locale} />
+              </div>
+            )}
+
+            {guide.id === "caption-styles-reels-guide" && (
+              <div className="my-10">
                 <CaptionSafeZoneDiagnostic locale={locale} />
               </div>
             )}
@@ -866,6 +873,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           motion behaviour in one maintained component. */}
       <PortfolioTeaser locale={locale} source="guide_work" />
       <PriorityLinks path={getGuidePath(guide)} locale={locale} />
+      {guide.id === "caption-styles-reels-guide" && <CaptionGuideStickyCta locale={locale} />}
 
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">
         <Container size="xl">
@@ -981,5 +989,25 @@ function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
       </div>
       <p className="mt-4 text-xs text-[#5a6066]"><time dateTime={REELS_PRICE_INDEX_CHECKED_ON}>{es ? `Actualizado ${REELS_PRICE_INDEX_CHECKED_ON}` : `Updated ${REELS_PRICE_INDEX_CHECKED_ON}`}</time></p>
     </section>
+  );
+}
+
+
+function CaptionGuideStickyCta({ locale }: { locale: GuideLocale }) {
+  const isEs = locale === "es";
+  const serviceHref = isEs
+    ? "/es/servicio-de-subtitulado-bilingue-de-video"
+    : "/services/bilingual-video-subtitling-service";
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
+      <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
+        <Link
+          href={serviceHref}
+          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
+        >
+          {isEs ? "Subtitular mi video · WhatsApp" : "Subtitle my video · WhatsApp"}
+        </Link>
+      </div>
+    </div>
   );
 }
