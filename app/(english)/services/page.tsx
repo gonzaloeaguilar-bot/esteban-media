@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
+import { ContactCta } from "@/components/contact-cta";
 import { KeepReading } from "@/components/keep-reading";
 import { serviceImages } from "@/lib/service-images";
 import { ServicesScene } from "@/components/services-scene";
@@ -198,7 +199,10 @@ export default function ServicesPage() {
           ) : null}
           </div>
 
-          <nav className="mt-10 grid gap-3 md:grid-cols-3" aria-label="Choose what you need">
+          <nav className="mt-10" aria-label="Choose what you need">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Start here</p>
+            <h2 className="mt-3 max-w-3xl font-serif text-3xl leading-tight sm:text-4xl">What do you need made?</h2>
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
             {[
               { href: "#editing", title: "I have footage to edit", detail: "Turn existing clips into videos ready to publish." },
               { href: "#on-location", title: "I need something filmed", detail: "Plan a local shoot for a property, business, or event." },
@@ -210,63 +214,8 @@ export default function ServicesPage() {
                 <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">See how it works <ArrowRight className="size-4" aria-hidden="true" /></span>
               </Link>
             ))}
-          </nav>
-
-          <section className="mt-10" aria-labelledby="starting-point-heading">
-            <p className="text-xs font-medium uppercase text-[#5a6066]">
-              Choose a starting point
-            </p>
-            <h2
-              id="starting-point-heading"
-              className="mt-3 max-w-3xl font-serif text-3xl leading-tight sm:text-4xl"
-            >
-              Do you need an editor, a videographer, or a website?
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                <h3 className="font-serif text-2xl">You already have footage</h3>
-                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                  Start with editing when the clips exist but still need a clear
-                  story, captions, pacing, sound, or versions sized for where
-                  you plan to publish them.
-                </p>
-                <Link
-                  href="/services/short-form-video-editor-miami"
-                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
-                >
-                  Explore short-form editing
-                </Link>
-              </article>
-              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                <h3 className="font-serif text-2xl">The footage does not exist yet</h3>
-                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                  Start with production when the business, product, property, or
-                  event needs to be captured on location. The quote can separate
-                  filming from the edits that follow.
-                </p>
-                <Link
-                  href="/services/video-production-fort-lauderdale"
-                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
-                >
-                  Explore local video production
-                </Link>
-              </article>
-              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                <h3 className="font-serif text-2xl">The inquiry path is unclear</h3>
-                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                  Start with a website when people need a clearer explanation of
-                  the offer and a simple way to take the next step after they
-                  find your business.
-                </p>
-                <Link
-                  href="/services/website-design-fort-lauderdale"
-                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
-                >
-                  Explore website services
-                </Link>
-              </article>
             </div>
-          </section>
+          </nav>
 
           <details id="specific-service-pages" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
             <summary className="cursor-pointer font-serif text-2xl">Looking for a specific type of video or photo?</summary>
@@ -669,38 +618,33 @@ export default function ServicesPage() {
           </KeepReading>
 
           <div className="-mx-4 mt-14 sm:-mx-6 lg:-mx-8">
-            <ClientReviews locale="en" />
+            <ClientReviews locale="en" compact />
           </div>
 
-          <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
-            <h2 className="font-serif text-4xl">Not sure which service fits?</h2>
-            <p className="mt-4 max-w-2xl leading-7 text-[#d8d0c7]">
-              Send the project goal, location, date, and where the final asset
-              will be used. Esteban can shape the scope from there.
+          <div className="mt-14 -mx-4 sm:-mx-6 lg:-mx-8">
+            <ContactCta locale="en" />
+          </div>
+          <div className="mt-10 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <h2 className="font-serif text-3xl">Still exploring?</h2>
+            <p className="mt-3 max-w-2xl leading-7 text-[#252a2d]">
+              Compare published work, try the diagnostic, or read practical guides before you send a brief.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
-              >
-                Start a project
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+            <div className="mt-5 flex flex-wrap gap-3">
               <Link
                 href="/assessment"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white"
               >
                 Try the diagnostic
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white"
               >
                 View published work
               </Link>
               <Link
                 href="/guides"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white"
               >
                 Read practical video guides
               </Link>
