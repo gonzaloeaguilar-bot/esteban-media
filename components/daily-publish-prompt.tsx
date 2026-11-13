@@ -41,6 +41,8 @@ function promptForToday() {
 export function DailyPublishPrompt() {
   const [state, setState] = useState<DailyState>({ date: "", completed: [], streak: 0 });
   const [isReady, setIsReady] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [captureStatus, setCaptureStatus] = useState<"idle" | "sending" | "saved" | "error">("idle");
   const today = useMemo(localDateKey, []);
@@ -103,6 +105,8 @@ export function DailyPublishPrompt() {
         body: JSON.stringify({
           source: "daily-prompt",
           locale: "en",
+          name,
+          phone,
           email,
           notes: `Daily Publish Prompt capture. Prompt: ${prompt}`,
         }),
@@ -110,7 +114,7 @@ export function DailyPublishPrompt() {
       setCaptureStatus(response.ok ? "saved" : "error");
       // This form is the only one that knows whether the POST succeeded, so it
       // reports the lead only on success rather than on attempt.
-      if (response.ok) trackLeadSubmit("daily-prompt", "en");
+      if (response.ok) { trackLeadSubmit("daily-prompt", "en"); setName(""); setPhone(""); setEmail(""); }
     } catch {
       setCaptureStatus("error");
     }
@@ -175,12 +179,16 @@ export function DailyPublishPrompt() {
             <p className="mt-1 text-xs leading-5 text-[#d8d0c7]">Save an email with the site for daily prompt updates. Delivery is not automated; progress stays on this device.</p>
           </div>
         </div>
-        {captureStatus === "saved" ? <p className="mt-4 text-sm text-emerald-300">Email saved.</p> : (
-          <form onSubmit={captureEmail} className="mt-4 flex flex-col gap-2 sm:flex-row">
+        {captureStatus === "saved" ? <p className="mt-4 text-sm text-emerald-300">Saved.</p> : (
+          <form onSubmit={captureEmail} className="mt-4 grid gap-2 sm:grid-cols-2">
+            <label className="sr-only" htmlFor="daily-prompt-name">Name</label>
+            <input id="daily-prompt-name" type="text" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder="Name" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-prompt-phone">Phone number</label>
+            <input id="daily-prompt-phone" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Phone number" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
             <label className="sr-only" htmlFor="daily-prompt-email">Email address</label>
-            <input id="daily-prompt-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
-            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70">
-              {captureStatus === "sending" ? "Saving…" : "Save email"}
+            <input id="daily-prompt-email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none sm:col-span-2" />
+            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70 sm:col-span-2">
+              {captureStatus === "sending" ? "Saving…" : "Save contact"}
             </button>
           </form>
         )}

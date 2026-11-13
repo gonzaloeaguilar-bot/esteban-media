@@ -53,6 +53,8 @@ const COPY = {
     bookingHint: "Choose a time that works for you. Google Meet details arrive after you book.",
     buildBrief: "Build a detailed brief",
     buildBriefHint: "Best when you want a complete written quote with the project details in one message.",
+    nameField: "Name",
+    phoneField: "Phone number",
     emailField: "Email",
     summaryLabel: "Project summary",
     summaryPlaceholder: homeContactCopy.en.detail,
@@ -96,6 +98,8 @@ const COPY = {
     // Live on /es/contacto and /contact's VideoBriefBuilder disclosure.
     buildBrief: "Preparar un brief más detallado",
     buildBriefHint: "Ideal si quieres una cotización escrita completa con los detalles del proyecto en un solo mensaje.",
+    nameField: "Nombre",
+    phoneField: "Teléfono",
     emailField: "Email", // same word both languages — already used unconditionally in hero-project-intake.tsx
     // "resumen del proyecto" is existing site copy (lib/guides.ts).
     summaryLabel: "Resumen del proyecto",
@@ -134,6 +138,8 @@ const COPY = {
 
 export function ContactCta({ locale = "en" }: { locale?: Locale }) {
   const c = COPY[locale];
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [projectSummary, setProjectSummary] = useState("");
   const [foundVia, setFoundVia] = useState<FoundVia | "">("");
@@ -152,6 +158,8 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
         body: JSON.stringify({
           source: "contact",
           locale,
+          name,
+          phone,
           email,
           notes: projectSummary,
           ...(foundVia ? { foundVia } : {}),
@@ -167,6 +175,8 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
 
       trackLeadSubmit("contact", locale, foundVia || "not_answered");
       setSubmitState("success");
+      setName("");
+      setPhone("");
       setEmail("");
       setProjectSummary("");
       setFoundVia("");
@@ -320,6 +330,40 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-2 grid gap-4">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor={`homepage-project-name-${locale}`} className="text-sm font-medium text-white">
+                          {c.nameField}
+                        </label>
+                        <input
+                          id={`homepage-project-name-${locale}`}
+                          name="name"
+                          type="text"
+                          autoComplete="name"
+                          required
+                          value={name}
+                          onChange={(event) => setName(event.target.value)}
+                          className="mt-2 min-h-12 w-full rounded-lg border border-white/20 bg-white/10 px-4 text-base text-white placeholder:text-[#aaa29a] focus:border-[#f0b384] focus:outline-none"
+                          placeholder={locale === "es" ? "Tu nombre" : "Your name"}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor={`homepage-project-phone-${locale}`} className="text-sm font-medium text-white">
+                          {c.phoneField}
+                        </label>
+                        <input
+                          id={`homepage-project-phone-${locale}`}
+                          name="phone"
+                          type="tel"
+                          autoComplete="tel"
+                          required
+                          value={phone}
+                          onChange={(event) => setPhone(event.target.value)}
+                          className="mt-2 min-h-12 w-full rounded-lg border border-white/20 bg-white/10 px-4 text-base text-white placeholder:text-[#aaa29a] focus:border-[#f0b384] focus:outline-none"
+                          placeholder={locale === "es" ? "+1 (954) 000-0000" : "+1 (954) 000-0000"}
+                        />
+                      </div>
+                    </div>
                     <div>
                       <label htmlFor={`homepage-project-email-${locale}`} className="text-sm font-medium text-white">
                         {c.emailField}
