@@ -84,3 +84,4 @@ Production is hosted on Vercel. Changes should land through a pull request, pass
 - Current engineering handoff: [.ai/handoff.md](.ai/handoff.md)
 - Work queue: [backlog.md](backlog.md)
 - Durable business/project context: `/Users/gonzalo/obsidian-wiki/client-esteban-media/`
+// redeploy trigger Thu Nov 12 19:08:48 EST 2026
