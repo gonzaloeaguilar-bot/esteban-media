@@ -18,6 +18,8 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
   const [selectedScriptId, setSelectedScriptId] = useState<string>("hook-agitate");
   const [copied, setCopied] = useState<boolean>(false);
 
+  const [clientName, setClientName] = useState<string>("");
+  const [clientPhone, setClientPhone] = useState<string>("");
   const [clientEmail, setClientEmail] = useState<string>("");
   const [unlocked, setUnlocked] = useState<boolean>(false);
 
@@ -142,12 +144,17 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
       body: JSON.stringify({
         source: "script-kit",
         locale,
+        name: clientName,
+        phone: clientPhone,
         email: clientEmail,
       }),
       });
       if (!response.ok) throw new Error("Lead submission failed");
       trackLeadSubmit("script-kit", locale);
       setUnlocked(true);
+      setClientName("");
+      setClientPhone("");
+      setClientEmail("");
     } catch (err) {
       console.error("Lead submission error:", err);
     }
@@ -312,27 +319,48 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
             </a>
           </div>
         ) : (
-          <form onSubmit={handleUnlock} className="flex flex-wrap items-center justify-between gap-4">
+          <form onSubmit={handleUnlock} className="grid gap-3">
             <div>
               <h4 className="text-sm font-semibold text-[#101214]">
                 {isEs ? "¿Quieres recibir el paquete de archivos .PNG de Zonas Seguras?" : "Want the full .PNG Overlay Safe Zone Asset Pack?"}
               </h4>
               <p className="text-xs text-[#5a6066]">
-                {isEs ? "Ingresa tu email para desbloquear el paquete de recursos." : "Enter your email to unlock the full production resource bundle."}
+                {isEs ? "Ingresa tus datos para desbloquear el paquete de recursos." : "Enter your details to unlock the full production resource bundle."}
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="grid gap-2 sm:grid-cols-3">
+              <input
+                type="text"
+                autoComplete="name"
+                required
+                value={clientName}
+                onChange={(e) => setClientName(e.target.value)}
+                placeholder={isEs ? "Nombre" : "Name"}
+                className="min-h-11 rounded-full border border-[#ddd4c8] bg-white px-4 py-2 text-xs text-[#101214] focus:border-[#c84a2c] focus:outline-none"
+              />
+              <input
+                type="tel"
+                autoComplete="tel"
+                required
+                value={clientPhone}
+                onChange={(e) => setClientPhone(e.target.value)}
+                placeholder={isEs ? "Teléfono" : "Phone number"}
+                className="min-h-11 rounded-full border border-[#ddd4c8] bg-white px-4 py-2 text-xs text-[#101214] focus:border-[#c84a2c] focus:outline-none"
+              />
               <input
                 type="email"
+                autoComplete="email"
                 required
                 value={clientEmail}
                 onChange={(e) => setClientEmail(e.target.value)}
                 placeholder="email@company.com"
-                className="rounded-full border border-[#ddd4c8] bg-white px-4 py-2 text-xs text-[#101214] focus:border-[#c84a2c] focus:outline-none"
+                className="min-h-11 rounded-full border border-[#ddd4c8] bg-white px-4 py-2 text-xs text-[#101214] focus:border-[#c84a2c] focus:outline-none"
               />
+            </div>
+            <div>
               <button
                 type="submit"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[var(--em-accent-ink)] px-5 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--em-accent-ink)] px-5 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <Send className="size-3.5" />
                 {isEs ? "Desbloquear Kit" : "Unlock Kit"}

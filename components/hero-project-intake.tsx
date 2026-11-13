@@ -21,6 +21,8 @@ type HeroProjectIntakeProps = {
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
 export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [projectNeed, setProjectNeed] = useState("");
   const [foundVia, setFoundVia] = useState<FoundVia | "">("");
@@ -40,6 +42,8 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         body: JSON.stringify({
           source: "hero-intake",
           locale,
+          name,
+          phone,
           email,
           notes: projectNeed,
           ...(foundVia ? { foundVia } : {}),
@@ -53,6 +57,8 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
 
       trackLeadSubmit("hero-intake", locale, foundVia || "not_answered");
       setSubmitState("success");
+      setName("");
+      setPhone("");
       setEmail("");
       setProjectNeed("");
       setFoundVia("");
@@ -114,7 +120,39 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
   );
 
   return (
-    <form onSubmit={handleSubmit} className="mt-7 grid max-w-xl gap-3 sm:grid-cols-[1fr_1.35fr_auto] sm:items-end">
+    <form onSubmit={handleSubmit} className="mt-7 grid max-w-xl gap-3 sm:grid-cols-2">
+      <div>
+        <label htmlFor={`hero-name-${locale}`} className="text-sm font-medium text-white">
+          {isSpanish ? "Nombre" : "Name"}
+        </label>
+        <input
+          id={`hero-name-${locale}`}
+          name="name"
+          type="text"
+          autoComplete="name"
+          required
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className="mt-1.5 min-h-12 w-full rounded-lg border border-white/20 bg-white/10 px-3 text-base text-white placeholder:text-[#d8d0c7] focus:border-[#f0b384] focus:outline-none"
+          placeholder={isSpanish ? "Tu nombre" : "Your name"}
+        />
+      </div>
+      <div>
+        <label htmlFor={`hero-phone-${locale}`} className="text-sm font-medium text-white">
+          {isSpanish ? "Teléfono" : "Phone number"}
+        </label>
+        <input
+          id={`hero-phone-${locale}`}
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+          className="mt-1.5 min-h-12 w-full rounded-lg border border-white/20 bg-white/10 px-3 text-base text-white placeholder:text-[#d8d0c7] focus:border-[#f0b384] focus:outline-none"
+          placeholder="+1 (954) 000-0000"
+        />
+      </div>
       <div>
         <label htmlFor={`hero-email-${locale}`} className="text-sm font-medium text-white">
           Email
@@ -147,16 +185,18 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
           placeholder={isSpanish ? "¿Qué quieres crear?" : "What do you want to create?"}
         />
       </div>
-      <button
-        type="submit"
-        disabled={submitState === "submitting"}
-        className="min-h-12 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70"
-      >
-        {submitState === "submitting"
-          ? isSpanish ? "Enviando…" : "Sending…"
-          : isSpanish ? "Enviar" : "Send"}
-      </button>
-      <div className="sm:col-span-3 flex flex-wrap items-center gap-1.5 pt-0.5">
+      <div className="sm:col-span-2">
+        <button
+          type="submit"
+          disabled={submitState === "submitting"}
+          className="min-h-12 w-full rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+        >
+          {submitState === "submitting"
+            ? isSpanish ? "Enviando…" : "Sending…"
+            : isSpanish ? "Enviar" : "Send"}
+        </button>
+      </div>
+      <div className="sm:col-span-2 flex flex-wrap items-center gap-1.5 pt-0.5">
         <span className="text-xs text-[#d8d0c7]">
           {isSpanish ? "Opciones rápidas:" : "Quick select:"}
         </span>
@@ -178,7 +218,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
           </button>
         ))}
       </div>
-      <div className="sm:col-span-3">
+      <div className="sm:col-span-2">
         <label htmlFor={`hero-found-via-${locale}`} className="text-xs text-[#d8d0c7]">
           {isSpanish ? "¿Cómo nos encontró?" : "How did you find us?"}{" "}
           <span className="text-[#aaa29a]">({isSpanish ? "opcional" : "optional"})</span>
@@ -217,7 +257,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         )}
       </div>
       {submitState === "error" && (
-        <div role="alert" className="sm:col-span-3 rounded-lg border border-[#f7b9aa]/40 bg-white/5 px-4 py-3">
+        <div role="alert" className="sm:col-span-2 rounded-lg border border-[#f7b9aa]/40 bg-white/5 px-4 py-3">
           <p className="text-sm text-[#f7b9aa]">
             {isSpanish
               ? "No se pudo enviar el formulario. Escríbenos directo y seguimos por ahí."
