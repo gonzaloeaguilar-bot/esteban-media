@@ -85,6 +85,20 @@ export default function ShortFormVideoEditorPage() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 High-retention 9:16 vertical editing with bold captions, visual hooks, and sound design to keep audiences watching.
               </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                Busca un{" "}
+                <Link href="/es/editor-de-reels-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de reels miami
+                </Link>{" "}
+                en español para clips verticales de Instagram, TikTok y YouTube Shorts.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                Para edición de videos de YouTube en Miami, usa el{" "}
+                <Link href="/es/videografo-para-vlogs-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de youtube miami
+                </Link>{" "}
+                que cubre vlogs y contenido largo para la plataforma.
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
