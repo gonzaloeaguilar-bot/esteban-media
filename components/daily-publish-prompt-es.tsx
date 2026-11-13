@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Check, Mail, RotateCcw } from "lucide-react";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 const prompts = [
   "Muestra un proceso de trabajo real de 15 segundos sin música estridente.",
@@ -40,6 +41,8 @@ function promptForToday() {
 export function DailyPublishPromptEs() {
   const [state, setState] = useState<DailyState>({ date: "", completed: [], streak: 0 });
   const [isReady, setIsReady] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [captureStatus, setCaptureStatus] = useState<"idle" | "sending" | "saved" | "error">("idle");
   const today = useMemo(localDateKey, []);
@@ -102,11 +105,14 @@ export function DailyPublishPromptEs() {
         body: JSON.stringify({
           source: "daily-prompt",
           locale: "es",
+          name,
+          phone,
           email,
           notes: `Captura de Prompt de Publicación Diaria (ES). Prompt: ${prompt}`,
         }),
       });
       setCaptureStatus(response.ok ? "saved" : "error");
+      if (response.ok) { trackLeadSubmit("daily-prompt", "es"); setName(""); setPhone(""); setEmail(""); }
     } catch {
       setCaptureStatus("error");
     }
@@ -171,12 +177,16 @@ export function DailyPublishPromptEs() {
             <p className="mt-1 text-xs leading-5 text-[#d8d0c7]">Guarda tu correo con el sitio para futuras actualizaciones de prompts. El progreso permanece en este dispositivo.</p>
           </div>
         </div>
-        {captureStatus === "saved" ? <p className="mt-4 text-sm text-emerald-300">Correo guardado.</p> : (
-          <form onSubmit={captureEmail} className="mt-4 flex flex-col gap-2 sm:flex-row">
+        {captureStatus === "saved" ? <p className="mt-4 text-sm text-emerald-300">Contacto guardado.</p> : (
+          <form onSubmit={captureEmail} className="mt-4 grid gap-2 sm:grid-cols-2">
+            <label className="sr-only" htmlFor="daily-prompt-name-es">Nombre</label>
+            <input id="daily-prompt-name-es" type="text" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder="Nombre" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-prompt-phone-es">Teléfono</label>
+            <input id="daily-prompt-phone-es" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Teléfono" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
             <label className="sr-only" htmlFor="daily-prompt-email-es">Correo electrónico</label>
-            <input id="daily-prompt-email-es" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Correo electrónico" className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
-            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70">
-              {captureStatus === "sending" ? "Guardando…" : "Guardar correo"}
+            <input id="daily-prompt-email-es" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Correo electrónico" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none sm:col-span-2" />
+            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70 sm:col-span-2">
+              {captureStatus === "sending" ? "Guardando…" : "Guardar contacto"}
             </button>
           </form>
         )}
