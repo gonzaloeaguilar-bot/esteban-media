@@ -99,6 +99,8 @@ export function DailyScriptTimerEs() {
   const [script, setScript] = useState<string>(TEMPLATES[0].text);
   const [templateIndex, setTemplateIndex] = useState<number>(0);
   const [copied, setCopied] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [captureStatus, setCaptureStatus] = useState<"idle" | "sending" | "saved" | "error">("idle");
 
@@ -210,12 +212,17 @@ export function DailyScriptTimerEs() {
         body: JSON.stringify({
           source: "daily-script-timer",
           locale: "es",
+          name,
+          phone,
           email,
           notes: `Captura desde Temporizador de Guiones. Formato: ${selectedFormat.seconds}s, PPM: ${wpm}, Palabras: ${wordCount}`,
         }),
       });
       if (response.ok) {
         setCaptureStatus("saved");
+        setName("");
+        setPhone("");
+        setEmail("");
         trackLeadSubmit("daily-script-timer", "es");
       } else {
         setCaptureStatus("error");
@@ -484,27 +491,17 @@ export function DailyScriptTimerEs() {
         </div>
 
         {captureStatus === "saved" ? (
-          <p className="mt-4 text-sm text-emerald-300">Correo guardado.</p>
+          <p className="mt-4 text-sm text-emerald-300">Contacto guardado.</p>
         ) : (
-          <form onSubmit={captureEmail} className="mt-4 flex flex-col gap-2 sm:flex-row">
-            <label className="sr-only" htmlFor="daily-script-timer-email-es">
-              Dirección de correo electrónico
-            </label>
-            <input
-              id="daily-script-timer-email-es"
-              type="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="Dirección de correo"
-              className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none"
-            />
-            <button
-              type="submit"
-              disabled={captureStatus === "sending"}
-              className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70"
-            >
-              {captureStatus === "sending" ? "Guardando…" : "Guardar correo"}
+          <form onSubmit={captureEmail} className="mt-4 grid gap-2 sm:grid-cols-2">
+            <label className="sr-only" htmlFor="daily-script-timer-es-name">Nombre</label>
+            <input id="daily-script-timer-es-name" type="text" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder="Nombre" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-script-timer-es-phone">Teléfono</label>
+            <input id="daily-script-timer-es-phone" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Teléfono" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-script-timer-email-es">Email</label>
+            <input id="daily-script-timer-email-es" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none sm:col-span-2" />
+            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70 sm:col-span-2">
+              {captureStatus === "sending" ? "Guardando…" : "Guardar contacto"}
             </button>
           </form>
         )}
