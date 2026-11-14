@@ -1011,3 +1011,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `ddce8940` replaces the generic answer-first paragraph on `/services/short-form-video-editor-miami` with a readable three-step card and a native served `<details>` for the longer explanation.
 - Production deploy `dpl_AQe36Z7AWMGm8Q43z9NchLayXLge` Ready; canonical raw HTML HTTP 200 contains the three steps, fold summary and retained remote-project detail. Focused test 9/9, changed-file ESLint and typecheck passed.
 
+## 2026-11-13 — Layered human-reading page (production)
+
+- Commit `a579b3d7` keeps the video, short workflow and visual work shelf visible while moving definition, prices, reviews and craft explanation into native `<details>`; FAQs use the existing `RailFaq` accordion. The shelf shows Great Reviewer plus current Caro and DuPont imagery.
+- Production `dpl_4PqzaS3LrpgvDBnixYwi1F4aG1yz` Ready and canonical raw HTML HTTP 200: 12 `<details>`, price/reviews/craft summaries and both current work images are present. Focused guard passed 9/9.
+
