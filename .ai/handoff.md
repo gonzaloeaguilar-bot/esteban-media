@@ -1027,3 +1027,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Direct production deploy `dpl_58NouPxnKdykEWJmFi5P4fdsy2BA` is Ready and aliases canonical. GPTBot raw reads of the EN/ES caption routes returned HTTP 200 with `guide-cinematic-hero`, `/about/esteban-on-set.mp4` and `guide_hero_start_reading`; old `caption_guide_next_step` was absent in English.
 - `pnpm vitest run app/__tests__/guide-hero-work.test.ts components/__tests__/caption-guide-next-step.test.ts app/__tests__/guides-routes.test.ts` passed 9/9 and `pnpm typecheck` passed. Real-phone visual confirmation remains open.
 
+## 2026-11-14 — Caption guide work-first reading path (production)
+
+- `80bb353a` places the published-work carousel immediately after the guide hero, renders questions as larger reading sections rather than repeated cards, and renders the factual action points as lists. It adds existing, source-linked Google reviews after section two; no quote was authored or paraphrased.
+- Production deploy `dpl_EAmJGbHpiGoqJ4EpXgrVDamFdx6h` is Ready and aliases canonical. GPTBot raw canonical output returned HTTP 200 with the work-opening, review, hero, checklist and native-detail markers.
+- Focused guide tests passed 11/11; changed-source lint, TypeScript and `git diff --check` passed.
+
