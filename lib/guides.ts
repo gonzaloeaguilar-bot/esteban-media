@@ -3479,6 +3479,11 @@ const guidePairs: readonly GuidePair[] = [
             "Keep subtitles in the central part of the vertical frame, away from the bottom controls and top account header that Instagram places over a Reel. A caption can be technically present but still fail if a viewer has to read around interface buttons or a product, face, or food detail. Check the actual 9:16 cut on a phone before publishing, not only the editing preview.",
             "Plan the caption position with the rest of the overlay layout. The [safe-zone guide for vertical and horizontal exports](/guides/vertical-horizontal-video-exports-and-safe-zones) explains how platform controls affect a vertical frame, while [how to use Instagram Reels for business](/guides/how-to-use-instagram-reels-for-business) helps match the reel's message to the audience before type treatment is chosen. For food-led cuts, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) shows where captions need to leave the visual subject readable.",
           ],
+          bullets: [
+            "Keep text clear of the bottom controls and top account label",
+            "Leave faces, products, and food visible behind the words",
+            "Preview the final 9:16 cut on a real phone before publishing",
+          ],
         },
         {
           heading: "How do you choose a caption style for the viewing context?",
@@ -3554,7 +3559,14 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cómo hacer subtítulos para Reels?",
           paragraphs: [
+            "Haz un borrador automático, corrige las palabras que importan y revisa el Reel en un celular sin sonido. La lectura debe ganar a la animación.",
             "En cinco pasos, con el video ya editado. Primero, genera un borrador: Instagram, TikTok y CapCut tienen subtítulos automáticos, y sirven como punto de partida. Segundo, corrígelo palabra por palabra, porque la transcripción automática suele equivocarse con nombres propios, precios, direcciones y frases que mezclan español e inglés. Tercero, corta el texto en líneas cortas que sigan el ritmo de la voz, de dos a cinco palabras, en lugar de pegar oraciones largas. Cuarto, colócalo en la zona central del cuadro vertical 9:16, que normalmente se exporta en 1080x1920, por encima de la franja donde la aplicación pone su propio texto y sus botones. Quinto, mira el corte en el celular con el sonido apagado: si una idea no se entiende en silencio, falta un subtítulo o sobra movimiento. Para una cuenta de negocio conviene dejar los subtítulos quemados en el archivo final, así se ven igual en Instagram, TikTok y YouTube Shorts.",
+          ],
+          bullets: [
+            "Genera un borrador automático y corrige nombres, precios y direcciones",
+            "Corta el texto en líneas cortas que sigan la voz",
+            "Déjalo dentro de la zona segura del formato vertical 9:16",
+            "Míralo sin sonido en un celular antes de publicarlo",
           ],
         },
         {

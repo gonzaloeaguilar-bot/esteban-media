@@ -23,6 +23,7 @@ import { CaptionGuideOffer } from "@/components/caption-guide-offer";
 import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
 import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
 import { CinemaHeroMotion } from "@/components/cinema-hero-motion";
+import { ClientReviews } from "@/components/client-reviews";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
@@ -701,6 +702,8 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
         </Container>
       </section>
 
+      {guide.id === "caption-styles-reels-guide" ? <PortfolioTeaser locale={locale} source="caption_guide_work_opening" /> : null}
+
       <article className="py-12 sm:py-16 lg:py-20">
         <Container size="lg">
           <div className="mx-auto max-w-3xl space-y-14">
@@ -712,7 +715,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 aria-labelledby={`section-${index + 1}-heading`}
                 open={index === 0}
                 data-section="guide-question"
-                className="group scroll-mt-24 rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-7"
+                className="group scroll-mt-24 border-b border-[#ddd4c8] py-7 first:pt-0 sm:py-10"
               >
                 <summary className="flex min-h-14 cursor-pointer list-none items-start gap-4 text-left [&::-webkit-details-marker]:hidden">
                   <span className="font-serif text-2xl text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
@@ -721,13 +724,13 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 </summary>
                 <h2 id={`section-${index + 1}-heading`} className="sr-only">{section.heading}</h2>
                 <div className="mt-6 border-t border-[#ddd4c8] pt-6">
-                  <div className="space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
+                  <div className="max-w-2xl space-y-5 text-xl leading-8 text-[#252a2d] sm:text-2xl sm:leading-9">
                     {section.paragraphs.slice(0, 1).map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
                   </div>
                   {section.bullets ? (
-                    <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-white p-5 sm:p-6">
+                    <ul className="mt-7 grid gap-3 border-l-2 border-[#9f3c27] pl-5 sm:grid-cols-2 sm:gap-x-8">
                       {section.bullets.map((item) => (
-                        <li key={item} className="flex gap-3 text-lg leading-8 text-[#252a2d]">
+                        <li key={item} className="flex gap-3 text-base leading-7 text-[#252a2d] sm:text-lg">
                           <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#1a7f82]" aria-hidden="true" />
                           <span>{renderFormattedText(item)}</span>
                         </li>
@@ -749,7 +752,8 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                   ) : null}
                 </div>
               </details>
-              {index === 0 ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
+              {index === 0 && guide.id !== "caption-styles-reels-guide" ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
+              {index === 1 && guide.id === "caption-styles-reels-guide" ? <ClientReviews locale={locale} compact /> : null}
               </React.Fragment>
             ))}
 

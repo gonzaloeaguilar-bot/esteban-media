@@ -32,4 +32,12 @@ describe("guide human-entry visuals", () => {
     expect(hero).toContain(`<h1 id="guide-hero-heading" class="em-cine__title em-cine__title--guide"><span class="em-cine__guide-title">${guide!.title}</span></h1>`);
     expect(hero).not.toContain('<span class="em-cine__brand">Esteban Moreno Media</span>');
   });
+
+  it("opens the caption guide with the published work before the reading sections", () => {
+    const guide = getGuides("en").find((item) => item.id === "caption-styles-reels-guide");
+    expect(guide).toBeTruthy();
+    const html = renderToStaticMarkup(React.createElement(GuideDetailPage, { guide: guide! }));
+    expect(html.indexOf('id="selected-work-en"')).toBeGreaterThan(html.indexOf('data-section="guide-cinematic-hero"'));
+    expect(html.indexOf('id="selected-work-en"')).toBeLessThan(html.indexOf('id="section-1"'));
+  });
 });
