@@ -649,8 +649,26 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   const allGuides = getGuides(locale);
   const guideIndex = allGuides.findIndex((candidate) => candidate.id === guide.id);
   const proof = guide.heroProof ?? guide.proof;
+  // Older Bar Door Monkey material is still accurately documented where a
+  // guide needs it as historical context, but it is no longer the visual
+  // introduction to a guide. The guide opening instead uses the current,
+  // owner-selected homepage lead work. That avoids presenting an older
+  // restaurant sample as the best first look at Esteban's current craft.
+  const visualProof = proof.href.includes("bar-door-monkey")
+    ? locale === "es"
+      ? {
+          href: "/es/portafolio/great-reviewer-iphone-18",
+          title: "Reel reciente de The Great Reviewer",
+          description: "Una muestra publicada reciente del trabajo de contenido de Esteban.",
+        }
+      : {
+          href: "/portfolio/great-reviewer-iphone-18",
+          title: "Recent The Great Reviewer reel",
+          description: "A recent published example of Esteban's content work.",
+        }
+    : proof;
   const publishedProof = resolvePublishedProjectProof({
-    ...proof,
+    ...visualProof,
     eyebrow: copy.proofEyebrow,
     linkLabel: copy.proofLinkLabel,
   });
@@ -748,40 +766,39 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
         <Container size="lg">
           <div className="mx-auto max-w-3xl space-y-14">
             {guide.sections.map((section, index) => (
-              <section
+              <React.Fragment key={section.heading}>
+              <details
                 key={section.heading}
                 id={`section-${index + 1}`}
                 aria-labelledby={`section-${index + 1}-heading`}
-                className="scroll-mt-24"
+                open={index === 0}
+                data-section="guide-question"
+                className="group scroll-mt-24 rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-7"
               >
-                <p className="font-serif text-2xl text-[#9f3c27]">
-                  {(index + 1).toString().padStart(2, "0")}
-                </p>
-                <h2
-                  id={`section-${index + 1}-heading`}
-                  className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
-                >
-                  {section.heading}
-                </h2>
-                <div className="mt-6 space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{renderFormattedText(paragraph)}</p>
-                  ))}
+                <summary className="flex min-h-14 cursor-pointer list-none items-start gap-4 text-left [&::-webkit-details-marker]:hidden">
+                  <span className="font-serif text-2xl text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
+                  <span className="flex-1 font-serif text-3xl leading-tight text-[#101214] sm:text-4xl">{section.heading}</span>
+                  <span className="mt-2 text-2xl leading-none text-[#9f3c27] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <h2 id={`section-${index + 1}-heading`} className="sr-only">{section.heading}</h2>
+                <div className="mt-6 border-t border-[#ddd4c8] pt-6">
+                  <div className="space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
+                    {section.paragraphs.map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
+                  </div>
+                  {section.bullets ? (
+                    <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-white p-5 sm:p-6">
+                      {section.bullets.map((item) => (
+                        <li key={item} className="flex gap-3 text-lg leading-8 text-[#252a2d]">
+                          <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#1a7f82]" aria-hidden="true" />
+                          <span>{renderFormattedText(item)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
-                {section.bullets ? (
-                  <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
-                    {section.bullets.map((item) => (
-                      <li key={item} className="flex gap-3 text-lg leading-8 text-[#252a2d]">
-                        <CheckCircle2
-                          className="mt-1 size-4 shrink-0 text-[#1a7f82]"
-                          aria-hidden="true"
-                        />
-                        <span>{renderFormattedText(item)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </section>
+              </details>
+              {index === 0 ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
+              </React.Fragment>
             ))}
 
             {guide.priceIndex ? <ReelsPriceIndex locale={locale} /> : null}
@@ -863,12 +880,6 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </div>
         </Container>
       </article>
-      {/* A guide can explain the approach, but the next question is naturally
-          whether Esteban's finished work holds up. Reuse the homepage shelf
-          instead of a second, static proof-card pattern: it keeps approved
-          portfolio media, real project links, keyboard controls and reduced-
-          motion behaviour in one maintained component. */}
-      <PortfolioTeaser locale={locale} source="guide_work" />
       <PriorityLinks path={getGuidePath(guide)} locale={locale} />
       {guide.id === "caption-styles-reels-guide" && <CaptionGuideStickyCta locale={locale} />}
 
