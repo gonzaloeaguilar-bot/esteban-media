@@ -961,3 +961,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `2f2190df` was deployed to production as Vercel `dpl_CBNMQatocLrsLRc8ScQwDwe3jZjA` (Ready). It changes the caption-guide current proof to Great Reviewer in EN/ES and puts the real current Great Reviewer Reel visual into the first screen of Miami Reels.
 - Focused Vitest: 13 passed across four relevant test files; `pnpm typecheck` passed. Canonical caption guide returned HTTP/2 200; raw GPTBot Miami output includes `A recent published Reel` and `The Great Reviewer Reel`; fresh desktop browser read-back confirmed the visible Miami hero card and caption-guide lower project block.
 - Phone-width, keyboard, reduced-motion and a terminal independent-review verdict remain outstanding. No conversion, citation, rank or lead outcome is claimed.
+
+# 2026-11-13 — Guide visual hero and condensed reading released
+
+- Commit `23f88488` changes the shared guide renderer: its real published project is now the opening visual behind the guide answer; when a guide has no suitable project proof, it uses the existing subject illustration instead. The previous full paragraph stack now exposes one lead paragraph plus visible bullets, with remaining explanation in a native server-rendered `<details>`.
+- Vercel production deployment `dpl_AHca1tWLscjRpoxCb19X1NYfjk5w` is Ready and aliases `https://estebanmorenomedia.com`. Focused guide checks passed 8/8, `pnpm typecheck` passed, `pnpm lastmod:update` reported 0 changed / 582 total, and `git diff --check` passed. Vercel's build compiled successfully.
+- Fresh canonical browser inspection of the caption guide verified the hero with the Great Reviewer visual, visible quick answer and native "Read the full explanation" disclosure. At 390×844, the hero image, title, answer and start of the choice card are all visible above the persistent mobile dock. No conversion, citation, rank or lead outcome is claimed.
