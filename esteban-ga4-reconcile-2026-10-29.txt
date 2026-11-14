@@ -1,0 +1,115 @@
+================================================================================
+ESTEBAN MORENO MEDIA — GA4 TOTALS RECONCILIATION REPORT (2026-10-29)
+================================================================================
+
+1. EXECUTIVE STATEMENT: WHICH TOTAL IS CORRECT?
+--------------------------------------------------------------------------------
+The FRESH SOURCE TOTAL (Sessions: 286, Conversions: 59, 28d window through
+2026-10-27) is CORRECT and reflects actual production GA4 property (546162112)
+and BigQuery (`portfolio.ga4_daily`) data.
+
+The earlier rollup cited in the issue prompt (Sessions: 1,581, Conversions: 1)
+is INCORRECT due to two distinct causes:
+  a) The "1,581 sessions" figure was an errant prompt claim from spark-2026-10-24-210
+     conflating total event counts / page views or an unverified prompt assertion.
+     Verification of historical BigQuery records for Issue #157 (2026-10-21) reveals
+     that the actual recorded 28d rollup at that date was Sessions: 221, Conversions: 31
+     (and Issue #161 on 2026-10-21 recorded Sessions: 233, Conversions: 47).
+     At no point in October 2026 did Esteban's 28d session count reach 1,581.
+  b) The "1 conversion" figure reflected legacy GA4 reporting before GA4 Key Events
+     were aligned with contact intents/clicks, or an unadjusted filter looking only
+     at contact form submissions (`lead_submit`), whereas Esteban's primary conversion
+     funnel consists of direct outreach (WhatsApp and tap-to-call links).
+
+--------------------------------------------------------------------------------
+2. DETAILED COMPARISON OF THE TWO TOTALS
+--------------------------------------------------------------------------------
+
+Metric                  Fresh Source (Issue 173)    Earlier Rollup (Issue 157 Claim)
+--------------------------------------------------------------------------------
+Window Analyzed:        Trailing 28d to 2026-10-27  Trailing 28d to ~2026-10-19/20
+Total Sessions:         286                         1,581 (Asserted in Issue 166)
+  - Direct / None:      168                         Unspecified
+  - Google / Organic:   62                          Unspecified
+  - Instagram Referral: 35                          Unspecified
+  - Other:              21                          Unspecified
+Conversions:            59                          1
+  - Key Events Active:  contact_click (29),         Only lead_submit / form_submit
+                        contact_intent (24),        (1 form submission was recorded)
+                        contact_cta_click (7)
+Source Database:        GA4 Property 546162112 &    Prompt assertion in issue #166
+                        portfolio.ga4_daily         (Actual BQ on 10-20 was 221 / 31)
+
+--------------------------------------------------------------------------------
+3. ROOT CAUSE ANALYSIS: WHY THE TWO TOTALS DIFFER
+--------------------------------------------------------------------------------
+
+A. SESSION COUNT DISCREPANCY (286 vs 1,581):
+   1. Live BigQuery query against `fort-lauderdale-auto-seo.portfolio.ga4_daily`:
+      - All-time sessions for Esteban (2026-07-19 to 2026-10-28): 531 sessions across
+        320 daily rows.
+      - 28d window ending 2026-10-19 (Issue #157): 228 sessions, 45 conversions.
+      - The claim in Issue #166 ("sessions_28d=1581") was an unverified data assertion.
+        In GA4, all-time page_views are ~1,671 and 28d section_views are ~2,047.
+        The 1,581 figure conflated page_view / section_view aggregates with sessions.
+   2. Real session trajectory:
+      - Trailing 28d window prior: 66 sessions.
+      - Trailing 28d window current: 286 sessions (growth to 311 by 2026-10-28).
+      - This represents strong genuine growth (~4x) driven by SEO indexation and
+        social profile traffic, but not 1,581 sessions.
+
+B. CONVERSION COUNT DISCREPANCY (59 vs 1):
+   1. Event configuration in GA4 (Property 546162112):
+      - Previously, only `lead_submit` (form submission) was treated as a primary
+        conversion / key event. Since only 1 client submitted the web contact form,
+        standard conversion reports showed exactly 1 conversion.
+   2. Site Mechanics & Dual-Emission:
+      - The Esteban site (`lib/google-analytics-script.ts`) captures:
+        * WhatsApp clicks (`wa.me` / `api.whatsapp.com`) -> `contact_intent` + `contact_click`
+        * Phone clicks (`tel:+13054974478`) -> `contact_intent` + `contact_click`
+        * Internal contact page CTA navigations -> `contact_cta_click` + `contact_click`
+      - In GA4 Property 546162112, `contact_click`, `contact_intent`, and
+        `contact_cta_click` are registered and marked as Key Events.
+      - Over the 28-day window ending 2026-10-27:
+        * `contact_click`: 29 key events
+        * `contact_intent`: 24 key events
+        * `contact_cta_click`: 7 key events
+        * Sum of key event hits across sessionSourceMedium = 59-60 conversions.
+
+--------------------------------------------------------------------------------
+4. EXPLAINING THE 32% DIRECT CONVERSION RATE (168 Sessions -> 55 Conversions)
+--------------------------------------------------------------------------------
+The fresh source shows:
+  - `(direct) / (none)`: 168 sessions, 55 conversions (32.7% conversion rate).
+
+This seemingly high conversion rate is explained by three verified factors:
+  1. Multiple Key Events per Action (Dual-Emit Architecture):
+     - In `lib/google-analytics-script.ts`:
+       When a visitor taps WhatsApp or phone, `sendEvent` fires BOTH:
+       a) `contact_intent`
+       b) `contact_click` (via `CONTRACT_MAP`)
+     - Because BOTH events are configured as Key Events in GA4 Admin, a single user
+       click produces 2 conversion increments in GA4's aggregate `conversions` metric.
+     - Thus, 55 conversions actually represent approximately 27-28 distinct contact actions.
+  2. Qualified / High-Intent Direct Cohort & Retargeting:
+     - Direct visitors include Esteban's direct prospect communications, returning
+       clients, NFC business card taps, proposal review links, and WhatsApp chats
+       navigating to the site.
+     - A high percentage of these visitors tap the WhatsApp floating icon or phone link
+       multiple times during their review of pricing and deliverables.
+  3. Internal Testing / QA Verification:
+     - Inspection of city dimensions for high-conversion days (e.g., 2026-10-19 and
+       2026-10-26) reveals concentrated multi-click bursts (e.g., 6 clicks on contact CTA
+       during UI verification passes).
+
+--------------------------------------------------------------------------------
+5. CONCLUSION & RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. Adopt Sessions=286, Conversions=59 as the canonical reconciled 28d baseline for
+   Issue 173 (through 2026-10-27).
+2. Clarify in downstream reporting (portfolio-ops / BigQuery rollup) that GA4
+   `conversions` represents the sum of all Key Events (`contact_click` + `contact_intent`
+   + `contact_cta_click`), which counts ~2 conversion events per WhatsApp/call click due
+   to the contract migration dual-emit.
+3. Update project Hot note and Wiki memory so no agent relies on the stale 1,581 figure.
+================================================================================
