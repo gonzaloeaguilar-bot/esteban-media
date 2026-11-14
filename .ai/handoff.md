@@ -999,3 +999,10 @@ Configuration-gated conversion-observability implementation is present locally, 
 
 - Forced governed `agy` dispatch `20261114T033244Z-cto-geo-lead-esteban-media-1794627166005051000-18340-78c888a5f3433410` returned the owned Miami short-form service URL for two unbranded local-provider prompts and not for one informational hiring prompt. The owned URL returned production HTTP/2 200. This is a dated provider-specific grounded observation only.
 - `PPLX_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY` and Gemini API key variables are absent from the active environment; `ai-citation-sweep` reserve is $0.00. Perplexity/Grok/direct-API Gemini are currently unmeasured, not zero. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+## 2026-11-13 — Short-form Miami video hero repair (production)
+
+- Commit `d0e0fe43` (`feat/human-entry-ui-20261113`) replaced the old ML Colombia text-only hero proof on `/services/short-form-video-editor-miami` with a current Great Reviewer poster and `YouTubeFacade` trigger (`BDRru8eXaj4`); removed the old Bar Door Monkey route mention and changed both proof links to the current work.
+- Direct Vercel production deploy `dpl_BPPqmvQxwQo9i6y9KFvsYyExb7cP` is Ready. Canonical raw HTML re-read returned HTTP 200 and has `data-section="short-form-hero-proof"`, `data-video-facade="BDRru8eXaj4"`, and Great Reviewer poster; it has no `ML Colombia` or `Bar Door Monkey` match.
+- Gates: targeted proof test 8/8, changed-file ESLint, typecheck, local build and Vercel build. The governed Antigravity review dispatch failed while generating its shared context packet; no independent-approval claim.
+- Next: test canonical route at 390px, tap play, verify video starts/closes, read first two scrolls. Then inspect `short_form_hero_play` event separately from leads.
+
