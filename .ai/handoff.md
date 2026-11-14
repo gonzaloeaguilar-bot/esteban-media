@@ -1016,3 +1016,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `a579b3d7` keeps the video, short workflow and visual work shelf visible while moving definition, prices, reviews and craft explanation into native `<details>`; FAQs use the existing `RailFaq` accordion. The shelf shows Great Reviewer plus current Caro and DuPont imagery.
 - Production `dpl_4PqzaS3LrpgvDBnixYwi1F4aG1yz` Ready and canonical raw HTML HTTP 200: 12 `<details>`, price/reviews/craft summaries and both current work images are present. Focused guard passed 9/9.
 
+## 2026-11-14 — Caption guide mobile contrast repair (production)
+
+- `7eecddce` fixes the screenshot defect: `CaptionGuideNextStep` explicitly sets dark text on its cream/white surface and white text on its red surface, rather than inheriting the surrounding hero's white. `GuideDetailPage` gets mobile bottom clearance so the fixed WhatsApp action cannot cover terminal content.
+- Production deploy `dpl_9MycSTTJHmk7jdwvpRwByJaPcrvD` Ready and aliases canonical. Raw caption guide HTTP 200 includes caption action plus explicit ink/white styles. Focused component and all-guide hero checks 4/4, lint and typecheck passed. Real-phone visual confirmation remains open.
+
