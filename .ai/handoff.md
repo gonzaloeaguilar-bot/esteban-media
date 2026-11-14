@@ -967,3 +967,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `23f88488` changes the shared guide renderer: its real published project is now the opening visual behind the guide answer; when a guide has no suitable project proof, it uses the existing subject illustration instead. The previous full paragraph stack now exposes one lead paragraph plus visible bullets, with remaining explanation in a native server-rendered `<details>`.
 - Vercel production deployment `dpl_AHca1tWLscjRpoxCb19X1NYfjk5w` is Ready and aliases `https://estebanmorenomedia.com`. Focused guide checks passed 8/8, `pnpm typecheck` passed, `pnpm lastmod:update` reported 0 changed / 582 total, and `git diff --check` passed. Vercel's build compiled successfully.
 - Fresh canonical browser inspection of the caption guide verified the hero with the Great Reviewer visual, visible quick answer and native "Read the full explanation" disclosure. At 390×844, the hero image, title, answer and start of the choice card are all visible above the persistent mobile dock. No conversion, citation, rank or lead outcome is claimed.
+
+# 2026-11-13 — Live SEO/GEO status read
+
+- `pnpm seo:measurement:run` passed against authenticated Search Console. Settled 2026-10-14..2026-11-10: caption guide 176 impressions / 0 clicks / position 8.38; Fort Lauderdale Reels 45 / 0 / 6.22; Spanish caption guide 34 / 0 / 7.85; Spanish Miami Reels 16 / 0 / 6.56. Provisional Nov 11..13 is non-decisional.
+- `pnpm index-watch:status`: 456 indexed / 126 neutral / 0 failed across 582 URLs. `pnpm seo:crawler-availability`: Googlebot, GPTBot, ClaudeBot and PerplexityBot all returned HTTP 200 HTML.
+- `pnpm geo:snapshot:status` marks citations stale. Current engine citation performance is unverified; the last successful observations date from Oct 28–Nov 5 and later failed retries are not measurements. Durable report: `[[esteban-seo-measurement]]`.
