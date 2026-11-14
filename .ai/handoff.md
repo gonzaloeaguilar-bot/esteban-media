@@ -1039,3 +1039,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Production deploy `dpl_9fnhQTzJY2zVQxvYBJJLJFA71yuB` is Ready and aliases canonical. GPTBot raw canonical output returned HTTP 200 and contains all three asset names, the visual marker and disclosure.
 - Focused guide tests passed 12/12; changed-source lint, TypeScript and `git diff --check` passed.
 
+## 2026-11-14 — Caption self-check result (production)
+
+- `0ec12f4c` makes the three caption self-check answers produce an immediate placement recommendation with relevant notes and a reset action, instead of only revealing a contact path.
+- Production deployment `dpl_9jEn7xrdC3FFfBoKtS7PXR4XqsEC` is Ready and aliases canonical. Fresh production-browser interaction with the risk answers rendered “Set the caption lane before you style it.”
+- Focused checks passed 13/13; changed-source lint, TypeScript and `git diff --check` passed.
+
