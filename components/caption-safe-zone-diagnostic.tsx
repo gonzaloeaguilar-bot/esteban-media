@@ -16,6 +16,9 @@ const copy = {
       { label: "Do captions have a written place to live?", choices: ["Yes — away from controls and key visuals", "Not yet / I am not sure"] },
     ],
     resultEyebrow: "Your caption decision",
+    progress: (answered: number) => `${answered} of 3 answers selected`,
+    startingTitle: "Choose all three answers to see your recommendation.",
+    startingBody: "Your result will appear here. Start with the platform, then what the captions cannot cover, then whether they already have a planned place.",
     readyTitle: "Your starting setup is readable.",
     readyBody: "Keep captions in the central safe area, preview the finished cut on a phone, and avoid letting motion compete with the words.",
     adjustTitle: "Set the caption lane before you style it.",
@@ -35,6 +38,9 @@ const copy = {
       { label: "¿Los subtítulos ya tienen un lugar definido?", choices: ["Sí — lejos de controles y elementos importantes", "Todavía no / no estoy seguro"] },
     ],
     resultEyebrow: "Tu decisión de subtítulos",
+    progress: (answered: number) => `${answered} de 3 respuestas elegidas`,
+    startingTitle: "Elige las tres respuestas para ver tu recomendación.",
+    startingBody: "Tu resultado aparecerá aquí. Empieza por la plataforma, luego por lo que los subtítulos no pueden tapar y por último por si ya tienen un espacio definido.",
     readyTitle: "Tu punto de partida se ve legible.",
     readyBody: "Mantén los subtítulos en la zona segura central, revisa el corte final en un celular y evita que el movimiento compita con las palabras.",
     adjustTitle: "Define el espacio del texto antes de elegir el estilo.",
@@ -50,6 +56,7 @@ export function CaptionSafeZoneDiagnostic({ locale = "en" }: { locale?: Locale }
   const [answers, setAnswers] = useState<(number | null)[]>([null, null, null]);
   const text = copy[locale];
   const complete = answers.every((answer) => answer !== null);
+  const answered = answers.filter((answer) => answer !== null).length;
   const needsAdjustment = answers[1] === 0 || answers[2] === 1;
 
   return <section data-section="caption_safe_zone_diagnostic" className="rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 shadow-sm sm:p-8" aria-labelledby="caption-safe-zone-title">
@@ -69,16 +76,22 @@ export function CaptionSafeZoneDiagnostic({ locale = "en" }: { locale?: Locale }
         </div>
       </fieldset>)}
     </div>
-    {complete && <div className="mt-6 border-t border-[#d6ccc0] pt-5" aria-live="polite" data-section="caption_safe_zone_result">
+    <div className="mt-6 rounded-2xl border border-[#d6ccc0] bg-white p-5 sm:p-6" aria-live="polite" data-section="caption_safe_zone_result">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9f3c27]">{text.resultEyebrow}</p>
-      <h3 className="mt-2 font-serif text-3xl leading-tight text-[#101214]">{needsAdjustment ? text.adjustTitle : text.readyTitle}</h3>
-      <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">{needsAdjustment ? text.adjustBody : text.readyBody}</p>
-      <ul className="mt-4 space-y-2 border-l-2 border-[#9f3c27] pl-4 text-sm leading-6 text-[#252a2d]">
-        {answers[1] === 0 ? <li>{text.subjectNote}</li> : null}
-        {answers[2] === 1 ? <li>{text.planNote}</li> : null}
-        {answers[0] === 1 ? <li>{text.multiPlatformNote}</li> : null}
-      </ul>
-      <button type="button" onClick={() => setAnswers([null, null, null])} className="mt-5 min-h-11 rounded-full border border-[#9f3c27] px-5 text-sm font-semibold text-[#9f3c27] hover:bg-[#f1d8ce]">{text.reset}</button>
-    </div>}
+      <p className="mt-2 text-sm font-semibold text-[#252a2d]">{text.progress(answered)}</p>
+      {complete ? <>
+        <h3 className="mt-3 font-serif text-3xl leading-tight text-[#101214]">{needsAdjustment ? text.adjustTitle : text.readyTitle}</h3>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">{needsAdjustment ? text.adjustBody : text.readyBody}</p>
+        <ul className="mt-4 space-y-2 border-l-2 border-[#9f3c27] pl-4 text-sm leading-6 text-[#252a2d]">
+          {answers[1] === 0 ? <li>{text.subjectNote}</li> : null}
+          {answers[2] === 1 ? <li>{text.planNote}</li> : null}
+          {answers[0] === 1 ? <li>{text.multiPlatformNote}</li> : null}
+        </ul>
+        <button type="button" onClick={() => setAnswers([null, null, null])} className="mt-5 min-h-11 rounded-full border border-[#9f3c27] px-5 text-sm font-semibold text-[#9f3c27] hover:bg-[#f1d8ce]">{text.reset}</button>
+      </> : <>
+        <h3 className="mt-3 font-serif text-2xl leading-tight text-[#101214]">{text.startingTitle}</h3>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#3f4548]">{text.startingBody}</p>
+      </>}
+    </div>
   </section>;
 }
