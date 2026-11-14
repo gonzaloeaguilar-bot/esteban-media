@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MessageCircle, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
@@ -7,6 +8,7 @@ import { PriorityLinks } from "@/components/priority-links";
 import { ClientReviews } from "@/components/client-reviews";
 import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import {
   ServiceAnswerFirst,
   ServiceCraft,
@@ -94,26 +96,40 @@ export default function ShortFormVideoEditorPage() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/portfolio/ml-colombia"
+                  href="/portfolio/great-reviewer-iphone-18"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
-                  View ML Colombia Reel Proof
+                  See recent work
                 </Link>
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <Scissors className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Reel proof</h2>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>ML Colombia</strong> proves published short-form social video editing. For food & beverage concepts, see our dedicated{" "}
-                <Link
-                  href="/services/restaurant-promo-video-editing-miami"
-                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
-                >
-                  restaurant promo video editing in Miami
-                </Link>.
-              </p>
+            <div className="overflow-hidden rounded-2xl border border-[#ddd4c8] bg-[#101214] shadow-[0_22px_70px_rgba(16,18,20,.18)]" data-section="short-form-hero-proof">
+              <div className="relative aspect-video">
+                <Image
+                  src="/portfolio/great-reviewer-iphone-18.jpg"
+                  alt="Still from Esteban Moreno Media's recent The Great Reviewer video edit"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover"
+                />
+                <YouTubeFacade
+                  videoId="BDRru8eXaj4"
+                  title="The Great Reviewer: iPhone 18 Pro Max Content Reel"
+                  playLabel="Play The Great Reviewer Reel"
+                  source="short_form_hero_play"
+                />
+              </div>
+              <div className="grid gap-3 bg-[#101214] px-5 py-5 text-white sm:grid-cols-[1fr_auto] sm:items-center">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#f6bda9]">Recent published work</p>
+                  <h2 className="mt-1 font-serif text-2xl leading-tight">Watch the edit before you read about it.</h2>
+                </div>
+                <Link href="/portfolio/great-reviewer-iphone-18" className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-[#101214] hover:bg-[#f6bda9]">
+                  Open project
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
@@ -140,7 +156,7 @@ export default function ShortFormVideoEditorPage() {
         <Container size="xl">
           <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
             <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
-            Healthy Smile Miami in Miami (on-location dental clinic video), Bar Door Monkey in Miami (restaurant video promo), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
+            Healthy Smile Miami in Miami (on-location dental clinic video), The Great Reviewer (published content Reel), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
           </p>
         </Container>
       </section>
@@ -229,8 +245,8 @@ export default function ShortFormVideoEditorPage() {
           serviceName: "short-form video editing",
           goalPrompt: "turn supplied footage into Reels, TikTok, or Shorts",
           assetPrompt: "raw clips, references, brand notes, and the platforms where the videos will run",
-          proofHref: "/portfolio/ml-colombia",
-          proofLabel: "Review short-form portfolio proof",
+          proofHref: "/portfolio/great-reviewer-iphone-18",
+          proofLabel: "Watch recent published short-form work",
         }}
       />
       <ServiceRelated heading={SHORT_FORM_DEPTH.relatedHeading} services={SHORT_FORM_DEPTH.related} />

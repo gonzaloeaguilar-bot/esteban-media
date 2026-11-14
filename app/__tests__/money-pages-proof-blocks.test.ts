@@ -88,4 +88,15 @@ describe("proof blocks on three money pages", () => {
       expect(html).not.toMatch(/"@type"\s*:\s*"Review"/);
     }
   });
+
+  it("gives the cited short-form page a current work visual and a playable video entry", () => {
+    const html = renderToStaticMarkup(React.createElement(ShortFormMiamiPage));
+
+    expect(html).toContain('data-section="short-form-hero-proof"');
+    expect(html).toContain("great-reviewer-iphone-18.jpg");
+    expect(html).toContain('data-video-facade="BDRru8eXaj4"');
+    expect(html).toContain("Play The Great Reviewer Reel");
+    expect(html).not.toContain("ML Colombia");
+    expect(html).not.toContain("Bar Door Monkey");
+  });
 });
