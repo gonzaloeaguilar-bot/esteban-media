@@ -994,3 +994,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 
 - Direct GA4 Data API read, property `546162112`: AI-source filter returns 11 sessions for both 7d/28d, all `gemini.google.com` (home 8, `/not-found` 2, Miami short-form page 1). The report returned no Perplexity, Grok, ChatGPT, Claude, Copilot, DeepSeek or Meta AI referral row. This is referral attribution, not an AI-citation measurement.
 - Social-source filter returns 4 sessions / 7d and 39 / 28d: Instagram 32, Facebook 4 and LinkedIn 3 over 28 days; no TikTok or YouTube row returned. Treat absent rows as no observed GA4 referral row, not proof of zero social activity. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — Fresh grounded Gemini observation
+
+- Forced governed `agy` dispatch `20261114T033244Z-cto-geo-lead-esteban-media-1794627166005051000-18340-78c888a5f3433410` returned the owned Miami short-form service URL for two unbranded local-provider prompts and not for one informational hiring prompt. The owned URL returned production HTTP/2 200. This is a dated provider-specific grounded observation only.
+- `PPLX_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY` and Gemini API key variables are absent from the active environment; `ai-citation-sweep` reserve is $0.00. Perplexity/Grok/direct-API Gemini are currently unmeasured, not zero. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
