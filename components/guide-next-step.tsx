@@ -44,19 +44,19 @@ export function GuideNextStep({ locale, guideTitle }: { locale: Locale; guideTit
     <section
       aria-labelledby="guide-next-step-heading"
       data-section="guide_next_step"
-      className="mt-8 max-w-3xl rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-5 sm:p-6"
+      className="mt-10 max-w-3xl rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 sm:p-8"
     >
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9f3c27]">{text.eyebrow}</p>
       <h2 id="guide-next-step-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{text.heading}</h2>
-      <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">{text.intro}</p>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <p className="mt-4 max-w-2xl text-lg leading-8 text-[#3f4548]">{text.intro}</p>
+      <div className="mt-7 grid gap-4 sm:grid-cols-2">
         <Link
           href="#section-1"
           data-cta="guide_next_step_continue"
-          className="group rounded-xl border border-[#ddd4c8] bg-white p-4 transition hover:border-[#9f3c27] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
+          className="group min-h-64 rounded-xl border border-[#ddd4c8] bg-white p-5 transition hover:border-[#9f3c27] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
         >
           <span className="block font-serif text-2xl leading-tight">{text.continueTitle}</span>
-          <span className="mt-2 block text-sm leading-6 text-[#3f4548]">{text.continueDetail}</span>
+          <span className="mt-3 block text-base leading-7 text-[#3f4548]">{text.continueDetail}</span>
           <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-[#9f3c27]">
             {text.continueAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
           </span>
@@ -66,10 +66,10 @@ export function GuideNextStep({ locale, guideTitle }: { locale: Locale; guideTit
           target="_blank"
           rel="noopener noreferrer"
           data-cta="guide_next_step_whatsapp"
-          className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
+          className="group min-h-64 rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-5 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
         >
           <span className="block font-serif text-2xl leading-tight">{text.talkTitle}</span>
-          <span className="mt-2 block text-sm leading-6 text-white/85">{text.talkDetail}</span>
+          <span className="mt-3 block text-base leading-7 text-white/85">{text.talkDetail}</span>
           <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
             <MessageCircle className="size-4" aria-hidden="true" />{text.talkAction}
           </span>

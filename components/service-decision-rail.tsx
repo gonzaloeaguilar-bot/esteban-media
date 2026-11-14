@@ -24,17 +24,17 @@ export type ServiceDecisionRailContent = {
  */
 export function ServiceDecisionRail({ content }: { content: ServiceDecisionRailContent }) {
   return (
-    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-10 sm:py-14" data-section="service-decision-rail">
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-14 sm:py-20" data-section="service-decision-rail">
       <Container size="xl">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{content.eyebrow}</p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl leading-tight sm:text-4xl">{content.heading}</h2>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-[#252a2d]">{content.intro}</p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <h2 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">{content.heading}</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-[#252a2d] sm:text-xl">{content.intro}</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {content.decisions.map((decision) => (
-              <article key={decision.id} className="flex min-h-64 flex-col rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-5 sm:p-6">
-                <h3 className="font-serif text-2xl leading-tight text-[#101214]">{decision.title}</h3>
-                <p className="mt-3 text-base leading-7 text-[#252a2d]">{decision.detail}</p>
+              <article key={decision.id} className="flex min-h-72 flex-col rounded-2xl border border-[#ddd4c8] bg-[#f6f1ea] p-6 sm:p-7">
+                <h3 className="font-serif text-3xl leading-tight text-[#101214]">{decision.title}</h3>
+                <p className="mt-4 text-lg leading-8 text-[#252a2d]">{decision.detail}</p>
                 <a
                   href={decision.href}
                   target="_blank"

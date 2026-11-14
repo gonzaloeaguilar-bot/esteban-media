@@ -55,17 +55,17 @@ export function PublishedProjectProof({
       href={resolved.href}
       data-section="published-project-proof"
       data-cta={`published_project_proof_${resolved.id}`}
-      className={`group grid overflow-hidden rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] transition hover:border-[#c84a2c] ${compact ? "grid-cols-[minmax(7.5rem,.72fr)_minmax(0,1fr)]" : "sm:grid-cols-[minmax(0,1fr)_minmax(12rem,.72fr)]"}`}
+      className={`group grid overflow-hidden rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] transition hover:border-[#c84a2c] ${compact ? "grid-cols-[minmax(7.5rem,.72fr)_minmax(0,1fr)]" : "sm:grid-cols-[minmax(0,1fr)_minmax(13rem,.84fr)]"}`}
     >
-      <span className={`flex flex-col justify-between ${compact ? "order-2 p-4" : "order-2 min-h-56 p-6 sm:order-1"}`}>
+      <span className={`flex flex-col justify-between ${compact ? "order-2 p-4" : "order-2 min-h-60 p-6 sm:order-1 sm:p-7"}`}>
         <span>
           <span className="block text-xs font-medium uppercase tracking-[0.14em] text-[#9f3c27]">
             {resolved.eyebrow}
           </span>
-          <span className={`${compact ? "mt-2" : "mt-4"} block font-serif ${compact ? "text-xl" : "text-3xl"} leading-tight text-[#101214]`}>
+          <span className={`${compact ? "mt-2" : "mt-4"} block font-serif ${compact ? "text-xl" : "text-3xl sm:text-4xl"} leading-tight text-[#101214]`}>
             {resolved.title}
           </span>
-          <span className={`${compact ? "mt-2 text-xs leading-5" : "mt-3 text-sm leading-6"} block text-[#3f4548]`}>
+          <span className={`${compact ? "mt-2 text-xs leading-5" : "mt-3 text-base leading-7"} block text-[#3f4548]`}>
             {resolved.description}
           </span>
         </span>
@@ -74,7 +74,7 @@ export function PublishedProjectProof({
           <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
         </span>
       </span>
-      <span className={`relative bg-[#1c1f20] ${compact ? "order-1 min-h-full" : "order-1 min-h-52 sm:order-2 sm:min-h-full"}`}>
+        <span className={`relative bg-[#1c1f20] ${compact ? "order-1 min-h-full" : "order-1 min-h-64 sm:order-2 sm:min-h-full"}`}>
         <Image
           src={resolved.poster}
           alt={`Published project: ${resolved.title}`}

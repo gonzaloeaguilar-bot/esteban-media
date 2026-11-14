@@ -1,6 +1,6 @@
 import React from "react";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { PublishedProjectProof } from "@/components/published-project-proof";
+import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
@@ -648,6 +648,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   // the six guides before it, and the /guides index still lists them all.
   const allGuides = getGuides(locale);
   const guideIndex = allGuides.findIndex((candidate) => candidate.id === guide.id);
+  const proof = guide.heroProof ?? guide.proof;
+  const publishedProof = resolvePublishedProjectProof({
+    ...proof,
+    eyebrow: copy.proofEyebrow,
+    linkLabel: copy.proofLinkLabel,
+  });
   const relatedGuides = Array.from(
     { length: Math.min(RELATED_GUIDE_COUNT, allGuides.length - 1) },
     (_, offset) => allGuides[(guideIndex + 1 + offset) % allGuides.length],
@@ -679,7 +685,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             </ol>
           </nav>
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_.56fr] lg:items-start lg:gap-16">
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_.75fr] lg:items-start lg:gap-16">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                 {guide.eyebrow}
@@ -687,7 +693,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
                 {guide.title}
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
+              <p className="mt-6 max-w-3xl text-xl leading-8 text-[#252a2d] sm:text-2xl sm:leading-9">
                 <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
               {guide.id === "caption-styles-reels-guide" ? (
@@ -695,22 +701,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               ) : (
                 <GuideNextStep locale={locale} guideTitle={guide.title} />
               )}
-              {guide.heroProof ? (
-                <div className="mt-8 max-w-2xl">
-                  <PublishedProjectProof
-                    proof={{
-                      ...guide.heroProof,
-                      eyebrow: copy.proofEyebrow,
-                      linkLabel: copy.proofLinkLabel,
-                    }}
-                  />
-                </div>
-              ) : (
+              {!publishedProof ? (
                 <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
                   {copy.proofLinkLabel}: {guide.proof.title}
                   <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
-              )}
+              ) : null}
               <details className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
                 <summary className="cursor-pointer font-medium text-[#252a2d]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
                 <p className="mt-3">{guidePolicyNotes[locale]}</p>
@@ -726,31 +722,24 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               ) : null}
             </div>
 
-            <nav
-              aria-label={copy.contentsLabel}
-              className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 lg:sticky lg:top-24"
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
-                {copy.contentsLabel}
-              </p>
-              <ol className="mt-5 space-y-4">
-                {guide.sections.map((section, index) => (
-                  <li key={section.heading}>
-                    <a
-                      href={`#section-${index + 1}`}
-                      className="group flex gap-3 leading-6 hover:text-[#9f3c27]"
-                    >
-                      <span className="font-serif text-[#9f3c27]">
-                        {(index + 1).toString().padStart(2, "0")}
-                      </span>
-                      <span className="underline decoration-[#d6ccc0] underline-offset-4 group-hover:decoration-[#e85d3e]">
-                        {section.heading}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
+            <aside className="space-y-5 lg:sticky lg:top-24">
+              {publishedProof ? <PublishedProjectProof proof={publishedProof} /> : null}
+              <nav aria-label={copy.contentsLabel} className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
+                  {copy.contentsLabel}
+                </p>
+                <ol className="mt-5 space-y-4">
+                  {guide.sections.map((section, index) => (
+                    <li key={section.heading}>
+                      <a href={`#section-${index + 1}`} className="group flex gap-3 leading-6 hover:text-[#9f3c27]">
+                        <span className="font-serif text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
+                        <span className="underline decoration-[#d6ccc0] underline-offset-4 group-hover:decoration-[#e85d3e]">{section.heading}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </aside>
           </div>
         </Container>
       </section>
@@ -774,7 +763,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 >
                   {section.heading}
                 </h2>
-                <div className="mt-6 space-y-4 text-base leading-8 text-[#252a2d] sm:text-lg">
+                <div className="mt-6 space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{renderFormattedText(paragraph)}</p>
                   ))}
@@ -782,7 +771,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 {section.bullets ? (
                   <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
                     {section.bullets.map((item) => (
-                      <li key={item} className="flex gap-3 leading-7 text-[#252a2d]">
+                      <li key={item} className="flex gap-3 text-lg leading-8 text-[#252a2d]">
                         <CheckCircle2
                           className="mt-1 size-4 shrink-0 text-[#1a7f82]"
                           aria-hidden="true"
