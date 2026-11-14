@@ -947,8 +947,8 @@ function GuideCinematicHero({ guide, locale, answer }: { guide: Guide; locale: G
         </div>
         <span className="em-cine__bar em-cine__bar--top" aria-hidden="true" /><span className="em-cine__bar em-cine__bar--bottom" aria-hidden="true" />
         <div className="em-cine__credit">
-          <p className="em-cine__eyebrow">{guide.eyebrow}</p>
-          <h1 id="guide-hero-heading" className="em-cine__title"><span className="em-cine__brand">Esteban Moreno Media</span><span className="sr-only"> · </span><span className="em-cine__what">{guide.title}</span></h1>
+          <p className="em-cine__eyebrow">Esteban Moreno Media · {guide.eyebrow}</p>
+          <h1 id="guide-hero-heading" className="em-cine__title em-cine__title--guide"><span className="em-cine__guide-title">{guide.title}</span></h1>
           <p className="em-cine__answer">{answer}</p>
           <div className="em-cine__actions" data-section="guide-hero">
             <Link href="#section-1" data-cta="guide_hero_start_reading" className="em-cine__cta em-cine__cta--primary">{isSpanish ? "Leer la guía" : "Read the guide"}<ArrowRight className="size-4" aria-hidden="true" /></Link>

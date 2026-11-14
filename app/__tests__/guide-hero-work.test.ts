@@ -23,4 +23,13 @@ describe("guide human-entry visuals", () => {
     expect(hero).not.toContain('caption_guide_next_step');
     expect(html).toContain('href="#section-1"');
   });
+
+  it("uses the guide title, not the company name, as the cinematic headline", () => {
+    const guide = getGuides("en").find((item) => item.id === "caption-styles-reels-guide");
+    expect(guide).toBeTruthy();
+    const html = renderToStaticMarkup(React.createElement(GuideDetailPage, { guide: guide! }));
+    const hero = html.match(/data-section="guide-cinematic-hero"[\s\S]*?<\/section>/)?.[0] ?? "";
+    expect(hero).toContain(`<h1 id="guide-hero-heading" class="em-cine__title em-cine__title--guide"><span class="em-cine__guide-title">${guide!.title}</span></h1>`);
+    expect(hero).not.toContain('<span class="em-cine__brand">Esteban Moreno Media</span>');
+  });
 });

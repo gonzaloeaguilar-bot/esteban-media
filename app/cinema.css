@@ -268,6 +268,20 @@ html.rail-anim:not([data-brand-moment]) .em-cine__bar {
   letter-spacing: 0.005em;
   text-transform: uppercase;
 }
+.em-cine__title--guide {
+  max-width: min(100%, 13ch);
+}
+.em-cine__guide-title {
+  display: block;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 11vw, 6.75rem);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.55);
+}
 .em-cine__brand-line {
   display: block;
   overflow: hidden;
@@ -412,6 +426,7 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 /* Short phones: the credit gives up air before it gives up the button. */
 @media (max-height: 700px) and (max-width: 767px) {
   .em-cine__brand { font-size: clamp(3rem, 15.5vw, 5rem); }
+  .em-cine__guide-title { font-size: clamp(2.45rem, 10.5vw, 4.1rem); }
   .em-cine__what { margin-top: 10px; padding-top: 10px; font-size: 12px; }
   .em-cine__tagline { font-size: 1.3rem; margin-top: 8px; }
   .em-cine__actions { margin-top: 14px; }
@@ -449,6 +464,7 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   .em-cine__credit > * { max-width: min(100%, 46rem); }
   .em-cine__brand { text-shadow: 0 6px 40px rgba(0, 0, 0, 0.55); }
   .em-cine__brand { font-size: clamp(5rem, 9.2vw, 9rem); }
+  .em-cine__guide-title { font-size: clamp(4rem, 6.2vw, 6.75rem); }
   .em-cine__tagline { font-size: clamp(2rem, 2.6vw, 2.6rem); }
 }
 
