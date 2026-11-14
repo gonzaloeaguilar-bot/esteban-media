@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
-import { YouTubeFacade } from "@/components/youtube-facade";
-import { GuideIllustration } from "@/components/guide-illustration";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
@@ -22,18 +20,15 @@ import { ScriptAndOverlayKit } from "@/components/script-and-overlay-kit";
 import { VideoStrategyAssessment } from "@/components/video-strategy-assessment";
 import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import { CaptionGuideOffer } from "@/components/caption-guide-offer";
-import { CaptionGuideNextStep } from "@/components/caption-guide-next-step";
-import { GuideNextStep } from "@/components/guide-next-step";
 import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
 import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
+import { CinemaHeroMotion } from "@/components/cinema-hero-motion";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
-  getGuideCompanion,
   getGuidePath,
   getGuides,
   getGuideSupportLinks,
-  guidePolicyNotes,
   guidesIndexCopy,
   type Guide,
   type GuideLocale,
@@ -647,7 +642,6 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   const copy = detailCopy[locale];
   const indexCopy = guidesIndexCopy[locale];
   const homePath = locale === "es" ? "/es" : "/";
-  const companion = getGuideCompanion(guide);
   // Six neighbours, rotating through the list, instead of every other guide.
   // Listing all 40 made a wall of cards for readers and, with no heading per
   // card, one ~600-word "section" that failed the dual-audience gate on every
@@ -655,40 +649,16 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   // the six guides before it, and the /guides index still lists them all.
   const allGuides = getGuides(locale);
   const guideIndex = allGuides.findIndex((candidate) => candidate.id === guide.id);
-  const proof = guide.heroProof ?? guide.proof;
-  // Older Bar Door Monkey material is still accurately documented where a
-  // guide needs it as historical context, but it is no longer the visual
-  // introduction to a guide. The guide opening instead uses the current,
-  // owner-selected homepage lead work. That avoids presenting an older
-  // restaurant sample as the best first look at Esteban's current craft.
-  const visualProof = proof.href.includes("bar-door-monkey")
-    ? locale === "es"
-      ? {
-          href: "/es/portafolio/great-reviewer-iphone-18",
-          title: "Reel reciente de The Great Reviewer",
-          description: "Una muestra publicada reciente del trabajo de contenido de Esteban.",
-        }
-      : {
-          href: "/portfolio/great-reviewer-iphone-18",
-          title: "Recent The Great Reviewer reel",
-          description: "A recent published example of Esteban's content work.",
-        }
-    : proof;
-  const publishedProof = resolvePublishedProjectProof({
-    ...visualProof,
-    eyebrow: copy.proofEyebrow,
-    linkLabel: copy.proofLinkLabel,
-  });
   const relatedGuides = Array.from(
     { length: Math.min(RELATED_GUIDE_COUNT, allGuides.length - 1) },
     (_, offset) => allGuides[(guideIndex + 1 + offset) % allGuides.length],
   );
 
   return (
-    <main className="bg-[#f6f1ea] text-[#101214]">
+    <main className="bg-[#f6f1ea] pb-20 text-[#101214] sm:pb-0">
       <StructuredData data={buildGuideStructuredData(guide)} />
 
-      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+      <section className="border-b border-[#ddd4c8] py-5 sm:py-6">
         <Container size="xl">
           <nav aria-label={copy.breadcrumbLabel} className="text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
@@ -710,81 +680,24 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             </ol>
           </nav>
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_.75fr] lg:items-start lg:gap-16">
-            <div className="relative isolate overflow-hidden rounded-3xl bg-[#101214] px-6 py-8 text-[#f6f1ea] shadow-[0_18px_60px_rgba(16,18,20,0.18)] sm:px-9 sm:py-10">
-              {publishedProof ? (
-                <Image
-                  src={publishedProof.poster}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 52vw, 100vw"
-                  className="-z-20 object-cover"
-                />
-              ) : (
-                <GuideIllustration slug={guide.slug} className="absolute -right-10 -top-8 -z-20 h-64 w-96 opacity-30 sm:h-80 sm:w-[30rem]" />
-              )}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#101214]/95 via-[#101214]/88 to-[#101214]/55" aria-hidden="true" />
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#f0b29f]">
-                {guide.eyebrow}
-              </p>
-              {publishedProof ? <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#f6f1ea]/75">{copy.proofEyebrow}</p> : null}
-              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl text-[#f6f1ea]">
-                {guide.title}
-              </h1>
-              <p className="mt-6 max-w-3xl text-xl leading-8 text-[#f6f1ea] sm:text-2xl sm:leading-9">
-                <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
-              </p>
-              {publishedProof ? <GuideHeroWork proof={publishedProof} locale={locale} /> : <GuideHeroFallback locale={locale} />}
-              {guide.id === "caption-styles-reels-guide" ? (
-                <CaptionGuideNextStep locale={locale} />
-              ) : (
-                <GuideNextStep locale={locale} guideTitle={guide.title} />
-              )}
-              {!publishedProof ? (
-                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
-                  {copy.proofLinkLabel}: {guide.proof.title}
-                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
-                </Link>
-              ) : publishedProof ? (
-                <Link href={publishedProof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
-                  {copy.proofLinkLabel}: {publishedProof.title}
-                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
-                </Link>
-              ) : null}
-              <details className="mt-5 max-w-3xl border-l-2 border-[#e85d3e] pl-4 text-sm leading-6 text-[#f6f1ea]/80">
-                <summary className="cursor-pointer font-medium text-[#f6f1ea]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
-                <p className="mt-3">{guidePolicyNotes[locale]}</p>
-              </details>
-              {companion ? (
-                <Link
-                  href={getGuidePath(companion)}
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4"
-                >
-                  <Languages className="size-4" aria-hidden="true" />
-                  {copy.languageLabel}
-                </Link>
-              ) : null}
-            </div>
-
-            <aside className="space-y-5 lg:sticky lg:top-24">
-              <nav aria-label={copy.contentsLabel} className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
-                  {copy.contentsLabel}
-                </p>
-                <ol className="mt-5 space-y-4">
-                  {guide.sections.map((section, index) => (
-                    <li key={section.heading}>
-                      <a href={`#section-${index + 1}`} className="group flex gap-3 leading-6 hover:text-[#9f3c27]">
-                        <span className="font-serif text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
-                        <span className="underline decoration-[#d6ccc0] underline-offset-4 group-hover:decoration-[#e85d3e]">{section.heading}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            </aside>
-          </div>
+        </Container>
+      </section>
+      <GuideCinematicHero guide={guide} locale={locale} answer={guide.priceIndex ? priceIndexAnswer(locale) : guide.answer} />
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-5">
+        <Container size="xl">
+          <details className="mx-auto max-w-3xl">
+            <summary className="cursor-pointer text-base font-semibold text-[#101214]">{copy.contentsLabel}</summary>
+            <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+              {guide.sections.map((section, index) => (
+                <li key={section.heading}>
+                  <a href={`#section-${index + 1}`} className="flex gap-3 text-base leading-6 text-[#252a2d] hover:text-[#9f3c27]">
+                    <span className="font-serif text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
+                    <span>{section.heading}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
         </Container>
       </section>
 
@@ -1013,68 +926,36 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   );
 }
 
-function GuideHeroWork({
-  proof,
-  locale,
-}: {
-  proof: NonNullable<ReturnType<typeof resolvePublishedProjectProof>>;
-  locale: GuideLocale;
-}) {
-  const playLabel = locale === "es" ? `Reproducir: ${proof.title}` : `Play: ${proof.title}`;
+function GuideCinematicHero({ guide, locale, answer }: { guide: Guide; locale: GuideLocale; answer: string }) {
+  const isSpanish = locale === "es";
+  const targetId = `guide-hero-${guide.id}`;
 
   return (
-    <div className="relative mt-7 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-xl" data-section="guide-hero-work">
-      <div className="relative aspect-video">
-        <Image
-          src={proof.poster}
-          alt={`Published work from Esteban Moreno Media: ${proof.title}`}
-          fill
-          priority
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
-        />
-        {proof.videoId ? (
-          <YouTubeFacade
-            videoId={proof.videoId}
-            title={proof.title}
-            playLabel={playLabel}
-            source={`guide_hero_play_${proof.id}`}
-          />
-        ) : (
-          <Link href={proof.href} className="absolute inset-0 flex items-end bg-gradient-to-t from-black/65 via-transparent to-transparent p-5 text-sm font-semibold text-white">
-            {locale === "es" ? "Ver el proyecto publicado" : "See the published project"}
-          </Link>
-        )}
+    <section id={targetId} className="em-cine" aria-labelledby="guide-hero-heading" data-section="guide-cinematic-hero">
+      <div className="em-cine__stage">
+        <div className="em-cine__frame">
+          <Image src="/about/esteban-on-set-frame.jpg" alt={isSpanish ? "Esteban Moreno revisando una toma en su cámara Canon" : "Esteban Moreno checking a shot on his Canon camera"} fill priority sizes="100vw" className="em-cine__poster" />
+          <video className="em-cine__video" autoPlay muted loop playsInline preload="metadata" poster="/about/esteban-on-set-frame.jpg" aria-hidden="true" tabIndex={-1}>
+            <source src="/about/esteban-on-set.mp4" type="video/mp4" />
+          </video>
+          <div className="em-cine__hud" aria-hidden="true">
+            <span className="em-cine__corner em-cine__corner--tl" /><span className="em-cine__corner em-cine__corner--tr" />
+            <span className="em-cine__corner em-cine__corner--bl" /><span className="em-cine__corner em-cine__corner--br" />
+            <span className="em-cine__rec"><span className="em-cine__rec-dot" />REC</span>
+            <CinemaHeroMotion targetId={targetId} />
+          </div>
+        </div>
+        <span className="em-cine__bar em-cine__bar--top" aria-hidden="true" /><span className="em-cine__bar em-cine__bar--bottom" aria-hidden="true" />
+        <div className="em-cine__credit">
+          <p className="em-cine__eyebrow">{guide.eyebrow}</p>
+          <h1 id="guide-hero-heading" className="em-cine__title"><span className="em-cine__brand">Esteban Moreno Media</span><span className="sr-only"> · </span><span className="em-cine__what">{guide.title}</span></h1>
+          <p className="em-cine__answer">{answer}</p>
+          <div className="em-cine__actions" data-section="guide-hero">
+            <Link href="#section-1" data-cta="guide_hero_start_reading" className="em-cine__cta em-cine__cta--primary">{isSpanish ? "Leer la guía" : "Read the guide"}<ArrowRight className="size-4" aria-hidden="true" /></Link>
+          </div>
+        </div>
       </div>
-      <div className="flex items-center justify-between gap-4 bg-[#101214] px-5 py-4">
-        <span className="font-serif text-xl text-white">{proof.title}</span>
-        <Link href={proof.href} className="shrink-0 text-sm font-semibold text-[#f6bda9] underline underline-offset-4">
-          {locale === "es" ? "Abrir" : "Open"}
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-function GuideHeroFallback({ locale }: { locale: GuideLocale }) {
-  return (
-    <Link href={locale === "es" ? "/es/sobre-esteban" : "/about"} className="group relative mt-7 block overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-xl" data-section="guide-hero-work">
-      <div className="relative aspect-video">
-        <Image
-          src="/about/esteban-on-location.jpg"
-          alt="Esteban Moreno working on location"
-          fill
-          priority
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover transition duration-300 group-hover:scale-[1.02]"
-        />
-        <span className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true" />
-      </div>
-      <span className="flex items-center justify-between gap-4 bg-[#101214] px-5 py-4 font-serif text-xl text-white">
-        {locale === "es" ? "Esteban en trabajo" : "Esteban at work"}
-        <span className="font-sans text-sm font-semibold text-[#f6bda9] underline underline-offset-4">{locale === "es" ? "Conocer a Esteban" : "Meet Esteban"}</span>
-      </span>
-    </Link>
+    </section>
   );
 }
 

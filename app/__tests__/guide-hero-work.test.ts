@@ -6,18 +6,21 @@ import { GuideDetailPage } from "@/components/guide-pages";
 import { getGuides } from "@/lib/guides";
 
 describe("guide human-entry visuals", () => {
-  it.each(["en", "es"] as const)("gives every %s guide a visible hero work card", (locale) => {
+  it.each(["en", "es"] as const)("gives every %s guide the same cinematic entry system as the homepage", (locale) => {
     for (const guide of getGuides(locale)) {
       const html = renderToStaticMarkup(React.createElement(GuideDetailPage, { guide }));
-      expect(html, guide.slug).toContain('data-section="guide-hero-work"');
+      expect(html, guide.slug).toContain('data-section="guide-cinematic-hero"');
+      expect(html, guide.slug).toContain('src="/about/esteban-on-set.mp4"');
+      expect(html, guide.slug).toContain('data-cta="guide_hero_start_reading"');
     }
   });
 
-  it("keeps the published Great Reviewer reel playable from the caption guide hero", () => {
+  it("does not put the caption guide's next-step cards inside the hero", () => {
     const guide = getGuides("en").find((item) => item.id === "caption-styles-reels-guide");
     expect(guide).toBeTruthy();
     const html = renderToStaticMarkup(React.createElement(GuideDetailPage, { guide: guide! }));
-    expect(html).toContain('data-video-facade="BDRru8eXaj4"');
-    expect(html).toContain("great-reviewer-iphone-18.jpg");
+    const hero = html.match(/data-section="guide-cinematic-hero"[\s\S]*?<\/section>/)?.[0] ?? "";
+    expect(hero).not.toContain('caption_guide_next_step');
+    expect(html).toContain('href="#section-1"');
   });
 });
