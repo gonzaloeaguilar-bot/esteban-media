@@ -955,3 +955,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
 - `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
 - Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.
+
+# 2026-11-13 — Current-proof repair released
+
+- Commit `2f2190df` was deployed to production as Vercel `dpl_CBNMQatocLrsLRc8ScQwDwe3jZjA` (Ready). It changes the caption-guide current proof to Great Reviewer in EN/ES and puts the real current Great Reviewer Reel visual into the first screen of Miami Reels.
+- Focused Vitest: 13 passed across four relevant test files; `pnpm typecheck` passed. Canonical caption guide returned HTTP/2 200; raw GPTBot Miami output includes `A recent published Reel` and `The Great Reviewer Reel`; fresh desktop browser read-back confirmed the visible Miami hero card and caption-guide lower project block.
+- Phone-width, keyboard, reduced-motion and a terminal independent-review verdict remain outstanding. No conversion, citation, rank or lead outcome is claimed.
