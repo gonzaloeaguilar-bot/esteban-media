@@ -752,6 +752,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                   ) : null}
                 </div>
               </details>
+              {guide.id === "caption-styles-reels-guide" ? <CaptionGuideSectionVisual locale={locale} sectionIndex={index} /> : null}
               {index === 0 && guide.id !== "caption-styles-reels-guide" ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
               {index === 1 && guide.id === "caption-styles-reels-guide" ? <ClientReviews locale={locale} compact /> : null}
               </React.Fragment>
@@ -927,6 +928,36 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
       </section>
       </KeepReading>
     </main>
+  );
+}
+
+const captionGuideVisuals = {
+  en: [
+    { src: "/guides/caption-styles/safe-zone-editorial-v1.png", alt: "Illustrative editing scene: a phone video framed within clear top and bottom safe-zone guides", label: "SAFE ZONE", title: "Give the words their own place." },
+    { src: "/guides/caption-styles/style-choice-editorial-v1.png", alt: "Illustrative editing scene: two different caption treatments reviewed on an editing monitor", label: "CHOOSE THE READ", title: "Match the style to what the viewer needs to understand." },
+    { src: "/guides/caption-styles/emphasis-rhythm-editorial-v1.png", alt: "Illustrative editing scene: a short caption line with one highlighted phrase on a phone", label: "KEEP THE RHYTHM", title: "Highlight the idea, not every word." },
+  ],
+  es: [
+    { src: "/guides/caption-styles/safe-zone-editorial-v1.png", alt: "Escena ilustrativa de edición: un video en celular dentro de guías claras de zona segura arriba y abajo", label: "ZONA SEGURA", title: "Dale al texto su propio espacio." },
+    { src: "/guides/caption-styles/style-choice-editorial-v1.png", alt: "Escena ilustrativa de edición: dos estilos de subtítulos revisados en un monitor", label: "ELIGE LA LECTURA", title: "El estilo sigue lo que la persona necesita entender." },
+    { src: "/guides/caption-styles/emphasis-rhythm-editorial-v1.png", alt: "Escena ilustrativa de edición: una línea corta de subtítulos con una frase destacada en un celular", label: "CUIDA EL RITMO", title: "Destaca la idea, no cada palabra." },
+  ],
+} as const;
+
+function CaptionGuideSectionVisual({ locale, sectionIndex }: { locale: GuideLocale; sectionIndex: number }) {
+  const visual = captionGuideVisuals[locale][sectionIndex];
+  if (!visual) return null;
+
+  return (
+    <figure className="relative isolate my-8 min-h-72 overflow-hidden rounded-2xl bg-[#101214] sm:my-12 sm:min-h-96" data-section="caption-guide-editorial-visual">
+      <Image src={visual.src} alt={visual.alt} fill sizes="(min-width: 1024px) 768px, 100vw" className="object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" aria-hidden="true" />
+      <figcaption className="relative z-10 flex min-h-72 max-w-md flex-col justify-end p-6 text-white sm:min-h-96 sm:p-9">
+        <p className="text-xs font-semibold tracking-[0.2em] text-[#ffd4bd]">{visual.label}</p>
+        <p className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">{visual.title}</p>
+        <p className="mt-4 text-xs leading-5 text-white/75">{locale === "es" ? "Imagen editorial ilustrativa; no representa trabajo de un cliente." : "Illustrative editorial image; not client work."}</p>
+      </figcaption>
+    </figure>
   );
 }
 
