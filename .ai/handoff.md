@@ -978,3 +978,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 
 - Registered AI citation reader was kicked twice and refused both times: `lane 'ai-citation-sweep' has no reserved allocation`; no fresh model request or citation observation occurred.
 - `pnpm geo:snapshot` completed at 2026-11-14T03:05:29Z: Bing 30 impressions / 0 clicks across 26 queries and 20 pages; Metricool 1,868 impressions / 14 interactions (Oct 15–Nov 12). The AI citation source remains stale: newest receipt Nov 5 12:06Z, 206.98 hours old vs 72-hour rule. GBP unavailable due authenticated identity mismatch; Common Crawl/GDELT/PageSpeed unavailable due timeout/rate limits.
+
+# 2026-11-13 — SEO/GEO acceleration action
+
+- `pnpm seo:indexnow:status` verified the public key and `pnpm seo:indexnow:run` submitted all 582 canonical sitemap URLs to IndexNow; the endpoint accepted the batch with HTTP 200. This is a discovery receipt only.
+- Next execution order: click packaging on the caption and Fort Lauderdale Reels entry pages, factual Shoots/Twine/GBP corroboration with public read-back, then T+7/T+28 query×page and tagged-inquiry reads. A fresh AI citation cohort remains allocation-gated; do not use historical receipts as current GEO status. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
