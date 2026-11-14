@@ -1,6 +1,8 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { REELS_MIAMI_CONVERSATIONAL_EN } from "@/lib/conversational-answers";
+import { whatsappHref } from "@/lib/packages";
+import { site } from "@/lib/site";
 
 const content: GeoServicePageContent = {
   path: "/services/reels-editor-miami",
@@ -116,6 +118,16 @@ const content: GeoServicePageContent = {
     assetPrompt: "original clips, the offer, brand files, reference videos, platform notes, and a deadline",
     proofHref: "/portfolio/ml-colombia",
     proofLabel: "Review short-form proof",
+  },
+  decisionRail: {
+    eyebrow: "Choose your starting point",
+    heading: "What do you already have for the next Miami Reel?",
+    intro: "Choose the closest situation. The first message gives Esteban the useful detail before anyone assumes a filming day or a larger package.",
+    decisions: [
+      { id: "reels_miami_existing_clips", title: "I already have clips", detail: "Send the strongest original clips, one message, and the platform where the Reel will run.", href: whatsappHref(site.phone.e164, "Hi Esteban, I already have clips for a Miami Reel. I want to turn them into a clear social video."), action: "Ask about one Reel" },
+      { id: "reels_miami_weekly", title: "I need Reels every week", detail: "Share how often you want to publish and whether you already have a filming routine.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need recurring Reels editing for a Miami business. I want to talk about a weekly editing plan."), action: "Ask about weekly editing" },
+      { id: "reels_miami_filming", title: "I need filming too", detail: "Share the location, the scenes you need, and the target date. Filming is scoped separately from editing.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need filming plus Reels editing for a Miami business. The location is ____ and the target date is ____."), action: "Ask about filming and editing" },
+    ],
   },
 };
 
