@@ -110,5 +110,11 @@ describe("proof blocks on three money pages", () => {
     expect(html).toContain("<details");
     expect(html).toContain("What happens after I send the clips?");
     expect(html).toContain("Projects can start remotely");
+    expect(html).toContain("See starting prices");
+    expect(html).toContain("See verified Google reviews");
+    expect(html).toContain("What makes a short-form edit work?");
+    expect(html).toContain("great-reviewer-iphone-18.jpg");
+    expect(html).toContain("caro-sells-miami-current-ui.png");
+    expect(html).toContain("dupont-realty-international-current-ui.png");
   });
 });
