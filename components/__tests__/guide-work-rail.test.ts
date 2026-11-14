@@ -7,14 +7,14 @@ const root = process.cwd();
 const read = (path: string) => readFileSync(join(root, path), "utf8");
 
 describe("guide work rail", () => {
-  it("places the approved homepage portfolio shelf after every guide article", () => {
+  it("places the approved homepage portfolio shelf inside every guide reading path", () => {
     const guidePage = read("components/guide-pages.tsx");
-    const articleEnd = guidePage.indexOf("</article>");
-    const shelf = guidePage.indexOf('<PortfolioTeaser locale={locale} source="guide_work" />');
+    const firstQuestion = guidePage.indexOf('data-section="guide-question"');
+    const shelf = guidePage.indexOf('<PortfolioTeaser locale={locale} source="guide_work_midpoint" />');
 
     expect(guidePage).toContain('import { PortfolioTeaser } from "@/components/portfolio-teaser";');
-    expect(articleEnd).toBeGreaterThan(-1);
-    expect(shelf).toBeGreaterThan(articleEnd);
+    expect(firstQuestion).toBeGreaterThan(-1);
+    expect(shelf).toBeGreaterThan(firstQuestion);
   });
 
   it("keeps guide interactions distinct from homepage portfolio analytics", () => {

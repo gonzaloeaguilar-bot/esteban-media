@@ -24,6 +24,8 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { ServiceDecisionRail, type ServiceDecisionRailContent } from "@/components/service-decision-rail";
+import { ServiceProofRail, type ServiceProofRailContent } from "@/components/service-proof-rail";
 import { withNicheService } from "@/lib/niche-answers";
 import { ClientReviews } from "@/components/client-reviews";
 import { renderFormattedText } from "@/components/formatted-text";
@@ -78,6 +80,10 @@ export type GeoServicePageContent = {
   relatedHeading: string;
   related: readonly RelatedService[];
   inquiry: ServiceInquiry;
+  /** A specific choice comes before explanatory depth for AI/search arrivals. */
+  decisionRail?: ServiceDecisionRailContent;
+  /** Relevant published work, deliberately capped to keep the page decisive. */
+  proofRail?: ServiceProofRailContent;
   /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
   venueLine?: string;
 };
@@ -141,7 +147,7 @@ export function GeoServicePage({
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
+      <section className="border-b border-[#ddd4c8] py-10 sm:py-16 lg:py-24">
         <Container size="xl">
           <nav aria-label="Breadcrumbs" className="mb-5 sm:mb-8 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
@@ -162,7 +168,7 @@ export function GeoServicePage({
               </li>
             </ol>
           </nav>
-          <div className="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-[1fr_.82fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                 {content.eyebrow}
@@ -170,7 +176,7 @@ export function GeoServicePage({
               <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {content.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
+              <p className="mt-6 max-w-2xl text-xl leading-8 text-[#252a2d] sm:text-2xl sm:leading-9">
                 {content.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -224,6 +230,9 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
+
+      {content.decisionRail ? <ServiceDecisionRail content={content.decisionRail} /> : null}
+      {content.proofRail ? <ServiceProofRail content={content.proofRail} /> : null}
 
       <section className="scroll-mt-24 border-b border-[#ddd4c8] py-8" id="service-pricing" data-section="service-pricing">
         <Container size="xl">

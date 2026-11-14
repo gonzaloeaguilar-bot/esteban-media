@@ -955,3 +955,64 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
 - `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
 - Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.
+
+# 2026-11-13 — Current-proof repair released
+
+- Commit `2f2190df` was deployed to production as Vercel `dpl_CBNMQatocLrsLRc8ScQwDwe3jZjA` (Ready). It changes the caption-guide current proof to Great Reviewer in EN/ES and puts the real current Great Reviewer Reel visual into the first screen of Miami Reels.
+- Focused Vitest: 13 passed across four relevant test files; `pnpm typecheck` passed. Canonical caption guide returned HTTP/2 200; raw GPTBot Miami output includes `A recent published Reel` and `The Great Reviewer Reel`; fresh desktop browser read-back confirmed the visible Miami hero card and caption-guide lower project block.
+- Phone-width, keyboard, reduced-motion and a terminal independent-review verdict remain outstanding. No conversion, citation, rank or lead outcome is claimed.
+
+# 2026-11-13 — Guide visual hero and condensed reading released
+
+- Commit `23f88488` changes the shared guide renderer: its real published project is now the opening visual behind the guide answer; when a guide has no suitable project proof, it uses the existing subject illustration instead. The previous full paragraph stack now exposes one lead paragraph plus visible bullets, with remaining explanation in a native server-rendered `<details>`.
+- Vercel production deployment `dpl_AHca1tWLscjRpoxCb19X1NYfjk5w` is Ready and aliases `https://estebanmorenomedia.com`. Focused guide checks passed 8/8, `pnpm typecheck` passed, `pnpm lastmod:update` reported 0 changed / 582 total, and `git diff --check` passed. Vercel's build compiled successfully.
+- Fresh canonical browser inspection of the caption guide verified the hero with the Great Reviewer visual, visible quick answer and native "Read the full explanation" disclosure. At 390×844, the hero image, title, answer and start of the choice card are all visible above the persistent mobile dock. No conversion, citation, rank or lead outcome is claimed.
+
+# 2026-11-13 — Live SEO/GEO status read
+
+- `pnpm seo:measurement:run` passed against authenticated Search Console. Settled 2026-10-14..2026-11-10: caption guide 176 impressions / 0 clicks / position 8.38; Fort Lauderdale Reels 45 / 0 / 6.22; Spanish caption guide 34 / 0 / 7.85; Spanish Miami Reels 16 / 0 / 6.56. Provisional Nov 11..13 is non-decisional.
+- `pnpm index-watch:status`: 456 indexed / 126 neutral / 0 failed across 582 URLs. `pnpm seo:crawler-availability`: Googlebot, GPTBot, ClaudeBot and PerplexityBot all returned HTTP 200 HTML.
+- `pnpm geo:snapshot:status` marks citations stale. Current engine citation performance is unverified; the last successful observations date from Oct 28–Nov 5 and later failed retries are not measurements. Durable report: `[[esteban-seo-measurement]]`.
+
+# 2026-11-13 — GEO source refresh attempt
+
+- Registered AI citation reader was kicked twice and refused both times: `lane 'ai-citation-sweep' has no reserved allocation`; no fresh model request or citation observation occurred.
+- `pnpm geo:snapshot` completed at 2026-11-14T03:05:29Z: Bing 30 impressions / 0 clicks across 26 queries and 20 pages; Metricool 1,868 impressions / 14 interactions (Oct 15–Nov 12). The AI citation source remains stale: newest receipt Nov 5 12:06Z, 206.98 hours old vs 72-hour rule. GBP unavailable due authenticated identity mismatch; Common Crawl/GDELT/PageSpeed unavailable due timeout/rate limits.
+
+# 2026-11-13 — SEO/GEO acceleration action
+
+- `pnpm seo:indexnow:status` verified the public key and `pnpm seo:indexnow:run` submitted all 582 canonical sitemap URLs to IndexNow; the endpoint accepted the batch with HTTP 200. This is a discovery receipt only.
+- Next execution order: click packaging on the caption and Fort Lauderdale Reels entry pages, factual Shoots/Twine/GBP corroboration with public read-back, then T+7/T+28 query×page and tagged-inquiry reads. A fresh AI citation cohort remains allocation-gated; do not use historical receipts as current GEO status. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — Free-model GEO data read
+
+- `pnpm geo:snapshot` refreshed the no-cost observatories: Bing 30 impressions / 0 clicks and Metricool 1,868 impressions / 14 interactions (2026-10-15..11-12); GBP, Common Crawl, GDELT and PageSpeed remain unmeasured for their stated access/rate-limit reasons. `pnpm seo:crawler-availability` returned HTTP 200 HTML for Googlebot, GPTBot, ClaudeBot and PerplexityBot.
+- A governed `$0` Ollama/Qwen 14B interpretation dispatch ran under decision `20261114T032327Z-cto-geo-lead-esteban-media-1794626609731549000-51002-c434843215d9bf9b`. It produced procedural boilerplate rather than the requested source-grounded reading, so it is explicitly rejected as evidence. Do not use local/free model prose to certify current consumer-AI citations.
+- The stored AI citation receipts are still stale; only a fresh enabled engine cohort can measure that outcome. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — GA4 referral and social channel read
+
+- Direct GA4 Data API read, property `546162112`: AI-source filter returns 11 sessions for both 7d/28d, all `gemini.google.com` (home 8, `/not-found` 2, Miami short-form page 1). The report returned no Perplexity, Grok, ChatGPT, Claude, Copilot, DeepSeek or Meta AI referral row. This is referral attribution, not an AI-citation measurement.
+- Social-source filter returns 4 sessions / 7d and 39 / 28d: Instagram 32, Facebook 4 and LinkedIn 3 over 28 days; no TikTok or YouTube row returned. Treat absent rows as no observed GA4 referral row, not proof of zero social activity. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — Fresh grounded Gemini observation
+
+- Forced governed `agy` dispatch `20261114T033244Z-cto-geo-lead-esteban-media-1794627166005051000-18340-78c888a5f3433410` returned the owned Miami short-form service URL for two unbranded local-provider prompts and not for one informational hiring prompt. The owned URL returned production HTTP/2 200. This is a dated provider-specific grounded observation only.
+- `PPLX_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY` and Gemini API key variables are absent from the active environment; `ai-citation-sweep` reserve is $0.00. Perplexity/Grok/direct-API Gemini are currently unmeasured, not zero. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+## 2026-11-13 — Short-form Miami video hero repair (production)
+
+- Commit `d0e0fe43` (`feat/human-entry-ui-20261113`) replaced the old ML Colombia text-only hero proof on `/services/short-form-video-editor-miami` with a current Great Reviewer poster and `YouTubeFacade` trigger (`BDRru8eXaj4`); removed the old Bar Door Monkey route mention and changed both proof links to the current work.
+- Direct Vercel production deploy `dpl_BPPqmvQxwQo9i6y9KFvsYyExb7cP` is Ready. Canonical raw HTML re-read returned HTTP 200 and has `data-section="short-form-hero-proof"`, `data-video-facade="BDRru8eXaj4"`, and Great Reviewer poster; it has no `ML Colombia` or `Bar Door Monkey` match.
+- Gates: targeted proof test 8/8, changed-file ESLint, typecheck, local build and Vercel build. The governed Antigravity review dispatch failed while generating its shared context packet; no independent-approval claim.
+- Next: test canonical route at 390px, tap play, verify video starts/closes, read first two scrolls. Then inspect `short_form_hero_play` event separately from leads.
+
+## 2026-11-13 — Short-form workflow text reduced (production)
+
+- Commit `ddce8940` replaces the generic answer-first paragraph on `/services/short-form-video-editor-miami` with a readable three-step card and a native served `<details>` for the longer explanation.
+- Production deploy `dpl_AQe36Z7AWMGm8Q43z9NchLayXLge` Ready; canonical raw HTML HTTP 200 contains the three steps, fold summary and retained remote-project detail. Focused test 9/9, changed-file ESLint and typecheck passed.
+
+## 2026-11-13 — Layered human-reading page (production)
+
+- Commit `a579b3d7` keeps the video, short workflow and visual work shelf visible while moving definition, prices, reviews and craft explanation into native `<details>`; FAQs use the existing `RailFaq` accordion. The shelf shows Great Reviewer plus current Caro and DuPont imagery.
+- Production `dpl_4PqzaS3LrpgvDBnixYwi1F4aG1yz` Ready and canonical raw HTML HTTP 200: 12 `<details>`, price/reviews/craft summaries and both current work images are present. Focused guard passed 9/9.
+

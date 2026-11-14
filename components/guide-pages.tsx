@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { PublishedProjectProof } from "@/components/published-project-proof";
+import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { GuideIllustration } from "@/components/guide-illustration";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
@@ -19,6 +21,8 @@ import { ScriptAndOverlayKit } from "@/components/script-and-overlay-kit";
 import { VideoStrategyAssessment } from "@/components/video-strategy-assessment";
 import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import { CaptionGuideOffer } from "@/components/caption-guide-offer";
+import { CaptionGuideNextStep } from "@/components/caption-guide-next-step";
+import { GuideNextStep } from "@/components/guide-next-step";
 import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
 import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
 import {
@@ -37,13 +41,18 @@ import { redditQueryInsights } from "@/lib/reddit-query-insights";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { restaurantIgStudyCopy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
 import { withPageDate } from "@/lib/page-lastmod";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
+import { whatsappHref } from "@/lib/packages";
 import { estebanPriceRows, marketPriceRows, priceIndexAnswer, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
 import RailTable from "@/vendor/rail-kit/RailTable";
 import { FortLauderdaleEditorsTable } from "@/components/fort-lauderdale-editors-table";
 
 
 const RELATED_GUIDE_COUNT = 6;
+const sectionDetailCopy = {
+  en: "Read the full explanation",
+  es: "Leer la explicación completa",
+} as const;
 const detailCopy = {
   en: {
     breadcrumbHome: "Home",
@@ -645,6 +654,30 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   // the six guides before it, and the /guides index still lists them all.
   const allGuides = getGuides(locale);
   const guideIndex = allGuides.findIndex((candidate) => candidate.id === guide.id);
+  const proof = guide.heroProof ?? guide.proof;
+  // Older Bar Door Monkey material is still accurately documented where a
+  // guide needs it as historical context, but it is no longer the visual
+  // introduction to a guide. The guide opening instead uses the current,
+  // owner-selected homepage lead work. That avoids presenting an older
+  // restaurant sample as the best first look at Esteban's current craft.
+  const visualProof = proof.href.includes("bar-door-monkey")
+    ? locale === "es"
+      ? {
+          href: "/es/portafolio/great-reviewer-iphone-18",
+          title: "Reel reciente de The Great Reviewer",
+          description: "Una muestra publicada reciente del trabajo de contenido de Esteban.",
+        }
+      : {
+          href: "/portfolio/great-reviewer-iphone-18",
+          title: "Recent The Great Reviewer reel",
+          description: "A recent published example of Esteban's content work.",
+        }
+    : proof;
+  const publishedProof = resolvePublishedProjectProof({
+    ...visualProof,
+    eyebrow: copy.proofEyebrow,
+    linkLabel: copy.proofLinkLabel,
+  });
   const relatedGuides = Array.from(
     { length: Math.min(RELATED_GUIDE_COUNT, allGuides.length - 1) },
     (_, offset) => allGuides[(guideIndex + 1 + offset) % allGuides.length],
@@ -676,41 +709,55 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             </ol>
           </nav>
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_.56fr] lg:items-start lg:gap-16">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_.75fr] lg:items-start lg:gap-16">
+            <div className="relative isolate overflow-hidden rounded-3xl bg-[#101214] px-6 py-8 text-[#f6f1ea] shadow-[0_18px_60px_rgba(16,18,20,0.18)] sm:px-9 sm:py-10">
+              {publishedProof ? (
+                <Image
+                  src={publishedProof.poster}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  className="-z-20 object-cover"
+                />
+              ) : (
+                <GuideIllustration slug={guide.slug} className="absolute -right-10 -top-8 -z-20 h-64 w-96 opacity-30 sm:h-80 sm:w-[30rem]" />
+              )}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#101214]/95 via-[#101214]/88 to-[#101214]/55" aria-hidden="true" />
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#f0b29f]">
                 {guide.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
+              {publishedProof ? <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#f6f1ea]/75">{copy.proofEyebrow}</p> : null}
+              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl text-[#f6f1ea]">
                 {guide.title}
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
+              <p className="mt-6 max-w-3xl text-xl leading-8 text-[#f6f1ea] sm:text-2xl sm:leading-9">
                 <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
-              {guide.heroProof ? (
-                <div className="mt-8 max-w-2xl">
-                  <PublishedProjectProof
-                    proof={{
-                      ...guide.heroProof,
-                      eyebrow: copy.proofEyebrow,
-                      linkLabel: copy.proofLinkLabel,
-                    }}
-                  />
-                </div>
+              {guide.id === "caption-styles-reels-guide" ? (
+                <CaptionGuideNextStep locale={locale} />
               ) : (
-                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                <GuideNextStep locale={locale} guideTitle={guide.title} />
+              )}
+              {!publishedProof ? (
+                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
                   {copy.proofLinkLabel}: {guide.proof.title}
                   <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
-              )}
-              <details className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
-                <summary className="cursor-pointer font-medium text-[#252a2d]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
+              ) : publishedProof ? (
+                <Link href={publishedProof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
+                  {copy.proofLinkLabel}: {publishedProof.title}
+                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
+              ) : null}
+              <details className="mt-5 max-w-3xl border-l-2 border-[#e85d3e] pl-4 text-sm leading-6 text-[#f6f1ea]/80">
+                <summary className="cursor-pointer font-medium text-[#f6f1ea]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
                 <p className="mt-3">{guidePolicyNotes[locale]}</p>
               </details>
               {companion ? (
                 <Link
                   href={getGuidePath(companion)}
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                  className="mt-7 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4"
                 >
                   <Languages className="size-4" aria-hidden="true" />
                   {copy.languageLabel}
@@ -718,31 +765,23 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               ) : null}
             </div>
 
-            <nav
-              aria-label={copy.contentsLabel}
-              className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 lg:sticky lg:top-24"
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
-                {copy.contentsLabel}
-              </p>
-              <ol className="mt-5 space-y-4">
-                {guide.sections.map((section, index) => (
-                  <li key={section.heading}>
-                    <a
-                      href={`#section-${index + 1}`}
-                      className="group flex gap-3 leading-6 hover:text-[#9f3c27]"
-                    >
-                      <span className="font-serif text-[#9f3c27]">
-                        {(index + 1).toString().padStart(2, "0")}
-                      </span>
-                      <span className="underline decoration-[#d6ccc0] underline-offset-4 group-hover:decoration-[#e85d3e]">
-                        {section.heading}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
+            <aside className="space-y-5 lg:sticky lg:top-24">
+              <nav aria-label={copy.contentsLabel} className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
+                  {copy.contentsLabel}
+                </p>
+                <ol className="mt-5 space-y-4">
+                  {guide.sections.map((section, index) => (
+                    <li key={section.heading}>
+                      <a href={`#section-${index + 1}`} className="group flex gap-3 leading-6 hover:text-[#9f3c27]">
+                        <span className="font-serif text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
+                        <span className="underline decoration-[#d6ccc0] underline-offset-4 group-hover:decoration-[#e85d3e]">{section.heading}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </aside>
           </div>
         </Container>
       </section>
@@ -751,40 +790,52 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
         <Container size="lg">
           <div className="mx-auto max-w-3xl space-y-14">
             {guide.sections.map((section, index) => (
-              <section
+              <React.Fragment key={section.heading}>
+              <details
                 key={section.heading}
                 id={`section-${index + 1}`}
                 aria-labelledby={`section-${index + 1}-heading`}
-                className="scroll-mt-24"
+                open={index === 0}
+                data-section="guide-question"
+                className="group scroll-mt-24 rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-7"
               >
-                <p className="font-serif text-2xl text-[#9f3c27]">
-                  {(index + 1).toString().padStart(2, "0")}
-                </p>
-                <h2
-                  id={`section-${index + 1}-heading`}
-                  className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
-                >
-                  {section.heading}
-                </h2>
-                <div className="mt-6 space-y-4 text-base leading-8 text-[#252a2d] sm:text-lg">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{renderFormattedText(paragraph)}</p>
-                  ))}
+                <summary className="flex min-h-14 cursor-pointer list-none items-start gap-4 text-left [&::-webkit-details-marker]:hidden">
+                  <span className="font-serif text-2xl text-[#9f3c27]">{(index + 1).toString().padStart(2, "0")}</span>
+                  <span className="flex-1 font-serif text-3xl leading-tight text-[#101214] sm:text-4xl">{section.heading}</span>
+                  <span className="mt-2 text-2xl leading-none text-[#9f3c27] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <h2 id={`section-${index + 1}-heading`} className="sr-only">{section.heading}</h2>
+                <div className="mt-6 border-t border-[#ddd4c8] pt-6">
+                  <div className="space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
+                    {section.paragraphs.slice(0, 1).map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
+                  </div>
+                  {section.bullets ? (
+                    <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-white p-5 sm:p-6">
+                      {section.bullets.map((item) => (
+                        <li key={item} className="flex gap-3 text-lg leading-8 text-[#252a2d]">
+                          <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#1a7f82]" aria-hidden="true" />
+                          <span>{renderFormattedText(item)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {section.paragraphs.length > 1 ? (
+                    <details
+                      data-section="guide-detail"
+                      className="mt-6 rounded-xl border border-[#ddd4c8] bg-white px-5 py-1 sm:px-6"
+                    >
+                      <summary className="flex min-h-12 cursor-pointer items-center font-medium text-[#252a2d] marker:text-[#9f3c27]">
+                        {sectionDetailCopy[locale]}
+                      </summary>
+                      <div className="space-y-5 border-t border-[#ddd4c8] py-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
+                        {section.paragraphs.slice(1).map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
+                      </div>
+                    </details>
+                  ) : null}
                 </div>
-                {section.bullets ? (
-                  <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
-                    {section.bullets.map((item) => (
-                      <li key={item} className="flex gap-3 leading-7 text-[#252a2d]">
-                        <CheckCircle2
-                          className="mt-1 size-4 shrink-0 text-[#1a7f82]"
-                          aria-hidden="true"
-                        />
-                        <span>{renderFormattedText(item)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </section>
+              </details>
+              {index === 0 ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
+              </React.Fragment>
             ))}
 
             {guide.priceIndex ? <ReelsPriceIndex locale={locale} /> : null}
@@ -866,12 +917,6 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </div>
         </Container>
       </article>
-      {/* A guide can explain the approach, but the next question is naturally
-          whether Esteban's finished work holds up. Reuse the homepage shelf
-          instead of a second, static proof-card pattern: it keeps approved
-          portfolio media, real project links, keyboard controls and reduced-
-          motion behaviour in one maintained component. */}
-      <PortfolioTeaser locale={locale} source="guide_work" />
       <PriorityLinks path={getGuidePath(guide)} locale={locale} />
       {guide.id === "caption-styles-reels-guide" && <CaptionGuideStickyCta locale={locale} />}
 
@@ -995,18 +1040,21 @@ function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
 
 function CaptionGuideStickyCta({ locale }: { locale: GuideLocale }) {
   const isEs = locale === "es";
-  const serviceHref = isEs
-    ? "/es/servicio-de-subtitulado-bilingue-de-video"
-    : "/services/bilingual-video-subtitling-service";
+  const whatsappMessage = isEs
+    ? "Hola Esteban, leí tu guía de estilos de subtítulos y quiero ayuda con los subtítulos de mi video. La plataforma es ____ y el idioma es ____."
+    : "Hi Esteban, I read your caption styles guide and want help with captions for my video. The platform is ____ and the language is ____.";
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
       <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
-        <Link
-          href={serviceHref}
+        <a
+          href={whatsappHref(site.phone.e164, whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cta="caption_guide_sticky_whatsapp"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
         >
           {isEs ? "Subtitular mi video · WhatsApp" : "Subtitle my video · WhatsApp"}
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -3467,10 +3467,10 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "For Instagram Reels, use high-contrast subtitles in the central safe area. Choose full-sentence captions for spoken explanations and short emphasis captions when the footage carries most of the message.",
       proof: {
-        href: "/portfolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
+        href: "/portfolio/great-reviewer-iphone-18",
+        title: "The Great Reviewer Reel",
         description:
-          "Approved portfolio credits include published caption video formatting. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+          "A recent published Reel showing clear on-screen text and social-video pacing. It is a current public example, not a promise of identical deliverables for every project.",
       },
       sections: [
         {
@@ -3545,10 +3545,10 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "Para que un Reel se entienda sin sonido, usa texto de alto contraste dentro de la zona segura y elige el formato según el mensaje: frases completas si la voz explica la idea o palabras clave si la imagen ya la muestra. Antes de publicar, comprueba el resultado en un celular con la interfaz de la plataforma visible.",
       proof: {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
+        href: "/es/portafolio/great-reviewer-iphone-18",
+        title: "El Reel de The Great Reviewer",
         description:
-          "Los créditos aprobados del portafolio incluyen edición de subtítulos. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+          "Un Reel publicado recientemente que muestra texto claro en pantalla y ritmo para redes. Es un ejemplo público actual, no una promesa de entregables idénticos en cada proyecto.",
       },
       sections: [
         {

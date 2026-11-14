@@ -88,4 +88,33 @@ describe("proof blocks on three money pages", () => {
       expect(html).not.toMatch(/"@type"\s*:\s*"Review"/);
     }
   });
+
+  it("gives the cited short-form page a current work visual and a playable video entry", () => {
+    const html = renderToStaticMarkup(React.createElement(ShortFormMiamiPage));
+
+    expect(html).toContain('data-section="short-form-hero-proof"');
+    expect(html).toContain("great-reviewer-iphone-18.jpg");
+    expect(html).toContain('data-video-facade="BDRru8eXaj4"');
+    expect(html).toContain("Play The Great Reviewer Reel");
+    expect(html).not.toContain("ML Colombia");
+    expect(html).not.toContain("Bar Door Monkey");
+  });
+
+  it("makes the short-form workflow scannable while retaining the citable detail in served HTML", () => {
+    const html = renderToStaticMarkup(React.createElement(ShortFormMiamiPage));
+
+    expect(html).toContain("Send the clips. Get a clear edit plan.");
+    expect(html).toContain("1. Send originals");
+    expect(html).toContain("2. Name the goal");
+    expect(html).toContain("3. Get a scoped quote");
+    expect(html).toContain("<details");
+    expect(html).toContain("What happens after I send the clips?");
+    expect(html).toContain("Projects can start remotely");
+    expect(html).toContain("See starting prices");
+    expect(html).toContain("See verified Google reviews");
+    expect(html).toContain("What makes a short-form edit work?");
+    expect(html).toContain("great-reviewer-iphone-18.jpg");
+    expect(html).toContain("caro-sells-miami-current-ui.png");
+    expect(html).toContain("dupont-realty-international-current-ui.png");
+  });
 });

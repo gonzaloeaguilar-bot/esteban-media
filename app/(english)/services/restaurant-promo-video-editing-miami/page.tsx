@@ -26,7 +26,9 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { SeasonalAnswer } from "@/components/seasonal-answer";
 import { PriorityLinks } from "@/components/priority-links";
+import { ServiceDecisionRail } from "@/components/service-decision-rail";
 import { withNicheService } from "@/lib/niche-answers";
+import { whatsappHref } from "@/lib/packages";
 
 const faqs = [
   {
@@ -60,6 +62,17 @@ const faqs = [
       "After a draft is shared, the restaurant can consolidate time-stamped feedback on pacing, selected shots, text, and supplied calls to action. Revision scope is discussed with the project so feedback can be handled in an organized review cycle without assuming a fixed number of rounds.",
   },
 ] as const;
+
+const restaurantStartingPoints = {
+  eyebrow: "Choose your starting point",
+  heading: "What do you already have for the next restaurant video?",
+  intro: "Choose the closest situation. The first message gives Esteban the useful detail before anyone assumes a filming day or a larger package.",
+  decisions: [
+    { id: "restaurant_existing_clips", title: "I already have food or venue clips", detail: "Send the strongest original clips, the dish or offer to feature, and where the Reel will be published.", href: whatsappHref(site.phone.e164, "Hi Esteban, I already have restaurant footage and want to turn it into a clear promo Reel. The dish or offer is ____."), action: "Ask about an edit" },
+    { id: "restaurant_new_shoot", title: "I need new restaurant footage", detail: "Share the venue, the dishes or scenes that matter, and the target date. A shoot is scoped separately from editing.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need a restaurant shoot plus promo editing. The venue is ____ and the target date is ____."), action: "Ask about a shoot" },
+    { id: "restaurant_photos", title: "I need food or venue photos too", detail: "Describe the dishes, space, and intended use. Photography is quoted separately from video editing or filming.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need restaurant photography as well as video. I want to photograph ____ for ____."), action: "Ask about photos and video" },
+  ],
+} as const;
 
 export const metadata = buildPageMetadata({
   title: `Restaurant Videographer & Promo Video Editing Miami | From ${restaurantFrom}`,
@@ -148,11 +161,6 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 footage, starts at {restaurantFrom}. Just one Reel edited from your own
                 clips? That is {singleReelFrom} per video (Starter).
               </p>
-              <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-6 text-[#252a2d] sm:mt-4 sm:space-y-1.5">
-                <li><strong>Already have clips?</strong> Ask for a Reel edit.</li>
-                <li><strong>Need new video?</strong> Tell me the location and what to film.</li>
-                <li><strong>Need real still photos?</strong> Describe the dishes or space; the session is quoted separately.</li>
-              </ul>
               <div className="mt-3 flex flex-wrap gap-3 sm:mt-8">
                 <Link
                   href="/contact"
@@ -196,6 +204,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceDecisionRail content={restaurantStartingPoints} />
       <OwnerFactAnswers path="/services/restaurant-promo-video-editing-miami" />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="restaurant-editing-or-shoot">

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, ChevronDown, MessageCircle, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
@@ -7,8 +8,8 @@ import { PriorityLinks } from "@/components/priority-links";
 import { ClientReviews } from "@/components/client-reviews";
 import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import {
-  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -94,32 +95,46 @@ export default function ShortFormVideoEditorPage() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/portfolio/ml-colombia"
+                  href="/portfolio/great-reviewer-iphone-18"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
-                  View ML Colombia Reel Proof
+                  See recent work
                 </Link>
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <Scissors className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Reel proof</h2>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>ML Colombia</strong> proves published short-form social video editing. For food & beverage concepts, see our dedicated{" "}
-                <Link
-                  href="/services/restaurant-promo-video-editing-miami"
-                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
-                >
-                  restaurant promo video editing in Miami
-                </Link>.
-              </p>
+            <div className="overflow-hidden rounded-2xl border border-[#ddd4c8] bg-[#101214] shadow-[0_22px_70px_rgba(16,18,20,.18)]" data-section="short-form-hero-proof">
+              <div className="relative aspect-video">
+                <Image
+                  src="/portfolio/great-reviewer-iphone-18.jpg"
+                  alt="Still from Esteban Moreno Media's recent The Great Reviewer video edit"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover"
+                />
+                <YouTubeFacade
+                  videoId="BDRru8eXaj4"
+                  title="The Great Reviewer: iPhone 18 Pro Max Content Reel"
+                  playLabel="Play The Great Reviewer Reel"
+                  source="short_form_hero_play"
+                />
+              </div>
+              <div className="grid gap-3 bg-[#101214] px-5 py-5 text-white sm:grid-cols-[1fr_auto] sm:items-center">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#f6bda9]">Recent published work</p>
+                  <h2 className="mt-1 font-serif text-2xl leading-tight">Watch the edit before you read about it.</h2>
+                </div>
+                <Link href="/portfolio/great-reviewer-iphone-18" className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-[#101214] hover:bg-[#f6bda9]">
+                  Open project
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <DefinitionAnswer path="/services/short-form-video-editor-miami" collapsible />
       <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
         <Container size="xl">
           <div className="mx-auto max-w-4xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
@@ -135,12 +150,46 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
-      <ClientReviews locale="en" compact />
+      <section className="border-b border-[#ddd4c8] bg-[#101214] py-10 text-white" aria-labelledby="short-form-work-shelf">
+        <Container size="xl">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#f6bda9]">More recent work</p>
+              <h2 id="short-form-work-shelf" className="mt-2 font-serif text-3xl sm:text-4xl">See the work, not another promise.</h2>
+            </div>
+            <Link href="/portfolio" className="inline-flex min-h-11 items-center rounded-full border border-white/35 px-5 text-sm font-semibold hover:bg-white hover:text-[#101214]">Open all work</Link>
+          </div>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {[
+              ["/portfolio/great-reviewer-iphone-18", "/portfolio/great-reviewer-iphone-18.jpg", "The Great Reviewer", "Watch the published Reel"],
+              ["/portfolio/caro-sells-miami", "/portfolio/caro-sells-miami-current-ui.png", "Caro Sells Miami", "See the current property experience"],
+              ["/portfolio/dupont-realty-international", "/portfolio/dupont-realty-international-current-ui.png", "DuPont International Realty", "See the current real-estate experience"],
+            ].map(([href, image, title, action]) => (
+              <Link key={href} href={href} className="group overflow-hidden rounded-2xl border border-white/15 bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image src={image} alt={`Recent Esteban Moreno Media work: ${title}`} fill sizes="(min-width: 768px) 32vw, 100vw" className="object-cover transition duration-300 group-hover:scale-[1.03]" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-serif text-2xl">{title}</h3>
+                  <p className="mt-2 text-sm text-white/75">{action}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+      <details className="group border-b border-[#ddd4c8] bg-[#f6f1ea]" data-section="short-form-reviews">
+        <summary className="mx-auto flex max-w-7xl cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-lg font-semibold text-[#101214] sm:px-8">
+          See verified Google reviews
+          <ChevronDown className="size-5 text-[#9f3c27] transition-transform group-open:rotate-180" aria-hidden="true" />
+        </summary>
+        <ClientReviews locale="en" compact />
+      </details>
       <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">
         <Container size="xl">
           <p className="mx-auto max-w-4xl text-sm leading-6 text-[#252a2d]">
             <span className="font-semibold text-[#101214]">Where Esteban has filmed or edited for:</span>{" "}
-            Healthy Smile Miami in Miami (on-location dental clinic video), Bar Door Monkey in Miami (restaurant video promo), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
+            Healthy Smile Miami in Miami (on-location dental clinic video), The Great Reviewer (published content Reel), and Caro Sells Miami in Miami / Broward (bilingual real estate web discovery).
           </p>
         </Container>
       </section>
@@ -148,22 +197,23 @@ export default function ShortFormVideoEditorPage() {
       <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
         <Container size="xl">
           <div className="mx-auto max-w-4xl">
-            <h2 className="font-serif text-2xl sm:text-3xl">
-              How much does short-form video editing cost?
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#252a2d]">
-              Starting prices for every package, read from the same figures
-              published on the pricing page. Final cost is always a scoped
-              quote.
-            </p>
-            <div className="mt-4">
-              <PriceSheet locale="en" showPlans={false} section="short_form_service_page" />
-            </div>
+            <details className="group rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-7">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                <span>
+                  <span className="block font-serif text-2xl sm:text-3xl">See starting prices</span>
+                  <span className="mt-1 block text-sm leading-6 text-[#252a2d]">Open only if price is the next thing you need.</span>
+                </span>
+                <ChevronDown className="size-5 shrink-0 text-[#9f3c27] transition-transform group-open:rotate-180" aria-hidden="true" />
+              </summary>
+              <div className="mt-6">
+                <PriceSheet locale="en" showPlans={false} section="short_form_service_page" />
+              </div>
+            </details>
           </div>
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="short-form video editing" />
+      <ShortFormAnswerFirst />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -211,26 +261,32 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
-      <ServiceCraft
-        heading={SHORT_FORM_DEPTH.craftHeading}
-        cards={SHORT_FORM_DEPTH.craft}
-        sectionId="short-form-craft"
-      />
+      <details className="group border-b border-[#ddd4c8] bg-[#fbf6ef]" data-section="short-form-craft-fold">
+        <summary className="mx-auto flex max-w-7xl cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-lg font-semibold text-[#101214] sm:px-8">
+          What makes a short-form edit work?
+          <ChevronDown className="size-5 text-[#9f3c27] transition-transform group-open:rotate-180" aria-hidden="true" />
+        </summary>
+        <ServiceCraft
+          heading={SHORT_FORM_DEPTH.craftHeading}
+          cards={SHORT_FORM_DEPTH.craft}
+          sectionId="short-form-craft"
+        />
+      </details>
       <ServiceDeepDive
         id={SHORT_FORM_DEEP_DIVE_EN.id}
         title={SHORT_FORM_DEEP_DIVE_EN.title}
         destinations={SHORT_FORM_DEEP_DIVE_EN.destinations}
         sections={SHORT_FORM_DEEP_DIVE_EN.sections}
       />
-      <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} />
+      <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} collapsible />
       <ServiceInquiryRail
         service={{
           serviceId: "short_form_video",
           serviceName: "short-form video editing",
           goalPrompt: "turn supplied footage into Reels, TikTok, or Shorts",
           assetPrompt: "raw clips, references, brand notes, and the platforms where the videos will run",
-          proofHref: "/portfolio/ml-colombia",
-          proofLabel: "Review short-form portfolio proof",
+          proofHref: "/portfolio/great-reviewer-iphone-18",
+          proofLabel: "Watch recent published short-form work",
         }}
       />
       <ServiceRelated heading={SHORT_FORM_DEPTH.relatedHeading} services={SHORT_FORM_DEPTH.related} />
@@ -240,6 +296,42 @@ export default function ShortFormVideoEditorPage() {
       </Container>
       <ShortFormStickyCta />
     </main>
+  );
+}
+
+function ShortFormAnswerFirst() {
+  return (
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-10 sm:py-14" aria-labelledby="short-form-how-it-works" data-section="answer-first">
+      <Container size="xl">
+        <div className="mx-auto max-w-4xl rounded-2xl border border-[#ddd4c8] bg-[#f6f1ea] p-6 sm:p-9">
+          <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#9f3c27]">How it works</p>
+          <h2 id="short-form-how-it-works" className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Send the clips. Get a clear edit plan.</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-[#252a2d]">Start with the footage you already have and the one thing the Reel needs to say.</p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="Short-form editing steps">
+            {[
+              ["1. Send originals", "Upload the strongest clips, not downloads from social media."],
+              ["2. Name the goal", "Tell Esteban where it will run and what viewers should understand."],
+              ["3. Get a scoped quote", "Receive the useful next step before anyone assumes filming or a package."],
+            ].map(([title, detail]) => (
+              <li key={title} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm leading-6 text-[#252a2d]">
+                <CheckCircle2 className="mb-3 size-5 text-[#e85d3e]" aria-hidden="true" />
+                <strong className="block text-base text-[#101214]">{title}</strong>
+                <span className="mt-1 block">{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <details className="group mt-6 border-t border-[#ddd4c8] pt-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#101214]">
+              What happens after I send the clips?
+              <ChevronDown className="size-5 transition-transform group-open:rotate-180" aria-hidden="true" />
+            </summary>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">
+              Esteban Moreno Media is a Fort Lauderdale-based service-area business run by Esteban Moreno, working with businesses across Broward and Miami-Dade. Projects can start remotely: you share footage, photos or references online and Esteban edits them, with no visit needed. On-location filming is available as a paid service, scoped and quoted per project. Communication is Spanish-first, with intermediate English available. Remote editing starts from {usd(SHORT_FORM.perVideoFrom)} per video; every project gets a written quote.
+            </p>
+          </details>
+        </div>
+      </Container>
+    </section>
   );
 }
 
