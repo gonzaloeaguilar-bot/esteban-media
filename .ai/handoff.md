@@ -1021,3 +1021,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - `7eecddce` fixes the screenshot defect: `CaptionGuideNextStep` explicitly sets dark text on its cream/white surface and white text on its red surface, rather than inheriting the surrounding hero's white. `GuideDetailPage` gets mobile bottom clearance so the fixed WhatsApp action cannot cover terminal content.
 - Production deploy `dpl_9MycSTTJHmk7jdwvpRwByJaPcrvD` Ready and aliases canonical. Raw caption guide HTTP 200 includes caption action plus explicit ink/white styles. Focused component and all-guide hero checks 4/4, lint and typecheck passed. Real-phone visual confirmation remains open.
 
+## 2026-11-14 — Homepage cinematic guide entry (production)
+
+- `d822d003` removes the nested guide-entry cards and reuses the homepage’s on-set video stage, frame, REC treatment and single reading action for every EN/ES guide. The contents list is now a native disclosure after the hero.
+- Direct production deploy `dpl_58NouPxnKdykEWJmFi5P4fdsy2BA` is Ready and aliases canonical. GPTBot raw reads of the EN/ES caption routes returned HTTP 200 with `guide-cinematic-hero`, `/about/esteban-on-set.mp4` and `guide_hero_start_reading`; old `caption_guide_next_step` was absent in English.
+- `pnpm vitest run app/__tests__/guide-hero-work.test.ts components/__tests__/caption-guide-next-step.test.ts app/__tests__/guides-routes.test.ts` passed 9/9 and `pnpm typecheck` passed. Real-phone visual confirmation remains open.
+
