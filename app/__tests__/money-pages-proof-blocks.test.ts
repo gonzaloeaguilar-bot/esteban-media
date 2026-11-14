@@ -99,4 +99,16 @@ describe("proof blocks on three money pages", () => {
     expect(html).not.toContain("ML Colombia");
     expect(html).not.toContain("Bar Door Monkey");
   });
+
+  it("makes the short-form workflow scannable while retaining the citable detail in served HTML", () => {
+    const html = renderToStaticMarkup(React.createElement(ShortFormMiamiPage));
+
+    expect(html).toContain("Send the clips. Get a clear edit plan.");
+    expect(html).toContain("1. Send originals");
+    expect(html).toContain("2. Name the goal");
+    expect(html).toContain("3. Get a scoped quote");
+    expect(html).toContain("<details");
+    expect(html).toContain("What happens after I send the clips?");
+    expect(html).toContain("Projects can start remotely");
+  });
 });

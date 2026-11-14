@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MessageCircle, Mail, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, MessageCircle, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
@@ -10,7 +10,6 @@ import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import {
-  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -179,7 +178,7 @@ export default function ShortFormVideoEditorPage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="short-form video editing" />
+      <ShortFormAnswerFirst />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -256,6 +255,42 @@ export default function ShortFormVideoEditorPage() {
       </Container>
       <ShortFormStickyCta />
     </main>
+  );
+}
+
+function ShortFormAnswerFirst() {
+  return (
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-10 sm:py-14" aria-labelledby="short-form-how-it-works" data-section="answer-first">
+      <Container size="xl">
+        <div className="mx-auto max-w-4xl rounded-2xl border border-[#ddd4c8] bg-[#f6f1ea] p-6 sm:p-9">
+          <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#9f3c27]">How it works</p>
+          <h2 id="short-form-how-it-works" className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Send the clips. Get a clear edit plan.</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-[#252a2d]">Start with the footage you already have and the one thing the Reel needs to say.</p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="Short-form editing steps">
+            {[
+              ["1. Send originals", "Upload the strongest clips, not downloads from social media."],
+              ["2. Name the goal", "Tell Esteban where it will run and what viewers should understand."],
+              ["3. Get a scoped quote", "Receive the useful next step before anyone assumes filming or a package."],
+            ].map(([title, detail]) => (
+              <li key={title} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm leading-6 text-[#252a2d]">
+                <CheckCircle2 className="mb-3 size-5 text-[#e85d3e]" aria-hidden="true" />
+                <strong className="block text-base text-[#101214]">{title}</strong>
+                <span className="mt-1 block">{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <details className="group mt-6 border-t border-[#ddd4c8] pt-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#101214]">
+              What happens after I send the clips?
+              <ChevronDown className="size-5 transition-transform group-open:rotate-180" aria-hidden="true" />
+            </summary>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">
+              Esteban Moreno Media is a Fort Lauderdale-based service-area business run by Esteban Moreno, working with businesses across Broward and Miami-Dade. Projects can start remotely: you share footage, photos or references online and Esteban edits them, with no visit needed. On-location filming is available as a paid service, scoped and quoted per project. Communication is Spanish-first, with intermediate English available. Remote editing starts from {usd(SHORT_FORM.perVideoFrom)} per video; every project gets a written quote.
+            </p>
+          </details>
+        </div>
+      </Container>
+    </section>
   );
 }
 
