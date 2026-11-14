@@ -12,11 +12,11 @@ const content: GeoServicePageContent = {
   description:
     "Send existing clips and a clear goal; Esteban turns them into a focused Reel, TikTok, or Short with one message, legible captions, and one final action. The edit can stay remote, while a local shoot is scoped separately only when new footage is needed.",
   locationLabel: "Fort Lauderdale / South Florida / Remote",
-  proofTitle: "A published example",
+  proofTitle: "A recent published Reel",
   proofText:
-    "Watch the published 24-second ML Colombia video from Esteban’s own brand. Send your clips and goals so he can recommend an edit for your project.",
-  proofHref: "/portfolio/ml-colombia",
-  proofLabel: "Watch ML Colombia social video",
+    "Watch the published The Great Reviewer Reel, then send your clips and goal so Esteban can recommend the useful next step for your project.",
+  proofHref: "/portfolio/great-reviewer-iphone-18",
+  proofLabel: "Watch The Great Reviewer Reel",
   primaryCta: "Ask about Reels editing",
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
@@ -163,8 +163,8 @@ const content: GeoServicePageContent = {
     serviceName: "Fort Lauderdale Reels editing",
     goalPrompt: "turn supplied clips into Reels, TikTok, or Shorts for a local business",
     assetPrompt: "raw clips, brand notes, a reference Reel, captions or talking points, and the posting platform",
-    proofHref: "/portfolio/ml-colombia",
-    proofLabel: "Review short-form proof",
+    proofHref: "/portfolio/great-reviewer-iphone-18",
+    proofLabel: "Review recent published work",
   },
   venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership web and AI concierge systems) and Port Everglades in Fort Lauderdale (marine and export video logistics context).",
   decisionRail: {
@@ -179,11 +179,11 @@ const content: GeoServicePageContent = {
   },
   proofRail: {
     eyebrow: "Finished work you can inspect",
-    heading: "Look at the edit before asking for a quote.",
-    intro: "These are published projects. They show the work itself, not a promised performance result for a new project.",
+    heading: "See recent published work before asking for a quote.",
+    intro: "These are current published projects across video and digital work. They show what Esteban has made, not a promised result for a new project.",
     projects: [
-      { href: "/portfolio/ml-colombia", title: "ML Colombia social video", description: "A published 24-second social piece from Esteban's own brand.", eyebrow: "Published social work", linkLabel: "Watch the published video" },
-      { href: "/portfolio/gains-from-geebs-shorts", title: "Gains From Geebs short-form videos", description: "Published short-form videos made for a fitness-coaching brand.", eyebrow: "Published short-form work", linkLabel: "See the published work" },
+      { href: "/portfolio/great-reviewer-iphone-18", title: "The Great Reviewer Reel", description: "A recent published content Reel made for The Great Reviewer.", eyebrow: "Published video work", linkLabel: "Watch the Reel" },
+      { href: "/portfolio/caro-sells-miami", title: "Caro Sells Miami", description: "A current published real-estate website made for Caro Sells Miami.", eyebrow: "Published digital work", linkLabel: "See the published site" },
     ],
   },
 };

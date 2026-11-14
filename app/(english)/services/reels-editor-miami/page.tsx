@@ -116,8 +116,8 @@ const content: GeoServicePageContent = {
     serviceName: "Miami Reels editing",
     goalPrompt: "turn supplied Miami business footage into short social videos",
     assetPrompt: "original clips, the offer, brand files, reference videos, platform notes, and a deadline",
-    proofHref: "/portfolio/ml-colombia",
-    proofLabel: "Review short-form proof",
+    proofHref: "/portfolio/great-reviewer-iphone-18",
+    proofLabel: "Review recent published work",
   },
   decisionRail: {
     eyebrow: "Choose your starting point",
@@ -127,6 +127,15 @@ const content: GeoServicePageContent = {
       { id: "reels_miami_existing_clips", title: "I already have clips", detail: "Send the strongest original clips, one message, and the platform where the Reel will run.", href: whatsappHref(site.phone.e164, "Hi Esteban, I already have clips for a Miami Reel. I want to turn them into a clear social video."), action: "Ask about one Reel" },
       { id: "reels_miami_weekly", title: "I need Reels every week", detail: "Share how often you want to publish and whether you already have a filming routine.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need recurring Reels editing for a Miami business. I want to talk about a weekly editing plan."), action: "Ask about weekly editing" },
       { id: "reels_miami_filming", title: "I need filming too", detail: "Share the location, the scenes you need, and the target date. Filming is scoped separately from editing.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need filming plus Reels editing for a Miami business. The location is ____ and the target date is ____."), action: "Ask about filming and editing" },
+    ],
+  },
+  proofRail: {
+    eyebrow: "Recent work you can inspect",
+    heading: "See current published work before asking for a quote.",
+    intro: "These are current published projects across video and digital work. They show what Esteban has made, not a promised result for a new project.",
+    projects: [
+      { href: "/portfolio/great-reviewer-iphone-18", title: "The Great Reviewer Reel", description: "A recent published content Reel made for The Great Reviewer.", eyebrow: "Published video work", linkLabel: "Watch the Reel" },
+      { href: "/portfolio/dupont-realty-international", title: "DuPont International Realty", description: "A current published real-estate website made for DuPont International Realty Florida.", eyebrow: "Published digital work", linkLabel: "See the published site" },
     ],
   },
 };
