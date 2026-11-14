@@ -1006,3 +1006,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Gates: targeted proof test 8/8, changed-file ESLint, typecheck, local build and Vercel build. The governed Antigravity review dispatch failed while generating its shared context packet; no independent-approval claim.
 - Next: test canonical route at 390px, tap play, verify video starts/closes, read first two scrolls. Then inspect `short_form_hero_play` event separately from leads.
 
+## 2026-11-13 — Short-form workflow text reduced (production)
+
+- Commit `ddce8940` replaces the generic answer-first paragraph on `/services/short-form-video-editor-miami` with a readable three-step card and a native served `<details>` for the longer explanation.
+- Production deploy `dpl_AQe36Z7AWMGm8Q43z9NchLayXLge` Ready; canonical raw HTML HTTP 200 contains the three steps, fold summary and retained remote-project detail. Focused test 9/9, changed-file ESLint and typecheck passed.
+
