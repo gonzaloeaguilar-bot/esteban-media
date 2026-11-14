@@ -11,11 +11,11 @@ const content: GeoServicePageContent = {
   description:
     "The Miami page for Instagram Reels editing from supplied footage. For multi-platform Reels, TikTok, and YouTube Shorts versions, use the linked short-form editing hub.",
   locationLabel: "Miami / Remote",
-  proofTitle: "Miami short-form intent",
+  proofTitle: "A recent published Reel",
   proofText:
-    "This page owns the direct Miami Reels question. Use the short-form editing hub when one supplied-footage project needs versions for Reels, TikTok, or YouTube Shorts.",
-  proofHref: "/services/short-form-video-editor-miami",
-  proofLabel: "View the short-form editing hub",
+    "Watch the published The Great Reviewer Reel, then send your clips and goal so Esteban can recommend the useful next step for your Miami project.",
+  proofHref: "/portfolio/great-reviewer-iphone-18",
+  proofLabel: "Watch The Great Reviewer Reel",
   primaryCta: "Ask about Miami Reels editing",
   secondaryHref: "/guides/reels-vs-tiktok-vs-shorts-for-local-business",
   secondaryLabel: "Compare Reels, TikTok, and Shorts",

@@ -14,6 +14,13 @@ describe("caption styles guide content depth, parity, and FAQ schema", () => {
     expect(esGuide?.faqs).toBeDefined();
     expect(esGuide?.faqs?.length).toBe(5);
 
+    // The guide's visible proof must stay current; an older restaurant example
+    // should not quietly return to this AI-referral entry surface.
+    expect(enGuide?.proof.href).toBe("/portfolio/great-reviewer-iphone-18");
+    expect(enGuide?.proof.title).toBe("The Great Reviewer Reel");
+    expect(esGuide?.proof.href).toBe("/es/portafolio/great-reviewer-iphone-18");
+    expect(esGuide?.proof.title).toBe("El Reel de The Great Reviewer");
+
     // Verify structured data includes FAQPage schema on both locales
     const enSchema = buildGuideStructuredData(enGuide!);
     const enGraph = (enSchema as { "@graph": Array<{ "@type": string; mainEntity?: Array<{ name: string; acceptedAnswer?: { text: string } }> }> })["@graph"];
