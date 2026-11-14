@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { GuideIllustration } from "@/components/guide-illustration";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
@@ -47,6 +49,10 @@ import { FortLauderdaleEditorsTable } from "@/components/fort-lauderdale-editors
 
 
 const RELATED_GUIDE_COUNT = 6;
+const sectionDetailCopy = {
+  en: "Read the full explanation",
+  es: "Leer la explicación completa",
+} as const;
 const detailCopy = {
   en: {
     breadcrumbHome: "Home",
@@ -704,14 +710,28 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </nav>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_.75fr] lg:items-start lg:gap-16">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+            <div className="relative isolate overflow-hidden rounded-3xl bg-[#101214] px-6 py-8 text-[#f6f1ea] shadow-[0_18px_60px_rgba(16,18,20,0.18)] sm:px-9 sm:py-10">
+              {publishedProof ? (
+                <Image
+                  src={publishedProof.poster}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  className="-z-20 object-cover"
+                />
+              ) : (
+                <GuideIllustration slug={guide.slug} className="absolute -right-10 -top-8 -z-20 h-64 w-96 opacity-30 sm:h-80 sm:w-[30rem]" />
+              )}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#101214]/95 via-[#101214]/88 to-[#101214]/55" aria-hidden="true" />
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#f0b29f]">
                 {guide.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
+              {publishedProof ? <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#f6f1ea]/75">{copy.proofEyebrow}</p> : null}
+              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl text-[#f6f1ea]">
                 {guide.title}
               </h1>
-              <p className="mt-6 max-w-3xl text-xl leading-8 text-[#252a2d] sm:text-2xl sm:leading-9">
+              <p className="mt-6 max-w-3xl text-xl leading-8 text-[#f6f1ea] sm:text-2xl sm:leading-9">
                 <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
               {guide.id === "caption-styles-reels-guide" ? (
@@ -720,19 +740,24 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 <GuideNextStep locale={locale} guideTitle={guide.title} />
               )}
               {!publishedProof ? (
-                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
                   {copy.proofLinkLabel}: {guide.proof.title}
                   <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
+              ) : publishedProof ? (
+                <Link href={publishedProof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4">
+                  {copy.proofLinkLabel}: {publishedProof.title}
+                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
               ) : null}
-              <details className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
-                <summary className="cursor-pointer font-medium text-[#252a2d]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
+              <details className="mt-5 max-w-3xl border-l-2 border-[#e85d3e] pl-4 text-sm leading-6 text-[#f6f1ea]/80">
+                <summary className="cursor-pointer font-medium text-[#f6f1ea]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
                 <p className="mt-3">{guidePolicyNotes[locale]}</p>
               </details>
               {companion ? (
                 <Link
                   href={getGuidePath(companion)}
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                  className="mt-7 inline-flex min-h-11 items-center gap-2 font-medium text-[#f6f1ea] underline decoration-[#e85d3e] underline-offset-4"
                 >
                   <Languages className="size-4" aria-hidden="true" />
                   {copy.languageLabel}
@@ -741,7 +766,6 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
             </div>
 
             <aside className="space-y-5 lg:sticky lg:top-24">
-              {publishedProof ? <PublishedProjectProof proof={publishedProof} /> : null}
               <nav aria-label={copy.contentsLabel} className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6">
                 <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
                   {copy.contentsLabel}
@@ -783,7 +807,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 <h2 id={`section-${index + 1}-heading`} className="sr-only">{section.heading}</h2>
                 <div className="mt-6 border-t border-[#ddd4c8] pt-6">
                   <div className="space-y-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
-                    {section.paragraphs.map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
+                    {section.paragraphs.slice(0, 1).map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
                   </div>
                   {section.bullets ? (
                     <ul className="mt-6 space-y-3 rounded-xl border border-[#ddd4c8] bg-white p-5 sm:p-6">
@@ -794,6 +818,19 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                         </li>
                       ))}
                     </ul>
+                  ) : null}
+                  {section.paragraphs.length > 1 ? (
+                    <details
+                      data-section="guide-detail"
+                      className="mt-6 rounded-xl border border-[#ddd4c8] bg-white px-5 py-1 sm:px-6"
+                    >
+                      <summary className="flex min-h-12 cursor-pointer items-center font-medium text-[#252a2d] marker:text-[#9f3c27]">
+                        {sectionDetailCopy[locale]}
+                      </summary>
+                      <div className="space-y-5 border-t border-[#ddd4c8] py-5 text-lg leading-8 text-[#252a2d] sm:text-xl sm:leading-9">
+                        {section.paragraphs.slice(1).map((paragraph) => <p key={paragraph}>{renderFormattedText(paragraph)}</p>)}
+                      </div>
+                    </details>
                   ) : null}
                 </div>
               </details>
