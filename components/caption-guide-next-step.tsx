@@ -45,7 +45,7 @@ export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
     <section
       aria-labelledby="caption-guide-next-step-heading"
       data-section="caption_guide_next_step"
-      className="mt-8 max-w-3xl rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-5 sm:p-6"
+      className="mt-8 max-w-3xl rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-5 text-[#101214] sm:p-6"
     >
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9f3c27]">{text.eyebrow}</p>
       <h2 id="caption-guide-next-step-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">
@@ -58,7 +58,7 @@ export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
           data-cta="caption_guide_self_serve"
           className="group rounded-xl border border-[#ddd4c8] bg-white p-4 transition hover:border-[#9f3c27] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
         >
-          <span className="block font-serif text-2xl leading-tight">{text.selfTitle}</span>
+          <span className="block font-serif text-2xl leading-tight text-[#101214]">{text.selfTitle}</span>
           <span className="mt-2 block text-sm leading-6 text-[#3f4548]">{text.selfDetail}</span>
           <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-[#9f3c27]">
             {text.selfAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
@@ -71,7 +71,7 @@ export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
           data-cta="caption_guide_done_for_you_whatsapp"
           className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
         >
-          <span className="block font-serif text-2xl leading-tight">{text.doneTitle}</span>
+          <span className="block font-serif text-2xl leading-tight text-white">{text.doneTitle}</span>
           <span className="mt-2 block text-sm leading-6 text-white/85">{text.doneDetail}</span>
           <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
             <MessageCircle className="size-4" aria-hidden="true" />{text.doneAction}

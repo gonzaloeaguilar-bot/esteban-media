@@ -450,7 +450,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
         };
 
   return (
-    <main className="bg-[#f6f1ea] text-[#101214]">
+    <main className="bg-[#f6f1ea] pb-20 text-[#101214] sm:pb-0">
       <StructuredData
         data={withPageDate(copy.path, buildGuidesIndexStructuredData(locale) as Record<string, unknown>, absoluteUrl(copy.path))}
       />

@@ -13,5 +13,7 @@ describe("CaptionGuideNextStep", () => {
     expect(html).toContain('href="#caption-typography-title"');
     expect(html).toContain('data-cta="caption_guide_done_for_you_whatsapp"');
     expect(html).toContain("https://wa.me/13054974478");
+    expect(html).toContain("text-[#101214]");
+    expect(html).toContain("text-white");
   });
 });
