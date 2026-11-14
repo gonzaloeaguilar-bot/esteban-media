@@ -1016,3 +1016,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `a579b3d7` keeps the video, short workflow and visual work shelf visible while moving definition, prices, reviews and craft explanation into native `<details>`; FAQs use the existing `RailFaq` accordion. The shelf shows Great Reviewer plus current Caro and DuPont imagery.
 - Production `dpl_4PqzaS3LrpgvDBnixYwi1F4aG1yz` Ready and canonical raw HTML HTTP 200: 12 `<details>`, price/reviews/craft summaries and both current work images are present. Focused guard passed 9/9.
 
+## 2026-11-14 — Shared guide hero visual pass (production)
+
+- `e38ab684` makes `GuideDetailPage` render `guide-hero-work` for every EN/ES guide. Resolved published work supplies its poster and, if YouTube, `YouTubeFacade`; otherwise `/about/esteban-on-location.jpg` is an honest real-photo fallback.
+- Test `guide-hero-work.test.ts` renders all guides and passed with targeted guide tests (9/9); lint/typecheck passed. Vercel `dpl_5zYuX6JmFtguJTij2n1R3FfvjE3q` is Ready. Canonical raw reads of caption, remote-handoff and Spanish-caption guides all expose hero visual markers.
+
