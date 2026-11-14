@@ -973,3 +973,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - `pnpm seo:measurement:run` passed against authenticated Search Console. Settled 2026-10-14..2026-11-10: caption guide 176 impressions / 0 clicks / position 8.38; Fort Lauderdale Reels 45 / 0 / 6.22; Spanish caption guide 34 / 0 / 7.85; Spanish Miami Reels 16 / 0 / 6.56. Provisional Nov 11..13 is non-decisional.
 - `pnpm index-watch:status`: 456 indexed / 126 neutral / 0 failed across 582 URLs. `pnpm seo:crawler-availability`: Googlebot, GPTBot, ClaudeBot and PerplexityBot all returned HTTP 200 HTML.
 - `pnpm geo:snapshot:status` marks citations stale. Current engine citation performance is unverified; the last successful observations date from Oct 28–Nov 5 and later failed retries are not measurements. Durable report: `[[esteban-seo-measurement]]`.
+
+# 2026-11-13 — GEO source refresh attempt
+
+- Registered AI citation reader was kicked twice and refused both times: `lane 'ai-citation-sweep' has no reserved allocation`; no fresh model request or citation observation occurred.
+- `pnpm geo:snapshot` completed at 2026-11-14T03:05:29Z: Bing 30 impressions / 0 clicks across 26 queries and 20 pages; Metricool 1,868 impressions / 14 interactions (Oct 15–Nov 12). The AI citation source remains stale: newest receipt Nov 5 12:06Z, 206.98 hours old vs 72-hour rule. GBP unavailable due authenticated identity mismatch; Common Crawl/GDELT/PageSpeed unavailable due timeout/rate limits.
