@@ -15,6 +15,8 @@ export type PublishedProjectProofInput = {
 type ResolvedPublishedProjectProof = PublishedProjectProofInput & {
   id: string;
   poster: string;
+  /** Present only for a published YouTube project; lets a hero play the real film. */
+  videoId?: string;
 };
 
 const portfolioPath = /^\/(?:es\/)?port(?:folio|afolio)\/([a-z0-9-]+)$/;
@@ -37,7 +39,12 @@ export function resolvePublishedProjectProof(
     return null;
   }
 
-  return { ...proof, id: item.id, poster };
+  return {
+    ...proof,
+    id: item.id,
+    poster,
+    videoId: item.media.kind === "youtube" ? item.media.videoId : undefined,
+  };
 }
 
 export function PublishedProjectProof({

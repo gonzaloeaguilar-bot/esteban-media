@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import { GuideIllustration } from "@/components/guide-illustration";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
@@ -734,6 +735,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <p className="mt-6 max-w-3xl text-xl leading-8 text-[#f6f1ea] sm:text-2xl sm:leading-9">
                 <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
+              {publishedProof ? <GuideHeroWork proof={publishedProof} locale={locale} /> : <GuideHeroFallback locale={locale} />}
               {guide.id === "caption-styles-reels-guide" ? (
                 <CaptionGuideNextStep locale={locale} />
               ) : (
@@ -1008,6 +1010,71 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
       </section>
       </KeepReading>
     </main>
+  );
+}
+
+function GuideHeroWork({
+  proof,
+  locale,
+}: {
+  proof: NonNullable<ReturnType<typeof resolvePublishedProjectProof>>;
+  locale: GuideLocale;
+}) {
+  const playLabel = locale === "es" ? `Reproducir: ${proof.title}` : `Play: ${proof.title}`;
+
+  return (
+    <div className="relative mt-7 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-xl" data-section="guide-hero-work">
+      <div className="relative aspect-video">
+        <Image
+          src={proof.poster}
+          alt={`Published work from Esteban Moreno Media: ${proof.title}`}
+          fill
+          priority
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+        />
+        {proof.videoId ? (
+          <YouTubeFacade
+            videoId={proof.videoId}
+            title={proof.title}
+            playLabel={playLabel}
+            source={`guide_hero_play_${proof.id}`}
+          />
+        ) : (
+          <Link href={proof.href} className="absolute inset-0 flex items-end bg-gradient-to-t from-black/65 via-transparent to-transparent p-5 text-sm font-semibold text-white">
+            {locale === "es" ? "Ver el proyecto publicado" : "See the published project"}
+          </Link>
+        )}
+      </div>
+      <div className="flex items-center justify-between gap-4 bg-[#101214] px-5 py-4">
+        <span className="font-serif text-xl text-white">{proof.title}</span>
+        <Link href={proof.href} className="shrink-0 text-sm font-semibold text-[#f6bda9] underline underline-offset-4">
+          {locale === "es" ? "Abrir" : "Open"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function GuideHeroFallback({ locale }: { locale: GuideLocale }) {
+  return (
+    <Link href={locale === "es" ? "/es/sobre-esteban" : "/about"} className="group relative mt-7 block overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-xl" data-section="guide-hero-work">
+      <div className="relative aspect-video">
+        <Image
+          src="/about/esteban-on-location.jpg"
+          alt="Esteban Moreno working on location"
+          fill
+          priority
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+        <span className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true" />
+      </div>
+      <span className="flex items-center justify-between gap-4 bg-[#101214] px-5 py-4 font-serif text-xl text-white">
+        {locale === "es" ? "Esteban en trabajo" : "Esteban at work"}
+        <span className="font-sans text-sm font-semibold text-[#f6bda9] underline underline-offset-4">{locale === "es" ? "Conocer a Esteban" : "Meet Esteban"}</span>
+      </span>
+    </Link>
   );
 }
 
