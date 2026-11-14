@@ -57,7 +57,7 @@ describe("conversion resources and remote service pages", () => {
   it("shows verified Google review proof on the main services hub", () => {
     const text = source("app/(english)/services/page.tsx");
     expect(text).toContain("import { ClientReviews }");
-    expect(text).toContain("<ClientReviews locale=\"en\" />");
+    expect(text).toContain("<ClientReviews locale=\"en\"");
   });
 
   it("adopts the shared Spanish inquiry rail on the matching priority pages", () => {

@@ -1,4 +1,6 @@
+import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -171,18 +173,21 @@ export const metadata = buildPageMetadata({
   // 2026-10-28: GSC Aug-Oct shows "reel editor fort lauderdale" (11 impr, pos 9.1)
   // and "editor de reels fort lauderdale" (15 impr, pos 11.5) with 0 clicks on
   // this page; the title did not say "reel editor" and the snippet answered nothing.
-  title: "Reels Editor in Fort Lauderdale",
+  title: "Reel Editor in Fort Lauderdale",
   description:
-    `Fort Lauderdale reels editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
+    `Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
   path: content.path,
   locale: "en",
 });
 
 export default function ReelsEditorFortLauderdalePage() {
   return (
-    <GeoServicePage
-      content={content}
-      showcase={<ReelsCapCutComparison />}
-    />
+    <>
+      <GeoServicePage
+        content={content}
+        showcase={<><FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" /><ReelsCapCutComparison /></>}
+      />
+      <ClientReviews locale="en" />
+    </>
   );
 }

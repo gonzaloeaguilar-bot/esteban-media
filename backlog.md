@@ -1,3 +1,7 @@
+## 2026-11-14 — Local GBP conversion proof and short-form intent parity (priority-growth:2026-11-14:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Restore food-creator choice conversion paths and reciprocal intent links between `/services/short-form-video-editor-miami` and `/services/reels-editor-miami`. Verified with `pnpm lastmod:update`, `npm test` (211 files / 3,893 tests passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-11-11 — Remote editor + Gemini entity rebuild (re-author of PRs #705 and #708)
 
 - [x] Rebuild the missing scope of #705 and #708 on current main as one combined PR: exact-query remote editor FAQPage schema EN and ES, entity `knowsAbout` on person and localBusiness, and the TikTok ad / content day lines in `lib/llms-base.txt`. Regression test `app/__tests__/remote-video-editor-faq.test.ts`. Bilingual subtitling FAQs already landed via #701 and were not rebuilt.
