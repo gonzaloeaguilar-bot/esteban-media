@@ -983,3 +983,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 
 - `pnpm seo:indexnow:status` verified the public key and `pnpm seo:indexnow:run` submitted all 582 canonical sitemap URLs to IndexNow; the endpoint accepted the batch with HTTP 200. This is a discovery receipt only.
 - Next execution order: click packaging on the caption and Fort Lauderdale Reels entry pages, factual Shoots/Twine/GBP corroboration with public read-back, then T+7/T+28 query×page and tagged-inquiry reads. A fresh AI citation cohort remains allocation-gated; do not use historical receipts as current GEO status. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — Free-model GEO data read
+
+- `pnpm geo:snapshot` refreshed the no-cost observatories: Bing 30 impressions / 0 clicks and Metricool 1,868 impressions / 14 interactions (2026-10-15..11-12); GBP, Common Crawl, GDELT and PageSpeed remain unmeasured for their stated access/rate-limit reasons. `pnpm seo:crawler-availability` returned HTTP 200 HTML for Googlebot, GPTBot, ClaudeBot and PerplexityBot.
+- A governed `$0` Ollama/Qwen 14B interpretation dispatch ran under decision `20261114T032327Z-cto-geo-lead-esteban-media-1794626609731549000-51002-c434843215d9bf9b`. It produced procedural boilerplate rather than the requested source-grounded reading, so it is explicitly rejected as evidence. Do not use local/free model prose to certify current consumer-AI citations.
+- The stored AI citation receipts are still stale; only a fresh enabled engine cohort can measure that outcome. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
