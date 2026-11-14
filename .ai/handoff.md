@@ -1033,3 +1033,9 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Production deploy `dpl_EAmJGbHpiGoqJ4EpXgrVDamFdx6h` is Ready and aliases canonical. GPTBot raw canonical output returned HTTP 200 with the work-opening, review, hero, checklist and native-detail markers.
 - Focused guide tests passed 11/11; changed-source lint, TypeScript and `git diff --check` passed.
 
+## 2026-11-14 — Caption guide editorial visual beats (production)
+
+- `a17a9dbe` adds three photorealistic illustrative images after the caption-guide answer sections: safe zone, style choice and selective emphasis. Each is explicitly labelled as editorial illustration rather than client work.
+- Production deploy `dpl_9fnhQTzJY2zVQxvYBJJLJFA71yuB` is Ready and aliases canonical. GPTBot raw canonical output returned HTTP 200 and contains all three asset names, the visual marker and disclosure.
+- Focused guide tests passed 12/12; changed-source lint, TypeScript and `git diff --check` passed.
+
