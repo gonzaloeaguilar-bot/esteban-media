@@ -989,3 +989,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - `pnpm geo:snapshot` refreshed the no-cost observatories: Bing 30 impressions / 0 clicks and Metricool 1,868 impressions / 14 interactions (2026-10-15..11-12); GBP, Common Crawl, GDELT and PageSpeed remain unmeasured for their stated access/rate-limit reasons. `pnpm seo:crawler-availability` returned HTTP 200 HTML for Googlebot, GPTBot, ClaudeBot and PerplexityBot.
 - A governed `$0` Ollama/Qwen 14B interpretation dispatch ran under decision `20261114T032327Z-cto-geo-lead-esteban-media-1794626609731549000-51002-c434843215d9bf9b`. It produced procedural boilerplate rather than the requested source-grounded reading, so it is explicitly rejected as evidence. Do not use local/free model prose to certify current consumer-AI citations.
 - The stored AI citation receipts are still stale; only a fresh enabled engine cohort can measure that outcome. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
+
+# 2026-11-13 — GA4 referral and social channel read
+
+- Direct GA4 Data API read, property `546162112`: AI-source filter returns 11 sessions for both 7d/28d, all `gemini.google.com` (home 8, `/not-found` 2, Miami short-form page 1). The report returned no Perplexity, Grok, ChatGPT, Claude, Copilot, DeepSeek or Meta AI referral row. This is referral attribution, not an AI-citation measurement.
+- Social-source filter returns 4 sessions / 7d and 39 / 28d: Instagram 32, Facebook 4 and LinkedIn 3 over 28 days; no TikTok or YouTube row returned. Treat absent rows as no observed GA4 referral row, not proof of zero social activity. Durable detail: `[[../client-esteban-media/wiki/esteban-seo-geo-acceleration-2026-11-13]]`.
