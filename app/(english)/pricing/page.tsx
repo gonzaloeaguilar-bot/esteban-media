@@ -6,6 +6,8 @@ import { ContactCta } from "@/components/contact-cta";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
 import { PricingAnswer, pricingHubExtraFaq } from "@/components/pricing-answer";
+import { PricingCinematicHero } from "@/components/pricing-cinematic-hero";
+import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { packagesJsonLd, priceSentence } from "@/lib/packages";
@@ -73,9 +75,12 @@ export default function PricingPage() {
         }}
       />
 
-      <section className="pt-12 pb-2 sm:pt-16">
+      <PricingCinematicHero locale="en" />
+      <PortfolioTeaser locale="en" source="pricing_work_opening" />
+
+      <section className="em-pricing-intro">
         <Container size="xl">
-          <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Breadcrumbs" className="mb-5 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/" className="hover:text-[#9f3c27]">
@@ -89,16 +94,12 @@ export default function PricingPage() {
             </ol>
           </nav>
 
-          <h1 className="max-w-3xl text-balance font-serif em-display">
-            What it costs to work together
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Editing one video starts {priceSentence("en", "arranque").toLowerCase()}, and a production day at
-            your business {priceSentence("en", "presencia-local").toLowerCase()}. Filming by the hour is {filmingHourlyText("en")}. Every package below shows a starting price so you know the ballpark
-            before you write to me. The final number depends on how much video
-            you need, whether I film on location, and how fast you need it — so
-            you always get a written quote for your own project.
-          </p>
+          <h2 className="max-w-3xl text-balance font-serif em-display">Start with the work you actually need.</h2>
+          <ul className="em-pricing-intro__facts" aria-label="Pricing overview">
+            <li>Remote editing starts {priceSentence("en", "arranque").toLowerCase()}.</li>
+            <li>A production day starts {priceSentence("en", "presencia-local").toLowerCase()}.</li>
+            <li>Filming by the hour is {filmingHourlyText("en")}.</li>
+          </ul>
           <PageUpdated path={PATH} locale="en" className="mt-3 text-xs text-[#5a6066]" />
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             Want a number for your specific project right now? Use the{" "}
@@ -126,8 +127,8 @@ export default function PricingPage() {
       </section>
 
       <PackagesSection locale="en" />
-      <PricingAnswer locale="en" />
       <ClientReviews locale="en" compact />
+      <PricingAnswer locale="en" />
       <ContactCta locale="en" />
       <ClosingCredits locale="en" />
     </main>

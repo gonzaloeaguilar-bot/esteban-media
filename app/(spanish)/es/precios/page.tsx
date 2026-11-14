@@ -4,6 +4,9 @@ import Link from "next/link";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
 import { PricingAnswer, pricingHubExtraFaq } from "@/components/pricing-answer";
+import { PricingCinematicHero } from "@/components/pricing-cinematic-hero";
+import { PortfolioTeaser } from "@/components/portfolio-teaser";
+import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { packagesJsonLd, priceSentence } from "@/lib/packages";
@@ -72,9 +75,12 @@ export default function SpanishPricingPage() {
         }}
       />
 
-      <section className="pt-12 pb-2 sm:pt-16">
+      <PricingCinematicHero locale="es" />
+      <PortfolioTeaser locale="es" source="pricing_work_opening" />
+
+      <section className="em-pricing-intro">
         <Container size="xl">
-          <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Breadcrumbs" className="mb-5 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/es" className="hover:text-[#9f3c27]">
@@ -88,23 +94,12 @@ export default function SpanishPricingPage() {
             </ol>
           </nav>
 
-          <h1 className="max-w-3xl text-balance font-serif em-display">
-            Cuánto cuesta trabajar juntos
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Editar un video cuesta {priceSentence("es", "arranque").toLowerCase()}, y un día de producción en tu
-            negocio, {priceSentence("es", "presencia-local").toLowerCase()}. La grabación por horas va {filmingHourlyText("es")}. Cada paquete muestra su precio de partida para que sepas el orden de
-            magnitud antes de escribirme. La cifra final depende de cuánto video
-            necesitas, de si hay grabación presencial en nuestras{" "}
-            <Link
-              href="/es/areas"
-              className="underline underline-offset-4 hover:text-[#9f3c27]"
-            >
-              áreas de servicio de Fort Lauderdale, Broward y Miami-Dade
-            </Link>{" "}
-            y de qué tan rápido lo necesitas — por eso siempre recibes una
-            cotización por escrito para tu proyecto.
-          </p>
+          <h2 className="max-w-3xl text-balance font-serif em-display">Empieza por el trabajo que realmente necesitas.</h2>
+          <ul className="em-pricing-intro__facts" aria-label="Resumen de precios">
+            <li>La edición remota empieza {priceSentence("es", "arranque").toLowerCase()}.</li>
+            <li>Un día de producción empieza {priceSentence("es", "presencia-local").toLowerCase()}.</li>
+            <li>La grabación por hora va {filmingHourlyText("es")}.</li>
+          </ul>
           <PageUpdated path={PATH} locale="es" className="mt-3 text-xs text-[#5a6066]" />
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             ¿Quieres un número para tu proyecto ahora mismo? Usa la{" "}
@@ -125,6 +120,7 @@ export default function SpanishPricingPage() {
       </section>
 
       <PackagesSection locale="es" />
+      <ClientReviews locale="es" compact />
       <PricingAnswer locale="es" />
       <ClosingCredits locale="es" />
     </main>

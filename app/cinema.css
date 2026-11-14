@@ -248,6 +248,15 @@ html.rail-anim:not([data-brand-moment]) .em-cine__bar {
   background: rgba(255, 255, 255, 0.55);
 }
 
+/* Pricing borrows the homepage's real production frame, but keeps the next
+   decision short and scannable. The fact list below replaces the former long
+   opening paragraph without removing the server-rendered facts. */
+.em-pricing-intro { padding: 38px 0 8px; background: var(--cine-paper); }
+.em-pricing-intro__facts { display: grid; gap: 10px; max-width: 720px; margin: 20px 0 0; padding: 0; list-style: none; font: 600 17px/1.5 var(--font-geist-sans), sans-serif; color: #252a2d; }
+.em-pricing-intro__facts li { position: relative; padding-left: 22px; }
+.em-pricing-intro__facts li::before { content: ""; position: absolute; top: 0.62em; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--cine-accent); }
+@media (min-width: 640px) { .em-pricing-intro { padding-top: 52px; } .em-pricing-intro__facts { font-size: 19px; gap: 12px; } }
+
 .em-cine__title {
   margin: 0;
   font-weight: inherit;
