@@ -1,3 +1,9 @@
+## 2026-11-14 — Pricing visual reading path + caption self-check state (production)
+
+- `03694b0f` is deployed in Vercel `dpl_9JeG5GHpAn6FPDsCWsH7s7ZwGjCQ` (Ready, canonical aliases). `/pricing` and `/es/precios` now use `PricingCinematicHero`, `PortfolioTeaser`, scannable three-fact price intro, packages, then `ClientReviews` before `PricingAnswer`. Canonical GPTBot reads returned HTTP 200 with the hero/work/review/MP4 markers in both languages.
+- `a467ba99` is deployed in Vercel `dpl_HmB3WGCzboBjjH89nkTrqgTdi9dc` (Ready). Caption self-check result panel is visible at first paint with “0 of 3 answers selected,” so it cannot look like a blank/dead interaction before all choices are made.
+- Checks: `pnpm vitest run app/__tests__/pricing-human-entry.test.ts app/__tests__/pricing-pages.test.ts app/__tests__/package-page-geo.test.ts` 16/16; earlier package/guide focused set 31/31; typecheck, changed-file eslint, lastmod update and diff check pass. CUA transport was unavailable, so phone visual/tap review remains open. Do not claim conversion/SEO/GEO outcome yet.
+
 ## 2026-11-11 — Remote editor + Gemini entity rebuild (re-author of PRs #705 and #708, both dirty / needs-reauthor)
 
 - Rebuilds the missing scope of #705 (remote video editor exact-query FAQPage schema EN and ES) and #708 (entity knowsAbout + Gemini category signals) on current main, as one combined PR: both PRs touch the same remote FAQ lines, so splitting them would conflict.
