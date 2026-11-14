@@ -24,6 +24,7 @@ import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagno
 import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
 import { CinemaHeroMotion } from "@/components/cinema-hero-motion";
 import { ClientReviews } from "@/components/client-reviews";
+import { GuideIllustration } from "@/components/guide-illustration";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
@@ -753,6 +754,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 </div>
               </details>
               {guide.id === "caption-styles-reels-guide" ? <CaptionGuideSectionVisual locale={locale} sectionIndex={index} /> : null}
+              {index === 0 && guide.id !== "caption-styles-reels-guide" ? <GuideEditorialMoment guide={guide} locale={locale} /> : null}
               {index === 0 && guide.id !== "caption-styles-reels-guide" ? <PortfolioTeaser locale={locale} source="guide_work_midpoint" /> : null}
               {index === 1 && guide.id === "caption-styles-reels-guide" ? <ClientReviews locale={locale} compact /> : null}
               </React.Fragment>
@@ -957,6 +959,24 @@ function CaptionGuideSectionVisual({ locale, sectionIndex }: { locale: GuideLoca
         <p className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">{visual.title}</p>
         <p className="mt-4 text-xs leading-5 text-white/75">{locale === "es" ? "Imagen editorial ilustrativa; no representa trabajo de un cliente." : "Illustrative editorial image; not client work."}</p>
       </figcaption>
+    </figure>
+  );
+}
+
+/** A thematic visual breath for guides without a page-specific project image. */
+function GuideEditorialMoment({ guide, locale }: { guide: Guide; locale: GuideLocale }) {
+  const isSpanish = locale === "es";
+  return (
+    <figure className="my-8 border-y border-[#ddd4c8] bg-[#fbf6ef] py-6 sm:my-12 sm:py-8" data-section="guide-editorial-moment">
+      <div className="grid items-center gap-5 sm:grid-cols-[minmax(0,1fr)_180px] sm:gap-8">
+        <figcaption>
+          <p className="text-xs font-semibold tracking-[0.18em] text-[#9f3c27] uppercase">{isSpanish ? "En una mirada" : "At a glance"}</p>
+          <p className="mt-3 max-w-xl font-serif text-2xl leading-tight text-[#101214] sm:text-3xl">
+            {isSpanish ? "Una idea clara primero. El detalle queda disponible cuando lo necesites." : "One clear idea first. The detail stays available when you need it."}
+          </p>
+        </figcaption>
+        <GuideIllustration slug={guide.slug} className="h-auto w-full max-w-[220px] justify-self-start sm:justify-self-end" />
+      </div>
     </figure>
   );
 }

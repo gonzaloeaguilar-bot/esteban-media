@@ -48,4 +48,12 @@ describe("guide human-entry visuals", () => {
     expect((html.match(/data-section="caption-guide-editorial-visual"/g) ?? [])).toHaveLength(3);
     expect(html).toContain("Illustrative editorial image; not client work.");
   });
+
+  it.each(["en", "es"] as const)("gives every non-caption %s guide a thematic visual breath before its work rail", (locale) => {
+    for (const guide of getGuides(locale).filter((item) => item.id !== "caption-styles-reels-guide")) {
+      const html = renderToStaticMarkup(React.createElement(GuideDetailPage, { guide }));
+      expect(html, guide.slug).toContain('data-section="guide-editorial-moment"');
+      expect(html.indexOf('data-section="guide-editorial-moment"'), guide.slug).toBeLessThan(html.indexOf('id="selected-work-'));
+    }
+  });
 });
