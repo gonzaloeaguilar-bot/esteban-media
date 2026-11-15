@@ -1,3 +1,11 @@
+## 2026-11-14 — Local GBP conversion proof and short-form intent parity (priority-growth:2026-11-14:esteban)
+
+- Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-14 (work id: `priority-growth:2026-11-14:esteban`).
+- Source scope: `app/(english)/services/reels-editor-fort-lauderdale/page.tsx`, `app/(english)/services/short-form-video-editor-miami/page.tsx`, `app/__tests__/conversion-resources.test.ts`, and `config/page-lastmod.json`.
+- Restores verified Google reviews (`ClientReviews` 5.0 rating, 19 reviews, Google Business Profile link) and food creator choice conversion paths on `/services/reels-editor-fort-lauderdale`.
+- Restores reciprocal intent linkage between `/services/short-form-video-editor-miami` and `/services/reels-editor-miami`, removes hard-typed pricing figures in favor of canonical `lib/pricing.ts` imports, and keeps conversion review proof test expectations aligned with `<ClientReviews locale="en" compact />`.
+- Local verification: `pnpm lastmod:update`, `npm test` (211 test files, 3,893 tests passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-11-11 — Remote editor + Gemini entity rebuild (re-author of PRs #705 and #708, both dirty / needs-reauthor)
 
 - Rebuilds the missing scope of #705 (remote video editor exact-query FAQPage schema EN and ES) and #708 (entity knowsAbout + Gemini category signals) on current main, as one combined PR: both PRs touch the same remote FAQ lines, so splitting them would conflict.
