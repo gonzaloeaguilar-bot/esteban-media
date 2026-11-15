@@ -1,3 +1,7 @@
+## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-miami`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (212 files / 3,894 tests passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-11-14 — Local GBP conversion proof and short-form intent parity (priority-growth:2026-11-14:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Restore food-creator choice conversion paths and reciprocal intent links between `/services/short-form-video-editor-miami` and `/services/reels-editor-miami`. Verified with `pnpm lastmod:update`, `npm test` (211 files / 3,893 tests passing), and `priority-growth-project-verify.sh`.
