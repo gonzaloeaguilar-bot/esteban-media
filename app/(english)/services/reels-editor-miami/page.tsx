@@ -1,3 +1,4 @@
+import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { REELS_MIAMI_CONVERSATIONAL_EN } from "@/lib/conversational-answers";
@@ -128,5 +129,10 @@ export const metadata = buildPageMetadata({
 });
 
 export default function ReelsEditorMiamiPage() {
-  return <GeoServicePage content={content} />;
+  return (
+    <>
+      <GeoServicePage content={content} />
+      <ClientReviews locale="en" />
+    </>
+  );
 }

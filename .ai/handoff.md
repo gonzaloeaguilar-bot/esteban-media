@@ -1,3 +1,11 @@
+## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
+
+- Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
+- Source scope: `app/(english)/services/reels-editor-miami/page.tsx`, `app/__tests__/reels-editor-miami-conversion-proof.test.ts`, and `config/page-lastmod.json`.
+- Renders verified Google reviews (`ClientReviews` 5.0 rating, 19 reviews, Google Business Profile link, and verbatim reviews) directly on `/services/reels-editor-miami`, providing local Miami searchers with direct social proof and Google profile conversion access matching `/services/reels-editor-fort-lauderdale`.
+- Regression test `app/__tests__/reels-editor-miami-conversion-proof.test.ts` asserts `ClientReviews` is imported and rendered on `/services/reels-editor-miami`.
+- Local verification: `pnpm lastmod:update`, `npm test` (212 test files, 3,894 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews candidate commit.
+
 ## 2026-11-14 — Local GBP conversion proof and short-form intent parity (priority-growth:2026-11-14:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-14 (work id: `priority-growth:2026-11-14:esteban`).
