@@ -1,3 +1,11 @@
+## 2026-11-17 — Owned-site CTR snippet optimization for Gains From Geebs Shorts (priority-growth:2026-11-17:esteban)
+
+- Priority-growth action brief: recommended action `owned_site_ctr` for round 2026-11-17 (work id: `priority-growth:2026-11-17:esteban`).
+- Top GSC opportunity: `gainsfromgeebs` query (positions 10–10.5, 12 impressions over 72h, 0 clicks) targeting `/portfolio/gains-from-geebs-shorts`.
+- Changes: added dedicated `metaDescription` strings for `gains-from-geebs-shorts` in `messages/en.json` and `messages/es.json` with concrete editorial metrics (31s, 36s, YouTube Shorts, vertical format, captions) replacing generic 1-sentence summaries.
+- Re-synced `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation: passed `vitest run app/__tests__/portfolio-watch-pages.test.ts`, `vitest run app/__tests__/page-lastmod.test.ts`, and `/Users/gonzalo/code/portfolio-ops-pg-lane/scripts/priority-growth-project-verify.sh`.
+
 ## 2026-11-14 — Local GBP conversion proof and short-form intent parity (priority-growth:2026-11-14:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-14 (work id: `priority-growth:2026-11-14:esteban`).
