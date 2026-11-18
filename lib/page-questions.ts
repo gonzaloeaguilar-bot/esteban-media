@@ -1,18 +1,18 @@
-// Question-shaped answers that a page did not have (overnight loop rows 10,
-// 14, 109 and 111, 2026-10-14). Each entry is ONE section: a heading phrased
-// the way people search, 100-180 words, at least one real fact, rendered in
-// the server HTML by components/page-questions.tsx. Depth that a skimmer does
-// not need goes in `details`, which renders as a native <details> (collapsed
-// is not removed: crawlers read it).
-//
-// Claim discipline: only what the site already publishes (Fort Lauderdale
-// base, Spanish-first with intermediate English, editing from supplied
-// footage, on-location work scoped per project) plus general craft knowledge.
-// Prices are read from lib/pricing.ts / lib/packages.ts, never typed here.
-// Study figures come from data/studies/miami-restaurant-instagram-2026.json.
-//
-// Each entry starts with `path:` so scripts/page-lastmod.mjs dates the page
-// when its answer changes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import study from "@/data/studies/miami-restaurant-instagram-2026.json";
 import { priceSentence } from "@/lib/packages";
@@ -21,7 +21,7 @@ import { filmingHourlyText, shortFormPriceText } from "@/lib/pricing";
 export type PageQuestion = {
   path: string;
   locale: "en" | "es";
-  /** Anchor id for the section heading. */
+
   id: string;
   heading: string;
   paragraphs: string[];
@@ -32,7 +32,7 @@ const allInEn = priceSentence("en", "todo-incluido").toLowerCase();
 const allInEs = priceSentence("es", "todo-incluido").toLowerCase();
 
 export const PAGE_QUESTIONS: readonly PageQuestion[] = [
-  // Row 109: autocomplete "tiktok editor for hire".
+
   {
     path: "/services/tiktok-ad-video-editor-miami",
     locale: "en",
@@ -43,7 +43,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
       `Esteban Moreno Media edits TikTok ads and organic TikToks from Fort Lauderdale for businesses in Miami and remote clients, Spanish-first with intermediate English. Starter is ${shortFormPriceText("en")}, and every project gets a written quote before the edit starts. To hire, send three things in one message: a link to the footage, what the video has to sell, and the date it has to go live.`,
     ],
   },
-  // Row 111: autocomplete "how to edit food videos", "video editing for restaurant".
+
   {
     path: "/services/food-and-places-creator-video-editing-miami",
     locale: "en",
@@ -54,7 +54,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
       `Length matters too. In the site's own [study of ${study.sample} Miami restaurant accounts](/guides/miami-restaurant-instagram-study) (${study.postsAnalyzed} posts), ${study.formats.reelPct}% of posts were Reels and the median Reel ran ${study.reels.medianSeconds} seconds. Editing your own phone clips is Starter, ${shortFormPriceText("en")}.`,
     ],
   },
-  // Row 10: "ugc video editor fort lauderdale" landed on /areas; no new thin page.
+
   {
     path: "/services/ugc-video-editor-ecommerce",
     locale: "en",
@@ -66,9 +66,9 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     ],
   },
 
-  // Row 14: the six growth-system pages were ~300 words with no answer-first
-  // section. One definition-first answer each, EN + ES, built only from the
-  // scope and boundaries the pages already publish.
+
+
+
   {
     path: "/services/conversion-websites",
     locale: "en",
@@ -176,7 +176,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "What does creative production include?",
     paragraphs: [
       "Creative production is the video and photography that the rest of a growth system runs on: the clips on the website, the photos on the Google profile, the Reels that send people to the offer. Here it covers video editing, photography and on-location capture scoped per project, repurposing one recording into channel-ready exports, and a look at how past videos and posts performed before deciding what to make next.",
-      `Prices are published. Editing your own clips is Starter, ${shortFormPriceText("en")}. On-location filming is ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. Deliverables, timing, location and usage are confirmed per project. Performance analysis informs the next decision; it cannot predict or guarantee that a video goes viral.`,
+      `Prices are published. Editing your own clips is Starter, ${shortFormPriceText("en")}. On-location filming is ${filmingHourlyText("en")}, and the monthly Local Presence plan for planning, filming and editing at your business starts ${priceSentence("en", "presencia-local").toLowerCase()}. Deliverables, timing, location and usage are confirmed per project. Performance analysis informs the next decision; it cannot predict or guarantee that a video goes viral.`,
     ],
   },
   {
@@ -186,11 +186,11 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "¿Qué incluye la producción creativa?",
     paragraphs: [
       "La producción creativa es el video y la fotografía de los que vive el resto del sistema de crecimiento: los clips del sitio web, las fotos del perfil de Google, los Reels que llevan a la gente a la oferta. Aquí incluye edición de video, fotografía y grabación en locación definida por proyecto, versiones de una misma grabación listas para cada canal y una revisión de cómo funcionaron los videos anteriores antes de decidir qué hacer.",
-      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingHourlyText("es")}, y un día de producción en tu negocio, con planificación, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}. Entregables, tiempos, locación y uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
+      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingHourlyText("es")}, y el plan mensual Presencia Local para planificación, grabación y edición en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Entregables, tiempos, locación y uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
     ],
   },
-  // Row 14, second answer per growth-system page: what to prepare, so each
-  // page carries two citable sections (dual-audience gate needs two in band).
+
+
   {
     path: "/services/conversion-websites",
     locale: "en",

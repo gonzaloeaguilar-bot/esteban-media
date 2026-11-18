@@ -11,21 +11,21 @@ import {
   CREW_RECORDING_RATES,
 } from "@/lib/pricing";
 
-/**
- * The second reading on each 2026-10-06 niche page.
- *
- * Sections of roughly 100-180 words under a question-shaped heading, each one
- * carrying a fact rather than an adjective. They render inside a native
- * <details>, server-side, so the paragraphs are in the raw HTML whether the fold
- * is open or shut — which is the only honest way to collapse anything on a site
- * whose organic footprint is its acquisition channel.
- *
- * Claim discipline is the same as lib/service-depth-content.ts: no price, no
- * turnaround, no guarantee, no result, no statistic without a source. Esteban
- * does not hold a Part 107 certificate, so nothing here offers to fly a drone,
- * and his working language is Spanish with intermediate English, so nothing here
- * claims full fluency in both.
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export type DeepDive = {
   id: string;
@@ -165,14 +165,14 @@ export const AUTO_DETAILING_DEEP_DIVE: DeepDive = {
 };
 
 const localPresence = PACKAGE_PRICES["presencia-local"];
-// Owner-set "from" price; a "custom" package would have no figure to print.
+
 const localPresenceFrom = localPresence.kind === "from" ? usd(localPresence.amount) : "a custom quote";
 
-/**
- * Corporate event page. Figures are imported from lib/pricing.ts; the proof is
- * the Diana & Jack film exactly as messages/en.json describes it. No capture
- * technique is claimed that the site does not already publish.
- */
+
+
+
+
+
 export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
   id: "corporate-event-details",
   title: "How much does event video cost, and what should a quote include?",
@@ -181,9 +181,9 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
         {
           heading: "How much does event videography cost in Miami?",
           paragraphs: [
-            // DM-15 (2026-10-14): "event videography pricing" / "event
-            // videographer cost" autocomplete x6/x2; the hourly filming floor
-            // now sits inside this price answer.
+
+
+
             `Event videography is priced in two lines: filming at the venue, ${filmingHourlyText("en")} (the minimum for time on location), and the edit. For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, there is no filming line: share the original material and explain the finished piece you want before treating that range as a quote.`,
             "A short recap, a speaker presentation, and a longer event film require different editorial decisions. Specify which moments matter, whether dialogue must remain complete, and where the finished video will be published. The amount and condition of the source material also need review. Capture and editing can be discussed together, with the actual deliverables agreed for your event.",
           ],
@@ -191,7 +191,7 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
         {
           heading: "How should you budget for filming at the venue?",
           paragraphs: [
-            `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+            `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per month. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
             "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
           ],
         },
@@ -241,7 +241,7 @@ export const CORPORATE_EVENT_FTL_DEEP_DIVE: DeepDive = {
     {
       heading: "How should you budget for filming at the venue?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per month. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
         "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
       ],
     },
@@ -291,7 +291,7 @@ export const NETWORKING_EVENT_DEEP_DIVE: DeepDive = {
     {
       heading: "How should you budget for filming at the venue?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per month. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
         "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
       ],
     },
@@ -319,10 +319,10 @@ export const NETWORKING_EVENT_DEEP_DIVE: DeepDive = {
   ],
 };
 
-// Fitness & beauty cost answers (2026-10-07). Google's AI Overview for "how much
-// does a gym promo video cost in miami" cites small-studio cost pages; these
-// pages answer it with the figures in lib/pricing.ts and nothing else. The
-// fitness projects in the portfolio are web and AI-bot work, and say so.
+
+
+
+
 const fromPrice = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) =>
   price.kind === "from" ? usd(price.amount) : "a custom quote";
 const starterFrom = fromPrice(PACKAGE_PRICES.arranque);
@@ -345,7 +345,7 @@ export const GYM_DEEP_DIVE: DeepDive = {
     {
       heading: "What does it cost to film at the gym or studio?",
       paragraphs: [
-        `On-site work runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day. It covers pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. Do not add the two together; they are different ways of scoping the same need.`,
+        `On-site work runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per month. It covers pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. Do not add the two together; they are different ways of scoping the same need.`,
         "A gym shoot is easier to price when the schedule is fixed in advance: which class, which hour, which trainers, and whether members will be in frame. Quiet hours make filming faster and remove most permission questions. Send that schedule with the request, and the proposal can say exactly what will be filmed and what will be delivered.",
       ],
     },
@@ -388,7 +388,7 @@ export const SALON_COST_DEEP_DIVE: DeepDive = {
     {
       heading: "What does filming inside the salon cost?",
       paragraphs: [
-        `When the shop wants someone to come and film, [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day and includes pre-production, on-location capture, post-capture editing and deliverables in the formats you need, in Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same basis; the two are alternatives, not a sum.`,
+        `When the shop wants someone to come and film, [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per month and includes pre-production, on-location capture, post-capture editing and deliverables in the formats you need, in Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same basis; the two are alternatives, not a sum.`,
         "A salon shoot goes faster when it is booked around the appointment book rather than against it. Pick a block when a stylist or barber has a willing client, a chair near consistent light, and a few minutes free for one useful line to camera. Send that plan with the request so the proposal can state what will be filmed and delivered.",
       ],
     },
@@ -417,7 +417,7 @@ export const SPA_DEEP_DIVE: DeepDive = {
     {
       heading: "What does filming at the spa cost?",
       paragraphs: [
-        `On-site filming runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day: pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. They are two ways to scope the work, not amounts to add together.`,
+        `On-site filming runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per month: pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. They are two ways to scope the work, not amounts to add together.`,
         "Most spas are easiest to film before opening or in a quiet block between bookings, when rooms are set and nobody is waiting. Send the hours available, the rooms to show, and whether any staff member will speak to camera. The proposal can then state what will be filmed, what will be delivered, and what stays out of frame.",
       ],
     },
@@ -438,9 +438,9 @@ export const SPA_DEEP_DIVE: DeepDive = {
   ],
 };
 
-// Niche wave 8 (2026-10-11). Same rules as above: question-shaped headings,
-// 100-180 words a section, no price, turnaround, result or regulatory detail
-// that was not verified, and every regulated duty attributed to the client.
+
+
+
 export const PRECONSTRUCTION_DEEP_DIVE: DeepDive = {
   id: "preconstruction-launch",
   title: "How does a pre-construction launch turn into a reel series?",

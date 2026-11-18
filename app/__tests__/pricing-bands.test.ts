@@ -14,12 +14,12 @@ function source(path: string) {
   return readFileSync(join(process.cwd(), path), "utf8");
 }
 
-/**
- * The estimator uses market bands, while Esteban's owner-set package starting
- * prices live in lib/pricing.ts. These tests pin the bands to their documented
- * basis and prevent a production-day package price from being presented as a
- * complete corporate-video quote.
- */
+
+
+
+
+
+
 describe("pricing module bands", () => {
   const basis = source("docs/pricing-basis.md");
   const pricingSource = source("lib/pricing.ts");
@@ -38,8 +38,8 @@ describe("pricing module bands", () => {
     }
   });
 
-  // 2026-10-08: short-form is priced like Starter, not by a band. A $350-675
-  // "single video" band contradicted Starter's $100 per video on the same site.
+
+
   it("prices short-form like Starter: $100 per video, $85 / $160 a week", () => {
     expect("social" in PRICING_BANDS).toBe(false);
     expect(SHORT_FORM.perVideoFrom).toBe(100);
@@ -76,7 +76,7 @@ describe("pricing module bands", () => {
   });
 
   it("documents a basis for every band that appears in the module", () => {
-    // The doc writes figures with thousands separators for readability.
+
     const digits = basis.replace(/,/g, "");
     for (const [, min, max] of BANDS) {
       expect(digits, `docs/pricing-basis.md must cite $${min}`).toContain(String(min));
@@ -90,8 +90,8 @@ describe("pricing module bands", () => {
   });
 
   it("records that the full-production-company comparable is deliberately not used", () => {
-    // Guards against someone benchmarking against $4,500-20,000 agency pricing
-    // and "correcting" the bands upward for the wrong business model.
+
+
     expect(pricingSource).toMatch(/full-production-company/i);
     expect(basis.replace(/,/g, "")).toMatch(/4500/);
   });
@@ -113,11 +113,11 @@ describe("pricing module bands", () => {
     expect(PRODUCT_PHOTO_MARKET.miamiEntryPerImage).toBe(35);
     expect(PRODUCT_PHOTO_MARKET.halfDayMin).toBe(300);
     expect(PRODUCT_PHOTO_MARKET.halfDayMax).toBe(1000);
-    // The formerly hard-coded literals must not reappear in guide prose.
+
     expect(guides).not.toMatch(/\$25 to \$50|\$25 y \$50|\$300 to \$1,000|\$300 y \$1,000/);
   });
 
-  it("separates the published production-day starting price from a full corporate quote", () => {
+  it("separates the published monthly-plan starting price from a full corporate quote", () => {
     const price = PACKAGE_PRICES["presencia-local"];
     expect(price).toMatchObject({ kind: "from", unit: "month" });
     if (price.kind !== "from") throw new Error("Local Presence needs a published starting price");
@@ -125,9 +125,9 @@ describe("pricing module bands", () => {
     const english = getGuides("en").find(({ id }) => id === "corporate-video-cost-guide")!;
     const spanish = getGuides("es").find(({ id }) => id === "corporate-video-cost-guide")!;
     expect(english.answer).toContain(usd(price.amount));
-    expect(english.answer).toContain("not a complete corporate-video price");
+    expect(english.answer).toContain("not a fixed corporate-video quote");
     expect(spanish.answer).toContain(usd(price.amount));
-    expect(spanish.answer).toContain("no el precio completo de un video corporativo");
+    expect(spanish.answer).toContain("no una cotización fija para un video corporativo");
     expect(source("lib/guides.ts")).toContain('packageGuidePrice("presencia-local")');
   });
 });

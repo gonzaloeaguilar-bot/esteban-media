@@ -3,12 +3,12 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { priceSentence } from "@/lib/packages";
 import { SHORT_FORM, filmingHourlyText, shortFormPriceText, usd } from "@/lib/pricing";
 
-// DM-16 (demand coverage map 2026-10-14): autocomplete x4 "videographer miami"
-// and x4 "videographer fort lauderdale", and /es/videografo-en-miami had no
-// English twin. Same facts as the Spanish page: Fort Lauderdale base, Miami-Dade
-// projects selected one by one, filming from the owner's hourly floor (owner
-// fact 2026-10-14), editing per video, published Miami work as the only proof.
-// No drone work, client result or availability promise is claimed.
+
+
+
+
+
+
 
 const local = priceSentence("en", "presencia-local").toLowerCase();
 
@@ -61,7 +61,7 @@ const content: GeoServicePageContent = {
   depth: [
     {
       question: "How do you hire a videographer in Miami?",
-      body: `Start with what the video is for, then ask for a written quote that separates filming time from editing. Esteban Moreno Media is based in Fort Lauderdale and takes Miami-Dade projects one by one, so the location and the date are confirmed when you ask. Filming is ${filmingHourlyText("en")}, the minimum for time on location, and editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${local}. Send the address, the goal, where the video will be published and a reference you like. Esteban replies with the hours he would film, the number of finished videos and the rounds of changes, before the date is booked. Communication is Spanish-first, with intermediate English for bilingual projects.`,
+      body: `Start with what the video is for, then ask for a written quote that separates filming time from editing. Esteban Moreno Media is based in Fort Lauderdale and takes Miami-Dade projects one by one, so the location and the date are confirmed when you ask. Filming is ${filmingHourlyText("en")}, the minimum for time on location, and editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package. The monthly Local Presence plan at your business includes planning, filming and editing, ${local}. Send the address, the goal, where the video will be published and a reference you like. Esteban replies with the hours he would film, the number of finished videos and the rounds of changes, before the date is booked. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
     {
       question: "Do you need a videographer, or only an editor?",

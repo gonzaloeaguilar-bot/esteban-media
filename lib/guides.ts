@@ -94,12 +94,12 @@ type GuideCopy = {
   metadataTitle: string;
   title: string;
   description: string;
-  /** Search snippet when the visible description runs past ~160 characters (loop row 27). */
+
   metaDescription?: string;
   eyebrow: string;
   answer: string;
   proof: GuideProofLink;
-  /** Optional homepage-style real-work proof for a guide whose subject has one. */
+
   heroProof?: GuideProofLink;
   sections: readonly GuideSection[];
   faqs?: readonly { question: string; answer: string }[];
@@ -135,8 +135,8 @@ export const guidePolicyNotes: Record<GuideLocale, string> = {
   es: "Esta es una guía general para preparar un proyecto, no una política de Esteban Moreno Media. Los paquetes, el proceso, las revisiones, los plazos, la transferencia de archivos y los entregables se definen para cada proyecto.",
 };
 
-// Fail at build time if a cited starting price becomes custom-only. A guide
-// must then be rewritten, rather than quietly publishing a stale figure.
+
+
 function packageGuidePrice(id: PackageId): string {
   const price = PACKAGE_PRICES[id];
   if (price.kind !== "from") throw new Error(`Guide requires a starting price for ${id}`);
@@ -1914,9 +1914,9 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // Definition first (round 2, 2026-10-14): autocomplete offers "what
-          // does a videographer do" and "what does a video editor do"; the
-          // page compared the two roles without ever defining either.
+
+
+
           heading: "What is a videographer?",
           paragraphs: [
             "A videographer is the person who films the video. They run the camera, set the light and record the sound where the story happens: your business, an event, an interview or a property. On most projects their part ends when the footage is shot and ready to edit.",
@@ -1951,12 +1951,12 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          // DM-25 (2026-10-14): autocomplete "videografo freelance", "busco
-          // editor de video freelance" (co+mx+us); EN twin for parity.
+
+
           heading: "Should you hire a freelance videographer or a production company?",
           paragraphs: [
             `Hire a freelance videographer when one person can film what you need and you want to talk directly with whoever holds the camera; hire a production company when the shoot needs a crew, several cameras or someone running sound, lights and talent at the same time. Esteban Moreno Media is the freelance option: Esteban films ${filmingHourlyText("en")}, the minimum for time on location, and edits the footage himself, so the person who filmed is the person who cuts.`,
-            `The trade-off is size. A freelancer suits interviews, a business's space, a product in use or a small event; a production company suits a commercial with actors, a multi-room conference or a set that needs a director and a producer. Ask both for the same written quote: hours on location, number of people, finished files and rounds of changes. A full production day with Esteban, planning, filming and the edit, starts from ${packageGuidePrice("presencia-local")} per production day.`,
+            `The trade-off is size. A freelancer suits interviews, a business's space, a product in use or a small event; a production company suits a commercial with actors, a multi-room conference or a set that needs a director and a producer. Ask both for the same written quote: hours on location, number of people, finished files and rounds of changes. The monthly Local Presence plan with Esteban includes planning, filming and editing, starting from ${packageGuidePrice("presencia-local")} per month.`,
           ],
         },
         {
@@ -2091,10 +2091,10 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // Respuesta de definición primero (ronda 2, 2026-10-14): GSC 90d
-          // "videografo que es" 13 impresiones en posición 53, la página está
-          // "Crawled - currently not indexed" desde 2026-07-27 y el autocompletado
-          // sugiere "que es un videografo y para que sirve".
+
+
+
+
           heading: "¿Qué es un videógrafo y para qué sirve?",
           paragraphs: [
             "Un videógrafo es la persona que graba el video. Opera la cámara, cuida la luz y capta el sonido en el lugar donde ocurre la historia: tu negocio, un evento, una entrevista o una propiedad. En la mayoría de los proyectos, su parte termina cuando el material queda grabado y listo para editar.",
@@ -2129,12 +2129,12 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          // DM-25 (2026-10-14): autocomplete x3-4 "videografo freelance",
-          // "busco editor de video freelance" (co+mx+us).
+
+
           heading: "¿Videógrafo freelance o productora?",
           paragraphs: [
             `Contrata un videógrafo freelance cuando una sola persona puede grabar lo que necesitas y quieres hablar directo con quien opera la cámara; contrata una productora cuando la grabación necesita un equipo, varias cámaras o alguien a cargo del sonido, la luz y las personas al mismo tiempo. Esteban Moreno Media es la opción freelance: Esteban graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y edita él mismo el material, así que quien grabó es quien edita.`,
-            `La diferencia está en el tamaño. Un freelance encaja con entrevistas, el espacio de un negocio, un producto en uso o un evento pequeño; una productora encaja con un comercial con actores, una conferencia en varias salas o un set que necesita director y productor. Pide a los dos la misma cotización por escrito: horas en locación, cuántas personas van, archivos finales y rondas de cambios. Un día completo de producción con Esteban, con planificación, grabación y edición, parte desde ${packageGuidePrice("presencia-local")} por día de producción.`,
+            `La diferencia está en el tamaño. Un freelance encaja con entrevistas, el espacio de un negocio, un producto en uso o un evento pequeño; una productora encaja con un comercial con actores, una conferencia en varias salas o un set que necesita director y productor. Pide a los dos la misma cotización por escrito: horas en locación, cuántas personas van, archivos finales y rondas de cambios. El plan mensual Presencia Local con Esteban incluye planificación, grabación y edición, desde ${packageGuidePrice("presencia-local")} al mes.`,
           ],
         },
         {
@@ -2424,7 +2424,7 @@ const guidePairs: readonly GuidePair[] = [
       description:
         "Learn what a Miami corporate video quote needs to cover, from filming and editing to deliverables and review terms, before you compare budgets.",
       eyebrow: "Video Pricing Guide",
-      answer: `Corporate video production in Miami does not have one all-in price: the quote depends on the filming scope, number of finished videos, and post-production work. Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day, but that is a filming starting price—not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
+      answer: `Corporate video production in Miami does not have one all-in price: the quote depends on the filming scope, number of finished videos, and post-production work. Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per month, but that is a monthly plan starting price, not a fixed corporate-video quote: editing, deliverables, review terms, and usage need a project-specific written quote.`,
       proof: {
         href: "/portfolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -2433,11 +2433,11 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-1 (2026-10-14): GSC "video production miami cost" 8 imp @27.4
-          // on this guide; the answer now opens the page as its own H2.
+
+
           heading: "How much does video production cost in Miami?",
           paragraphs: [
-            `Video production in Miami with Esteban Moreno Media starts from ${packageGuidePrice("presencia-local")} per production day on the Local Presence package, with planning, filming and the edit for one business. Shorter shoots are billed by time: filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} for a short social video on the Starter package, and a corporate or explainer edit falls in the calculator's corporate band, ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `Video production in Miami with Esteban Moreno Media starts from ${packageGuidePrice("presencia-local")} per month on the Local Presence package, with planning, filming and the edit for one business. Shorter shoots are billed by time: filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} for a short social video on the Starter package, and a corporate or explainer edit falls in the calculator's corporate band, ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}.`,
             `Those bands were checked against a published market range of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)} for a medium or explainer project, and they are deliberately not full-crew production-company rates, which assume a director, a producer and several operators. Every project gets a written quote that separates filming time, the number of finished videos and the rounds of changes, so two quotes can be compared line by line rather than by total.`,
           ],
         },
@@ -2464,7 +2464,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Which scope details should you send for a comparable quote?",
           paragraphs: [
-            "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down. [Local Presence](/pricing/local-presence) starts at a production-day price; it is not an all-in corporate-video quote.",
+            "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down. [Local Presence](/pricing/local-presence) starts at a monthly-plan price; it is not an all-in corporate-video quote.",
             "A short, concrete brief reduces assumptions and makes competing estimates easier to compare. Include what is known and label what still needs recommendation.",
           ],
           bullets: [
@@ -2502,7 +2502,7 @@ const guidePairs: readonly GuidePair[] = [
       description:
         "Guía de costos, presupuestos y factores de alcance para la producción y edición de video corporativo en Miami.",
       eyebrow: "Guía de Precios",
-      answer: `Presencia Local de Esteban parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. Es un precio inicial de grabación, no el precio completo de un video corporativo: edición, entregables, revisiones y uso necesitan una cotización escrita para el proyecto.`,
+      answer: `Presencia Local de Esteban parte desde ${packageGuidePrice("presencia-local")} al mes. Es el precio inicial de un plan mensual, no una cotización fija para un video corporativo: edición, entregables, revisiones y uso necesitan una cotización escrita para el proyecto.`,
       proof: {
         href: "/es/portafolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -2511,10 +2511,10 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-1 (2026-10-14): ES twin of the answer-first price H2.
+
           heading: "¿Cuánto cuesta la producción de video en Miami?",
           paragraphs: [
-            `La producción de video en Miami con Esteban Moreno Media parte desde ${packageGuidePrice("presencia-local")} por día de producción con el paquete Presencia Local, con planificación, grabación y edición para un negocio. Las grabaciones más cortas se cobran por tiempo: la grabación va ${filmingHourlyText("es")}, el mínimo por tiempo en locación. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} por un video corto para redes con el paquete Arranque, y una edición corporativa o explicativa entra en el rango corporativo de la calculadora, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `La producción de video en Miami con Esteban Moreno Media parte desde ${packageGuidePrice("presencia-local")} al mes con el paquete Presencia Local, con planificación, grabación y edición para un negocio. Las grabaciones más cortas se cobran por tiempo: la grabación va ${filmingHourlyText("es")}, el mínimo por tiempo en locación. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} por un video corto para redes con el paquete Arranque, y una edición corporativa o explicativa entra en el rango corporativo de la calculadora, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}.`,
             `Esos rangos se compararon con un rango publicado del mercado de ${usd(PRICING_BANDS.corporate.marketMin)} a ${usd(PRICING_BANDS.corporate.marketMax)} por un proyecto mediano o explicativo, y a propósito no son tarifas de una productora con equipo completo, que suponen director, productor y varios operadores. Cada proyecto recibe una cotización por escrito que separa el tiempo de grabación, la cantidad de videos terminados y las rondas de cambios, así dos cotizaciones se comparan línea por línea y no solo por el total.`,
           ],
         },
@@ -2535,7 +2535,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué detalles debes enviar para comparar cotizaciones?",
           paragraphs: [
-            "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito. [Presencia Local](/es/precios/presencia-local) parte desde un precio por jornada de producción; no es una cotización completa para un video corporativo.",
+            "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito. [Presencia Local](/es/precios/presencia-local) parte desde un precio mensual; no es una cotización completa para un video corporativo.",
             "Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación.",
           ],
           bullets: [
@@ -3453,12 +3453,12 @@ const guidePairs: readonly GuidePair[] = [
     id: "caption-styles-reels-guide",
     en: {
       slug: "best-caption-styles-for-instagram-reels",
-      // 2026-10-28: 124 impressions at position 8.6 in the 28-day brief, 0 clicks.
+
       metadataTitle: "Reel Caption Styles That Read Well",
       title: "Best Instagram Reel caption styles for readable subtitles",
-      // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
-      // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
-      // only; the copy below is unchanged.
+
+
+
       metaDescription:
         "Best Reel captions: bold, high-contrast type inside the safe zone, full sentences for talking heads, a few emphasis words for food or product clips.",
       description:
@@ -4668,9 +4668,9 @@ const guidePairs: readonly GuidePair[] = [
           "Social-media videos for a Miami dental clinic, made on assignment with the agency 300 Bees: filmed on location with video and sound, then edited. Not a testimonial: linked as a public sample of on-location filming with sound, not as evidence of testimonial work.",
       },
       sections: [
-        // Definition-first and a usable script (overnight loop row 32): GSC
-        // "client testimonial video script" 8 impressions at position 46;
-        // autocomplete "what is a video testimonial", "testimonial video questions".
+
+
+
         {
           heading: "What is a video testimonial?",
           paragraphs: [
@@ -4696,7 +4696,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a customer testimonial video cost in Miami?",
           paragraphs: [
-            `If the interview is already recorded, the editing is priced on the calculator's corporate band: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} per project, an editing-led freelancer range with a 10% introductory discount, checked against a published market of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. If it still has to be filmed, the half-day on-location add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same basis, or the [Local Presence](/pricing/local-presence) package starts from ${packageGuidePrice("presencia-local")} per production day, covering pre-production, capture and editing.`,
+            `If the interview is already recorded, the editing is priced on the calculator's corporate band: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} per project, an editing-led freelancer range with a 10% introductory discount, checked against a published market of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. If it still has to be filmed, the half-day on-location add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same basis, or the [Local Presence](/pricing/local-presence) package starts from ${packageGuidePrice("presencia-local")} per month, covering pre-production, capture and editing.`,
             "These are budgeting starting points, not a quote. The price moves with how many customers are interviewed, how many short cut-downs are needed for social, and whether captions or a second language are part of the delivery. Full-crew Miami production companies quote on a different model, with a larger crew on set, so their ranges are not directly comparable.",
           ],
         },
@@ -4764,7 +4764,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cuesta un video testimonial en Miami?",
           paragraphs: [
-            `Si la entrevista ya está grabada, la edición se calcula con la banda corporativa de la calculadora: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, un rango de editor independiente con un descuento introductorio del 10 %, comparado con un mercado publicado de ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. Si todavía hay que grabarla, el complemento de grabación en locación por media jornada va de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} con la misma base, o el paquete [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción, con preproducción, grabación y edición.`,
+            `Si la entrevista ya está grabada, la edición se calcula con la banda corporativa de la calculadora: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, un rango de editor independiente con un descuento introductorio del 10 %, comparado con un mercado publicado de ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. Si todavía hay que grabarla, el complemento de grabación en locación por media jornada va de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} con la misma base, o el paquete [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} al mes, con preproducción, grabación y edición.`,
             "Son puntos de partida para presupuestar, no una cotización. El precio cambia según cuántos clientes se entrevisten, cuántos cortes breves se necesiten para redes y si la entrega incluye subtítulos o un segundo idioma. Las productoras de Miami con equipo completo cotizan con otro modelo, con más personas en el set, así que sus rangos no se comparan directamente.",
           ],
         },
@@ -4934,7 +4934,7 @@ const guidePairs: readonly GuidePair[] = [
       title: "How much does a restaurant video cost in Miami?",
       description: "Compare Esteban's restaurant editing starting prices, indicative filming ranges, and monthly options before requesting a Miami restaurant video quote.",
       eyebrow: "Restaurant video costs",
-      answer: `Esteban Moreno Media's Starter editing package starts from ${packageGuidePrice("arranque")} per video; restaurant filming can be scoped through Local Presence from ${packageGuidePrice("presencia-local")} per production day. Existing footage, filming needs, finished versions, and publishing frequency change the quote.`,
+      answer: `Esteban Moreno Media's Starter editing package starts from ${packageGuidePrice("arranque")} per video; restaurant filming can be scoped through Local Presence from ${packageGuidePrice("presencia-local")} per month. Existing footage, filming needs, finished versions, and publishing frequency change the quote.`,
       proof: {
         href: "/portfolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -4951,7 +4951,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How does filming at the restaurant change the budget?",
           paragraphs: [
-            `The indicative half-day on-location capture add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. The [Local Presence package](/pricing/local-presence) separately starts from ${packageGuidePrice("presencia-local")} per production day. The capture add-on and package describe different scopes; neither should be treated as an all-inclusive restaurant campaign or combined without reviewing what is included. The indicative capture range uses the same editing-led freelancer basis and introductory discount.`,
+            `The indicative half-day on-location capture add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. The [Local Presence package](/pricing/local-presence) separately starts from ${packageGuidePrice("presencia-local")} per month. The capture add-on and package describe different scopes; neither should be treated as an all-inclusive restaurant campaign or combined without reviewing what is included. The indicative capture range uses the same editing-led freelancer basis and introductory discount.`,
             "Explain whether the camera needs to cover food preparation, plated dishes, staff speaking, or the dining room. Share the location, access arrangements, proposed filming window, and any restrictions during service. Those details help separate time spent filming from editing afterward. Review the [restaurant promo video service](/services/restaurant-promo-video-editing-miami), then ask for a written breakdown of capture, editing, final versions, and any additional expenses before agreeing to the shoot.",
           ],
         },
@@ -4972,7 +4972,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per video. Posting every week, it is ${shortFormWeeklyText("en")}. The quote identifies which scope applies.` },
-        { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
+        { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per month.` },
         { question: "Is there a monthly option?", answer: `Growth starts from ${packageGuidePrice("crecimiento")} per month. Confirm the content scope and whether filming is required before comparing it with a standalone edit.` },
         { question: "Can I see a restaurant example?", answer: "See the [Bar Door Monkey project](/portfolio/bar-door-monkey), a Miami restaurant promo with videography and editing for Instagram. Its published credits do not establish your project's price." },
       ],
@@ -4983,7 +4983,7 @@ const guidePairs: readonly GuidePair[] = [
       title: "¿Cuánto cuesta un video para restaurante en Miami?",
       description: "Revisa los precios iniciales de edición de Esteban, los rangos orientativos de grabación y las opciones mensuales para tu restaurante en Miami.",
       eyebrow: "Precios para restaurantes",
-      answer: `El paquete Arranque de Esteban Moreno Media parte desde ${packageGuidePrice("arranque")} por video; para grabar en tu restaurante, Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. El material disponible, la grabación, las versiones y la frecuencia de publicación cambian la cotización.`,
+      answer: `El paquete Arranque de Esteban Moreno Media parte desde ${packageGuidePrice("arranque")} por video; para grabar en tu restaurante, Presencia Local parte desde ${packageGuidePrice("presencia-local")} al mes. El material disponible, la grabación, las versiones y la frecuencia de publicación cambian la cotización.`,
       proof: {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -5000,7 +5000,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué cambia si necesitas grabar en el restaurante?",
           paragraphs: [
-            `El complemento de grabación en locación por media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. Por separado, [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. No son servicios idénticos ni cantidades que debas sumar sin revisar lo incluido. El rango de grabación mantiene la misma base de profesional independiente y descuento introductorio.`,
+            `El complemento de grabación en locación por media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. Por separado, [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} al mes. No son servicios idénticos ni cantidades que debas sumar sin revisar lo incluido. El rango de grabación mantiene la misma base de profesional independiente y descuento introductorio.`,
             "Explica si quieres mostrar la preparación de los platos, conversar con el equipo o recorrer el comedor. Comparte la dirección, el acceso disponible, el horario propuesto y las limitaciones durante el servicio. Así puedes separar la grabación de la edición posterior. Revisa el servicio de [video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami) y pide que la propuesta detalle grabación, edición, versiones finales y gastos adicionales antes de acordar la sesión.",
           ],
         },
@@ -5021,7 +5021,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por video. Si publicas cada semana, es ${shortFormWeeklyText("es")}. La cotización indica cuál corresponde a tu pedido.` },
-        { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
+        { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} al mes.` },
         { question: "¿Hay una opción mensual?", answer: `Crecimiento parte desde ${packageGuidePrice("crecimiento")} al mes. Confirma las piezas incluidas y si necesitas grabación antes de compararlo con un proyecto de edición individual.` },
         { question: "¿Dónde puedo ver un ejemplo para restaurantes?", answer: "Mira el [proyecto Bar Door Monkey](/es/portafolio/bar-door-monkey), con grabación y edición para el Instagram de un restaurante de Miami. Sus créditos no establecen el precio de tu proyecto." },
       ],
@@ -5043,9 +5043,9 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-28 (2026-10-14): autocomplete "how much does real estate
-          // videography cost" x4, "how much do videographers charge for real
-          // estate" x5; the answer was below the photography tiers.
+
+
+
           heading: "How much does real estate videography cost in Miami?",
           paragraphs: [
             `Real estate videography with Esteban Moreno Media is priced per minute of finished video: ${listingVideo.name.en.toLowerCase()} is ${usd(listingVideo.amount)} per minute, and a ${listingTour.name.en} starts from ${usd(listingTour.amount)}. Agents who list every month can choose a monthly plan instead, from ${usd(REAL_ESTATE_PLANS[0].price)} to ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} a month with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum, which bundles the shoots and the social posts for a set number of properties.`,
@@ -5104,7 +5104,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-28 (2026-10-14): ES twin of the answer-first videography H2.
+
           heading: "¿Cuánto cuesta un videógrafo inmobiliario en Miami?",
           paragraphs: [
             `El video inmobiliario con Esteban Moreno Media se cobra por minuto de video terminado: el ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto, y un ${listingTour.name.es.charAt(0).toLowerCase() + listingTour.name.es.slice(1)} empieza en ${usd(listingTour.amount)}. Los agentes que publican propiedades cada mes pueden elegir un plan mensual, de ${usd(REAL_ESTATE_PLANS[0].price)} a ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} al mes con un mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses, que reúne las grabaciones y las publicaciones para redes de una cantidad fija de propiedades.`,
@@ -5185,7 +5185,7 @@ export const guidesIndexCopy = {
       {
         question: "What do the cost guides say a video edit costs?",
         paragraphs: [
-          `The cost guides quote the prices Esteban Moreno Media publishes. One edited short video starts at ${usd(SHORT_FORM.perVideoFrom)}. Weekly editing is ${shortFormWeeklyText("en")}, with a ${ARRANQUE_WEEKLY_TERMS.minimumWeeks}-week minimum, and each weekly video comes back in ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} to ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} hours. A monthly social media plan, with the content calendar and the editing, starts at ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} a month. Filming at your business starts at ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} per production day. The guides also show market ranges from other sources, such as ${usd(SHORT_FORM.marketMin)} to ${usd(SHORT_FORM.marketMax)} per short-form video, so you can compare before you ask anyone for a quote. Every project still gets a written quote before work starts. All prices are on [the pricing page](/pricing).`,
+          `The cost guides quote the prices Esteban Moreno Media publishes. One edited short video starts at ${usd(SHORT_FORM.perVideoFrom)}. Weekly editing is ${shortFormWeeklyText("en")}, with a ${ARRANQUE_WEEKLY_TERMS.minimumWeeks}-week minimum, and each weekly video comes back in ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} to ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} hours. A monthly social media plan, with the content calendar and the editing, starts at ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} a month. The monthly Local Presence plan for filming at your business starts at ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} per month. The guides also show market ranges from other sources, such as ${usd(SHORT_FORM.marketMin)} to ${usd(SHORT_FORM.marketMax)} per short-form video, so you can compare before you ask anyone for a quote. Every project still gets a written quote before work starts. All prices are on [the pricing page](/pricing).`,
         ],
       },
     ],
@@ -5222,7 +5222,7 @@ export const guidesIndexCopy = {
       {
         question: "¿Cuánto cuesta editar un video según las guías de costos?",
         paragraphs: [
-          `Las guías de costos citan los precios que publica Esteban Moreno Media. Un video corto editado cuesta desde ${usd(SHORT_FORM.perVideoFrom)}. La edición semanal cuesta ${shortFormWeeklyText("es")}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas, y cada video semanal se entrega en ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} a ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} horas. Un plan mensual de redes, con el calendario de contenido y la edición, empieza en ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} al mes. La grabación en tu negocio empieza en ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} por día de producción. Las guías también muestran rangos del mercado de otras fuentes, como ${usd(SHORT_FORM.marketMin)} a ${usd(SHORT_FORM.marketMax)} por video corto, para que compares antes de pedir una cotización. Cada proyecto recibe una cotización por escrito antes de empezar. Todos los precios están en [la página de precios](/es/precios).`,
+          `Las guías de costos citan los precios que publica Esteban Moreno Media. Un video corto editado cuesta desde ${usd(SHORT_FORM.perVideoFrom)}. La edición semanal cuesta ${shortFormWeeklyText("es")}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas, y cada video semanal se entrega en ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} a ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} horas. Un plan mensual de redes, con el calendario de contenido y la edición, empieza en ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} al mes. El plan mensual Presencia Local para grabar en tu negocio empieza en ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} al mes. Las guías también muestran rangos del mercado de otras fuentes, como ${usd(SHORT_FORM.marketMin)} a ${usd(SHORT_FORM.marketMax)} por video corto, para que compares antes de pedir una cotización. Cada proyecto recibe una cotización por escrito antes de empezar. Todos los precios están en [la página de precios](/es/precios).`,
         ],
       },
     ],
@@ -5433,10 +5433,10 @@ export function buildGuideStructuredData(guide: Guide) {
         inLanguage: guide.locale === "es" ? "es-US" : "en-US",
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
         ...(modified ? { dateModified: modified } : {}),
-        // No guide shows a byline, so the Article does not name a person as
-        // author; both nodes point at the sitewide business entity instead of
-        // anonymous Person/Organization stubs (SEO/GEO audit 2026-10-10, fix 7).
-        // Bylines are an open owner decision.
+
+
+
+
         author: { "@id": absoluteUrl("/#business") },
         publisher: { "@id": absoluteUrl("/#business") },
         image: socialImage.url,

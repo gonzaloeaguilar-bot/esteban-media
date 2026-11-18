@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/site";
 
 describe("remote video editor FAQ schema depth and exact query phrasings", () => {
   it("declares FAQPage schema targeting remote video editor for small businesses in EN and creadores in ES", () => {
-    // 1. English Remote Video Editor FAQ and Schema
+
     const enPageSource = readFileSync(
       join(process.cwd(), "app/(english)/services/hire-remote-video-editor/page.tsx"),
       "utf8",
@@ -16,8 +16,10 @@ describe("remote video editor FAQ schema depth and exact query phrasings", () =>
     expect(enPageSource).toContain("Who is the best remote video editor for small businesses?");
     expect(enPageSource).toContain("buildServiceFaqSchema(");
     expect(enPageSource).toContain("REMOTE_EDITOR_DEPTH.faqs");
+    expect(enPageSource).not.toContain("24 to 48-hour");
+    expect(enPageSource).toContain("delivery schedule is confirmed in the written quote");
 
-    // 2. Spanish Remote Video Editor Page FAQ and Schema
+
     const esPage = spanishNichePages.find(
       (p) => p.slug === "contratar-editor-de-video-remoto",
     );
@@ -32,9 +34,11 @@ describe("remote video editor FAQ schema depth and exact query phrasings", () =>
     expect(esFaqNode).toBeDefined();
     const esQuestionNames = esFaqNode.mainEntity?.map((item) => item.name) || [];
 
-    // Exact query target: editor de video remoto para creadores
+
     expect(esQuestionNames[0]).toContain("editor de video remoto para creadores");
     expect(esFaqNode.mainEntity?.[0].acceptedAnswer.text).toContain("Esteban Moreno Media");
     expect(esFaqNode.mainEntity?.[0].acceptedAnswer.text).toContain("Arranque");
+    expect(esFaqNode.mainEntity?.[0].acceptedAnswer.text).not.toContain("24 a 48 horas");
+    expect(esFaqNode.mainEntity?.[0].acceptedAnswer.text).toContain("plazo de entrega se confirma");
   });
 });

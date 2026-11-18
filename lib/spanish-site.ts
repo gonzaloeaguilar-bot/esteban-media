@@ -324,13 +324,13 @@ import {
 } from "@/lib/vertical-deep-dives";
 
 export const spanishSite = {
-  // Matches the /es h1 ("Video, IA y redes") and the meta description (edits video
-  // for businesses in Fort Lauderdale and Miami); the old title promised "Sistemas
-  // de Growth", which nothing on the page says (audit 2026-10-14, item 6).
+
+
+
   title: "Editor de Video en Fort Lauderdale | Esteban Moreno Media",
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. En español y en inglés. Fort Lauderdale — cotiza rápido.",
-  /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
+
   homeDescription: `Esteban Moreno Media: edita videos para negocios en Fort Lauderdale y Miami desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por video. Atención en español. Cotiza por WhatsApp.`,
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
@@ -344,7 +344,7 @@ export type SpanishService = {
   detail: string;
   icon: LucideIcon;
   tags: string[];
-  /** Precio inicial autorizado por el owner (2026-08-28) — siempre "Desde", nunca precio cerrado. */
+
   startingPrice?: string;
 };
 
@@ -462,7 +462,7 @@ export type SpanishNichePage = {
   title: string;
   metadataTitle: string;
   description: string;
-  /** Search snippet when the visible description runs past ~160 characters (loop row 27). */
+
   metaDescription?: string;
   eyebrow: string;
   h1: string;
@@ -476,25 +476,25 @@ export type SpanishNichePage = {
   projectFit: string;
   sections?: readonly SpanishNicheSection[];
   sectionsDisclosure?: string;
-  /** H2 over visible (unfolded) sections; the default names short-form video, wrong for a videographer page. */
+
   sectionsHeading?: string;
-  /** Summary line under the disclosure title; names what is inside the fold. */
+
   sectionsDestinations?: string;
-  /**
-   * Page-specific "En corto" answer. The generic answer-first text is the
-   * same paragraph on every niche page; a page whose work differs in kind
-   * (subtitling, remote editing) states its own answer here instead.
-   */
+
+
+
+
+
   answerFirst?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
-  /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
+
   fitQuestion?: string;
   faqs: { question: string; answer: string }[];
 };
 
-// Precios de las páginas de gimnasios, salones y spas (2026-10-07): todos salen
-// de lib/pricing.ts, así que un cambio de tarifa se propaga solo.
+
+
 const esFrom = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) =>
   price.kind === "from" ? usd(price.amount) : "una cotización a medida";
 const esStarterFrom = esFrom(PACKAGE_PRICES.arranque);
@@ -504,11 +504,11 @@ const esShortForm = shortFormPriceText("es");
 const esWeekly = shortFormWeeklyText("es");
 const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
-// Ola de nichos 8 (2026-10-11, aprobada por el dueño). Ocho compradores sin
-// página propia. Precios solo vía priceSentence() (lib/pricing.ts); la grabación
-// en locación es un servicio adicional pagado que se cotiza por proyecto; las
-// obligaciones reguladas (avisos legales, NMLS, revisión de la Florida Bar,
-// textos de aseguradoras, permiso para menores) son del cliente.
+
+
+
+
+
 const esArranque = () => priceSentence("es", "arranque").toLowerCase();
 const esCrecimiento = () => priceSentence("es", "crecimiento").toLowerCase();
 const esPresencia = () => priceSentence("es", "presencia-local").toLowerCase();
@@ -1092,9 +1092,9 @@ const nicheWave8Pages: SpanishNichePage[] = [
     ],
   },
   {
-    // Bodas (dato del dueño 2026-10-14, vault esteban-owner-facts-2026-10-14):
-    // Esteban graba y edita bodas y cotiza cada boda por separado. No hay precio
-    // de bodas, así que esta página no publica ninguna cifra.
+
+
+
     slug: "videografo-de-bodas-fort-lauderdale",
     title: "Videógrafo de bodas en Fort Lauderdale y Miami",
     metadataTitle: "Videógrafo de Bodas Fort Lauderdale",
@@ -1374,11 +1374,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
-        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi".
+
         heading: "¿Cómo encontrar un videógrafo cerca de mí en Miami?",
         paragraphs: [
           `Si buscas un videógrafo cerca de mí en Miami, ten en cuenta que Esteban Moreno Media tiene su base en Fort Lauderdale y toma proyectos en Miami-Dade de forma seleccionada: la disponibilidad de cada locación se confirma al consultar. Hay trabajo publicado grabado en Miami, como el video de [Bar Door Monkey](/es/portafolio/bar-door-monkey), para que veas el estilo antes de escribir.`,
-          `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
+          `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y el plan mensual Presencia Local para producir contenido en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
         ],
       },
       {
@@ -1433,10 +1433,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
-        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi"; no page said "cerca de".
+
         heading: "¿Cómo encontrar un videógrafo cerca de mí en Fort Lauderdale?",
         paragraphs: [
-          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingHourlyText("es")}. Un día de producción en tu negocio, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
+          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingHourlyText("es")}. El plan mensual Presencia Local, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
           `Antes de contratar a un videógrafo cercano conviene confirmar tres cosas: si el material que ya tienes alcanza para editar sin grabar de nuevo, quién se queda con los archivos originales y cuántas rondas de cambios incluye la edición. Si ya tienes clips, la edición es remota y parte del paquete Arranque, ${esShortForm}; para videos cortos, mira el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
         ],
       },
@@ -1614,7 +1614,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "video-para-restaurantes-miami",
     title: "Video para restaurantes en Miami",
     metadataTitle: "Video para Restaurantes en Miami",
-    // SNIPPET TEST 2026-10-07 (GSC: video para restaurantes miami, 7 impr, pos 6.9, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
+
     description:
       "Edición de Reels y videos promocionales para restaurantes de Miami y South Florida: platos estrella, ambiente del salón y promociones. Atención en español.",
     eyebrow: "Restaurantes / comida / hospitality",
@@ -2637,9 +2637,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Edición de material entregado por el cliente y, según el alcance, planificación social o producción en locación evaluada por proyecto.",
-    // Round 6 (2026-10-14): the English twin carries the city Reels answer
-    // (CITY_REELS in lib/conversational-answers.ts); this page had none, so a
-    // Spanish search for a Reels editor in Pembroke Pines found no sentence to quote.
+
+
+
     sections: [
       {
         heading: "¿Quién edita Reels para negocios en Pembroke Pines?",
@@ -2762,7 +2762,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar en el gimnasio o el estudio?",
         paragraphs: [
-          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción. Incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Existe además un complemento de media jornada de captura con un rango orientativo de ${esHalfDayBand}, con la misma base. No se suman: son dos maneras distintas de cotizar la misma necesidad.`,
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} al mes. Incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Existe además un complemento de media jornada de captura con un rango orientativo de ${esHalfDayBand}, con la misma base. No se suman: son dos maneras distintas de cotizar la misma necesidad.`,
           "Una grabación en un gimnasio es más fácil de cotizar cuando el horario está decidido de antemano: qué clase, a qué hora, qué entrenadores y si habrá miembros en cuadro. Las horas tranquilas hacen la grabación más rápida y eliminan casi todas las dudas de permiso. Envía ese horario con la solicitud.",
         ],
       },
@@ -3087,7 +3087,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Video para entrevistas ejecutivas y testimonios corporativos en Miami.",
     lead:
       "Grabación en oficinas corporativas y locaciones de Miami con iluminación suave, microfonía doble y edición enfocada en liderazgo y marca.",
-    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación parte desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, con un mínimo de cuatro horas (${usd(CREW_RECORDING_RATES.solo.minimumAmount)}), e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y los días de producción con grabación y edición parten desde ${esLocalFrom}. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
+    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación parte desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, con un mínimo de cuatro horas (${usd(CREW_RECORDING_RATES.solo.minimumAmount)}), e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y el plan mensual Presencia Local con grabación y edición parte desde ${esLocalFrom} al mes. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
     keyword: "videógrafo para entrevistas ejecutivas en Miami",
     location: "Miami-Dade / Broward / Remoto",
     availability: "confirmed",
@@ -4826,7 +4826,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar en el spa?",
         paragraphs: [
-          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción: preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base. Son dos formas de cotizar el trabajo, no cantidades que se suman.`,
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} al mes: preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base. Son dos formas de cotizar el trabajo, no cantidades que se suman.`,
           "Casi todos los spas son más fáciles de grabar antes de abrir o en un bloque tranquilo entre reservas, con las salas listas y nadie esperando. Envía las horas disponibles, las salas que quieres mostrar y si alguien del equipo hablará a cámara, para que la propuesta diga qué se graba y qué queda fuera.",
         ],
       },
@@ -5552,10 +5552,10 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
-  // Gemela en español de /services/video-production-boca-raton (decisión del
-  // dueño, 2026-10-14: Boca Raton entró al área de servicio del perfil de
-  // Google ese día). Palm Beach County sigue "proyecto por proyecto" (AGENTS.md);
-  // los negocios de Boca aparecen solo como público, nunca como clientes.
+
+
+
+
   {
     slug: "editor-de-reels-boca-raton",
     title: "Editor de Reels y video en Boca Raton",
@@ -6133,9 +6133,9 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "produccion-de-video-fort-lauderdale",
     title: "Producción de video en Fort Lauderdale",
-    // 2026-10-29 GSC review: 10 impr pos 14.0 en la versión EN y consultas como
-    // "editor de video fort lauderdale" / "produccion de video fort lauderdale" con 0 clics.
-    // Título y descripción responden primero con precio base y atención en español.
+
+
+
     metadataTitle: "Producción de Video Fort Lauderdale",
     description:
       `Producción y edición de video en Fort Lauderdale para negocios de Broward. Edición remota desde ${usd(SHORT_FORM.perVideoFrom)} y grabación local cotizada por proyecto en español.`,
@@ -6229,8 +6229,8 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-fort-lauderdale",
     title: "Editor de Reels en Fort Lauderdale",
-    // 2026-10-28: la consulta "editor de reels fort lauderdale" (15 impr) aterriza
-    // en la página en inglés; el título y la descripción ahora responden primero.
+
+
     metadataTitle: "Editor de Reels en Fort Lauderdale",
     description:
       `Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
@@ -6259,12 +6259,12 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia), los [Shorts de Gains From Geebs](/es/portafolio/gains-from-geebs-shorts) y las muestras en el [portafolio](/es/portafolio) para ver piezas reales que Esteban dirigió y editó. Para comparar precios publicados antes de pedir una cotización, consulta el [índice de edición de Reels en South Florida](/es/guias/precios-edicion-de-reels-y-video-sur-de-florida). La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
       {
-        // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8
-        // was served by the EN page; this page did not answer its own query.
+
+
         heading: "¿Dónde encontrar un editor de Reels en Fort Lauderdale?",
         paragraphs: [
           `Esteban Moreno Media es un editor de Reels en Fort Lauderdale: tiene aquí su base y atiende en español primero, con inglés intermedio para proyectos bilingües. Si buscas un editor de Reels cerca de mí desde Broward, la distancia importa menos de lo que parece, porque la edición es remota: envías los clips del teléfono por un enlace y recibes el Reel con subtítulos, ritmo y formato 9:16, sin visita. La edición de Reels parte del paquete Arranque, ${esShortForm}.`,
-          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción completo en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
+          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y el plan mensual Presencia Local para producir contenido en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
         ],
       },
       {
@@ -6415,14 +6415,14 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
-  // ---------------------------------------------------------------------
-  // Lote de nichos 2026-10-06. Cinco compradores distintos, no cinco
-  // sinonimos: un consultorio medico que no es dental, un creador de
-  // contenido que es su propio cliente, una agencia o fotografo que
-  // subcontrata la edicion, un salon y un taller de detallado. Cada pagina
-  // responde primero, trae secciones con encabezado en forma de pregunta y
-  // un dato real por seccion, y no inventa precios, plazos ni resultados.
-  // ---------------------------------------------------------------------
+
+
+
+
+
+
+
+
   {
     slug: "marketing-de-video-para-consultorios-medicos-miami",
     title: "Marketing de video para consultorios médicos en Miami",
@@ -6574,10 +6574,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
-    // Row 30 (2026-10-14): ES twin of /services/hire-remote-video-editor, a
-    // full translation, no new claims. Intent gap: Google autocomplete (hl=es,
-    // gl=us) "contratar editor de videos", "contratar editor de videos para
-    // instagram", "contratar editor de videos online", "editor de video remoto".
+
+
+
+
     slug: "contratar-editor-de-video-remoto",
     title: "Contratar un editor de video remoto",
     metadataTitle: "Contratar un Editor de Video Remoto",
@@ -6624,7 +6624,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Cuál es el mejor editor de video remoto para creadores?",
         answer:
-          `Para creadores que graban con su celular o cámara y necesitan publicar constantemente sin perder horas editando, el mejor editor de video remoto es un profesional independiente que entienda ritmo, ganchos visuales, subtítulos en zonas seguras y formatos verticales. Esteban Moreno Media ofrece edición remota directa para creadores desde ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o planes semanales con entregas en 24 a 48 horas.`,
+          `Para creadores que graban con su celular o cámara y necesitan publicar constantemente sin perder horas editando, el mejor editor de video remoto es un profesional independiente que entienda ritmo, ganchos visuales, subtítulos en zonas seguras y formatos verticales. Esteban Moreno Media ofrece edición remota directa para creadores desde ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o planes semanales. El plazo de entrega se confirma en la cotización por escrito antes de empezar.`,
       },
       {
         question: "¿Qué material puede editar Esteban a distancia?",
@@ -6775,7 +6775,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar dentro del salón?",
         paragraphs: [
-          `Cuando el local quiere que alguien venga a grabar, [Presencia Local](/es/precios/presencia-local) empieza desde ${esLocalFrom} por día de producción e incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base; son alternativas, no una suma.`,
+          `Cuando el local quiere que alguien venga a grabar, [Presencia Local](/es/precios/presencia-local) empieza desde ${esLocalFrom} al mes e incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base; son alternativas, no una suma.`,
           "Una grabación en el salón avanza más rápido cuando se agenda junto con las citas y no en contra de ellas. Elige un bloque en que un estilista o barbero tenga un cliente dispuesto, una silla con luz constante y unos minutos libres para decir algo útil a cámara.",
         ],
       },
@@ -8765,13 +8765,13 @@ export const spanishCoreRoutes = [
   "/es/evaluacion",
 ];
 
-/**
- * The 2026-10-06 niche batch, paired in both directions.
- *
- * hreflang is discarded unless both documents point at each other, so each new
- * page appears twice here: once under its English path and once under its
- * Spanish one, with identical values.
- */
+
+
+
+
+
+
+
 const nicheBatch20261006 = Object.fromEntries(
   (
     [
@@ -8801,48 +8801,48 @@ const nicheBatch20261006 = Object.fromEntries(
   ),
 );
 
-/**
- * Spanish niche pages that shipped WITHOUT an English counterpart in the
- * hreflang map, and therefore served only a self-referencing `es-US`.
- *
- * Measured 2026-10-06 by probing the served HTML of all 103 static Spanish
- * routes: 63 emitted the correct three alternates, **36 emitted exactly one**
- * (themselves), and 4 emitted none. An unpaired Spanish page tells Google
- * nothing about its English twin, so Google is free to pick the English page
- * for a Spanish query — which is exactly what the Search Console data shows:
- * for "editor de reels fort lauderdale" the Spanish page does not appear at
- * all, while the ENGLISH page ranks 15.0 and /areas and /es outrank it.
- *
- * Each pair below was matched by hand and verified before shipping: both sides
- * return 200, and no English target was already claimed by a different Spanish
- * page. An automated fuzzy match was tried first and rejected — it mapped the
- * lawyer, dentist, gym, medspa and contractor pages all onto the AUTOMOTIVE
- * page, and a wrong hreflang pair is worse than a missing one because it tells
- * Google two unrelated pages are translations of each other. The safety check
- * then caught a real conflict (`real-estate-drone-video-editing-miami` was
- * already paired to `/es/drone-real-estate-miami`) and that pair was dropped.
- *
- * One further pair, for a Miami financial-district sub-city page, was removed
- * after `customer-ranking-pages.test.ts` failed: that neighbourhood is an
- * explicitly gated phrase in public copy and this file is one of the sources
- * that test scans. Sub-city coverage stays gated — including in comments,
- * which is how this was caught the second time.
- *
- * Ten further pairs were removed after the sitemap test failed: every page in
- * them is CONSOLIDATED by the 2026-08-12 cohort decision, i.e. merged or
- * noindexed and deliberately absent from the sitemap. Advertising an hreflang
- * pair for a page we have told Google not to index is a contradictory signal,
- * the same class of mistake the sitemap filter exists to prevent.
- *
- * Pages left unpaired on purpose: those with no unambiguous English twin
- * (videografo-en-miami, fotografo-en-fort-lauderdale, the Palm Beach County
- * pages) or where pairing would double-claim an English page that already has
- * a Spanish counterpart. Note: on 2026-10-07 the served pages were compared and
- * both target financial advisors / wealth managers in Miami, so
- * asesores-financieros is paired now with wealth-management-video-production-miami
- * (along with real-estate-reels-video-editor-south-florida and
- * editor-de-video-real-estate-miami).
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const nicheBatch20261006Hreflang = Object.fromEntries(
   (
     [
@@ -8862,7 +8862,7 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
       ["/services/video-production-fort-lauderdale", "/es/produccion-de-video-fort-lauderdale"],
       ["/services/hotel-hospitality-video-production-miami", "/es/produccion-de-video-para-hoteles-miami"],
       ["/services/content-repurposing-service-miami", "/es/reutilizacion-de-contenido-para-redes-miami"],
-      // Row 30 (2026-10-14): the new ES twin.
+
       ["/services/hire-remote-video-editor", "/es/contratar-editor-de-video-remoto"],
     ] as const
   ).flatMap(([en, es]) =>
@@ -8870,14 +8870,14 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
   ),
 );
 
-/**
- * Pairs for the pages Esteban ordered into the sitemap on 2026-10-10 (SEO/GEO
- * audit finding 8): the six growth-system pairs, the case-study hubs and the
- * daily tool pairs. The growth-system and hub pages already emitted these
- * alternates in their HTML; declaring them here makes the sitemap emit the
- * same set. Four of the daily tool pairs had only language-switcher pairing
- * and no hreflang at all (audit fix 13).
- */
+
+
+
+
+
+
+
+
 const inventoryAdditions20261010Hreflang = Object.fromEntries(
   (
     [
@@ -8895,7 +8895,7 @@ const inventoryAdditions20261010Hreflang = Object.fromEntries(
   ),
 );
 
-/** The 2026-10-11 niche wave 8 (owner-approved), paired in both directions. */
+
 const nicheWave8Hreflang = Object.fromEntries(
   (
     [
@@ -8907,7 +8907,7 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
       ["/services/wedding-videographer-fort-lauderdale", "/es/videografo-de-bodas-fort-lauderdale"],
-      // DM-16 (2026-10-14): the English twin now exists.
+
       ["/services/videographer-miami", "/es/videografo-en-miami"],
       ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
       ["/services/personal-brand-video-editor-founders-miami", "/es/editor-de-video-para-marca-personal-miami"],
@@ -8918,7 +8918,7 @@ const nicheWave8Hreflang = Object.fromEntries(
   ),
 );
 
-/** 2026-10-14: the free Reels editing cost calculator, EN + ES. */
+
 const reelsCostCalculatorHreflang = Object.fromEntries(
   (
     [["/reels-editing-cost-calculator", "/es/calculadora-de-costo-de-edicion-de-reels"]] as const
@@ -8927,7 +8927,7 @@ const reelsCostCalculatorHreflang = Object.fromEntries(
   ),
 );
 
-/** 2026-10-14: chatbot and landing-page service pairs (lib/web-ai-services.ts). */
+
 const webAiServiceHreflang = Object.fromEntries(
   (
     [
@@ -8943,7 +8943,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
   ...webAiServiceHreflang,
   ...reelsCostCalculatorHreflang,
-  // Original-data study, 2026-10-14 (lib/restaurant-ig-study.ts).
+
   [restaurantIgStudyPaths.en]: { ...restaurantIgStudyAlternates },
   [restaurantIgStudyPaths.es]: { ...restaurantIgStudyAlternates },
   "/services/food-and-places-creator-video-editing-miami": {
@@ -9138,7 +9138,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,
-  // Annual-events section (2026-10-10), both directions, from lib/events.ts.
+
   ...eventLanguageAlternates(),
   ...nicheWave8Hreflang,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
@@ -9172,7 +9172,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "es-US": "/es/calculadora-de-ritmo-de-video",
     "x-default": "/daily-script-pacing-calculator",
   },
-  // Case Study pairs (2026-08-14): Banacol, Homeowners, FLAS, Healthy Smile, My D'ler
+
   "/case-studies/banacol": {
     "en-US": "/case-studies/banacol",
     "es-US": "/es/casos-de-estudio/banacol",
@@ -9223,8 +9223,8 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "es-US": "/es/casos-de-estudio/my-dler",
     "x-default": "/case-studies/my-dler",
   },
-  // pembroke-pines was previously hardcoded inside buildSpanishNicheMetadata.
-  // Moved here so every pair lives in one place and both languages read it.
+
+
   "/services/small-business-video-pembroke-pines": {
     "en-US": "/services/small-business-video-pembroke-pines",
     "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
@@ -9235,14 +9235,14 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
     "x-default": "/services/small-business-video-pembroke-pines",
   },
-  // Bilingual service/niche pairs (2026-08-14). Both languages stay live —
-  // Spanish serves the large bilingual audience, English is the ranking engine
-  // for Miami-Dade / Broward / Palm Beach. Before this, only 17 shell pages
-  // were paired, so the 62 English service pages and their Spanish
-  // equivalents had NO hreflang and no toggle between them.
-  // x-default points at English by design: US search intent for these
-  // services is English (Semrush 2026-08-13 — "videografo miami" returns no
-  // US data at all, while "videographer miami" is 260/mo at KD 26).
+
+
+
+
+
+
+
+
   "/services/ai-food-photography-restaurants": {
     "en-US": "/services/ai-food-photography-restaurants",
     "es-US": "/es/fotografia-de-comida-con-ia-restaurantes",
@@ -9643,9 +9643,9 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "es-US": "/es/evaluacion",
     "x-default": "/assessment",
   },
-  // Spanish-side entries must mirror their English counterparts exactly.
-  // hreflang is only honoured when both documents point at each other; a
-  // one-directional declaration is discarded by Google.
+
+
+
   "/es/calculadora": {
     "en-US": "/calculator",
     "es-US": "/es/calculadora",
@@ -9728,20 +9728,20 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   },
 };
 
-/**
- * hreflang is suppressed for any page the 2026-08-12 cohort decision marked
- * noindex or merged.
- *
- * Advertising "this is the Spanish version of that page" while the page itself
- * says "do not index me" is a contradictory signal, and it is the same mistake
- * the sitemap filter at the bottom of app/sitemap.ts already prevents. Measured
- * 2026-10-06: six pairs (ecommerce product video, event video, luxury jewelry,
- * Aventura real estate, Davie production, YouTube editing) were noindexed on
- * BOTH sides and still carried full hreflang annotations.
- *
- * Filtering here rather than hand-deleting rows means a future consolidation
- * stops advertising itself automatically, with no second place to remember.
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-international", "great-reviewer-website", "gains-from-geebs-shorts", "exatlon", "juanchis-burguer", "portosole", "punto-de-giro"] as const) {
   const en = `/case-studies/${id}`;
   const es = `/es/casos-de-estudio/${id}`;
@@ -9822,15 +9822,15 @@ export function getSpanishNichePage(slug: string) {
   return spanishNichePages.find((page) => page.slug === slug);
 }
 
-/**
- * Builds the JSON-LD `@graph` for a Spanish niche landing page.
- *
- * The graph mirrors the page's already-visible content only: the primary
- * entity (a `Service` for confirmed pages, or a transparent `WebPage`
- * resource for legacy pending-confirmation routes), a `BreadcrumbList`, and a
- * `FAQPage` whose questions/answers are rendered verbatim on the page. No
- * claim is added here that is not already published in the page copy.
- */
+
+
+
+
+
+
+
+
+
 export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
   const path = `/es/${page.slug}`;
   const isPendingConfirmation = page.availability === "pending-confirmation";
