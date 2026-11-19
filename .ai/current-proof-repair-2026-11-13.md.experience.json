@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "project": "esteban-media",
+  "intent": "Review the current-proof repair for the Miami Reels hero and caption-styles guide before deployment.",
+  "phase": "repair",
+  "brief": {
+    "visitor": "A person arriving from search or an AI answer who wants help with a Reel.",
+    "promise": "See current published work before deciding whether to ask Esteban for a quote.",
+    "primary_action": "Open the current published Reel or start a contact request.",
+    "friction": "Miami opened with an informational card, and the caption guide still surfaced an owner-rejected older example.",
+    "kpi": {
+      "outcome": "Qualified Reel-editing inquiry",
+      "event": "Existing proof-card and contact actions",
+      "denominator": "Visitors to the two repaired entry pages",
+      "baseline": "UNKNOWN: no source-tagged cohort has been read for this repair",
+      "evidence": "Production desktop QA recorded the missing Miami visual and the remaining Bar Door Monkey guide surface.",
+      "readout": "T+7 and T+28 after the production release",
+      "decision_rule": "Keep the repair only if production remains readable and the existing paths retain measurable inquiry actions."
+    },
+    "concept": {
+      "idea": "Reuse one real, current published Reel as proof at the first decision moment.",
+      "brand_reason": "The homepage and Fort Lauderdale service page already use the same calm proof-card language.",
+      "interaction": "Existing linked proof card and contact choices.",
+      "visible_response": "The opening shows an actual project poster and a plainly labelled destination.",
+      "direct_path": "The existing contact and WhatsApp paths remain unchanged.",
+      "alternatives": "No new asset, generated image, claim, price, or new funnel component."
+    },
+    "story": {
+      "opening": "One current published Reel beside the service answer.",
+      "action": "Inspect the work or choose the existing contact action.",
+      "consequence": "The visitor understands the visual standard before starting a quote conversation.",
+      "next_step": "Continue through the existing scoped contact route."
+    },
+    "content": {
+      "visible": "Current Great Reviewer proof, plain service scope and existing starting price.",
+      "optional_html": "Existing native details and guide questions remain server-rendered.",
+      "linked_depth": "Existing Great Reviewer project page, guide details and contact page."
+    },
+    "references": {
+      "borrow": "Existing Fort Lauderdale Reels opening and PublishedProjectProof component.",
+      "avoid": "Informational-only hero companion and obsolete human-facing project example."
+    },
+    "components": {
+      "reuse": "PublishedProjectProof, guide renderer and delegated analytics attributes.",
+      "local_reason": "No new component is necessary for this two-route repair."
+    },
+    "verification": {
+      "rendered_states": "Miami desktop opening; caption guide opening and lower proof block; phone follow-up remains required.",
+      "motion": "No new motion; current reduced-motion behavior is unchanged.",
+      "accessibility_performance": "Existing semantic linked proof card and static server HTML are preserved.",
+      "raw_html": "Confirm Great Reviewer markers and absence of Bar Door Monkey on both localized caption routes.",
+      "conversion_boundary": "Confirm the visible contact and project destinations return successfully without submitting a lead."
+    },
+    "reviewers": {
+      "craft": "Antigravity",
+      "behavior": "Claude and cto-qa-lead",
+      "outcome": "cto-data-integrity at T+7 and T+28"
+    }
+  }
+}
