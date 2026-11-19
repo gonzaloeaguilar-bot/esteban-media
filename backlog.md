@@ -1,3 +1,15 @@
+## 2026-11-18 — Event Attendee Interviews, Miami Events Calendar, and AI Commercial Reels (feat/events-ai-pages-20261118)
+
+- [x] Address 13-of-18 404 gap observed in `~/.claude/state/esteban-event-loop/latest.md` with three bilingual pairs (6 URLs total):
+  - `/services/event-attendee-interview-videographer-miami` & `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  - `/resources/miami-events-calendar` & `/es/recursos/calendario-de-eventos-miami`
+  - `/services/ai-commercial-video-reels-miami` & `/es/reels-comerciales-con-ia-miami`
+- [x] Build `lib/event-ai-pages-content.ts` with deep-dive sections, calendar data, and custom FAQs.
+- [x] Wire sitemap, language routes, Spanish site registration, and indexable inventory freeze (588 URLs).
+- [x] Verify with `pnpm typecheck`, `pnpm lint`, `pnpm rail-adoption:check`, `analytics-gate.py`, and vitest unit suite (374/374 passed).
+- [x] Open GitHub Pull Request: [#775](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/775).
+- [ ] `cto-qa-lead`: independently review PR #775; do not auto-merge.
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-miami`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (212 files / 3,894 tests passing), and `priority-growth-project-verify.sh`.

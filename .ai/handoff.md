@@ -1,3 +1,17 @@
+## 2026-11-18 — Event Attendee Interviews, Miami Events Calendar, and AI Commercial Reels (feat/events-ai-pages-20261118)
+
+- Addressed the 13-of-18 404 gap observed in `~/.claude/state/esteban-event-loop/latest.md` with three bilingual page pairs (6 URLs total):
+  1. `/services/event-attendee-interview-videographer-miami` & `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  2. `/resources/miami-events-calendar` & `/es/recursos/calendario-de-eventos-miami`
+  3. `/services/ai-commercial-video-reels-miami` & `/es/reels-comerciales-con-ia-miami`
+- Created `lib/event-ai-pages-content.ts` with deep dive content, Spanish sections, calendar events ("confirm dates with organizer"), and custom FAQ sets.
+- Wired bilingual routing in `lib/language-routes.ts`, `lib/spanish-site.ts`, and sitemap in `app/sitemap.ts`.
+- Updated indexable inventory freeze from 582 to 588 with demand justification and SHA-256 in `config/indexable-inventory-freeze.json`.
+- Updated watch registry in `scripts/search-console-index-watch.mjs` and updated lastmod ledger in `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `pnpm typecheck`, `pnpm lint`, `pnpm rail-adoption:check`, `analytics-gate.py`, and vitest unit suite (374/374 passed).
+- Branch: `feat/events-ai-pages-20261118` | PR: [#775](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/775) (Open, Not Merged).
+- Next owner: `cto-qa-lead` reviews PR #775.
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
