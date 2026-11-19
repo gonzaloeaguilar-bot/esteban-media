@@ -66,7 +66,7 @@ describe("home type system", () => {
     // :root, where the var() resolves to nothing.
     const bodyBlock = globals.match(/\nbody\s*\{([^}]*)\}/)?.[1] ?? "";
     expect(bodyBlock).toMatch(/--em-price-font:/);
-    expect(read("components/site-chrome.tsx")).toMatch(/Instrument_Serif\(\{[^}]*variable:\s*"--font-price"/);
+    expect(read("components/site-chrome.tsx")).toMatch(/localFont\(\{[^}]*instrument-serif-latin\.woff2[^}]*variable:\s*"--font-price"/);
     expect(globals).toMatch(/\.em-price-figure\s*\{[^}]*font-family:\s*var\(--em-price-font\)/);
   });
 
