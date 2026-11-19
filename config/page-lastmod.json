@@ -907,9 +907,17 @@
   "date": "2026-10-14",
   "hash": "eacaec1f125dd895"
  },
+ "/es/recursos/calendario-de-eventos-miami": {
+  "date": "2026-11-19",
+  "hash": "27965dee2e3b76cd"
+ },
  "/es/recursos/kit-video-social": {
   "date": "2026-10-11",
   "hash": "c76c635d2d08770b"
+ },
+ "/es/reels-comerciales-con-ia-miami": {
+  "date": "2026-11-19",
+  "hash": "0d1e3c6e00a5379e"
  },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
@@ -1215,6 +1223,10 @@
   "date": "2026-10-18",
   "hash": "ac965d6e4d4bb7cf"
  },
+ "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami": {
+  "date": "2026-11-19",
+  "hash": "eab13f1372b6aecb"
+ },
  "/es/videografo-para-entrevistas-ejecutivas-miami": {
   "date": "2026-11-04",
   "hash": "b5ed115f78b042d6"
@@ -1272,20 +1284,20 @@
   "hash": "4cd774765157f095"
  },
  "/events/art-basel-miami-beach-video": {
-  "date": "2026-10-14",
-  "hash": "0ae73189a85106ef"
+  "date": "2026-11-18",
+  "hash": "030f10d222990821"
  },
  "/events/emerge-americas-video": {
-  "date": "2026-10-14",
-  "hash": "5069f448a44be0e8"
+  "date": "2026-11-18",
+  "hash": "e50d34f583006982"
  },
  "/events/fort-lauderdale-boat-show-video": {
   "date": "2026-10-14",
   "hash": "57b36ca80022f08b"
  },
  "/events/miami-boat-show-video": {
-  "date": "2026-10-14",
-  "hash": "2db840f4b6a25006"
+  "date": "2026-11-18",
+  "hash": "81cb8850376184de"
  },
  "/events/miami-music-week-video": {
   "date": "2026-10-14",
@@ -1296,8 +1308,8 @@
   "hash": "91b0412b0b12a183"
  },
  "/events/south-beach-wine-food-festival-video": {
-  "date": "2026-10-14",
-  "hash": "46c6cd6280c6f2a8"
+  "date": "2026-11-18",
+  "hash": "cd953e9e2320ed0b"
  },
  "/fort-lauderdale": {
   "date": "2026-10-16",
@@ -1647,6 +1659,10 @@
   "date": "2026-10-11",
   "hash": "e9044fcfc0ce1e9a"
  },
+ "/resources/miami-events-calendar": {
+  "date": "2026-11-19",
+  "hash": "c17548f3b3a2d688"
+ },
  "/resources/remote-editing-handoff-checklist": {
   "date": "2026-10-11",
   "hash": "2b6b632f38100678"
@@ -1670,6 +1686,10 @@
  "/services/ai-chatbots-lead-automation-fort-lauderdale": {
   "date": "2026-11-11",
   "hash": "229dfa861a2ea14f"
+ },
+ "/services/ai-commercial-video-reels-miami": {
+  "date": "2026-11-18",
+  "hash": "4df6325680053ce8"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1792,8 +1812,8 @@
   "hash": "1cd9eca6a6fe7d0c"
  },
  "/services/conference-videographer-fort-lauderdale": {
-  "date": "2026-10-28",
-  "hash": "91f8b4dcba88b4ea"
+  "date": "2026-11-18",
+  "hash": "a850c4fcfbf928da"
  },
  "/services/construction-progress-video-miami": {
   "date": "2026-10-18",
@@ -1910,6 +1930,10 @@
  "/services/estate-planning-attorney-video-boca-raton": {
   "date": "2026-10-19",
   "hash": "8d4b6fdf2cc1862b"
+ },
+ "/services/event-attendee-interview-videographer-miami": {
+  "date": "2026-11-18",
+  "hash": "3b3ae109ad024e80"
  },
  "/services/executive-interview-videographer-miami": {
   "date": "2026-11-08",
@@ -2208,8 +2232,8 @@
   "hash": "bd264cc6859c73ca"
  },
  "/services/trade-show-booth-videographer-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "f23240d4f432a2f3"
+  "date": "2026-11-18",
+  "hash": "c767895ef4181dca"
  },
  "/services/ugc-ad-variation-video-editing": {
   "date": "2026-11-03",

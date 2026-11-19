@@ -25,6 +25,12 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-para-eventos-corporativos-fort-lauderdale",
   "/services/networking-event-videographer-miami":
     "/es/videografo-para-eventos-de-networking-miami",
+  "/services/event-attendee-interview-videographer-miami":
+    "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+  "/services/ai-commercial-video-reels-miami":
+    "/es/reels-comerciales-con-ia-miami",
+  "/resources/miami-events-calendar":
+    "/es/recursos/calendario-de-eventos-miami",
   "/services/wedding-videographer-miami":
     "/es/videografo-de-bodas-miami",
   "/services/vlog-videographer-miami":

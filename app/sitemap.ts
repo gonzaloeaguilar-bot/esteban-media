@@ -75,6 +75,7 @@ export const sitemapRoutes = [
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/resources/video-project-brief-template", priority: 0.85 },
   { path: "/resources/remote-editing-handoff-checklist", priority: 0.85 },
+  { path: "/resources/miami-events-calendar", priority: 0.85 },
   // Central Florida supplied-footage experiment: remote editing only, not a local-filming claim.
   { path: "/guides/central-florida-footage-editing", priority: 0.7 },
   { path: "/es/guias/edicion-remota-central-florida", priority: 0.7 },
@@ -123,6 +124,8 @@ export const sitemapRoutes = [
   { path: "/services/corporate-event-videographer-miami", priority: 0.85 },
   { path: "/services/corporate-event-videographer-fort-lauderdale", priority: 0.85 },
   { path: "/services/networking-event-videographer-miami", priority: 0.85 },
+  { path: "/services/event-attendee-interview-videographer-miami", priority: 0.85 },
+  { path: "/services/ai-commercial-video-reels-miami", priority: 0.85 },
   { path: "/services/wedding-videographer-miami", priority: 0.85 },
   { path: "/services/vlog-videographer-miami", priority: 0.85 },
   { path: "/services/conference-videographer-fort-lauderdale", priority: 0.85 },

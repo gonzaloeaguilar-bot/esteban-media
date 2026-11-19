@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 582,
-  "approvedSitemapUrlSetSha256": "be4c1e2bc8b08d6672318c5b63e57cc31ef07e0b807e26acacd52ba6148f8bf4",
+  "approvedSitemapUrlCount": 588,
+  "approvedSitemapUrlSetSha256": "39b02939d41847c96e07c72632c0f0177b946a11f44862a8e8314fde14c729b0",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,23 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-18",
+      "url": [
+        "/services/event-attendee-interview-videographer-miami",
+        "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+        "/services/ai-commercial-video-reels-miami",
+        "/es/reels-comerciales-con-ia-miami",
+        "/resources/miami-events-calendar",
+        "/es/recursos/calendario-de-eventos-miami"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch)",
+      "kind": "event attendee interviews, AI commercial Reels, and Miami events calendar bilingual pairs",
+      "demandEvidence": "13 of 18 event and AI query targets returned 404 in the loop scan (~/.claude/state/esteban-event-loop/latest.md). These 3 bilingual pairs (6 URLs) provide verified answer-first coverage for attendee interviews, AI-assisted commercial reels with explicit labeling disclosure, and the verified-pending 2026-27 Miami events calendar.",
+      "followUpDate": "2026-12-18",
+      "followUp": "Check GSC impressions and indexed status for all six URLs, monitor attendee interview and AI reels queries, and read qualified inquiries.",
+      "note": "SIX URLs (3 bilingual pairs), larger than default 4; recorded as one owner-ordered batch so the exception stays visible."
+    },
     {
       "on": "2026-11-11",
       "url": [

@@ -67,8 +67,9 @@ describe("portfolio sitemap entries", () => {
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
     // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
     // +3 = yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
-    expect(entries).toHaveLength(582);
-    expect(new Set(urls)).toHaveLength(582);
+    // +6 = attendee interviews, AI commercial Reels, and Miami events calendar (2026-11-18).
+    expect(entries).toHaveLength(588);
+    expect(new Set(urls)).toHaveLength(588);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {
