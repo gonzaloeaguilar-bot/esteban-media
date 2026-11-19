@@ -507,6 +507,16 @@ export const WATCH_URLS = [
   // Yacht charter hub (2026-11-11): exact-match charter destination for the
   // live marine line (superyacht, boat listing, yacht hospitality).
   "https://estebanmorenomedia.com/services/yacht-charter-video-production-fort-lauderdale",
+  // Real Estate Hub & Small-Creator / Christian YouTube batch (2026-11-18 batch 2).
+  "https://estebanmorenomedia.com/real-estate",
+  "https://estebanmorenomedia.com/es/bienes-raices",
+  "https://estebanmorenomedia.com/services/talking-head-video-editing",
+  "https://estebanmorenomedia.com/es/edicion-de-video-hablando-a-camara",
+  "https://estebanmorenomedia.com/services/christian-youtube-video-editor",
+  "https://estebanmorenomedia.com/es/editor-de-videos-cristianos-youtube",
+  "https://estebanmorenomedia.com/services/real-estate-video-aventura-miami",
+  "https://estebanmorenomedia.com/es/video-inmobiliario-aventura-miami",
+  "https://estebanmorenomedia.com/es/edicion-de-video-aereo-inmobiliario-miami",
   // Added 2026-10-10 by owner decision: the 26 indexable, self-canonical pages
   // that were not in the sitemap (growth systems, daily tools, case-study hubs,
   // /lens, /fort-lauderdale).

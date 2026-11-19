@@ -1233,6 +1233,118 @@ const nicheWave8Pages: SpanishNichePage[] = [
 
 export const spanishNichePages: SpanishNichePage[] = [
   {
+    slug: "edicion-de-video-hablando-a-camara",
+    title: "Edición de video hablando a cámara",
+    metadataTitle: "Edición Video Hablando a Cámara",
+    description: "Tú te grabas hablando a cámara y compartes el enlace de Drive; Esteban edita pausas, limpia el audio, agrega subtítulos y corta Shorts.",
+    metaDescription: ,
+    eyebrow: "Creadores / Marca Personal / Hablando a Cámara",
+    h1: "Tú te grabas hablando a cámara. Nosotros editamos, limpiamos audio y cortamos Shorts.",
+    lead: "Grábate con tu celular o cámara y sube los archivos a Google Drive o Dropbox. Esteban elimina silencios y dudas, equilibra el sonido, añade subtítulos dinámicos y entrega videos horizontales y Shorts verticales.",
+    keyword: "edicion de video hablando a camara",
+    location: "Remoto / Miami / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Video,
+    updated: "2026-11-18",
+    bestFor: [
+      "Creadores y educadores que graban frente a cámara y quieren delegar la edición semanal.",
+      "Fundadores y consultores que buscan convertir grabaciones sueltas en videos concisos para YouTube y redes.",
+      "Proyectos bilingües que necesitan subtítulos y cortes en español e inglés.",
+    ],
+    scopingQuestions: [
+      "¿Subes tus videos a Google Drive, Dropbox o nube propia?",
+      "¿Deseas formatos horizontales 16:9, Shorts verticales 9:16 o ambas versiones?",
+      "¿Cuántos videos tienes pensado publicar por semana?",
+    ],
+    projectFit: ,
+    sections: [
+      {
+        heading: "¿Cómo funciona el flujo de trabajo remoto con Google Drive?",
+        paragraphs: [
+          "El proceso es directo: preparas tu espacio, grabas tus ideas frente a cámara y subes los archivos originales a una carpeta compartida en Drive o Dropbox. No requieres enviar discos físicos ni equipo técnico a tu locación.",
+          "Esteban descarga el metraje, recorta repeticiones y silencios, ecualiza el audio para eliminar eco ambiente y agrega subtítulos en zonas seguras. Recibes los archivos terminados listos para subir a YouTube, LinkedIn o redes sociales.",
+        ],
+      },
+      {
+        heading: "¿Qué precios y opciones semanales están disponibles?",
+        paragraphs: [
+          ,
+          "Cada corte incluye subtítulos sincronizados, edición de ritmo ágil y la opción de extraer Shorts verticales para Instagram Reels, TikTok y YouTube Shorts sin costos ocultos.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Cómo envío mis grabaciones hablando a cámara?",
+        answer: "Sube tus tomas originales a Google Drive, Dropbox o OneDrive y comparte el enlace con notas sobre los puntos destacados.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición de video hablando a cámara?",
+        answer: ,
+      },
+      {
+        question: "¿Entregan versiones verticales para Shorts y Reels?",
+        answer: "Sí. Cada video puede incluir su versión adaptada a 9:16 con subtítulos dinámicos para YouTube Shorts, Reels y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-videos-cristianos-youtube",
+    title: "Editor de videos cristianos para YouTube",
+    metadataTitle: "Editor Videos Cristianos YouTube",
+    description: "Edición de video para creadores cristianos, ministerios y devocionales en YouTube: cortes limpios, citas bíblicas en pantalla, subtítulos y Shorts.",
+    metaDescription: ,
+    eyebrow: "Ministerios / Devocionales / YouTube",
+    h1: "Editor de videos cristianos para YouTube: enseñanzas, devocionales y Shorts con citas bíblicas.",
+    lead: "Para creadores cristianos y ministerios que graban devocionales o enseñanzas en casa o en su iglesia. Esteban recorta vacilaciones, limpia el audio, añade versículos bíblicos legibles y edita Shorts verticales.",
+    keyword: "editor de videos cristianos youtube",
+    location: "Remoto / Miami / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Church,
+    updated: "2026-11-18",
+    bestFor: [
+      "Pastores, maestros y creadores devocionales que graban mensajes semanales para YouTube.",
+      "Ministerios que necesitan colocar versículos bíblicos y subtítulos legibles sin perder horas en el montaje.",
+      "Canales cristianos que quieren multiplicar su alcance con YouTube Shorts y Reels.",
+    ],
+    scopingQuestions: [
+      "¿Qué traducción bíblica prefieres para los textos en pantalla (Reina-Valera, NVI, etc.)?",
+      "¿Envías la lista de versículos junto con el metraje de la grabación?",
+      "¿Deseas música instrumental o de alabanza de fondo libre de derechos?",
+    ],
+    projectFit: ,
+    sections: [
+      {
+        heading: "¿Cómo se presentan las citas bíblicas y el diseño visual?",
+        paragraphs: [
+          "Cada pasaje de las Escrituras y punto de enseñanza se incorpora con títulos inferiores claros y tipografía sobria que facilita la lectura y el estudio bíblico. Se respeta escrupulosamente la versión bíblica indicada.",
+          "El sonido se procesa para eliminar ruidos de fondo y reverberación de habitaciones, logrando una voz cálida e inteligible, complementada opcionalmente con música instrumental suave autorizada.",
+        ],
+      },
+      {
+        heading: "¿Cómo se extraen los Shorts devocionales para redes?",
+        paragraphs: [
+          "De cada video de enseñanza o devocional de 10 a 15 minutos, Esteban identifica los momentos más inspiradores y concisos para editarlos en formato vertical 9:16 con subtítulos completos.",
+          "Estos cortes rápidos permiten alimentar YouTube Shorts, Instagram Reels y TikTok con reflexiones breves, llevando nuevos oyentes hacia las enseñanzas completas de tu canal.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué material debo enviar para editar un devocional?",
+        answer: "La grabación de tu cámara o celular y la lista de versículos y puntos clave que deseas que aparezcan en pantalla.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición para canales cristianos de YouTube?",
+        answer: ,
+      },
+      {
+        question: "¿Extraen Shorts y Reels de los devocionales largos?",
+        answer: "Sí. Seleccionamos momentos clave de 30 a 60 segundos con subtítulos completos y encuadre vertical para Shorts y Reels.",
+      },
+    ],
+  },
+  {
     slug: "edicion-de-video-para-creadores-de-comida-y-lugares-miami",
     title: "Creadores de comida y lugares",
     metadataTitle: "Creadores de Comida y Lugares Miami",
@@ -8752,6 +8864,7 @@ export const spanishNichePages: SpanishNichePage[] = [
 
 export const spanishCoreRoutes = [
   "/es",
+  "/es/bienes-raices",
   "/es/fotografia-de-producto-miami",
   "/es/servicios",
   "/es/precios",
@@ -8943,6 +9056,36 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
   ...webAiServiceHreflang,
   ...reelsCostCalculatorHreflang,
+  "/real-estate": {
+    "en-US": "/real-estate",
+    "es-US": "/es/bienes-raices",
+    "x-default": "/real-estate",
+  },
+  "/es/bienes-raices": {
+    "en-US": "/real-estate",
+    "es-US": "/es/bienes-raices",
+    "x-default": "/real-estate",
+  },
+  "/services/talking-head-video-editing": {
+    "en-US": "/services/talking-head-video-editing",
+    "es-US": "/es/edicion-de-video-hablando-a-camara",
+    "x-default": "/services/talking-head-video-editing",
+  },
+  "/es/edicion-de-video-hablando-a-camara": {
+    "en-US": "/services/talking-head-video-editing",
+    "es-US": "/es/edicion-de-video-hablando-a-camara",
+    "x-default": "/services/talking-head-video-editing",
+  },
+  "/services/christian-youtube-video-editor": {
+    "en-US": "/services/christian-youtube-video-editor",
+    "es-US": "/es/editor-de-videos-cristianos-youtube",
+    "x-default": "/services/christian-youtube-video-editor",
+  },
+  "/es/editor-de-videos-cristianos-youtube": {
+    "en-US": "/services/christian-youtube-video-editor",
+    "es-US": "/es/editor-de-videos-cristianos-youtube",
+    "x-default": "/services/christian-youtube-video-editor",
+  },
   // Original-data study, 2026-10-14 (lib/restaurant-ig-study.ts).
   [restaurantIgStudyPaths.en]: { ...restaurantIgStudyAlternates },
   [restaurantIgStudyPaths.es]: { ...restaurantIgStudyAlternates },

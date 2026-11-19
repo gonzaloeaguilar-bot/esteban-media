@@ -3,6 +3,8 @@ import { priceSentence } from "@/lib/packages";
 import {
   CARE_AND_PRODUCTION_PLANS,
   SHORT_FORM,
+  shortFormPriceText,
+  shortFormWeeklyText,
   TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
   chatbotPriceText,
@@ -3802,5 +3804,129 @@ export const PODCAST_CLIPPING_DEPTH: NicheWave8Depth = {
     { title: "Video Podcast Editing", detail: "The full episode, multi-camera, edited for YouTube.", href: "/services/video-podcast-editing-service-miami" },
     { title: "Content Repurposing", detail: "Any long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
     { title: "Founder Video Editing", detail: "Personal brand videos for founders, coaches and consultants.", href: "/services/personal-brand-video-editor-founders-miami" },
+  ],
+};
+
+// ---------------------------------------------------------------------------
+// Small-Creator Talking-Head & Christian YouTube (2026-11-18 batch 2)
+// ---------------------------------------------------------------------------
+
+export const TALKING_HEAD_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "How does talking-head video editing work for solo creators and founders?",
+    answer:
+      `You record yourself speaking on camera with your phone or camera and send the raw files via Google Drive or Dropbox. Esteban Moreno Media cleans the audio, cuts silences, stumbles, and repetitive takes, adds formatted captions, and delivers finished horizontal and vertical Shorts for social media. Rates start with the Starter package ${shortFormPriceText("en")}.`,
+  },
+  proof: {
+    href: "/portfolio/ml-colombia",
+    label: "Review founder talking-head video proof",
+    note: "ML Colombia features CEO and founder-led video content recorded on camera and edited into structured social and YouTube formats.",
+  },
+  craftHeading: "What talking-head video editing delivers for creators.",
+  craft: [
+    {
+      title: "Audio clean-up and pacing",
+      detail:
+        "Room echo reduction, background hum removal, and vocal leveling paired with tight cutting of pauses, breath resets, and false starts.",
+    },
+    {
+      title: "Captions and visual emphasis",
+      detail:
+        "On-screen captions placed within safe zones, subtle zooms on key points, and contextual B-roll or screenshot callouts when supplied.",
+    },
+    {
+      title: "Shorts and Reels cutdowns",
+      detail:
+        "Extracting the sharpest 30-to-60-second hooks from your long-form takes, formatted vertically for YouTube Shorts, Instagram Reels, and TikTok.",
+    },
+  ],
+  faqHeading: "Common questions about talking-head video editing.",
+  faqs: [
+    {
+      question: "How do I send my talking-head footage?",
+      answer:
+        "Record your talking-head clips and upload the raw files to Google Drive, Dropbox, or OneDrive. Send the link with any notes on key points.",
+    },
+    {
+      question: "How much does talking-head video editing cost?",
+      answer:
+        `Single video edits start ${shortFormPriceText("en")}.`,
+    },
+    {
+      question: "Do you provide captions and vertical cuts for Shorts?",
+      answer:
+        "Yes. Every edit can include synchronized burned-in captions and vertical 9:16 reformatting for YouTube Shorts, Reels, and TikTok.",
+    },
+    {
+      question: "Can videos be edited in Spanish and English?",
+      answer:
+        "Yes. Esteban edits bilingual creator content natively in Spanish and English, adding subtitles in either language.",
+    },
+  ],
+  relatedHeading: "Related editing services for creators.",
+  related: [
+    { title: "Personal Brand Video Editor", detail: "Video editing for founders, coaches and consultants.", href: "/services/personal-brand-video-editor-founders-miami" },
+    { title: "YouTube Video Editing", detail: "Long-form pacing, retention curves and thumbnails.", href: "/services/youtube-long-form-video-editing-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts.", href: "/services/short-form-video-editor-miami" },
+  ],
+};
+
+export const CHRISTIAN_YOUTUBE_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "How does video editing work for Christian and ministry YouTube channels?",
+    answer:
+      `For Christian, ministry, and devotional YouTube creators recording at home or in church offices, you upload your raw footage and scripture references. Esteban Moreno Media cuts stumbles, balances vocal audio, inserts scripture lower-thirds and sermon title cards, and edits vertical Shorts for social reach. Pricing starts with the Starter package: ${shortFormPriceText("en")}.`,
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch long-form event and speaking footage cut into clips",
+    note: "Diana & Jack shows continuous ceremony and speaking video condensed into focused narrative pieces with music and vocal clarity.",
+  },
+  craftHeading: "What ministry and devotional YouTube video editing includes.",
+  craft: [
+    {
+      title: "Scripture and lower-third graphics",
+      detail:
+        "Accurate Bible verse overlays, passage citations, speaker names, and sermon title cards placed legibly on screen.",
+    },
+    {
+      title: "Vocal mastering and clean audio",
+      detail:
+        "Leveling speech dynamics, attenuating room reflections, and balancing gentle background acoustic or worship underscores.",
+    },
+    {
+      title: "Devotional Shorts and clips",
+      detail:
+        "Vertical cutdowns highlighting 60-second devotional insights, prayers, and key sermon takeaways for YouTube Shorts and Instagram.",
+    },
+  ],
+  faqHeading: "Common questions about Christian YouTube video editing.",
+  faqs: [
+    {
+      question: "What should I send for a devotional or teaching video?",
+      answer:
+        "Upload your camera recording along with a list of Bible verses, sermon points, and your preferred translation (NIV, ESV, Reina-Valera, etc.).",
+    },
+    {
+      question: "How much does Christian YouTube video editing cost?",
+      answer:
+        `Pricing starts ${shortFormPriceText("en")}.`,
+    },
+    {
+      question: "Can you cut YouTube Shorts from weekly devotionals?",
+      answer:
+        "Yes. Key quotes and devotional moments are reframed to 9:16 vertical video with captions for YouTube Shorts and Reels.",
+    },
+    {
+      question: "Do you support bilingual church and ministry channels?",
+      answer:
+        "Yes. Esteban edits content fluently in Spanish and English, adding accurate scripture references and captions in both languages.",
+    },
+  ],
+  relatedHeading: "Related services for ministries and churches.",
+  related: [
+    { title: "Church Sermon Clip Editing", detail: "Sunday sermon recordings cut into weekly clips.", href: "/services/church-sermon-clip-editing-miami" },
+    { title: "Talking-Head Video Editing", detail: "Clean cuts, audio polish and captions for solo creators.", href: "/services/talking-head-video-editing" },
+    { title: "YouTube Video Editing", detail: "Long-form episodic editing and chapter markers.", href: "/services/youtube-long-form-video-editing-miami" },
   ],
 };

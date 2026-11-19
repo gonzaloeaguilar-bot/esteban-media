@@ -27,10 +27,6 @@
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
     {
-      "path": "/es/edicion-de-video-aereo-inmobiliario-miami",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
       "path": "/es/edicion-de-video-palm-beach-county",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
@@ -67,10 +63,6 @@
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
     {
-      "path": "/es/video-inmobiliario-aventura-miami",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
       "path": "/es/video-para-negocios-hollywood-fl",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
@@ -100,10 +92,6 @@
     },
     {
       "path": "/services/luxury-jewelry-video-editing-miami",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
-      "path": "/services/real-estate-video-aventura-miami",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
     {
@@ -415,6 +403,27 @@
       "decidedBy": "Gonzalo (in-session, 2026-10-14)",
       "reason": "Owner decision 2026-10-14: Boca Raton was added to the Google Business Profile service area the same day, and live Google did not show Esteban for 'reels editor boca raton'. The 2026-08-12 NOINDEX judged a ~190-word template city page; the page was rebuilt on the Reels Fort Lauderdale formula (title 'Reels & ...', price line, who-can-help/cost/contact blocks, question-headed sections) before the noindex was removed. Palm Beach stays 'project by project' (AGENTS.md).",
       "followUpDate": "2026-10-28"
+    },
+    {
+      "path": "/services/real-estate-video-aventura-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-18",
+      "decidedBy": "Gonzalo / cto-dev-lead (batch2 specification)",
+      "reason": "Real estate pillar hub integration: re-opening luxury real estate Aventura route into sitemap and indexable inventory."
+    },
+    {
+      "path": "/es/video-inmobiliario-aventura-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-18",
+      "decidedBy": "Gonzalo / cto-dev-lead (batch2 specification)",
+      "reason": "Real estate pillar hub integration: re-opening Spanish luxury real estate Aventura route into sitemap and indexable inventory."
+    },
+    {
+      "path": "/es/edicion-de-video-aereo-inmobiliario-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-18",
+      "decidedBy": "Gonzalo / cto-dev-lead (batch2 specification)",
+      "reason": "Real estate pillar hub integration: re-opening Spanish aerial real estate video editing route into sitemap and indexable inventory."
     }
   ]
 }

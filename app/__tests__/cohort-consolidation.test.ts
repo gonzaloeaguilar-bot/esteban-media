@@ -119,10 +119,11 @@ describe("stale decisions were re-validated before execution", () => {
 });
 
 describe("consolidation arithmetic matches the published baseline", () => {
-  it("removes exactly 25 URLs from the prior 269-URL inventory", () => {
+  it("removes exactly 22 URLs from the prior 269-URL inventory", () => {
     // 26 on 2026-08-19; 25 since the owner re-admitted the Boca Raton page on
-    // 2026-10-14 (reopenedByOwner in config/cohort-consolidation.json).
-    expect(consolidatedPathCount()).toBe(25);
+    // 2026-10-14; 22 since 3 real-estate routes were reopened by owner in batch 2
+    // (reopenedByOwner in config/cohort-consolidation.json).
+    expect(consolidatedPathCount()).toBe(22);
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
     // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
     // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
@@ -167,7 +168,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
     // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
     // +3 = yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3);
+    // +9 = real estate pillar hub, talking head, Christian YouTube, and reopened routes (2026-11-18).
+    expect(sitemap()).toHaveLength(269 - 22 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6);
   });
 
   it("never lists a redirect source in the sitemap", () => {

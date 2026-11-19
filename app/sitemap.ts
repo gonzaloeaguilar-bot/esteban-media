@@ -68,10 +68,13 @@ const inventoryAdditions20261010 = inventoryAdditions20261010Paths.map((path) =>
 export const sitemapRoutes = [
   ...Object.values(packageRoutes).map((route) => ({ path: route.en, priority: 0.8 })),
   { path: "/", priority: 1 },
+  { path: "/real-estate", priority: 0.95 },
   { path: "/pricing", priority: 0.95 },
   // Published rates for a service line the packages do not cover.
   { path: "/pricing/real-estate", priority: 0.9 },
   { path: "/calculator", priority: 0.9 },
+  { path: "/services/talking-head-video-editing", priority: 0.88 },
+  { path: "/services/christian-youtube-video-editor", priority: 0.88 },
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/resources/video-project-brief-template", priority: 0.85 },
   { path: "/resources/remote-editing-handoff-checklist", priority: 0.85 },

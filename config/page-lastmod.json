@@ -131,6 +131,10 @@
   "date": "2026-10-14",
   "hash": "ea29080072e2d014"
  },
+ "/es/bienes-raices": {
+  "date": "2026-11-18",
+  "hash": "0998d3365703cdb3"
+ },
  "/es/calculadora": {
   "date": "2026-10-11",
   "hash": "3ddfa61f872ce608"
@@ -239,9 +243,17 @@
   "date": "2026-10-14",
   "hash": "7a53772db8f63774"
  },
+ "/es/edicion-de-predicas-youtube": {
+  "date": "2026-11-19",
+  "hash": "77a92e5477cd0b3b"
+ },
  "/es/edicion-de-variaciones-de-anuncios-ugc": {
   "date": "2026-11-08",
   "hash": "8ea30f7a68059de0"
+ },
+ "/es/edicion-de-video-aereo-inmobiliario-miami": {
+  "date": "2026-07-26",
+  "hash": "169fde863a210973"
  },
  "/es/edicion-de-video-con-dron-miami": {
   "date": "2026-08-14",
@@ -254,6 +266,10 @@
  "/es/edicion-de-video-de-capacitacion-corporativa-miami": {
   "date": "2026-08-14",
   "hash": "0431adf1896a2e01"
+ },
+ "/es/edicion-de-video-hablando-a-camara": {
+  "date": "2026-11-19",
+  "hash": "3c946bb5e128e64c"
  },
  "/es/edicion-de-video-largo-para-youtube": {
   "date": "2026-10-30",
@@ -346,6 +362,10 @@
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-10-28",
   "hash": "e1fd9226db7f1aea"
+ },
+ "/es/editor-de-videos-cristianos-youtube": {
+  "date": "2026-11-19",
+  "hash": "9c3b7c07293e07a9"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -496,8 +516,8 @@
   "hash": "541a129d2cde037b"
  },
  "/es/guias/cuanto-cuesta-video-inmobiliario-miami": {
-  "date": "2026-10-14",
-  "hash": "750e7d94380f5834"
+  "date": "2026-11-18",
+  "hash": "bd23d35c8888513e"
  },
  "/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana": {
   "date": "2026-10-14",
@@ -991,6 +1011,10 @@
   "date": "2026-10-19",
   "hash": "7fde42bddef816e3"
  },
+ "/es/video-inmobiliario-aventura-miami": {
+  "date": "2026-08-14",
+  "hash": "78e23e5647bd9966"
+ },
  "/es/video-inmobiliario-coral-gables": {
   "date": "2026-10-11",
   "hash": "aa95d91b20b416cc"
@@ -1372,8 +1396,8 @@
   "hash": "ef7697908d825358"
  },
  "/guides/how-much-does-real-estate-video-cost-miami": {
-  "date": "2026-10-14",
-  "hash": "011ee7bc3f06656e"
+  "date": "2026-11-18",
+  "hash": "24d53327b4fdfb17"
  },
  "/guides/how-much-does-restaurant-video-cost-miami": {
   "date": "2026-10-08",
@@ -1544,8 +1568,8 @@
   "hash": "5e624653f490c376"
  },
  "/portfolio/diana-jack": {
-  "date": "2026-10-14",
-  "hash": "97b2a8b83ab425f9"
+  "date": "2026-11-18",
+  "hash": "249a08102c5eec13"
  },
  "/portfolio/dupont-realty-international": {
   "date": "2026-10-24",
@@ -1596,8 +1620,8 @@
   "hash": "38247f833dfb1e4b"
  },
  "/portfolio/ml-colombia": {
-  "date": "2026-10-28",
-  "hash": "3209108159aa0b98"
+  "date": "2026-11-18",
+  "hash": "ce96c7df9b7f344d"
  },
  "/portfolio/my-dler": {
   "date": "2026-10-14",
@@ -1638,6 +1662,10 @@
  "/pricing/starter": {
   "date": "2026-10-14",
   "hash": "7a4415da26fbf4f0"
+ },
+ "/real-estate": {
+  "date": "2026-11-18",
+  "hash": "09836dae8588838e"
  },
  "/reels-editing-cost-calculator": {
   "date": "2026-10-14",
@@ -1774,6 +1802,10 @@
  "/services/chiropractic-video-marketing-miami": {
   "date": "2026-10-19",
   "hash": "3467dda277f8fc81"
+ },
+ "/services/christian-youtube-video-editor": {
+  "date": "2026-11-19",
+  "hash": "2657203623ce9663"
  },
  "/services/church-sermon-clip-editing-miami": {
   "date": "2026-10-13",
@@ -2131,6 +2163,10 @@
   "date": "2026-10-30",
   "hash": "d2c115d7a8f0ac97"
  },
+ "/services/real-estate-video-aventura-miami": {
+  "date": "2026-10-11",
+  "hash": "d53fa92433d70ead"
+ },
  "/services/real-estate-video-coral-gables": {
   "date": "2026-10-13",
   "hash": "3505eee75d53026b"
@@ -2202,6 +2238,10 @@
  "/services/surprise-proposal-videographer-miami": {
   "date": "2026-10-18",
   "hash": "f4bf2c8169bd8e37"
+ },
+ "/services/talking-head-video-editing": {
+  "date": "2026-11-19",
+  "hash": "7cf8ee55b86e7ccb"
  },
  "/services/tiktok-ad-video-editor-miami": {
   "date": "2026-10-27",

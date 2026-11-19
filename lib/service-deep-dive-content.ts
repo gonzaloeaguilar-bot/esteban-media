@@ -2165,3 +2165,65 @@ export const MARINA_FACILITY_DEEP_DIVE: DeepDive = {
   ],
 };
 
+
+// ---------------------------------------------------------------------------
+// Small-Creator Talking-Head & Christian YouTube Deep Dives (2026-11-18 batch 2)
+// ---------------------------------------------------------------------------
+
+export const TALKING_HEAD_DEEP_DIVE: DeepDive = {
+  id: "talking-head-deep-dive",
+  title: "A clear editing process for solo speakers, coaches, and creators.",
+  destinations: "File sharing, audio cleanup, vertical cutdowns, and weekly publishing rhythm.",
+  sections: [
+    {
+      heading: "Why does raw talking-head footage need professional editing?",
+      paragraphs: [
+        "Recording yourself speaking directly to camera is one of the most effective ways to build personal authority, explain complex ideas, and answer buyer questions. However, unedited footage is filled with natural vocal stalls, room echo, pauses while gathering thoughts, and minor stumbles. Left unaddressed, these pacing defects cause viewers to click away within the first ten seconds.",
+        "Professional editing removes dead air, tightens phrasing without creating unnatural jump cuts, levels speech volume, and inserts visual punctuation such as zooms, graphics, and B-roll. Viewers experience a confident, engaging delivery where every sentence delivers value.",
+      ],
+    },
+    {
+      heading: "How does remote workflow via Google Drive work?",
+      paragraphs: [
+        "You do not need an on-site video crew or an expensive studio. Simply set up your phone or mirrorless camera at eye level in a quiet room with soft front lighting and an external microphone. Record your ideas, upload the raw video files to a Google Drive or Dropbox folder, and share the link.",
+        "Esteban Moreno Media downloads the footage, verifies audio synchronization, and cuts the video according to your preferred formatting style. Finished files are delivered in both high-bitrate horizontal (16:9) for YouTube or websites and vertical (9:16) for social Shorts.",
+      ],
+    },
+    {
+      heading: "What are the published pricing tiers for solo creators?",
+      paragraphs: [
+        `Creator video editing is priced transparently through Esteban's owner-confirmed Starter package and weekly creator retainers. A standalone edit starts at ${usd(SHORT_FORM.perVideoFrom)} per video, allowing creators to test the workflow without long-term commitments.`,
+        `For creators publishing weekly content, our subscription plans provide priority turnaround: ${shortFormWeeklyText("en")}. Every project is confirmed in writing with zero hidden charges.`,
+      ],
+    },
+  ],
+};
+
+export const CHRISTIAN_YOUTUBE_DEEP_DIVE: DeepDive = {
+  id: "christian-youtube-deep-dive",
+  title: "Professional video editing for Christian creators, pastors, and ministries.",
+  destinations: "Scripture graphics, devotional batching, speech enhancement, and sermon cutdowns.",
+  sections: [
+    {
+      heading: "How can Christian creators maintain a consistent YouTube presence?",
+      paragraphs: [
+        "Pastors, authors, and Christian content creators frequently have rich spiritual messages and biblical teachings to share, but finding ten hours each week to edit footage, design lower thirds, and format clips prevents consistent publishing. A dedicated video editor provides the weekly post-production structure needed to publish weekly devotionals on schedule.",
+        "By batching your recordings—filming three or four devotionals or Q&A lessons in one sitting—and uploading them to cloud storage, you ensure your YouTube channel remains active while freeing your time for ministry, study, and community counseling.",
+      ],
+    },
+    {
+      heading: "What scripture formatting and visual elements are included?",
+      paragraphs: [
+        "Ministry videos require careful typographical hierarchy and respectful visual presentation. Esteban formats scripture references, passage texts, sermon points, and book recommendations with clean lower-third motion graphics that align with your ministry's brand aesthetic.",
+        "Audio is treated with dedicated speech isolation algorithms to eliminate room reverberation, while gentle, royalty-free acoustic or instrumental worship background tracks are mixed at balanced levels that never compete with the spoken word.",
+      ],
+    },
+    {
+      heading: "How are YouTube Shorts and social clips extracted from devotionals?",
+      paragraphs: [
+        "Every 10-to-15 minute devotional or teaching message contains several concise, memorable moments of encouragement, prayer, or biblical insight. Esteban identifies these standout 30-to-60 second segments and reformats them into vertical 9:16 Shorts with synchronized captions.",
+        "Publishing these vertical clips on YouTube Shorts, Instagram Reels, and TikTok directs new viewers back to your full-length channel teachings, expanding your ministry reach without requiring additional filming sessions.",
+      ],
+    },
+  ],
+};

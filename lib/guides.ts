@@ -10,6 +10,7 @@ import {
   PRODUCT_PHOTO_MARKET,
   REAL_ESTATE_PLANS,
   REAL_ESTATE_PLAN_TERMS,
+  REAL_ESTATE_MEDIA_PRICES,
   shortFormPriceText,
   shortFormWeeklyText,
   usd,
@@ -5043,19 +5044,16 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-28 (2026-10-14): autocomplete "how much does real estate
-          // videography cost" x4, "how much do videographers charge for real
-          // estate" x5; the answer was below the photography tiers.
           heading: "How much does real estate videography cost in Miami?",
           paragraphs: [
-            `Real estate videography with Esteban Moreno Media is priced per minute of finished video: ${listingVideo.name.en.toLowerCase()} is ${usd(listingVideo.amount)} per minute, and a ${listingTour.name.en} starts from ${usd(listingTour.amount)}. Agents who list every month can choose a monthly plan instead, from ${usd(REAL_ESTATE_PLANS[0].price)} to ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} a month with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum, which bundles the shoots and the social posts for a set number of properties.`,
-            `What a videographer charges for real estate depends on what you buy: a listing video, a tour, or a short social ad cut from footage you already have. Editing a short real estate ad falls in the calculator's band of ${usd(PRICING_BANDS.realestate.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)}, checked against a published market range of ${usd(PRICING_BANDS.realestate.marketMin)}–${usd(PRICING_BANDS.realestate.marketMax)} for short ad creative. The sections below list the photography tiers, the travel and reshoot fees, and the plan terms.`,
+            `What is the average real estate video cost in Miami? For single-listing shoots, real estate videography with Esteban Moreno Media is priced per minute of finished video: ${listingVideo.name.en.toLowerCase()} is ${usd(listingVideo.amount)} per minute, and a ${listingTour.name.en} starts from ${usd(listingTour.amount)}. In South Florida, average real estate video cost typically runs $500–$1,500. Agents listing monthly can choose Esteban's retainer plans from ${usd(REAL_ESTATE_PLANS[0].price)} to ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)}/mo (${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum) for 1–3 properties.`,
+            `What a videographer charges depends on the deliverable: a listing video, 3D tour, or short social ad. Editing a short real estate ad falls in the calculator's band of ${usd(PRICING_BANDS.realestate.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)} (market ${usd(PRICING_BANDS.realestate.marketMin)}–${usd(PRICING_BANDS.realestate.marketMax)}). Below are Esteban's real estate photography price sheet tiers, travel fees, and plan terms.`,
           ],
         },
         {
-          heading: "What are the photography prices by property size?",
+          heading: "What does Esteban's real estate photography price sheet look like?",
           paragraphs: [
-            "Esteban's published listing photography card prices a shoot by the property's square footage. These are exact rates for the stated size tiers, rather than the broader calculator's indicative video-editing ranges. Confirm the property's size before selecting a tier and explain which spaces you need photographed. The largest tier requires a conversation rather than an assumed price.",
+            "Esteban's published real estate photography price sheet prices a shoot strictly by the property's square footage. These are exact rates for the stated size tiers, rather than the broader calculator's indicative video-editing ranges. Confirm the property's size before selecting a tier and explain which spaces you need photographed. The largest tier requires a conversation rather than an assumed price.",
             "Use the [real-estate rate card](/pricing/real-estate) to discuss photography as a separate line from video or a tour. A low photography figure should not be read as the price of every listing service together. Share the address and access arrangements with your request so the applicable travel charge can also be checked.",
           ],
           bullets: REAL_ESTATE_MEDIA.photography.map((tier) => `${tier.label.en}: ${tier.amount === null ? "call to discuss" : usd(tier.amount)}.`),
@@ -5084,9 +5082,9 @@ const guidePairs: readonly GuidePair[] = [
         },
       ],
       faqs: [
-        { question: "What is the first photography tier?", answer: `${REAL_ESTATE_MEDIA.photography[0].label.en}: ${listingPhotoStartingPrice}. Larger properties use the remaining published size tiers; the largest tier says call to discuss.` },
+        { question: "What is the average real estate video cost?", answer: `In Miami and South Florida, average real estate video cost is $500–$1,500. Esteban offers listing video at ${usd(listingVideo.amount)} per minute and monthly retainers from ${usd(REAL_ESTATE_PLANS[0].price)}/mo.` },
+        { question: "What is the real estate photography price sheet?", answer: `Esteban's real estate photography price sheet starts at ${listingPhotoStartingPrice} under 1,500 SF, up to ${usd(REAL_ESTATE_MEDIA_PRICES.photoTiers[3])} for 4,501–6,000 SF, with Zillow 3D tours from ${usd(REAL_ESTATE_MEDIA_PRICES.zillow3dTourFrom)}.` },
         { question: "Is listing video priced per minute?", answer: `Yes. ${listingVideo.name.en} is ${usd(listingVideo.amount)} per minute. Confirm the requested length and scope before calculating the total.` },
-        { question: "Is the Zillow tour a fixed price?", answer: `The ${listingTour.name.en} starts from ${usd(listingTour.amount)}. ${listingTour.note.en}` },
         { question: "What commitment do monthly plans require?", answer: `The published minimum is ${REAL_ESTATE_PLAN_TERMS.minimumMonths} months. Confirm the selected plan and monthly work before booking. ${REAL_ESTATE_MEDIA.terms.en}` },
       ],
     },
@@ -5104,17 +5102,16 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          // DM-28 (2026-10-14): ES twin of the answer-first videography H2.
           heading: "¿Cuánto cuesta un videógrafo inmobiliario en Miami?",
           paragraphs: [
-            `El video inmobiliario con Esteban Moreno Media se cobra por minuto de video terminado: el ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto, y un ${listingTour.name.es.charAt(0).toLowerCase() + listingTour.name.es.slice(1)} empieza en ${usd(listingTour.amount)}. Los agentes que publican propiedades cada mes pueden elegir un plan mensual, de ${usd(REAL_ESTATE_PLANS[0].price)} a ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} al mes con un mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses, que reúne las grabaciones y las publicaciones para redes de una cantidad fija de propiedades.`,
-            `Lo que cobra un videógrafo inmobiliario depende de lo que compras: un video de la propiedad, un recorrido o un anuncio corto para redes hecho con material que ya tienes. Editar un anuncio inmobiliario corto entra en el rango de la calculadora de ${usd(PRICING_BANDS.realestate.baseMin)} a ${usd(PRICING_BANDS.realestate.baseMax)}, comparado con un rango publicado del mercado de ${usd(PRICING_BANDS.realestate.marketMin)} a ${usd(PRICING_BANDS.realestate.marketMax)} por anuncio corto. Las secciones de abajo detallan las fotos por tamaño, los cargos de traslado y de repetición, y las condiciones de los planes.`,
+            `¿Cuál es el costo promedio de video inmobiliario en Miami? Con Esteban Moreno Media se cobra por minuto de video terminado: el ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto, y el ${listingTour.name.es.charAt(0).toLowerCase() + listingTour.name.es.slice(1)} empieza en ${usd(listingTour.amount)}. En South Florida el costo promedio suele rondar entre $500 y $1,500. Agentes con listados mensuales pueden elegir un plan mensual de Esteban, de ${usd(REAL_ESTATE_PLANS[0].price)} a ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} al mes (mínimo ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses) para 1 a 3 propiedades.`,
+            `Lo que cobra un videógrafo depende de si compras video de listado, recorrido 3D o anuncio corto. Editar un anuncio inmobiliario entra en el rango de ${usd(PRICING_BANDS.realestate.baseMin)} a ${usd(PRICING_BANDS.realestate.baseMax)} (mercado ${usd(PRICING_BANDS.realestate.marketMin)} a ${usd(PRICING_BANDS.realestate.marketMax)}). Abajo verás la lista de precios de fotografía inmobiliaria de Esteban, traslados y condiciones.`,
           ],
         },
         {
-          heading: "¿Cuánto cuestan las fotos según el tamaño de la propiedad?",
+          heading: "¿Cómo es la lista de precios de fotografía inmobiliaria de Esteban?",
           paragraphs: [
-            "La tarifa publicada de fotografía inmobiliaria depende del tamaño de la propiedad en pies cuadrados, indicado como SF. Son precios exactos para cada rango de tamaño, distintos de los estimados generales de edición de video. Confirma la superficie antes de elegir una tarifa y explica qué espacios necesitas fotografiar. Para la categoría más grande hay que conversar sobre el trabajo.",
+            "La lista de precios de fotografía inmobiliaria de Esteban depende estrictamente del tamaño de la propiedad en pies cuadrados, indicado como SF. Son precios exactos para cada rango de tamaño, distintos de los estimados generales de edición de video. Confirma la superficie antes de elegir una tarifa y explica qué espacios necesitas fotografiar. Para la categoría más grande hay que conversar sobre el trabajo.",
             "Revisa la [lista de precios inmobiliarios](/es/precios/inmobiliaria) separando las fotos del video y del recorrido virtual. El precio de fotografía no representa todos los servicios juntos. Comparte también la dirección y las condiciones de acceso: así puedes confirmar el traslado aplicable y preparar la propiedad para la visita acordada.",
           ],
           bullets: REAL_ESTATE_MEDIA.photography.map((tier) => `${tier.label.es}: ${tier.amount === null ? "llama para conversar" : usd(tier.amount)}.`),
@@ -5143,9 +5140,9 @@ const guidePairs: readonly GuidePair[] = [
         },
       ],
       faqs: [
-        { question: "¿Cuál es la primera tarifa de fotografía?", answer: `${REAL_ESTATE_MEDIA.photography[0].label.es}: ${listingPhotoStartingPrice}. Para propiedades mayores aplican los demás rangos publicados; en la categoría más grande debes llamar para conversar.` },
+        { question: "¿Cuál es el costo promedio de video inmobiliario?", answer: `En Miami y South Florida, el costo promedio de video inmobiliario es de $500 a $1,500. Esteban ofrece video premium por ${usd(listingVideo.amount)} el minuto y planes mensuales desde ${usd(REAL_ESTATE_PLANS[0].price)}/mes.` },
+        { question: "¿Cómo es la lista de precios de fotografía inmobiliaria?", answer: `La lista de precios de fotografía inmobiliaria de Esteban empieza en ${listingPhotoStartingPrice} bajo 1,500 SF, hasta ${usd(REAL_ESTATE_MEDIA_PRICES.photoTiers[3])} para 4,501–6,000 SF, con tours Zillow 3D desde ${usd(REAL_ESTATE_MEDIA_PRICES.zillow3dTourFrom)}.` },
         { question: "¿El video inmobiliario se cobra por minuto?", answer: `Sí. El ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto. Confirma la duración y el trabajo incluido antes de calcular el total.` },
-        { question: "¿El recorrido de Zillow tiene un precio fijo?", answer: `El ${listingTour.name.es.toLowerCase()} parte desde ${usd(listingTour.amount)}. ${listingTour.note.es}` },
         { question: "¿Cuál es el compromiso de los planes mensuales?", answer: `El mínimo publicado es de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Confirma el plan y el trabajo mensual antes de reservar. ${REAL_ESTATE_MEDIA.terms.es}` },
       ],
     },
