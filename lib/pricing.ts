@@ -302,6 +302,13 @@ export const PRODUCT_PHOTO_SESSION = {
 
 // On-location raw video capture (no editing): market $300-1,000 half-day,
 // starting floor from PRICING_BANDS["on-location"].baseMin ($400: the accessible recording-only option, owner 2026-10-28).
+export const RAW_FILMING_RATES = {
+  halfDay: 400,
+  fullDay: 700,
+  currency: "USD",
+  source: "lib/pricing.ts raw filming rates: 400 half-day / 700 full-day raw filming; 100 per video edit",
+} as const;
+
 export const ON_LOCATION_CAPTURE = {
   from: PRICING_BANDS["on-location"].baseMin,
   unit: "half-day",

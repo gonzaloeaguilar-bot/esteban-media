@@ -30,7 +30,10 @@ export type EventId =
   | "sobewff"
   | "emerge-americas"
   | "miami-music-week"
-  | "miami-spice";
+  | "miami-spice"
+  | "fitce"
+  | "boca-raton-events"
+  | "pompano-beach-events";
 
 export type EventSeason = "fall" | "winter" | "spring" | "summer";
 
@@ -260,6 +263,81 @@ export const EVENTS: readonly AnnualEvent[] = [
       es: "/es/eventos/video-para-restaurantes-en-miami-spice",
     },
   },
+  {
+    id: "fitce",
+    name: "Florida International Trade and Cultural Expo (FITCE)",
+    season: "fall",
+    typicalMonth: 10,
+    officialSite: "https://www.broward.org/EconDev",
+    typicalWindow: {
+      en: "Usually October or November",
+      es: "Normalmente en octubre o noviembre",
+    },
+    nextEdition: {
+      start: "2026-11-18",
+      end: "2026-11-19",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      where: {
+        en: "Broward County Convention Center, Fort Lauderdale",
+        es: "Centro de Convenciones del Condado de Broward, Fort Lauderdale",
+      },
+    },
+    paths: {
+      en: "/events/fitce-fort-lauderdale-video",
+      es: "/es/eventos/video-para-fitce-fort-lauderdale",
+    },
+  },
+  {
+    id: "boca-raton-events",
+    name: "Boca Raton Business Festivals & Expos",
+    season: "spring",
+    typicalMonth: 3,
+    officialSite: "https://bocachamber.com",
+    typicalWindow: {
+      en: "Usually year-round with spring business and cultural summits",
+      es: "Normalmente durante todo el año, con cumbres empresariales y culturales en primavera",
+    },
+    nextEdition: {
+      start: "2027-03-05",
+      end: "2027-03-14",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      where: {
+        en: "Mizner Park and venues across Boca Raton",
+        es: "Mizner Park y sedes en Boca Raton",
+      },
+    },
+    paths: {
+      en: "/events/boca-raton-events-video",
+      es: "/es/eventos/video-para-eventos-en-boca-raton",
+    },
+  },
+  {
+    id: "pompano-beach-events",
+    name: "Pompano Beach Annual Festivals & Events",
+    season: "spring",
+    typicalMonth: 4,
+    officialSite: "https://www.pompanobeachfl.gov/events",
+    typicalWindow: {
+      en: "Usually spring festivals and monthly civic events",
+      es: "Normalmente festivales de primavera y eventos cívicos mensuales",
+    },
+    nextEdition: {
+      start: "2027-04-16",
+      end: "2027-04-17",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      where: {
+        en: "Pompano Beach Community Park and beachfront grounds",
+        es: "Parque Comunitario de Pompano Beach y predios frente a la playa",
+      },
+    },
+    paths: {
+      en: "/events/pompano-beach-events-video",
+      es: "/es/eventos/video-para-eventos-en-pompano-beach",
+    },
+  },
 ];
 
 export const EVENTS_HUB_PATHS: Localized = { en: "/events", es: "/es/eventos" };
@@ -351,6 +429,9 @@ const ALL_EVENT_IDS: readonly EventId[] = [
   "emerge-americas",
   "miami-music-week",
   "miami-spice",
+  "fitce",
+  "boca-raton-events",
+  "pompano-beach-events",
 ];
 
 /**
