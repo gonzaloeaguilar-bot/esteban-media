@@ -172,7 +172,7 @@ const content: GeoServicePageContent = {
   decisionRail: {
     eyebrow: "Choose your starting point",
     heading: "What do you already have for the next Reel?",
-    intro: "Choose the closest situation. The message gives Esteban the useful first detail before anyone assumes a larger shoot.",
+    intro: "Choose the closest option. The message gives Esteban the useful first detail before anyone assumes a larger shoot.",
     decisions: [
       { id: "reels_ftl_existing_clips", title: "I already have clips", detail: "Send the strongest original clips, one idea and the platform where the Reel will run.", href: whatsappHref(site.phone.e164, "Hi Esteban, I already have clips for a Fort Lauderdale Reel. I want to turn them into a clear social video."), action: "Ask about one Reel" },
       { id: "reels_ftl_weekly", title: "I need Reels every week", detail: "Tell Esteban how often you want to publish and whether you already have a filming routine.", href: whatsappHref(site.phone.e164, "Hi Esteban, I need recurring Reels editing for a Fort Lauderdale business. I want to talk about a weekly editing plan."), action: "Ask about weekly editing" },

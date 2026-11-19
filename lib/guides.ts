@@ -3470,7 +3470,7 @@ const guidePairs: readonly GuidePair[] = [
         href: "/portfolio/great-reviewer-iphone-18",
         title: "The Great Reviewer Reel",
         description:
-          "A recent published Reel showing clear on-screen text and social-video pacing. It is a current public example, not a promise of identical deliverables for every project.",
+          "A recent published Reel showing clear on-screen text and social-video pacing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
       },
       sections: [
         {
@@ -3548,7 +3548,7 @@ const guidePairs: readonly GuidePair[] = [
         href: "/es/portafolio/great-reviewer-iphone-18",
         title: "El Reel de The Great Reviewer",
         description:
-          "Un Reel publicado recientemente que muestra texto claro en pantalla y ritmo para redes. Es un ejemplo público actual, no una promesa de entregables idénticos en cada proyecto.",
+          "Un Reel publicado recientemente que muestra texto claro en pantalla y ritmo para redes. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
       },
       sections: [
         {
