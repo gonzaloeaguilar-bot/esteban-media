@@ -1,5 +1,6 @@
 import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { REELS_MIAMI_CONVERSATIONAL_EN } from "@/lib/conversational-answers";
 
@@ -25,6 +26,8 @@ const content: GeoServicePageContent = {
   serviceType: "Reels editing",
   areaServed: "Miami / Miami-Dade / Remote",
   answerService: "Reels editing in Miami",
+  answerFirst:
+    `Esteban Moreno Media provides reel editor and video editing services for businesses and creators in Miami. Remote editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, or ${shortFormWeeklyText("en")} (4-week minimum). Send your raw footage and Esteban shapes each clip into an Instagram Reel, TikTok, or YouTube Short with clear captions in safe zones and one focused action at the end. Communication and review are in Spanish first, with intermediate English available.`,
   craftHeading: "What Miami Reels need to do quickly.",
   depthHeading: "Miami Reels editing questions, answered.",
   craft: [
@@ -67,6 +70,11 @@ const content: GeoServicePageContent = {
   faqHeading: "Questions before hiring a Miami Reels editor.",
   faqs: [
     {
+      question: "Looking for a reel editor or video editor in Miami?",
+      answer:
+        "Esteban Moreno Media edits vertical business Reels, TikToks, and social ads from supplied footage across Miami-Dade. Remote editing starts from the Starter package floor or the weekly plan, with direct Spanish-first communication and phone-first formatting.",
+    },
+    {
       question: "Is a Reels editor different from a general video editor?",
       answer:
         "A Reels editor focuses on vertical pacing, captions, safe zones, hooks, and platform formats. A general editor may be strong at longer stories but still miss the small phone constraints that make a short clip easy to watch. The useful question is not the label; it is whether the editor asks where the video will publish and what action it should create.",
@@ -95,6 +103,11 @@ const content: GeoServicePageContent = {
       href: "/services/short-form-video-editor-miami",
     },
     {
+      title: "Reels Editor Fort Lauderdale",
+      detail: "Short-form video editing and Reels for Broward County businesses.",
+      href: "/services/reels-editor-fort-lauderdale",
+    },
+    {
       title: "Restaurant Promo Video",
       detail: "Food, dining, and hospitality clips built from stronger visual moments.",
       href: "/services/restaurant-promo-video-editing-miami",
@@ -121,9 +134,11 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Reels Editor Miami",
+  // 2026-11-19: target near-page-1 queries "reel editor miami" (pos 14.3),
+  // "editor de reels miami" (pos 8.5), and "editor de video miami" (pos 11).
+  title: "Reel Editor & Video Editing Miami",
   description:
-    "Miami Reels editor for Instagram Reels, TikTok, YouTube Shorts, product clips, restaurant videos, captions, and social ad edits.",
+    `Miami reel editor for business clips, product videos, and social ads. Clean captions, phone-first edits. From ${usd(SHORT_FORM.perVideoFrom)} a video or weekly plans.`,
   path: content.path,
   locale: "en",
 });

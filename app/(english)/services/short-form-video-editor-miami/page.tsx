@@ -26,8 +26,11 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Miami Short-Form Video Editor | Turn Raw Clips into Reels",
-  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami and Fort Lauderdale. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  // 2026-11-19: target near-page-1 queries "short form video editor miami" (pos 6.3)
+  // and "short form video editor fort lauderdale" (pos 16.1).
+  title: "Short-Form Video Editor Miami & Fort Lauderdale",
+  description:
+    `Short-form video editor for Miami and Fort Lauderdale businesses: Reels, TikTok, and Shorts from raw clips. From ${usd(SHORT_FORM.perVideoFrom)} a video or weekly plans.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });

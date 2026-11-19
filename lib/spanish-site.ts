@@ -6229,16 +6229,16 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-fort-lauderdale",
     title: "Editor de Reels en Fort Lauderdale",
-    // 2026-10-28: la consulta "editor de reels fort lauderdale" (15 impr) aterriza
-    // en la página en inglés; el título y la descripción ahora responden primero.
-    metadataTitle: "Editor de Reels en Fort Lauderdale",
+    // 2026-11-19: target near-page-1 queries "editor de video fort lauderdale" (pos 4.1),
+    // "editor de reels fort lauderdale" (pos 14.5), and "reel editor fort lauderdale".
+    metadataTitle: "Editor de Video Reels Fort Lauderdale",
     description:
-      `Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
+      `Edición de video y Reels en Fort Lauderdale: videos cortos con subtítulos legibles para negocios. Desde ${esStarterFrom} por video o planes semanales.`,
     eyebrow: "Reels / TikTok / Shorts",
-    h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
+    h1: "Editor de Reels y Video en Fort Lauderdale para Negocios.",
     lead:
-      "Si buscas un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
-    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Envía los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
+      "Si buscas un editor de video y Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
+    answerFirst: `Esteban Moreno Media ofrece servicio de editor de video y Reels en Fort Lauderdale para negocios y creadores de Broward. El servicio parte desde ${esStarterFrom} por video con el paquete Arranque, o a ritmo semanal con ${esWeekly} (con mínimo de 4 semanas). Envía tus clips grabados y Esteban los convierte en Reels, TikToks o Shorts con subtítulos legibles en zonas seguras y una acción clara al final. La edición es remota y la comunicación es en español primero, con inglés intermedio disponible. Si el proyecto requiere filmación en locación en South Florida, se cotiza por separado.`, 
     keyword: "editor de reels Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
@@ -6312,6 +6312,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     faqs: [
       {
+        question: "¿Cómo contratar un editor de video en Fort Lauderdale para redes sociales?",
+        answer:
+          "Puedes contratar la edición remota de inmediato enviando tus clips originales grabados con teléfono o cámara. Esteban Moreno Media estructura el material en Reels, TikToks o Shorts con subtítulos legibles y llamado a la acción, a partir del paquete Arranque o el plan semanal.",
+      },
+      {
         question: "¿Puedo contratar solo la edición de Reels?",
         answer:
           "Sí. Si ya tienes clips, referencias y una meta clara, el proyecto puede enfocarse exclusivamente en edición remota de Reels, TikTok o Shorts.",
@@ -6336,13 +6341,16 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-miami",
     title: "Editor de Reels en Miami",
-    metadataTitle: "Editor de Reels en Miami",
+    // 2026-11-19: target near-page-1 queries "editor de reels miami" (pos 8.5),
+    // "editor de video miami" (pos 11), and "reel editor miami" (pos 14.3).
+    metadataTitle: "Editor de Video y Reels en Miami",
     description:
-      "Edición de Reels, TikTok y Shorts para negocios de Miami-Dade que necesitan piezas claras, subtituladas y listas para publicar.",
+      `Edición de video y Reels en Miami: videos cortos y clips con subtítulos claros para negocios de Miami-Dade. Desde ${esStarterFrom} por video o planes semanales.`,
     eyebrow: "Miami / video corto",
-    h1: "Editor de Reels en Miami para negocios que publican en teléfono primero.",
+    h1: "Editor de Video y Reels en Miami para Negocios Locales.",
     lead:
-      "Para negocios en Miami-Dade, los Reels funcionan mejor cuando el video muestra una oferta concreta, una experiencia real o una respuesta rápida a una duda del cliente. Esteban puede editar con material existente y revisar proyectos de captura local de forma selectiva.",
+      "Para negocios en Miami-Dade que buscan un editor de video y Reels, el contenido funciona mejor cuando muestra una oferta concreta, una experiencia real o una respuesta rápida a una duda del cliente. Esteban edita a distancia con material existente y revisa proyectos de captura local de forma selectiva.",
+    answerFirst: `Esteban Moreno Media ofrece servicio de editor de video y Reels en Miami para negocios, marcas y creadores de Miami-Dade. La edición de video corto parte desde ${esStarterFrom} por video con el paquete Arranque, o en plan semanal con ${esWeekly} (mínimo de 4 semanas). Envías los clips grabados en tu negocio o teléfono y Esteban los edita con subtítulos dinámicos en zonas seguras y una llamada a la acción enfocada. La atención y revisión es en español primero, con inglés intermedio disponible. La producción en locación se evalúa y cotiza por separado cuando se requiere capturar tomas nuevas.`, 
     keyword: "editor de reels Miami",
     location: "Miami-Dade / Remote",
     availability: "confirmed",
@@ -6393,6 +6401,11 @@ export const spanishNichePages: SpanishNichePage[] = [
       ...ES_REELS_MIAMI_CONVERSATIONAL,
     ],
     faqs: [
+      {
+        question: "¿Cómo trabaja un editor de video en Miami para Reels y redes sociales?",
+        answer:
+          "El trabajo es remoto a partir del material que tu negocio ya tiene grabado. Subes los archivos a la nube y Esteban edita cada pieza en formato vertical 9:16 con subtítulos legibles y cortes ágiles, desde el paquete Arranque o el plan semanal, con comunicación directa en español.",
+      },
       {
         question: "¿Editan Reels para negocios de Miami con material existente?",
         answer:

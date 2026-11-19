@@ -2,7 +2,7 @@ import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
-import { SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -28,7 +28,7 @@ const content: GeoServicePageContent = {
   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
   answerFirst:
-    `Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses. Reels editing with Esteban Moreno Media starts with the clips you already have. Send the original files, one idea per video and the platform it will run on, and Esteban cuts them into Reels, TikToks or Shorts with captions inside the safe zones and one clear action at the end. The editing is remote and the conversation runs in Spanish first, with intermediate English available. Editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, and every project gets a written quote. When the footage cannot show the offer yet, a local shoot in South Florida is scoped separately, never assumed.`,
+    `Esteban Moreno Media provides reel editor and short-form video editing services for businesses in Fort Lauderdale and Broward County. Remote editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, or ${shortFormWeeklyText("en")} (4-week minimum). Send existing raw clips and Esteban cuts them into focused Instagram Reels, TikToks, or Shorts with captions inside safe zones and one clear call to action. The conversation runs in Spanish first, with intermediate English available, and local shoots across South Florida are scoped separately when new footage is required.`,
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
@@ -93,6 +93,11 @@ const content: GeoServicePageContent = {
       question: "Do Reels need trending audio?",
       answer:
         "Not always. A trend can help discovery, but it cannot fix unclear footage or a weak message. For businesses, clear captions, understandable audio, and a fast path to the offer usually matter more than copying a sound. If a trend is used, the edit still needs to make sense when the viewer watches with sound off.",
+    },
+    {
+      question: "Looking for a short-form video editor or reel editor in Fort Lauderdale?",
+      answer:
+        "Esteban Moreno Media edits vertical short-form video and Reels remotely for Fort Lauderdale companies. You film on your phone or camera, and Esteban handles the pacing, captions, audio balancing, and export formatting starting from the Starter package floor or the weekly plan.",
     },
     {
       question: "Can you edit Reels remotely for a Fort Lauderdale business?",
@@ -170,12 +175,11 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  // 2026-10-28: GSC Aug-Oct shows "reel editor fort lauderdale" (11 impr, pos 9.1)
-  // and "editor de reels fort lauderdale" (15 impr, pos 11.5) with 0 clicks on
-  // this page; the title did not say "reel editor" and the snippet answered nothing.
-  title: "Reel Editor in Fort Lauderdale",
+  // 2026-11-19: target near-page-1 queries "reel editor fort lauderdale" (pos 9.8),
+  // "editor de reels fort lauderdale" (pos 14.5), and "short form video editor fort lauderdale".
+  title: "Reel Editor & Short-Form Video Fort Lauderdale",
   description:
-    `Fort Lauderdale reel editor for businesses with clips already filmed: Reels, TikTok and Shorts with readable captions and one clear action. From ${usd(SHORT_FORM.perVideoFrom)} a video.`,
+    `Fort Lauderdale reel editor and short-form video editing for businesses. Captions, safe zones, and clear CTAs. From ${usd(SHORT_FORM.perVideoFrom)} a video or weekly plans.`,
   path: content.path,
   locale: "en",
 });

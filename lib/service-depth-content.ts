@@ -574,18 +574,23 @@ export const SHORT_FORM_DEPTH: Depth = {
       answer:
         "Choose an editor when you already have usable clips and need them shaped into a finished Reel, TikTok, or Short. Choose a videographer when the footage does not exist yet or the project needs on-location camera direction, lighting, audio, or a planned shot list. If the project needs both, the written quote should name the filming work and the finished edits separately so the scope is clear.",
     },
+    {
+      question: "Do you offer short-form video editing in Fort Lauderdale as well as Miami?",
+      answer:
+        "Yes. Esteban Moreno Media is based in Fort Lauderdale and provides remote short-form video editing for clients across Broward and Miami-Dade. You send the raw footage online, and Esteban edits your vertical videos on the Starter package or the weekly plan.",
+    },
   ],
   relatedHeading: "Related services for social video output.",
   related: [
     {
+      title: "Reels Editor Fort Lauderdale",
+      detail: "Vertical short-form video editing for Broward County businesses and creators.",
+      href: "/services/reels-editor-fort-lauderdale",
+    },
+    {
       title: "Content Repurposing",
       detail: "Turn one long video, podcast or shoot into a set of short social clips.",
       href: "/services/content-repurposing-service-miami",
-    },
-    {
-      title: "TikTok Ad Video Editor",
-      detail: "Direct-response vertical ads built from supplied creator or product footage.",
-      href: "/services/tiktok-ad-video-editor-miami",
     },
     {
       title: "Remote Editing Handoff",
