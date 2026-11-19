@@ -1,3 +1,19 @@
+## 2026-11-19 — Near-Page-1 SEO Query Fixes on existing Reels and short-form pages
+
+- **Branch:** `feat/nearp1-20261119` (commit `a069ce65`) | **PR:** https://github.com/gonzaloeaguilar-bot/esteban-media/pull/new/feat/nearp1-20261119
+- **Scope:** Improved existing routes only (`/es/editor-de-reels-fort-lauderdale`, `/services/reels-editor-fort-lauderdale`, `/es/editor-de-reels-miami`, `/services/reels-editor-miami`, `/services/short-form-video-editor-miami`).
+- **Target Queries:** `editor de video fort lauderdale` (pos 4.1), `editor de reels fort lauderdale` (pos 14.5), `reel editor fort lauderdale` (pos 9.8), `reel editor miami` (pos 14.3), `editor de reels miami` (pos 8.5), `editor de video miami` (pos 11), `short form video editor fort lauderdale` (pos 16.1), `short form video editor miami` (pos 6.3).
+- **Execution Details:**
+  - Page titles constrained to <= 60 characters with query alignment.
+  - Meta descriptions constrained to <= 155 characters matching queries and answer-first model.
+  - Answer-first intro sentences stating owner-confirmed pricing from `lib/pricing.ts` ($100 per video Starter floor; $85/wk for 1 video, $160/wk for 2 videos with 4-week minimum).
+  - Native server-rendered `<details>` FAQs matching search intent and JSON-LD FAQ schemas.
+  - Cross-linking between Fort Lauderdale and Miami short-form services.
+  - Ran `pnpm lastmod:update` updating `config/page-lastmod.json`.
+  - Added regression test `app/__tests__/near-page-1-queries.test.ts`.
+- **Verification Gates Passed:** `pnpm typecheck`, `pnpm lint`, `npm test` (targeted near-page-1, price-single-source, service-depth, site, es-us-spanish-money-pages), and `analytics-gate.py`.
+
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
