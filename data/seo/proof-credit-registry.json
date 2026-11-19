@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-08T23:00:00-05:00",
+  "purpose": "Public-domain relationships to review before a client-owned attribution is proposed. A live URL proves availability only; it does not prove the client page contains an Esteban credit.",
+  "records": [
+    {"portfolioId":"gains-from-geebs","portfolioPath":"/portfolio/gains-from-geebs","publicSite":"https://gainsfromgeebs.com/","publicSiteHttpStatus":200,"relationship":"website project shown in Esteban's published portfolio","clientCreditStatus":"not verified"},
+    {"portfolioId":"caro-sells-miami","portfolioPath":"/portfolio/caro-sells-miami","publicSite":"https://carosellsmiami.com/","publicSiteHttpStatus":200,"relationship":"website project shown in Esteban's published portfolio","clientCreditStatus":"not verified"},
+    {"portfolioId":"dupont-realty-international","portfolioPath":"/portfolio/dupont-realty-international","publicSite":"https://dupontrealtysouthflorida.com/","publicSiteHttpStatus":200,"relationship":"website project shown in Esteban's published portfolio","clientCreditStatus":"not verified"},
+    {"portfolioId":"great-reviewer-website","portfolioPath":"/portfolio/great-reviewer-website","publicSite":"https://thegreatreviewer.com/","publicSiteHttpStatus":200,"relationship":"website project shown in Esteban's published portfolio","clientCreditStatus":"not verified"},
+    {"portfolioId":"front-line-auto","portfolioPath":"/portfolio/front-line-auto","publicSite":"https://frontlineautosfl.com/","publicSiteHttpStatus":200,"relationship":"website project shown in Esteban's published portfolio","clientCreditStatus":"not verified"}
+  ]
+}

@@ -2213,6 +2213,11 @@ const guidePairs: readonly GuidePair[] = [
             "El videógrafo utiliza cámaras de cine o mirrorless, ópticas, estabilizadores, luces y microfonía en set. El editor trabaja en estaciones de alto rendimiento con monitores calibrados y software profesional de edición y postproducción.",
         },
         {
+          question: "¿Cómo sé si el material que ya tengo es suficiente para editar?",
+          answer:
+            "El material suele ser suficiente si la voz es clara, los momentos clave están grabados, el encuadre es estable y hay variedad de planos para contar la historia. Si faltan escenas principales, entrevistas o audio nítido, conviene grabar antes de editar.",
+        },
+        {
           question: "¿Puede un editor de video corregir problemas de iluminación o audio deficiente grabados con smartphone?",
           answer:
             "El editor puede realizar ajustes de exposición y reducción de ruido, pero audios con distorsión grave o tomas desenfocadas en origen no pueden corregirse completamente sin comprometer la calidad visual.",
