@@ -1,3 +1,16 @@
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- Replaced duplicate events calendar from PR #775 with trimmed bilingual pairs (4 URLs total):
+  1. `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  2. `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- Linked attendee-interview page to existing canonical `/events` and `/es/eventos` hub rather than creating redundant calendar routes.
+- Kept strictly to owner-confirmed pricing in `lib/pricing.ts` ($400 half-day raw capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel" and line-item add-ons.
+- Kept platform AI-disclosure and labeling compliance strictly factual and unsourced claims out.
+- Dual-audience structure: one-sentence answer-first, concise 100-180 word question-headed sections, and native details FAQs.
+- Updated indexable inventory freeze from 582 to 586 (4 URLs within demand allowance), updated search console index watch registry, and refreshed `config/page-lastmod.json`.
+- Verification gates passed: `pnpm typecheck`, `pnpm lint`, `pnpm rail-adoption:check`, `npm test` (212 test files / 3904 tests passed), and `analytics-gate.py`.
+- Branch: `feat/interview-ai-20261119`
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
