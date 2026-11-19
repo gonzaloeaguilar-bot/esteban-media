@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { site, siteUrl } from "@/lib/site";
 import "../globals.css";
 
-const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const instrumentSerif = Instrument_Serif({
+const geist = localFont({
+  src: "../fonts/geist-sans-latin.woff2",
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+const instrumentSerif = localFont({
+  src: "../fonts/instrument-serif-latin.woff2",
   variable: "--font-price",
-  subsets: ["latin"],
   weight: "400",
   display: "swap",
 });
