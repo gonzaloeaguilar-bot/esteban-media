@@ -1,3 +1,14 @@
+## 2026-11-19 — Events Hub & Art Basel Dual-Audience Restructure (PR #779)
+
+- Branch: `feat/events-restructure-20261119`, commit `2deb5fc9e63e16e1bc1853c9855e666f415c1a67`, PR #779 open (do NOT merge).
+- Restructures `/events` and `/events/art-basel-miami-beach-video` (and ES counterparts `/es/eventos`, `/es/eventos/video-para-art-basel-miami-beach`) under Dual-Audience Page Writing Rule:
+  - Answer-first top screen with direct WhatsApp / Form contact actions and single-source rates from `lib/pricing.ts` (`RAW_FILMING_RATES`: $400 half-day, $700 full-day; `SHORT_FORM`: $100 per video remote edit add-on).
+  - Server-rendered native `<details>` for audience, shooting plan, asset delivery logistics, seasonal calendar, and FAQs via `RailFaq` collapsible mode.
+  - Visible-by-default word count on Art Basel dropped from ~1,024 to 648 words without removing any citable facts or schemas.
+  - Dates explicitly note "confirm dates with organizer" / "confirmar fechas con el organizador".
+- Verification: `pnpm typecheck` (0 errors), `pnpm lint` (0 errors), `npm test` (213 files, 3,899 tests passing), `python3 $HOME/.claude/durable/analytics-gate.py --repo .` (PASS), `pnpm lastmod:update`.
+- Next owner: `cto-qa-lead` reviews PR #779.
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
