@@ -1,3 +1,15 @@
+## 2026-11-18 — PR rebase complete: 5 conflicting PRs rebased onto main @ 72a9339a
+
+- [x] PR #766 (feat/hero-display-type-fix) → rebase/766-20261118 → PR #770: pre-existing branch validated, all gates pass
+- [x] PR #763 (feat/price-single-source-fix) → rebase/763-20261118 → PR #771: pre-existing branch validated, all gates pass
+- [x] PR #759 (feat/free-capture-score-bugfix) → rebase/759-20261118 → PR #772: fast-forward merge, all gates pass
+- [x] PR #749 (feat/contact-depth-expansion) → rebase/749-20261118 → PR #773: 13 conflicts resolved, kept main's expanded CENTRAL_FLORIDA_CAPTURE_SOURCES, all gates pass
+- [x] PR #739 (feat/geo-capture-clean-release) → rebase/739-20261118 → PR #774: 6 conflicts resolved, kept main's expanded CENTRAL_FLORIDA_CAPTURE_SOURCES and all three caption components, all gates pass
+
+**Validation per PR:** `pnpm lint` (0 errors, 26 warnings), `pnpm typecheck` (clean), `npm test` (3894 tests / 212 files)
+**Results written to:** `~/.claude/state/esteban-20261118/result-prs.md`
+**Next:** CTO QA review of new PRs #770-774
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-miami`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (212 files / 3,894 tests passing), and `priority-growth-project-verify.sh`.
