@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 596,
-  "approvedSitemapUrlSetSha256": "686a02ea7fa0d0344f74baeb5f6d1c3f8590b3184a6a7ade1201320b91bcc3e9",
+  "approvedSitemapUrlCount": 603,
+  "approvedSitemapUrlSetSha256": "PENDING_RECOMPUTE",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,22 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-20",
+      "url": [
+        "/real-estate",
+        "/es/bienes-raices",
+        "/es/video-inmobiliario-aventura-miami",
+        "/es/fotos-con-ia-para-bienes-raices-miami",
+        "/es/edicion-de-video-aereo-inmobiliario-miami",
+        "/es/video-para-bienes-raices-comerciales-miami"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch real-estate-hub)",
+      "kind": "real estate media pillar hub (bilingual) plus 5 missing Spanish real-estate routes that existed but were not sitemapped",
+      "demandEvidence": "Central hub answering 'freelance real estate videographer' and 'real estate video editor' intent gaps with a decision boundary (monthly plan $750–$1,950 vs per-listing shoot). The 5 Spanish routes were live and indexable but absent from sitemap and Search Console watch set; adding them closes the EN/ES parity gap for Aventura, AI photo enhancement, aerial video, and commercial real estate. All figures sourced from lib/pricing.ts and lib/services-config.ts. Zero invented claims.",
+      "followUpDate": "2026-12-20",
+      "followUp": "Check Search Console impressions and indexed status for all 7 URLs, track 'freelance real estate videographer' and 'real estate video cost' queries, and audit qualified listing inquiries."
+    },
     {
       "on": "2026-11-19",
       "url": [

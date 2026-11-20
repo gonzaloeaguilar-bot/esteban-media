@@ -497,6 +497,12 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/real-estate-drone-video-editing-miami",
   "https://estebanmorenomedia.com/services/real-estate-video-coral-gables",
   "https://estebanmorenomedia.com/services/real-estate-video-sunny-isles",
+  // 2026-11-20: Real Estate Media Hub (central pillar page) and its Spanish twin.
+  "https://estebanmorenomedia.com/real-estate",
+  "https://estebanmorenomedia.com/es/bienes-raices",
+  // 2026-11-20: Missing Spanish real-estate routes that existed but were not sitemapped.
+  "https://estebanmorenomedia.com/es/video-inmobiliario-aventura-miami",
+  "https://estebanmorenomedia.com/es/edicion-de-video-aereo-inmobiliario-miami",
   "https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami",
   "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale",
   "https://estebanmorenomedia.com/services/reels-editor-miami",

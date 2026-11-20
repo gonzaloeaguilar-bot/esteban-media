@@ -9793,6 +9793,16 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "es-US": "/es/video-inmobiliario-sunny-isles",
     "x-default": "/services/real-estate-video-sunny-isles",
   },
+  "/real-estate": {
+    "en-US": "/real-estate",
+    "es-US": "/es/bienes-raices",
+    "x-default": "/real-estate",
+  },
+  "/es/bienes-raices": {
+    "en-US": "/real-estate",
+    "es-US": "/es/bienes-raices",
+    "x-default": "/real-estate",
+  },
   "/services/restaurant-promo-video-editing-miami": {
     "en-US": "/services/restaurant-promo-video-editing-miami",
     "es-US": "/es/edicion-de-video-promocional-para-restaurantes-miami",

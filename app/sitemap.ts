@@ -232,6 +232,14 @@ export const sitemapRoutes = [
   { path: "/services/small-business-video-hollywood-fl", priority: 0.85 },
   { path: "/services/video-production-delray-beach", priority: 0.85 },
   { path: "/services/real-estate-video-sunny-isles", priority: 0.85 },
+  // 2026-11-20: Real Estate Media Hub (central pillar page) and its Spanish twin.
+  { path: "/real-estate", priority: 0.9 },
+  { path: "/es/bienes-raices", priority: 0.85 },
+  // 2026-11-20: Missing Spanish real-estate routes that existed but were not sitemapped.
+  { path: "/es/video-inmobiliario-aventura-miami", priority: 0.8 },
+  { path: "/es/fotos-con-ia-para-bienes-raices-miami", priority: 0.8 },
+  { path: "/es/edicion-de-video-aereo-inmobiliario-miami", priority: 0.8 },
+  { path: "/es/video-para-bienes-raices-comerciales-miami", priority: 0.8 },
   { path: "/services/video-editing-palm-beach-gardens", priority: 0.85 },
   { path: "/services/video-production-davie-fl", priority: 0.85 },
   { path: "/services/youtube-video-editing-service-miami", priority: 0.85 },
