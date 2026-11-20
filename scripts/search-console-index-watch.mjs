@@ -187,6 +187,11 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/videografo-para-eventos-corporativos-fort-lauderdale",
   "https://estebanmorenomedia.com/services/networking-event-videographer-miami",
   "https://estebanmorenomedia.com/es/videografo-para-eventos-de-networking-miami",
+  // Event attendee interviews, AI commercial Reels, and Miami events calendar (2026-11-18).
+  "https://estebanmorenomedia.com/services/event-attendee-interview-videographer-miami",
+  "https://estebanmorenomedia.com/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+  "https://estebanmorenomedia.com/services/ai-commercial-video-reels-miami",
+  "https://estebanmorenomedia.com/es/reels-comerciales-con-ia-miami",
   // Wave 2 niche expansions (2026-10-18: wedding, vlog, conference, executive interview).
   "https://estebanmorenomedia.com/services/wedding-videographer-miami",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-miami",

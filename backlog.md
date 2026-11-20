@@ -7,6 +7,18 @@
 - [x] Register pages in sitemap (582 -> 588 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
 - [x] Run `pnpm lastmod:update` and verify with `pnpm lint`, `pnpm typecheck`, `npm test` (212 test files / 3,906 tests passing), and `analytics-gate.py`.
 
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- [x] Create trimmed replacement for PR #775 without duplicate /resources/miami-events-calendar:
+  - `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  - `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- [x] Link attendee interview page to `/events` and `/es/eventos`.
+- [x] Strictly adhere to `lib/pricing.ts` figures ($400 raw half-day capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel".
+- [x] Update sitemap, inventory freeze (592 approved URLs), search-console watch list, and page-lastmod ledger.
+- [x] All 5 validation gates + full test suite passed (212 test files / 3908 tests).
+- [x] Rebase/merge origin/main and resolve inventory conflicts.
+- [ ] Push branch `feat/interview-ai-20261119` (PR #777).
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-miami`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (212 files / 3,894 tests passing), and `priority-growth-project-verify.sh`.
