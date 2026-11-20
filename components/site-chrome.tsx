@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { Geist, Geist_Mono, Instrument_Serif, Newsreader, Oswald } from "next/font/google";
+import localFont from "next/font/local";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MicrosoftClarity } from "@/components/microsoft-clarity";
@@ -11,36 +11,38 @@ import { SiteHeader } from "@/components/site-header";
 import { SheetEnhance } from "@/components/sheet-enhance";
 import { siteEntityGraphJsonLd } from "@/lib/entity-schema";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "../app/fonts/geist-sans-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../app/fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
   preload: false,
 });
 
-const newsreader = Newsreader({
+const newsreader = localFont({
+  src: "../app/fonts/newsreader-latin.woff2",
   variable: "--font-newsreader",
-  subsets: ["latin"],
   display: "swap",
 });
 
 // The title-card face: condensed, uppercase, for opening credits and package
 // names only. Body and editorial copy stay on Geist and Newsreader.
-const oswald = Oswald({
+const oswald = localFont({
+  src: "../app/fonts/oswald-latin.woff2",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "500 700",
   display: "swap",
   preload: false,
 });
 
-const instrumentSerif = Instrument_Serif({
+const instrumentSerif = localFont({
+  src: "../app/fonts/instrument-serif-latin.woff2",
   variable: "--font-price",
-  subsets: ["latin"],
   weight: "400",
   display: "swap",
   preload: false,

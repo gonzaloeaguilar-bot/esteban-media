@@ -25,6 +25,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-para-eventos-corporativos-fort-lauderdale",
   "/services/networking-event-videographer-miami":
     "/es/videografo-para-eventos-de-networking-miami",
+  "/services/event-attendee-interview-videographer-miami":
+    "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+  "/services/ai-commercial-video-reels-miami":
+    "/es/reels-comerciales-con-ia-miami",
   "/services/wedding-videographer-miami":
     "/es/videografo-de-bodas-miami",
   "/services/vlog-videographer-miami":
@@ -158,6 +162,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
   "/services/church-sermon-clip-editing-miami":
     "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+  "/services/talking-head-video-editing":
+    "/es/edicion-de-video-hablando-a-camara",
+  "/services/christian-youtube-video-editor":
+    "/es/editor-de-videos-cristianos-youtube",
   "/services/personal-brand-video-editor-founders-miami":
     "/es/editor-de-video-para-marca-personal-miami",
   "/services/podcast-clipping-service-miami":
@@ -266,6 +274,7 @@ pairedLanguageRoutes["/es/video-para-restaurantes-miami"] =
   "/services/restaurant-promo-video-editing-miami";
 pairedLanguageRoutes["/es/reels-para-negocios-miami"] =
   "/services/short-form-video-editor-miami";
+
 
 export function getPairedLanguageRoute(pathname: string) {
   const exactMatch = pairedLanguageRoutes[pathname];

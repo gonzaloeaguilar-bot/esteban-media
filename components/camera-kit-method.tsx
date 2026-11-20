@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CameraKitUnboxing } from "./camera-kit-unboxing";
+import { CameraKitUnboxing, type UnboxingHighlight } from "./camera-kit-unboxing";
 
 type Locale = "en" | "es";
 
@@ -10,14 +10,15 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing.",
-    kitTitle: "Camera bodies",
-    kitHint: "Swipe to compare. Tap a body for published specs.",
-    inspect: "Tap camera to inspect",
-    activeBody: "Primary camera body",
+    lead: "Watch the Sony Alpha 7 IV unboxing first, then inspect the cameras and mount Esteban brings on location.",
+    kitTitle: "In the camera bag",
+    kitHint: "Tap any card to open published specs and setup notes.",
+    inspect: "Tap for specs",
+    inspectMount: "Tap for setup notes",
+    activeBody: "Primary camera",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
-    secondBody: "Also in the kit",
+    secondBody: "Second camera",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
@@ -51,18 +52,25 @@ const copy = {
       ["Connectivity", "Mini HDMI and Hi-Speed USB"],
       ["Body", "133.1 × 99.8 × 78.8 mm; approx. 580 g"],
     ] satisfies readonly CameraSpec[],
-    accessoriesEyebrow: "IN THE KIT",
-    accessoriesTitle: "The phone mount stays close.",
+    accessoriesEyebrow: "In the kit",
+    accessoriesTitle: "Syncwire Phone Mount",
+    accessoriesSummary: "Dual cold-shoe mount · Tripod thread & tilt",
     accessoriesLead:
       "A compact mount keeps a phone above the camera when the shot calls for a second angle or a quick reference.",
-    accessoriesAction: "See the accessory in the setup",
     accessoriesDetail:
       "This Syncwire phone mount has two cold-shoe mounts, a standard tripod thread, and adjustable rotation and tilt. The exact setup still changes with the location and the shot.",
     accessoriesAlt:
       "Syncwire universal tripod phone mount with two cold-shoe mounts",
-    unboxingEyebrow: "UNBOXING",
+    unboxingEyebrow: "UNBOXING · PRIMARY CAMERA",
     unboxingTitle: "A closer look at the Sony Alpha 7 IV.",
-    unboxingCopy: "A look at the camera body Esteban uses in his work.",
+    unboxingCopy:
+      "Esteban's primary full-frame body for client shoots—compact enough for fast on-location setups, with sharp 4K 10-bit video, dependable autofocus, and built-in stabilization.",
+    unboxingHighlights: [
+      ["4K up to 60p", "10-bit 4:2:2 internal video for clean color grading."],
+      ["33 MP full-frame", "Back-illuminated Exmor R CMOS sensor with BIONZ XR."],
+      ["5-axis stabilization", "759-point autofocus and dual CFexpress / SD card slots."],
+    ] satisfies readonly UnboxingHighlight[],
+    unboxingGearLink: "Inspect the full kit below",
     unboxingSoundOn: "Sound on",
     unboxingSoundOff: "Sound off",
     unboxingVideoLabel: "Sony Alpha 7 IV unboxing video",
@@ -78,14 +86,15 @@ const copy = {
   es: {
     eyebrow: "EL EQUIPO DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing.",
-    kitTitle: "Cuerpos de cámara",
-    kitHint: "Desliza para comparar. Toca un cuerpo para ver las especificaciones.",
-    inspect: "Toca la cámara para ver",
-    activeBody: "Cuerpo de cámara principal",
+    lead: "Mira primero el unboxing de la Sony Alpha 7 IV y luego revisa las cámaras y el soporte que Esteban lleva a locación.",
+    kitTitle: "En la maleta de equipo",
+    kitHint: "Toca cualquier tarjeta para ver especificaciones y notas de montaje.",
+    inspect: "Ver especificaciones",
+    inspectMount: "Ver notas de montaje",
+    activeBody: "Cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
-    secondBody: "También en el equipo",
+    secondBody: "Segunda cámara",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
@@ -119,18 +128,25 @@ const copy = {
       ["Conectividad", "Mini HDMI y USB de alta velocidad"],
       ["Cuerpo", "133.1 × 99.8 × 78.8 mm; aprox. 580 g"],
     ] satisfies readonly CameraSpec[],
-    accessoriesEyebrow: "EN EL EQUIPO",
-    accessoriesTitle: "El soporte para teléfono se mantiene cerca.",
+    accessoriesEyebrow: "En el equipo",
+    accessoriesTitle: "Soporte Syncwire",
+    accessoriesSummary: "Doble montura cold shoe · Rosca de trípode e inclinación",
     accessoriesLead:
       "Un soporte compacto mantiene un teléfono sobre la cámara cuando la toma necesita un segundo ángulo o una referencia rápida.",
-    accessoriesAction: "Mira el accesorio en el montaje",
     accessoriesDetail:
       "Este soporte Syncwire tiene dos monturas cold shoe, una rosca estándar para trípode y rotación e inclinación ajustables. El montaje exacto sigue cambiando según la locación y la toma.",
     accessoriesAlt:
       "Soporte universal Syncwire para teléfono y trípode con dos monturas cold shoe",
-    unboxingEyebrow: "UNBOXING",
+    unboxingEyebrow: "UNBOXING · CÁMARA PRINCIPAL",
     unboxingTitle: "Un vistazo al Sony Alpha 7 IV.",
-    unboxingCopy: "Una mirada al cuerpo de cámara que Esteban usa en su trabajo.",
+    unboxingCopy:
+      "La cámara full-frame principal que Esteban usa en rodajes de clientes: compacta para moverse en locación, con video 4K en 10 bits, enfoque rápido y estabilización interna.",
+    unboxingHighlights: [
+      ["4K hasta 60p", "Video interno 10-bit 4:2:2 para corrección de color limpia."],
+      ["33 MP full-frame", "Sensor Exmor R CMOS retroiluminado con procesador BIONZ XR."],
+      ["Estabilización 5 ejes", "Enfoque de 759 puntos y doble ranura CFexpress / SD."],
+    ] satisfies readonly UnboxingHighlight[],
+    unboxingGearLink: "Ver el equipo completo abajo",
     unboxingSoundOn: "Activar sonido",
     unboxingSoundOff: "Silenciar",
     unboxingVideoLabel: "Video de unboxing de la Sony Alpha 7 IV",
@@ -146,15 +162,16 @@ const copy = {
 } as const;
 
 /**
- * A brand-specific, server-rendered inspection surface. Each visible camera
- * reference image comes from the named manufacturer's product page and each
- * native disclosure keeps owner-confirmed bodies and sourced specifications in
- * the raw HTML. It never claims a particular attached lens, audio, lighting,
- * or delivery setup.
+ * A brand-specific, server-rendered inspection surface. Leads with the Sony
+ * Alpha 7 IV unboxing clip and factual highlights, followed by a unified
+ * 3-card row covering both confirmed camera bodies and the Syncwire phone
+ * mount. Each native disclosure keeps owner-confirmed bodies and sourced
+ * specifications in the raw HTML.
  */
 export function CameraKitMethod({ locale }: { locale: Locale }) {
   const c = copy[locale];
   const packageHref = locale === "es" ? "/es#start" : "/#start";
+  const gearSectionId = `camera-gear-row-${locale}`;
   const amazonLinks = {
     sony: "https://www.amazon.com/dp/B0BN5GH5ZV/ref=cm_sw_r_as_gl_api_gl_i_GG14V2PHMW1QR24P282Z?linkCode=ml1&tag=estebanmoreno-20&linkId=6faf052545ed53e78ae3dd778fadbd0b&gaOptInStatus=true",
     canon: "https://www.amazon.com/dp/B00BW6LW7G/ref=cm_sw_r_as_gl_api_gl_i_CK6GT8WDVYSM2SD4KN2Q?linkCode=ml1&tag=estebanmoreno-20&linkId=050ca3a2614686c4b15765ccab541174&gaOptInStatus=true",
@@ -169,23 +186,45 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           <p>{c.lead}</p>
         </div>
 
-        <div className="em-camera-kit__selector" aria-labelledby={`camera-bodies-${locale}`}>
-          <div className="em-camera-kit__selector-copy">
+        <CameraKitUnboxing
+          locale={locale}
+          eyebrow={c.unboxingEyebrow}
+          title={c.unboxingTitle}
+          lead={c.unboxingCopy}
+          highlights={c.unboxingHighlights}
+          gearLinkLabel={c.unboxingGearLink}
+          gearSectionId={gearSectionId}
+          label={c.unboxingVideoLabel}
+          soundOn={c.unboxingSoundOn}
+          soundOff={c.unboxingSoundOff}
+        />
+
+        <div id={gearSectionId} className="em-camera-kit__gear" aria-labelledby={`camera-bodies-${locale}`}>
+          <div className="em-camera-kit__gear-header">
             <p id={`camera-bodies-${locale}`}>{c.kitTitle}</p>
             <span>{c.kitHint}</span>
           </div>
-          <div className="em-camera-kit__models em-camera-kit__filmstrip" aria-label={c.kitTitle}>
-            <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
+
+          <div className="em-camera-kit__cards" aria-label={c.kitTitle}>
+            <details className="em-camera-kit__card" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_sony_${locale}`}>
                 {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
-                <span className="em-camera-kit__product-stage">
+                <span className="em-camera-kit__card-stage">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/92650_original_local_1200x1050_v3_converted.webp" alt="Sony Alpha 7 IV camera body, manufacturer reference image" />
+                  <img
+                    src="https://d1ncau8tqf99kp.cloudfront.net/converted/92650_original_local_1200x1050_v3_converted.webp"
+                    alt="Sony Alpha 7 IV camera body, manufacturer reference image"
+                  />
                 </span>
-                <span className="em-camera-kit__model-name"><strong>{c.alphaName}</strong><small>{c.inspect}</small></span>
-                <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
+                <span className="em-camera-kit__card-body">
+                  <small className="em-camera-kit__card-tag">{c.activeBody}</small>
+                  <strong>{c.alphaName}</strong>
+                  <span className="em-camera-kit__card-summary">{c.alphaDetail}</span>
+                  <span className="em-camera-kit__card-action">{c.inspect}</span>
+                </span>
+                <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
               </summary>
-              <div className="em-camera-kit__model-details">
+              <div className="em-camera-kit__card-details">
                 <p>{c.activeBody} · {c.specifications}</p>
                 <strong>{c.alphaDetail}</strong>
                 <dl className="em-camera-kit__specs">
@@ -198,17 +237,26 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <small className="em-camera-kit__affiliate-disclosure">{c.affiliateDisclosure}</small>
               </div>
             </details>
-            <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
+
+            <details className="em-camera-kit__card" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_canon_${locale}`}>
                 {/* Manufacturer reference image: Canon EOS Rebel T5i product page. */}
-                <span className="em-camera-kit__product-stage">
+                <span className="em-camera-kit__card-stage em-camera-kit__card-stage--blend">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://s7d1.scene7.com/is/image/canon/8595B003-eos-rebel-t5i-primary?$p=product1by1$" alt="Canon EOS Rebel T5i camera body, manufacturer reference image" />
+                  <img
+                    src="https://s7d1.scene7.com/is/image/canon/8595B003-eos-rebel-t5i-primary?$p=product1by1$"
+                    alt="Canon EOS Rebel T5i camera body, manufacturer reference image"
+                  />
                 </span>
-                <span className="em-camera-kit__model-name"><strong>{c.canonName}</strong><small>{c.inspect}</small></span>
-                <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
+                <span className="em-camera-kit__card-body">
+                  <small className="em-camera-kit__card-tag">{c.secondBody}</small>
+                  <strong>{c.canonName}</strong>
+                  <span className="em-camera-kit__card-summary">{c.canonDetail}</span>
+                  <span className="em-camera-kit__card-action">{c.inspect}</span>
+                </span>
+                <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
               </summary>
-              <div className="em-camera-kit__model-details">
+              <div className="em-camera-kit__card-details">
                 <p>{c.secondBody} · {c.specifications}</p>
                 <strong>{c.canonDetail}</strong>
                 <dl className="em-camera-kit__specs">
@@ -221,7 +269,33 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <small className="em-camera-kit__affiliate-disclosure">{c.affiliateDisclosure}</small>
               </div>
             </details>
+
+            <details className="em-camera-kit__card" name={`camera-kit-${locale}`}>
+              <summary data-cta={`camera_kit_accessories_${locale}`}>
+                {/* Product reference image: Syncwire Tripod Phone Mount, Amazon ASIN B0CNKG6JHY. */}
+                <span className="em-camera-kit__card-stage em-camera-kit__card-stage--blend">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://m.media-amazon.com/images/I/61AkmH5DXML._AC_SL1500_.jpg"
+                    alt={c.accessoriesAlt}
+                  />
+                </span>
+                <span className="em-camera-kit__card-body">
+                  <small className="em-camera-kit__card-tag">{c.accessoriesEyebrow}</small>
+                  <strong>{c.accessoriesTitle}</strong>
+                  <span className="em-camera-kit__card-summary">{c.accessoriesSummary}</span>
+                  <span className="em-camera-kit__card-action">{c.inspectMount}</span>
+                </span>
+                <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
+              </summary>
+              <div className="em-camera-kit__card-details">
+                <p>{c.accessoriesEyebrow}</p>
+                <strong>{c.accessoriesLead}</strong>
+                <p className="em-camera-kit__accessory-note">{c.accessoriesDetail}</p>
+              </div>
+            </details>
           </div>
+
           <p className="em-camera-kit__source">
             {c.source}{" "}
             <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
@@ -229,32 +303,6 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
           </p>
         </div>
-
-        <details className="em-camera-kit__accessories">
-          <summary data-cta={`camera_kit_accessories_${locale}`}>
-            <span className="em-camera-kit__accessories-image">
-              {/* Product reference image: Syncwire Tripod Phone Mount, Amazon ASIN B0CNKG6JHY. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://m.media-amazon.com/images/I/61AkmH5DXML._AC_SL1500_.jpg" alt={c.accessoriesAlt} />
-            </span>
-            <span className="em-camera-kit__accessories-copy">
-              <small>{c.accessoriesEyebrow}</small>
-              <strong>{c.accessoriesTitle}</strong>
-            </span>
-            <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
-          </summary>
-          <p><strong>{c.accessoriesLead}</strong> {c.accessoriesDetail}</p>
-        </details>
-
-        <CameraKitUnboxing
-          locale={locale}
-          eyebrow={c.unboxingEyebrow}
-          title={c.unboxingTitle}
-          lead={c.unboxingCopy}
-          label={c.unboxingVideoLabel}
-          soundOn={c.unboxingSoundOn}
-          soundOff={c.unboxingSoundOff}
-        />
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>
