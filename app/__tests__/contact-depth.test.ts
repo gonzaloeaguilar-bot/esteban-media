@@ -19,19 +19,21 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     // wraps it in `{ absolute }` to stop the root layout's title template
     // from appending the brand a second time (fixed 2026-09-24).
     expect(enMetadata.title).toEqual({
-      absolute: "Contact Esteban Moreno Media | Video Editing & Production",
+      absolute: "Video Editing & South Florida Shoots | Esteban Moreno Media",
     });
     const enTitleText = (enMetadata.title as { absolute: string }).absolute;
     expect(enTitleText.length).toBeGreaterThanOrEqual(50);
     expect(enTitleText.length).toBeLessThanOrEqual(60);
     expect(enMetadata.description).toBe(
-      "Contact Esteban Moreno Media for video editing, AI content creation, social planning, and scoped South Florida production. Send your brief or project details.",
+      "Start a video editing project or request a South Florida shoot. Send footage or filming needs, goal, deadline, and finished formats to Esteban Moreno Media.",
     );
     expect(enMetadata.description?.length).toBeGreaterThanOrEqual(120);
     expect(enMetadata.description?.length).toBeLessThanOrEqual(160);
 
     const markup = renderToStaticMarkup(React.createElement(ContactPage));
     expect(wordCount(markup)).toBeGreaterThanOrEqual(450);
+    expect(markup).toContain("Start your video editing project or South Florida shoot.");
+    expect(markup).toContain("For video editing, send the footage you have, your goal, deadline, and the formats you need to publish.");
 
     // Internal guide & tool links
     expect(markup).toContain('href="/guides/write-a-useful-video-brief"');

@@ -66,8 +66,8 @@ export default function Home() {
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
-      <PersonalCraftExperience locale="en" />
       <HomeProjectPath locale="en" />
+      <PersonalCraftExperience locale="en" />
       {/* Proof and contact now sit TOGETHER right at the decision, not one
           compact mention above the chooser plus a full repeat three screens
           later. Owner, 2026-10-12: "be convinced" is half the ask — the

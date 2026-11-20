@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Check, Mail, RefreshCw, RotateCcw } from "lucide-react";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 const hooks = [
   {
@@ -69,6 +70,8 @@ export function DailyHookPlanner() {
   const [state, setState] = useState<DailyState>({ date: "", completed: [], streak: 0 });
   const [isReady, setIsReady] = useState(false);
   const [hookIndex, setHookIndex] = useState(0);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [captureStatus, setCaptureStatus] = useState<"idle" | "sending" | "saved" | "error">("idle");
   const today = useMemo(localDateKey, []);
@@ -145,11 +148,14 @@ export function DailyHookPlanner() {
         body: JSON.stringify({
           source: "daily-hook-planner",
           locale: "en",
+          name,
+          phone,
           email,
           notes: `Daily Hook Planner capture. Selected hook: ${currentHook.title}`,
         }),
       });
       setCaptureStatus(response.ok ? "saved" : "error");
+      if (response.ok) { trackLeadSubmit("daily-hook-planner", "en"); setName(""); setPhone(""); setEmail(""); }
     } catch {
       setCaptureStatus("error");
     }
@@ -260,27 +266,17 @@ export function DailyHookPlanner() {
           </div>
         </div>
         {captureStatus === "saved" ? (
-          <p className="mt-4 text-sm text-emerald-300">Email saved.</p>
+          <p className="mt-4 text-sm text-emerald-300">Contact saved.</p>
         ) : (
-          <form onSubmit={captureEmail} className="mt-4 flex flex-col gap-2 sm:flex-row">
-            <label className="sr-only" htmlFor="daily-hook-email">
-              Email address
-            </label>
-            <input
-              id="daily-hook-email"
-              type="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="Email address"
-              className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none"
-            />
-            <button
-              type="submit"
-              disabled={captureStatus === "sending"}
-              className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70"
-            >
-              {captureStatus === "sending" ? "Saving…" : "Save email"}
+          <form onSubmit={captureEmail} className="mt-4 grid gap-2 sm:grid-cols-2">
+            <label className="sr-only" htmlFor="daily-hook-name">Name</label>
+            <input id="daily-hook-name" type="text" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder="Name" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-hook-phone">Phone number</label>
+            <input id="daily-hook-phone" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Phone number" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
+            <label className="sr-only" htmlFor="daily-hook-email">Email</label>
+            <input id="daily-hook-email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" className="min-h-11 min-w-0 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none sm:col-span-2" />
+            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70 sm:col-span-2">
+              {captureStatus === "sending" ? "Saving…" : "Save contact"}
             </button>
           </form>
         )}

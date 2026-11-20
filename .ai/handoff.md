@@ -1,3 +1,28 @@
+## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
+
+- Branch: `feat/events-extend-20261119` off `origin/main`.
+- Extended the `/events` and `/es/eventos` hub with 3 new bilingual event pairs (6 URLs):
+  - `/events/fitce-fort-lauderdale-video` <-> `/es/eventos/video-para-fitce-fort-lauderdale` (FITCE at Broward County Convention Center)
+  - `/events/boca-raton-events-video` <-> `/es/eventos/video-para-eventos-en-boca-raton` (Boca Raton business & cultural festivals)
+  - `/events/pompano-beach-events-video` <-> `/es/eventos/video-para-eventos-en-pompano-beach` (Pompano Beach annual seaside & civic celebrations)
+- Extended the events hub (`/events` and `/es/eventos`) with an explicit Broward County events section and coverage FAQs.
+- Prices derived strictly from `lib/pricing.ts` via canonical `RAW_FILMING_RATES` ($400 half-day, $700 full-day raw filming) and `SHORT_FORM.perVideoFrom` ($100/video editing). Zero emojis. Dual-audience answer-first structure with server-rendered `<details>` for FAQs and honest proof disclaimers (Esteban has not filmed these events; on-location filming is a paid add-on).
+- Inventory updated: sitemap 582 -> 588, `config/indexable-inventory-freeze.json` (hash updated, owner-ordered batch registered), `scripts/search-console-index-watch.mjs` (588 URLs), `config/page-lastmod.json` updated via `pnpm lastmod:update`.
+- Gates passed: `pnpm lint` (0 errors), `pnpm typecheck` (passed), `npm test` (212 test files / 3,906 tests passed), `analytics-gate.py` passed. Next step: push branch and open pull request (do not merge).
+
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- Replaced duplicate events calendar from PR #775 with trimmed bilingual pairs (4 URLs total):
+  1. `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  2. `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- Linked attendee-interview page to existing canonical `/events` and `/es/eventos` hub rather than creating redundant calendar routes.
+- Kept strictly to owner-confirmed pricing in `lib/pricing.ts` ($400 half-day raw capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel" and line-item add-ons.
+- Kept platform AI-disclosure and labeling compliance strictly factual and unsourced claims out.
+- Dual-audience structure: one-sentence answer-first, concise 100-180 word question-headed sections, and native details FAQs.
+- Updated indexable inventory freeze from 588 to 592 (4 URLs within demand allowance), updated search console index watch registry, and refreshed `config/page-lastmod.json`.
+- Verification gates passed: `pnpm typecheck`, `pnpm lint`, `pnpm rail-adoption:check`, `npm test` (212 test files / 3908 tests passed), and `analytics-gate.py`.
+- Branch: `feat/interview-ai-20261119`
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
@@ -971,3 +996,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
 - `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
 - Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.
+## 2026-11-19 — Contact-page project-intent refinement (local candidate; not production)
+
+- `/contact` now leads with the concrete choice the page supports: start a video editing project or request a selected South Florida shoot. The title is `Video Editing & South Florida Shoots | Esteban Moreno Media`; the first two sentences state what to send for an editing project versus a Broward/Miami-Dade shoot.
+- Existing crawlable FAQPage schema and the guide, budget-calculator, and service-area links remain in place. `app/__tests__/contact-depth.test.ts` locks the new title, description, and first-screen answer; `pnpm lastmod:update` refreshed `/contact` in `config/page-lastmod.json`.
+- Local verification: `npm run typecheck --silent`, `npm test` (full suite), `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, and `git diff --check` passed. `pnpm build` compiled successfully but did not reach a static-generation receipt before this environment's 30-second command limit. Independent reviewer: `cto-qa-lead`; after authorized release, verify canonical raw HTML and rendered page before any claim about clicks or inquiries.
