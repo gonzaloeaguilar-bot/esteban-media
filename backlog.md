@@ -1,3 +1,8 @@
+## 2026-11-20 — Priority-growth owned_site_ctr refinement for Gains From Geebs Shorts
+
+- [x] Refine search snippet for `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts` in `messages/en.json` and `messages/es.json` with dedicated `metaDescription` matching query `gainsfromgeebs` and vertical shorts/reels intent.
+- [x] Run `pnpm lastmod:update` and verify `priority-growth-project-verify.sh`.
+
 ## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
 
 - [x] Create talking-head remote video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`) targeting 0/2 GEO miss on remote bilingual supplied-footage editing.
