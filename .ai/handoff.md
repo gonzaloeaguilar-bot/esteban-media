@@ -1,3 +1,12 @@
+## 2026-11-20 — Content-depth refinement for Gains From Geebs Shorts (local only)
+
+- Scope: `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts`.
+- Reframed the EN/ES H1 and metadata around the actual visitor intent: short-form fitness video editing for social. Added a project-specific, server-rendered context section and three native-details FAQ answers sourced only from the two named public uploads (31 seconds and 36 seconds). The page keeps its existing full case study, related short-form editing service, and social-content portfolio links.
+- `pnpm lastmod:update` refreshed both page ledger hashes in `config/page-lastmod.json` on 2026-11-20.
+- Local verification: `npm run typecheck --silent`; `npm test` (213 files, 3,932 tests); `npm run build`; raw production-build HTML at `http://localhost:3100/portfolio/gains-from-geebs-shorts` contained the revised answer, all three FAQ questions, `/services/short-form-video-editor-miami`, and `/case-studies/gains-from-geebs-shorts`. The browser-free HTTP check is local build evidence, not a production deployment or measured outcome.
+- The first full suite saw one transient live-fixture mismatch in `prospect-auditor-verifier` (`Unknown` vs `Squarespace`). Isolated rerun passed; live `curl -I https://www.eatatpetesaplace.com/` returned `server: Squarespace`, and the final full suite passed.
+- Local-only state: modified `components/portfolio-watch-page.tsx`, `lib/portfolio-watch.ts`, `messages/en.json`, `messages/es.json`, and `config/page-lastmod.json`. No commit, PR, deployment, production rendering, click impact, or inquiry impact is claimed. Next: `cto-qa-lead` reviews the exact diff; after an authorized release, verify canonical raw HTML and remeasure a like-for-like GSC window.
+
 ## 2026-11-20 — Priority-growth owned_site_ctr refinement for Gains From Geebs Shorts
 
 - Work ID: `priority-growth:2026-11-20:esteban` (round `2026-11-20`).
