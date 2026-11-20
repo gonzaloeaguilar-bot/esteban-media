@@ -1,3 +1,11 @@
+## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
+
+- [x] Create talking-head remote video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`) targeting 0/2 GEO miss on remote bilingual supplied-footage editing.
+- [x] Create Christian YouTube video editor pages (`/services/christian-youtube-video-editor`, `/es/editor-de-videos-cristianos-youtube`, plus permanent redirect `/es/edicion-de-predicas-youtube` -> `/es/editor-de-videos-cristianos-youtube`) for devotional creators recording at home.
+- [x] Enrich body copy on `/about` and `/es/sobre-esteban` with concise factual entity links to `/events`, talking-head remote editing, and AI commercial Reels (preserving exact metadata and Fort Lauderdale title/description limits).
+- [x] Update sitemap (588 -> 592 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
+- [x] Run `pnpm lastmod:update` and verify all gates (`pnpm typecheck`, `pnpm lint`, `npm test` 212 files / 3,918 tests passing, and `analytics-gate.py`).
+
 ## 2026-11-19 — Spanish Miami Reels page content-depth refinement
 
 - [x] Prepare `/es/editor-de-reels-miami` for its existing search intent: outcome-specific title and H1, answer-first opening, a source-bounded intake checklist, one matching FAQ, contextual link to `/es/editor-de-video-corto-para-redes-miami`, and a refreshed page-lastmod ledger. Local checks passed: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, `pnpm build`, and raw generated HTML verification. `cto-qa-lead` must independently review the local diff; after authorized release, verify canonical production raw HTML. `cto-seo-lead` owns the later comparable GSC read; clicks and inquiries remain unmeasured.

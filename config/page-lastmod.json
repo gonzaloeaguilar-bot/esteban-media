@@ -4,8 +4,8 @@
   "hash": "334c5c8c61abf819"
  },
  "/about": {
-  "date": "2026-11-04",
-  "hash": "cf160d654bbe4871"
+  "date": "2026-11-19",
+  "hash": "257e2e73d2e1ab8e"
  },
  "/areas": {
   "date": "2026-11-04",
@@ -255,6 +255,10 @@
   "date": "2026-08-14",
   "hash": "0431adf1896a2e01"
  },
+ "/es/edicion-de-video-hablando-a-camara": {
+  "date": "2026-11-19",
+  "hash": "16aba7827187114f"
+ },
  "/es/edicion-de-video-largo-para-youtube": {
   "date": "2026-10-30",
   "hash": "3879b33e53364e6f"
@@ -346,6 +350,10 @@
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-10-28",
   "hash": "e1fd9226db7f1aea"
+ },
+ "/es/editor-de-videos-cristianos-youtube": {
+  "date": "2026-11-19",
+  "hash": "6b106782b0c20807"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -956,8 +964,8 @@
   "hash": "1828ba92ae142bb2"
  },
  "/es/sobre-esteban": {
-  "date": "2026-10-30",
-  "hash": "37303dbd2515848a"
+  "date": "2026-11-19",
+  "hash": "9e668b9ad896909f"
  },
  "/es/temporizador-de-guiones-de-video": {
   "date": "2026-10-14",
@@ -1811,6 +1819,10 @@
   "date": "2026-10-19",
   "hash": "3467dda277f8fc81"
  },
+ "/services/christian-youtube-video-editor": {
+  "date": "2026-11-19",
+  "hash": "bec33da6d5208cd3"
+ },
  "/services/church-sermon-clip-editing-miami": {
   "date": "2026-10-13",
   "hash": "09a037731b8e0b17"
@@ -2242,6 +2254,10 @@
  "/services/surprise-proposal-videographer-miami": {
   "date": "2026-10-18",
   "hash": "f4bf2c8169bd8e37"
+ },
+ "/services/talking-head-video-editing": {
+  "date": "2026-11-19",
+  "hash": "d282dd4fe748b4f0"
  },
  "/services/tiktok-ad-video-editor-miami": {
   "date": "2026-10-27",
