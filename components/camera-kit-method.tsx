@@ -15,6 +15,7 @@ const copy = {
     kitHint: "Tap any card to open published specs and setup notes.",
     inspect: "Tap for specs",
     inspectMount: "Tap for setup notes",
+    closeCard: "Back to all gear",
     activeBody: "Primary camera",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
@@ -53,6 +54,7 @@ const copy = {
       ["Body", "133.1 × 99.8 × 78.8 mm; approx. 580 g"],
     ] satisfies readonly CameraSpec[],
     accessoriesEyebrow: "In the kit",
+    accessoriesNotesLabel: "Setup notes",
     accessoriesTitle: "Syncwire Phone Mount",
     accessoriesSummary: "Dual cold-shoe mount · Tripod thread & tilt",
     accessoriesLead:
@@ -91,6 +93,7 @@ const copy = {
     kitHint: "Toca cualquier tarjeta para ver especificaciones y notas de montaje.",
     inspect: "Ver especificaciones",
     inspectMount: "Ver notas de montaje",
+    closeCard: "Volver al equipo",
     activeBody: "Cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
@@ -129,6 +132,7 @@ const copy = {
       ["Cuerpo", "133.1 × 99.8 × 78.8 mm; aprox. 580 g"],
     ] satisfies readonly CameraSpec[],
     accessoriesEyebrow: "En el equipo",
+    accessoriesNotesLabel: "Notas de montaje",
     accessoriesTitle: "Soporte Syncwire",
     accessoriesSummary: "Doble montura cold shoe · Rosca de trípode e inclinación",
     accessoriesLead:
@@ -221,12 +225,12 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                   <strong>{c.alphaName}</strong>
                   <span className="em-camera-kit__card-summary">{c.alphaDetail}</span>
                   <span className="em-camera-kit__card-action">{c.inspect}</span>
+                  <span className="em-camera-kit__card-close">{c.closeCard}</span>
                 </span>
                 <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__card-details">
-                <p>{c.activeBody} · {c.specifications}</p>
-                <strong>{c.alphaDetail}</strong>
+                <p>{c.specifications}</p>
                 <dl className="em-camera-kit__specs">
                   {c.alphaSpecs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
                 </dl>
@@ -253,12 +257,12 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                   <strong>{c.canonName}</strong>
                   <span className="em-camera-kit__card-summary">{c.canonDetail}</span>
                   <span className="em-camera-kit__card-action">{c.inspect}</span>
+                  <span className="em-camera-kit__card-close">{c.closeCard}</span>
                 </span>
                 <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__card-details">
-                <p>{c.secondBody} · {c.specifications}</p>
-                <strong>{c.canonDetail}</strong>
+                <p>{c.specifications}</p>
                 <dl className="em-camera-kit__specs">
                   {c.canonSpecs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
                 </dl>
@@ -285,11 +289,12 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                   <strong>{c.accessoriesTitle}</strong>
                   <span className="em-camera-kit__card-summary">{c.accessoriesSummary}</span>
                   <span className="em-camera-kit__card-action">{c.inspectMount}</span>
+                  <span className="em-camera-kit__card-close">{c.closeCard}</span>
                 </span>
                 <span className="em-camera-kit__card-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__card-details">
-                <p>{c.accessoriesEyebrow}</p>
+                <p>{c.accessoriesNotesLabel}</p>
                 <strong>{c.accessoriesLead}</strong>
                 <p className="em-camera-kit__accessory-note">{c.accessoriesDetail}</p>
               </div>
