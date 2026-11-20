@@ -216,8 +216,8 @@
   "hash": "f313bc63f0bf99e3"
  },
  "/es/contacto": {
-  "date": "2026-11-08",
-  "hash": "87098c099c6eef00"
+  "date": "2026-11-18",
+  "hash": "794678dd176ef42f"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-11",
@@ -352,8 +352,8 @@
   "hash": "7a2e023ba1602af9"
  },
  "/es/eventos": {
-  "date": "2026-10-14",
-  "hash": "add78fc0c22ba1a5"
+  "date": "2026-11-19",
+  "hash": "8bb10885950fa739"
  },
  "/es/eventos/video-para-art-basel-miami-beach": {
   "date": "2026-10-14",
@@ -374,6 +374,18 @@
  "/es/eventos/video-para-emerge-americas": {
   "date": "2026-10-14",
   "hash": "17a4f26c896964b5"
+ },
+ "/es/eventos/video-para-eventos-en-boca-raton": {
+  "date": "2026-11-19",
+  "hash": "e104ac5e94f162ca"
+ },
+ "/es/eventos/video-para-eventos-en-pompano-beach": {
+  "date": "2026-11-19",
+  "hash": "c7d0fe652edfaa94"
+ },
+ "/es/eventos/video-para-fitce-fort-lauderdale": {
+  "date": "2026-11-19",
+  "hash": "e81994d6ffd02d60"
  },
  "/es/eventos/video-para-miami-music-week": {
   "date": "2026-10-14",
@@ -784,8 +796,8 @@
   "hash": "815a7b49370e8040"
  },
  "/es/portafolio/homeowners": {
-  "date": "2026-10-14",
-  "hash": "ade81d82bfbf7d82"
+  "date": "2026-11-19",
+  "hash": "ad5593142f939887"
  },
  "/es/portafolio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -1268,16 +1280,24 @@
   "hash": "086cd0f9d870cd32"
  },
  "/events": {
-  "date": "2026-10-14",
-  "hash": "4cd774765157f095"
+  "date": "2026-11-19",
+  "hash": "10a506c37d7e2d98"
  },
  "/events/art-basel-miami-beach-video": {
   "date": "2026-10-14",
   "hash": "0ae73189a85106ef"
  },
+ "/events/boca-raton-events-video": {
+  "date": "2026-11-19",
+  "hash": "3944fe60e3efd455"
+ },
  "/events/emerge-americas-video": {
   "date": "2026-10-14",
   "hash": "5069f448a44be0e8"
+ },
+ "/events/fitce-fort-lauderdale-video": {
+  "date": "2026-11-19",
+  "hash": "132bd6546bd4788d"
  },
  "/events/fort-lauderdale-boat-show-video": {
   "date": "2026-10-14",
@@ -1294,6 +1314,10 @@
  "/events/miami-spice-restaurant-video": {
   "date": "2026-10-14",
   "hash": "91b0412b0b12a183"
+ },
+ "/events/pompano-beach-events-video": {
+  "date": "2026-11-19",
+  "hash": "6d146b8c954eb0ba"
  },
  "/events/south-beach-wine-food-festival-video": {
   "date": "2026-10-14",
@@ -1584,8 +1608,8 @@
   "hash": "3de1604ac0cf9741"
  },
  "/portfolio/homeowners": {
-  "date": "2026-10-14",
-  "hash": "2e4f5c823cadbdc8"
+  "date": "2026-11-19",
+  "hash": "e1a55fd9ab602c38"
  },
  "/portfolio/juanchis-burguer": {
   "date": "2026-10-29",
