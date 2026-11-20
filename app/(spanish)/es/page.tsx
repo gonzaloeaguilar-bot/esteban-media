@@ -52,6 +52,20 @@ export default function SpanishHomePage() {
     <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-5">
+        <Container size="xl">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-6 text-[#252a2d]">
+            <span>¿Ya tienes clips?</span>
+            <Link href="/es/editor-de-reels-fort-lauderdale" className="font-semibold text-[#9f3c27] underline underline-offset-4">
+              Editar Reels en Fort Lauderdale
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/es/editor-de-video-corto-miami" className="font-semibold text-[#9f3c27] underline underline-offset-4">
+              Edición de video corto en Miami
+            </Link>
+          </div>
+        </Container>
+      </section>
       <PortfolioTeaser locale="es" />
       <PersonalCraftExperience locale="es" />
       <HomeProjectPath locale="es" />

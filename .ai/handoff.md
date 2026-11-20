@@ -47,6 +47,17 @@
 - Commit `92160ac4`; PR #728. Local validation: lint (0 errors, 23 existing warnings), typecheck, full test suite (200 files, 3,832 tests), rail adoption, lastmod update, and diff check. Not merged, deployed, visually reviewed, or measured.
 - Next: `cto-qa-lead` reviews PR #728. If merged by the authorized path, verify the Spanish restaurant page's raw canonical HTML contains the new link, then compare the exact GSC query-page split in a later settled window. No ranking, click, or inquiry effect is claimed before that read.
 
+## 2026-11-05 — Demand wave: editor vs videographer guide FAQ depth and EN/ES parity (feat/demand-wave-editor-vs-videographer-faq-parity)
+
+- Resolved EN/ES parity gap on demand guide pair `/guides/video-editor-vs-videographer` and `/es/guias/editor-de-video-vs-videografo`:
+  - English guide had 7 FAQs while Spanish counterpart had only 6 FAQs.
+  - Added matching Spanish FAQ addressing evaluation of existing raw footage readiness before hiring an editor in `lib/guides.ts`.
+  - Both locales now serve 7 comprehensive FAQs with valid Schema.org FAQPage structured data via `buildGuideStructuredData`.
+- Added unit test `app/__tests__/editor-vs-videographer-depth.test.ts` verifying FAQ parity (7 FAQs each) and structured data across locales.
+- Updated `lib/__tests__/guides.test.ts` to assert 7 FAQs for both EN and ES guides.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed: `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `git diff --check`.
+
 ## 2026-11-04 — Demand wave: caption styles guide FAQ depth and EN/ES parity (feat/demand-wave-best-caption-styles-depth)
 
 - Resolved EN/ES parity gap on top demand guide `/guides/best-caption-styles-for-instagram-reels` (155 impressions at pos 8.4 in fresh 28-day review-2026-11-04):

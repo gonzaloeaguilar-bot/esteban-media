@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, isWrongIntentExcluded, readCitationRows, readWrongIntentExclusions, recommendation, scoreParts, writeWrongIntentExclusions } from "./free-capture-score.mjs";
+import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, isWrongIntentExcluded, parseArgs, readCitationRows, readWrongIntentExclusions, recommendation, scoreParts, writeWrongIntentExclusions } from "./free-capture-score.mjs";
 
 const now = "2026-11-06T12:00:00.000Z";
 
@@ -40,6 +40,17 @@ describe("free capture score", () => {
     expect(readCitationRows(snapshot, { now })).toEqual([expect.objectContaining({ prompt: "reels-editor-ftl-en", our_citation: true })]);
   });
 
+  it("flattens measured v3 engine receipts while keeping unavailable prompts out", () => {
+    const receipt = JSON.stringify({
+      schema: "geo-citation-probe.v3", brand: "esteban", engine: "gemini", checked_at: "2026-11-05T00:00:00Z",
+      results: {
+        "short-form-editor-miami": { status: "measured", url_cited: 2 },
+        "video-production-ftl": { status: "unmeasured", url_cited: 0 },
+      },
+    });
+    expect(readCitationRows(receipt)).toEqual([expect.objectContaining({ prompt: "short-form-editor-miami", our_citation: true })]);
+  });
+
   it("excludes Esteban-branded discovery from a non-brand opportunity queue", () => {
     expect(isBrandedQuery("Esteban Moreno Media")).toBe(true);
     expect(isBrandedQuery("moreno-media.com")).toBe(true);
@@ -61,7 +72,7 @@ describe("free capture score", () => {
   it("ranks candidates and clearly calls the result a capture score", () => {
     const candidates = buildCandidates(measurement, readCitationRows(citationText, { now }));
     expect(candidates[0].query).toBe("video editor for food influencers miami");
-    const report = buildReport(measurement, readCitationRows(citationText), candidates, { measurementPath: "/tmp/measurement.json", citationPath: "/tmp/citations.jsonl" });
+    const report = buildReport(measurement, readCitationRows(citationText), candidates, { measurementPath: "/tmp/measurement.json", citationPath: "/tmp/citations.jsonl", wrongIntentExclusions: 0 });
     expect(report).toContain("0–10 capture score");
     expect(report).toContain("SERP resistance is unmeasured");
     expect(report).not.toContain("keyword difficulty");
@@ -95,5 +106,11 @@ describe("free capture score", () => {
     } finally {
       await rm(directory, { recursive: true, force: true });
     }
+  });
+
+  it("defaults to the current per-engine Esteban receipts, not the stale shared ledger", () => {
+    const args = parseArgs([]);
+    expect(args.citationPaths).toHaveLength(7);
+    expect(args.citationPaths.every((path) => path.includes(".claude/state/geo-citation/esteban"))).toBe(true);
   });
 });

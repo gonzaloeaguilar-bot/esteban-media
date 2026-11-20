@@ -12,6 +12,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
+import Link from "next/link";
 import { englishRootMetadata } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
@@ -65,6 +66,18 @@ export default function Home() {
     <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="en" />
       <HeroVideo />
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-6 text-sm leading-6 text-[#252a2d]">
+          <span>Already have footage?</span>
+          <Link href="/services/reels-editor-fort-lauderdale" className="font-semibold text-[#9f3c27] underline underline-offset-4">
+            Edit Reels in Fort Lauderdale
+          </Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/services/short-form-video-editor-miami" className="font-semibold text-[#9f3c27] underline underline-offset-4">
+            Short-form editing in Miami
+          </Link>
+        </div>
+      </section>
       <PortfolioTeaser locale="en" />
       <PersonalCraftExperience locale="en" />
       <HomeProjectPath locale="en" />

@@ -19,8 +19,8 @@ import { withNicheService } from "@/lib/niche-answers";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
-  title: "Video Editing Services Colombia | Remote Bilingual Editor",
-  description: `Remote video editing services for Colombian companies, agencies, and creators. Cloud workflows, native Spanish direction, and fast turnaround from ${usd(SHORT_FORM.perVideoFrom)}.`,
+  title: "Remote Video Editing for Supplied Footage | Spanish & English",
+  description: `Remote video editing for teams that already have footage: Spanish-first collaboration, English for bilingual projects, and a written scope from ${usd(SHORT_FORM.perVideoFrom)}.`,
   path: "/services/remote-video-editing-colombia",
   locale: "en",
 });
@@ -37,7 +37,7 @@ export default function RemoteVideoEditingColombiaPage() {
         path: "/services/remote-video-editing-colombia",
         name: "Remote Video Editing Colombia",
         description:
-          "Cloud-based video editing, social video post-production, and commercial video formatting for companies and creators in Colombia.",
+          "Cloud-based video editing, social video post-production, and commercial video formatting for teams that supply footage, including Colombia and remote Latin American projects.",
         crumb: "Remote Video Editing Colombia",
       }),
       {
@@ -45,7 +45,7 @@ export default function RemoteVideoEditingColombiaPage() {
         "@id": absoluteUrl("/services/remote-video-editing-colombia#service"),
         name: "Remote Video Editing Colombia",
         description:
-          "Professional remote video post-production, YouTube editing, and social media video repurposing for Colombian businesses.",
+          "Professional remote video post-production, YouTube editing, and social-media video repurposing for client-supplied footage, including Colombian businesses and remote projects.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Colombia / Remote / Latin America",
         serviceType: "Video editing",
@@ -94,10 +94,10 @@ export default function RemoteVideoEditingColombiaPage() {
                 Colombia &amp; LATAM / Remote Video Editing
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Remote Video Editing for Colombia.
+                Remote Video Editing for the Footage You Already Have.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Commercial post-production pacing with native Spanish creative collaboration. Structured cloud workflows for agencies and brands in Bogotá, Medellín, and across Colombia.
+                Send original clips, a clear goal, and a reference. Esteban edits remotely in Spanish first, with English for bilingual projects, so the work can begin without an on-location shoot. Colombian and other remote teams receive a written scope before editing starts.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -128,7 +128,10 @@ export default function RemoteVideoEditingColombiaPage() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="remote video editing" />
+      <ServiceAnswerFirst
+        service="remote video editing for supplied footage"
+        answerOverride={`Remote video editing lets a team send the original footage it already filmed instead of booking a new shoot. Esteban Moreno Media works from a short brief: the audience, publishing platform, key message, reference links, brand assets, and the files that must be used. The editing can produce a finished social video, a set of short clips, bilingual captions, or a longer interview cut. Esteban is based in Fort Lauderdale and works remotely in Spanish first, with English available for bilingual projects. A written scope confirms deliverables, revisions, timeline, and the final cost before work begins.`}
+      />
 
       <ServiceDeepDive
         id={REMOTE_EDITING_COLOMBIA_DEEP_DIVE.id}
