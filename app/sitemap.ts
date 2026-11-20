@@ -123,6 +123,8 @@ export const sitemapRoutes = [
   { path: "/services/corporate-event-videographer-miami", priority: 0.85 },
   { path: "/services/corporate-event-videographer-fort-lauderdale", priority: 0.85 },
   { path: "/services/networking-event-videographer-miami", priority: 0.85 },
+  { path: "/services/event-attendee-interview-videographer-miami", priority: 0.85 },
+  { path: "/services/ai-commercial-video-reels-miami", priority: 0.85 },
   { path: "/services/wedding-videographer-miami", priority: 0.85 },
   { path: "/services/vlog-videographer-miami", priority: 0.85 },
   { path: "/services/conference-videographer-fort-lauderdale", priority: 0.85 },

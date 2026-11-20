@@ -1,7 +1,7 @@
 {
  "/": {
-  "date": "2026-11-03",
-  "hash": "898f80e1094e40bf"
+  "date": "2026-11-19",
+  "hash": "334c5c8c61abf819"
  },
  "/about": {
   "date": "2026-11-19",
@@ -84,8 +84,8 @@
   "hash": "0d2248a88579ee5d"
  },
  "/contact": {
-  "date": "2026-11-14",
-  "hash": "cc501efe5faec2c7"
+  "date": "2026-11-19",
+  "hash": "e688239971bbdca0"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -112,8 +112,8 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-11-05",
-  "hash": "057a7a44089d22af"
+  "date": "2026-11-19",
+  "hash": "612771dc4a2a606e"
  },
  "/es/areas": {
   "date": "2026-10-28",
@@ -216,8 +216,8 @@
   "hash": "f313bc63f0bf99e3"
  },
  "/es/contacto": {
-  "date": "2026-11-08",
-  "hash": "87098c099c6eef00"
+  "date": "2026-11-18",
+  "hash": "794678dd176ef42f"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-11",
@@ -257,7 +257,7 @@
  },
  "/es/edicion-de-video-hablando-a-camara": {
   "date": "2026-11-19",
-  "hash": "16bb90dbf76409df"
+  "hash": "16aba7827187114f"
  },
  "/es/edicion-de-video-largo-para-youtube": {
   "date": "2026-10-30",
@@ -320,8 +320,8 @@
   "hash": "b8131f05079f83ac"
  },
  "/es/editor-de-reels-miami": {
-  "date": "2026-11-08",
-  "hash": "693d2037f5c77cee"
+  "date": "2026-11-19",
+  "hash": "35c3949db3329cf8"
  },
  "/es/editor-de-video-corto-para-redes-miami": {
   "date": "2026-11-06",
@@ -353,7 +353,7 @@
  },
  "/es/editor-de-videos-cristianos-youtube": {
   "date": "2026-11-19",
-  "hash": "4f3164437da7a3f5"
+  "hash": "6b106782b0c20807"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -931,6 +931,10 @@
   "date": "2026-10-11",
   "hash": "c76c635d2d08770b"
  },
+ "/es/reels-comerciales-con-ia-miami": {
+  "date": "2026-11-19",
+  "hash": "0d1e3c6e00a5379e"
+ },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
   "hash": "418f384ccc813068"
@@ -1234,6 +1238,10 @@
  "/es/videografo-para-dia-de-contenido-miami": {
   "date": "2026-10-18",
   "hash": "ac965d6e4d4bb7cf"
+ },
+ "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami": {
+  "date": "2026-11-19",
+  "hash": "eab13f1372b6aecb"
  },
  "/es/videografo-para-entrevistas-ejecutivas-miami": {
   "date": "2026-11-04",
@@ -1703,6 +1711,10 @@
   "date": "2026-11-11",
   "hash": "229dfa861a2ea14f"
  },
+ "/services/ai-commercial-video-reels-miami": {
+  "date": "2026-11-19",
+  "hash": "4df6325680053ce8"
+ },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
   "hash": "31475ba53f41702c"
@@ -1809,7 +1821,7 @@
  },
  "/services/christian-youtube-video-editor": {
   "date": "2026-11-19",
-  "hash": "b3bef6341dbb61ef"
+  "hash": "bec33da6d5208cd3"
  },
  "/services/church-sermon-clip-editing-miami": {
   "date": "2026-10-13",
@@ -1946,6 +1958,10 @@
  "/services/estate-planning-attorney-video-boca-raton": {
   "date": "2026-10-19",
   "hash": "8d4b6fdf2cc1862b"
+ },
+ "/services/event-attendee-interview-videographer-miami": {
+  "date": "2026-11-19",
+  "hash": "78110c3d37f3249e"
  },
  "/services/executive-interview-videographer-miami": {
   "date": "2026-11-08",
@@ -2241,7 +2257,7 @@
  },
  "/services/talking-head-video-editing": {
   "date": "2026-11-19",
-  "hash": "cdba20b85b36b4f8"
+  "hash": "d282dd4fe748b4f0"
  },
  "/services/tiktok-ad-video-editor-miami": {
   "date": "2026-10-27",

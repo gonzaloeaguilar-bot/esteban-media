@@ -6,6 +6,10 @@
 - [x] Update sitemap (588 -> 592 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
 - [x] Run `pnpm lastmod:update` and verify all gates (`pnpm typecheck`, `pnpm lint`, `npm test` 212 files / 3,918 tests passing, and `analytics-gate.py`).
 
+## 2026-11-19 — Spanish Miami Reels page content-depth refinement
+
+- [x] Prepare `/es/editor-de-reels-miami` for its existing search intent: outcome-specific title and H1, answer-first opening, a source-bounded intake checklist, one matching FAQ, contextual link to `/es/editor-de-video-corto-para-redes-miami`, and a refreshed page-lastmod ledger. Local checks passed: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, `pnpm build`, and raw generated HTML verification. `cto-qa-lead` must independently review the local diff; after authorized release, verify canonical production raw HTML. `cto-seo-lead` owns the later comparable GSC read; clicks and inquiries remain unmeasured.
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - [x] Extend the annual events section with three bilingual event page pairs (6 new URLs: FITCE Fort Lauderdale, Boca Raton Business Festivals & Expos, Pompano Beach Annual Festivals & Events).
@@ -14,6 +18,18 @@
 - [x] Add Broward County events coverage section and FAQs to the events hub in `lib/event-content.ts`.
 - [x] Register pages in sitemap (582 -> 588 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
 - [x] Run `pnpm lastmod:update` and verify with `pnpm lint`, `pnpm typecheck`, `npm test` (212 test files / 3,906 tests passing), and `analytics-gate.py`.
+
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- [x] Create trimmed replacement for PR #775 without duplicate /resources/miami-events-calendar:
+  - `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  - `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- [x] Link attendee interview page to `/events` and `/es/eventos`.
+- [x] Strictly adhere to `lib/pricing.ts` figures ($400 raw half-day capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel".
+- [x] Update sitemap, inventory freeze (592 approved URLs), search-console watch list, and page-lastmod ledger.
+- [x] All 5 validation gates + full test suite passed (212 test files / 3908 tests).
+- [x] Rebase/merge origin/main and resolve inventory conflicts.
+- [ ] Push branch `feat/interview-ai-20261119` (PR #777).
 
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
@@ -348,3 +364,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Obtain independent scoped review, commit `ab2ef552`, and open PR #583 for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`.
 - [x] Replace the unboxing outbound-card treatment with an embedded Instagram Reel inside an iPhone-shaped player and preserve the direct Instagram fallback.
 - [ ] Clear the unrelated remote `prospect-auditor-verifier` Squarespace fixture failure on PR #583, attach genuine quality evidence, merge, and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
+## 2026-11-19 — Contact-page project-intent refinement (growth-starvation content_depth)
+
+- [x] Update `/contact` with a specific video-editing-or-South-Florida-shoot title, answer-first H1/opening, retained FAQ/schema, and existing related links.
+- [x] Refresh `config/page-lastmod.json` via `pnpm lastmod:update`; verify with `npm run typecheck --silent`, full `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, and `git diff --check`.
+- [ ] `cto-qa-lead`: review the local candidate; after authorized release, verify the served title, opening, FAQ/schema, and linked paths at canonical `/contact`. `cto-seo-lead` then compares a later settled query-page GSC window; clicks and inquiries remain unmeasured.

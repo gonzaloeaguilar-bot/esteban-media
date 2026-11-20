@@ -11,10 +11,10 @@ import { absoluteUrl, site } from "@/lib/site";
 const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff", "executive-interview", ...CENTRAL_FLORIDA_CAPTURE_SOURCES] as const;
 
 const contactDescription =
-  "Contact Esteban Moreno Media for video editing, AI content creation, social planning, and scoped South Florida production. Send your brief or project details.";
+  "Start a video editing project or request a South Florida shoot. Send footage or filming needs, goal, deadline, and finished formats to Esteban Moreno Media.";
 
 export const metadata = buildPageMetadata({
-  title: "Contact Esteban Moreno Media | Video Editing & Production",
+  title: "Video Editing & South Florida Shoots | Esteban Moreno Media",
   description: contactDescription,
   path: "/contact",
   locale: "en",
@@ -59,8 +59,8 @@ export default function ContactPage() {
       <section className="py-8 sm:py-14">
         <Container size="xl">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contact</p>
-          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Tell Esteban about your video.</h1>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">Send a short message with what you need, when you need it, and whether you already have footage.</p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Start your video editing project or South Florida shoot.</h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">For video editing, send the footage you have, your goal, deadline, and the formats you need to publish. For a selected Broward or Miami-Dade shoot, send the city, date, and what you need filmed; Esteban will confirm whether the scope fits before sending a written quote.</p>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6066]">Spanish-first: write in Spanish whenever you like, Esteban answers in Spanish. English works too. Prefer the Spanish page? Use <Link href="/es/contacto" className="underline underline-offset-4 hover:text-[#9f3c27]">contacto en español</Link> to send your project details.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <a href={whatsappHref(site.phone.e164, "Hi Esteban, I saw your site and want to discuss a video project.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Message on WhatsApp</a>

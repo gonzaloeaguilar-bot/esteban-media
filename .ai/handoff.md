@@ -8,6 +8,15 @@
 - Registered inventory expansion in `app/sitemap.ts` (588 -> 592), `config/indexable-inventory-freeze.json` (SHA-256 updated), `scripts/search-console-index-watch.mjs`, and `config/page-lastmod.json` via `pnpm lastmod:update`.
 - Validation gates passed cleanly: `pnpm typecheck`, `pnpm lint` (0 errors), `npm test` (212 test files, 3,918 tests passing), and `analytics-gate.py`.
 
+## 2026-11-19 — Spanish Miami Reels page content-depth refinement (growth starvation)
+
+- Scope: `/es/editor-de-reels-miami` only, through the existing `SpanishNichePage` data entry in `lib/spanish-site.ts`.
+- Changed the title to `Editor de Reels Miami: clips claros` (58 characters including the site suffix), and the H1/opening now answer the outcome and boundary first: supplied clips become clear, captioned short videos; remote editing is the default and Miami-Dade filming remains project-scoped.
+- Added the server-rendered decision section `¿Qué debes enviar para empezar a editar Reels?` with an actionable intake checklist, a contextual link to `/es/editor-de-video-corto-para-redes-miami`, and one matching scope-and-quote FAQ. No prices, outcomes, credentials, testimonials, or availability claims were invented.
+- `pnpm lastmod:update` changed `/es/editor-de-reels-miami` in `config/page-lastmod.json` to `2026-11-19` (hash `35c3949db3329cf8`).
+- Verification: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 pre-existing warnings), `pnpm rail-adoption:check`, and `pnpm build` passed. Raw production-build artifact `.next/server/app/es/editor-de-reels-miami.html` contains the new opening, new section, new FAQ, contextual internal link, and title.
+- Local-only state: modified `lib/spanish-site.ts` and `config/page-lastmod.json`; no commit, PR, deploy, or production measurement has occurred. `cto-qa-lead` should independently review the exact diff; after an authorized release, verify the canonical raw HTML and then let `cto-seo-lead` compare a later like-for-like GSC window. Click and inquiry impact are unmeasured.
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - Branch: `feat/events-extend-20261119` off `origin/main`.
@@ -19,6 +28,19 @@
 - Prices derived strictly from `lib/pricing.ts` via canonical `RAW_FILMING_RATES` ($400 half-day, $700 full-day raw filming) and `SHORT_FORM.perVideoFrom` ($100/video editing). Zero emojis. Dual-audience answer-first structure with server-rendered `<details>` for FAQs and honest proof disclaimers (Esteban has not filmed these events; on-location filming is a paid add-on).
 - Inventory updated: sitemap 582 -> 588, `config/indexable-inventory-freeze.json` (hash updated, owner-ordered batch registered), `scripts/search-console-index-watch.mjs` (588 URLs), `config/page-lastmod.json` updated via `pnpm lastmod:update`.
 - Gates passed: `pnpm lint` (0 errors), `pnpm typecheck` (passed), `npm test` (212 test files / 3,906 tests passed), `analytics-gate.py` passed. Next step: push branch and open pull request (do not merge).
+
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- Replaced duplicate events calendar from PR #775 with trimmed bilingual pairs (4 URLs total):
+  1. `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  2. `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- Linked attendee-interview page to existing canonical `/events` and `/es/eventos` hub rather than creating redundant calendar routes.
+- Kept strictly to owner-confirmed pricing in `lib/pricing.ts` ($400 half-day raw capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel" and line-item add-ons.
+- Kept platform AI-disclosure and labeling compliance strictly factual and unsourced claims out.
+- Dual-audience structure: one-sentence answer-first, concise 100-180 word question-headed sections, and native details FAQs.
+- Updated indexable inventory freeze from 588 to 592 (4 URLs within demand allowance), updated search console index watch registry, and refreshed `config/page-lastmod.json`.
+- Verification gates passed: `pnpm typecheck`, `pnpm lint`, `pnpm rail-adoption:check`, `npm test` (212 test files / 3908 tests passed), and `analytics-gate.py`.
+- Branch: `feat/interview-ai-20261119`
 
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
@@ -993,3 +1015,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
 - `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
 - Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.
+## 2026-11-19 — Contact-page project-intent refinement (local candidate; not production)
+
+- `/contact` now leads with the concrete choice the page supports: start a video editing project or request a selected South Florida shoot. The title is `Video Editing & South Florida Shoots | Esteban Moreno Media`; the first two sentences state what to send for an editing project versus a Broward/Miami-Dade shoot.
+- Existing crawlable FAQPage schema and the guide, budget-calculator, and service-area links remain in place. `app/__tests__/contact-depth.test.ts` locks the new title, description, and first-screen answer; `pnpm lastmod:update` refreshed `/contact` in `config/page-lastmod.json`.
+- Local verification: `npm run typecheck --silent`, `npm test` (full suite), `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, and `git diff --check` passed. `pnpm build` compiled successfully but did not reach a static-generation receipt before this environment's 30-second command limit. Independent reviewer: `cto-qa-lead`; after authorized release, verify canonical raw HTML and rendered page before any claim about clicks or inquiries.
