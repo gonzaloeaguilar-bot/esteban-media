@@ -315,6 +315,14 @@ export const ON_LOCATION_CAPTURE = {
   source: "PRICING_BANDS on-location baseMin ($400 half-day)",
 } as const;
 
+// Raw filming on-location rates for events and scoped production ($400 half-day / $700 full-day).
+export const RAW_FILMING_RATES = {
+  halfDay: 400,
+  fullDay: 700,
+  currency: "USD",
+  source: "owner rule: $400 half-day / $700 full-day raw filming",
+} as const;
+
 
 // Filming (on-location recording) hourly floor. Owner decision 2026-10-29
 // (price inventory that Stripe charges): filming from $125 per hour with a
