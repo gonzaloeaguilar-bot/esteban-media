@@ -44,16 +44,16 @@ const content: GeoServicePageContent = {
     },
   ],
   depthHeading: "Remote or on location: how a Fort Lauderdale project is split.",
-  // Row 107 (2026-10-14): GSC "remote video production company fort lauderdale"
-  // 3 imp @9.3 on this page, and no question answered it.
+
+
   depth: [
     {
       question: "Can a Fort Lauderdale video production company work remotely?",
-      body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
+      body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}, and the monthly Local Presence plan for planning, filming and editing at your business starts ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
     {
       question: "Who does video production for small businesses in Fort Lauderdale?",
-      body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingHourlyText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. If you need a production day that combines planning, filming and an edit, Local Presence is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
+      body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingHourlyText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. For recurring planning, filming and editing, the monthly Local Presence plan is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
     },
     {
       question: "What should a business share before asking about a Fort Lauderdale video project?",
@@ -124,8 +124,8 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  // 2026-10-29 GSC review: 10 impressions pos 14.0, 0 clicks; plus "remote video production
-  // company fort lauderdale" (3 imp @9.3). Title and description answer first with starting price.
+
+
   title: "Video Production Company Fort Lauderdale",
   description:
     `Fort Lauderdale video production company for business videos, website clips, and remote post-production from ${usd(SHORT_FORM.perVideoFrom)}. Scoped filming and editing in Broward.`,

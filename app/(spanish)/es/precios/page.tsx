@@ -24,8 +24,8 @@ export const metadata = buildPageMetadata({
 export default function SpanishPricingPage() {
   const url = absoluteUrl(PATH);
   const [catalog, packageFaqLd] = packagesJsonLd("es", url, entityIds.business);
-  // The hub's own per-hour (and, in Spanish, Latin America) answers render in
-  // PricingAnswer; the same strings join the one FAQPage here.
+
+
   const faq = {
     ...packageFaqLd,
     mainEntity: [
@@ -92,8 +92,8 @@ export default function SpanishPricingPage() {
             Cuánto cuesta trabajar juntos
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Editar un video cuesta {priceSentence("es", "arranque").toLowerCase()}, y un día de producción en tu
-            negocio, {priceSentence("es", "presencia-local").toLowerCase()}. La grabación por horas va {filmingHourlyText("es")}. Cada paquete muestra su precio de partida para que sepas el orden de
+            Editar un video cuesta {priceSentence("es", "arranque").toLowerCase()}, y el plan mensual Presencia Local para producir contenido en tu
+            negocio empieza {priceSentence("es", "presencia-local").toLowerCase()}. La grabación por horas va {filmingHourlyText("es")}. Cada paquete muestra su precio de partida para que sepas el orden de
             magnitud antes de escribirme. La cifra final depende de cuánto video
             necesitas, de si hay grabación presencial en nuestras{" "}
             <Link

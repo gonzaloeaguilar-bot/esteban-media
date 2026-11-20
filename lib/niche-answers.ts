@@ -1,29 +1,29 @@
-// The three answers every niche/service page owes an AI assistant and a
-// person comparing editors, generated from ONE place:
-//
-//   1. "Who can help me with <service> in <place>?"  — phrased the way people
-//      ask ChatGPT / Gemini, answered only with facts the site already
-//      publishes (the page's own description, the Fort Lauderdale base, the
-//      Spanish-first language claim, the published-work-only portfolio rule);
-//   2. "How much does <service> cost in <place>?" — every figure read from
-//      lib/pricing.ts (and its package / plan helpers), never typed here;
-//   3. "How do I contact Esteban about <service>?" — phone, WhatsApp and email
-//      in plain text, from lib/site.ts.
-//
-// Plus one Service node per page whose telephone, areaServed and serviceType
-// match that visible text (withNicheService).
-//
-// Why (2026-10-08, vault esteban-what-drives-ai-recommendations-2026-10-08):
-// ChatGPT and Gemini recommended Esteban from ONE page, the short-form editor
-// page, after PR #316 gave it exactly these three answers. On 2026-10-13 the
-// live sitemap's 247 /services and /es pages had a plain-text phone on 6, a
-// "who can help" section on 8 and a cost question on 71. This module is the
-// PR #316 pattern at the template level, so the next page gets it for free.
-//
-// Claim discipline: no client, result, review, follower count or drone work is
-// claimed. Where a page already answers the cost question, `cost` is false and
-// that page keeps its own answer. The restaurant pages' "from" price is the
-// owner's (2026-10-13) and lives in lib/pricing.ts as RESTAURANT_PROMO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import { priceSentence, whatsappHref } from "@/lib/packages";
 import {
@@ -46,45 +46,45 @@ import { absoluteUrl, site } from "@/lib/site";
 
 export type NicheLocale = "en" | "es";
 
-/** Which published price list answers the cost question for a page. */
+
 export type PriceModel =
-  | "social" // Starter per video, weekly Starter, Growth monthly
-  | "restaurant" // restaurant promo from RESTAURANT_PROMO (owner, 2026-10-13)
-  | "realestate" // monthly real estate plans
-  | "local" // production day + on-location band + Starter for editing only
-  | "longform" // calculator band "youtube"
-  | "corporate" // calculator band "corporate"
-  | "ecommerce" // calculator band "ecommerce"
-  | "photo" // AI-assisted images: no owner price; quote, with published market context
-  | "photoSession" // a real product shoot: owner floor PRODUCT_PHOTO_SESSION
-  | "quote"; // no owner price and no market context on the site
+  | "social"
+  | "restaurant"
+  | "realestate"
+  | "local"
+  | "longform"
+  | "corporate"
+  | "ecommerce"
+  | "photo"
+  | "photoSession"
+  | "quote";
 
 export type NicheEntry = {
   path: string;
   locale: NicheLocale;
-  /** Lower-case noun phrase as it reads mid-question: "dental video marketing". */
+
   subject: string;
-  /** "Miami", "Fort Lauderdale", "South Florida", "Doral"... */
+
   place: string;
   model: PriceModel;
-  /** false when the page already answers its own cost question. */
+
   cost: boolean;
-  /** One sentence the page already publishes about this service (its description). */
+
   fact: string;
-  /** The subject is plural: "professional headshots", "imágenes con IA". */
+
   plural: boolean;
 };
 
 type Row = [path: string, subject: string, place: string, model: PriceModel, cost?: boolean];
 
-// ---------------------------------------------------------------------------
-// The registry. One row per indexable page. `cost: false` = the page already
-// carries a "How much does ... cost?" section (measured on the live HTML,
-// 2026-10-13) or a price this module must not contradict.
-// Not here on purpose: the short-form pair (PR #316 already did it), the
-// website-design pair (no price source in lib/pricing.ts and its own intake
-// flow), noindexed / merged cohort pages, and legacy pending-confirmation routes.
-// ---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 const EN_ROWS: Row[] = [
   ["/services/ai-food-photography-restaurants", "AI food photography for a restaurant", "Miami", "photo"],
@@ -131,8 +131,8 @@ const EN_ROWS: Row[] = [
   ["/services/podcast-clipping-service-miami", "podcast clipping", "Miami", "social", false],
   ["/services/product-photography-miami", "product photography", "Miami", "photoSession"],
   ["/services/quinceanera-video-miami", "a quinceañera video", "Miami", "local"],
-  // Weddings: the page carries its own "quoted individually" answer (owner,
-  // 2026-10-14); no wedding price exists, so this module must not add one.
+
+
   ["/services/wedding-videographer-fort-lauderdale", "a wedding video", "Fort Lauderdale", "quote", false],
   ["/services/videographer-miami", "a videographer", "Miami", "local", false],
   ["/services/real-estate-drone-video-editing-miami", "real estate drone video editing", "Miami", "realestate"],
@@ -243,8 +243,8 @@ const ES_ROWS: Row[] = [
   ["/es/marketing-de-video-para-detallado-y-wraps-miami", "el video para un taller de detallado o wraps", "Miami", "social"],
 ];
 
-// Facts are filled in by the page (its own published description), so a
-// registry row can never carry a claim the page does not already make.
+
+
 const ROWS: Record<string, { locale: NicheLocale; row: Row }> = Object.fromEntries([
   ...EN_ROWS.map((row) => [row[0], { locale: "en" as const, row }]),
   ...ES_ROWS.map((row) => [row[0], { locale: "es" as const, row }]),
@@ -252,7 +252,7 @@ const ROWS: Record<string, { locale: NicheLocale; row: Row }> = Object.fromEntri
 
 export const NICHE_ANSWER_PATHS: readonly string[] = Object.keys(ROWS);
 
-/** Rows whose subject is plural, so the cost question reads "do ... cost" / "cuestan". */
+
 const PLURAL_SUBJECT = new Set([
   "/services/headshot-photographer-miami",
   "/es/imagenes-con-ia-para-ecommerce-miami",
@@ -275,10 +275,10 @@ function sentence(text: string): string {
   return /[.!?]$/.test(t) ? t : `${t}.`;
 }
 
-// ---------------------------------------------------------------------------
-// Places. The visible contact paragraph names exactly these, and the JSON-LD
-// areaServed is built from the same list, so the two cannot drift apart.
-// ---------------------------------------------------------------------------
+
+
+
+
 
 const CORE_PLACES = ["Miami", "Fort Lauderdale", "Miami-Dade County", "Broward County"] as const;
 const COUNTY_LIKE = new Set(["Miami-Dade County", "Broward County", "Palm Beach County"]);
@@ -300,13 +300,13 @@ function areaList(place: string, locale: NicheLocale): string {
   return names.length > 1 ? `${names.slice(0, -1).join(", ")}${and}${names[names.length - 1]}` : names[0];
 }
 
-// ---------------------------------------------------------------------------
-// Prices. Every figure below is computed from lib/pricing.ts.
-// ---------------------------------------------------------------------------
+
+
+
 
 const starter = (l: NicheLocale) => priceSentence(l, "arranque").replace(/^\w/, (c) => c.toLowerCase());
 const growth = (l: NicheLocale) => priceSentence(l, "crecimiento").replace(/^\w/, (c) => c.toLowerCase());
-const productionDay = (l: NicheLocale) => priceSentence(l, "presencia-local").replace(/^\w/, (c) => c.toLowerCase());
+const localPresence = (l: NicheLocale) => priceSentence(l, "presencia-local").replace(/^\w/, (c) => c.toLowerCase());
 const band = (id: PricingBandId) => `${usd(PRICING_BANDS[id].baseMin)}–${usd(PRICING_BANDS[id].baseMax)}`;
 const weeklyFrom = usd(ARRANQUE_WEEKLY_FROM.perVideo);
 
@@ -316,14 +316,14 @@ function costParagraphs(e: NicheEntry): string[] {
   const close = es
     ? `Todas las cifras son precios de partida de la lista publicada y cada proyecto recibe una cotización por escrito antes de empezar. Compara las opciones en la [página de precios](${pricing}) o calcula un rango en la [calculadora](/es/calculadora).`
     : `Every figure is a starting point from the published price list, and every project gets a written quote before work begins. Compare the options on the [pricing page](${pricing}) or use the [calculator](/calculator) for a range that fits your project.`;
-  // Photo and quote answers name third-party market rates or no figure at all,
-  // so they must not call their numbers Esteban's published starting prices.
+
+
   const quoteClose = es
     ? `Cada proyecto recibe una cotización por escrito antes de empezar. Los paquetes de video que Esteban sí publica están en la [página de precios](${pricing}).`
     : `Every project gets a written quote before work begins. The video packages Esteban does publish are on the [pricing page](${pricing}).`;
   const onLocation = es
-    ? `Si hace falta grabar en el lugar, se cotiza aparte: la jornada de producción del paquete Presencia Local va ${productionDay("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`
-    : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`;
+    ? `Si hace falta grabar en el lugar, se cotiza aparte: el plan mensual Presencia Local va ${localPresence("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`
+    : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${localPresence("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`;
 
   switch (e.model) {
     case "restaurant": {
@@ -371,11 +371,11 @@ function costParagraphs(e: NicheEntry): string[] {
     case "local":
       return es
         ? [
-            `Depende de si hace falta grabar. Si ya tienes el material, la edición sola empieza con el paquete Arranque, ${starter("es")}, y se puede pagar semana a semana: ${shortFormWeeklyText("es")}, con un mínimo de ${T.minimumWeeks} semanas. Si Esteban va a grabar, el paquete Presencia Local va ${productionDay("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`,
+            `Depende de si hace falta grabar. Si ya tienes el material, la edición sola empieza con el paquete Arranque, ${starter("es")}, y se puede pagar semana a semana: ${shortFormWeeklyText("es")}, con un mínimo de ${T.minimumWeeks} semanas. Si Esteban va a grabar, el paquete Presencia Local va ${localPresence("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`,
             `La grabación en ${e.place} se acuerda proyecto por proyecto desde la base de Esteban en Fort Lauderdale. ${close}`,
           ]
         : [
-            `It depends on whether anything needs filming. If you already have footage, editing alone starts with the Starter package, ${starter("en")}, and can be paid weekly: ${shortFormWeeklyText("en")}, with a ${T.minimumWeeks}-week minimum. If Esteban films, the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`,
+            `It depends on whether anything needs filming. If you already have footage, editing alone starts with the Starter package, ${starter("en")}, and can be paid weekly: ${shortFormWeeklyText("en")}, with a ${T.minimumWeeks}-week minimum. If Esteban films, the Local Presence package is ${localPresence("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`,
             `Filming in ${e.place} is agreed project by project from Esteban's base in Fort Lauderdale. ${close}`,
           ];
     case "longform":
@@ -432,9 +432,9 @@ function costParagraphs(e: NicheEntry): string[] {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Sections.
-// ---------------------------------------------------------------------------
+
+
+
 
 export type NicheSection = { id: string; heading: string; paragraphs: string[] };
 
@@ -512,10 +512,10 @@ export function nicheWhatsappHref(e: NicheEntry): string {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Structured data. Merged into the page's existing Service node (same @id), or
-// appended when the page has none.
-// ---------------------------------------------------------------------------
+
+
+
+
 
 function schemaPlace(name: string) {
   return { "@type": COUNTY_LIKE.has(name) ? "AdministrativeArea" : "City", name };
@@ -552,11 +552,11 @@ function isService(node: JsonNode): boolean {
   return t === "Service" || (Array.isArray(t) && t.includes("Service"));
 }
 
-/**
- * Returns the page's JSON-LD with its Service node carrying the same
- * telephone, areaServed and serviceType the visible answers show. Pages with
- * no registry entry are returned untouched.
- */
+
+
+
+
+
 export function withNicheService<T extends JsonNode>(path: string, jsonLd: T, name?: string): T {
   return withPageDate(path, withNicheServiceFields(path, jsonLd, name), absoluteUrl(path));
 }

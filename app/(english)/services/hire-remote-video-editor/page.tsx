@@ -56,7 +56,7 @@ const REMOTE_EDITOR_DEPTH = {
     {
       question: "Who is the best remote video editor for small businesses?",
       answer:
-        `For small businesses that already capture phone or camera footage, the best remote video editor is a dedicated editor who handles editing, pacing, color grading, clear sound balancing, and platform-safe vertical formatting without agency overhead. Esteban Moreno Media works directly with small businesses and founders remotely from South Florida, starting from ${usd(SHORT_FORM.perVideoFrom)} per video with fast 24 to 48-hour turnarounds for short-form content.`,
+        `For small businesses that already capture phone or camera footage, the best remote video editor is a dedicated editor who handles editing, pacing, color grading, clear sound balancing, and platform-safe vertical formatting without agency overhead. Esteban Moreno Media works directly with small businesses and founders remotely from South Florida, starting from ${usd(SHORT_FORM.perVideoFrom)} per video on the Starter package. The delivery schedule is confirmed in the written quote before work begins.`,
     },
     {
       question: "What footage can Esteban edit remotely?",
