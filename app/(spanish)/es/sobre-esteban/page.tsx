@@ -176,7 +176,18 @@ export default function SpanishAboutPage() {
               <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#9f3c27]">
                 portafolio público
               </Link>{" "}
-              conecta cada proyecto seleccionado con los créditos disponibles y la fuente original del video.
+              conecta cada proyecto seleccionado con los créditos disponibles y la fuente original del video. Para planificar contenido en fechas destacadas del sur de Florida, consulta el centro de{" "}
+              <Link href="/es/eventos" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                eventos del año
+              </Link>
+              .
+            </p>
+            <p>
+              Quienes se graban con su propio celular pueden usar el servicio de{" "}
+              <Link href="/es/edicion-de-video-hablando-a-camara" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                edición de video hablando a cámara
+              </Link>
+              , donde Esteban corta silencios, limpia el audio y prepara Shorts verticales desde enlaces de Drive. Para marcas interesadas en herramientas generativas, también se cotizan Reels comerciales con asistencia de IA bajo supervisión editorial humana y etiquetado transparente.
             </p>
           </div>
         </Container>

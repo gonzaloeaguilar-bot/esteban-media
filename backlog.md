@@ -1,3 +1,11 @@
+## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
+
+- [x] Create talking-head remote video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`) targeting 0/2 GEO miss on remote bilingual supplied-footage editing.
+- [x] Create Christian YouTube video editor pages (`/services/christian-youtube-video-editor`, `/es/editor-de-videos-cristianos-youtube`, plus permanent redirect `/es/edicion-de-predicas-youtube` -> `/es/editor-de-videos-cristianos-youtube`) for devotional creators recording at home.
+- [x] Enrich body copy on `/about` and `/es/sobre-esteban` with concise factual entity links to `/events`, talking-head remote editing, and AI commercial Reels (preserving exact metadata and Fort Lauderdale title/description limits).
+- [x] Update sitemap (588 -> 592 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
+- [x] Run `pnpm lastmod:update` and verify all gates (`pnpm typecheck`, `pnpm lint`, `npm test` 212 files / 3,918 tests passing, and `analytics-gate.py`).
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - [x] Extend the annual events section with three bilingual event page pairs (6 new URLs: FITCE Fort Lauderdale, Boca Raton Business Festivals & Expos, Pompano Beach Annual Festivals & Events).

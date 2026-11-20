@@ -8746,6 +8746,146 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   ...nicheWave8Pages,
+  {
+    slug: "edicion-de-video-hablando-a-camara",
+    title: "Edición de video hablando a cámara",
+    metadataTitle: "Edición de Video Hablando a Cámara",
+    description: "Edición remota de video hablando a cámara: corte de pausas, reducción de ruido, subtítulos animados y Shorts a partir de grabaciones en Drive.",
+    metaDescription: "Tú te grabas hablando y envías el enlace de Drive; yo corto silencios, limpio el audio, agrego subtítulos y saco Shorts en español e inglés.",
+    eyebrow: "Edición Remota de Material Suministrado",
+    h1: "Tú te grabas hablando y envías el enlace de Drive; yo corto pausas, limpio el audio y saco Shorts.",
+    lead: "Sin capas de agencia ni procesos pesados. Grábate con tu teléfono o cámara, comparte tu carpeta en la nube y recibe videos listos para YouTube y clips verticales con subtítulos.",
+    keyword: "edición de video hablando a cámara",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    updated: "2026-11-19",
+    fitQuestion: "¿Cómo funciona la edición remota de videos hablando a cámara?",
+    projectFit: "Grábate hablando a cámara con tu celular o cámara en un trípode con luz de frente y micrófono corbatero. Sube los archivos originales a Drive o Dropbox y comparte el enlace. Esteban corta las dudas y falsos arranques, nivela el audio para quitar ruido de fondo y exporta piezas horizontales para YouTube y clips verticales con subtítulos para Reels, TikTok y Shorts. La edición de video remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes recurrentes. La grabación presencial en locación en Broward o Miami-Dade se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    sectionsDisclosure: "Detalles del proceso y formato de entrega",
+    sectionsDestinations: "Paso a paso desde tu grabación hasta la publicación con subtítulos",
+    bestFor: [
+      "Profesionales, consultores y educadores que graban frente a cámara.",
+      "Creadores bilingües que publican en español, inglés o ambos idiomas.",
+      "Negocios que prefieren grabarse ellos mismos y delegar la postproducción.",
+    ],
+    scopingQuestions: [
+      "¿En qué plataforma compartes el material: Drive, Dropbox o OneDrive?",
+      "¿Necesitas formato horizontal para YouTube, vertical para Shorts y Reels, o ambos?",
+      "¿Tienes pautas de marca, logo o tipografía específica para los subtítulos?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo preparar y enviar tus grabaciones?",
+        paragraphs: [
+          "No necesitas un estudio comercial complejo para transmitir autoridad frente a la cámara. Coloca tu teléfono o cámara en un trípode a la altura de los ojos, frente a una ventana o luz suave, y conecta un micrófono corbatero cerca del cuello. Habla siguiendo tus puntos clave o guion, dejando pequeñas pausas entre ideas.",
+          "Sube los videos originales sin comprimir a una carpeta compartida en Drive o Dropbox. No necesitas cortar las tomas malas ni limpiar el sonido antes de enviar; el proceso de edición elimina silencios, quita muletillas y extrae tus mejores momentos con ritmo ágil.",
+        ],
+      },
+      {
+        heading: "¿Cuándo enviar material de celular y cuándo contratar grabación en locación?",
+        paragraphs: [
+          "El criterio de decisión es muy claro: si grabas lecciones educativas, comentarios de negocio, respuestas a clientes o actualizaciones de redes, tu grabación con celular editada profesionalmente por ${usd(SHORT_FORM.perVideoFrom)} por video ofrece el mejor retorno con mínima fricción.",
+          "Por el contrario, si tu proyecto exige iluminación de cine multicámara, fondo corporativo en tu oficina, tomas de apoyo con tu equipo o entrevistas a clientes en vivo, contratar grabación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa asegura equipo profesional en Broward y Miami-Dade.",
+        ],
+      },
+      {
+        heading: "¿Qué acabado técnico incluye cada video finalizado?",
+        paragraphs: [
+          "Cada archivo pasa por remasterización de audio para suprimir zumbidos de aire acondicionado, eco de habitación y saltos bruscos de volumen. Los cortes eliminan pausas muertas manteniendo la cadencia natural de tu voz sin que suene robótica.",
+          "La entrega se adapta a tus canales: exportaciones verticales 9:16 con subtítulos dinámicos en español o inglés para Instagram Reels, TikTok y YouTube Shorts, y versiones 16:9 con placas de título limpias para YouTube o tu sitio web.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debo enviar para empezar la edición?",
+        answer: "Comparte un enlace de Google Drive o Dropbox con tus videos originales, tu logotipo o colores de marca, y cualquier nota de minutos específicos que quieras destacar. Nosotros nos encargamos del corte, el sonido y los subtítulos.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición de videos hablando a cámara?",
+        answer: "La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video en paquete Starter. Para creadores con publicación semanal constante, los planes de edición recurrente arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana por un video o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana por dos videos. La filmación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+      },
+      {
+        question: "¿Pueden sacar video largo de YouTube y Shorts verticales de la misma grabación?",
+        answer: "Sí. A partir de una misma toma horizontal o vertical podemos editar el video completo para YouTube y extraer los fragmentos más destacados en formato vertical con subtítulos dinámicos.",
+      },
+      {
+        question: "¿En qué idiomas editan los videos?",
+        answer: "Ofrecemos postproducción bilingüe nativa en español, inglés o formato combinado con subtítulos precisos adaptados al público hispanohablante de Florida y Latinoamérica.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-videos-cristianos-youtube",
+    title: "Editor de videos cristianos para YouTube",
+    metadataTitle: "Videos Cristianos YouTube",
+    description: "Edición de video para creadores cristianos, pastores y canales devocionales en YouTube: prédicas, estudios bíblicos, versículos en pantalla y Shorts semanales.",
+    metaDescription: "Edición remota para canales cristianos y devocionales de YouTube. Cortes limpios, versículos en pantalla, audio balanceado y Shorts verticales.",
+    eyebrow: "Pastores / Ministerios / Canales Devocionales",
+    h1: "Enseñanzas devocionales y estudios bíblicos en casa, editados para YouTube y Shorts.",
+    lead: "Grábate en casa con tu teléfono o cámara. Esteban elimina pausas incómodas, nivela el audio, inserta versículos bíblicos legibles y extrae Shorts semanales en español o inglés.",
+    keyword: "editor de videos cristianos para youtube",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    updated: "2026-11-19",
+    fitQuestion: "¿Cómo funciona la edición para canales de YouTube cristianos y devocionales?",
+    projectFit: "Para pastores, maestros bíblicos y creadores de contenido devocional que graban mensajes desde casa o la oficina. Esteban edita las grabaciones para mantener ritmo fluido, añade citas bíblicas en placas inferiores limpias y extrae momentos clave en formato vertical 9:16 para YouTube Shorts, Reels y TikTok. La edición remota inicia en ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes semanales. Si el ministerio desea filmar una conferencia o aniversario en el templo, la grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    sectionsDisclosure: "Estructura de canal y ritmo devocional semanal",
+    sectionsDestinations: "Paso de la grabación larga a publicaciones diarias que edifican",
+    bestFor: [
+      "Pastores y maestros que comparten devocionales semanales en YouTube.",
+      "Ministerios hispanos en Estados Unidos y Latinoamérica con canales bilingües.",
+      "Creadores cristianos que buscan constancia sin enredarse con programas de edición.",
+    ],
+    scopingQuestions: [
+      "¿Qué versión o traducción de la Biblia prefieres para las citas en pantalla?",
+      "¿Envías grabaciones desde casa o el archivo de transmisión de la congregación?",
+      "¿Deseas extraer clips cortos para redes sociales de cada enseñanza larga?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo estructurar grabaciones devocionales para YouTube?",
+        paragraphs: [
+          "Los devocionales en casa y las reflexiones bíblicas conectan mejor cuando plantean la pregunta central o promesa espiritual en los primeros quince segundos. Menciona el pasaje bíblico temprano antes de pasar a la explicación y aplicación práctica a la vida diaria.",
+          "Las citas y versículos se presentan en pantalla con tipografía sobria y legible, sin transiciones estridentes que resten seriedad al mensaje. Cuando se citan términos en idiomas originales o contexto histórico, los rótulos ayudan a fijar la enseñanza en la audiencia.",
+        ],
+      },
+      {
+        heading: "¿Cuándo editar material grabado en casa y cuándo filmar en locación?",
+        paragraphs: [
+          "Para devocionales semanales, estudios temáticos o mensajes pastorales directos, grabarte en casa con tu celular o cámara y enviar el material para edición remota a ${usd(SHORT_FORM.perVideoFrom)} por video es la vía más ágil y económica para sostener el canal sin fallar semanas.",
+          "Cuando se trata de una serie especial de conferencias, un retiro ministerial o un documental del aniversario de la iglesia, programar filmación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa en Broward y Miami-Dade asegura audio de solapa múltiple e iluminación cuidada.",
+        ],
+      },
+      {
+        heading: "¿Cómo convertir una enseñanza larga en clips para toda la semana?",
+        paragraphs: [
+          "Un estudio de quince o veinte minutos contiene varias verdades concisas que funcionan de forma independiente. Durante el proceso de montaje seleccionamos esas reflexiones de un minuto y las preparamos en formato vertical con subtítulos completos.",
+          "Estos clips se publican a lo largo de la semana en YouTube Shorts, Instagram Reels y TikTok, llevando nuevas personas hacia el estudio bíblico completo y manteniendo a la comunidad conectada entre servicios.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debe enviar el creador o ministerio?",
+        answer: "Envía tus videos originales por Google Drive o Dropbox junto con el bosquejo del mensaje, las referencias bíblicas indicando la versión deseada (Reina Valera, NVI, etc.) y tu logotipo si lo tienes.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición para canales cristianos de YouTube?",
+        answer: "La edición remota comienza en ${usd(SHORT_FORM.perVideoFrom)} por video en Starter. Para canales con publicaciones periódicas, los planes semanales arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana (un video) o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana (dos videos). La grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+      },
+      {
+        question: "¿Cómo se maneja la música en las reflexiones cristianas?",
+        answer: "Para evitar reclamos de derechos de autor y bloqueos en YouTube, utilizamos fondos instrumentales suaves con licencia comercial autorizada, salvo que el ministerio cuente con licencias de sincronización de canciones específicas.",
+      },
+      {
+        question: "¿Ofrecen edición devocional en español e inglés?",
+        answer: "Sí. Trabajamos con ministerios y predicadores bilingües, cuidando la ortografía bíblica, la terminología teológica adecuada y subtítulos precisos en ambos idiomas.",
+      },
+    ],
+  },
 ];
 
 
@@ -8905,6 +9045,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
       ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
+      ["/services/talking-head-video-editing", "/es/edicion-de-video-hablando-a-camara"],
+      ["/services/christian-youtube-video-editor", "/es/editor-de-videos-cristianos-youtube"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
       ["/services/wedding-videographer-fort-lauderdale", "/es/videografo-de-bodas-fort-lauderdale"],
       // DM-16 (2026-10-14): the English twin now exists.

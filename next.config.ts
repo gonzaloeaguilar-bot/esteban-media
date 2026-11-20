@@ -78,6 +78,16 @@ const legacyRedirects = [
     destination: "/es/editor-de-reels-fort-lauderdale",
     permanent: true,
   },
+  {
+    source: "/es/edicion-de-predicas-youtube",
+    destination: "/es/editor-de-videos-cristianos-youtube",
+    permanent: true,
+  },
+  {
+    source: "/es/edicion-de-predicas-youtube/",
+    destination: "/es/editor-de-videos-cristianos-youtube",
+    permanent: true,
+  },
 ];
 
 const nextConfig: NextConfig = {

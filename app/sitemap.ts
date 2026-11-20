@@ -255,6 +255,8 @@ export const sitemapRoutes = [
   { path: "/services/mortgage-broker-video-marketing-miami", priority: 0.85 },
   { path: "/services/immigration-attorney-video-marketing-miami", priority: 0.85 },
   { path: "/services/church-sermon-clip-editing-miami", priority: 0.85 },
+  { path: "/services/talking-head-video-editing", priority: 0.85 },
+  { path: "/services/christian-youtube-video-editor", priority: 0.85 },
   { path: "/services/personal-brand-video-editor-founders-miami", priority: 0.85 },
   { path: "/services/podcast-clipping-service-miami", priority: 0.85 },
   { path: "/services/quinceanera-video-miami", priority: 0.85 },

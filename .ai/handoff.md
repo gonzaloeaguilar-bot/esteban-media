@@ -1,3 +1,13 @@
+## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
+
+- Branch: `feat/ai-unlock-talking-head-20261119` off `origin/main`.
+- Implemented talking-head video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`): zero-jargon workflow for client-supplied recordings via Drive/Dropbox, audio remastering, subtitle styling, and vertical Shorts repurposing.
+- Implemented Christian YouTube video editor pages (`/services/christian-youtube-video-editor`, `/es/editor-de-videos-cristianos-youtube`, and 301 redirect `/es/edicion-de-predicas-youtube` -> `/es/editor-de-videos-cristianos-youtube`) for pastors, ministries, and devotional creators recording at home.
+- Enriched `/about` and `/es/sobre-esteban` body copy with factual entity lines linking to `/events`, talking-head remote editing, and AI commercial Reels while strictly preserving exact page title and 160-char meta description per `app/__tests__/about-brand-metadata.test.ts`.
+- Sourced all pricing from `lib/pricing.ts` ($100 Starter, $85/wk 1 video, $160/wk 2 videos, $400 half-day / $700 full-day filming). Zero emojis. Dual-audience answer-first structure with native server-rendered `<details>`.
+- Registered inventory expansion in `app/sitemap.ts` (588 -> 592), `config/indexable-inventory-freeze.json` (SHA-256 updated), `scripts/search-console-index-watch.mjs`, and `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed cleanly: `pnpm typecheck`, `pnpm lint` (0 errors), `npm test` (212 test files, 3,918 tests passing), and `analytics-gate.py`.
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - Branch: `feat/events-extend-20261119` off `origin/main`.

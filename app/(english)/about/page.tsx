@@ -172,11 +172,22 @@ export default function AboutPage() {
               <Link href="/es/precios" className="underline underline-offset-4 hover:text-[#9f3c27]">
                 precios y paquetes
               </Link>
-              , and regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
+              , and regional businesses can plan seasonal campaigns around major South Florida dates through the{" "}
+              <Link href="/events" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                annual South Florida events hub
+              </Link>{" "}
+              and its Spanish{" "}
               <Link href="/es/eventos" className="underline underline-offset-4 hover:text-[#9f3c27]">
                 eventos del año
               </Link>{" "}
-              hub.
+              counterpart.
+            </p>
+            <p>
+              For creators recording on their own phones, his{" "}
+              <Link href="/services/talking-head-video-editing" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                talking-head video editing service
+              </Link>{" "}
+              cuts pauses, cleans audio, and extracts vertical Shorts from raw cloud links. Brands exploring AI-assisted social assets can review options for AI commercial Reels scoped with transparent platform labeling and human editorial control.
             </p>
           </div>
         </Container>
