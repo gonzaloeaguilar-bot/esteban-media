@@ -1,3 +1,15 @@
+## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
+
+- Branch: `feat/events-extend-20261119` off `origin/main`.
+- Extended the `/events` and `/es/eventos` hub with 3 new bilingual event pairs (6 URLs):
+  - `/events/fitce-fort-lauderdale-video` <-> `/es/eventos/video-para-fitce-fort-lauderdale` (FITCE at Broward County Convention Center)
+  - `/events/boca-raton-events-video` <-> `/es/eventos/video-para-eventos-en-boca-raton` (Boca Raton business & cultural festivals)
+  - `/events/pompano-beach-events-video` <-> `/es/eventos/video-para-eventos-en-pompano-beach` (Pompano Beach annual seaside & civic celebrations)
+- Extended the events hub (`/events` and `/es/eventos`) with an explicit Broward County events section and coverage FAQs.
+- Prices derived strictly from `lib/pricing.ts` via canonical `RAW_FILMING_RATES` ($400 half-day, $700 full-day raw filming) and `SHORT_FORM.perVideoFrom` ($100/video editing). Zero emojis. Dual-audience answer-first structure with server-rendered `<details>` for FAQs and honest proof disclaimers (Esteban has not filmed these events; on-location filming is a paid add-on).
+- Inventory updated: sitemap 582 -> 588, `config/indexable-inventory-freeze.json` (hash updated, owner-ordered batch registered), `scripts/search-console-index-watch.mjs` (588 URLs), `config/page-lastmod.json` updated via `pnpm lastmod:update`.
+- Gates passed: `pnpm lint` (0 errors), `pnpm typecheck` (passed), `npm test` (212 test files / 3,906 tests passed), `analytics-gate.py` passed. Next step: push branch and open pull request (do not merge).
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-15 (work id: `priority-growth:2026-11-15:esteban`).
