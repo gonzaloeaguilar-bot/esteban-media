@@ -53,8 +53,8 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
-      <PersonalCraftExperience locale="es" />
       <HomeProjectPath locale="es" />
+      <PersonalCraftExperience locale="es" />
       {/* La prueba y el contacto van JUNTOS justo en la decisión, no una
           mención breve antes del selector y una repetición completa tres
           pantallas más abajo. El dueño, 2026-10-12: "ser convencido" es la
