@@ -135,6 +135,11 @@
 
 # Esteban Moreno Media — Backlog
 
+## 2026-11-20 — Gains From Geebs Shorts content depth
+
+- [x] Prepare the bilingual content-depth refinement for `/portfolio/gains-from-geebs-shorts`: intent-specific H1/metadata, answer-first public-upload context, three server-rendered native-details FAQs, existing related-service/case-study links, and refreshed page-date ledger. Local checks: typecheck, full test suite (213 files / 3,932 tests), build, and raw local production-build HTML.
+- [ ] `cto-qa-lead`: independently review the exact Gains From Geebs Shorts diff. After an authorized release, verify canonical EN/ES raw HTML and the two related links; `cto-seo-lead` should compare a later like-for-like GSC query/page window. Click and inquiry impact remain unmeasured.
+
 ## 2026-11-05 — Demand wave: Miami Reels intent consolidation
 
 - [ ] `cto-qa-lead`: review PR #728's Spanish restaurant-to-general-Reels link, then after an authorized merge verify the served canonical HTML and compare the next settled GSC query-page split for `editor de reels miami`. No ranking, click, or inquiry result is assumed.

@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { PageUpdated } from "@/components/page-updated";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { YouTubeFacade } from "@/components/youtube-facade";
+import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
 import { buildPortfolioWatchSchema } from "@/lib/portfolio-schema";
@@ -456,6 +457,37 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           </div>
         </Container>
       </section>
+
+      {copy.depth ? (
+        <section
+          className="border-t border-[#d6ccc0] bg-[#fbf6ef] py-12 sm:py-16"
+          aria-labelledby="portfolio-depth-heading"
+          data-section="portfolio-project-context"
+        >
+          <Container size="xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                {copy.depth.eyebrow}
+              </p>
+              <h2 id="portfolio-depth-heading" className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">
+                {copy.depth.heading}
+              </h2>
+              <div className="mt-5 space-y-4 text-base leading-7 text-[#252a2d]">
+                {copy.depth.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </div>
+            <RailFaq
+              className="mt-8 max-w-3xl"
+              source={`portfolio-project-context-${item.id}`}
+              items={copy.depth.faqs.map((faq, index) => ({
+                id: `${item.id}-${index}`,
+                question: faq.question,
+                answer: faq.answer,
+              }))}
+            />
+          </Container>
+        </section>
+      ) : null}
 
       <section className="border-t border-[#d6ccc0] bg-[#fbf6ef] py-10 sm:py-12" data-section="portfolio-personal-partner">
         <Container size="xl">

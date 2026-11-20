@@ -24,6 +24,13 @@ type PortfolioItemCopy = {
   /** Search snippet when the summary runs past ~155 characters (loop round 3). */
   metaDescription?: string;
   credits: string;
+  /** Optional project-specific context kept in the initial HTML. */
+  depth?: {
+    eyebrow: string;
+    heading: string;
+    paragraphs: readonly string[];
+    faqs: readonly { question: string; answer: string }[];
+  };
   results?: readonly PortfolioResultMetric[];
 };
 
