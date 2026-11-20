@@ -1,3 +1,14 @@
+## 2026-11-20 — PR #781 Fix: Merged origin/main into feat/nearp1-20261119, All Gates Pass
+
+- [x] Merge `origin/main` (956a8f9f, PRs #777, #784, #785, #786, #787) into `feat/nearp1-20261119`.
+- [x] Resolve 3 merge conflicts: `.ai/handoff.md`, `config/page-lastmod.json`, `lib/spanish-site.ts`.
+- [x] Preserve near-page-1 SEO query fixes for Reels pages (8 target queries across Fort Lauderdale and Miami).
+- [x] Fix 3 test regressions: `es-us-spanish-money-pages.test.ts` (5/5), `niche-openers-distinct.test.ts` (4/4), `page-lastmod.test.ts` (8/8).
+- [x] Run `pnpm lastmod:update` — refreshed `config/page-lastmod.json` (596 total entries).
+- [x] Verify all gates: `pnpm typecheck` ✅, `pnpm lint` ✅ (0 errors), key test suites ✅ (17/17), `analytics-gate.py` ✅.
+- [x] Push branch `feat/nearp1-20261119` to origin (no force-push).
+- [x] Results written to `~/.claude/state/esteban-20261118/result-fix-781.md`.
+
 ## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
 
 - [x] Create talking-head remote video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`) targeting 0/2 GEO miss on remote bilingual supplied-footage editing.
