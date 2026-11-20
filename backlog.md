@@ -1,3 +1,7 @@
+## 2026-11-19 — Spanish Miami Reels page content-depth refinement
+
+- [x] Prepare `/es/editor-de-reels-miami` for its existing search intent: outcome-specific title and H1, answer-first opening, a source-bounded intake checklist, one matching FAQ, contextual link to `/es/editor-de-video-corto-para-redes-miami`, and a refreshed page-lastmod ledger. Local checks passed: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, `pnpm build`, and raw generated HTML verification. `cto-qa-lead` must independently review the local diff; after authorized release, verify canonical production raw HTML. `cto-seo-lead` owns the later comparable GSC read; clicks and inquiries remain unmeasured.
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - [x] Extend the annual events section with three bilingual event page pairs (6 new URLs: FITCE Fort Lauderdale, Boca Raton Business Festivals & Expos, Pompano Beach Annual Festivals & Events).

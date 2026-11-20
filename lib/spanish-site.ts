@@ -6336,13 +6336,13 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-miami",
     title: "Editor de Reels en Miami",
-    metadataTitle: "Editor de Reels en Miami",
+    metadataTitle: "Editor de Reels Miami: clips claros",
     description:
       "Edición de Reels, TikTok y Shorts para negocios de Miami-Dade que necesitan piezas claras, subtituladas y listas para publicar.",
     eyebrow: "Miami / video corto",
-    h1: "Editor de Reels en Miami para negocios que publican en teléfono primero.",
+    h1: "Editor de Reels en Miami para convertir tus clips en videos claros.",
     lead:
-      "Para negocios en Miami-Dade, los Reels funcionan mejor cuando el video muestra una oferta concreta, una experiencia real o una respuesta rápida a una duda del cliente. Esteban puede editar con material existente y revisar proyectos de captura local de forma selectiva.",
+      "Un editor de Reels en Miami convierte tus clips originales en videos cortos, claros y subtitulados para publicar o dar una respuesta rápida en redes. Esteban edita material existente de forma remota; si necesitas grabación en Miami-Dade, ese alcance se revisa proyecto por proyecto.",
     keyword: "editor de reels Miami",
     location: "Miami-Dade / Remote",
     availability: "confirmed",
@@ -6377,6 +6377,19 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
+        heading: "¿Qué debes enviar para empezar a editar Reels?",
+        paragraphs: [
+          "Empieza con los archivos originales en una carpeta compartida, no con clips reenviados por mensajería. Añade una línea sobre la oferta o idea de cada video, la plataforma donde se publicará y cualquier detalle que deba aparecer, como un precio, una ubicación o una frase de cierre. Así se puede distinguir lo que es material útil de una toma repetida antes de decidir cuántas piezas salen de la grabación.",
+          "También ayuda indicar si el mensaje se leerá en español, inglés o ambos idiomas, y compartir una referencia si ya tienes un ritmo o estilo en mente. Para un proyecto que combina Reels, TikTok y Shorts, la página de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami) explica cómo pensar las versiones sin convertir cada plataforma en un video distinto por defecto.",
+        ],
+        bullets: [
+          "Archivos originales en una carpeta compartida",
+          "La oferta o idea principal de cada video",
+          "La plataforma, el idioma y el detalle que debe aparecer",
+          "Una referencia y la fecha ideal de publicación, si las tienes",
+        ],
+      },
+      {
         heading: "¿Cuándo conviene pedir una versión bilingüe?",
         paragraphs: [
           "Una versión bilingüe resulta especialmente conveniente cuando el negocio atiende simultáneamente a clientes hispanohablantes y angloparlantes en el sur de Florida. Esto no siempre exige duplicar toda la producción: en muchos casos basta con incorporar subtítulos precisos, textos de apoyo en pantalla o una segunda variante editada con diferente gancho verbal.",
@@ -6402,6 +6415,11 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Puede un video largo convertirse en varios Reels?",
         answer:
           "Sí. Si el material contiene varias ideas claras, se puede dividir en clips independientes. Es preferible crear menos Reels con mensaje claro que muchos videos repetitivos.",
+      },
+      {
+        question: "¿Qué información ayuda a cotizar la edición de Reels?",
+        answer:
+          "Comparte los clips originales, la cantidad aproximada de piezas, la plataforma, el idioma, referencias y la fecha ideal de publicación. Con eso se puede revisar si el proyecto corresponde a edición remota o si requiere una conversación aparte sobre captura en Miami.",
       },
       {
         question: "¿Se puede trabajar directamente en español?",
