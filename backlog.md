@@ -352,3 +352,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Obtain independent scoped review, commit `ab2ef552`, and open PR #583 for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`.
 - [x] Replace the unboxing outbound-card treatment with an embedded Instagram Reel inside an iPhone-shaped player and preserve the direct Instagram fallback.
 - [ ] Clear the unrelated remote `prospect-auditor-verifier` Squarespace fixture failure on PR #583, attach genuine quality evidence, merge, and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
+## 2026-11-19 — Contact-page project-intent refinement (growth-starvation content_depth)
+
+- [x] Update `/contact` with a specific video-editing-or-South-Florida-shoot title, answer-first H1/opening, retained FAQ/schema, and existing related links.
+- [x] Refresh `config/page-lastmod.json` via `pnpm lastmod:update`; verify with `npm run typecheck --silent`, full `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, and `git diff --check`.
+- [ ] `cto-qa-lead`: review the local candidate; after authorized release, verify the served title, opening, FAQ/schema, and linked paths at canonical `/contact`. `cto-seo-lead` then compares a later settled query-page GSC window; clicks and inquiries remain unmeasured.
