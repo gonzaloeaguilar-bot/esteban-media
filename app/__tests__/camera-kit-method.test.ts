@@ -41,6 +41,10 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__card"');
     expect((component.match(/className="em-camera-kit__card"/g) ?? [])).toHaveLength(3);
     expect(styles).toContain(".em-camera-kit__cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}");
+    expect(styles).toContain(".em-camera-kit__cards:has(.em-camera-kit__card[open]) .em-camera-kit__card:not([open]){display:none!important}");
+    expect(styles).toContain(".em-camera-kit__card[open]{grid-column:1/-1!important;width:100%!important");
+    expect(component).toContain("Back to all gear");
+    expect(component).toContain("Volver al equipo");
     expect(component).not.toContain("em-camera-kit__filmstrip");
     expect(styles).not.toContain("em-camera-kit__filmstrip");
   });

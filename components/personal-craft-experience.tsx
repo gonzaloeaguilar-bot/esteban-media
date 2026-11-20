@@ -111,7 +111,7 @@ export function PersonalCraftExperience({ locale }: { locale: Locale }) {
                 </div>
               </div>
 
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 text-[#f6f1ea]">
+              <div className="absolute inset-x-0 bottom-0 px-7 pt-6 pb-8 text-[#f6f1ea]">
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff8c73]">
                   {c.roleTag}
                 </p>
