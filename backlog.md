@@ -1,3 +1,12 @@
+## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
+
+- [x] Extend the annual events section with three bilingual event page pairs (6 new URLs: FITCE Fort Lauderdale, Boca Raton Business Festivals & Expos, Pompano Beach Annual Festivals & Events).
+- [x] Register new event definitions in `lib/events.ts` with transparent `nextEdition` dates marked 'confirm dates with organizer' and official organizer URLs.
+- [x] Add answer-first content, before/during/after plans, honest proof disclaimers, and 4-5 FAQs with server-rendered `<details>` in `lib/event-content.ts` using canonical `RAW_FILMING_RATES` ($400 half-day / $700 full-day raw filming) and `SHORT_FORM` ($100 per video editing) from `lib/pricing.ts`.
+- [x] Add Broward County events coverage section and FAQs to the events hub in `lib/event-content.ts`.
+- [x] Register pages in sitemap (582 -> 588 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
+- [x] Run `pnpm lastmod:update` and verify with `pnpm lint`, `pnpm typecheck`, `npm test` (212 test files / 3,906 tests passing), and `analytics-gate.py`.
+
 ## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
 
 - [x] Create trimmed replacement for PR #775 without duplicate /resources/miami-events-calendar:
@@ -5,9 +14,10 @@
   - `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
 - [x] Link attendee interview page to `/events` and `/es/eventos`.
 - [x] Strictly adhere to `lib/pricing.ts` figures ($400 raw half-day capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel".
-- [x] Update sitemap, inventory freeze (586 approved URLs), search-console watch list, and page-lastmod ledger.
-- [x] All 5 validation gates + full test suite passed (212 test files / 3904 tests).
-- [ ] Push branch `feat/interview-ai-20261119` and open PR.
+- [x] Update sitemap, inventory freeze (592 approved URLs), search-console watch list, and page-lastmod ledger.
+- [x] All 5 validation gates + full test suite passed (212 test files / 3908 tests).
+- [x] Rebase/merge origin/main and resolve inventory conflicts.
+- [ ] Push branch `feat/interview-ai-20261119` (PR #777).
 
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 

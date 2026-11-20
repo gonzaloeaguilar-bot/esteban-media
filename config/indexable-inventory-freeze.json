@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 586,
-  "approvedSitemapUrlSetSha256": "1b47db01de91019fafa8976f719c18ddbeee5d9baeb9fd4b19b443f9de0a69c9",
+  "approvedSitemapUrlCount": 592,
+  "approvedSitemapUrlSetSha256": "8d476cd9ac752718294c545d28b12a713b8d222c84b72af8639d0de6d1db248f",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,23 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-19",
+      "url": [
+        "/events/fitce-fort-lauderdale-video",
+        "/es/eventos/video-para-fitce-fort-lauderdale",
+        "/events/boca-raton-events-video",
+        "/es/eventos/video-para-eventos-en-boca-raton",
+        "/events/pompano-beach-events-video",
+        "/es/eventos/video-para-eventos-en-pompano-beach"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch events-extend)",
+      "kind": "annual events extension: FITCE Fort Lauderdale, Boca Raton events & festivals, and Pompano Beach annual events bilingual pairs",
+      "demandEvidence": "CTO dispatch events-extend: extends the existing annual events hub to capture verified regional demand in Broward and Palm Beach (FITCE trade expo at Broward County Convention Center, Boca Raton business & arts festivals, Pompano Beach annual seaside celebrations). Each page ships answer-first, 4-5 FAQs with transparent $400 half-day / $700 full-day raw filming and $100/video editing prices, and non-affiliation disclaimers.",
+      "followUpDate": "2026-12-19",
+      "followUp": "Check GSC impressions and indexed status for all six URLs, monitor event and festival videography queries, and track qualified inquiries.",
+      "note": "SIX URLs (3 bilingual pairs), larger than default 4; recorded as one owner-ordered batch so the exception stays visible."
+    },
     {
       "on": "2026-11-18",
       "url": [
