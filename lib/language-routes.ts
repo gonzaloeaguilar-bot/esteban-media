@@ -162,6 +162,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
   "/services/church-sermon-clip-editing-miami":
     "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+  "/services/talking-head-video-editing":
+    "/es/edicion-de-video-hablando-a-camara",
+  "/services/christian-youtube-video-editor":
+    "/es/editor-de-videos-cristianos-youtube",
   "/services/personal-brand-video-editor-founders-miami":
     "/es/editor-de-video-para-marca-personal-miami",
   "/services/podcast-clipping-service-miami":
@@ -270,6 +274,7 @@ pairedLanguageRoutes["/es/video-para-restaurantes-miami"] =
   "/services/restaurant-promo-video-editing-miami";
 pairedLanguageRoutes["/es/reels-para-negocios-miami"] =
   "/services/short-form-video-editor-miami";
+
 
 export function getPairedLanguageRoute(pathname: string) {
   const exactMatch = pairedLanguageRoutes[pathname];

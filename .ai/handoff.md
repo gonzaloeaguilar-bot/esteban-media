@@ -1,3 +1,22 @@
+## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
+
+- Branch: `feat/ai-unlock-talking-head-20261119` off `origin/main`.
+- Implemented talking-head video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`): zero-jargon workflow for client-supplied recordings via Drive/Dropbox, audio remastering, subtitle styling, and vertical Shorts repurposing.
+- Implemented Christian YouTube video editor pages (`/services/christian-youtube-video-editor`, `/es/editor-de-videos-cristianos-youtube`, and 301 redirect `/es/edicion-de-predicas-youtube` -> `/es/editor-de-videos-cristianos-youtube`) for pastors, ministries, and devotional creators recording at home.
+- Enriched `/about` and `/es/sobre-esteban` body copy with factual entity lines linking to `/events`, talking-head remote editing, and AI commercial Reels while strictly preserving exact page title and 160-char meta description per `app/__tests__/about-brand-metadata.test.ts`.
+- Sourced all pricing from `lib/pricing.ts` ($100 Starter, $85/wk 1 video, $160/wk 2 videos, $400 half-day / $700 full-day filming). Zero emojis. Dual-audience answer-first structure with native server-rendered `<details>`.
+- Registered inventory expansion in `app/sitemap.ts` (588 -> 592), `config/indexable-inventory-freeze.json` (SHA-256 updated), `scripts/search-console-index-watch.mjs`, and `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Validation gates passed cleanly: `pnpm typecheck`, `pnpm lint` (0 errors), `npm test` (212 test files, 3,918 tests passing), and `analytics-gate.py`.
+
+## 2026-11-19 — Spanish Miami Reels page content-depth refinement (growth starvation)
+
+- Scope: `/es/editor-de-reels-miami` only, through the existing `SpanishNichePage` data entry in `lib/spanish-site.ts`.
+- Changed the title to `Editor de Reels Miami: clips claros` (58 characters including the site suffix), and the H1/opening now answer the outcome and boundary first: supplied clips become clear, captioned short videos; remote editing is the default and Miami-Dade filming remains project-scoped.
+- Added the server-rendered decision section `¿Qué debes enviar para empezar a editar Reels?` with an actionable intake checklist, a contextual link to `/es/editor-de-video-corto-para-redes-miami`, and one matching scope-and-quote FAQ. No prices, outcomes, credentials, testimonials, or availability claims were invented.
+- `pnpm lastmod:update` changed `/es/editor-de-reels-miami` in `config/page-lastmod.json` to `2026-11-19` (hash `35c3949db3329cf8`).
+- Verification: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 pre-existing warnings), `pnpm rail-adoption:check`, and `pnpm build` passed. Raw production-build artifact `.next/server/app/es/editor-de-reels-miami.html` contains the new opening, new section, new FAQ, contextual internal link, and title.
+- Local-only state: modified `lib/spanish-site.ts` and `config/page-lastmod.json`; no commit, PR, deploy, or production measurement has occurred. `cto-qa-lead` should independently review the exact diff; after an authorized release, verify the canonical raw HTML and then let `cto-seo-lead` compare a later like-for-like GSC window. Click and inquiry impact are unmeasured.
+
 ## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
 
 - Branch: `feat/events-extend-20261119` off `origin/main`.
