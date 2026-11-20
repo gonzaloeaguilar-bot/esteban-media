@@ -1,3 +1,12 @@
+## 2026-11-20 — Priority-growth owned_site_ctr refinement for Gains From Geebs Shorts
+
+- Work ID: `priority-growth:2026-11-20:esteban` (round `2026-11-20`).
+- Scope: `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts` in `messages/en.json` and `messages/es.json`.
+- Targeted constraint: `organic_ctr_opportunity` from immutable brief `03d35d95bd34c8da80c93ed1e60c7ed96c0878c75d79af409ca888f94451d9de` (12 impressions, 0 clicks on query `gainsfromgeebs` at pos 10-10.5).
+- Added dedicated `metaDescription` strings to both EN and ES portfolio items replacing generic un-targeted description fallback with concrete, search-quotable snippet specifying two short-form fitness videos published by Kris Oddo for Gains From Geebs, edited for vertical social reels and YouTube Shorts.
+- Updated `config/page-lastmod.json` via `pnpm lastmod:update`.
+- Verification: `npm test` passed (213 files, 3,932 tests), `priority-growth-project-verify.sh` passed cleanly with 0 regressions.
+
 ## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
 
 - Branch: `feat/ai-unlock-talking-head-20261119` off `origin/main`.
