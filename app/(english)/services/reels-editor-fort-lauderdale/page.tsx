@@ -28,7 +28,7 @@ const content: GeoServicePageContent = {
   areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
   answerFirst:
-    `Esteban Moreno Media provides reel editor and short-form video editing services for businesses in Fort Lauderdale and Broward County. Remote editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, or ${shortFormWeeklyText("en")} (4-week minimum). Send existing raw clips and Esteban cuts them into focused Instagram Reels, TikToks, or Shorts with captions inside safe zones and one clear call to action. The conversation runs in Spanish first, with intermediate English available, and local shoots across South Florida are scoped separately when new footage is required.`,
+    `Esteban Moreno Media provides Instagram Reels editing for Fort Lauderdale businesses. Remote editing starts from ${usd(SHORT_FORM.perVideoFrom)} a video with the Starter package, or ${shortFormWeeklyText("en")} (4-week minimum). Send existing raw clips and Esteban cuts them into focused Instagram Reels, TikToks, or Shorts with captions inside safe zones and one clear call to action. The conversation runs in Spanish first, with intermediate English available, and local shoots across South Florida are scoped separately when new footage is required.`,
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [

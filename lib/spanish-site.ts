@@ -6231,14 +6231,14 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de Reels en Fort Lauderdale",
     // 2026-11-19: target near-page-1 queries "editor de video fort lauderdale" (pos 4.1),
     // "editor de reels fort lauderdale" (pos 14.5), and "reel editor fort lauderdale".
-    metadataTitle: "Editor de Video Reels Fort Lauderdale",
+    metadataTitle: "Editor de Reels en Fort Lauderdale",
     description:
       `Edición de video y Reels en Fort Lauderdale: videos cortos con subtítulos legibles para negocios. Desde ${esStarterFrom} por video o planes semanales.`,
     eyebrow: "Reels / TikTok / Shorts",
     h1: "Editor de Reels y Video en Fort Lauderdale para Negocios.",
     lead:
       "Si buscas un editor de video y Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
-    answerFirst: `Esteban Moreno Media ofrece servicio de editor de video y Reels en Fort Lauderdale para negocios y creadores de Broward. El servicio parte desde ${esStarterFrom} por video con el paquete Arranque, o a ritmo semanal con ${esWeekly} (con mínimo de 4 semanas). Envía tus clips grabados y Esteban los convierte en Reels, TikToks o Shorts con subtítulos legibles en zonas seguras y una acción clara al final. La edición es remota y la comunicación es en español primero, con inglés intermedio disponible. Si el proyecto requiere filmación en locación en South Florida, se cotiza por separado.`, 
+    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Como editor de video y Reels en Fort Lauderdale, el servicio parte desde ${esStarterFrom} por video con el paquete Arranque, o a ritmo semanal con ${esWeekly} (con mínimo de 4 semanas). Envía tus clips grabados y Esteban los convierte en Reels, TikToks o Shorts con subtítulos legibles en zonas seguras y una acción clara al final. La edición es remota y la comunicación es en español primero, con inglés intermedio disponible. Si el proyecto requiere filmación en locación en South Florida, se cotiza por separado.`, 
     keyword: "editor de reels Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
