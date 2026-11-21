@@ -67,9 +67,12 @@ describe("portfolio sitemap entries", () => {
     // +2 = Fort Lauderdale video editors comparison guide (2026-11-04).
     // +2 = Central Florida supplied-footage editing guide pair (2026-11-08).
     // +3 = yacht charter, AI chatbot, and bilingual web/video hubs (2026-11-11).
+    // +6 = FITCE, Boca Raton events, and Pompano Beach events annual pairs (2026-11-19).
+    // +4 = talking-head and Christian YouTube bilingual pairs (2026-11-19).
+    // +4 = attendee interviews and AI commercial Reels (2026-11-18).
     // +1 = real estate video hub (2026-11-17, exact-query target).
-    expect(entries).toHaveLength(583);
-    expect(new Set(urls)).toHaveLength(583);
+    expect(entries).toHaveLength(597);
+    expect(new Set(urls)).toHaveLength(597);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {
