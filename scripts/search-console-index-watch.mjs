@@ -184,6 +184,9 @@ export const WATCH_URLS = [
   // destinations for the published chatbot portfolio and bilingual builds.
   "https://estebanmorenomedia.com/services/ai-chatbots-lead-automation-fort-lauderdale",
   "https://estebanmorenomedia.com/services/bilingual-web-design-video-south-florida",
+  // Real estate video hub (2026-11-17): exact-query target for
+  // "real estate video editor in Fort Lauderdale" (Gemini 0/3, ChatGPT 3/3).
+  "https://estebanmorenomedia.com/services/real-estate-video-fort-lauderdale",
   "https://estebanmorenomedia.com/services/landing-page-design",
   "https://estebanmorenomedia.com/es/landing-page-para-negocios",
   // Corporate and networking event expansion (2026-10-18).

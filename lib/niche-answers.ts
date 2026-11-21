@@ -138,6 +138,7 @@ const EN_ROWS: Row[] = [
   ["/services/real-estate-drone-video-editing-miami", "real estate drone video editing", "Miami", "realestate"],
   ["/services/real-estate-reels-video-editor-south-florida", "real estate Reels editing", "South Florida", "realestate", false],
   ["/services/real-estate-video-coral-gables", "real estate video", "Coral Gables", "realestate"],
+  ["/services/real-estate-video-fort-lauderdale", "real estate video editing", "Fort Lauderdale", "realestate", false],
   ["/services/real-estate-video-sunny-isles", "real estate video", "Sunny Isles Beach", "realestate"],
   ["/services/reels-editor-fort-lauderdale", "Reels editing", "Fort Lauderdale", "social", false],
   ["/services/reels-editor-miami", "Reels editing", "Miami", "social", false],

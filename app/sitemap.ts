@@ -89,6 +89,9 @@ export const sitemapRoutes = [
   { path: "/services/reels-editor-fort-lauderdale", priority: 0.88 },
   { path: "/services/reels-editor-miami", priority: 0.88 },
   { path: "/services/real-estate-reels-video-editor-south-florida", priority: 0.88 },
+  // Real estate video hub, 2026-11-17: exact-query target for
+  // "real estate video editor in Fort Lauderdale".
+  { path: "/services/real-estate-video-fort-lauderdale", priority: 0.88 },
   { path: "/services/website-design-fort-lauderdale", priority: 0.85 },
   // Web/landing/chatbot line, 2026-10-14 (vault esteban-web-chatbot-seo-geo-2026-10-14).
   { path: "/services/ai-chatbot-for-small-business", priority: 0.85 },

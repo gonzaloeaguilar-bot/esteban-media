@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(596); // Includes current sitemap: FITCE/Boca/Pompano events + attendee interviews & AI commercial Reels + talking-head & Christian YouTube.
+    expect(WATCH_URLS).toHaveLength(597); // Includes current sitemap: FITCE/Boca/Pompano events + attendee interviews & AI commercial Reels + talking-head & Christian YouTube + real estate video Fort Lauderdale hub page.
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });
