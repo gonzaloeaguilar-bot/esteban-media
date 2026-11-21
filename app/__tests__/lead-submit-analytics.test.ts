@@ -186,6 +186,14 @@ describe("confirmed lead instrumentation", () => {
       foundVia: "chatgpt",
       foundQuery: "video editor miami",
     });
+    expect(foundViaPayload("muse", "  Fort Lauderdale conference video  ")).toEqual({
+      foundVia: "muse",
+      foundQuery: "Fort Lauderdale conference video",
+    });
+    expect(foundViaPayload("grok", "  Reels editor Miami  ")).toEqual({
+      foundVia: "grok",
+      foundQuery: "Reels editor Miami",
+    });
     expect(foundViaPayload("google_search", "x".repeat(500)).foundQuery).toHaveLength(200);
   });
 
