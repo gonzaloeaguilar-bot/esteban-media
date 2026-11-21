@@ -106,7 +106,7 @@ export default function ShortFormVideoEditorPage() {
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
-                  Start Short-Form Editing
+                  {`Get Reels Edited — From ${usd(SHORT_FORM.perVideoFrom)}/Video`}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
@@ -136,6 +136,9 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <p className="sr-only">
+        For a <Link href="/services/reels-editor-miami">Miami Reels editing page</Link> focused on location-specific short-form work, see the Miami Reels editing page.
+      </p>
       <FoodCreatorChoice locale="en" sourcePage="miami-short-form" />
       <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
         <Container size="xl">

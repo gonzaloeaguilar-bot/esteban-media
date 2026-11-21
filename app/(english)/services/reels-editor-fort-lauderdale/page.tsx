@@ -1,6 +1,6 @@
-import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
+import { ClientReviews } from "@/components/client-reviews";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
