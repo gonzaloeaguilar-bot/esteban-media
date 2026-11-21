@@ -24,6 +24,8 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { ServiceDecisionRail, type ServiceDecisionRailContent } from "@/components/service-decision-rail";
+import { ServiceProofRail, type ServiceProofRailContent } from "@/components/service-proof-rail";
 import { withNicheService } from "@/lib/niche-answers";
 import { ClientReviews } from "@/components/client-reviews";
 import { renderFormattedText } from "@/components/formatted-text";
@@ -78,6 +80,10 @@ export type GeoServicePageContent = {
   relatedHeading: string;
   related: readonly RelatedService[];
   inquiry: ServiceInquiry;
+  /** A specific choice comes before explanatory depth for AI/search arrivals. */
+  decisionRail?: ServiceDecisionRailContent;
+  /** Relevant published work, deliberately capped to keep the page decisive. */
+  proofRail?: ServiceProofRailContent;
   /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
   venueLine?: string;
 };
@@ -224,6 +230,9 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
+
+      {content.decisionRail ? <ServiceDecisionRail content={content.decisionRail} /> : null}
+      {content.proofRail ? <ServiceProofRail content={content.proofRail} /> : null}
 
       <section className="scroll-mt-24 border-b border-[#ddd4c8] py-8" id="service-pricing" data-section="service-pricing">
         <Container size="xl">
