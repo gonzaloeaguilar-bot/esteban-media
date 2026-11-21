@@ -955,3 +955,10 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Added three contextual, descriptive links to `/es/contacto` from the existing English `/about`, `/contact`, and `/areas` routes. The target already visibly returns to the Spanish service-area hub at `/es/areas`.
 - `pnpm lastmod:update` refreshed `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`, resolving the prior page-lastmod gate failure for these sources.
 - Local evidence: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. Not committed, independently reviewed, deployed, or measured. Next: `cto-qa-lead` exact-diff review; after an authorized release, verify the three rendered source links and the target hub link on production. No indexing, traffic, or inquiry outcome is claimed.
+# 2026-11-21 — Named AI-referral measurement (worktree: esteban-ai-buyer-moments)
+
+- The existing optional inquiry source control now records `muse`, `grok`, `gemini`, `perplexity`, and `claude` separately from `chatgpt` and `other_ai`, in English and Spanish forms. AI/search referrals continue to expose the optional question wording field; GA4 receives only the source slug, never that wording.
+- Source files: `lib/lead-responder.ts`, `components/found-via-field.tsx`, `components/hero-project-intake.tsx`; regression coverage in `app/__tests__/lead-submit-analytics.test.ts`; page-date ledger updated through `pnpm lastmod:update`.
+- Focused verification: `pnpm exec vitest run app/__tests__/lead-submit-analytics.test.ts app/__tests__/lead-route.test.ts app/__tests__/lead-store.test.ts lib/__tests__/lead-responder.test.ts` (83/83), `pnpm typecheck`, analytics gate, `pnpm lint` (0 errors / existing warnings), `pnpm rail-adoption:check`, `pnpm build` (completed).
+- Full `pnpm test` on the clean `main` base is red on eight unrelated baseline assertions (price-source, several active conversion/change expectations, and lastmod entries). Do not call the branch ready to merge until it is rebased onto the active conversion work or those baseline failures are resolved and the full suite is rerun.
+
