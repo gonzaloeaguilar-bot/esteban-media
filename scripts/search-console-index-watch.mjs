@@ -122,6 +122,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/precios/presencia-local",
   "https://estebanmorenomedia.com/es/precios/todo-incluido",
   "https://estebanmorenomedia.com/pricing/real-estate",
+  "https://estebanmorenomedia.com/real-estate",
+  "https://estebanmorenomedia.com/es/bienes-raices",
   "https://estebanmorenomedia.com/es/precios/inmobiliaria",
   "https://estebanmorenomedia.com/pricing",
   // Added 2026-10-06 with the five owner-ordered niche pairs (medical practice,
