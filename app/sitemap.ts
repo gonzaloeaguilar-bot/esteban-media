@@ -89,6 +89,9 @@ export const sitemapRoutes = [
   { path: "/services/reels-editor-fort-lauderdale", priority: 0.88 },
   { path: "/services/reels-editor-miami", priority: 0.88 },
   { path: "/services/real-estate-reels-video-editor-south-florida", priority: 0.88 },
+  // Real estate video hub, 2026-11-17: exact-query target for
+  // "real estate video editor in Fort Lauderdale".
+  { path: "/services/real-estate-video-fort-lauderdale", priority: 0.88 },
   { path: "/services/website-design-fort-lauderdale", priority: 0.85 },
   // Web/landing/chatbot line, 2026-10-14 (vault esteban-web-chatbot-seo-geo-2026-10-14).
   { path: "/services/ai-chatbot-for-small-business", priority: 0.85 },
@@ -123,8 +126,6 @@ export const sitemapRoutes = [
   { path: "/services/corporate-event-videographer-miami", priority: 0.85 },
   { path: "/services/corporate-event-videographer-fort-lauderdale", priority: 0.85 },
   { path: "/services/networking-event-videographer-miami", priority: 0.85 },
-  { path: "/services/event-attendee-interview-videographer-miami", priority: 0.85 },
-  { path: "/services/ai-commercial-video-reels-miami", priority: 0.85 },
   { path: "/services/wedding-videographer-miami", priority: 0.85 },
   { path: "/services/vlog-videographer-miami", priority: 0.85 },
   { path: "/services/conference-videographer-fort-lauderdale", priority: 0.85 },
@@ -257,8 +258,6 @@ export const sitemapRoutes = [
   { path: "/services/mortgage-broker-video-marketing-miami", priority: 0.85 },
   { path: "/services/immigration-attorney-video-marketing-miami", priority: 0.85 },
   { path: "/services/church-sermon-clip-editing-miami", priority: 0.85 },
-  { path: "/services/talking-head-video-editing", priority: 0.85 },
-  { path: "/services/christian-youtube-video-editor", priority: 0.85 },
   { path: "/services/personal-brand-video-editor-founders-miami", priority: 0.85 },
   { path: "/services/podcast-clipping-service-miami", priority: 0.85 },
   { path: "/services/quinceanera-video-miami", priority: 0.85 },

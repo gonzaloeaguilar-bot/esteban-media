@@ -70,6 +70,11 @@ const content: GeoServicePageContent = {
   relatedHeading: "Related real estate and property services.",
   related: [
     {
+      title: "Real Estate Video Editor in Fort Lauderdale",
+      detail: "Listing films, walkthroughs, drone, and Reels for Fort Lauderdale agents.",
+      href: "/services/real-estate-video-fort-lauderdale",
+    },
+    {
       title: "Real Estate Photo Pricing",
       detail: "Published rates for listing photos, video, drone, and package work.",
       href: "/pricing/real-estate",

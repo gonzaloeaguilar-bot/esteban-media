@@ -2,10 +2,18 @@ import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service
 import { priceSentence } from "@/lib/packages";
 import {
   CARE_AND_PRODUCTION_PLANS,
+  FILMING_HOURLY,
+  ON_LOCATION_CAPTURE,
+  PRODUCT_PHOTO_SESSION,
+  REAL_ESTATE_DRONE_PHOTO_ADD_ON,
+  REAL_ESTATE_MEDIA_PRICES,
+  REAL_ESTATE_PLANS,
+  REAL_ESTATE_PLAN_TERMS,
   SHORT_FORM,
   TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
   chatbotPriceText,
+  filmingHourlyText,
   landingPagePriceText,
   usd,
 } from "@/lib/pricing";
@@ -331,6 +339,109 @@ export const YACHT_CHARTER_DEPTH: Depth = {
     },
   ],
 };
+
+export const REAL_ESTATE_VIDEO_FORT_LAUDERDALE_DEPTH: Depth = {
+  craftHeading: "What a Fort Lauderdale listing video has to get right.",
+  craft: [
+    {
+      title: "Water and light, shown the way they look in person",
+      detail:
+        "Fort Lauderdale listings are sold on water and light, and both are easy to oversell in the edit. A canal view graded too blue or a living room brightened past what the windows actually deliver will read as a trick the moment a buyer walks in. The edit keeps exposure and color honest: the water looks like the water at that address, the rooms look like the rooms, and the brightest shot is never brighter than the home. Drone and exterior passes establish the waterfront, the lot, and the neighborhood; interior shots stay at human scale so the buyer can judge the space. When the footage is honest, the showing confirms the video instead of contradicting it.",
+    },
+    {
+      title: "One shoot, every format the listing needs",
+      detail:
+        "A listing rarely needs one video. The brokerage portal wants a calm 16:9 tour, Instagram and TikTok want a vertical Reel that opens on the strongest shot, and the agent's own feed wants a short cutdown with a clear call to action. Planning those formats before the shoot means one session covers them all: the walkthrough is filmed with safe zones for vertical crops, the drone pass is captured for both the tour and the Reel opener, and the agent's pieces to camera are kept short enough to cut three ways. The same shoot also covers the stills the listing needs: photography priced by home size, a Zillow 3D tour, and a premium listing video when the home calls for it. The alternative is three separate edits that each cost a day. One planned shoot, delivered in the formats the listing actually uses, is what a monthly plan is for.",
+    },
+    {
+      title: "An editor in Fort Lauderdale, not a production company",
+      detail:
+        `The companies usually listed for this search are production companies: crews, shoot days, and a quote that starts with the crew. Esteban works the other way. He is a bilingual editor based in Fort Lauderdale who starts from the footage the agent already has, so a listing that is already filmed needs an edit, not a crew. Spanish is his first language and his English is intermediate, so a brief can arrive in either language and the captions come back in both. Editing starts at ${usd(SHORT_FORM.perVideoFrom)} per video, and monthly plans start at ${usd(REAL_ESTATE_PLANS[0].price)} for agents with a steady flow of listings. The work is rated 5.0 on Google across 19 public reviews, and the 7 finished property videos on the hub show what those reviews describe.`,
+    },
+  ],
+  faqHeading: "Questions before a listing shoot or edit.",
+  faqs: [
+    {
+      question: "How much does a real estate video editor in Fort Lauderdale cost?",
+      answer:
+        `Remote editing of supplied footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video. Monthly real estate plans start at ${usd(REAL_ESTATE_PLANS[0].price)} a month for the Essential plan, which covers one property a month up to 3,000 square feet, with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum; plans run to ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} a month for three properties with drone photography included. Listing photography runs ${usd(REAL_ESTATE_MEDIA_PRICES.photoTiers[0])} to ${usd(REAL_ESTATE_MEDIA_PRICES.photoTiers[REAL_ESTATE_MEDIA_PRICES.photoTiers.length - 1])} by home size, drone photography is a ${usd(REAL_ESTATE_DRONE_PHOTO_ADD_ON)} add-on, a Zillow 3D tour starts at ${usd(REAL_ESTATE_MEDIA_PRICES.zillow3dTourFrom)}, and a premium listing video is ${usd(REAL_ESTATE_MEDIA_PRICES.premiumListingVideoPerMinute)} a minute. On-location filming is ${filmingHourlyText("en")} with a ${FILMING_HOURLY.minimumHours}-hour minimum, and a half-day content shoot starts at ${usd(ON_LOCATION_CAPTURE.from)}. Every project gets a written quote before work begins, so the final figure follows the property, the formats, and how fast the footage is needed.`,
+    },
+    {
+      question: "What footage should an agent send for listing video editing?",
+      answer:
+        "Start with the original files: the walkthrough as filmed, any drone passes, exteriors, and the rooms the listing leads with. Add the brief that makes the edit possible: the must-show features, the listing-safe facts, the agent's branding, and the call to action for the end card. If the property has one thing that sells it, say so plainly, so the edit opens on it instead of burying it in the middle. Note anything the brokerage or seller restricts, such as a room under renovation or a feature being removed. Price and availability stay in the caption or landing page unless the agent confirms the exact text for the video, because those change fastest and a video cannot be corrected after it is published. Compressed copies from a phone lose the detail a buyer is inspecting, so send the originals and let the edit do the compressing at export.",
+    },
+    {
+      question: "Can you edit existing walkthrough and drone footage without a shoot day?",
+      answer:
+        `Yes. Agents anywhere can upload existing walkthrough and drone clips through a shared cloud folder, and the edit is done remotely from Fort Lauderdale. Remote editing starts at ${usd(SHORT_FORM.perVideoFrom)} per video and covers the walkthrough cut, vertical Reels, drone trims, and social cutdowns, with captions in English and Spanish. On-location filming in Fort Lauderdale is scoped separately, so an agent who already has usable footage pays for the edit only. Send the original files, the listing notes, the preferred order, and any restrictions, and the finished videos come back ready to post to the listing, the portal, and the agent's feed.`,
+    },
+    {
+      question: "Which areas do you cover for real estate video?",
+      answer:
+        "Fort Lauderdale is the home base, and on-location work covers Broward County, Miami-Dade, and Palm Beach County, scoped project by project from Fort Lauderdale. Remote editing has no geographic limit: agents anywhere can send footage for listing Reels, walkthrough cuts, and drone trims. Out-of-area fees are billed separately, per property, where they apply. If a listing sits outside the usual counties, say so in the brief and the quote will confirm whether the scope fits before any filming is booked.",
+    },
+    {
+      question: "Why hire a real estate video editor in Fort Lauderdale instead of a production company?",
+      answer:
+        `A production company sends a crew and prices the crew. Esteban is a bilingual editor based in Fort Lauderdale who starts from the footage the agent already has, so a listing that is already filmed needs an edit, not a crew. Spanish is his first language and his English is intermediate, so a brief can arrive in either language and the captions come back in both. Editing starts at ${usd(SHORT_FORM.perVideoFrom)} per video, and monthly plans start at ${usd(REAL_ESTATE_PLANS[0].price)} for agents with a steady flow of listings. The work is rated 5.0 on Google across 19 public reviews, and the 7 finished property videos on the hub show what those reviews describe.`,
+    },
+  ],
+  relatedHeading: "Real estate video across South Florida.",
+  related: [
+    {
+      title: "Real Estate Reels Video Editor South Florida",
+      detail: "Listing Reels, walkthrough cuts, and short property video for South Florida agents.",
+      href: "/services/real-estate-reels-video-editor-south-florida",
+    },
+    {
+      title: "Real Estate Photo Pricing",
+      detail: "Published rates for listing photos, video, drone, and monthly plans.",
+      href: "/pricing/real-estate",
+    },
+    {
+      title: "Real Estate Video Coral Gables",
+      detail: "Listing video editing for Coral Gables homes, condos, and agents.",
+      href: "/services/real-estate-video-coral-gables",
+    },
+    {
+      title: "Real Estate Video Aventura",
+      detail: "Listing video editing for Aventura condos and waterfront homes.",
+      href: "/services/real-estate-video-aventura-miami",
+    },
+    {
+      title: "Real Estate Video Sunny Isles",
+      detail: "Listing video editing for Sunny Isles Beach towers and condos.",
+      href: "/services/real-estate-video-sunny-isles",
+    },
+    {
+      title: "Commercial Real Estate Video Miami",
+      detail: "Video for commercial listings, offices, and retail space in Miami.",
+      href: "/services/commercial-real-estate-video-miami",
+    },
+    {
+      title: "Real Estate Drone Video",
+      detail: "Drone video editing for properties, exteriors, and neighborhood views.",
+      href: "/services/real-estate-drone-video-editing-miami",
+    },
+    {
+      title: "Luxury Penthouse Video Tour",
+      detail: "Video tours for penthouses and luxury condos in Miami.",
+      href: "/services/luxury-penthouse-video-tour-miami",
+    },
+    {
+      title: "AI Real Estate Photo Enhancement",
+      detail: "Photo preparation and enhancement guidance for listing visuals.",
+      href: "/services/ai-real-estate-photo-enhancement",
+    },
+    {
+      title: "Real Estate Reel Ideas",
+      detail: "Reel ideas for agents: what to film for each listing.",
+      href: "/guides/instagram-reels-ideas-for-real-estate",
+    },
+  ],
+};
+
 
 export const AI_CHATBOT_LEAD_AUTOMATION_DEPTH: Depth = {
   craftHeading: "What a lead bot has to do before it earns the handoff.",
