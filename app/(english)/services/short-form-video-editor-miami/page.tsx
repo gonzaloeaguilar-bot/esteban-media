@@ -136,6 +136,7 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
+      <FoodCreatorChoice locale="en" sourcePage="miami-short-form" />
       <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
         <Container size="xl">
           <div className="mx-auto max-w-4xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
