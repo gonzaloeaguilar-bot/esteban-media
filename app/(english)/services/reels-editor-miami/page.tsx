@@ -124,7 +124,7 @@ const content: GeoServicePageContent = {
     eyebrow: "Choose your starting point",
     heading: "What do you already have for the next Miami Reel?",
     intro:
-      "Choose the closest situation. The first message gives Esteban the useful detail before anyone assumes a filming day or a larger package.",
+      "Choose the closest option. The first message gives Esteban the useful detail before anyone assumes a filming day or a larger package.",
     decisions: [
       {
         id: "reels_miami_existing_clips",

@@ -177,7 +177,7 @@ const content: GeoServicePageContent = {
   decisionRail: {
     eyebrow: "Choose your starting point",
     heading: "What do you already have for the next Reel?",
-    intro: "Choose the closest situation. The message gives Esteban the useful first detail before anyone assumes a larger shoot.",
+    intro: "Choose the closest option. The message gives Esteban the useful first detail before anyone assumes a larger shoot.",
     decisions: [
       {
         id: "reels_ftl_existing_clips",
