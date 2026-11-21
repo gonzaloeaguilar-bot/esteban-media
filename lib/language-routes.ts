@@ -11,6 +11,7 @@ export const pairedLanguageRoutes: Record<string, string> = {
   ),
   "/": "/es",
   "/services": "/es/servicios",
+  "/real-estate": "/es/bienes-raices",
   "/pricing": "/es/precios",
   "/services/conversion-websites": "/es/sitios-web-de-conversion",
   "/services/ai-lead-capture-automation": "/es/captura-y-automatizacion-de-clientes-con-ia",

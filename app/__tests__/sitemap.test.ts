@@ -70,8 +70,9 @@ describe("portfolio sitemap entries", () => {
     // +6 = FITCE, Boca Raton events, and Pompano Beach events annual pairs (2026-11-19).
     // +4 = talking-head and Christian YouTube bilingual pairs (2026-11-19).
     // +4 = attendee interviews and AI commercial Reels (2026-11-18).
-    expect(entries).toHaveLength(596);
-    expect(new Set(urls)).toHaveLength(596);
+    // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
+    expect(entries).toHaveLength(598);
+    expect(new Set(urls)).toHaveLength(598);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

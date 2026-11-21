@@ -71,6 +71,8 @@ export const sitemapRoutes = [
   { path: "/pricing", priority: 0.95 },
   // Published rates for a service line the packages do not cover.
   { path: "/pricing/real-estate", priority: 0.9 },
+  { path: "/real-estate", priority: 0.9 },
+  { path: "/es/bienes-raices", priority: 0.9 },
   { path: "/calculator", priority: 0.9 },
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/resources/video-project-brief-template", priority: 0.85 },

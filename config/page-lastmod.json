@@ -131,6 +131,10 @@
   "date": "2026-10-14",
   "hash": "ea29080072e2d014"
  },
+ "/es/bienes-raices": {
+  "date": "2026-11-21",
+  "hash": "0e49b7da1d466bd5"
+ },
  "/es/calculadora": {
   "date": "2026-10-11",
   "hash": "3ddfa61f872ce608"
@@ -1678,6 +1682,10 @@
  "/pricing/starter": {
   "date": "2026-10-14",
   "hash": "7a4415da26fbf4f0"
+ },
+ "/real-estate": {
+  "date": "2026-11-21",
+  "hash": "f3d31f3aa3ee0996"
  },
  "/reels-editing-cost-calculator": {
   "date": "2026-10-14",
