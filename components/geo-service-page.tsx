@@ -41,6 +41,15 @@ export type GeoServicePageContent = {
   primaryCta: string;
   secondaryHref: string;
   secondaryLabel: string;
+  /**
+   * Optional source-linked local proof at the first decision point. The page
+   * can surface a public profile without asserting a rating or review count
+   * that may change between site releases.
+   */
+  localProof?: {
+    href: string;
+    label: string;
+  };
   serviceName: string;
   serviceDescription: string;
   serviceType: string;
@@ -189,6 +198,18 @@ export function GeoServicePage({
                   {content.secondaryLabel}
                 </Link>
               </div>
+              {content.localProof ? (
+                <a
+                  href={content.localProof.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={`geo_service_local_proof_${content.path.split("/").pop()}`}
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
+                >
+                  {content.localProof.label}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </a>
+              ) : null}
               <p className="mt-5 text-sm leading-6 text-[#252a2d]" data-section="service-price-line">
                 <span className="font-medium">
                   From {usd(startingVideo)} per video
