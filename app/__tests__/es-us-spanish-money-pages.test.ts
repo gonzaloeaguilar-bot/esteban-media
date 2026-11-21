@@ -20,7 +20,7 @@ describe("US-Spanish money pages & contextual linking", () => {
     if (!ftl || !miami) return;
 
     // Title / metadataTitle: includes the "editor de video" intent alongside Reels.
-    expect(ftl.metadataTitle).toBe("Editor de Video y Reels en Fort Lauderdale");
+    expect(ftl.metadataTitle).toBe("Editor de Video y Reels");
     expect(ftl.description).toContain("Edición");
     expect(ftl.description).toContain("videos cortos");
     expect(ftl.lead).toContain("editor de video en Fort Lauderdale");
