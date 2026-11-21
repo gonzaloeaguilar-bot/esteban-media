@@ -2,6 +2,7 @@ import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
+import { reviewSourceUrl } from "@/lib/client-reviews";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -20,6 +21,10 @@ const content: GeoServicePageContent = {
   primaryCta: "Ask about Reels editing",
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
+  localProof: {
+    href: reviewSourceUrl,
+    label: "Read public Google reviews before you ask",
+  },
   serviceName: "Reels Editor Fort Lauderdale",
   pricingQuestion: "How much does a Reels editor in Fort Lauderdale cost?",
   serviceDescription:
