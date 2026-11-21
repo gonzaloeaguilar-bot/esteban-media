@@ -14,8 +14,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
-// The served path. This page used to canonicalise to /areas/fort-lauderdale,
-// which 404s (SEO/GEO audit 2026-10-10, finding 2).
+
+
 const path = "/fort-lauderdale";
 
 function fromAmount(id: keyof typeof PACKAGE_PRICES): string {
@@ -67,7 +67,7 @@ const questions = [
   {
     question: "How much does video editing cost for Fort Lauderdale businesses?",
     answer:
-      `Remote video editing packages start from ${fromAmount("arranque")} per video (Starter package), ongoing monthly social video plans start from ${fromAmount("crecimiento")}/month (Growth package), and on-location production days start from ${fromAmount("presencia-local")} (Local Presence package).`,
+      `Remote video editing packages start from ${fromAmount("arranque")} per video (Starter package), ongoing monthly social video plans start from ${fromAmount("crecimiento")}/month (Growth package), and the monthly Local Presence plan for on-location production starts from ${fromAmount("presencia-local")}/month.`,
   },
   {
     question: "Can Fort Lauderdale clients work with Esteban remotely?",

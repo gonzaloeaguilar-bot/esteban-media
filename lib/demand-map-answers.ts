@@ -1,22 +1,22 @@
-// Answers for the "ready to build" rows of the demand coverage map
-// (vault: client-esteban-media/wiki/esteban-demand-coverage-map-2026-10-14,
-// gap rows DM-1..DM-40 in esteban-overnight-loop-2026-10-14).
-//
-// Each entry answers a query family that people really type (Google
-// autocomplete hl=en/es, gl=us/co/mx, and Search Console 90 days) and that the
-// map classified WEAK or WRONG PAGE: the words were not in a heading, or the
-// answer sat below the first screen, or Google ranked a hub instead.
-//
-// Claim discipline:
-//   - every figure is read from lib/pricing.ts (or lib/packages.ts, which reads
-//     it); none is typed here;
-//   - the only new owner facts are the 2026-10-14 ones (filming from $80 per
-//     hour, editing per video, vlogs yes, Latin American clients remote);
-//   - no client, result, follower count, drone work or on-camera UGC is claimed;
-//     English is "intermediate".
-//
-// Shape: one question-shaped H2 per section, the answer in the first sentence,
-// 100-180 words, rendered by <OwnerFactAnswers path=... /> (server-rendered).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import type { OwnerFactSection } from "@/lib/owner-fact-answers";
 import { priceSentence } from "@/lib/packages";
@@ -47,24 +47,24 @@ const bandMarket = (id: PricingBandId, l: "en" | "es" = "en") =>
 const enLocal = () => priceSentence("en", "presencia-local").toLowerCase();
 const esLocal = () => priceSentence("es", "presencia-local").toLowerCase();
 
-// ---------------------------------------------------------------------------
-// English service pages
-// ---------------------------------------------------------------------------
 
-// DM-14 (autocomplete x5 "how much does a videographer cost", "videographer
-// price per hour"; 0 EN pages carried the hourly rate in a heading) and the
-// Fort Lauderdale half of DM-16 ("videographer fort lauderdale").
+
+
+
+
+
+
 const VIDEOGRAPHER_COST_FTL: OwnerFactSection = {
   id: "videographer-cost",
   heading: "How much does a videographer cost in Fort Lauderdale?",
   paragraphs: [
-    `A videographer in Fort Lauderdale with Esteban Moreno Media costs ${filmingHourlyText("en")}, which is the minimum for time on location, and editing is priced separately, from ${perVideo} per video on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${enLocal()}. Every shoot gets a written quote before the date is booked, so the hours, the place and the finished files are agreed first.`,
+    `A videographer in Fort Lauderdale with Esteban Moreno Media costs ${filmingHourlyText("en")}, which is the minimum for time on location, and editing is priced separately, from ${perVideo} per video on the Starter package. The monthly Local Presence plan at your business includes planning, filming and editing, ${enLocal()}. Every shoot gets a written quote before the date is booked, so the hours, the place and the finished files are agreed first.`,
     `Two lines on the quote keep the price easy to read: filming time and editing. An hour of filming that becomes three short videos is billed as the filming plus three edits, not as a package with a vague total. If you already have footage, there is no filming line and you pay for editing only. Esteban works from Fort Lauderdale across Broward and Miami-Dade, in Spanish first with intermediate English; for a shoot in Miami-Dade, see the [videographer in Miami](/services/videographer-miami) page.`,
   ],
 };
 
-// DM-34 (autocomplete x6 "how to clip part of a podcast"): the how-to first,
-// then the offer.
+
+
 const PODCAST_HOW_TO_CLIP: OwnerFactSection = {
   id: "how-to-clip-a-podcast",
   heading: "How do you clip part of a podcast?",
@@ -74,19 +74,19 @@ const PODCAST_HOW_TO_CLIP: OwnerFactSection = {
   ],
 };
 
-// DM-35 (autocomplete "restaurant videographer", "restaurant videographer near
-// me"; the best match was a guide, not this service page).
+
+
 const RESTAURANT_VIDEOGRAPHER: OwnerFactSection = {
   id: "restaurant-videographer",
   heading: "Restaurant videographer in Miami: what do filming and editing cost?",
   paragraphs: [
-    `A restaurant promo edited from your own footage starts at ${usd(RESTAURANT_PROMO.from)} per project, and if you want Esteban Moreno Media to film at the restaurant as well, filming is ${filmingHourlyText("en")}. The two are quoted as separate lines, so a venue that already has good clips of the kitchen and the room pays for the edit only, and a venue that has nothing yet adds the filming time. A full production day, with planning, filming and the edit, is the Local Presence package, ${enLocal()}.`,
+    `A restaurant promo edited from your own footage starts at ${usd(RESTAURANT_PROMO.from)} per project, and if you want Esteban Moreno Media to film at the restaurant as well, filming is ${filmingHourlyText("en")}. The two are quoted as separate lines, so a venue that already has good clips of the kitchen and the room pays for the edit only, and a venue that has nothing yet adds the filming time. The monthly Local Presence plan includes planning, filming and editing, ${enLocal()}.`,
     `Restaurant filming works best when the shoot is planned around service: the dishes that sell, the bar at its busiest hour, the staff who agree to be on camera, and a quiet window for the room shots. The published Bar Door Monkey Miami promo, which Esteban filmed and edited for the venue, shows the style. Every project gets a written quote first.`,
   ],
 };
 
-// DM-9 (vlogs: 52 autocomplete queries, 0 pages, "vlog editing rates").
-// Deepens the creator page; the vlog yes/no answer is already there (#434).
+
+
 const VLOG_RATES_EN: OwnerFactSection = {
   id: "vlog-editing-rates",
   heading: "What do vlog editing rates look like?",
@@ -96,9 +96,9 @@ const VLOG_RATES_EN: OwnerFactSection = {
   ],
 };
 
-// DM-27 (autocomplete "freelance video editor rates", "... near me", "... for
-// hire"; the freelance guide answers it first but had 0 impressions and no
-// link from the hiring page with those words).
+
+
+
 const FREELANCE_RATES_EN: OwnerFactSection = {
   id: "freelance-editor-rates",
   heading: "What are freelance video editor rates?",
@@ -108,13 +108,13 @@ const FREELANCE_RATES_EN: OwnerFactSection = {
   ],
 };
 
-// ---------------------------------------------------------------------------
-// Spanish niche pages (rendered by the OwnerFactAnswers slot in
-// components/spanish-niche-page.tsx, right after the price section)
-// ---------------------------------------------------------------------------
 
-// DM-18 (autocomplete x10, the most-suggested query of the matrix:
-// "editor de videos para youtube", "+ freelancer", "contratar ...").
+
+
+
+
+
+
 const YOUTUBE_EDITOR_ES: OwnerFactSection = {
   id: "editor-de-videos-para-youtube",
   heading: "Editor de videos para YouTube: ¿cuánto cuesta y cómo se entrega?",
@@ -124,9 +124,9 @@ const YOUTUBE_EDITOR_ES: OwnerFactSection = {
   ],
 };
 
-// DM-19 (autocomplete gl=mx "cuanto cobra un editor de videos de youtube en
-// mexico"). Remote work and USD only; no payment method was given, so none is
-// named.
+
+
+
 const YOUTUBE_LATAM_ES: OwnerFactSection = {
   id: "youtube-mexico-colombia",
   heading: "¿Cuánto cobra un editor de videos de YouTube si estás en México o Colombia?",
@@ -136,8 +136,8 @@ const YOUTUBE_LATAM_ES: OwnerFactSection = {
   ],
 };
 
-// DM-4 (GSC "editor de videos cortos miami" 4 imp @54.5 on /services, the EN
-// hub): the exact phrase in a heading on the Spanish page that answers it.
+
+
 const SHORT_EDITOR_MIAMI_ES: OwnerFactSection = {
   id: "editor-de-videos-cortos-en-miami",
   heading: "¿Buscas un editor de videos cortos en Miami?",
@@ -147,7 +147,7 @@ const SHORT_EDITOR_MIAMI_ES: OwnerFactSection = {
   ],
 };
 
-// DM-5 (GSC "editor de video fort lauderdale" 4 imp @43 on /areas).
+
 const VIDEO_EDITOR_FTL_ES: OwnerFactSection = {
   id: "editor-de-video-en-fort-lauderdale",
   heading: "¿Buscas un editor de video en Fort Lauderdale?",
@@ -157,7 +157,7 @@ const VIDEO_EDITOR_FTL_ES: OwnerFactSection = {
   ],
 };
 
-// DM-24 (autocomplete x6 "editor de reels freelance", co+mx+us).
+
 const REELS_FREELANCE_ES: OwnerFactSection = {
   id: "reels-freelance-o-agencia",
   heading: "¿Editor de Reels freelance o agencia?",
@@ -167,9 +167,9 @@ const REELS_FREELANCE_ES: OwnerFactSection = {
   ],
 };
 
-// DM-40 (autocomplete "que es contenido ugc", "... en instagram", "como hacer
-// videos ugc"; the Instagram variant was buried). He EDITS UGC; on-camera UGC
-// creation is not confirmed, so it is not offered.
+
+
+
 const WHAT_IS_UGC_ES: OwnerFactSection = {
   id: "que-es-el-contenido-ugc",
   heading: "¿Qué es el contenido UGC en Instagram y cómo se hacen videos UGC?",
@@ -179,7 +179,7 @@ const WHAT_IS_UGC_ES: OwnerFactSection = {
   ],
 };
 
-// DM-7 (GSC "editor de videos ugc miami" 3 imp @52 on /areas).
+
 const UGC_EDITOR_MIAMI_ES: OwnerFactSection = {
   id: "editor-de-videos-ugc-en-miami",
   heading: "¿Buscas un editor de videos UGC en Miami?",
@@ -189,8 +189,8 @@ const UGC_EDITOR_MIAMI_ES: OwnerFactSection = {
   ],
 };
 
-// DM-20 (autocomplete x4 "editor de video para creadores de contenido",
-// "mejor editor de video para creadores de contenido").
+
+
 const CREATOR_EDITOR_ES: OwnerFactSection = {
   id: "editor-de-video-para-creadores-de-contenido",
   heading: "¿Cómo elegir un editor de video para creadores de contenido?",
@@ -200,7 +200,7 @@ const CREATOR_EDITOR_ES: OwnerFactSection = {
   ],
 };
 
-// DM-9 (vlogs, ES side: "editor de vlogs", "editor de video vlogs").
+
 const VLOG_EDITOR_ES: OwnerFactSection = {
   id: "editor-de-vlogs",
   heading: "¿Cuánto cobra un editor de vlogs para YouTube?",
@@ -210,9 +210,9 @@ const VLOG_EDITOR_ES: OwnerFactSection = {
   ],
 };
 
-// ---------------------------------------------------------------------------
-// Registry, merged into ownerFactAnswers(path).
-// ---------------------------------------------------------------------------
+
+
+
 
 export const DEMAND_MAP_ANSWERS: Readonly<Record<string, readonly OwnerFactSection[]>> = {
   "/services/video-production-fort-lauderdale": [VIDEOGRAPHER_COST_FTL],
@@ -228,10 +228,10 @@ export const DEMAND_MAP_ANSWERS: Readonly<Record<string, readonly OwnerFactSecti
   "/es/servicio-de-edicion-de-video-para-youtube-miami": [VLOG_EDITOR_ES],
 };
 
-// ---------------------------------------------------------------------------
-// Pricing hubs (DM-26: autocomplete x5 "what is the going rate for video
-// editing", x3 "how much do editors charge per video"). Visible + FAQPage.
-// ---------------------------------------------------------------------------
+
+
+
+
 
 export function goingRateAnswer(locale: "en" | "es"): { question: string; answer: string } {
   return locale === "es"

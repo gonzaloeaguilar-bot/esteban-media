@@ -1,18 +1,18 @@
-// Topic hubs that AI answers cite as sub-answers (query fan-out), each linking
-// the money pages that answer the commercial question behind it.
-//
-// Why (vault esteban-reels-fort-lauderdale-formula-2026-10-14): the callers
-// who reached Esteban asked an assistant how to START (a food or places
-// account, a creator account) before they asked who edits. Google's AI
-// Overview and Perplexity answer that by fanning out into sub-questions
-// ("what should I film", "how much does editing cost per video vs weekly")
-// and citing the page that answers each one. No page on the site answered
-// those three sub-questions in their own words.
-//
-// Claim discipline: every price and weekly term comes from lib/pricing.ts.
-// No client, result, follower count, posting-frequency statistic or drone
-// work is claimed. The disclosure rule repeats what the creator page already
-// publishes (FTC: a material connection is disclosed where viewers notice it).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import type { GuidePair, GuideSection } from "@/lib/guides";
 import { ARRANQUE_WEEKLY_TERMS as T, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
@@ -35,13 +35,13 @@ export const GUIDE_HUB_IDS = [
   "influencer-start-guide",
 ] as const;
 
-// "What should a business film on a phone for Reels?" deepens the existing
-// iPhone recording guide pair instead of becoming a new URL: the inventory
-// freeze allows four new indexable URLs per demand wave and the two hubs above
-// use them, and AGENTS/task rule: deepen existing pages before creating new
-// ones. Sections 1, 2 and 4 (what to film, which shots, what to send the
-// editor) are appended; section 3 (how to hold the phone) repeats what the
-// iPhone guide already says and is left out.
+
+
+
+
+
+
+
 const phoneFilmingCopy = {
     en: {
       slug: "what-to-film-on-your-phone-for-business-reels",
@@ -318,14 +318,14 @@ export const guideHubPairs: readonly GuidePair[] = [
           heading: "What changes the price of a short-form edit?",
           paragraphs: [
             "Four things move the quote. Length and footage: a 90-second video cut from an hour of raw clips is more work than a 20-second one from five minutes. Versions: a different opening for TikTok and Reels, a bilingual caption set, or a horizontal export are separate pieces of work. Revisions: more rounds than the one included take more time. And graphics: animated text, product callouts or a branded template add editing time.",
-            `Filming is a separate cost. If there is no usable footage, the [Local Presence package](/pricing/local-presence) starts from ${local} per production day. Use the [budget calculator](/calculator) for an estimate, then send a sample of your footage through [contact](/contact). Esteban replies with a written quote before any work begins.`,
+            `Filming is a separate cost. If there is no usable footage, the [Local Presence package](/pricing/local-presence) starts from ${local} per month. Use the [budget calculator](/calculator) for an estimate, then send a sample of your footage through [contact](/contact). Esteban replies with a written quote before any work begins.`,
           ],
         },
       ],
       faqs: [
         { question: "How much does it cost to edit one Reel?", answer: `Esteban's Starter is from ${once} per video, with one revision round, from footage you supply.` },
         { question: "What does the weekly plan cost?", answer: `${shortFormWeeklyText("en")}, paid weekly with a ${T.minimumWeeks}-week minimum, then cancel before any following week.` },
-        { question: "Is filming included?", answer: `No. Editing prices assume you supply the footage. Filming can be scoped through Local Presence, from ${local} per production day.` },
+        { question: "Is filming included?", answer: `No. Editing prices assume you supply the footage. Filming can be scoped through Local Presence, from ${local} per month.` },
         { question: "What do other editors charge?", answer: `Published market rates for a short-form edit run ${market} per video. Compare revisions, length and versions, not only the price.` },
       ],
     },
@@ -367,27 +367,27 @@ export const guideHubPairs: readonly GuidePair[] = [
           heading: "¿Qué cambia el precio de editar un video corto?",
           paragraphs: [
             "Cuatro cosas mueven la cotización. Duración y material: un video de 90 segundos cortado de una hora de clips cuesta más trabajo que uno de 20 segundos hecho con cinco minutos. Versiones: una apertura distinta para TikTok y para Reels, subtítulos en dos idiomas o una exportación horizontal son trabajos aparte. Cambios: más rondas que la incluida requieren más tiempo. Y gráficos: textos animados, señalización de productos o una plantilla de marca suman tiempo de edición.",
-            `La grabación es un costo aparte. Si no hay material útil, el paquete [Presencia Local](/es/precios/presencia-local) cuesta desde ${local} por jornada de producción. Usa la [calculadora de presupuesto](/es/calculadora) para una estimación y manda una muestra del material por [contacto](/es/contacto). Esteban responde con una cotización escrita antes de empezar.`,
+            `La grabación es un costo aparte. Si no hay material útil, el paquete [Presencia Local](/es/precios/presencia-local) cuesta desde ${local} al mes. Usa la [calculadora de presupuesto](/es/calculadora) para una estimación y manda una muestra del material por [contacto](/es/contacto). Esteban responde con una cotización escrita antes de empezar.`,
           ],
         },
       ],
       faqs: [
         { question: "¿Cuánto cuesta editar un reel?", answer: `El Arranque de Esteban cuesta desde ${once} por video, con una ronda de cambios, usando el material que tú envías.` },
         { question: "¿Cuánto cuesta el plan semanal?", answer: `${shortFormWeeklyText("es")}, con pago semanal y un mínimo de ${T.minimumWeeks} semanas; después puedes cancelar antes de la semana siguiente.` },
-        { question: "¿La grabación está incluida?", answer: `No. Los precios de edición suponen que tú pones el material. La grabación se cotiza con Presencia Local, desde ${local} por jornada de producción.` },
+        { question: "¿La grabación está incluida?", answer: `No. Los precios de edición suponen que tú pones el material. La grabación se cotiza con Presencia Local, desde ${local} al mes.` },
         { question: "¿Cuánto cobran otros editores?", answer: `Las tarifas publicadas del mercado para editar un video corto van de ${market} por video. Compara cambios, duración y versiones, no solo el precio.` },
       ],
     },
   },
   {
-    // DM-21 / DM-22 (demand coverage map 2026-10-14): "como empezar a ser
-    // influencer" (+ "en tiktok", "de moda", "en facebook"), autocomplete x3
-    // each co+mx+us, UNANSWERED in Spanish; "how to start as an influencer (on
-    // instagram)", WEAK, best match a service page. Real callers asked ChatGPT
-    // this before asking who edits (vault esteban-what-drives-ai-recommendations-
-    // 2026-10-08). Also carries "how to start a vlog" (DM-9). No follower
-    // count, growth figure or influencer result is claimed; the disclosure rule
-    // is the FTC's own guidance, stated without numbers.
+
+
+
+
+
+
+
+
     id: "influencer-start-guide",
     en: {
       slug: "how-to-start-as-an-influencer",

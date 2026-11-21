@@ -9,28 +9,28 @@ import {
   CREW_RECORDING_RATES,
 } from "@/lib/pricing";
 
-/**
- * Hospitality, nightlife and event cost answers (2026-10-07), EN + ES.
- *
- * Why these pages: free Google autocomplete returns "how much does event
- * videography cost", "how much do event videographers charge", "event recap
- * video price", "nightclub videographer", "nightclub promo video", "bar promo
- * video" and "luxury hotel video production"; the AI Overview for "how much
- * does event videography cost in miami" cites small-studio cost pages. Search
- * Console showed 0 impressions for these pages in 90 days, so the answer has to
- * be on the page before anything can rank or be cited.
- *
- * Claim discipline: every figure is interpolated from lib/pricing.ts. The only
- * proof named is the portfolio exactly as messages/en.json and es.json describe
- * it — Bar Door Monkey is a Miami RESTAURANT's social promo spot, Diana & Jack
- * is a wedding film shot in Boston. No hotel, nightclub or promoter client is
- * claimed, no turnaround is promised, nothing offers to fly a drone.
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const starter = PACKAGE_PRICES.arranque;
 const growth = PACKAGE_PRICES.crecimiento;
 const localPresence = PACKAGE_PRICES["presencia-local"];
-// Owner-set "from" prices; a "custom" package has no figure to print.
+
 const fromOr = (p: typeof starter, fallback: string) => (p.kind === "from" ? usd(p.amount) : fallback);
 
 const weeklyEn = shortFormWeeklyText("en");
@@ -60,7 +60,7 @@ export const NIGHTLIFE_DEEP_DIVE: DeepDive = {
     {
       heading: "What does it cost to have the night filmed, not just edited?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per production day: pre-production, on-location capture, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward, and selected projects in Miami-Dade, so a Miami Beach or Wynwood date is confirmed case by case.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per month: pre-production, on-location capture, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward, and selected projects in Miami-Dade, so a Miami Beach or Wynwood date is confirmed case by case.`,
         `The separate half-day capture add-on has an indicative range of ${onLocation} on the same discounted freelancer basis. Do not add the two together; they are different ways of scoping the same need. Tell Esteban the venue, the hours, whether the room is dark or lit, and which moments matter: the DJ, the crowd, the bar, the bottle service, the arrival. A venue with house rules on filming guests should say so before the date is set.`,
       ],
     },
@@ -96,7 +96,7 @@ export const HOTEL_DEEP_DIVE: DeepDive = {
     {
       heading: "What does a filmed day at a hotel or resort cost?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per production day: pre-production, capture on location, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward and selected projects in Miami-Dade, so a Miami Beach or Brickell property is confirmed case by case. The half-day capture add-on is ${onLocation} on the same discounted basis.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per month: pre-production, capture on location, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward and selected projects in Miami-Dade, so a Miami Beach or Brickell property is confirmed case by case. The half-day capture add-on is ${onLocation} on the same discounted basis.`,
         "A hotel day goes further when the property plans it around light and occupancy. Rooms photograph best when they are made up and empty; the pool and terrace change completely between mid-morning and late afternoon; restaurant service is easiest to film at a quiet hour with a staged table. Send the list of spaces in priority order and the hours each one is available.",
       ],
     },
@@ -131,7 +131,7 @@ export const NIGHTLIFE_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta que graben la noche, no solo que la editen?",
     paragraphs: [
-      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una fecha en Miami Beach o Wynwood se confirma caso por caso.`,
+      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} al mes: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una fecha en Miami Beach o Wynwood se confirma caso por caso.`,
       `La captura de medio día como complemento tiene un rango indicativo de ${onLocation} con la misma base de descuento. No se suman: son dos maneras distintas de definir la misma necesidad. Cuéntale a Esteban el local, el horario, si el espacio es oscuro o iluminado y qué momentos importan: el DJ, el público, la barra, el servicio de botellas, la llegada. Si el local tiene reglas sobre grabar a los clientes, dilo antes de fijar la fecha.`,
     ],
   },
@@ -165,7 +165,7 @@ export const HOTEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un día de grabación en un hotel o resort?",
     paragraphs: [
-      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una propiedad en Miami Beach o Brickell se confirma caso por caso. La captura de medio día como complemento es ${onLocation} con la misma base.`,
+      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} al mes: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una propiedad en Miami Beach o Brickell se confirma caso por caso. La captura de medio día como complemento es ${onLocation} con la misma base.`,
       "Un día en un hotel rinde más cuando la propiedad lo planifica según la luz y la ocupación. Las habitaciones se ven mejor arregladas y vacías; la piscina y la terraza cambian por completo entre media mañana y la tarde; el servicio del restaurante es más fácil de grabar en una hora tranquila con una mesa montada. Envía la lista de espacios por prioridad y el horario en que cada uno está disponible.",
     ],
   },
@@ -199,7 +199,7 @@ export const CORPORATE_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cómo se presupuesta la grabación en el lugar del evento?",
     paragraphs: [
-      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción. La captura de medio día como complemento tiene un rango indicativo de ${onLocation} con la misma base de descuento. Son maneras distintas de definir el trabajo: no se suman ni se debe asumir que alguna cubre el evento completo sin revisar la propuesta. Las productoras con equipo completo trabajan con otro modelo.`,
+      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} al mes. La captura de medio día como complemento tiene un rango indicativo de ${onLocation} con la misma base de descuento. Son maneras distintas de definir el trabajo: no se suman ni se debe asumir que alguna cubre el evento completo sin revisar la propuesta. Las productoras con equipo completo trabajan con otro modelo.`,
       "Envía el lugar, el horario, el acceso y las partes del evento que sí o sí deben grabarse. Explica si la prioridad son los discursos, las reacciones del público, entrevistas o detalles del lugar. Si hay actividades al mismo tiempo, dilo antes de acordar la cobertura. Pide que la cotización separe grabación, requisitos de sonido, edición, versiones finales y cualquier necesidad que se cobre aparte.",
     ],
   },

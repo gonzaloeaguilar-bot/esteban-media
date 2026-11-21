@@ -1,12 +1,12 @@
-// Esteban's packages, in the words of his own 2026-09 services guide.
-//
-// Source: the multi-page "Paquetes" document Esteban sends clients (the
-// "¿Qué necesitas hoy?" chooser, four packages, services a la carta and the
-// three-step quote process). Copy is his, shortened only where the guide
-// repeats itself. Nothing here names a client, a result or a review.
-//
-// Prices are NOT written here. They live in lib/pricing.ts PACKAGE_PRICES so
-// one edit changes every surface.
+
+
+
+
+
+
+
+
+
 
 import {
   PACKAGE_PRICES,
@@ -30,7 +30,7 @@ export type PackageContent = {
   includes: string[];
   idealFor: string;
   image: { src: string; alt: string; focal: string; sceneFocal?: string };
-  /** The need card that routes to this package. */
+
   need: { title: string; line: string };
 };
 
@@ -314,7 +314,7 @@ export function priceFor(id: PackageId): PackagePrice {
   return PACKAGE_PRICES[id];
 }
 
-/** The WhatsApp link with the package already named, so the first message is never blank. */
+
 export function whatsappHref(phoneE164: string, text: string): string {
   return `https://wa.me/${phoneE164.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
 }
@@ -323,27 +323,27 @@ export function packageAnchor(id: PackageId): string {
   return `paquete-${id}`;
 }
 
-// ------------------------------------------------------------ search + AI
-// Everything below is DERIVED from the same content and PACKAGE_PRICES the
-// page renders, so structured data can never disagree with what a visitor sees.
+
+
+
 
 
 export function priceSentence(locale: Locale, id: PackageId): string {
   const p = PACKAGE_PRICES[id];
   const c = COPY[locale].price;
-  // Round 7 (2026-10-14): the custom branch printed "Quote custom", so the
-  // All-In meta description read "The All-In package is quote custom."
+
+
   if (p.kind === "from") return `${c.from} ${usd(p.amount)} ${c.units[p.unit]}`;
   return locale === "es" ? "Cotizado a medida" : "Quoted per project";
 }
 
-/**
- * The cheapest real estate monthly plan, as the chooser prints it ("From
- * $X/mo"). Growth (a social-media plan) and the real estate plans are two
- * different products that both bill monthly; the FAQ names both so no reader
- * or model has to guess which monthly price is which.
- * Both figures come from lib/pricing.ts.
- */
+
+
+
+
+
+
+
 export function cheapestRealEstatePlan() {
   return REAL_ESTATE_PLANS.reduce((lowest, plan) => (plan.price < lowest.price ? plan : lowest));
 }
@@ -353,12 +353,12 @@ function realEstateFromText(locale: Locale): string {
   return locale === "es" ? `desde ${price} al mes` : `from ${price} a month`;
 }
 
-/**
- * Offers for the two prices the home chooser prints that are not packages:
- * the real estate monthly plan and the photography session
- * (the chooser's two non-package prices). Same constants the chooser reads, so the JSON-LD and
- * the visible text cannot drift (see app/__tests__/home-price-parity.test.ts).
- */
+
+
+
+
+
+
 export function chooserOffers(locale: Locale, providerId: string, startPosition: number) {
   const es = locale === "es";
   const plan = cheapestRealEstatePlan();
@@ -393,7 +393,7 @@ export function chooserOffers(locale: Locale, providerId: string, startPosition:
   ];
 }
 
-/** Short, answer-first questions for the page and for FAQPage schema. */
+
 export function packageFaq(locale: Locale): { id: string; question: string; answer: string }[] {
   const pk = packagesFor(locale);
   const by = (id: PackageId) => pk.find((p) => p.id === id)!;
@@ -430,17 +430,17 @@ export function packageFaq(locale: Locale): { id: string; question: string; answ
   ];
 }
 
-/**
- * The questions that belong to ONE package, and a one-sentence answer to the
- * question that page exists to answer.
- *
- * Why this is not just `packageFaq` again: the hub already carries all four
- * questions, so repeating the same FAQPage on nine URLs would be duplicate
- * structured data, and the eight package pages would be telling an answer engine
- * the same thing the hub told it. Each page gets only its own question, which is
- * also the only honest reason for it to have a URL of its own — measured
- * 2026-09-28, their whole informational payload already existed on /pricing.
- */
+
+
+
+
+
+
+
+
+
+
+
 const FAQ_BY_PACKAGE: Record<PackageId, string[]> = {
   arranque: ["cuanto-edicion", "precios-fijos"],
   crecimiento: ["plan-mensual", "precios-fijos"],
@@ -453,12 +453,12 @@ export function packageFaqFor(id: PackageId, locale: Locale) {
   return packageFaq(locale).filter((q) => wanted.includes(q.id));
 }
 
-/**
- * The direct answer. One question-shaped heading and one sentence that answers
- * it without a preamble, because that sentence is the citable unit: an answer
- * engine quotes a sentence, not a page. It restates nothing from the
- * includes-list — repeating the list here would add words and no information.
- */
+
+
+
+
+
+
 export function packageDirectAnswer(id: PackageId, locale: Locale) {
   const es = locale === "es";
   const pk = packagesFor(locale).find((p) => p.id === id)!;
@@ -482,8 +482,8 @@ export function packageDirectAnswer(id: PackageId, locale: Locale) {
     },
     "presencia-local": {
       question: es
-        ? "¿Cuánto cuesta un día de producción de video en Miami o Fort Lauderdale?"
-        : "What does a video production day cost in Miami or Fort Lauderdale?",
+        ? "¿Cuánto cuesta el plan mensual de producción de video en Miami o Fort Lauderdale?"
+        : "What does a monthly video production plan cost in Miami or Fort Lauderdale?",
       answer: es
         ? `${pk.name} es ${price} e incluye la preproducción, la captura en tu negocio y la edición posterior, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade.`
         : `${pk.name} is ${price} and covers pre-production, filming at your business and the editing afterwards, across Fort Lauderdale, Broward and selected Miami-Dade projects.`,
@@ -500,7 +500,7 @@ export function packageDirectAnswer(id: PackageId, locale: Locale) {
   return map[id];
 }
 
-/** Service + Offer + the page's OWN question, for one package page. */
+
 export function packageDetailJsonLd(
   id: PackageId,
   locale: Locale,
@@ -522,8 +522,8 @@ export function packageDetailJsonLd(
     inLanguage: locale === "es" ? "es-US" : "en-US",
   };
   if (price.kind === "from") {
-    // `lowPrice` and no `highPrice`: the figure is a floor, and every project
-    // gets a scoped quote. Publishing it as `price` would assert a fixed cost.
+
+
     service.offers = {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
@@ -544,7 +544,7 @@ export function packageDetailJsonLd(
   return [service, faq] as const;
 }
 
-/** OfferCatalog + FAQPage, from the rendered content. */
+
 export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: string) {
   const es = locale === "es";
   const packageList = packagesFor(locale);

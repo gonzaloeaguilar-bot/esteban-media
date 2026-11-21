@@ -1,27 +1,27 @@
-// Two explainers that AI answers cite as sub-answers before a buyer picks an
-// editor (2026-10-14, video-schema-tools brief):
-//   - "Local editor vs Fiverr vs an agency in Miami: which fits?"
-//   - "How many Reels should a restaurant post per week?"
-//
-// Claim discipline. Every market statement names its source in the sentence
-// and was read live on 2026-10-14:
-//   - Fiverr Help Center, "Paying for orders, extras, or custom offers":
-//     "The standard service fee is 5.5% of your purchase amount, and we add a
-//     $3.50 fee to orders under $200."
-//   - Fiverr Help Center, "How Fiverr works": payment is released when the
-//     buyer accepts the delivery; with no action the order completes
-//     automatically 72 hours after delivery.
-//   - Clutch, "Video Production Pricing Guide" (updated 2026-09-21): "Most
-//     agencies charge between $100–$149 per hour" and "Video production
-//     projects on Clutch typically cost less than $10,000."
-//   - Buffer, "How Often Should You Post on Instagram" (Kirsti Lang,
-//     2025-08-13): 2.1 million feed posts (photos, Reels, carousels; Stories
-//     excluded) from 102K accounts; monthly follower growth +0.12% at 1-2
-//     posts a week, +0.26% at 3-5, +0.44% at 6-9, +0.66% at 10+; about 12%
-//     more reach per post moving from 1-2 to 3-5.
-// Esteban's own prices come from lib/pricing.ts. No client, result or
-// restaurant-specific statistic is claimed: Buffer's data covers all account
-// types, and the page says so.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import type { GuidePair } from "@/lib/guides";
 import {
@@ -94,14 +94,14 @@ export const guideComparisonPairs: readonly GuidePair[] = [
           heading: "When is a local editor the better choice?",
           paragraphs: [
             `When you film your own content and want one person who knows your business to edit it every week. Esteban Moreno Media edits Reels, TikToks and Shorts from ${once} per video, or ${usd(oneWeekly.pricePerWeek)} a week for ${oneWeekly.videosPerWeek} video and ${usd(twoWeekly.pricePerWeek)} a week for ${twoWeekly.videosPerWeek}, with a ${T.minimumWeeks}-week minimum and the price shown before you pay. Weekly videos are delivered ${T.deliveryHoursMin}–${T.deliveryHoursMax} hours after the footage arrives.`,
-            `Esteban works from South Florida, so if you need filming he can come to you: the [Local Presence package](/pricing/local-presence) starts from ${local} per production day. His working language is Spanish, with intermediate English, which helps Spanish-speaking owners and bilingual audiences. See [Reels editing in Miami](/services/reels-editor-miami), work out a monthly total with the [Reels cost calculator](/reels-editing-cost-calculator), or compare with a [freelancer vs a post-production agency](/guides/freelance-video-editor-vs-post-agency).`,
+            `Esteban works from South Florida, so if you need filming he can come to you: the [Local Presence package](/pricing/local-presence) starts from ${local} per month. His working language is Spanish, with intermediate English, which helps Spanish-speaking owners and bilingual audiences. See [Reels editing in Miami](/services/reels-editor-miami), work out a monthly total with the [Reels cost calculator](/reels-editing-cost-calculator), or compare with a [freelancer vs a post-production agency](/guides/freelance-video-editor-vs-post-agency).`,
           ],
         },
       ],
       faqs: [
         { question: "Is Fiverr cheaper than a local editor?", answer: `The gig price can be lower, but Fiverr adds a 5.5% service fee, plus $3.50 on orders under $200. Esteban's single Reel edit is from ${once}, with no platform fee.` },
         { question: "How much do Miami agencies charge?", answer: "Clutch's pricing guide says most video production agencies charge $100 to $149 an hour, and projects on Clutch typically cost under $10,000. Ask for a written scope." },
-        { question: "Can a local editor film too?", answer: `Yes. Esteban films on location through the Local Presence package, from ${local} per production day, and edits footage you shoot yourself from ${once} per video.` },
+        { question: "Can a local editor film too?", answer: `Yes. Esteban films on location through the Local Presence package, from ${local} per month, and edits footage you shoot yourself from ${once} per video.` },
         { question: "Can I work with the editor in Spanish?", answer: "Yes. Esteban's main working language is Spanish, with intermediate English, so notes, voice messages and changes can be in Spanish." },
       ],
     },
@@ -143,14 +143,14 @@ export const guideComparisonPairs: readonly GuidePair[] = [
           heading: "¿Cuándo es mejor un editor local?",
           paragraphs: [
             `Cuando grabas tu propio contenido y quieres que una persona que conoce tu negocio lo edite cada semana. Esteban Moreno Media edita Reels, TikToks y Shorts desde ${once} por video, o ${usd(oneWeekly.pricePerWeek)} por semana por ${oneWeekly.videosPerWeek} video y ${usd(twoWeekly.pricePerWeek)} por semana por ${twoWeekly.videosPerWeek}, con un mínimo de ${T.minimumWeeks} semanas y el precio a la vista antes de pagar. Los videos semanales se entregan ${T.deliveryHoursMin}–${T.deliveryHoursMax} horas después de recibir el material.`,
-            `Esteban trabaja desde el sur de Florida, así que si necesitas grabación puede ir a donde estás: el [paquete Presencia Local](/es/precios/presencia-local) cuesta desde ${local} por jornada de producción. Su idioma principal de trabajo es el español, con inglés intermedio. Mira la [edición de reels en Miami](/es/editor-de-reels-miami), calcula un total mensual con la [calculadora de costo de reels](/es/calculadora-de-costo-de-edicion-de-reels) o compara [editor freelance y agencia de posproducción](/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion).`,
+            `Esteban trabaja desde el sur de Florida, así que si necesitas grabación puede ir a donde estás: el [paquete Presencia Local](/es/precios/presencia-local) cuesta desde ${local} al mes. Su idioma principal de trabajo es el español, con inglés intermedio. Mira la [edición de reels en Miami](/es/editor-de-reels-miami), calcula un total mensual con la [calculadora de costo de reels](/es/calculadora-de-costo-de-edicion-de-reels) o compara [editor freelance y agencia de posproducción](/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion).`,
           ],
         },
       ],
       faqs: [
         { question: "¿Fiverr es más barato que un editor local?", answer: `El precio del gig puede ser menor, pero Fiverr suma una comisión del 5.5%, más $3.50 en pedidos de menos de $200. Editar un reel con Esteban cuesta desde ${once}, sin comisión de plataforma.` },
         { question: "¿Cuánto cobran las agencias en Miami?", answer: "La guía de precios de Clutch dice que la mayoría de las agencias de video cobra entre $100 y $149 por hora y que los proyectos en Clutch suelen costar menos de $10,000. Pide un alcance por escrito." },
-        { question: "¿Un editor local también puede grabar?", answer: `Sí. Esteban graba en el lugar con el paquete Presencia Local, desde ${local} por jornada de producción, y edita el material que grabas tú desde ${once} por video.` },
+        { question: "¿Un editor local también puede grabar?", answer: `Sí. Esteban graba en el lugar con el paquete Presencia Local, desde ${local} al mes, y edita el material que grabas tú desde ${once} por video.` },
         { question: "¿Puedo trabajar con el editor en español?", answer: "Sí. El idioma principal de trabajo de Esteban es el español, así que puedes mandar notas, audios y cambios en español." },
       ],
     },

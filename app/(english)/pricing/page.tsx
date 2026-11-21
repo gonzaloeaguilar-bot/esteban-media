@@ -26,8 +26,8 @@ export const metadata = buildPageMetadata({
 export default function PricingPage() {
   const url = absoluteUrl(PATH);
   const [catalog, packageFaqLd] = packagesJsonLd("en", url, entityIds.business);
-  // The hub's own per-hour (and, in Spanish, Latin America) answers render in
-  // PricingAnswer; the same strings join the one FAQPage here.
+
+
   const faq = {
     ...packageFaqLd,
     mainEntity: [
@@ -93,8 +93,8 @@ export default function PricingPage() {
             What it costs to work together
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Editing one video starts {priceSentence("en", "arranque").toLowerCase()}, and a production day at
-            your business {priceSentence("en", "presencia-local").toLowerCase()}. Filming by the hour is {filmingHourlyText("en")}. Every package below shows a starting price so you know the ballpark
+            Editing one video starts {priceSentence("en", "arranque").toLowerCase()}, and the monthly Local Presence plan for production at
+            your business starts {priceSentence("en", "presencia-local").toLowerCase()}. Filming by the hour is {filmingHourlyText("en")}. Every package below shows a starting price so you know the ballpark
             before you write to me. The final number depends on how much video
             you need, whether I film on location, and how fast you need it — so
             you always get a written quote for your own project.

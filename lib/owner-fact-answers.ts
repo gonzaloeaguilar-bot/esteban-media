@@ -1,17 +1,17 @@
-// Answers built from the owner facts relayed from Esteban on
-// 2026-10-14 (vault: client-esteban-media/wiki/esteban-owner-facts-2026-10-14).
-// Those facts are the ONLY new claims here:
-//   - he films and edits vlogs;
-//   - he wants Latin American clients, working remotely;
-//   - editing is priced per video (from SHORT_FORM.perVideoFrom), not per hour;
-//   - web, landing pages and chatbots are a service line to market, described
-//     only with facts the portfolio pages already publish.
-// Not given, so never written: an hourly editing rate, travel, overtime, a
-// payment method, turnaround. Every figure is read from lib/pricing.ts.
-//
-// Shape: one question-shaped H2 per section, answer in the first sentence,
-// optional depth behind a native <details> (server-rendered, so crawlers that
-// run no JavaScript still read it).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import { priceSentence } from "@/lib/packages";
 import { CHATBOT_PRICE, COMMERCIAL_VIDEO_TIERS, CREW_RECORDING_RATES, LANDING_PAGE_PRICE, SHORT_FORM, TURNKEY_PRODUCTION_BUNDLES, YACHT_PRODUCTION, filmingHourlyText, landingPagePriceText, usd } from "@/lib/pricing";
@@ -28,17 +28,17 @@ const perVideo = usd(SHORT_FORM.perVideoFrom);
 const enLocal = () => priceSentence("en", "presencia-local").toLowerCase();
 const esLocal = () => priceSentence("es", "presencia-local").toLowerCase();
 
-// ---------------------------------------------------------------------------
-// Vlogs (row 35: "doral vlog videography" 11 impressions at 47.5 on the Doral
-// production page, GSC 2026-07-16..10-13).
-// ---------------------------------------------------------------------------
+
+
+
+
 
 const VLOG_EN_DORAL: OwnerFactSection = {
   id: "vlogs",
   heading: "Do you film and edit vlogs in Doral and Miami?",
   paragraphs: [
     `Yes. Esteban Moreno films and edits vlogs. If you already record your own vlog on a phone or a camera, send the original files and he edits them remotely: he cuts the dead time, keeps your voice and the story in order, and adds captions, music and a title for YouTube, Instagram or TikTok. Editing is priced per video, from ${perVideo} on the Starter package, so you know the price before the edit starts; a long vlog is quoted by its length and what it needs.`,
-    `If you want him behind the camera, filming in Doral or anywhere else in Miami-Dade is on-location work scoped per project: filming is ${filmingHourlyText("en")}, a full production day is the Local Presence package, ${enLocal()}, and the written quote sets the location, the hours and what you get back before the date. You can brief him in Spanish or English.`,
+    `If you want him behind the camera, filming in Doral or anywhere else in Miami-Dade is on-location work scoped per project: filming is ${filmingHourlyText("en")}, the monthly production plan is Local Presence, ${enLocal()}, and the written quote sets the location, the hours and what you get back before the date. You can brief him in Spanish or English.`,
   ],
 };
 
@@ -47,7 +47,7 @@ const VLOG_EN_CREATOR: OwnerFactSection = {
   heading: "Do you film and edit vlogs?",
   paragraphs: [
     `Yes. Esteban Moreno films and edits vlogs as well as short vertical posts. Most creators record the vlog themselves and send the original files; he edits remotely, cutting the pauses and restarts, keeping the story in the order you lived it, and adding captions, music and a title. The same footage can also give you short clips for Reels, TikTok and Shorts, so one vlog feeds the rest of the week.`,
-    `Editing is priced per video, from ${perVideo} on the Starter package, so the price is fixed before the edit starts; a long vlog is quoted by its length and what it needs. If you would rather have him film, on-location work in Miami-Dade or Broward is scoped per project: filming is ${filmingHourlyText("en")}, and a full production day is the Local Presence package, ${enLocal()}.`,
+    `Editing is priced per video, from ${perVideo} on the Starter package, so the price is fixed before the edit starts; a long vlog is quoted by its length and what it needs. If you would rather have him film, on-location work in Miami-Dade or Broward is scoped per project: filming is ${filmingHourlyText("en")}, and the monthly production plan is Local Presence, ${enLocal()}.`,
   ],
 };
 
@@ -69,11 +69,11 @@ const VLOG_ES_CREATOR: OwnerFactSection = {
   ],
 };
 
-// ---------------------------------------------------------------------------
-// Latin American clients (rows 10 and 16: Spanish product-photo and editing
-// queries from outside the US, e.g. autocomplete "cuanto cobra un editor de
-// video por hora en colombia / argentina").
-// ---------------------------------------------------------------------------
+
+
+
+
+
 
 const LATAM_HEADING = "¿Trabajas con clientes en Latinoamérica?";
 
@@ -108,11 +108,11 @@ const LATAM_ES_AI_PHOTO: OwnerFactSection = {
   ],
 };
 
-// ---------------------------------------------------------------------------
-// Web, landing pages and chatbots (row 75 decision: keep in the portfolio and
-// market as a service line). Facts only from the five portfolio pages
-// (messages/*.json Portfolio.items) and lib/growth-systems.ts descriptions.
-// ---------------------------------------------------------------------------
+
+
+
+
+
 
 const WEB_EN: readonly OwnerFactSection[] = [
   {
@@ -186,10 +186,10 @@ const WEB_ES: readonly OwnerFactSection[] = [
   },
 ];
 
-// ---------------------------------------------------------------------------
-// The published wedding film's watch page answers the wedding question too
-// (row 95: watch pages had no answer beyond a ~40-word summary).
-// ---------------------------------------------------------------------------
+
+
+
+
 
 const WEDDING_WATCH_EN: OwnerFactSection = {
   id: "weddings",
@@ -209,9 +209,9 @@ const WEDDING_WATCH_ES: OwnerFactSection = {
   ],
 };
 
-// ---------------------------------------------------------------------------
-// Registry: path -> sections, rendered by <OwnerFactAnswers path=... />.
-// ---------------------------------------------------------------------------
+
+
+
 
 export const OWNER_FACT_ANSWERS: Readonly<Record<string, readonly OwnerFactSection[]>> = {
   "/services/video-production-doral-miami": [VLOG_EN_DORAL],
@@ -228,16 +228,16 @@ export const OWNER_FACT_ANSWERS: Readonly<Record<string, readonly OwnerFactSecti
 };
 
 export function ownerFactAnswers(path: string): readonly OwnerFactSection[] {
-  // Demand-map answers (DM rows, 2026-10-14) share the same slot and shape.
+
   return [...(OWNER_FACT_ANSWERS[path] ?? []), ...(DEMAND_MAP_ANSWERS[path] ?? [])];
 }
 
-// ---------------------------------------------------------------------------
-// Per video, not per hour (autocomplete 2026-10-14: "video editor per hour
-// rate", "what does a video editor charge per hour", "cuanto cobra un editor de
-// video por hora", "... en colombia", "... en dolares"). Used by the pricing
-// hubs (visible + FAQPage JSON-LD) and mirrored in the freelance guide.
-// ---------------------------------------------------------------------------
+
+
+
+
+
+
 
 export function perHourAnswer(locale: "en" | "es"): { question: string; answer: string } {
   return locale === "es"
