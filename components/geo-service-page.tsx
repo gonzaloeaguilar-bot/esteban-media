@@ -41,6 +41,8 @@ export type GeoServicePageContent = {
   proofHref: string;
   proofLabel: string;
   primaryCta: string;
+  /** An allowlisted contact-form source, kept out of public claims and URLs beyond the owned contact path. */
+  contactSource?: string;
   secondaryHref: string;
   secondaryLabel: string;
   /**
@@ -190,7 +192,7 @@ export function GeoServicePage({
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href={content.contactSource ? `/contact?source=${encodeURIComponent(content.contactSource)}` : "/contact"}
                   data-cta={`geo_service_contact_${content.path.split("/").pop()}`}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >

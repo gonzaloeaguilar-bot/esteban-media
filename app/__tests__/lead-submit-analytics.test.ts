@@ -77,6 +77,16 @@ describe("confirmed lead instrumentation", () => {
     }
   });
 
+  it("sends an event delivery preference only as a coarse, non-PII submit parameter", () => {
+    const gtag = vi.fn();
+    (globalThis as { window?: unknown }).window = { gtag };
+    trackLeadSubmit("event-attendee-interview", "en", "gemini", "both");
+    expect(gtag).toHaveBeenNthCalledWith(1, "event", "lead_submit", expect.objectContaining({
+      lead_source: "event-attendee-interview", event_delivery_preference: "both",
+    }));
+    expect(gtag.mock.calls[0][2]).not.toHaveProperty("notes");
+  });
+
   it("the homepage form asks how the visitor found Esteban, optionally, in both locales", () => {
     const contact = source("components/contact-cta.tsx");
     // ContactCta now takes a locale prop (2026-10-13: it renders on both "/"
@@ -171,7 +181,7 @@ describe("confirmed lead instrumentation", () => {
     const brief = source("components/video-brief-builder.tsx");
     expect(brief).toContain("<FoundViaField");
     expect(brief).toContain("...foundViaPayload(foundVia, foundQuery)");
-    expect(brief).toContain('trackLeadSubmit(source, locale, foundVia || "not_answered")');
+    expect(brief).toContain('trackLeadSubmit(source, locale, foundVia || "not_answered", eventDeliveryPreference || undefined)');
 
     const website = source("components/website-project-intake.tsx");
     expect(website).toContain("<FoundViaField");

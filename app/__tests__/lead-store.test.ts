@@ -94,6 +94,9 @@ describe("buildLeadRow", () => {
     expect(buildLeadRow({ ...payload, foundVia: "not-a-source" as never }, { ...meta, outcomeSchemaV1: true })).toMatchObject({
       found_via: null,
     });
+    expect(buildLeadRow({ ...payload, eventDeliveryPreference: "both" }, { ...meta, outcomeSchemaV1: true })).toMatchObject({
+      event_delivery_preference: "both",
+    });
   });
 });
 
