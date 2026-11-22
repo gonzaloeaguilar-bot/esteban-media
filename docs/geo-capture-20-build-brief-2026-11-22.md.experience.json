@@ -1,0 +1,41 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Implement the attached Esteban GEO Capture 20 build brief completely in this isolated worktree. Preserve existing work, use only source-backed facts, create no generic location routes, and leave permission/external-outreach actions as explicit private preparation. Add focused tests. Run page-date updates where content changes. Do not publish, submit a real form, email anyone, or modify external profiles.",
+  "phase": "build",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "This is a factual and measurement repair to existing answer-first routes and contact controls. It preserves Esteban's established visual system and uses small, accessible choice controls rather than introducing a new composition or generic landing-page pattern.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "b50987cb1d8d7aa5d8aef00525c4160ce8f58afcd54b95e821c98dd5dc4b8e9c",
+    "taste_sha256": "a6decc0becbf934c722c5da9118c4dd99529e13f88b339b106b8e756782a3f26",
+    "correction_excerpt": "Fuente: «No emojis los odio es una regla solo se usan cuando explícitamente los pido». También rechazó los emojis del navegador superior antes de esta corrección.",
+    "comparison": "The supplied phone capture is the current Fort Lauderdale Reels route. The implementation must keep its established editorial surface while making the source-backed buyer decision and exact contact action legible without overlay clutter, a second visual world, or optional text that disappears from server HTML.",
+    "references": [],
+    "candidate_frames": [
+      {
+        "path": "visual-evidence/ftl-reels-current-phone.png",
+        "moment": "opening",
+        "viewport": "phone",
+        "sha256": "d7d15b4d898c2298dce8492f8aac0134d1a43ccfc9e8fafd57bfa67fed9ae434"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A South Florida or remote buyer who needs Reels editing, short-form video, event delivery choices, or a clear next step after an AI/search recommendation.",
+    "promise": "Existing service and guide routes answer the decision immediately, preserve evidence limits, and make the next contact step measurable without claiming that a citation caused a lead.",
+    "primary_action": "Choose a factual discovery source and project-delivery preference where relevant, then start the existing contact brief.",
+    "friction": "Current citations and query visibility do not identify which engine or buyer question produced an inquiry; high positions with zero clicks also suggest unclear packaging rather than a need for more URLs.",
+    "kpi": {"outcome": "qualified inquiries with a persisted discovery source", "event": "source-tagged contact submission", "denominator": "completed eligible contact submissions", "baseline": "UNKNOWN: geo snapshot records lead outcomes as unmeasured on 2026-11-22", "evidence": "pnpm geo:snapshot:status plus latest successful citation receipt", "readout": "compare source-tagged qualified inquiries at T+7, T+28, and T+56", "decision_rule": "retain only elements that preserve factual accuracy and produce attributable qualified-inquiry evidence without degrading completion"},
+    "concept": {"idea": "A compact decision path that turns an anonymous AI recommendation into a stated source and a useful project choice.", "brand_reason": "Esteban's existing site is editorial, Spanish-first, and human; the repair adds clarity, not another generic location-sales layer.", "interaction": "A familiar small choice control records discovery source and, for event work, delivery preference before the existing brief path.", "visible_response": "The selected option remains visibly selected and the visitor sees the exact information that will accompany the brief.", "direct_path": "A ready buyer can use the existing contact route without reading optional detail.", "alternatives": "Do not add a chatbot, a large new hero, a generic city page, or a hidden JavaScript-only explanation."},
+    "story": {"opening": "State who the existing route helps and what the person can do next.", "action": "Choose the relevant source or delivery preference only when it makes the brief clearer.", "consequence": "The selection is shown as part of the project brief and is persisted for an outcome read.", "next_step": "Continue to the current contact/quote path."},
+    "content": {"visible": "Short answer-first service facts, a specific action, and simple labels for source and event delivery choices.", "optional_html": "Native server-rendered details or FAQs hold only factual scope and preparation depth.", "linked_depth": "Existing service, event, price, caption, and contact routes provide deeper reading; no new generic location URL is created."},
+    "references": {"borrow": "Existing Esteban service-page shared Rail/common conventions and current phone hierarchy.", "avoid": "New decorative interface chrome, emoji, generic city-page repetition, and any UI that hides citable text behind client-only state."},
+    "components": {"reuse": "Existing contact, analytics, service-depth, FAQ/details, and shared Rail/common components after manifest inspection.", "local_reason": "Only a small factual source/delivery chooser may be local if no existing shared primitive fits its persisted contact semantics."},
+    "verification": {"rendered_states": "Inspect 375x667, 390x844, and desktop on affected service, guide, event, and contact states; selected and unselected controls remain readable and do not block the primary action.", "motion": "No new motion is required; any existing motion must not gate text or interaction and reduced motion remains usable.", "accessibility_performance": "Keyboard controls, labels, touch target spacing, contrast, and no client-only answer text; run project lint/typecheck/build and relevant tests.", "raw_html": "Curl built or deployed HTML to confirm answer-first facts and native details are served from the first response.", "conversion_boundary": "Use an authorized non-delivery test route or fixture to verify persistence and analytics payload shape; never submit a real customer form."},
+    "reviewers": {"craft": "Antigravity reviews rendered affected states after deterministic gates.", "behavior": "cto-qa-lead verifies payload persistence, analytics contract, raw HTML, and accessibility states.", "outcome": "cto-growth-lead reads source-tagged qualified-inquiry evidence at T+7, T+28, and T+56."},
+    "learning": {"metric": "qualified inquiry submissions with a persisted discovery source", "baseline_source": "2026-11-22 pnpm geo:snapshot:status", "baseline_value": "UNKNOWN: source-tagged qualified inquiries are not currently measured", "target_kind": "funnel_step", "target": "contact-source-tagged-qualified-inquiry", "hypothesis": "Making discovery source and delivery choice explicit on the existing contact journey will create attributable inquiry evidence while clearer answer-first routes preserve the existing citation wedge.", "observation_windows": ["T+7", "T+28", "T+56"], "decision_rule": "Keep a change only if it retains factual accuracy and creates or improves comparable source-tagged qualified-inquiry evidence without a completion-quality regression.", "ledger_status": "planned", "registration_condition": "Register the exact event and source field before release, then record the first comparable post-release read."}
+  }
+}

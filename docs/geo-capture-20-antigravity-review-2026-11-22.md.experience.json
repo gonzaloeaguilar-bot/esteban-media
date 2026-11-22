@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Independently review the attached Esteban GEO Capture 20 build brief and current worktree. Identify blocking factual, citation-measurement, accessibility, or server-rendering risks. Do not edit files, publish, submit forms, or contact external parties. Return a short actionable review and verdict.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The review is restricted to existing page and contact-control repairs. It must assess whether added choice controls preserve the current editorial hierarchy rather than approving a new composition.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "106f19dc256587c2831436ca9befda4fb82ddcefa38b3a13cbd6f86c75b2d45e",
+    "taste_sha256": "a6decc0becbf934c722c5da9118c4dd99529e13f88b339b106b8e756782a3f26",
+    "correction_excerpt": "Fuente: «No emojis los odio es una regla solo se usan cuando explícitamente los pido». También rechazó los emojis del navegador superior antes de esta corrección.",
+    "comparison": "The current phone reference is a baseline only. The reviewer must not approve unbuilt code from it; the eventual candidate must preserve short mobile reading, a visible direct action, and server-served facts without clutter.",
+    "references": [],
+    "candidate_frames": [{"path": "visual-evidence/ftl-reels-current-phone.png", "moment": "opening", "viewport": "phone", "sha256": "d7d15b4d898c2298dce8492f8aac0134d1a43ccfc9e8fafd57bfa67fed9ae434"}]
+  },
+  "brief": {
+    "visitor": "A buyer comparing existing Esteban editing or event options after AI/search discovery.",
+    "promise": "The review protects factual, accessible, existing-route improvements from unsupported citation or outcome claims.",
+    "primary_action": "Review the evidence-bounded change set and report blocking defects before release.",
+    "friction": "Citation observations can be misrepresented as customer outcomes, while optional UI controls can accidentally obscure the direct contact path.",
+    "kpi": {"outcome": "qualified inquiries with a persisted discovery source", "event": "source-tagged contact submission", "denominator": "completed eligible contact submissions", "baseline": "UNKNOWN: outcome measurement has not yet been collected", "evidence": "2026-11-22 GEO snapshot and citation receipt", "readout": "T+7, T+28, and T+56 separated by discovery source", "decision_rule": "reject any change that fabricates proof, leaks lead content, or blocks a source-tagged direct inquiry"},
+    "concept": {"idea": "A narrow evidence and interaction audit of small route/contact repairs.", "brand_reason": "Esteban's existing visual system stays intact; no new generic landing-page language or interface is needed.", "interaction": "Review selected/unselected source and delivery choices against the direct contact path.", "visible_response": "The review identifies whether choices are readable and whether the route still has an obvious next action.", "direct_path": "The existing contact action must remain available without choosing optional depth.", "alternatives": "Reject a new city route, chatbot, page-volume batch, or citation promise."},
+    "story": {"opening": "Read the evidence boundary first.", "action": "Inspect claim, measurement, raw-HTML, and accessibility risks.", "consequence": "Report concrete blockers or approval limits.", "next_step": "Return findings to the build/QA path."},
+    "content": {"visible": "Factual source and delivery choices with an immediate existing contact action.", "optional_html": "Native details only for verified operational depth.", "linked_depth": "Existing Esteban routes retain deeper service and preparation information."},
+    "references": {"borrow": "Existing Esteban phone hierarchy and shared component interaction conventions.", "avoid": "Emoji, unsupported proof, client-only answer text, and decorative clutter."},
+    "components": {"reuse": "Existing contact, analytics, and shared Rail/common primitives.", "local_reason": "A local chooser is acceptable only when it persists the required contact semantics and has no equivalent shared primitive."},
+    "verification": {"rendered_states": "Assess phone, short-phone, and desktop selected/unselected states when a candidate exists.", "motion": "No new motion is needed and it must not gate words or action.", "accessibility_performance": "Check labels, keyboard behavior, touch spacing, and direct-path visibility.", "raw_html": "Confirm facts and optional details are present in initial server HTML.", "conversion_boundary": "Confirm a fixture or authorized test path, never a customer submission, proves payload shape."},
+    "reviewers": {"craft": "Antigravity reviews rendered affected states.", "behavior": "cto-qa-lead verifies persistence, analytics, and raw HTML.", "outcome": "cto-growth-lead reads attributable inquiry evidence after release."},
+    "learning": {"metric": "qualified inquiry submissions with a persisted discovery source", "baseline_source": "2026-11-22 pnpm geo:snapshot:status", "baseline_value": "UNKNOWN: source-tagged qualified inquiries are unmeasured", "target_kind": "funnel_step", "target": "contact-source-tagged-qualified-inquiry", "hypothesis": "A factual choice repair makes future inquiry sources measurable without adding page volume.", "observation_windows": ["T+7", "T+28", "T+56"], "decision_rule": "retain only source-backed changes with no completion-quality regression", "ledger_status": "planned", "registration_condition": "record the exact events and first comparable post-release read before judging outcome"}
+  }
+}
