@@ -1,3 +1,11 @@
+## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
+
+- Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-22 (work id: `priority-growth:2026-11-22:esteban`).
+- Source scope: `app/(spanish)/es/editor-de-reels-fort-lauderdale/page.tsx`, `app/__tests__/spanish-reels-editor-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for top opportunity query "editor de reels fort lauderdale" (pos 4.3, 8 impressions, 0 clicks).
+- Renders verified Google reviews (`ClientReviews` 5.0 rating, verified Google review count, verbatim client quotes, and Google Business Profile link) directly on `/es/editor-de-reels-fort-lauderdale`, bridging local Spanish searchers to live Google reviews and local conversion proof matching `/services/reels-editor-fort-lauderdale`.
+- Regression test `app/__tests__/spanish-reels-editor-conversion-proof.test.ts` asserts `ClientReviews` is imported and rendered on `/es/editor-de-reels-fort-lauderdale`.
+- Local verification: `pnpm lastmod:update`, `npm test`, and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews candidate commit.
+
 ## 2026-11-21 — Event handoff and bilingual exhibitor brief candidate
 
 - Branch/PR: `feat/esteban-daily-ship`, [PR #799](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/799); candidate commit `fc5357b6` before this handoff note.
