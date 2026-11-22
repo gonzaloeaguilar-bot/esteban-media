@@ -12,6 +12,7 @@
  */
 
 import type { FoundVia, LeadSource } from "@/lib/lead-responder";
+import type { EventDeliveryPreference } from "@/lib/lead-responder";
 
 type Gtag = (command: "event", name: string, params?: Record<string, unknown>) => void;
 /**
@@ -67,6 +68,7 @@ export function trackLeadSubmit(
   // Only the answer's slug ("chatgpt", "google_search"…), never the words the
   // visitor typed. Forms without the question omit it entirely.
   foundVia?: FoundVia | "not_answered",
+  eventDeliveryPreference?: EventDeliveryPreference,
 ): void {
   if (typeof window === "undefined") return;
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;
@@ -76,11 +78,13 @@ export function trackLeadSubmit(
     ? (name: string, params: Record<string, unknown>) => send(name, params)
     : (name: string, params: Record<string, unknown>) => gtag("event", name, params);
   const found = foundVia ? { found_via: foundVia } : {};
-  emit("lead_submit", { lead_source: leadSource, locale, ...found });
+  const delivery = eventDeliveryPreference ? { event_delivery_preference: eventDeliveryPreference } : {};
+  emit("lead_submit", { lead_source: leadSource, locale, ...found, ...delivery });
   emit("contact_intent", {
     contact_method: "form_submit",
     lead_source: leadSource,
     locale,
     ...found,
+    ...delivery,
   });
 }

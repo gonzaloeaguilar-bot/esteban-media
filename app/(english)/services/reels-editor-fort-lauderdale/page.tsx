@@ -21,6 +21,7 @@ const content: GeoServicePageContent = {
   proofHref: "/portfolio/ml-colombia",
   proofLabel: "Watch ML Colombia social video",
   primaryCta: "Ask about Reels editing",
+  contactSource: "reels-editor-fort-lauderdale",
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
   localProof: {

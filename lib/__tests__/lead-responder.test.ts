@@ -32,6 +32,10 @@ describe("lead-responder", () => {
       })
     ).toEqual({ valid: true });
 
+    expect(validateLeadPayload({
+      name: "Event lead", phone: "5550100", email: "event@example.com", source: "event-attendee-interview",
+    })).toEqual({ valid: true });
+
     expect(
       validateLeadPayload({
         name: "Client",
@@ -125,6 +129,12 @@ describe("lead-responder", () => {
       foundVia: "tiktok",
     });
     expect(summary).toContain("Found via: TikTok");
+  });
+
+  it("formats the selected event delivery preference for the private lead summary", () => {
+    expect(formatLeadSummary({
+      source: "event-attendee-interview", email: "event@example.com", eventDeliveryPreference: "both",
+    })).toContain("Event delivery: Both");
   });
 
   it("keeps the typed words on one line so they cannot forge summary lines", () => {

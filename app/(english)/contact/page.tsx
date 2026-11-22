@@ -8,7 +8,7 @@ import { whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
-const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff", "executive-interview", ...CENTRAL_FLORIDA_CAPTURE_SOURCES] as const;
+const CAPTURE_SOURCES = ["caption-safe-zone", "footage-handoff", "executive-interview", "reels-editor-fort-lauderdale", "short-form-editor-miami", "event-attendee-interview", "caption-guide", ...CENTRAL_FLORIDA_CAPTURE_SOURCES] as const;
 
 const contactDescription =
   "Start a video editing project or request a South Florida shoot. Send footage or filming needs, goal, deadline, and finished formats to Esteban Moreno Media.";

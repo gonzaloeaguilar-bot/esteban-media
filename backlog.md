@@ -1,3 +1,7 @@
+## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/es/editor-de-reels-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing matching its English twin `/services/reels-editor-fort-lauderdale`. Verified with `pnpm lastmod:update`, `npm test`, and `priority-growth-project-verify.sh`.
+
 ## 2026-11-21 — Event handoff and bilingual exhibitor brief
 
 - [x] Add a factual original-footage handoff section to existing EN/ES event routes and a bilingual exhibitor message to both contact routes. Commit `fc5357b6`; PR #799 is pushed and awaiting remote checks/merge.
