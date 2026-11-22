@@ -92,6 +92,45 @@ export function eventScopeSection(locale: EventLocale): { heading: string; parag
   };
 }
 
+/**
+ * A short, honest handoff decision card shared by the hub and event pages.
+ * It helps an exhibitor decide what to include in the first message without
+ * implying a transfer method, delivery time, or on-site access that has not
+ * been confirmed in a written quote.
+ */
+export function eventFootageHandoffSection(locale: EventLocale): {
+  heading: string;
+  paragraphs: string[];
+  items: readonly string[];
+} {
+  if (locale === "es") {
+    return {
+      heading: "¿Necesitas conservar material original del evento?",
+      paragraphs: [
+        "Dilo antes de pedir la cotización. Así Esteban puede separar lo que tu equipo necesita conservar como material original de las piezas que quieres editar para redes. El método de entrega, el acceso y cualquier edición se confirman por escrito según el alcance.",
+      ],
+      items: [
+        "El evento, la ciudad y la fecha",
+        "Las tomas o momentos que deben quedar como material original",
+        "Una persona de contacto para recibir los archivos",
+        "Si necesitas material original, videos editados o ambos",
+      ],
+    };
+  }
+  return {
+    heading: "Need to keep original footage from the event?",
+    paragraphs: [
+      "Say so before you ask for a quote. It lets Esteban separate the moments your team needs to keep as original footage from the pieces you want edited for social. The delivery method, access and any editing are confirmed in writing for the actual scope.",
+    ],
+    items: [
+      "The event, city and date",
+      "The shots or moments that must remain as original footage",
+      "One delivery contact for the files",
+      "Whether you need original footage, edited videos, or both",
+    ],
+  };
+}
+
 /** Typical window, then the listed edition (if one is current), as one sentence. */
 export function eventDatesSentence(event: AnnualEvent, locale: EventLocale, now?: Date): string {
   const edition = displayEdition(event, now);

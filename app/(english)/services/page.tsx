@@ -618,7 +618,7 @@ export default function ServicesPage() {
           </KeepReading>
 
           <div className="-mx-4 mt-14 sm:-mx-6 lg:-mx-8">
-            <ClientReviews locale="en" compact />
+            <ClientReviews locale="en" />
           </div>
 
           <div className="mt-14 -mx-4 sm:-mx-6 lg:-mx-8">

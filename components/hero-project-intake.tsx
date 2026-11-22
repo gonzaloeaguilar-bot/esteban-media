@@ -93,7 +93,12 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
   const foundViaLabels: Record<FoundVia, string> = isSpanish
     ? {
         chatgpt: "ChatGPT",
-        other_ai: "Otra IA (Gemini, Perplexity…)",
+        muse: "Muse",
+        grok: "Grok",
+        gemini: "Gemini",
+        perplexity: "Perplexity",
+        claude: "Claude",
+        other_ai: "Otra IA",
         google_search: "Búsqueda en Google",
         google_maps: "Google Maps",
         instagram: "Instagram",
@@ -103,7 +108,12 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
       }
     : {
         chatgpt: "ChatGPT",
-        other_ai: "Another AI assistant (Gemini, Perplexity…)",
+        muse: "Muse",
+        grok: "Grok",
+        gemini: "Gemini",
+        perplexity: "Perplexity",
+        claude: "Claude",
+        other_ai: "Another AI assistant",
         google_search: "Google search",
         google_maps: "Google Maps",
         instagram: "Instagram",

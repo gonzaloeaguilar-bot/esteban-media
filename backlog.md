@@ -1,3 +1,8 @@
+## 2026-11-21 — Event handoff and bilingual exhibitor brief
+
+- [x] Add a factual original-footage handoff section to existing EN/ES event routes and a bilingual exhibitor message to both contact routes. Commit `fc5357b6`; PR #799 is pushed and awaiting remote checks/merge.
+- [ ] After PR #799 is merged, verify raw canonical HTML for `/events`, `/es/eventos`, `/contact`, and `/es/contacto`; measure attributable event inquiries at T+7 and T+14. Do not publish FITCE work until written client permission specifies the allowed facts and assets.
+
 ## 2026-11-20 — Priority-growth owned_site_ctr refinement for Gains From Geebs Shorts
 
 - [x] Refine search snippet for `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts` in `messages/en.json` and `messages/es.json` with dedicated `metaDescription` matching query `gainsfromgeebs` and vertical shorts/reels intent.

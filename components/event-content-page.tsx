@@ -14,7 +14,7 @@ import {
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
-import { EVENTS_HUB_COPY, eventScopeSection, getEventPageCopy } from "@/lib/event-content";
+import { EVENTS_HUB_COPY, eventFootageHandoffSection, eventScopeSection, getEventPageCopy } from "@/lib/event-content";
 import {
   EVENTS,
   EVENTS_HUB_PATHS,
@@ -257,6 +257,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
   const prefix = `event_${ctaId(id)}`;
   const inquiryId = `${prefix}-inquiry`.replace(/_/g, "-");
   const scope = eventScopeSection(locale);
+  const handoff = eventFootageHandoffSection(locale);
   const others = EVENTS.filter((other) => other.id !== id);
 
   const jsonLd = {
@@ -324,6 +325,10 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
 
       <ProseSection id={`${prefix}_send`} heading={copy.send.heading} paragraphs={[copy.send.intro]}>
         <NumberedList items={copy.send.items} className="max-w-3xl" />
+      </ProseSection>
+
+      <ProseSection id={`${prefix}_footage_handoff`} heading={handoff.heading} paragraphs={handoff.paragraphs} tone="paper">
+        <NumberedList items={handoff.items} className="max-w-3xl" />
       </ProseSection>
 
       <ProseSection id={`${prefix}_scope`} heading={scope.heading} paragraphs={scope.paragraphs} tone="paper" />
@@ -408,6 +413,7 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
   const prefix = "events_hub";
   const inquiryId = "events-hub-inquiry";
   const scope = eventScopeSection(locale);
+  const handoff = eventFootageHandoffSection(locale);
   const seasons = EVENT_SEASON_ORDER.map((season) => ({
     season,
     events: EVENTS.filter((event) => event.season === season).sort((a, b) => a.typicalMonth - b.typicalMonth),
@@ -496,6 +502,10 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
       ))}
 
       <ProseSection id={`${prefix}_scope`} heading={scope.heading} paragraphs={scope.paragraphs} tone="paper" />
+
+      <ProseSection id={`${prefix}_footage_handoff`} heading={handoff.heading} paragraphs={handoff.paragraphs}>
+        <NumberedList items={handoff.items} className="max-w-3xl" />
+      </ProseSection>
 
       <ServiceInquiryRail
         sectionId={inquiryId}

@@ -44,6 +44,9 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     expect(markup).toContain('data-cta="contact_service_areas"');
     expect(markup).toContain("Esteban is based in Fort Lauderdale and reviews on-location requests in Broward and Miami-Dade project by project.");
     expect(markup).toContain("include the city, preferred date, and what you need filmed");
+    expect(markup).toContain("Copy an exhibitor or event brief");
+    expect(markup).toContain("I am exhibiting at [event] in [city] on [date].");
+    expect(markup).toContain("Si prefieres escribir en español");
 
     // Schema checks
     expect(markup).toContain('"@type":"ContactPage"');
@@ -91,6 +94,9 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     expect(markup).toContain('data-cta="contact_service_areas"');
     expect(markup).toContain("Esteban trabaja desde Fort Lauderdale y evalúa cada grabación en Broward y Miami-Dade según el proyecto.");
     expect(markup).toContain("incluye la ciudad, la fecha deseada y qué necesitas grabar");
+    expect(markup).toContain("Copiar un brief para expositor o evento");
+    expect(markup).toContain("voy a exponer en [evento] en [ciudad] el [fecha]");
+    expect(markup).toContain("If you prefer English");
 
     // Schema checks
     expect(markup).toContain('"@type":"ContactPage"');
