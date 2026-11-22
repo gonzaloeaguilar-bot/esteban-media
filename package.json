@@ -26,6 +26,7 @@
     "geo:free-sources": "python3 scripts/esteban-free-geo-sources.py",
     "geo:snapshot": "node scripts/normalize-geo-citation-receipts.mjs && pnpm geo:free-sources && node scripts/esteban-geo-daily-snapshot.mjs run",
     "geo:snapshot:status": "node scripts/esteban-geo-daily-snapshot.mjs status",
+    "geo:capture-receipt": "node scripts/geo-capture-receipt.mjs",
     "seo:free-discovery": "node scripts/free-opportunity-discovery.mjs",
     "weekly-digest:dry-run": "node scripts/esteban-media-weekly-digest.mjs dry-run",
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",

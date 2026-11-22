@@ -103,7 +103,7 @@ export default function ShortFormVideoEditorPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href="/contact?source=short-form-editor-miami"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {`Get Reels Edited — From ${usd(SHORT_FORM.perVideoFrom)}/Video`}
