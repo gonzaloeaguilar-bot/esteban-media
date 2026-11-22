@@ -78,6 +78,11 @@ export const CENTRAL_FLORIDA_CAPTURE_SOURCES = [
  */
 export const FOUND_VIA_OPTIONS = [
   "chatgpt",
+  "muse",
+  "grok",
+  "gemini",
+  "perplexity",
+  "claude",
   "other_ai",
   "google_search",
   "google_maps",
@@ -91,6 +96,11 @@ export type FoundVia = (typeof FOUND_VIA_OPTIONS)[number];
 
 export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
   chatgpt: "ChatGPT",
+  muse: "Muse",
+  grok: "Grok",
+  gemini: "Gemini",
+  perplexity: "Perplexity",
+  claude: "Claude",
   other_ai: "Otra IA / Other AI assistant",
   google_search: "Búsqueda en Google / Google search",
   google_maps: "Google Maps",
@@ -103,6 +113,11 @@ export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
 /** Answers where the exact words typed are worth asking for. */
 export const FOUND_VIA_ASKS_QUERY: ReadonlySet<FoundVia> = new Set<FoundVia>([
   "chatgpt",
+  "muse",
+  "grok",
+  "gemini",
+  "perplexity",
+  "claude",
   "other_ai",
   "google_search",
   "google_maps",

@@ -1,10 +1,12 @@
-import { ClientReviews } from "@/components/client-reviews";
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
+import { ClientReviews } from "@/components/client-reviews";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
 import { reviewSourceUrl } from "@/lib/client-reviews";
 import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { whatsappHref } from "@/lib/packages";
+import { site } from "@/lib/site";
 
 const content: GeoServicePageContent = {
   path: "/services/reels-editor-fort-lauderdale",
@@ -172,6 +174,55 @@ const content: GeoServicePageContent = {
     proofLabel: "Review short-form proof",
   },
   venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership web and AI concierge systems) and Port Everglades in Fort Lauderdale (marine and export video logistics context).",
+  decisionRail: {
+    eyebrow: "Choose your starting point",
+    heading: "What do you already have for the next Reel?",
+    intro: "Choose the closest option. The message gives Esteban the useful first detail before anyone assumes a larger shoot.",
+    decisions: [
+      {
+        id: "reels_ftl_existing_clips",
+        title: "I already have clips",
+        detail: "Send the strongest original clips, one idea and the platform where the Reel will run.",
+        href: whatsappHref(site.phone.e164, "Hi Esteban, I already have clips for a Fort Lauderdale Reel. I want to turn them into a clear social video."),
+        action: "Ask about one Reel",
+      },
+      {
+        id: "reels_ftl_weekly",
+        title: "I need Reels every week",
+        detail: "Tell Esteban how often you want to publish and whether you already have a filming routine.",
+        href: whatsappHref(site.phone.e164, "Hi Esteban, I need recurring Reels editing for a Fort Lauderdale business. I want to talk about a weekly editing plan."),
+        action: "Ask about weekly editing",
+      },
+      {
+        id: "reels_ftl_filming",
+        title: "I need filming too",
+        detail: "Share the location, the scenes you need and the target date. Filming is scoped separately from editing.",
+        href: whatsappHref(site.phone.e164, "Hi Esteban, I need filming plus Reels editing for a Fort Lauderdale business. The location is ____ and the target date is ____."),
+        action: "Ask about filming and editing",
+      },
+    ],
+  },
+  proofRail: {
+    eyebrow: "Finished work you can inspect",
+    heading: "Look at the edit before asking for a quote.",
+    intro: "These are published projects. They show the work itself, not a promised performance result for a new project.",
+    projects: [
+      {
+        href: "/portfolio/ml-colombia",
+        title: "ML Colombia social video",
+        description: "A published 24-second social piece from Esteban's own brand.",
+        eyebrow: "Published social work",
+        linkLabel: "Watch the published video",
+      },
+      {
+        href: "/portfolio/gains-from-geebs-shorts",
+        title: "Gains From Geebs short-form videos",
+        description: "Published short-form videos made for a fitness-coaching brand.",
+        eyebrow: "Published short-form work",
+        linkLabel: "See the published work",
+      },
+    ],
+  },
 };
 
 export const metadata = buildPageMetadata({
@@ -190,7 +241,12 @@ export default function ReelsEditorFortLauderdalePage() {
     <>
       <GeoServicePage
         content={content}
-        showcase={<><FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" /><ReelsCapCutComparison /></>}
+        showcase={
+          <>
+            <FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" />
+            <ReelsCapCutComparison />
+          </>
+        }
       />
       <ClientReviews locale="en" />
     </>

@@ -1,3 +1,12 @@
+## 2026-11-21 — Event handoff and bilingual exhibitor brief candidate
+
+- Branch/PR: `feat/esteban-daily-ship`, [PR #799](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/799); candidate commit `fc5357b6` before this handoff note.
+- Scope: shared factual original-footage decision section on `/events`, `/es/eventos`, and all event detail routes; English/Spanish exhibitor message template on `/contact` and `/es/contacto`.
+- Fact boundary: delivery method, access, and editing remain confirmed in a written quote. No client, organizer, turnaround, or event-endorsement claim was added.
+- Checks: targeted 15/15; full `pnpm test` 218 files / 3,949 tests; typecheck; lint 0 errors / 26 existing warnings; rail adoption; analytics gate. Antigravity visual review APPROVE: `~/.claude/state/cto-decisions/20261122T000855Z-cto-web-lead-esteban-media-1795306136835616000-28061-ef2707c11e34632f.json`.
+- Current release state: pushed candidate only. GitHub Vercel preview was pending immediately after `fc5357b6`; re-read checks, merge only when the PR is clean/green, then verify raw canonical HTML on `/events`, `/contact`, `/es/eventos`, and `/es/contacto`.
+- Permission: the FITCE booking is internal attribution only. The prepared permission request lives in `client-esteban-media/wiki/esteban-fitce-proof-permission-request-2026-11-21.md`; do not publish a case study until written client approval specifies public facts/assets.
+
 ## 2026-11-20 — Content-depth refinement for Gains From Geebs Shorts (local only)
 
 - Scope: `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts`.
