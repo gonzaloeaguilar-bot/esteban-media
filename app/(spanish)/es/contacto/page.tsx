@@ -124,6 +124,13 @@ export default function SpanishContactPage() {
               <p>Esteban Moreno Media hace edición a distancia y considera cada grabación en el sur de Florida según el proyecto. No tiene un estudio abierto al público.</p>
             </div>
           </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5" data-section="contact_exhibitor_brief">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Copiar un brief para expositor o evento</summary>
+            <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
+              <p>Hola Esteban, voy a exponer en [evento] en [ciudad] el [fecha]. Necesito [material original / videos editados para redes / ambos]. Los momentos prioritarios son [stand, demostración, conversaciones, charla o entrevista]. La persona de contacto para los archivos es [nombre]. ¿Puedes confirmar qué encaja y enviarme una cotización por escrito?</p>
+              <p>If you prefer English: Hi Esteban, I am exhibiting at [event] in [city] on [date]. I need [original footage / edited social videos / both]. The priority moments are [booth, product demo, customer conversations, talk or interview]. Our contact for files is [name]. Can you confirm what fits and send a written quote?</p>
+            </div>
+          </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Guías para preparar tu proyecto</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">

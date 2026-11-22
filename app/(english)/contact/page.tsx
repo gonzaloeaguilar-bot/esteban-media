@@ -89,6 +89,13 @@ export default function ContactPage() {
               <p>Esteban Moreno Media works remotely on editing and considers South Florida filming project by project. There is no public studio.</p>
             </div>
           </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5" data-section="contact_exhibitor_brief">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Copy an exhibitor or event brief</summary>
+            <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
+              <p>Hi Esteban, I am exhibiting at [event] in [city] on [date]. I need [original footage / edited social videos / both]. The priority moments are [booth, product demo, customer conversations, talk or interview]. Our contact for files is [name]. Can you confirm what fits and send a written quote?</p>
+              <p>Si prefieres escribir en español: Hola Esteban, voy a exponer en [evento] en [ciudad] el [fecha]. Necesito [material original / videos editados para redes / ambos]. Los momentos prioritarios son [stand, demostración, conversaciones, charla o entrevista]. La persona de contacto para los archivos es [nombre]. ¿Puedes confirmar qué encaja y enviarme una cotización por escrito?</p>
+            </div>
+          </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Planning a project? Read these guides</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
