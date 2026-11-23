@@ -1,9 +1,11 @@
-# Esteban GEO wave 2 — free-lane opportunity review
+# Esteban GEO wave 2 — caption-guide source-preserving inquiry repair
 
-Review current, source-backed evidence for the next owned-surface GEO wave. Do not modify files.
+Independently review the exact candidate at commit `96942ba1` after it was rebased onto `03762b1a`. Do not modify files.
 
-Fresh evidence: the settled Search Console window (2026-10-22 through 2026-11-18) shows zero clicks for the visible caption guide (47 impressions, average position 8.0), Fort Lauderdale Reels (31 impressions, position 7.1), and Miami short-form/editor queries (11–13 impressions, positions 8.5–9.8). Freshest citation observations favour Fort Lauderdale Reels EN/ES and Miami short-form; the remaining engine records are stale. Lead outcomes are unmeasured.
+The user-facing evidence is bounded: the settled Search Console window from 2026-10-22 through 2026-11-18 recorded 47 impressions, zero clicks, and average position 8.0 for the caption-styles guide. A newer main-branch repair adds a server-rendered link to verified public Google Business Profile reviews. Lead outcomes remain unmeasured.
 
-Find a bounded next wave that improves existing-page usefulness and source-tagged inquiry capture without new generic city URLs, invented proof, public FITCE/Muse claims, price/availability claims, llms.txt promises, external profile edits, or a citation-to-revenue claim. Prefer a small shared/reusable improvement and explicit tests.
+The candidate retains the self-serve caption route, combines that verified review link with a new done-for-you action to `/contact?source=caption-guide#video-brief` (and Spanish equivalent), retains WhatsApp as a visibly secondary fallback, and exposes the existing contact brief as server-rendered native `<details>`. The client helper must only open that disclosure for the exact allowlisted source and fragment; it must not hide the contact content from raw HTML or invent any proof.
 
-Return the best three actions ranked by evidence, implementation surface, acceptance tests, and what must remain unmeasured.
+Review the supplied 390×844 capture as an affected-state mobile repair. Check whether the guide’s next-step choices are legible, whether the primary brief action and secondary WhatsApp fallback preserve clear hierarchy, and whether the change is visually consistent with the existing Esteban editorial system. Also inspect the exact diff for source attribution, bilingual parity, SSR/native-details behavior, and regression-test adequacy.
+
+Return `APPROVE` only if the bounded repair is acceptable for release. Separate craft, behavior, and business outcome. Do not infer a citation, inquiry, booking, or revenue result from this change.

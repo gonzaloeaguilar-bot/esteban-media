@@ -1,34 +1,39 @@
 {
   "schema": 3,
   "project": "esteban-media",
-  "intent": "Review current, source-backed evidence for the next owned-surface GEO wave. Do not modify files.",
+  "intent": "Independently review the bounded caption-guide source-preserving inquiry repair at commit 96942ba1. Do not modify files.",
   "phase": "review",
   "visual_evidence": {
     "scope": "local_repair",
-    "scope_reason": "This is a read-only planning pass over existing citation and conversion routes.",
+    "scope_reason": "This is a bounded phone-state repair to an existing caption guide and contact route; it does not claim a whole-page redesign or measured business result.",
     "target": "candidate",
     "owner_status": "unreviewed",
     "capture_kind": "rendered",
-    "spec_sha256": "9484f9b84691d59891ece136ae9d98b97803bd84676e234eff63fd3f18b76d48",
+    "spec_sha256": "ea340c673d4c4a1a28a43016591cd8a90e30834a62f5439c39c7b4b96d2add59",
     "taste_sha256": "a6decc0becbf934c722c5da9118c4dd99529e13f88b339b106b8e756782a3f26",
     "correction_excerpt": "Fuente: «No emojis los odio es una regla solo se usan cuando explícitamente los pido». También rechazó los emojis del navegador superior antes de esta corrección.",
-    "comparison": "Prefer a small, phone-readable repair that preserves the direct next step and server-served facts.",
+    "comparison": "Inspect the candidate phone capture for readable next-step hierarchy: self-serve, brief-first done-for-you action, visibly secondary WhatsApp fallback, and no generic or template-like visual treatment.",
     "references": [],
-    "candidate_frames": []
+    "candidate_frames": [{
+      "path": "visual-evidence/caption-guide-wave2-phone.png",
+      "sha256": "45049e5d52d7d3105fd41cd97854a1bd9e6115db278694d2dfaa3305e79b0fb0",
+      "moment": "action",
+      "viewport": "phone"
+    }]
   },
   "brief": {
-    "visitor": "A South Florida buyer arriving from a search or AI answer.",
-    "promise": "Select an evidence-bounded existing-route repair rather than page-volume expansion.",
-    "primary_action": "Return a ranked no-write recommendation.",
-    "friction": "Citations and visibility do not yet establish attributed inquiries.",
-    "kpi": {"outcome": "source-tagged qualified inquiry", "event": "lead_submit", "denominator": "eligible submissions", "baseline": "UNKNOWN: lead outcomes are unmeasured", "evidence": "fresh capture-score and GEO receipt", "readout": "T+7", "decision_rule": "avoid unsupported claims and unmeasured expansion"},
-    "concept": {"idea": "Fix current entry routes", "brand_reason": "Existing Esteban editorial hierarchy remains", "interaction": "Direct path stays obvious", "visible_response": "No new UI in this review", "direct_path": "Existing contact route", "alternatives": "No generic city pages"},
-    "story": {"opening": "Read current evidence", "action": "Rank bounded repairs", "consequence": "Pick one build", "next_step": "Return to the coordinator"},
-    "content": {"visible": "Existing server-rendered answer routes", "optional_html": "Native details only", "linked_depth": "Existing related pages"},
-    "references": {"borrow": "Existing Esteban components", "avoid": "Citation promises"},
-    "components": {"reuse": "Shared Rails and contact conventions", "local_reason": "No component is being built"},
-    "verification": {"rendered_states": "No rendered candidate in planning", "motion": "No motion change is proposed.", "accessibility_performance": "Preserve current direct path", "raw_html": "Future build must be SSR", "conversion_boundary": "No real submission"},
-    "reviewers": {"craft": "Antigravity after implementation", "behavior": "cto-qa-lead", "outcome": "cto-growth-lead at T+7"},
-    "learning": {"metric": "source-tagged qualified inquiry", "baseline_source": "GEO receipt", "baseline_value": "UNKNOWN: lead outcomes are unmeasured", "target_kind": "funnel_step", "target": "measurable", "hypothesis": "Improving existing answers and attribution allows a later causal read", "observation_windows": ["T+7"], "decision_rule": "build only one source-backed wave", "ledger_status": "planned", "registration_condition": "after selection"}
+    "visitor": "A South Florida buyer who has just used the caption-styles guide and wants reviewed caption help.",
+    "promise": "Keep the useful self-serve answer while giving a clear, attributable path to prepare a video brief.",
+    "primary_action": "Open the existing contact brief from the guide with the caption-guide source preserved.",
+    "friction": "The previous direct WhatsApp handoff could not cleanly distinguish this guide from other inquiries.",
+    "kpi": {"outcome": "source-tagged qualified inquiry", "event": "lead_submit", "denominator": "eligible submissions", "baseline": "UNKNOWN: lead outcomes are unmeasured", "evidence": "settled Search Console guide row and current receipt capture", "readout": "T+7", "decision_rule": "do not attribute a business result until a source-tagged outcome exists"},
+    "concept": {"idea": "Turn one guide into a readable decision fork", "brand_reason": "The cream, terracotta, serif editorial treatment remains Esteban-specific", "interaction": "The primary done-for-you link anchors to the existing native brief while WhatsApp remains a direct fallback", "visible_response": "The guide keeps distinct self-serve and done-for-you cards with readable labels", "direct_path": "The done-for-you card opens the source-tagged contact brief", "alternatives": "No generic city pages, citation promises, invented proof, or additional form fields"},
+    "story": {"opening": "A reader sees the answer first", "action": "They choose self-serve or a detailed brief", "consequence": "The contact route knows the inquiry began on the caption guide", "next_step": "A future T+7 read examines source-tagged qualified inquiries"},
+    "content": {"visible": "Guide actions and the contact brief remain present in server-rendered HTML", "optional_html": "The existing brief uses a native details disclosure that stays available without JavaScript", "linked_depth": "The verified Google review source remains a separate outbound proof link"},
+    "references": {"borrow": "Existing Esteban next-step card, contact brief, review-source, and mobile dock conventions", "avoid": "New decorative motion, generic conversion widgets, citation guarantees, and expanded city-page volume"},
+    "components": {"reuse": "CaptionGuideNextStep, existing contact brief disclosure, and existing source allowlist", "local_reason": "The tiny client helper only opens the existing native disclosure for the exact source plus fragment"},
+    "verification": {"rendered_states": "390x844 phone guide capture and source-tagged contact DOM state", "motion": "No new motion is introduced; inspect static control visibility in the candidate phone render.", "accessibility_performance": "Links remain ordinary anchors and the disclosure remains native HTML", "raw_html": "Curl must find the source-tagged guide link and closed server-rendered contact brief before client enhancement", "conversion_boundary": "No customer form is submitted; lead outcome remains unmeasured"},
+    "reviewers": {"craft": "Antigravity independent review", "behavior": "cto-qa-lead checks raw HTML, focused tests, and source behavior", "outcome": "cto-growth-lead reads source-tagged qualified inquiries at T+7"},
+    "learning": {"metric": "source-tagged qualified inquiry", "baseline_source": "current capture-score and GEO receipt", "baseline_value": "UNKNOWN: lead outcomes are unmeasured", "target_kind": "funnel_step", "target": "caption-guide source tagged inquiry", "hypothesis": "A brief-first guide handoff makes this source measurable without hiding the self-serve answer or removing WhatsApp", "observation_windows": ["T+7"], "decision_rule": "retain the path only if the later read can distinguish a source-tagged qualified inquiry without fabricated attribution", "ledger_status": "planned", "registration_condition": "after production verification is recorded"}
   }
 }
