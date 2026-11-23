@@ -39,8 +39,7 @@ import { redditQueryInsights } from "@/lib/reddit-query-insights";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { restaurantIgStudyCopy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
 import { withPageDate } from "@/lib/page-lastmod";
-import { absoluteUrl, site } from "@/lib/site";
-import { whatsappHref } from "@/lib/packages";
+import { absoluteUrl } from "@/lib/site";
 import { estebanPriceRows, marketPriceRows, priceIndexAnswer, REELS_PRICE_INDEX_CHECKED_ON } from "@/lib/reels-price-index";
 import RailTable from "@/vendor/rail-kit/RailTable";
 import { FortLauderdaleEditorsTable } from "@/components/fort-lauderdale-editors-table";
@@ -1003,21 +1002,16 @@ function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
 
 function CaptionGuideStickyCta({ locale }: { locale: GuideLocale }) {
   const isEs = locale === "es";
-  const whatsappMessage = isEs
-    ? "Hola Esteban, leí tu guía de estilos de subtítulos y quiero ayuda con los subtítulos de mi video. La plataforma es ____ y el idioma es ____."
-    : "Hi Esteban, I read your caption styles guide and want help with captions for my video. The platform is ____ and the language is ____.";
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
       <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
-        <a
-          href={whatsappHref(site.phone.e164, whatsappMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="caption_guide_sticky_whatsapp"
+        <Link
+          href={isEs ? "/es/contacto?source=caption-guide#video-brief" : "/contact?source=caption-guide#video-brief"}
+          data-cta="caption_guide_sticky_brief"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
         >
-          {isEs ? "Subtitular mi video · WhatsApp" : "Subtitle my video · WhatsApp"}
-        </a>
+          {isEs ? "Preparar mi brief de video" : "Build my video brief"}
+        </Link>
       </div>
     </div>
   );

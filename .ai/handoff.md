@@ -6,13 +6,12 @@
 - Checks: `lib/__tests__/lead-email.test.ts` and `app/__tests__/lead-route.test.ts` updated; rail-kit, rail-adoption, lint, typecheck, full test suite, build and the Spanish hub indexability check passed. `pnpm text-parity` failed on page-copy drift against its baseline; this diff touches no page.
 - Not verified: a real receipt landing in a lead's inbox. Resend must accept `info@estebanmorenomedia.com` as a sender for external recipients; after deploy, submit one real lead and check the inbox, or the Vercel log for `Lead acknowledgement failed`.
 
-## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
+## 2026-11-23 — Caption-guide local proof and source attribution release candidate
 
-- Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-23 (work id: `priority-growth:2026-11-23:esteban`).
-- Source scope: `components/caption-guide-next-step.tsx`, `components/__tests__/caption-guide-next-step.test.ts`, `.ai/handoff.md`, and `backlog.md`; addresses `local_gbp_conversion` recommendation for top opportunity query "how to style captions for better readability on instagram reels" on `/guides/best-caption-styles-for-instagram-reels` (pos 6.3–7.3, 14 impressions, 0 clicks across window).
-- Adds direct, server-rendered link to Esteban's verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable `data-cta="caption_guide_local_proof_gbp"` on both English and Spanish guide routes, mirroring the local conversion proof pattern on the Fort Lauderdale Reels service page.
-- Regression tests in `components/__tests__/caption-guide-next-step.test.ts` assert verified Google Business Profile review proof link is rendered for both EN and ES locales.
-- Local verification: `npm test` and `/Users/gonzalo/code/portfolio-ops-pg-lane/scripts/priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews candidate commit.
+- Scope: `components/caption-guide-next-step.tsx`, `components/guide-pages.tsx`, both existing contact routes, focused tests, and `config/page-lastmod.json`; it combines the 2026-11-23 verified Google Business Profile proof with the source-preserving inquiry repair.
+- Evidence: the priority-growth brief identified `/guides/best-caption-styles-for-instagram-reels` for the query "how to style captions for better readability on instagram reels" (pos 6.3–7.3, 14 impressions, 0 clicks across its recorded window). The guide now keeps a server-rendered link to Esteban's verified public Google review source under `data-cta="caption_guide_local_proof_gbp"` in both languages.
+- Repair: the caption guide's done-for-you card and fixed mobile action now open `/contact?source=caption-guide#video-brief` (Spanish equivalent on `/es/contacto`). Both contact pages keep their server-rendered native `<details id="video-brief">`; a tiny client component opens it only for that exact source and fragment. The card retains its direct WhatsApp link as a visibly secondary fallback. No field contents were added to analytics and no customer action occurred.
+- State: release candidate; gates and independent review are rerun after rebase. After deployment, verify canonical production raw HTML and rendered contact disclosure, then `cto-growth-lead` owns the T+7 source-tagged qualified-inquiry read. Lead outcomes remain unmeasured.
 
 ## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
 

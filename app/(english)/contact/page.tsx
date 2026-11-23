@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarClock, Mail, MessageCircle } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
+import { CaptionGuideBriefDisclosure } from "@/components/caption-guide-brief-disclosure";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { CENTRAL_FLORIDA_CAPTURE_SOURCES } from "@/lib/lead-responder";
@@ -58,6 +59,7 @@ export default function ContactPage() {
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="py-8 sm:py-14">
         <Container size="xl">
+          <CaptionGuideBriefDisclosure />
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contact</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Start your video editing project or South Florida shoot.</h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">For video editing, send the footage you have, your goal, deadline, and the formats you need to publish. For a selected Broward or Miami-Dade shoot, send the city, date, and what you need filmed; Esteban will confirm whether the scope fits before sending a written quote.</p>
@@ -78,7 +80,7 @@ export default function ContactPage() {
             <p className="mt-2 text-sm leading-6 text-[#3f4548]">Esteban is based in Fort Lauderdale and reviews on-location requests in Broward and Miami-Dade project by project. In your WhatsApp message, include the city, preferred date, and what you need filmed; he will confirm whether the scope fits before sending a written quote.</p>
             <Link href="/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">See service areas and what needs confirmation</Link>
           </section>
-          <details className="mt-8 border-t border-[#d6ccc0] pt-5">
+          <details id="video-brief" data-section="contact_video_brief" className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
             <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" querySources={CAPTURE_SOURCES} /></div>
           </details>
