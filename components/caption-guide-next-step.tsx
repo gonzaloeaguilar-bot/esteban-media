@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
+import { reviewSourceUrl } from "@/lib/client-reviews";
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
@@ -18,6 +19,7 @@ const copy = {
     doneDetail: "Send the video type, language and platform. Esteban can scope reviewed captions for the edit.",
     doneAction: "Ask on WhatsApp",
     whatsappMessage: "Hi Esteban, I read your caption styles guide and want help with captions for my video. The platform is ____ and the language is ____. ",
+    localProofLabel: "Read public Google reviews before you ask",
   },
   es: {
     eyebrow: "Elige el siguiente paso",
@@ -30,6 +32,7 @@ const copy = {
     doneDetail: "Comparte el tipo de video, idioma y plataforma. Esteban puede definir subtítulos revisados para la edición.",
     doneAction: "Pedir por WhatsApp",
     whatsappMessage: "Hola Esteban, leí tu guía de estilos de subtítulos y quiero ayuda con los subtítulos de mi video. La plataforma es ____ y el idioma es ____. ",
+    localProofLabel: "Lee reseñas públicas en Google antes de consultar",
   },
 } as const;
 
@@ -37,6 +40,8 @@ const copy = {
  * A server-rendered fork for a reader who has just received the guide's answer.
  * It is deliberately a pair of ordinary links: the useful self-serve route works
  * without JavaScript and the done-for-you route says exactly where it opens.
+ * It also anchors directly to Esteban's verified Google Business Profile reviews
+ * for instant local conversion proof.
  */
 export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
   const text = copy[locale];
@@ -76,6 +81,18 @@ export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
           <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
             <MessageCircle className="size-4" aria-hidden="true" />{text.doneAction}
           </span>
+        </a>
+      </div>
+      <div className="mt-4 pt-4 border-t border-[#d6ccc0]/60">
+        <a
+          href={reviewSourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cta="caption_guide_local_proof_gbp"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
+        >
+          {text.localProofLabel}
+          <ArrowRight className="size-4" aria-hidden="true" />
         </a>
       </div>
     </section>
