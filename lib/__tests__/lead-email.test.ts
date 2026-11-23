@@ -14,21 +14,35 @@ describe("sendLeadEmails", () => {
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 
-  it("alerts Esteban but never auto-replies unless explicitly enabled", async () => {
+  it("alerts Esteban without auto-replying when the reply is switched off", async () => {
     const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(Response.json({ id: "email-1" }));
-    expect(await sendLeadEmails(payload, "private brief", { env, fetchImpl })).toEqual({ notificationStatus: "accepted", acknowledgementSent: false });
+    expect(await sendLeadEmails(payload, "private brief", { env: { ...env, LEAD_AUTOREPLY_ENABLED: "0" }, fetchImpl })).toEqual({ notificationStatus: "accepted", acknowledgementSent: false });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(JSON.parse(fetchImpl.mock.calls[0][1]!.body as string)).toMatchObject({ to: [env.LEAD_NOTIFY_EMAIL], text: "private brief" });
   });
 
-  it("sends only a guarded acknowledgement after Esteban's alert is accepted", async () => {
+  it("auto-replies to every lead from info@ by default, after Esteban's alert is accepted", async () => {
     const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(Response.json({ id: "email-1" }));
-    const result = await sendLeadEmails(payload, "private brief", { env: { ...env, LEAD_AUTOREPLY_ENABLED: "1" }, fetchImpl });
+    const result = await sendLeadEmails(payload, "private brief", { env: { ...env, RESEND_FROM_EMAIL: "Alerts <alerts@send.example.com>" }, fetchImpl });
     expect(result).toEqual({ notificationStatus: "accepted", acknowledgementSent: true });
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     const acknowledgement = JSON.parse(fetchImpl.mock.calls[1][1]!.body as string);
-    expect(acknowledgement).toMatchObject({ to: [payload.email], reply_to: env.LEAD_NOTIFY_EMAIL });
+    expect(acknowledgement).toMatchObject({
+      from: "Esteban Moreno Media <info@estebanmorenomedia.com>",
+      to: [payload.email],
+      reply_to: "info@estebanmorenomedia.com",
+    });
+    expect(acknowledgement.text).not.toContain("private brief");
     expect(acknowledgement.text).toContain("no confirma disponibilidad, precio ni alcance");
+  });
+
+  it("replies in English to an English lead and reports a failed reply", async () => {
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValueOnce(Response.json({ id: "email-1" }))
+      .mockResolvedValueOnce(new Response(null, { status: 403 }));
+    const result = await sendLeadEmails({ ...payload, locale: "en" }, "brief", { env, fetchImpl });
+    expect(result).toEqual({ notificationStatus: "accepted", acknowledgementSent: false });
+    expect(JSON.parse(fetchImpl.mock.calls[1][1]!.body as string).subject).toBe("We received your message — Esteban Moreno Media");
   });
 
   it("never replies to the lead if the internal alert fails", async () => {
