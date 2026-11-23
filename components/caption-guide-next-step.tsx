@@ -17,7 +17,8 @@ const copy = {
     selfAction: "Choose a caption preset",
     doneTitle: "I want captions done for me",
     doneDetail: "Send the video type, language and platform. Esteban can scope reviewed captions for the edit.",
-    doneAction: "Ask on WhatsApp",
+    doneAction: "Build a detailed video brief",
+    doneFallback: "Or ask directly on WhatsApp",
     whatsappMessage: "Hi Esteban, I read your caption styles guide and want help with captions for my video. The platform is ____ and the language is ____. ",
     localProofLabel: "Read public Google reviews before you ask",
   },
@@ -30,7 +31,8 @@ const copy = {
     selfAction: "Elegir un preset",
     doneTitle: "Quiero que los hagan por mí",
     doneDetail: "Comparte el tipo de video, idioma y plataforma. Esteban puede definir subtítulos revisados para la edición.",
-    doneAction: "Pedir por WhatsApp",
+    doneAction: "Preparar un brief detallado",
+    doneFallback: "O pedir directamente por WhatsApp",
     whatsappMessage: "Hola Esteban, leí tu guía de estilos de subtítulos y quiero ayuda con los subtítulos de mi video. La plataforma es ____ y el idioma es ____. ",
     localProofLabel: "Lee reseñas públicas en Google antes de consultar",
   },
@@ -69,19 +71,28 @@ export function CaptionGuideNextStep({ locale }: { locale: Locale }) {
             {text.selfAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
           </span>
         </Link>
-        <a
-          href={whatsappHref(site.phone.e164, text.whatsappMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="caption_guide_done_for_you_whatsapp"
+        <div
           className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
         >
           <span className="block font-serif text-2xl leading-tight">{text.doneTitle}</span>
           <span className="mt-2 block text-sm leading-6 text-white/85">{text.doneDetail}</span>
-          <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
-            <MessageCircle className="size-4" aria-hidden="true" />{text.doneAction}
-          </span>
-        </a>
+          <Link
+            href={locale === "es" ? "/es/contacto?source=caption-guide#video-brief" : "/contact?source=caption-guide#video-brief"}
+            data-cta="caption_guide_done_for_you_brief"
+            className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold underline underline-offset-4"
+          >
+            {text.doneAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+          </Link>
+          <a
+            href={whatsappHref(site.phone.e164, text.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="caption_guide_done_for_you_whatsapp"
+            className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white/85 underline underline-offset-4 hover:text-white"
+          >
+            <MessageCircle className="size-4" aria-hidden="true" />{text.doneFallback}
+          </a>
+        </div>
       </div>
       <div className="mt-4 pt-4 border-t border-[#d6ccc0]/60">
         <a

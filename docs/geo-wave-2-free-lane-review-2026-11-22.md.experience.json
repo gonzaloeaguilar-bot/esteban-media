@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Review current, source-backed evidence for the next owned-surface GEO wave. Do not modify files.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "This is a read-only planning pass over existing citation and conversion routes.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "9484f9b84691d59891ece136ae9d98b97803bd84676e234eff63fd3f18b76d48",
+    "taste_sha256": "a6decc0becbf934c722c5da9118c4dd99529e13f88b339b106b8e756782a3f26",
+    "correction_excerpt": "Fuente: «No emojis los odio es una regla solo se usan cuando explícitamente los pido». También rechazó los emojis del navegador superior antes de esta corrección.",
+    "comparison": "Prefer a small, phone-readable repair that preserves the direct next step and server-served facts.",
+    "references": [],
+    "candidate_frames": []
+  },
+  "brief": {
+    "visitor": "A South Florida buyer arriving from a search or AI answer.",
+    "promise": "Select an evidence-bounded existing-route repair rather than page-volume expansion.",
+    "primary_action": "Return a ranked no-write recommendation.",
+    "friction": "Citations and visibility do not yet establish attributed inquiries.",
+    "kpi": {"outcome": "source-tagged qualified inquiry", "event": "lead_submit", "denominator": "eligible submissions", "baseline": "UNKNOWN: lead outcomes are unmeasured", "evidence": "fresh capture-score and GEO receipt", "readout": "T+7", "decision_rule": "avoid unsupported claims and unmeasured expansion"},
+    "concept": {"idea": "Fix current entry routes", "brand_reason": "Existing Esteban editorial hierarchy remains", "interaction": "Direct path stays obvious", "visible_response": "No new UI in this review", "direct_path": "Existing contact route", "alternatives": "No generic city pages"},
+    "story": {"opening": "Read current evidence", "action": "Rank bounded repairs", "consequence": "Pick one build", "next_step": "Return to the coordinator"},
+    "content": {"visible": "Existing server-rendered answer routes", "optional_html": "Native details only", "linked_depth": "Existing related pages"},
+    "references": {"borrow": "Existing Esteban components", "avoid": "Citation promises"},
+    "components": {"reuse": "Shared Rails and contact conventions", "local_reason": "No component is being built"},
+    "verification": {"rendered_states": "No rendered candidate in planning", "motion": "No motion change is proposed.", "accessibility_performance": "Preserve current direct path", "raw_html": "Future build must be SSR", "conversion_boundary": "No real submission"},
+    "reviewers": {"craft": "Antigravity after implementation", "behavior": "cto-qa-lead", "outcome": "cto-growth-lead at T+7"},
+    "learning": {"metric": "source-tagged qualified inquiry", "baseline_source": "GEO receipt", "baseline_value": "UNKNOWN: lead outcomes are unmeasured", "target_kind": "funnel_step", "target": "measurable", "hypothesis": "Improving existing answers and attribution allows a later causal read", "observation_windows": ["T+7"], "decision_rule": "build only one source-backed wave", "ledger_status": "planned", "registration_condition": "after selection"}
+  }
+}
