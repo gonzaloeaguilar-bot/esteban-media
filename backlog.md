@@ -1,3 +1,7 @@
+## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/guides/best-caption-styles-for-instagram-reels` and Spanish twin: add direct link to verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable CTA `caption_guide_local_proof_gbp`. Verified with `npm test` and `priority-growth-project-verify.sh`.
+
 ## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/es/editor-de-reels-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing matching its English twin `/services/reels-editor-fort-lauderdale`. Verified with `pnpm lastmod:update`, `npm test`, and `priority-growth-project-verify.sh`.

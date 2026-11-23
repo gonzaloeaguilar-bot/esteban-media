@@ -1,3 +1,11 @@
+## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
+
+- Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-23 (work id: `priority-growth:2026-11-23:esteban`).
+- Source scope: `components/caption-guide-next-step.tsx`, `components/__tests__/caption-guide-next-step.test.ts`, `.ai/handoff.md`, and `backlog.md`; addresses `local_gbp_conversion` recommendation for top opportunity query "how to style captions for better readability on instagram reels" on `/guides/best-caption-styles-for-instagram-reels` (pos 6.3–7.3, 14 impressions, 0 clicks across window).
+- Adds direct, server-rendered link to Esteban's verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable `data-cta="caption_guide_local_proof_gbp"` on both English and Spanish guide routes, mirroring the local conversion proof pattern on the Fort Lauderdale Reels service page.
+- Regression tests in `components/__tests__/caption-guide-next-step.test.ts` assert verified Google Business Profile review proof link is rendered for both EN and ES locales.
+- Local verification: `npm test` and `/Users/gonzalo/code/portfolio-ops-pg-lane/scripts/priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews candidate commit.
+
 ## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
 
 - Priority-growth action brief: recommended action `local_gbp_conversion` for round 2026-11-22 (work id: `priority-growth:2026-11-22:esteban`).
