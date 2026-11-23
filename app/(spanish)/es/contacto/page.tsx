@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarClock, Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { CaptionGuideBriefDisclosure } from "@/components/caption-guide-brief-disclosure";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { CENTRAL_FLORIDA_CAPTURE_SOURCES } from "@/lib/lead-responder";
 import { whatsappHref } from "@/lib/packages";
@@ -94,6 +95,7 @@ export default function SpanishContactPage() {
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="py-8 sm:py-14">
         <Container size="xl">
+          <CaptionGuideBriefDisclosure />
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contacto</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Cuéntale a Esteban sobre tu video.</h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">Envía un mensaje breve: qué necesitas, para cuándo y si ya tienes material grabado.</p>
@@ -113,7 +115,7 @@ export default function SpanishContactPage() {
             <p className="mt-2 text-sm leading-6 text-[#3f4548]">Esteban trabaja desde Fort Lauderdale y evalúa cada grabación en Broward y Miami-Dade según el proyecto. En tu mensaje de WhatsApp incluye la ciudad, la fecha deseada y qué necesitas grabar; primero confirmará si el alcance encaja y después enviará una cotización por escrito.</p>
             <Link href="/es/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">Ver áreas de servicio y qué se debe confirmar</Link>
           </section>
-          <details className="mt-8 border-t border-[#d6ccc0] pt-5">
+          <details id="video-brief" data-section="contact_video_brief" className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
 <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE, "reels-editor-fort-lauderdale", "short-form-editor-miami", "event-attendee-interview", "caption-guide", ...CENTRAL_FLORIDA_CAPTURE_SOURCES]} /></div>
           </details>
