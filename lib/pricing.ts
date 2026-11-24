@@ -580,3 +580,16 @@ export const EXPANSION_SERVICES = {
   vslEditingFrom: 725,
   tradeShowCoverageFrom: 900,
 } as const;
+
+/**
+ * Wedding packages (owner order 2026-11-24: packages start at $2,500+, 50%
+ * deposit). Half Day and Content Creation sit at the owner's $2,500 floor; the
+ * Full Day figure is a working starting point until the owner confirms it.
+ * The final price is always quoted per wedding.
+ */
+export const WEDDING_PACKAGES = {
+  halfDayFrom: 2500,
+  fullDayFrom: 4000,
+  contentCreationFrom: 2500,
+  depositPercent: 50,
+} as const;
