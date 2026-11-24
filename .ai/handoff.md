@@ -1,3 +1,11 @@
+## 2026-11-23 — Website leads get an automatic receipt from info@ (branch claude/kind-euler-lkz6ep)
+
+- Owner order: every web lead is answered automatically from `info@estebanmorenomedia.com`. Cause of the gap: `lib/lead-email.ts` only sent the receipt when `LEAD_AUTOREPLY_ENABLED=1`; the production value could not be read from this session (Vercel env list returned 403).
+- Change: the receipt is now on by default once Esteban's alert is accepted. It always sends From `Esteban Moreno Media <info@estebanmorenomedia.com>` with Reply-To `info@estebanmorenomedia.com`, regardless of `RESEND_FROM_EMAIL`, and carries a signature with the canonical email and phone. `LEAD_AUTOREPLY_ENABLED=0` is the off switch. Test rows (`x-esteban-test: 1`) still send nothing. `/api/lead` logs `Lead acknowledgement failed` (no contact data) when the receipt is rejected.
+- Receipt wording is unchanged: confirms receipt only, asks for goal/date/location/references, confirms no price, scope or availability.
+- Checks: `lib/__tests__/lead-email.test.ts` and `app/__tests__/lead-route.test.ts` updated; rail-kit, rail-adoption, lint, typecheck, full test suite, build and the Spanish hub indexability check passed. `pnpm text-parity` failed on page-copy drift against its baseline; this diff touches no page.
+- Not verified: a real receipt landing in a lead's inbox. Resend must accept `info@estebanmorenomedia.com` as a sender for external recipients; after deploy, submit one real lead and check the inbox, or the Vercel log for `Lead acknowledgement failed`.
+
 ## 2026-11-23 — Caption-guide local proof and source attribution release candidate
 
 - Scope: `components/caption-guide-next-step.tsx`, `components/guide-pages.tsx`, both existing contact routes, focused tests, and `config/page-lastmod.json`; it combines the 2026-11-23 verified Google Business Profile proof with the source-preserving inquiry repair.

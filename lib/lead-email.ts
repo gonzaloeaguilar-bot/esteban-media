@@ -9,6 +9,11 @@ export interface LeadEmailResult {
   acknowledgementSent: boolean;
 }
 
+/** Leads always hear back from, and reply to, the public business mailbox. */
+const PUBLIC_SENDER = "Esteban Moreno Media <info@estebanmorenomedia.com>";
+const PUBLIC_MAILBOX = "info@estebanmorenomedia.com";
+const SIGNATURE = "Esteban Moreno Media\ninfo@estebanmorenomedia.com · (305) 497-4478";
+
 function text(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -23,6 +28,7 @@ function acknowledgement(payload: LeadPayload): { subject: string; text: string 
           "Recibimos tu mensaje y revisaremos los detalles antes de responder.",
           "Para preparar una cotización, indícanos la meta del proyecto, la fecha deseada, la ubicación y cualquier referencia o material que ya tengas.",
           "Este correo confirma la recepción; no confirma disponibilidad, precio ni alcance.",
+          SIGNATURE,
         ].join("\n\n"),
       }
     : {
@@ -32,6 +38,7 @@ function acknowledgement(payload: LeadPayload): { subject: string; text: string 
           "We received your message and will review the details before replying.",
           "To prepare a quote, please share the project goal, desired date, location, and any references or existing footage.",
           "This email confirms receipt only; it does not confirm availability, price, or scope.",
+          SIGNATURE,
         ].join("\n\n"),
       };
 }
@@ -52,7 +59,9 @@ async function deliver(fetchImpl: FetchLike, apiKey: string, body: Record<string
 
 /**
  * Sends only the safe, first-touch messages for a persisted website lead.
- * Acknowledgements require an explicit opt-in and are never sent for test rows.
+ * Every real lead gets the receipt from info@estebanmorenomedia.com once
+ * Esteban's alert is accepted. LEAD_AUTOREPLY_ENABLED=0 switches it off;
+ * test rows never send anything.
  */
 export async function sendLeadEmails(
   payload: LeadPayload,
@@ -61,7 +70,7 @@ export async function sendLeadEmails(
 ): Promise<LeadEmailResult> {
   const apiKey = text(env.RESEND_API_KEY);
   const notifyEmail = text(env.LEAD_NOTIFY_EMAIL) || "info@estebanmorenomedia.com";
-  const from = text(env.RESEND_FROM_EMAIL) || "Esteban Moreno Media <info@estebanmorenomedia.com>";
+  const from = text(env.RESEND_FROM_EMAIL) || PUBLIC_SENDER;
   if (!apiKey || isTest) return { notificationStatus: "not_configured", acknowledgementSent: false };
 
   const notified = await deliver(fetchImpl, apiKey, {
@@ -72,14 +81,14 @@ export async function sendLeadEmails(
   });
   if (!notified) return { notificationStatus: "failed", acknowledgementSent: false };
 
-  if (text(env.LEAD_AUTOREPLY_ENABLED) !== "1") {
+  if (text(env.LEAD_AUTOREPLY_ENABLED) === "0") {
     return { notificationStatus: "accepted", acknowledgementSent: false };
   }
   const reply = acknowledgement(payload);
   const acknowledgementSent = await deliver(fetchImpl, apiKey, {
-    from,
+    from: PUBLIC_SENDER,
     to: [payload.email],
-    reply_to: notifyEmail,
+    reply_to: PUBLIC_MAILBOX,
     subject: reply.subject,
     text: reply.text,
   });

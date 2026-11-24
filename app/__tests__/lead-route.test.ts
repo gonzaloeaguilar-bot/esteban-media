@@ -89,7 +89,8 @@ describe("POST /api/lead", () => {
   it("falls back to accepted email after failed persistence, using the generated reference", async () => {
     vi.stubEnv("RESEND_API_KEY", "test-resend-key");
     fetchMock.mockResolvedValueOnce(new Response(null, { status: 500 }))
-      .mockResolvedValueOnce(Response.json({ id: "email-id" }));
+      .mockResolvedValueOnce(Response.json({ id: "email-id" }))
+      .mockResolvedValueOnce(Response.json({ id: "acknowledgement-id" }));
     const response = await POST(request());
     expect(response.status).toBe(200);
     const body = await response.json();
@@ -98,17 +99,18 @@ describe("POST /api/lead", () => {
     expect(body.persisted).toBe(false);
     expect(body.warning).toBe("persistence_failed");
     expect(body.leadId).toBe(row.lead_ref);
-    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([storeUrl, emailUrl]);
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([storeUrl, emailUrl, emailUrl]);
   });
 
   it("still uses email when storage is unconfigured", async () => {
     vi.stubEnv("SUPABASE_URL", "");
     vi.stubEnv("RESEND_API_KEY", "test-resend-key");
-    fetchMock.mockResolvedValueOnce(Response.json({ id: "email-id" }));
+    fetchMock.mockResolvedValueOnce(Response.json({ id: "email-id" }))
+      .mockResolvedValueOnce(Response.json({ id: "acknowledgement-id" }));
     const response = await POST(request());
     expect(response.status).toBe(200);
     expect((await response.json()).leadId).toMatch(/^lead_/);
-    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([emailUrl]);
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([emailUrl, emailUrl]);
   });
 
   it.each([401, 429, 500])("returns 503 when insert fails and Resend returns %i", async (status) => {
@@ -143,6 +145,7 @@ describe("POST /api/lead", () => {
     const pendingInsert = new Promise<Response>((resolve) => { resolveInsert = resolve; });
     fetchMock.mockReturnValueOnce(pendingInsert)
       .mockResolvedValueOnce(Response.json({ id: "email-id" }))
+      .mockResolvedValueOnce(Response.json({ id: "acknowledgement-id" }))
       .mockResolvedValueOnce(new Response(null, { status: 204 }));
     const pendingResponse = POST(request({ ...payload, locale: "es" }));
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
@@ -151,13 +154,18 @@ describe("POST /api/lead", () => {
     const response = await pendingResponse;
     expect(response.status).toBe(200);
     expect((await response.json()).message).toBe("¡Gracias! Tu solicitud ha sido recibida correctamente.");
-    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([storeUrl, emailUrl, `${storeUrl}?id=eq.${rowId}`]);
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([storeUrl, emailUrl, emailUrl, `${storeUrl}?id=eq.${rowId}`]);
     const emailOptions = fetchMock.mock.calls[1][1]!;
     expect(emailOptions.headers).toMatchObject({ Authorization: "Bearer test-resend-key" });
     expect(JSON.parse(emailOptions.body as string)).toMatchObject({
       from: "Sender <sender@example.com>", to: ["notify@example.com"], text: expect.stringContaining(payload.email),
     });
-    expect(JSON.parse(fetchMock.mock.calls[2][1]!.body as string)).toEqual({ email_sent: true });
+    const acknowledgement = JSON.parse(fetchMock.mock.calls[2][1]!.body as string);
+    expect(acknowledgement).toMatchObject({
+      from: "Esteban Moreno Media <info@estebanmorenomedia.com>", to: [payload.email], reply_to: "info@estebanmorenomedia.com",
+    });
+    expect(acknowledgement.text).not.toContain(payload.notes);
+    expect(JSON.parse(fetchMock.mock.calls[3][1]!.body as string)).toEqual({ email_sent: true });
   });
 
   it.each(["http", "network"])("keeps the saved lead successful when email fails (%s)", async (failure) => {
@@ -175,11 +183,12 @@ describe("POST /api/lead", () => {
     vi.stubEnv("RESEND_API_KEY", "test-resend-key");
     fetchMock.mockResolvedValueOnce(saved())
       .mockResolvedValueOnce(Response.json({ id: "email-id" }))
+      .mockResolvedValueOnce(Response.json({ id: "acknowledgement-id" }))
       .mockRejectedValueOnce(new Error("offline"));
     const response = await POST(request());
     expect(response.status).toBe(200);
     expect((await response.json()).leadId).toBe(rowId);
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
   it.each([{}, { ...payload, email: "invalid" }, { ...payload, source: "unknown" }, null, [], "string"])(
