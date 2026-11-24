@@ -44,6 +44,7 @@ export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
   // Wedding packages hub (2026-11-24): the three wedding city pages had no hub and no published packages.
   "https://estebanmorenomedia.com/services/wedding-packages",
+  "https://estebanmorenomedia.com/es/paquetes-de-boda",
   // Central Florida supplied-footage editing guide pair (2026-11-08). These
   // routes describe remote post-production only; they do not assert local
   // production coverage or regulated-industry credentials.
