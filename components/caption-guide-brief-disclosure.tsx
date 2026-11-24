@@ -2,8 +2,11 @@
 
 import { useEffect } from "react";
 
+const GUIDE_BRIEF_SOURCES = new Set(["caption-guide", "large-files-guide"]);
+
 export function isCaptionGuideBriefRequest(search: string, hash: string): boolean {
-  return new URLSearchParams(search).get("source") === "caption-guide" && hash === "#video-brief";
+  const source = new URLSearchParams(search).get("source");
+  return Boolean(source && GUIDE_BRIEF_SOURCES.has(source)) && hash === "#video-brief";
 }
 
 /**

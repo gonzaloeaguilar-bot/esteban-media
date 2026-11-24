@@ -9,6 +9,7 @@ import { isCaptionGuideBriefRequest } from "@/components/caption-guide-brief-dis
 describe("caption-guide contact attribution", () => {
   it("only opens the native brief for the exact allowlisted source and fragment", () => {
     expect(isCaptionGuideBriefRequest("?source=caption-guide", "#video-brief")).toBe(true);
+    expect(isCaptionGuideBriefRequest("?source=large-files-guide", "#video-brief")).toBe(true);
     expect(isCaptionGuideBriefRequest("?source=caption-guide", "#other-section")).toBe(false);
     expect(isCaptionGuideBriefRequest("?source=unknown", "#video-brief")).toBe(false);
   });
