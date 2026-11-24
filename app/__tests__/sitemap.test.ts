@@ -71,8 +71,9 @@ describe("portfolio sitemap entries", () => {
     // +4 = talking-head and Christian YouTube bilingual pairs (2026-11-19).
     // +4 = attendee interviews and AI commercial Reels (2026-11-18).
     // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
-    expect(entries).toHaveLength(598);
-    expect(new Set(urls)).toHaveLength(598);
+    // +2 = YouTube video editing Miami pair re-admitted (2026-11-24, owner decision under cohort rule 1).
+    expect(entries).toHaveLength(600);
+    expect(new Set(urls)).toHaveLength(600);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

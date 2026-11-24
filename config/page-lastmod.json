@@ -320,8 +320,8 @@
   "hash": "60be7a8353dbee74"
  },
  "/es/editor-de-reels-fort-lauderdale": {
-  "date": "2026-11-22",
-  "hash": "1e84bb4e5b8dac45"
+  "date": "2026-11-24",
+  "hash": "b0760f5450b0a904"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-11-19",
@@ -954,6 +954,10 @@
  "/es/serie-de-video-para-linkedin-ejecutivo-miami": {
   "date": "2026-10-19",
   "hash": "41b97e6bb66dbbf1"
+ },
+ "/es/servicio-de-edicion-de-video-para-youtube-miami": {
+  "date": "2026-11-24",
+  "hash": "247a9b54d5cbeac6"
  },
  "/es/servicio-de-subtitulado-bilingue-de-video": {
   "date": "2026-11-02",
@@ -2200,8 +2204,8 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-11-21",
-  "hash": "b20966bafedfaeef"
+  "date": "2026-11-24",
+  "hash": "86f0cb8e5b879fae"
  },
  "/services/reels-editor-miami": {
   "date": "2026-11-21",
@@ -2390,5 +2394,9 @@
  "/services/youtube-long-form-video-editing": {
   "date": "2026-10-19",
   "hash": "848e8d567f6b45cd"
+ },
+ "/services/youtube-video-editing-service-miami": {
+  "date": "2026-11-07",
+  "hash": "097d3857ba19466e"
  }
 }
