@@ -20,7 +20,12 @@ import {
  * is promised because none is set there.
  */
 type Locale = "en" | "es";
-type Kind = "trade-show-raw-files" | "real-estate-monthly-plan";
+type Kind =
+  | "trade-show-raw-files"
+  | "real-estate-monthly-plan"
+  | "mastermind-filming-price"
+  | "town-hall-filming-price"
+  | "keys-retreat-filming-price";
 
 type Copy = {
   eyebrow: string;
@@ -89,8 +94,56 @@ function realEstate(locale: Locale): Copy {
   };
 }
 
+/**
+ * Event pages that ranked first on Google on 2026-11-24 without ever stating
+ * the filming rate. English only until the Spanish pages are checked.
+ */
+const EVENT_PRICE = {
+  "mastermind-filming-price": {
+    question: "How much does it cost to film a mastermind event in Miami?",
+    covers: "the sessions, the speakers and short attendee interviews",
+    where: "in Miami-Dade or Broward",
+    action: "Send my event details",
+  },
+  "town-hall-filming-price": {
+    question: "How much does it cost to film a corporate town hall in South Florida?",
+    covers: "the leadership remarks, the audience questions and the room",
+    where: "at your office or venue in Miami-Dade or Broward",
+    action: "Send my town hall details",
+  },
+  "keys-retreat-filming-price": {
+    question: "How much does it cost to film an executive retreat in the Florida Keys?",
+    covers: "the working sessions, the team activities and short leader interviews",
+    where: "",
+    action: "Send my retreat details",
+  },
+} as const;
+
+function eventPrice(kind: keyof typeof EVENT_PRICE): Copy {
+  const half = usd(RAW_FILMING_RATES.halfDay);
+  const full = usd(RAW_FILMING_RATES.fullDay);
+  const edit = usd(SHORT_FORM.perVideoFrom);
+  const item = EVENT_PRICE[kind];
+  const price =
+    kind === "keys-retreat-filming-price"
+      ? `Filming only starts at ${half} for a half day and ${full} for a full day; travel to the Keys is confirmed in writing before the date is booked.`
+      : `Filming only is ${half} for a half day and ${full} for a full day ${item.where}.`;
+  return {
+    eyebrow: "Straight answer",
+    question: item.question,
+    answer: `${price} Esteban Moreno Media records ${item.covers}, and you receive the original files by Google Drive or Dropbox link. Filming only is enough when your own team edits or you just need the day on record. Add an edit, from ${edit} per video, when you want a recap or short clips ready to post. The scope is agreed in writing before the date is booked. Spanish-first, English too.`,
+    action: item.action,
+    href: `/contact?source=${kind}`,
+  };
+}
+
 export function BuyerAnswer({ kind, locale = "en" }: { kind: Kind; locale?: Locale }) {
-  const copy = kind === "trade-show-raw-files" ? tradeShow(locale) : realEstate(locale);
+  const copy =
+    kind === "trade-show-raw-files"
+      ? tradeShow(locale)
+      : kind === "real-estate-monthly-plan"
+        ? realEstate(locale)
+        : eventPrice(kind);
   const sectionId = `buyer-answer-${kind}`;
   const ctaId = `buyer_answer_${kind.split("-").join("_")}${locale === "es" ? "_es" : ""}`;
   return (

@@ -34,7 +34,10 @@ export type LeadSource =
   | "event-attendee-interview"
   | "caption-guide"
   | "trade-show-raw-files"
-  | "real-estate-monthly-plan";
+  | "real-estate-monthly-plan"
+  | "mastermind-filming-price"
+  | "town-hall-filming-price"
+  | "keys-retreat-filming-price";
 
 const LEAD_SOURCES = new Set<LeadSource>([
   "brief-builder",
@@ -68,6 +71,9 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "caption-guide",
   "trade-show-raw-files",
   "real-estate-monthly-plan",
+  "mastermind-filming-price",
+  "town-hall-filming-price",
+  "keys-retreat-filming-price",
 ]);
 
 /**
