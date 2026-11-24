@@ -171,7 +171,7 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +4 = talking-head and Christian YouTube bilingual pairs (2026-11-19).
     // +4 = attendee interviews and AI commercial Reels (2026-11-18).
     // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2);
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1);
   });
 
   it("never lists a redirect source in the sitemap", () => {
