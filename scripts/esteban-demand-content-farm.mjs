@@ -205,12 +205,13 @@ export function buildCandidates(rows, guideSet, semrush, citation) {
     const score = number(row.score) + Math.min(volume, 500) / 20 + Math.max(0, 35 - difficulty) / 10;
     const frame = contentFrame(row, areaTier);
     const existingTarget = existingRelevantTarget(row);
+    const fallbackTarget = (row.lang || "es") === "en" ? "/services/short-form-video-editor-miami" : "/es/editor-de-reels-miami";
     return {
       score: Number(score.toFixed(2)), query: row.query, areaTier,
       status: row.status, intent: row.intent || "unknown", language: row.lang || "es", place: row.place || null,
       source: { coverageDate: row.coverage_date || null, sources: row.sources, gscImpressions: number(row.gsc_impr), gscPosition: row.gsc_pos || null, sourceUrl: row.gsc_page || row.best_page || null, semrushUi: semrushRow ? { runDate: semrushRow.run_date, volume, difficulty, url: semrushRow.url || null, matchedKeyword: semrushRow.matched_keyword || semrushRow.keyword || row.query, match: semrushRow.match, serp_features: String(semrushRow.serp_features || semrushRow.serp_features_by_keyword || "").split(",").map((item) => item.trim()).filter(Boolean) } : null, citation },
-      action: existingTarget ? "improve_existing" : "new_guide_draft",
-      target: existingTarget || `/es/guias/${slug}`,
+      action: "improve_existing",
+      target: existingTarget || fallbackTarget,
       question: frame.question, ssrOutline: frame.outline, storyHook: frame.story,
     };
   }).filter(Boolean).sort((a, b) => b.score - a.score || a.query.localeCompare(b.query)).slice(0, 12);
