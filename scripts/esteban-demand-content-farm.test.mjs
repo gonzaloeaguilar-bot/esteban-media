@@ -20,7 +20,7 @@ describe("Esteban demand content farm", () => {
     expect(reels).toMatchObject({ target: "/es/editor-de-reels-miami", action: "improve_existing", areaTier: "core", status: "UNANSWERED" });
     expect(reels.ssrOutline).toHaveLength(3);
     expect(reels.storyHook).toContain("que grabar para reels en miami");
-    expect(results.find((item) => item.query === "web developer miami")).toMatchObject({ action: "new_guide_draft", target: "/es/guias/web-developer-miami" });
+    expect(results.find((item) => item.query === "web developer miami")).toMatchObject({ action: "improve_existing", target: "/services/short-form-video-editor-miami" });
   });
 
   it("uses a dated Semrush UI commercial topic match when the wording differs", () => {

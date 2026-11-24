@@ -692,7 +692,11 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               {guide.id === "caption-styles-reels-guide" ? (
                 <CaptionGuideNextStep locale={locale} />
               ) : (
-                <GuideNextStep locale={locale} guideTitle={guide.title} />
+                <GuideNextStep
+                  locale={locale}
+                  guideTitle={guide.title}
+                  briefSource={guide.id === "transfer-large-video-files-guide" ? "large-files-guide" : undefined}
+                />
               )}
               {guide.heroProof ? (
                 <div className="mt-8 max-w-2xl">
