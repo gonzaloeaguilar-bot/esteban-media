@@ -284,14 +284,14 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
                 {c.callLabel} {site.phone.display}
               </a>
               <a
-                href={site.instagram}
+                href={site.instagramBusiness}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cta="home_contact_instagram"
                 className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 hover:text-white"
               >
                 <Send className="size-4" aria-hidden="true" />
-                Instagram @steeban1
+                Instagram @estebanmorenomedia
               </a>
             </p>
             <p className="mt-1 text-sm leading-6 text-[#aaa29a]">{c.bookingHint}</p>
