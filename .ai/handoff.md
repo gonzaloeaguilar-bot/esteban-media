@@ -1,3 +1,14 @@
+## 2026-11-25 — Priority-growth owned_site_ctr: HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
+
+- Priority-growth action brief: recommended action `owned_site_ctr` for round 2026-11-25 (work id: `priority-growth:2026-11-25:esteban`).
+- Source scope: `app/(english)/services/contractor-video-marketing-florida/page.tsx`, `app/__tests__/contractor-hvac-ctr-optimization.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`.
+- Identified top query opportunity: "hvac video production fl" reaching `/services/contractor-video-marketing-florida` (position 50.8, 8 impressions, 0 clicks).
+- Improved SERP CTR & on-page conversion:
+  - Aligned page title to "HVAC & Contractor Video Production Florida | Esteban Moreno Media" and meta description to explicitly highlight HVAC alongside roofing and solar companies.
+  - Added specialized ServiceAnswerFirst override detailing jobsite video production for Florida HVAC, compressor changeouts, duct installations, and emergency storm repairs.
+  - Added `ClientReviews` component with compact Google review proof (5.0 rating, verified reviews) to build conversion trust for commercial & residential contractors.
+- Verification: `pnpm lastmod:update`, `pnpm lint`, `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm build`, full vitest suite (222 files, 3,972 tests passing), and `priority-growth-project-verify.sh`.
+
 ## 2026-11-24 — Warmer lead receipt in Esteban's voice (branch claude/kind-euler-lkz6ep)
 
 - Operator order after PR #804 went live (production deployment READY for `a5dcfdca`): replace the stiff receipt with a warmer one. `lib/lead-email.ts` now greets the lead by first name, speaks in first person (EN "I", ES "tú" voice), invites a reply with goal/date/location/references, and signs as Esteban Moreno with the canonical email and phone.
