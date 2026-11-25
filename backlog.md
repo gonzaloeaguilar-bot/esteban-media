@@ -1,3 +1,7 @@
+## 2026-11-25 — Priority-growth owned_site_ctr on HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
+
+- [x] Implement `owned_site_ctr` priority-growth recommendation on `/services/contractor-video-marketing-florida`: align title and meta description to target "hvac video production fl" / trade contractor searches, add targeted ServiceAnswerFirst override for HVAC compressor and duct installations, and render compact `ClientReviews` Google proof. Verified with `pnpm lastmod:update`, `pnpm vitest run`, `pnpm lint`, `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm build`, and `priority-growth-project-verify.sh`.
+
 ## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/guides/best-caption-styles-for-instagram-reels` and Spanish twin: add direct link to verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable CTA `caption_guide_local_proof_gbp`. Verified with `npm test` and `priority-growth-project-verify.sh`.
