@@ -13,6 +13,7 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/services": "/es/servicios",
   "/real-estate": "/es/bienes-raices",
   "/pricing": "/es/precios",
+  "/services/wedding-packages": "/es/paquetes-de-boda",
   "/services/conversion-websites": "/es/sitios-web-de-conversion",
   "/services/ai-lead-capture-automation": "/es/captura-y-automatizacion-de-clientes-con-ia",
   "/services/local-presence-seo": "/es/presencia-local-seo",
