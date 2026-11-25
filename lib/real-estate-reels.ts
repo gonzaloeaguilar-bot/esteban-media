@@ -3,7 +3,7 @@ import { absoluteUrl } from "@/lib/site";
 /**
  * The real-estate reel shelf.
  *
- * Six short vertical videos Esteban edited for property content, kept in one
+ * Short vertical videos Esteban edited for property content, kept in one
  * typed list so the carousel, the WhatsApp calls to action and the VideoObject
  * structured data all read from the SAME record. Nothing here is invented per
  * surface: if a title changes it changes in the rail, the lightbox and the
@@ -177,10 +177,10 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
   },
   {
     id: "selling-from-abroad",
-    title: "Selling a Miami property from abroad",
-    titleEs: "Vender una propiedad en Miami desde el extranjero",
-    caption: "A remote-seller explainer on coordinating marketing and signing the listing from another country.",
-    captionEs: "Una explicación para vendedores remotos sobre coordinar el marketing y firmar el contrato desde otro país.",
+    title: "Agent explainer for remote sellers",
+    titleEs: "Explicación de la agente para vendedores remotos",
+    caption: "An agent explainer with on-screen captions about selling a property from out of town.",
+    captionEs: "Una explicación de la agente con subtítulos en pantalla sobre vender una propiedad desde fuera de la ciudad.",
     poster: "/real-estate-reels/reel-10.jpg",
     src: "/real-estate-reels/reel-10.mp4",
     durationSeconds: 22,
