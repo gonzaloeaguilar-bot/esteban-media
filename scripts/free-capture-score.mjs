@@ -160,19 +160,46 @@ export function isWrongIntentExcluded(query, exclusions) {
   return exclusions.some((entry) => entry.normalizedQuery === normalizedQuery);
 }
 
+export function isInstrumentSuspect(row) {
+  const impressions = Number(row?.impressions) || 0;
+  const clicks = Number(row?.clicks) || 0;
+  const position = Number(row?.position);
+  const desktop = row?.desktopImpressions;
+  const mobile = row?.mobileImpressions;
+
+  // When device fields are absent, behave exactly as today (fail open, never mark suspect)
+  if (desktop === undefined && mobile === undefined) {
+    return false;
+  }
+
+  const d = Number(desktop) || 0;
+  const m = Number(mobile) || 0;
+  const totalDevice = d + m;
+  if (totalDevice <= 0) {
+    return false;
+  }
+
+  const desktopShare = d / totalDevice;
+  return impressions >= 10 && clicks === 0 && Number.isFinite(position) && position <= 3 && desktopShare >= 0.9;
+}
+
 export function scoreParts(row, citationRows) {
   const impressions = Number(row.impressions) || 0;
   const clicks = Number(row.clicks) || 0;
   const position = Number(row.position);
+  const suspect = isInstrumentSuspect(row);
   const demand = impressions >= 10 ? 2 : impressions >= 1 ? 1 : 0;
   const reachability = Number.isFinite(position) && position <= 10 ? 3 : Number.isFinite(position) && position <= 20 ? 2 : Number.isFinite(position) && position <= 30 ? 1 : 0;
-  const ctrOpportunity = impressions >= 10 && clicks === 0 ? 1 : 0;
+  const ctrOpportunity = suspect ? 0 : (impressions >= 10 && clicks === 0 ? 1 : 0);
   const matchedCitations = citationRows.filter((citation) => citation.our_citation === true && citationMatchesQuery(citation.prompt, row.query));
   const citation = matchedCitations.length >= 2 ? 2 : matchedCitations.length === 1 ? 1 : 0;
   return { demand, reachability, ctrOpportunity, citation, serpResistance: "unmeasured", total: demand + reachability + ctrOpportunity + citation, matchedCitations };
 }
 
 export function recommendation(total, candidate = {}) {
+  if (candidate.instrumentSuspect || isInstrumentSuspect(candidate)) {
+    return "likely rank tracker or repeat viewer (desktop-only, top 3, zero clicks) — do not build on this query until a mobile impression or a click appears";
+  }
   if (Number(candidate.position) <= 3 && Number(candidate.clicks) === 0) return "validate SERP and intent — near-top position with zero clicks is not an expansion signal";
   if (total >= 7) return "capture candidate — inspect the existing canonical page and SERP before changing it";
   if (total >= 5) return "strengthen existing page — do not create a new URL yet";
@@ -181,14 +208,22 @@ export function recommendation(total, candidate = {}) {
 
 export function buildCandidates(measurement, citationRows, query = null, wrongIntentExclusions = []) {
   const rows = measurement?.rows?.queryPage || [];
-  return rows.map((row) => ({
-    query: String(row.keys?.[0] || "").trim(),
-    page: String(row.keys?.[1] || "").trim(),
-    clicks: Number(row.clicks) || 0,
-    impressions: Number(row.impressions) || 0,
-    ctr: Number(row.ctr) || 0,
-    position: Number(row.position),
-  })).filter((row) => row.query && row.page && !isBrandedQuery(row.query) && !isWrongIntentExcluded(row.query, wrongIntentExclusions) && (!query || normalise(row.query) === normalise(query)))
+  return rows.map((row) => {
+    const candidateRow = {
+      query: String(row.keys?.[0] || "").trim(),
+      page: String(row.keys?.[1] || "").trim(),
+      clicks: Number(row.clicks) || 0,
+      impressions: Number(row.impressions) || 0,
+      ctr: Number(row.ctr) || 0,
+      position: Number(row.position),
+      ...(row.desktopImpressions !== undefined ? { desktopImpressions: row.desktopImpressions } : {}),
+      ...(row.mobileImpressions !== undefined ? { mobileImpressions: row.mobileImpressions } : {}),
+    };
+    if (isInstrumentSuspect(candidateRow)) {
+      candidateRow.instrumentSuspect = true;
+    }
+    return candidateRow;
+  }).filter((row) => row.query && row.page && !isBrandedQuery(row.query) && !isWrongIntentExcluded(row.query, wrongIntentExclusions) && (!query || normalise(row.query) === normalise(query)))
     .map((row) => ({ ...row, score: scoreParts(row, citationRows) }))
     .sort((left, right) => right.score.total - left.score.total || right.impressions - left.impressions || left.position - right.position)
     .slice(0, query ? 10 : 25);
