@@ -88,6 +88,26 @@ const legacyRedirects = [
     destination: "/es/editor-de-videos-cristianos-youtube",
     permanent: true,
   },
+  {
+    source: "/services/quinceanera-videographer-miami",
+    destination: "/services/quinceanera-video-miami",
+    permanent: true,
+  },
+  {
+    source: "/services/quinceanera-videographer-miami/",
+    destination: "/services/quinceanera-video-miami",
+    permanent: true,
+  },
+  {
+    source: "/es/videografo-de-quinceaneras-miami",
+    destination: "/es/video-para-quinceaneras-miami",
+    permanent: true,
+  },
+  {
+    source: "/es/videografo-de-quinceaneras-miami/",
+    destination: "/es/video-para-quinceaneras-miami",
+    permanent: true,
+  },
 ];
 
 const nextConfig: NextConfig = {

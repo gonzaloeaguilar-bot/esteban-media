@@ -108,7 +108,7 @@ export default function PrivatePartyVideographerPage() {
               ["Gender reveal or another celebration", "Share the reveal timing, access rules and the one moment that needs a clear plan before the date."],
             ].map(([title, detail]) => <div key={title} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"><h3 className="font-serif text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{detail}</p></div>)}
           </div>
-          <p className="mt-6 text-sm leading-6 text-[#252a2d]">Planning a quinceañera? <Link className="underline underline-offset-4" href="/services/quinceanera-videographer-miami">See the quinceañera videographer guide</Link>. Planning a yacht celebration? <Link className="underline underline-offset-4" href="/services/yacht-party-videographer-miami">See the yacht-party guide</Link>.</p>
+          <p className="mt-6 text-sm leading-6 text-[#252a2d]">Planning a quinceañera? <Link className="underline underline-offset-4" href="/services/quinceanera-video-miami">See the quinceañera video guide</Link>. Planning a yacht celebration? <Link className="underline underline-offset-4" href="/services/yacht-party-videographer-miami">See the yacht-party guide</Link>.</p>
         </Container>
       </section>
 

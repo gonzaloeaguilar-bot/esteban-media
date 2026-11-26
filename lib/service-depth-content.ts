@@ -2,6 +2,7 @@ import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service
 import { priceSentence } from "@/lib/packages";
 import {
   CARE_AND_PRODUCTION_PLANS,
+  CELEBRATION_FILM_BUNDLES,
   SHORT_FORM,
   TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
@@ -2361,23 +2362,6 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Two-minute video case studies detailing complete scope of work and homeowner satisfaction provide powerful digital proof during in-person sales bids.",
     },
   ],
-  "/services/quinceanera-videographer-miami": [
-    {
-      question: "How many camera operators are recommended for a full quinceañera event?",
-      answer:
-        "A two-person camera crew ensures continuous multi-angle coverage of church blessings, court dances, and emotional family reactions simultaneously.",
-    },
-    {
-      question: "How is sound captured during loud ballroom music, waltzes, and family toasts?",
-      answer:
-        "Direct audio connections to the DJ soundboard paired with discreet wireless lapel microphones guarantee crystal-clear recording of all speeches.",
-    },
-    {
-      question: "When will our family receive the finished quinceañera highlight video?",
-      answer:
-        "A dynamic vertical social teaser is delivered within one week of the party, with complete documentary films delivered following comprehensive color grading.",
-    },
-  ],
   "/services/multicam-podcast-video-production-miami": [
     {
       question: "Can you film our podcast on-location at our corporate office or private studio?",
@@ -3559,6 +3543,10 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
       question: "When should the family book the edit?",
       answer:
         "Before the date, so the shot list, the deliverables and the songs are agreed while there is still time to plan. If the party has already happened, send the footage and a list of the moments that matter most; the edit is scoped from what was recorded. Delivery dates are confirmed in the written quote rather than promised in advance.",
+    },
+    {
+      question: "How much does a quinceañera video cost in Miami?",
+      answer: `Private celebration finished film packages start from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} for half-day coverage, including consultation and a finished highlight film. If another videographer films the party, editing supplied footage into social clips starts from ${enStarter()}. Scope, hours, and travel are confirmed in writing before booking.`,
     },
   ],
   relatedHeading: "Related services for celebrations and events.",

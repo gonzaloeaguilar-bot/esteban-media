@@ -194,8 +194,9 @@ describe("every English service page has WebPage + BreadcrumbList (fix 3)", () =
 describe("ported FAQs on hand-written English service pages (owner decision)", () => {
   const entries = Object.entries(depthContent.PORTED_SERVICE_FAQS);
 
-  it("covers 115 pages and skips only the two with no factual source", () => {
-    expect(entries).toHaveLength(115);
+  // 114 pages after consolidating /services/quinceanera-videographer-miami into /services/quinceanera-video-miami
+  it("covers 114 pages and skips only the two with no factual source", () => {
+    expect(entries).toHaveLength(114);
     for (const skipped of depthContent.FAQ_SKIPPED_NO_FACTUAL_SOURCE) {
       expect(depthContent.PORTED_SERVICE_FAQS[skipped]).toBeUndefined();
     }

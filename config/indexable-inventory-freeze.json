@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-11-26",
-  "approvedSitemapUrlCount": 602,
-  "approvedSitemapUrlSetSha256": "f4463bb840016f457a3f004f7260710e099d235d88da77aaaa03ca95a5e92548",
+  "approvedSitemapUrlCount": 601,
+  "approvedSitemapUrlSetSha256": "b8cf8165fbe547ab76073581d6ba5abf1e476578cf3f7ff5381f8366555c9a9c",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,18 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-26",
+      "url": [
+        "/es/cuanto-cobra-un-videografo-en-miami"
+      ],
+      "orderedBy": "Gonzalo (chat 2026-11-26: 'Yes, queue it')",
+      "kind": "pricing guide answering Spanish videographer rate queries in Miami",
+      "demandEvidence": "Google autocomplete 2026-11-26: cuanto cobra un videografo (por hora / de boda / en Miami); no page answered it",
+      "followUpDate": "2026-12-26",
+      "followUp": "Check GSC impressions and indexed status at 30 days for videographer pricing queries.",
+      "note": "1 URL, within one demand-wave allowance of 4. Consolidated 2 duplicate quinceañera URLs at the same time, netting -1 overall."
+    },
     {
       "on": "2026-11-24",
       "url": [

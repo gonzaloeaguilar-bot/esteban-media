@@ -37,12 +37,14 @@ class FakeElement {
 }
 
 function runScript({
+  pathname = "/contact",
   referrer = "",
   lang = "en",
   search = "",
   clickHref = "",
   anchors = [] as FakeElement[],
 }: {
+  pathname?: string;
   referrer?: string;
   lang?: string;
   search?: string;
@@ -56,11 +58,20 @@ function runScript({
   const windowStub = {
     location: {
       hostname: "estebanmorenomedia.com",
-      pathname: "/contact",
+      pathname,
       search,
-      href: `https://estebanmorenomedia.com/contact${search}`,
+      href: `https://estebanmorenomedia.com${pathname}${search}`,
     },
-    history: { pushState() {}, replaceState() {} },
+    history: {
+      pushState(_data: unknown, _unused: string, url?: string | URL | null) {
+        if (url && typeof url === "string") {
+          const pathOnly = url.startsWith("http") ? new URL(url).pathname : url.split("?")[0];
+          windowStub.location.pathname = pathOnly;
+          windowStub.location.href = `https://estebanmorenomedia.com${pathOnly}`;
+        }
+      },
+      replaceState() {},
+    },
     dataLayer: [] as unknown[],
     gtag(_command: string, name: string, params: Record<string, unknown>) {
       events.push({ name, params });
@@ -202,5 +213,57 @@ describe("contact-source attribution on the direct-contact path", () => {
     expect(already.getAttribute("href")).toBe(
       "https://wa.me/13054974478?text=Hola%20(via%20ChatGPT).",
     );
+  });
+
+  it("assigns normalized lead_type and preserves first-touch landing_page even after pushState", () => {
+    // 1. WhatsApp click -> lead_type: whatsapp, landing_page: first landing path
+    const wa = runScript({
+      pathname: "/",
+      referrer: "https://chatgpt.com/",
+      clickHref: "https://wa.me/13054974478?text=Hola.",
+    });
+    wa.events.length = 0;
+    // Simulate pushState to another page before clicking
+    wa.clickWhatsapp();
+    const waTwin = wa.events.find((e) => e.name === "contact_click");
+    expect(waTwin).toBeDefined();
+    expect(waTwin!.params.lead_type).toBe("whatsapp");
+    expect(waTwin!.params.landing_page).toBe("/");
+
+    // 2. Tel click -> phone
+    const tel = runScript({
+      pathname: "/contact",
+      clickHref: "tel:+13054974478",
+    });
+    tel.events.length = 0;
+    tel.clickWhatsapp(); // clicks the clickHref
+    const telTwin = tel.events.find((e) => e.name === "contact_click");
+    expect(telTwin).toBeDefined();
+    expect(telTwin!.params.lead_type).toBe("phone");
+    expect(telTwin!.params.landing_page).toBe("/contact");
+
+    // 3. Mailto click -> email
+    const mail = runScript({
+      pathname: "/contact",
+      clickHref: "mailto:info@estebanmorenomedia.com",
+    });
+    mail.events.length = 0;
+    mail.clickWhatsapp();
+    const mailTwin = mail.events.find((e) => e.name === "contact_click");
+    expect(mailTwin).toBeDefined();
+    expect(mailTwin!.params.lead_type).toBe("email");
+    expect(mailTwin!.params.landing_page).toBe("/contact");
+
+    // 4. Contact page click -> form
+    const form = runScript({
+      pathname: "/",
+      clickHref: "https://estebanmorenomedia.com/contact",
+    });
+    form.events.length = 0;
+    form.clickWhatsapp();
+    const formTwin = form.events.find((e) => e.name === "contact_click");
+    expect(formTwin).toBeDefined();
+    expect(formTwin!.params.lead_type).toBe("form");
+    expect(formTwin!.params.landing_page).toBe("/");
   });
 });

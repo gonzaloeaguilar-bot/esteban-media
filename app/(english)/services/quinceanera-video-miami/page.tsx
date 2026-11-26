@@ -21,7 +21,7 @@ import { withNicheService } from "@/lib/niche-answers";
 const path = "/services/quinceanera-video-miami";
 
 export const metadata = buildPageMetadata({
-  title: "Quinceañera Video Miami",
+  title: "Quinceañera Videographer & Video in Miami",
   description: "Highlight films and social edits for quinceañeras in Miami and Fort Lauderdale, edited from your footage, with on-location filming as a paid add-on.",
   path,
   locale: "en",

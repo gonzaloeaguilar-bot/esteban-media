@@ -3,7 +3,7 @@ import {
   SpanishNichePage,
 } from "@/components/spanish-niche-page";
 
-const slug = "videografo-de-quinceaneras-miami";
+const slug = "cuanto-cobra-un-videografo-en-miami";
 
 export const metadata = buildSpanishNicheMetadata(slug);
 

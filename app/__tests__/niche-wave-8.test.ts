@@ -11,7 +11,7 @@ import { buildSpanishNicheStructuredData, getSpanishNichePage, languageAlternate
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 import { sitemapRoutes } from "@/app/sitemap";
 import { getPortfolioItemById } from "@/lib/portfolio";
-import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
+import { CELEBRATION_FILM_BUNDLES, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 
 /**
  * Niche wave 8 (2026-10-11): eight owner-approved bilingual pairs.
@@ -68,6 +68,7 @@ const publishedFigures = () => {
   for (const p of Object.values(PACKAGE_PRICES)) if (p.kind === "from") out.add(usd(p.amount));
   out.add(usd(SHORT_FORM.perVideoFrom));
   for (const o of SHORT_FORM.weekly) out.add(usd(o.pricePerWeek));
+  out.add(usd(CELEBRATION_FILM_BUNDLES.halfDay));
   return out;
 };
 
