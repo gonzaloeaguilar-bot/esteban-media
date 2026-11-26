@@ -1,3 +1,10 @@
+## 2026-11-26 — Official event dates + near-me answers (branch geo/events-nearme)
+
+- `lib/events.ts`: Art Basel Miami Beach 2026-12-04..06 and Miami International Boat Show 2027-02-10..14 now `organizerConfirmed` with `sourceUrl` (read on artbasel.com/miami-beach and miamiboatshow.com on 2026-11-26; evidence in vault `esteban-events-nearme-checks-2026-11-26`). Pages say "Official dates", not "listed dates".
+- `eventBookingAnswer()` (lib/event-content.ts): answer-first booking sentence from events.ts + pricing.ts; returns null for guide-listed or ended editions. Event pages show it in the hero instead of the pricing box (Art Basel EN visible words 748 < 750 guard — tight). `components/event-booking-answer.tsx` renders it as a question-H2 section on the Art Basel and boat-show service pages (EN + ES via `EVENT_BOOKING_BY_SLUG` in spanish-niche-page.tsx); those 4 pages also got the #837 "Need someone this week?" block.
+- Near-me (no new routes): `lib/near-me-answers.ts` + `components/near-me-answer.tsx` on drone (`droneSessionFrom` $300, proof Banacol case study), Fort Lauderdale video production (via `GeoServicePageContent.nearMe`, proof Healthy Smile) and dance studio (recital, proof Diana & Jack labelled as a wedding). Drone page proof card no longer cites Homeowners (an edit of agency footage) as drone work.
+- Text-parity baseline refreshed for the 2 changed Spanish routes only (733 -> 725 problems; rest of the baseline is stale on main).
+- Next: after merge, `node ~/.claude/durable/analytics-gate.mjs` on the 12 changed URLs (GA is hostname-gated, so localhost/preview cannot pass) and IndexNow.
 ## 2026-11-26 — Zero-signal page prune (branch seo/prune-zero-impression)
 
 - 52 indexed pages with 0 Google impressions, 0 GA4 sessions and 0 lead events in 2026-08-27..2026-11-25 now 301 (statusCode 301) to a same-language, same-intent page that earns signal. Sitemap 601 -> 549; freeze count/sha updated; GSC watch set and lastmod ledger follow.

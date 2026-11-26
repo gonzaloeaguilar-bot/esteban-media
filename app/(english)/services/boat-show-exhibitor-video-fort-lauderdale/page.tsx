@@ -15,7 +15,14 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
+import { EventBookingAnswer } from "@/components/event-booking-answer";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { withNicheService } from "@/lib/niche-answers";
+
+// Renders EventBookingAnswer, which hides an edition once it has ended. That check
+// runs at render time, so a fully static page would keep a past edition (and its
+// booking link) until the next deploy. Re-render daily, like the /events routes.
+export const revalidate = 86_400;
 
 export const metadata = buildPageMetadata({
   title: "Boat Show Exhibitor Video Fort Lauderdale",
@@ -128,6 +135,8 @@ export default function Page() {
         </Container>
       </section>
 
+      <EventBookingAnswer id="miami-boat-show" locale="en" />
+
       <ServiceAnswerFirst service="boat show exhibitor video production" />
 
       <ServiceDeepDive
@@ -172,6 +181,8 @@ export default function Page() {
           </div>
         </Container>
       </section>
+
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/bar-door-monkey", label: "Bar Door Monkey Miami, a published venue promo (not boat show coverage)" }} />
 
       <ServiceFaqs
         heading="Common questions before you start."

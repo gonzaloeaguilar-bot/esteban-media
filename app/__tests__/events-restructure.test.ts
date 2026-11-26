@@ -21,8 +21,14 @@ describe("events restructure & dual-audience collapsible depth", () => {
   });
 
   it("labels listed edition dates with 'confirm dates with organizer'", () => {
-    const eventEn = renderToStaticMarkup(React.createElement(EventContentPage, { id: "art-basel", locale: "en" }));
-    const eventEs = renderToStaticMarkup(React.createElement(EventContentPage, { id: "art-basel", locale: "es" }));
+    // Art Basel's dates were read on the organizer's site on 2026-11-26 and now
+    // carry the "official dates" label; a guide-listed event keeps this one.
+    const eventEn = renderToStaticMarkup(React.createElement(EventContentPage, { id: "sobewff", locale: "en" }));
+    const eventEs = renderToStaticMarkup(React.createElement(EventContentPage, { id: "sobewff", locale: "es" }));
+    const officialEn = renderToStaticMarkup(React.createElement(EventContentPage, { id: "art-basel", locale: "en" }));
+    const officialEs = renderToStaticMarkup(React.createElement(EventContentPage, { id: "art-basel", locale: "es" }));
+    expect(officialEn).toContain("Official dates for 2026 (from the organizer&#x27;s site)");
+    expect(officialEs).toContain("Fechas oficiales para 2026 (del sitio del organizador)");
     const hubEn = renderToStaticMarkup(React.createElement(EventsHubPage, { locale: "en" }));
     const hubEs = renderToStaticMarkup(React.createElement(EventsHubPage, { locale: "es" }));
 

@@ -16,6 +16,8 @@ import { priceSentence, whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { NearMeAnswer } from "@/components/near-me-answer";
+import { DANCE_RECITAL_NEAR_ME } from "@/lib/near-me-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/dance-studio-music-school-video-marketing-miami";
@@ -126,6 +128,7 @@ export default function Page() {
         </Container>
       </section>
 
+      <NearMeAnswer content={DANCE_RECITAL_NEAR_ME} />
       <ServiceCraft heading={depth.craftHeading} cards={depth.craft} sectionId="studio-craft" />
       <ServiceDeepDive id={dive.id} title={dive.title} destinations={dive.destinations} sections={dive.sections} />
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="studio-faq" />
