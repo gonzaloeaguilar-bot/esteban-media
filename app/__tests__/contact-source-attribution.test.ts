@@ -133,7 +133,7 @@ function runScript({
     (windowStub.history as { pushState: (d: unknown, u: string, url: string) => void }).pushState({}, "", path);
   }
 
-  return { events, clickWhatsapp, navigate, anchors, storage };
+  return { events, clickWhatsapp, navigate, anchors, storage, windowStub };
 }
 
 describe("contact-source attribution on the direct-contact path", () => {
@@ -275,4 +275,25 @@ describe("contact-source attribution on the direct-contact path", () => {
     expect(formTwin!.params.lead_type).toBe("form");
     expect(formTwin!.params.landing_page).toBe("/");
   });
+});
+
+describe("contact-source attribution on the form path (codex review, PR #808)", () => {
+  for (const source of [
+    "real-estate-monthly-plan",
+    "mastermind-filming-price",
+    "town-hall-filming-price",
+    "keys-retreat-filming-price",
+  ]) {
+    it(`a form submit from ?source=${source} reaches contact_click.contact_source`, () => {
+      const { events, windowStub } = runScript({ search: `?source=${source}` });
+      events.length = 0;
+      const track = windowStub.__estebanTrack as (name: string, params: Record<string, unknown>) => void;
+      expect(typeof track).toBe("function");
+      // lib/analytics-events.ts emits exactly this on a successful form submit.
+      track("contact_intent", { contact_method: "form_submit", lead_source: source, locale: "en" });
+      const twin = events.find((event) => event.name === "contact_click");
+      expect(twin, "contract twin of contact_intent").toBeDefined();
+      expect(twin!.params.contact_source).toBe(source);
+    });
+  }
 });
