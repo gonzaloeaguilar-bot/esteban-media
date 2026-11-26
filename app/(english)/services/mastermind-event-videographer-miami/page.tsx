@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { BuyerAnswer } from "@/components/buyer-answer";
 
 export const metadata = buildPageMetadata({
   title: "Mastermind Event Videographer Miami",
@@ -127,6 +128,8 @@ export default function MastermindEventVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+
+      <BuyerAnswer kind="mastermind-filming-price" locale="en" />
 
       <ServiceAnswerFirst service="mastermind event videography in Miami" />
 

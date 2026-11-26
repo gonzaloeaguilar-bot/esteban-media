@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { BuyerAnswer } from "@/components/buyer-answer";
 
 export const metadata = buildPageMetadata({
   title: "Executive Retreat Videographer Florida Keys",
@@ -127,6 +128,8 @@ export default function Page() {
           </div>
         </Container>
       </section>
+
+      <BuyerAnswer kind="keys-retreat-filming-price" locale="en" />
 
       <ServiceAnswerFirst service="Executive retreat videography" />
 
