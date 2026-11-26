@@ -319,7 +319,11 @@ describe("Restaurant promo video editing internal links mesh", () => {
     expect(markup).toContain(
       'href="/services/short-form-video-editor-miami"',
     );
+    // The Wynwood page merged into brand video on 2026-11-26 (zero-signal prune).
     expect(markup).toContain(
+      'href="/services/brand-video-production-miami"',
+    );
+    expect(markup).not.toContain(
       'href="/services/creative-video-production-wynwood"',
     );
     expect(markup).toContain(

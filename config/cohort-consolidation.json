@@ -63,10 +63,6 @@
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
     {
-      "path": "/es/servicio-de-edicion-de-video-para-youtube-miami",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
       "path": "/es/video-inmobiliario-aventura-miami",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
@@ -116,10 +112,6 @@
     },
     {
       "path": "/services/video-production-davie-fl",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
-      "path": "/services/youtube-video-editing-service-miami",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     }
   ],
@@ -403,7 +395,258 @@
       "reason": "near-duplicate of /guides/fastest-way-to-send-large-video-files-to-editor, which outperforms it"
     }
   ],
-  "merges": [],
+  "merges": [
+    {
+      "from": "/es/edicion-de-clips-de-podcast-miami",
+      "to": "/es/editor-de-video-corto-para-redes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: podcast clips are short-form social cuts"
+    },
+    {
+      "from": "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+      "to": "/es/editor-de-videos-cristianos-youtube",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: church/sermon video editing"
+    },
+    {
+      "from": "/es/edicion-de-video-de-capacitacion-corporativa-miami",
+      "to": "/es/produccion-de-video-para-cursos-online-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: training video = course video"
+    },
+    {
+      "from": "/es/edicion-de-video-palm-beach-gardens",
+      "to": "/es/areas/palm-beach-county",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: Palm Beach County area page"
+    },
+    {
+      "from": "/es/edicion-de-video-para-cursos-online",
+      "to": "/es/produccion-de-video-para-cursos-online-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same offer (online course video)"
+    },
+    {
+      "from": "/es/fotografia-de-joyas-y-lujo-miami",
+      "to": "/es/fotografia-de-producto-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: product photography, Miami"
+    },
+    {
+      "from": "/es/imagenes-con-ia-para-ecommerce-miami",
+      "to": "/es/fotografia-de-producto-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: ecommerce product images, Miami"
+    },
+    {
+      "from": "/es/marketing-de-video-para-contratistas-de-techos-florida",
+      "to": "/es/marketing-de-video-para-contratistas-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: contractor video marketing"
+    },
+    {
+      "from": "/es/video-marketing-para-contratistas-florida",
+      "to": "/es/marketing-de-video-para-contratistas-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: contractor video marketing (Spanish duplicate)"
+    },
+    {
+      "from": "/es/video-marketing-para-constructores-de-piscinas-south-florida",
+      "to": "/es/marketing-de-video-para-contratistas-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: pool builders are contractors"
+    },
+    {
+      "from": "/es/video-de-progreso-de-construccion-miami",
+      "to": "/es/marketing-de-video-para-contratistas-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: construction video for builders, Miami"
+    },
+    {
+      "from": "/es/produccion-de-video-de-marca-miami",
+      "to": "/es/videografo-en-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: commercial/brand video production in Miami"
+    },
+    {
+      "from": "/es/produccion-de-video-doral-miami",
+      "to": "/es/videografo-en-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: video production in Miami-Dade (Doral)"
+    },
+    {
+      "from": "/es/video-corporativo-distrito-financiero-miami",
+      "to": "/es/videografo-en-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: corporate video production in Miami"
+    },
+    {
+      "from": "/es/produccion-de-video-palm-beach-county",
+      "to": "/es/areas/palm-beach-county",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same area (Palm Beach County)"
+    },
+    {
+      "from": "/es/reutilizacion-de-contenido-para-redes-miami",
+      "to": "/es/editor-de-video-corto-para-redes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: repurposing = cutting short-form clips, Miami"
+    },
+    {
+      "from": "/es/retenedor-mensual-de-reutilizacion-de-video",
+      "to": "/es/editor-de-video-corto-para-redes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: monthly repurposing = short-form editing"
+    },
+    {
+      "from": "/es/video-de-penthouses-de-lujo-miami",
+      "to": "/es/editor-de-video-real-estate-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: luxury residential real-estate video, Miami"
+    },
+    {
+      "from": "/es/video-inmobiliario-sunny-isles",
+      "to": "/es/editor-de-video-real-estate-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: real-estate video (Sunny Isles is Miami-Dade)"
+    },
+    {
+      "from": "/es/video-para-preventa-de-condominios-miami",
+      "to": "/es/editor-de-video-real-estate-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: pre-construction condo video, Miami"
+    },
+    {
+      "from": "/es/video-para-salas-de-ventas-de-preventa-miami",
+      "to": "/es/editor-de-video-real-estate-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: pre-construction sales gallery video, Miami"
+    },
+    {
+      "from": "/es/video-para-alquiler-de-oficinas-comerciales-south-florida",
+      "to": "/es/video-para-bienes-raices-comerciales-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: commercial real-estate video"
+    },
+    {
+      "from": "/es/video-para-alquileres-de-lujo-y-airbnb-luxe-miami-beach",
+      "to": "/es/video-para-alquileres-vacacionales-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: vacation-rental video"
+    },
+    {
+      "from": "/es/videografo-para-bar-mitzvah-south-florida",
+      "to": "/es/videografo-para-fiestas-privadas-sur-de-florida",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: private family celebration video"
+    },
+    {
+      "from": "/es/video-para-paneles-y-conferencias-multicamara-miami",
+      "to": "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: corporate event coverage"
+    },
+    {
+      "from": "/es/videografo-para-eventos-de-networking-miami",
+      "to": "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: corporate event coverage"
+    },
+    {
+      "from": "/es/videografo-para-galas-corporativas-miami",
+      "to": "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: corporate event coverage"
+    },
+    {
+      "from": "/es/videografo-para-cena-de-ensayo-miami",
+      "to": "/es/videografo-de-bodas-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: rehearsal dinner is wedding coverage"
+    },
+    {
+      "from": "/services/architecture-design-video-miami",
+      "to": "/services/interior-design-millwork-video-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: architecture/interior design video, Miami"
+    },
+    {
+      "from": "/services/bar-mitzvah-videographer-south-florida",
+      "to": "/services/bar-bat-mitzvah-videographer-boca-raton",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same offer (bar/bat mitzvah video)"
+    },
+    {
+      "from": "/services/commercial-office-leasing-video-south-florida",
+      "to": "/services/commercial-real-estate-video-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: commercial real-estate video"
+    },
+    {
+      "from": "/services/concierge-doctor-video-palm-beach",
+      "to": "/services/medical-practice-video-marketing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: medical practice video marketing"
+    },
+    {
+      "from": "/services/contractor-video-marketing-south-florida",
+      "to": "/services/contractor-video-marketing-florida",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: near-duplicate contractor page"
+    },
+    {
+      "from": "/services/luxury-pool-builder-video-marketing-south-florida",
+      "to": "/services/contractor-video-marketing-florida",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: pool builders are contractors"
+    },
+    {
+      "from": "/services/corporate-training-video-editing-miami",
+      "to": "/services/online-course-video-editing-service",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: training video = course video editing"
+    },
+    {
+      "from": "/services/corporate-video-production-brickell",
+      "to": "/services/corporate-video-production-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same offer (Brickell is Miami)"
+    },
+    {
+      "from": "/services/cosmetic-dentistry-veneers-video-miami",
+      "to": "/services/dental-video-marketing-south-florida",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: dental video marketing"
+    },
+    {
+      "from": "/services/creative-video-production-wynwood",
+      "to": "/services/brand-video-production-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: creative/brand video production, Miami"
+    },
+    {
+      "from": "/services/fine-dining-restaurant-videographer-miami",
+      "to": "/services/restaurant-promo-video-editing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: restaurant video, Miami"
+    },
+    {
+      "from": "/services/mixology-cocktail-videographer-miami",
+      "to": "/services/restaurant-promo-video-editing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: bar/restaurant video, Miami"
+    },
+    {
+      "from": "/services/multicam-panel-discussion-video-miami",
+      "to": "/services/corporate-town-hall-video-south-florida",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: multicam corporate session video"
+    },
+    {
+      "from": "/services/pre-construction-sales-gallery-video-miami",
+      "to": "/services/pre-construction-condo-video-marketing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: pre-construction sales video, Miami"
+    },
+    {
+      "from": "/services/real-estate-video-sunny-isles",
+      "to": "/real-estate",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: real-estate hub"
+    },
+    {
+      "from": "/services/rehearsal-dinner-videographer-miami",
+      "to": "/services/wedding-videographer-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: rehearsal dinner is wedding coverage, Miami"
+    },
+    {
+      "from": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+      "to": "/services/yacht-charter-video-production-fort-lauderdale",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same offer, same city"
+    },
+    {
+      "from": "/services/ugc-ad-variation-video-editing",
+      "to": "/services/tiktok-ad-video-editor-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: short-form ad edit variations"
+    },
+    {
+      "from": "/services/video-editing-palm-beach-gardens",
+      "to": "/areas/palm-beach-county",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: Palm Beach County area page"
+    },
+    {
+      "from": "/services/video-production-delray-beach",
+      "to": "/areas/palm-beach-county",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: Palm Beach County area page (Delray Beach)"
+    },
+    {
+      "from": "/services/video-production-doral-miami",
+      "to": "/areas",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: service-areas hub"
+    },
+    {
+      "from": "/services/video-podcast-editing-service-miami",
+      "to": "/services/podcast-clipping-service-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: podcast video editing, Miami"
+    }
+  ],
   "deferralReason": "All 19 MERGE decisions are guide URLs, and the 2026-08-12 clustering ran per-language: the EN and ES clusters picked different winners for the same concept. Propagating each merge to its language counterpart would merge two surviving winners away (/guides/how-to-mix-audio-for-social-video and /guides/drone-video-editing-guidelines-florida) and create redirect chains. Choosing one winner per concept across both languages is an editorial decision, not a mechanical one, so the merges are deferred to a follow-up rather than executed unsafely here. The 40 noindex decisions are independent of pairing and ship now.",
   "pairSymmetryRule": "NOINDEX is applied only when both halves of a language pair qualify. 12 URLs were promoted back to KEEP under this rule.",
   "guideScopeRule": "This pass touches service and niche pages only. Every /guides/ and /es/guias/ URL is deferred to the merge track.",
@@ -415,6 +658,32 @@
       "decidedBy": "Gonzalo (in-session, 2026-10-14)",
       "reason": "Owner decision 2026-10-14: Boca Raton was added to the Google Business Profile service area the same day, and live Google did not show Esteban for 'reels editor boca raton'. The 2026-08-12 NOINDEX judged a ~190-word template city page; the page was rebuilt on the Reels Fort Lauderdale formula (title 'Reels & ...', price line, who-can-help/cost/contact blocks, question-headed sections) before the noindex was removed. Palm Beach stays 'project by project' (AGENTS.md).",
       "followUpDate": "2026-10-28"
+    },
+    {
+      "path": "/services/youtube-video-editing-service-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-24",
+      "decidedBy": "Gonzalo (in-session, 2026-11-24)",
+      "reason": "Search Console shows 'youtube editor miami' earning 7 phone impressions (position 11.9). The cohort rule 1 promotes back any URL that earns impressions. Reopened alongside its Spanish twin.",
+      "followUpDate": "2026-12-08"
+    },
+    {
+      "path": "/es/servicio-de-edicion-de-video-para-youtube-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-24",
+      "decidedBy": "Gonzalo (in-session, 2026-11-24)",
+      "reason": "Search Console shows 'editor de youtube miami' earning 17 phone impressions (position 14.1). Reopened alongside its English twin under cohort rule 1.",
+      "followUpDate": "2026-12-08"
     }
-  ]
+  ],
+  "prune20261126": {
+    "executedOn": "2026-11-26",
+    "window": "2026-08-27..2026-11-25 (90 days)",
+    "sources": "GSC searchAnalytics page dimension dataState=all; GA4 property 546162112 landingPage sessions + contact_click/lead/form_submit; GSC URL Inspection per zero-signal URL",
+    "rule": "MERGE only when the URL has 0 impressions, 0 clicks, 0 sessions and 0 lead events in 90 days, URL Inspection says Submitted and indexed, it first shipped on or before 2026-10-22 (35+ days old), and a same-language same-intent page exists that earns impressions or sessions (or is the declared owner page). Never-crawled, discovered-not-indexed and crawled-not-indexed URLs are held as unjudged. Guides, core offers, tools, pages edited by PRs 831/836/837 and twins of owner pages are held.",
+    "merged": 50,
+    "reversed20261126": "Two merges reversed the same day by PR #842 before any recrawl: /services/boat-show-exhibitor-video-fort-lauderdale and /es/cobertura-de-video-art-basel-miami-art-week. #842 strengthened both (official Miami International Boat Show Feb 10-14 2027 and Art Basel Dec 4-6 2026 dates, answer-first booking), so they are no longer zero-signal candidates; they return to the sitemap and their hreflang pairs.",
+    "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
+    "recheck": "2027-01-07: GSC impressions on each merge target vs the prior 6 weeks; any target that loses impressions reverses its merges"
+  }
 }

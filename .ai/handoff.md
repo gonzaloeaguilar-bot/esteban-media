@@ -1,3 +1,22 @@
+## 2026-11-26 — Zero-signal page prune (branch seo/prune-zero-impression)
+
+- 52 indexed pages with 0 Google impressions, 0 GA4 sessions and 0 lead events in 2026-08-27..2026-11-25 now 301 (statusCode 301) to a same-language, same-intent page that earns signal. Sitemap 601 -> 549; freeze count/sha updated; GSC watch set and lastmod ledger follow.
+- Mechanism: `config/cohort-consolidation.json#merges` (was empty) + `prune20261126` block; `lib/consolidation.ts` adds `resolveMergedPath`; the language switcher, sibling rings and niche-answer list now skip merged pages; hreflang pairs with a merged half dissolve (existing filter).
+- Held: never-crawled / discovered / crawled-not-indexed (81), guides, core offers, tools, pages younger than 35 days, anything linked from a page edited today by #831/#836/#837/#821/#830/#779. Full table: vault `esteban-page-prune-2026-11-26`.
+- Test: `app/__tests__/zero-signal-prune-2026-11-26.test.ts` (negative control verified: dropping one merge or the redirect wiring turns it red).
+- text-parity still red as on main (783 vs 762 on main); the additions are lost links to merged pages and the merged pages themselves.
+
+## 2026-11-26 — Commercial-intent package (branch geo/commercial-intent-package)
+
+- Strategy: vault `esteban-commercial-intent-lateral-strategy-2026-11-26` (approved by Gonzalo 2026-11-26).
+- Money wall: Reels price index guide (EN+ES) opens with "How much does a video editor charge per video?" from lib/pricing.ts plus a "when not to pay for an editor yet" sentence; removed the invented "24-hour turnaround" FAQ claim (now the 7-day floor).
+- New ES-only page `/es/cuanto-cobra-un-videografo-en-miami` (SpanishNichePage entry; no EN twin, so no hreflang pair). Filming is FILMING_HOURLY ($125/h, 4h minimum), not the $80 the brief quoted.
+- Hire wording on `/services/hire-remote-video-editor` and `/es/contratar-editor-de-video-remoto`; PR #831 lead and answer block untouched.
+- Quinceañera: owners `/services/quinceanera-video-miami` + `/es/video-para-quinceaneras-miami`; the videographer pair 301s to them (next.config.ts, statusCode 301). Sitemap 602 -> 601.
+- `components/need-someone-this-week.tsx` on events hub, all event pages and 7 event service pages (EN+ES).
+- Tracking: contact_click carries `lead_type` (whatsapp/phone/email/form/instagram/booking) and `landing_page` (first page of the session, path only); `lead` carries `landing_page`. GA4 custom dimension `landing_page` registered (customDimensions/16423960564).
+- Text-parity baseline refreshed for the 9 Spanish routes changed here only. The rest of the baseline is stale on main since 2026-10-29 (~690 drifted routes, e.g. 21ee59f0); a full refresh trips the services-config ladder guard ($150/$225/$300 aggregate), so it was not done here.
+
 ## 2026-11-25 — Priority-growth owned_site_ctr: HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
 
 - Priority-growth action brief: recommended action `owned_site_ctr` for round 2026-11-25 (work id: `priority-growth:2026-11-25:esteban`).

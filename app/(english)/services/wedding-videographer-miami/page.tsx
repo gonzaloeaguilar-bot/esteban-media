@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -177,6 +178,7 @@ export default function WeddingVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/diana-jack", label: "Diana & Jack, a published wedding film" }} />
       <ServiceFaqs
         heading="Common questions before you start."
         faqs={PORTED_SERVICE_FAQS["/services/wedding-videographer-miami"]}

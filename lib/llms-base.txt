@@ -158,12 +158,12 @@ High-intent service pages with direct quote prompts:
 
 Niche pages added 2026-10-11 (English / Spanish pairs; editing, AI-assisted content and social planning are core, on-location filming is a paid add-on scoped per project):
 
-- Pre-construction condo video: https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami · https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami
+- Pre-construction condo video: https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami
 - Vacation rental tour reels: https://estebanmorenomedia.com/services/vacation-rental-video-marketing-fort-lauderdale · https://estebanmorenomedia.com/es/video-para-alquileres-vacacionales-fort-lauderdale
 - Insurance agency explainers (ACA / Medicare): https://estebanmorenomedia.com/services/insurance-agency-video-marketing-miami · https://estebanmorenomedia.com/es/marketing-de-video-para-agencias-de-seguros-miami
 - Mortgage broker / loan officer videos: https://estebanmorenomedia.com/services/mortgage-broker-video-marketing-miami · https://estebanmorenomedia.com/es/marketing-de-video-para-brokers-hipotecarios-miami
 - Immigration attorney educational reels: https://estebanmorenomedia.com/services/immigration-attorney-video-marketing-miami · https://estebanmorenomedia.com/es/marketing-de-video-para-abogados-de-inmigracion-miami
-- Church sermon clips: https://estebanmorenomedia.com/services/church-sermon-clip-editing-miami · https://estebanmorenomedia.com/es/edicion-de-clips-de-predicas-para-iglesias-miami
+- Church sermon clips: https://estebanmorenomedia.com/services/church-sermon-clip-editing-miami
 - Quinceañera video: https://estebanmorenomedia.com/services/quinceanera-video-miami · https://estebanmorenomedia.com/es/video-para-quinceaneras-miami
 - How to start as an influencer (guide): https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer · https://estebanmorenomedia.com/es/guias/como-empezar-a-ser-influencer
 - Videographer in Miami (filming per hour, editing per video): https://estebanmorenomedia.com/services/videographer-miami · https://estebanmorenomedia.com/es/videografo-en-miami
@@ -172,7 +172,7 @@ Niche pages added 2026-10-11 (English / Spanish pairs; editing, AI-assisted cont
 - Founder and personal brand videos: https://estebanmorenomedia.com/services/personal-brand-video-editor-founders-miami · https://estebanmorenomedia.com/es/editor-de-video-para-marca-personal-miami
 - AI chatbot for small business (website + Instagram DM, English and Spanish, from {{CHATBOT_FROM}} setup plus a monthly fee): https://estebanmorenomedia.com/services/ai-chatbot-for-small-business · https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios
 - Landing page design (one offer, one action, for ads and bio links, from {{LANDING_FROM}}; larger builds {{LANDING_UPPER}}+): https://estebanmorenomedia.com/services/landing-page-design · https://estebanmorenomedia.com/es/landing-page-para-negocios
-- Podcast clipping for Reels, TikTok and Shorts: https://estebanmorenomedia.com/services/podcast-clipping-service-miami · https://estebanmorenomedia.com/es/edicion-de-clips-de-podcast-miami
+- Podcast clipping for Reels, TikTok and Shorts: https://estebanmorenomedia.com/services/podcast-clipping-service-miami
 
 Original data, collected 2026-10-14:
 

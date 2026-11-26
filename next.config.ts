@@ -2,15 +2,18 @@ import type { NextConfig } from "next";
 
 import consolidation from "./config/cohort-consolidation.json";
 
-// The 2026-08-12 cohort MERGE decisions, executed. Each merged URL 301s to the
-// cluster winner that outperformed it. See lib/consolidation.ts.
-// merges is empty while the guide merges are deferred, so the JSON import
-// widens to never[]; the annotation keeps it a real shape.
+// Executed MERGE decisions (config/cohort-consolidation.json#merges). Each
+// merged URL 301s to the same-language page that outperformed it. The
+// 2026-11-26 prune added 66 zero-signal, indexed niche pages; see
+// lib/consolidation.ts and prune20261126 in the JSON for the rule.
 const mergeDecisions = consolidation.merges as { from: string; to: string }[];
+// statusCode 301 (not permanent: true, which Next serves as 308) to match the
+// quinceañera merges of PR #837. A "/path/" request is first normalised by
+// Next's own trailing-slash 308, so only the bare form is needed.
 const mergeRedirects = mergeDecisions.map((entry) => ({
   source: entry.from,
   destination: entry.to,
-  permanent: true,
+  statusCode: 301 as const,
 }));
 
 // Legacy bare slugs that never existed as routes but get requested in the wild:
@@ -87,6 +90,26 @@ const legacyRedirects = [
     source: "/es/edicion-de-predicas-youtube/",
     destination: "/es/editor-de-videos-cristianos-youtube",
     permanent: true,
+  },
+  {
+    source: "/services/quinceanera-videographer-miami",
+    destination: "/services/quinceanera-video-miami",
+    statusCode: 301,
+  },
+  {
+    source: "/services/quinceanera-videographer-miami/",
+    destination: "/services/quinceanera-video-miami",
+    statusCode: 301,
+  },
+  {
+    source: "/es/videografo-de-quinceaneras-miami",
+    destination: "/es/video-para-quinceaneras-miami",
+    statusCode: 301,
+  },
+  {
+    source: "/es/videografo-de-quinceaneras-miami/",
+    destination: "/es/video-para-quinceaneras-miami",
+    statusCode: 301,
   },
 ];
 

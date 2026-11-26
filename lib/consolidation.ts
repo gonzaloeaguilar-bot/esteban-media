@@ -50,6 +50,13 @@ export const REOPENED_BY_OWNER: readonly string[] = (
 const MERGED_PATHS = new Set(MERGE_DECISIONS.map((entry) => entry.from));
 const NOINDEX_PATHS = new Set(NOINDEX_DECISIONS.map((entry) => entry.path));
 
+const MERGE_TARGETS = new Map(MERGE_DECISIONS.map((entry) => [entry.from, entry.to]));
+
+/** Where a path lands after a MERGE 301; unmerged paths come back unchanged. */
+export function resolveMergedPath(path: string): string {
+  return MERGE_TARGETS.get(path) ?? path;
+}
+
 /** A merged path 301s away, so it must never be advertised in the sitemap. */
 export function isMergedPath(path: string): boolean {
   return MERGED_PATHS.has(path);

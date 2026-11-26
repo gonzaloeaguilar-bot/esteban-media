@@ -713,7 +713,7 @@ export default function PortfolioPage() {
                 </p>
               </div>
               <Link
-                href="/services/contractor-video-marketing-south-florida"
+                href="/services/contractor-video-marketing-florida"
                 className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Contractor video service

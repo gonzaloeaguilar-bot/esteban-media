@@ -161,10 +161,15 @@ export function buildGoogleAnalyticsScript({
           o.cta_position = String(p.section || p.link_context || 'page').slice(0, 60);
         } else if (event === 'contact_click') {
           o.method = p.contact_method || p.method || 'unknown';
-          o.contact_source = p.contact_source || 'unknown';
+          // A form submit names its origin in lead_source (e.g. ?source= on the
+          // contact page); without this its contact_click leg read 'unknown'.
+          o.contact_source = p.contact_source || p.lead_source || 'unknown';
+          o.lead_type = p.lead_type || normalizeLeadType(o.method);
+          o.landing_page = p.landing_page || firstTouchLandingPage();
         } else if (event === 'lead') {
           o.form_id = String(p.lead_source || 'lead_form').slice(0, 60);
-          o.lead_type = String(p.lead_source || 'form_submit').slice(0, 60);
+          o.lead_type = String(p.lead_type || p.lead_source || 'form_submit').slice(0, 60);
+          o.landing_page = p.landing_page || firstTouchLandingPage();
         } else if (event === 'section_view') {
           o.section_id = p.section_id || 'unknown';
         } else if (event === 'outbound_click') {
@@ -275,7 +280,40 @@ export function buildGoogleAnalyticsScript({
       // sessionStorage so three pages of browsing before messaging does not lose
       // the channel.
       var FIRST_TOUCH_SOURCE_KEY = 'esteban-media:first-touch-source';
+      var FIRST_TOUCH_LANDING_PAGE_KEY = 'esteban-media:first-touch-landing-page';
       var AI_SOURCE_NAMES = ['chatgpt', 'gemini', 'perplexity', 'copilot', 'claude'];
+
+      function firstTouchLandingPage() {
+        var stored = null;
+        try {
+          stored = window.sessionStorage.getItem(FIRST_TOUCH_LANDING_PAGE_KEY);
+        } catch (_error) {
+          stored = null;
+        }
+        if (stored) {
+          return stored;
+        }
+
+        var currentPath = safePagePath(window.location.pathname);
+        try {
+          window.sessionStorage.setItem(FIRST_TOUCH_LANDING_PAGE_KEY, currentPath);
+        } catch (_error) {
+          // Storage unavailable: fallback to current path, never throws.
+        }
+        return currentPath;
+      }
+
+      function normalizeLeadType(method) {
+        if (!method) return 'form';
+        if (method === 'contact_page') return 'form';
+        var allowed = { whatsapp: 1, phone: 1, email: 1, form: 1, instagram: 1, booking: 1 };
+        return allowed[method] ? method : 'form';
+      }
+
+      // Capture the landing page on the FIRST page of the session, not at the
+      // moment of the click: a visitor who lands on a guide and messages from
+      // /contact three pages later must still credit the guide.
+      firstTouchLandingPage();
 
       function classifyReferralSource() {
         if (!document.referrer) {
@@ -448,7 +486,14 @@ export function buildGoogleAnalyticsScript({
 
         var source = firstTouchContactSource();
         var aiName = contactSourceAiName(source);
-        var intentParams = { contact_method: method, contact_source: source };
+        var landingPage = firstTouchLandingPage();
+        var leadType = normalizeLeadType(method);
+        var intentParams = {
+          contact_method: method,
+          contact_source: source,
+          lead_type: leadType,
+          landing_page: landingPage
+        };
         if (aiName) {
           intentParams.ai_source = aiName;
         }

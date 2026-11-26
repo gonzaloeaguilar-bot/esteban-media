@@ -1,7 +1,9 @@
+import { isConsolidatedPath } from "@/lib/consolidation";
 import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service-depth";
 import { priceSentence } from "@/lib/packages";
 import {
   CARE_AND_PRODUCTION_PLANS,
+  CELEBRATION_FILM_BUNDLES,
   SHORT_FORM,
   TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
@@ -310,9 +312,9 @@ export const YACHT_CHARTER_DEPTH: Depth = {
   relatedHeading: "Related services for yacht charter and marine video.",
   related: [
     {
-      title: "Superyacht Charter Marketing Video",
-      detail: "Luxury charter films, stateroom walkthroughs, and broker marketing for superyachts.",
-      href: "/services/superyacht-charter-marketing-video-fort-lauderdale",
+      title: "Yacht Party Videographer",
+      detail: "Filming parties and private events on board in Miami.",
+      href: "/services/yacht-party-videographer-miami",
     },
     {
       title: "Yacht Hospitality Video",
@@ -960,9 +962,9 @@ export const YOUTUBE_EDITING_DEPTH: Depth = {
       href: "/services/content-repurposing-service-miami",
     },
     {
-      title: "Video Podcast Editing",
-      detail: "Edit conversation-based episodes and clips from supplied recordings.",
-      href: "/services/video-podcast-editing-service-miami",
+      title: "Podcast Clip Editing",
+      detail: "Cut captioned clips from conversation-based episodes and supplied recordings.",
+      href: "/services/podcast-clipping-service-miami",
     },
     {
       title: "How to Repurpose Long Form",
@@ -2361,23 +2363,6 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Two-minute video case studies detailing complete scope of work and homeowner satisfaction provide powerful digital proof during in-person sales bids.",
     },
   ],
-  "/services/quinceanera-videographer-miami": [
-    {
-      question: "How many camera operators are recommended for a full quinceañera event?",
-      answer:
-        "A two-person camera crew ensures continuous multi-angle coverage of church blessings, court dances, and emotional family reactions simultaneously.",
-    },
-    {
-      question: "How is sound captured during loud ballroom music, waltzes, and family toasts?",
-      answer:
-        "Direct audio connections to the DJ soundboard paired with discreet wireless lapel microphones guarantee crystal-clear recording of all speeches.",
-    },
-    {
-      question: "When will our family receive the finished quinceañera highlight video?",
-      answer:
-        "A dynamic vertical social teaser is delivered within one week of the party, with complete documentary films delivered following comprehensive color grading.",
-    },
-  ],
   "/services/multicam-podcast-video-production-miami": [
     {
       question: "Can you film our podcast on-location at our corporate office or private studio?",
@@ -3050,7 +3035,7 @@ const SERVICE_CARD_COPY: Readonly<Record<string, Omit<RelatedService, "href">>> 
   "/services/crowdfunding-video-editor-miami": { title: "Crowdfunding Video Editor", detail: "Crowdfunding video editor in Miami: Kickstarter launch videos, Indiegogo product pitch edits, and backer conversion video post-production." },
 };
 
-export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+const RAW_SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
   [
     "/services/corporate-training-video-editing-miami",
     "/services/corporate-video-editing-weston-fl",
@@ -3087,7 +3072,7 @@ export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
 ];
 
 /** Spanish clusters, same ring rule; card copy comes from spanishNichePages. */
-export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+const RAW_SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
   [
     "edicion-de-video-corporativo-weston",
     "edicion-de-video-de-capacitacion-corporativa-miami",
@@ -3141,6 +3126,18 @@ export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
     "imagenes-con-ia-para-ecommerce-miami",
   ],
 ];
+
+// Merged and noindexed pages leave the rings so every surviving member keeps
+// its inbound links from live pages (2026-11-26 prune, lib/consolidation.ts).
+export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] =
+  RAW_SERVICE_SIBLING_CLUSTERS.map((cluster) =>
+    cluster.filter((path) => !isConsolidatedPath(path)),
+  ).filter((cluster) => cluster.length > 1);
+
+export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] =
+  RAW_SPANISH_SIBLING_CLUSTERS.map((cluster) =>
+    cluster.filter((slug) => !isConsolidatedPath(`/es/${slug}`)),
+  ).filter((cluster) => cluster.length > 1);
 
 /** The next `count` members of a ring cluster after `member`, or [] if absent. */
 export function ringSiblings(
@@ -3200,7 +3197,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "Published proof for this kind of edit: seven vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
+    note: "Published proof for this kind of edit: ten vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
   },
   craftHeading: "What a pre-construction reel has to get right.",
   craft: [
@@ -3239,8 +3236,8 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for property marketing.",
   related: [
-    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with seven published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
-    { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
+    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with ten published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Interior Design & Millwork Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/interior-design-millwork-video-miami" },
     { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
   ],
 };
@@ -3254,7 +3251,7 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "The seven reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
+    note: "The ten reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
   },
   craftHeading: "What a short-term rental tour needs from the edit.",
   craft: [
@@ -3288,12 +3285,12 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
     {
       question: "Is there published property work to look at?",
       answer:
-        "Yes. The real estate reels page shows seven vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
+        "Yes. The real estate reels page shows ten vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
     },
   ],
   relatedHeading: "Related services for property hosts and managers.",
   related: [
-    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with seven published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with ten published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
     { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits for local businesses near the base.", href: "/services/reels-editor-fort-lauderdale" },
     { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
   ],
@@ -3510,7 +3507,7 @@ export const CHURCH_SERMON_DEPTH: NicheWave8Depth = {
   relatedHeading: "Related services for long recordings.",
   related: [
     { title: "Content Repurposing", detail: "One long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
-    { title: "Video Podcast Editing", detail: "Multi-camera conversations edited for YouTube and clips.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Podcast Clip Editing", detail: "Short clips cut from a podcast or a long interview.", href: "/services/podcast-clipping-service-miami" },
     { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
   ],
 };
@@ -3559,6 +3556,10 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
       question: "When should the family book the edit?",
       answer:
         "Before the date, so the shot list, the deliverables and the songs are agreed while there is still time to plan. If the party has already happened, send the footage and a list of the moments that matter most; the edit is scoped from what was recorded. Delivery dates are confirmed in the written quote rather than promised in advance.",
+    },
+    {
+      question: "How much does a quinceañera video cost in Miami?",
+      answer: `Private celebration finished film packages start from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} for half-day coverage, including consultation and a finished highlight film. If another videographer films the party, editing supplied footage into social clips starts from ${enStarter()}. Scope, hours, and travel are confirmed in writing before booking.`,
     },
   ],
   relatedHeading: "Related services for celebrations and events.",
@@ -3799,7 +3800,7 @@ export const PODCAST_CLIPPING_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for long recordings.",
   related: [
-    { title: "Video Podcast Editing", detail: "The full episode, multi-camera, edited for YouTube.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
     { title: "Content Repurposing", detail: "Any long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
     { title: "Founder Video Editing", detail: "Personal brand videos for founders, coaches and consultants.", href: "/services/personal-brand-video-editor-founders-miami" },
   ],

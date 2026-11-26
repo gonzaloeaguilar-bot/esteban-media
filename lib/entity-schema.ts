@@ -1,6 +1,9 @@
 import { pageLastModified } from "@/lib/page-lastmod";
-import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES } from "@/lib/pricing";
 import { absoluteUrl, serviceAreas, services, site } from "@/lib/site";
+
+/** Dollar amount for structured data only: digits, no thousands separator. */
+const plainUsd = (amount: number): string => `$${amount}`;
 
 export const entityIds = {
   business: absoluteUrl("/#business"),
@@ -77,7 +80,9 @@ export const localBusinessEntityJsonLd = {
   // to Presencia Local / Local Presence (monthly, high), with
   // Todo Incluido / All-In quoted per project. "+" signals the custom-quote
   // ceiling rather than inventing a fixed maximum.
-  priceRange: `${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}-${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}+`,
+  // No thousands separator here: Brave Search cut "$100-$1,600+" at the comma
+  // and showed "Price: $100 - $1" (read 2026-11-24). Visible prices still use usd().
+  priceRange: `${plainUsd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}-${plainUsd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 0)}+`,
   description: site.description,
   knowsAbout: [
     "Video editing",
@@ -130,6 +135,8 @@ export const localBusinessEntityJsonLd = {
     site.clutch,
     site.theManifest,
     site.youtubeChannel,
+    site.facebook,
+    site.linkedinCompany,
   ],
   knowsLanguage: ["en", "es"],
   availableLanguage: ["Spanish", "English (intermediate)"],

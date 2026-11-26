@@ -385,16 +385,16 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
             </Link>
 
             <Link
-              href="/services/creative-video-production-wynwood"
+              href="/services/brand-video-production-miami"
               className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
             >
               <Sparkles className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h3 className="mt-4 font-serif text-2xl">Wynwood Creative Video</h3>
+              <h3 className="mt-4 font-serif text-2xl">Brand Video in Miami</h3>
               <p className="mt-2 text-sm leading-6 text-[#5a6066]">
-                Energetic venue and nightlife video production capturing Wynwood dining and cocktail culture.
+                Brand films for venues and hospitality groups that want more than a menu promo.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase text-[#9f3c27] group-hover:underline">
-                Explore Wynwood Video
+                Explore Brand Video
                 <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>

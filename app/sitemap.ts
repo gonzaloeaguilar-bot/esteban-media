@@ -169,7 +169,6 @@ export const sitemapRoutes = [
   { path: "/services/executive-video-bio-production-miami", priority: 0.85 },
   { path: "/services/med-spa-plastic-surgeon-video-miami", priority: 0.85 },
   { path: "/services/contractor-video-marketing-florida", priority: 0.85 },
-  { path: "/services/quinceanera-videographer-miami", priority: 0.85 },
   { path: "/services/multicam-podcast-video-production-miami", priority: 0.85 },
   { path: "/services/personal-injury-lawyer-video-miami", priority: 0.85 },
   { path: "/services/private-school-admissions-video-miami", priority: 0.85 },

@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 600,
-  "approvedSitemapUrlSetSha256": "16943a4f1c28efc5e9877e9e2c1c67016b948cf4e6c9e305284891d79f7560c4",
+  "baselineRevisedOn": "2026-11-26",
+  "approvedSitemapUrlCount": 551,
+  "approvedSitemapUrlSetSha256": "8a9e7a31ab834750dddcdb4248d1b80a4160a6ab566a003eeb5d1067fdc7bf72",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,31 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-26",
+      "url": [
+        "/es/cuanto-cobra-un-videografo-en-miami"
+      ],
+      "orderedBy": "Gonzalo (chat 2026-11-26: 'Yes, queue it')",
+      "kind": "pricing guide answering Spanish videographer rate queries in Miami",
+      "demandEvidence": "Google autocomplete 2026-11-26: cuanto cobra un videografo (por hora / de boda / en Miami); no page answered it",
+      "followUpDate": "2026-12-26",
+      "followUp": "Check GSC impressions and indexed status at 30 days for videographer pricing queries.",
+      "note": "1 URL, within one demand-wave allowance of 4. Consolidated 2 duplicate quinceañera URLs at the same time, netting -1 overall."
+    },
+    {
+      "on": "2026-11-24",
+      "url": [
+        "/services/youtube-video-editing-service-miami",
+        "/es/servicio-de-edicion-de-video-para-youtube-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session, 2026-11-24)",
+      "kind": "re-admission of cohort-noindexed YouTube Miami pair",
+      "demandEvidence": "GSC 2026-10-25..11-21: 'editor de youtube miami' 17 phone imp @14.1, 'youtube editor miami' 7 phone imp @11.9. Reopened under cohort rule 1.",
+      "followUpDate": "2026-12-08",
+      "followUp": "Check GSC impressions and indexed status at 14 days.",
+      "note": "2 URLs, within one demand-wave allowance of 4. Re-admission (config/cohort-consolidation.json reopenedByOwner), not new URLs."
+    },
     {
       "on": "2026-11-19",
       "url": [
@@ -874,5 +899,19 @@
       "followUp": "Check GSC impressions, indexation, and qualified real-estate inquiries across /real-estate and /es/bienes-raices.",
       "note": "Two URLs (1 bilingual pair) within default 4-URL demand gate allowance."
     }
-  ]
+  ],
+  "pruneExecuted20261126": {
+    "on": "2026-11-26",
+    "orderedBy": "Gonzalo (chat 2026-11-26: \"Yes start the ai task\")",
+    "previousCount": 601,
+    "merged": 50,
+    "newCount": 551,
+    "reversedBy842": "2026-11-26: /services/boat-show-exhibitor-video-fort-lauderdale and /es/cobertura-de-video-art-basel-miami-art-week restored (PR #842 strengthened both with official event dates); 52 merged by #843 -> 50.",
+    "enforcedBy": "config/cohort-consolidation.json#merges via lib/consolidation.ts (sitemap, directories, sibling rings, hreflang, language switcher) and next.config.ts (301, bare + trailing-slash)",
+    "rule": "see prune20261126.rule in config/cohort-consolidation.json",
+    "evidence": "GSC page 90d (264 pages with impressions), GA4 landingPage 90d, URL Inspection of 301 zero-signal URLs: 203 indexed, 72 discovered-not-indexed, 13 unknown, 12 crawled-not-indexed, 1 noindex",
+    "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
+    "followUpDate": "2027-01-07",
+    "followUp": "Compare GSC impressions on every merge target for the 6 weeks after the prune against the 6 weeks before; reverse the merges into any target that lost impressions, then judge the held list (discovered/unknown/young pages)."
+  }
 }

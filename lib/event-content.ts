@@ -370,7 +370,7 @@ const artBasel: EventCopyBuilder = (event) => ({
     breadcrumb: "Art Basel Miami Beach",
     eyebrow: "Fall · Miami Beach and Miami",
     h1: "Art Week content for galleries, pop-ups and venues, planned before the fair opens.",
-    lead: "Social content planning and editing for galleries, brand activations, pop-ups, restaurants and venues working during Art Basel Miami Beach and Miami Art Week. Send your own footage; on-location filming is a paid add-on scoped per project.",
+    lead: `Social content planning and editing for galleries, brand activations, pop-ups, restaurants and venues working during Art Basel Miami Beach and Miami Art Week. Esteban films key moments as a paid add-on (raw filming from ${usd(RAW_FILMING_RATES.halfDay)} half-day / ${usd(RAW_FILMING_RATES.fullDay)} full-day) or edits your supplied footage from ${FROM} per video.`,
     serviceName: "Art Week social content for galleries, pop-ups and venues",
     answer: {
       question: "How can a gallery or pop-up get Art Week content without a production crew?",
@@ -454,7 +454,7 @@ const artBasel: EventCopyBuilder = (event) => ({
     breadcrumb: "Art Basel Miami Beach",
     eyebrow: "Otoño · Miami Beach y Miami",
     h1: "Contenido de Art Week para galerías, pop-ups y locales, planificado antes de que abra la feria.",
-    lead: "Planificación y edición de contenido para redes para galerías, activaciones de marca, pop-ups, restaurantes y locales que trabajan durante Art Basel Miami Beach y la Miami Art Week. Envía tu propio material; la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.",
+    lead: `Planificación y edición de contenido para redes para galerías, activaciones de marca, pop-ups, restaurantes y locales que trabajan durante Art Basel Miami Beach y la Miami Art Week. Esteban graba momentos clave como servicio adicional pagado (grabación en bruto desde ${usd(RAW_FILMING_RATES.halfDay)} media jornada / ${usd(RAW_FILMING_RATES.fullDay)} jornada completa) o edita tu propio material desde ${FROM} por video.`,
     serviceName: "Contenido para redes de Art Week para galerías, pop-ups y locales",
     answer: {
       question: "¿Cómo puede una galería o un pop-up tener contenido de Art Week sin un equipo de producción?",

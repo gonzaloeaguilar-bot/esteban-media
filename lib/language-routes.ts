@@ -1,3 +1,4 @@
+import { resolveMergedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 
@@ -185,8 +186,6 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-med-spas-y-cirujanos-plasticos-miami",
   "/services/contractor-video-marketing-florida":
     "/es/video-marketing-para-contratistas-florida",
-  "/services/quinceanera-videographer-miami":
-    "/es/videografo-de-quinceaneras-miami",
   "/services/multicam-podcast-video-production-miami":
     "/es/produccion-de-podcast-con-multicamara-miami",
   "/services/personal-injury-lawyer-video-miami":
@@ -282,7 +281,9 @@ export function getPairedLanguageRoute(pathname: string) {
   const exactMatch = pairedLanguageRoutes[pathname];
 
   if (exactMatch) {
-    return exactMatch;
+    // A counterpart that was merged away 301s; link straight to where it
+    // landed so the language switcher never spends a redirect hop.
+    return resolveMergedPath(exactMatch);
   }
 
   const englishPortfolioMatch = pathname.match(/^\/portfolio\/([^/]+)$/);

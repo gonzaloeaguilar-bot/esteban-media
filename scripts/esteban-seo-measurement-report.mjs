@@ -157,6 +157,33 @@ function normaliseRows(payload, dimensions) {
   }));
 }
 
+export function attachDeviceImpressions(queryRows, queryDeviceRows) {
+  const deviceMap = new Map();
+  for (const row of queryDeviceRows || []) {
+    const query = row.keys?.[0];
+    const device = String(row.keys?.[1] || "").toUpperCase();
+    if (!query) continue;
+    let counts = deviceMap.get(query);
+    if (!counts) {
+      counts = { desktopImpressions: 0, mobileImpressions: 0, tabletImpressions: 0 };
+      deviceMap.set(query, counts);
+    }
+    const impressions = Number(row.impressions) || 0;
+    if (device === "DESKTOP") counts.desktopImpressions += impressions;
+    else if (device === "MOBILE") counts.mobileImpressions += impressions;
+    else if (device === "TABLET") counts.tabletImpressions += impressions;
+  }
+  return (queryRows || []).map((row) => {
+    const query = row.keys?.[0];
+    const counts = query ? deviceMap.get(query) : null;
+    return {
+      ...row,
+      desktopImpressions: counts?.desktopImpressions ?? 0,
+      mobileImpressions: counts?.mobileImpressions ?? 0,
+    };
+  });
+}
+
 export function summarizeRows(rows, dimension) {
   return [...rows]
     .sort((left, right) => right.impressions - left.impressions || right.clicks - left.clicks || left.position - right.position)
@@ -245,14 +272,25 @@ export async function collectMeasurement(args, dependencies = {}) {
   };
   const completedRange = { startDate: args.startDate, endDate: args.endDate };
   const currentRange = { startDate: args.provisionalStartDate, endDate: args.provisionalEndDate };
-  const [queryRows, pageRows, queryPageRows, provisionalQueryRows, provisionalPageRows, provisionalQueryPageRows] = await Promise.all([
+  const [
+    queryRows,
+    pageRows,
+    queryPageRows,
+    queryDeviceRows,
+    provisionalQueryRows,
+    provisionalPageRows,
+    provisionalQueryPageRows,
+  ] = await Promise.all([
     query(["query"], completedRange, "final"),
     query(["page"], completedRange, "final"),
     query(["query", "page"], completedRange, "final"),
+    query(["query", "device"], completedRange, "final"),
     query(["query"], currentRange, "all"),
     query(["page"], currentRange, "all"),
     query(["query", "page"], currentRange, "all"),
   ]);
+  const enrichedQueryRows = attachDeviceImpressions(queryRows, queryDeviceRows);
+  const enrichedQueryPageRows = attachDeviceImpressions(queryPageRows, queryDeviceRows);
   return {
     schema: SEO_MEASUREMENT_SCHEMA,
     runId: args.runId,
@@ -261,7 +299,7 @@ export async function collectMeasurement(args, dependencies = {}) {
     siteUrl: SITE_URL,
     window: { startDate: args.startDate, endDate: args.endDate, days: Math.round((Date.parse(`${args.endDate}T00:00:00Z`) - Date.parse(`${args.startDate}T00:00:00Z`)) / 86_400_000) + 1 },
     source: { api: "search-console", dataState: "final", searchType: "web" },
-    rows: { query: queryRows, page: pageRows, queryPage: queryPageRows },
+    rows: { query: enrichedQueryRows, page: pageRows, queryPage: enrichedQueryPageRows, queryDevice: queryDeviceRows },
     provisional: {
       generatedAt: new Date().toISOString(),
       window: { ...currentRange, days: Math.round((Date.parse(`${currentRange.endDate}T00:00:00Z`) - Date.parse(`${currentRange.startDate}T00:00:00Z`)) / 86_400_000) + 1 },
