@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { BuyerAnswer } from "@/components/buyer-answer";
 
 export const metadata = buildPageMetadata({
   title: "Corporate Town Hall Video South Florida",
@@ -127,6 +128,8 @@ export default function Page() {
           </div>
         </Container>
       </section>
+
+      <BuyerAnswer kind="town-hall-filming-price" locale="en" />
 
       <ServiceAnswerFirst service="Corporate town hall video production" />
 

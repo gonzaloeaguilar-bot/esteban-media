@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, Building2, Camera, Film, MapPin, Sparkles, Video } from "lucide-react";
 
+import { BuyerAnswer } from "@/components/buyer-answer";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -392,6 +393,8 @@ export function RealEstateHubPage({ locale }: { locale: Locale }) {
           </div>
         </Container>
       </section>
+
+      <BuyerAnswer kind="real-estate-monthly-plan" locale={locale} />
 
       {/* Services grid */}
       <section className="py-12 sm:py-16" aria-labelledby={`re-services-${locale}`}>
