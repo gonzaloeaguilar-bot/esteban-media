@@ -24,11 +24,18 @@ function sitemapPaths() {
 // tests are what makes the decision set executable rather than advisory.
 describe("cohort consolidation is executed, not just documented", () => {
   it("defers the guide merges rather than executing them unsafely", () => {
-    // All 19 MERGE decisions are guides, and the 2026-08-12 clustering ran
+    // All 19 2026-08-12 MERGE decisions are guides, and that clustering ran
     // per-language with different winners per concept. Propagating them would
     // have merged two surviving winners away and created redirect chains.
-    expect(MERGE_DECISIONS).toHaveLength(0);
-    expect(mergeRedirects()).toHaveLength(0);
+    // The 2026-11-26 prune merges 52 service/niche pages and no guide.
+    expect(MERGE_DECISIONS).toHaveLength(52);
+    expect(mergeRedirects()).toHaveLength(52);
+    for (const decision of MERGE_DECISIONS) {
+      expect(decision.from).not.toMatch(/^\/(guides|es\/guias)\//);
+    }
+    for (const deferred of DEFERRED_MERGES) {
+      expect(isMergedPath(deferred.from)).toBe(false);
+    }
   });
 
   it("removes every noindexed URL from the sitemap", () => {
@@ -142,10 +149,11 @@ describe("stale decisions were re-validated before execution", () => {
 });
 
 describe("consolidation arithmetic matches the published baseline", () => {
-  it("removes exactly 23 URLs from the prior 269-URL inventory", () => {
+  it("removes exactly 75 URLs (23 noindexed + 52 merged) from the prior 269-URL inventory", () => {
     // 26 on 2026-08-19; 25 on 2026-10-14 (Boca Raton reopenedByOwner);
     // 23 on 2026-11-24 (YouTube video editing Miami pair reopenedByOwner under cohort rule 1).
-    expect(consolidatedPathCount()).toBe(23);
+    // 75 on 2026-11-26: 23 noindexed + 52 merged by the zero-signal prune.
+    expect(consolidatedPathCount()).toBe(23 + 52);
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
     // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
     // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
@@ -197,7 +205,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +2 = YouTube video editing Miami pair re-admitted (2026-11-24, owner decision under cohort rule 1).
     // +1 - 2 = commercial-intent package (2026-11-26): /es/cuanto-cobra-un-videografo-en-miami added;
     // the quinceañera videographer pair 301ed to the quinceañera video owners.
-    expect(sitemap()).toHaveLength(269 - 23 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1 + 1 + 1 - 2);
+    // -52 = zero-signal prune (2026-11-26), config/cohort-consolidation.json#merges.
+    expect(sitemap()).toHaveLength(269 - 23 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1 + 1 + 1 - 2 - 52);
   });
 
   it("never lists a redirect source in the sitemap", () => {

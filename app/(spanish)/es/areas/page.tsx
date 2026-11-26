@@ -89,7 +89,6 @@ const areaSections: AreaSection[] = [
       "Palm Beach County es un área de expansión que se evalúa proyecto por proyecto. La edición remota y la planificación de contenido están disponibles ya para cualquier negocio de Palm Beach con material grabado; la grabación en locación se confirma en cada consulta, nunca se da por hecha. Ya hay guías por ciudad para los lugares con más demanda:",
     routes: [
       { href: "/es/areas/palm-beach-county", label: "página de servicio para Palm Beach County" },
-      { href: "/es/produccion-de-video-palm-beach-county", label: "producción de video en Palm Beach" },
       { href: "/es/editor-de-reels-boca-raton", label: "editor de Reels y video en Boca Raton" },
       { href: "/es/produccion-de-video-delray-beach", label: "producción de video en Delray Beach" },
     ],
@@ -167,13 +166,7 @@ const projectTypeLinks = [
       "Sitios web modernos de alta conversión y chatbots conversacionales con IA para negocios locales.",
   },
   {
-    href: "/es/produccion-de-video-doral-miami",
-    title: "Producción de video en Doral Miami",
-    detail:
-      "Producción audiovisual y contenido comercial para marcas y negocios en el área de Doral.",
-  },
-  {
-    href: "/es/produccion-de-video-palm-beach-county",
+    href: "/es/areas/palm-beach-county",
     title: "Producción de video en Palm Beach",
     detail:
       "Alcance y producción selectiva de video para proyectos y marcas en Palm Beach County.",

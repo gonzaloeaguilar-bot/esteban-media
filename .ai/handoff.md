@@ -1,3 +1,11 @@
+## 2026-11-26 — Zero-signal page prune (branch seo/prune-zero-impression)
+
+- 52 indexed pages with 0 Google impressions, 0 GA4 sessions and 0 lead events in 2026-08-27..2026-11-25 now 301 (statusCode 301) to a same-language, same-intent page that earns signal. Sitemap 601 -> 549; freeze count/sha updated; GSC watch set and lastmod ledger follow.
+- Mechanism: `config/cohort-consolidation.json#merges` (was empty) + `prune20261126` block; `lib/consolidation.ts` adds `resolveMergedPath`; the language switcher, sibling rings and niche-answer list now skip merged pages; hreflang pairs with a merged half dissolve (existing filter).
+- Held: never-crawled / discovered / crawled-not-indexed (81), guides, core offers, tools, pages younger than 35 days, anything linked from a page edited today by #831/#836/#837/#821/#830/#779. Full table: vault `esteban-page-prune-2026-11-26`.
+- Test: `app/__tests__/zero-signal-prune-2026-11-26.test.ts` (negative control verified: dropping one merge or the redirect wiring turns it red).
+- text-parity still red as on main (783 vs 762 on main); the additions are lost links to merged pages and the merged pages themselves.
+
 ## 2026-11-26 — Commercial-intent package (branch geo/commercial-intent-package)
 
 - Strategy: vault `esteban-commercial-intent-lateral-strategy-2026-11-26` (approved by Gonzalo 2026-11-26).
