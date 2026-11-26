@@ -161,7 +161,9 @@ export function buildGoogleAnalyticsScript({
           o.cta_position = String(p.section || p.link_context || 'page').slice(0, 60);
         } else if (event === 'contact_click') {
           o.method = p.contact_method || p.method || 'unknown';
-          o.contact_source = p.contact_source || 'unknown';
+          // A form submit names its origin in lead_source (e.g. ?source= on the
+          // contact page); without this its contact_click leg read 'unknown'.
+          o.contact_source = p.contact_source || p.lead_source || 'unknown';
           o.lead_type = p.lead_type || normalizeLeadType(o.method);
           o.landing_page = p.landing_page || firstTouchLandingPage();
         } else if (event === 'lead') {
