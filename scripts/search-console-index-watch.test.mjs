@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(601 - 52); // -52 2026-11-26: zero-signal prune (config/cohort-consolidation.json#merges). Earlier: -1 net 2026-11-26: commercial-intent package (+1 ES videographer price page, -2 quinceañera duplicates 301ed). Includes current sitemap + Real Estate Hub v2 bilingual pair + wedding packages pair + YouTube editing Miami re-admission.
+    expect(WATCH_URLS).toHaveLength(601 - 50); // -50 2026-11-26: zero-signal prune (config/cohort-consolidation.json#merges; 52 merged by #843, 2 reversed by #842). Earlier: -1 net 2026-11-26: commercial-intent package (+1 ES videographer price page, -2 quinceañera duplicates 301ed). Includes current sitemap + Real Estate Hub v2 bilingual pair + wedding packages pair + YouTube editing Miami re-admission.
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });
