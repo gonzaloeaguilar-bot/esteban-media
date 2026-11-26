@@ -83,16 +83,20 @@ describe("Google Business Profile entity link", () => {
       site.clutch,
       site.theManifest,
       site.youtubeChannel,
+      site.facebook,
+      site.linkedinCompany,
     ];
     expect(directories).toEqual([
       "https://www.behance.net/estebanmoreno15",
       "https://vimeo.com/user175241719",
-      "https://www.yelp.com/biz/esteban-moreno-media-fort-lauderdale",
+      "https://www.yelp.com/biz/esteban-moreno-media-plantation",
       "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
       "https://www.tiktok.com/@estebanmorenomedia",
       "https://clutch.co/profile/esteban-moreno-media",
       "https://themanifest.com/company/esteban-moreno-media",
       "https://www.youtube.com/@estebanmorenomedia",
+      "https://www.facebook.com/profile.php?id=61583136001307",
+      "https://www.linkedin.com/company/esteban-moreno-media/",
     ]);
     for (const url of directories) {
       expect(localBusinessEntityJsonLd.sameAs).toContain(url);
@@ -108,7 +112,13 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).toContain(site.linkedin);
     expect(localBusinessEntityJsonLd.sameAs).not.toContain(site.linkedin);
     const businessSameAs = localBusinessEntityJsonLd.sameAs as string[];
-    expect(businessSameAs.some((url) => url.includes("linkedin.com"))).toBe(false);
+    // No PERSONAL profile (linkedin.com/in/) on the business. The LinkedIn
+    // COMPANY page (linkedin.com/company/) is the business's own identity and
+    // belongs there; it was verified live 2026-11-26.
+    expect(businessSameAs.some((url) => url.includes("linkedin.com/in/"))).toBe(false);
+    expect(businessSameAs.filter((url) => url.includes("linkedin.com"))).toEqual([
+      "https://www.linkedin.com/company/esteban-moreno-media/",
+    ]);
   });
 
   it("never publishes a street address or coordinates", () => {

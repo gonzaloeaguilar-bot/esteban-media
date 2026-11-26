@@ -58,7 +58,12 @@ export const site = {
   bingPlaces: "https://www.bing.com/maps?ypid=YN6BD50BCE86C81774",
   // Yelp business profile added at the owner's direction on 2026-11-09. This
   // is an identity link only; it does not substantiate reviews or a rating.
-  yelp: "https://www.yelp.com/biz/esteban-moreno-media-fort-lauderdale",
+  // The live consumer listing is the -plantation slug: the Yelp for Business
+  // owner panel links to it (vault esteban-geo-profile-status-2026-10-16) and
+  // the owner re-confirmed it live 2026-11-26. The earlier -fort-lauderdale
+  // slug was never the listing. Yelp answers 403 to every scripted client, so
+  // a curl status here proves nothing either way.
+  yelp: "https://www.yelp.com/biz/esteban-moreno-media-plantation",
   // The brand account, distinct from the personal @steeban1 above. Verified live
   // 2026-10-07: display name "Esteban Moreno Media", bio lists video editing and
   // the Fort Lauderdale / Broward / Miami-Dade / Palm Beach area, links this site.
@@ -80,6 +85,16 @@ export const site = {
   clutch: "https://clutch.co/profile/esteban-moreno-media",
   theManifest: "https://themanifest.com/company/esteban-moreno-media",
   youtubeChannel: "https://www.youtube.com/@estebanmorenomedia",
+  // The business Facebook page ("Esteban.media") and the LinkedIn COMPANY page,
+  // both verified live 2026-11-26 (curl_cffi impersonate=chrome: 200; Facebook
+  // redirects to /people/Estebanmedia/61583136001307/). Business sameAs only:
+  // the company page is not Esteban's personal profile, which stays on the
+  // Person entity as `linkedin` above.
+  facebook: "https://www.facebook.com/profile.php?id=61583136001307",
+  linkedinCompany: "https://www.linkedin.com/company/esteban-moreno-media/",
+  // TODO(gigsalad): add the GigSalad profile here and to the business sameAs
+  // once it is public. Esteban owns the signup; no public URL exists yet
+  // (2026-11-26). Do not guess a slug.
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   // Deliberately unset in source. See docs/microsoft-clarity-activation.md.
