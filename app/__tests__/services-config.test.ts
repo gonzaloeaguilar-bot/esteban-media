@@ -38,6 +38,56 @@ function ladderHits(text: string, ladder: number[]): number {
   return ladder.filter((n) => new RegExp(`\\$${n}\\b|amount:\\s*${n}\\b`).test(text)).length;
 }
 
+/**
+ * The Spanish text-parity fixture is the ONE file whose figures come from many
+ * unrelated public pages at once: it stores the visible words of ~200 built
+ * /es routes. On 2026-11-26 a full refresh put $150 (es/reels-comerciales-con-
+ * ia-miami: lib/pricing.ts bRollPerVideo / filmOrProject), $225 (es/precios:
+ * the published hourly rate) and $300 (es/precios and eight more pages: the
+ * published "from $300" market floors) in that one file. Three rungs, three
+ * public prices, no client card: no single route held more than two.
+ *
+ * So the ladder is counted per ROUTE inside that file, the unit the private
+ * card would actually appear in. Everything else stays whole-file, and the
+ * client name and the $500/month package are still searched across the whole
+ * fixture. This is narrower than exempting the file: a page that shows three
+ * rungs is still caught (see the negative controls below).
+ */
+const TEXT_PARITY_FIXTURE = "app/__tests__/fixtures/spanish-niche-text-baseline.json";
+
+function ladderOffenders(label: string, text: string): string[] {
+  const out: string[] = [];
+  // Three of five rungs together is the card, not a coincidence.
+  if (ladderHits(text, PREFERRED_PHOTO_LADDER) >= 3) out.push(`${label} -> preferred photo ladder`);
+  if (ladderHits(text, MONTHLY_SURCHARGE_LADDER) >= 3) out.push(`${label} -> monthly surcharge ladder`);
+  return out;
+}
+
+function rateCardOffenders(file: string, text: string): string[] {
+  const offenders: string[] = [];
+  let perRoute: Record<string, unknown> | null = null;
+  if (file === TEXT_PARITY_FIXTURE) {
+    try {
+      const parsed: unknown = JSON.parse(text);
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+        perRoute = parsed as Record<string, unknown>;
+      }
+    } catch {
+      perRoute = null; // unparseable: judge it whole, fail closed
+    }
+  }
+  if (perRoute) {
+    for (const [route, entry] of Object.entries(perRoute)) {
+      offenders.push(...ladderOffenders(`${file} [${route}]`, JSON.stringify(entry)));
+    }
+  } else {
+    offenders.push(...ladderOffenders(file, text));
+  }
+  if (MONTHLY_PACKAGE.test(text)) offenders.push(`${file} -> the $500/month package`);
+  for (const name of CLIENT_NAMES) if (name.test(text)) offenders.push(`${file} -> client name`);
+  return offenders;
+}
+
 function sourceFiles(dir: string): string[] {
   return readdirSync(join(process.cwd(), dir), { withFileTypes: true }).flatMap((entry) => {
     if (entry.name === "node_modules" || entry.name === "vendor") return [];
@@ -87,15 +137,55 @@ describe("services config", () => {
       // other reason is how this guard quietly stops guarding.
       .filter((f) => !f.endsWith("services-config.test.ts"))
       .filter((f) => !f.endsWith("esteban-qa.test.ts"));
-    const offenders: string[] = [];
-    for (const file of files) {
-      const text = readFileSync(join(process.cwd(), file), "utf8");
-      // Three of five rungs together is the card, not a coincidence.
-      if (ladderHits(text, PREFERRED_PHOTO_LADDER) >= 3) offenders.push(`${file} -> preferred photo ladder`);
-      if (ladderHits(text, MONTHLY_SURCHARGE_LADDER) >= 3) offenders.push(`${file} -> monthly surcharge ladder`);
-      if (MONTHLY_PACKAGE.test(text)) offenders.push(`${file} -> the $500/month package`);
-      for (const name of CLIENT_NAMES) if (name.test(text)) offenders.push(`${file} -> client name`);
-    }
+    const offenders = files.flatMap((file) =>
+      rateCardOffenders(file, readFileSync(join(process.cwd(), file), "utf8")),
+    );
     expect(offenders).toEqual([]);
+  });
+
+  describe("the text-parity fixture is judged one page at a time", () => {
+    // Negative controls: the per-page reading must still catch the card.
+    const fixture = (routes: Record<string, string>) =>
+      JSON.stringify(
+        Object.fromEntries(Object.entries(routes).map(([r, words]) => [r, { words }])),
+      );
+
+    it("passes public prices that only meet in the aggregate file", () => {
+      // The real 2026-11-26 shape: $150 on one page, $225 and $300 on another.
+      const text = fixture({
+        "es/reels-comerciales-con-ia-miami.html": "Desde $150 por video",
+        "es/precios.html": "$225 por hora · desde $300",
+      });
+      expect(rateCardOffenders(TEXT_PARITY_FIXTURE, text)).toEqual([]);
+      // The same text in any OTHER file is still judged whole, and is caught.
+      expect(rateCardOffenders("lib/somewhere.ts", text)).toEqual([
+        "lib/somewhere.ts -> preferred photo ladder",
+      ]);
+    });
+
+    it("still catches the ladder when a single page carries it", () => {
+      const text = fixture({
+        "es/precios.html": "$150 $190 $225",
+        "es/otra.html": "nada",
+      });
+      expect(rateCardOffenders(TEXT_PARITY_FIXTURE, text)).toEqual([
+        `${TEXT_PARITY_FIXTURE} [es/precios.html] -> preferred photo ladder`,
+      ]);
+    });
+
+    it("still catches the client name and the $500/month package anywhere in the fixture", () => {
+      expect(rateCardOffenders(TEXT_PARITY_FIXTURE, fixture({ "es/a.html": "DuPont Real Estate" }))).toEqual([
+        `${TEXT_PARITY_FIXTURE} -> client name`,
+      ]);
+      expect(rateCardOffenders(TEXT_PARITY_FIXTURE, fixture({ "es/a.html": "$500/mes" }))).toEqual([
+        `${TEXT_PARITY_FIXTURE} -> the $500/month package`,
+      ]);
+    });
+
+    it("falls back to judging the whole file if the fixture stops parsing", () => {
+      expect(rateCardOffenders(TEXT_PARITY_FIXTURE, "not json $150 $190 $225")).toEqual([
+        `${TEXT_PARITY_FIXTURE} -> preferred photo ladder`,
+      ]);
+    });
   });
 });

@@ -43,6 +43,9 @@ describe("Semrush remediation", () => {
     expect(linkedRoutes).toEqual(new Set(expectedRoutes));
     expect(isConsolidatedPath("/services/law-firm-video-production-miami")).toBe(true);
     expect(linkedRoutes).not.toContain("/services/law-firm-video-production-miami");
-    expect(linkedRoutes).toContain("/services/video-editing-palm-beach-gardens");
+    // Merged into /areas/palm-beach-county on 2026-11-26 (zero-signal prune):
+    // a 301 source is never linked from the directory.
+    expect(isConsolidatedPath("/services/video-editing-palm-beach-gardens")).toBe(true);
+    expect(linkedRoutes).not.toContain("/services/video-editing-palm-beach-gardens");
   });
 });

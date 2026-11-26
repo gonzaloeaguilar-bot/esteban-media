@@ -114,13 +114,13 @@ export default function BreweryCraftDistilleryVideoMiamiPage() {
               <Beer className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">What bar and beverage proof is available?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Explore specialized craft mixology and bar cinematography across Miami. Review our guide on <Link href="/services/mixology-cocktail-videographer-miami" className="underline decoration-[#e85d3e] underline-offset-4">mixology cocktail videographer Miami</Link>.
+                Explore specialized craft mixology and bar cinematography across Miami. Review our guide on <Link href="/services/restaurant-promo-video-editing-miami" className="underline decoration-[#e85d3e] underline-offset-4">restaurant and bar promo video in Miami</Link>.
               </p>
               <Link
-                href="/services/mixology-cocktail-videographer-miami"
+                href="/services/restaurant-promo-video-editing-miami"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Explore Bar Videography
+                Explore Restaurant and Bar Video
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

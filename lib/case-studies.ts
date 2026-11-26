@@ -423,8 +423,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
       posterUrl: "/portfolio/banacol.jpg",
       serviceLink: {
-        href: "/es/produccion-de-video-de-marca-miami",
-        label: "Servicio de Producción de Video de Marca",
+        href: "/es/videografo-en-miami",
+        label: "Videógrafo para empresas en Miami",
         description: "Conoce nuestro servicio de producción audiovisual y grabación en locación para empresas en South Florida.",
       },
       contactLink: {
@@ -522,7 +522,7 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       mediaUrl: "https://www.youtube.com/watch?v=2m3iHq0JrLM",
       posterUrl: "/portfolio/homeowners.jpg",
       serviceLink: {
-        href: "/services/real-estate-video-sunny-isles",
+        href: "/services/real-estate-reels-video-editor-south-florida",
         label: "Real Estate Video Services",
         description: "Explore real estate video editing and short-form property showcase solutions across South Florida.",
       },

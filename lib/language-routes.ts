@@ -1,3 +1,4 @@
+import { resolveMergedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 
@@ -280,7 +281,9 @@ export function getPairedLanguageRoute(pathname: string) {
   const exactMatch = pairedLanguageRoutes[pathname];
 
   if (exactMatch) {
-    return exactMatch;
+    // A counterpart that was merged away 301s; link straight to where it
+    // landed so the language switcher never spends a redirect hop.
+    return resolveMergedPath(exactMatch);
   }
 
   const englishPortfolioMatch = pathname.match(/^\/portfolio\/([^/]+)$/);

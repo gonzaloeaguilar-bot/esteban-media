@@ -5,6 +5,13 @@
 - Near-me (no new routes): `lib/near-me-answers.ts` + `components/near-me-answer.tsx` on drone (`droneSessionFrom` $300, proof Banacol case study), Fort Lauderdale video production (via `GeoServicePageContent.nearMe`, proof Healthy Smile) and dance studio (recital, proof Diana & Jack labelled as a wedding). Drone page proof card no longer cites Homeowners (an edit of agency footage) as drone work.
 - Text-parity baseline refreshed for the 2 changed Spanish routes only (733 -> 725 problems; rest of the baseline is stale on main).
 - Next: after merge, `node ~/.claude/durable/analytics-gate.mjs` on the 12 changed URLs (GA is hostname-gated, so localhost/preview cannot pass) and IndexNow.
+## 2026-11-26 — Zero-signal page prune (branch seo/prune-zero-impression)
+
+- 52 indexed pages with 0 Google impressions, 0 GA4 sessions and 0 lead events in 2026-08-27..2026-11-25 now 301 (statusCode 301) to a same-language, same-intent page that earns signal. Sitemap 601 -> 549; freeze count/sha updated; GSC watch set and lastmod ledger follow.
+- Mechanism: `config/cohort-consolidation.json#merges` (was empty) + `prune20261126` block; `lib/consolidation.ts` adds `resolveMergedPath`; the language switcher, sibling rings and niche-answer list now skip merged pages; hreflang pairs with a merged half dissolve (existing filter).
+- Held: never-crawled / discovered / crawled-not-indexed (81), guides, core offers, tools, pages younger than 35 days, anything linked from a page edited today by #831/#836/#837/#821/#830/#779. Full table: vault `esteban-page-prune-2026-11-26`.
+- Test: `app/__tests__/zero-signal-prune-2026-11-26.test.ts` (negative control verified: dropping one merge or the redirect wiring turns it red).
+- text-parity still red as on main (783 vs 762 on main); the additions are lost links to merged pages and the merged pages themselves.
 
 ## 2026-11-26 — Commercial-intent package (branch geo/commercial-intent-package)
 

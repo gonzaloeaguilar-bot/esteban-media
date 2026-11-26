@@ -25,6 +25,7 @@
 // that page keeps its own answer. The restaurant pages' "from" price is the
 // owner's (2026-10-13) and lives in lib/pricing.ts as RESTAURANT_PROMO.
 
+import { isMergedPath } from "@/lib/consolidation";
 import { priceSentence, whatsappHref } from "@/lib/packages";
 import {
   ARRANQUE_WEEKLY_FROM,
@@ -250,7 +251,11 @@ const ROWS: Record<string, { locale: NicheLocale; row: Row }> = Object.fromEntri
   ...ES_ROWS.map((row) => [row[0], { locale: "es" as const, row }]),
 ]);
 
-export const NICHE_ANSWER_PATHS: readonly string[] = Object.keys(ROWS);
+// A merged page 301s away, so its row stays (the page source still renders it)
+// but it is no longer advertised as a live answer (2026-11-26 prune).
+export const NICHE_ANSWER_PATHS: readonly string[] = Object.keys(ROWS).filter(
+  (path) => !isMergedPath(path),
+);
 
 /** Rows whose subject is plural, so the cost question reads "do ... cost" / "cuestan". */
 const PLURAL_SUBJECT = new Set([

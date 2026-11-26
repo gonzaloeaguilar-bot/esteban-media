@@ -108,9 +108,9 @@ const content: GeoServicePageContent = {
       href: "/services/video-editing-west-palm-beach",
     },
     {
-      title: "Video production in Delray Beach",
-      detail: "Boca Raton's northern neighbour in Palm Beach County.",
-      href: "/services/video-production-delray-beach",
+      title: "Palm Beach County service area",
+      detail: "Delray Beach, Boca Raton and the rest of Palm Beach County.",
+      href: "/areas/palm-beach-county",
     },
     {
       title: "Short-form video editor",

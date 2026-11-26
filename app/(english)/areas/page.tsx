@@ -77,7 +77,6 @@ const areaSections: AreaSection[] = [
       { href: "/services/restaurant-promo-video-editing-miami", label: "restaurant promo video editing in Miami" },
       { href: "/services/reels-editor-miami", label: "Reels editor in Miami" },
       { href: "/services/short-form-video-editor-miami", label: "short-form video editor in Miami" },
-      { href: "/services/video-production-doral-miami", label: "video production in Doral" },
     ],
     outro:
       "Remote editing for Miami clients begins the day the files arrive. On-location capture in Miami-Dade is confirmed project by project, which the service pages explain before you send an inquiry.",
@@ -90,8 +89,6 @@ const areaSections: AreaSection[] = [
     routes: [
       { href: "/areas/palm-beach-county", label: "Palm Beach County service page" },
       { href: "/services/video-production-boca-raton", label: "video production in Boca Raton" },
-      { href: "/services/video-editing-palm-beach-gardens", label: "video editing in Palm Beach Gardens" },
-      { href: "/services/video-production-delray-beach", label: "video production in Delray Beach" },
     ],
     outro:
       "Start with the county page if you are unsure which guide fits. It explains how a Palm Beach project is evaluated and what to include in the first message.",
