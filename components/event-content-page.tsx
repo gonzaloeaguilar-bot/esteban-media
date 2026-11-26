@@ -30,6 +30,7 @@ import {
   type EventLocale,
 } from "@/lib/events";
 import { whatsappHref } from "@/lib/packages";
+import { RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -47,7 +48,7 @@ const UI = {
   en: {
     home: "Home",
     typical: "Typical window",
-    listedYear: (year: string) => `Listed dates for ${year} (check the official site)`,
+    listedYear: (year: string) => `Listed dates for ${year} (confirm dates with organizer)`,
     noNext: "The next edition has not been listed yet. Check the official site.",
     listed: (checked: string) => `Dates last checked ${checked}. Confirm current dates on the official site before you plan around them.`,
     official: "Official event site",
@@ -69,7 +70,7 @@ const UI = {
   es: {
     home: "Inicio",
     typical: "Temporada habitual",
-    listedYear: (year: string) => `Fechas publicadas para ${year} (confírmalas en el sitio oficial)`,
+    listedYear: (year: string) => `Fechas publicadas para ${year} (confirmar fechas con el organizador)`,
     noNext: "La próxima edición todavía no se ha publicado. Revisa el sitio oficial.",
     listed: (checked: string) => `Fechas revisadas el ${checked}. Confirma las fechas vigentes en el sitio oficial antes de planear alrededor de ellas.`,
     official: "Sitio oficial del evento",
@@ -249,6 +250,168 @@ function ProseSection({
   );
 }
 
+function HeroPricingSummary({ locale }: { locale: EventLocale }) {
+  const half = usd(RAW_FILMING_RATES.halfDay);
+  const full = usd(RAW_FILMING_RATES.fullDay);
+  const perVideo = usd(SHORT_FORM.perVideoFrom);
+
+  return (
+    <div className="mt-4 max-w-2xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm leading-6 text-[#252a2d]">
+      <p>
+        {locale === "es" ? (
+          <>
+            <strong>Tarifas publicadas:</strong> Grabación en locación sin edición desde {half} por media jornada y {full} por jornada completa. Edición remota de tu propio material desde {perVideo} por video.
+          </>
+        ) : (
+          <>
+            <strong>Published rates:</strong> On-location raw filming from {half} half-day and {full} full-day. Remote editing of supplied footage from {perVideo} per video.
+          </>
+        )}
+      </p>
+    </div>
+  );
+}
+
+function EventDetailsDepth({
+  locale,
+  children,
+  id,
+}: {
+  locale: EventLocale;
+  children: ReactNode;
+  id: string;
+}) {
+  const title =
+    locale === "es"
+      ? "¿Cómo es el plan detallado, el alcance y qué debes enviar?"
+      : "Detailed step-by-step plan, shot list, deliverables and scope";
+  const subtitle =
+    locale === "es"
+      ? "Despliega los detalles de preparación previa, rodaje durante el evento, edición posterior y alcance contratado."
+      : "Expand full details for pre-event planning, on-site recording, post-event delivery, and project scope.";
+
+  return (
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef]" data-section={`${id}_section`}>
+      <Container size="xl">
+        <details id={id} className="group py-8 sm:py-10" data-section={id}>
+          <summary className="cursor-pointer list-none flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#101214] inline-block">
+                {title}
+              </h2>
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-[#5a6066]">
+                {subtitle}
+              </p>
+            </div>
+            <span className="inline-flex items-center rounded-full border border-[#ddd4c8] bg-[#f6f1ea] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#9f3c27] group-open:text-[#5a6066]">
+              <span className="group-open:hidden">{locale === "es" ? "Ver detalles +" : "Show details +"}</span>
+              <span className="hidden group-open:inline">{locale === "es" ? "Ocultar detalles −" : "Hide details −"}</span>
+            </span>
+          </summary>
+          <div className="mt-8 border-t border-[#ddd4c8] pt-8">
+            {children}
+          </div>
+        </details>
+      </Container>
+    </section>
+  );
+}
+
+function ScannableEventList({
+  locale,
+  events,
+  cardCta,
+}: {
+  locale: EventLocale;
+  events: typeof EVENTS;
+  cardCta: string;
+}) {
+  const heading =
+    locale === "es"
+      ? "¿Qué eventos anuales incluye este calendario en Broward y Miami-Dade?"
+      : "Which annual events does this calendar cover in Broward and Miami-Dade?";
+  const lead =
+    locale === "es"
+      ? "Explora la lista completa de eventos del sur de Florida para planificar tu contenido con anticipación:"
+      : "Browse the full list of South Florida annual events to plan your social content in advance:";
+
+  return (
+    <section className="border-b border-[#ddd4c8] py-12 sm:py-16" data-section="events_hub_scannable_list">
+      <Container size="xl">
+        <h2 className="font-serif text-3xl sm:text-4xl text-[#101214]">
+          {heading}
+        </h2>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#252a2d]">
+          {lead}
+        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {events.map((event) => (
+            <div key={event.id} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+              <h3 className="font-serif text-xl text-[#101214]">{event.name}</h3>
+              <p className="mt-2 text-xs uppercase tracking-[0.12em] text-[#9f3c27]">
+                {event.typicalWindow[locale]}
+              </p>
+              <Link
+                href={event.paths[locale]}
+                data-cta={`events_hub_scan_${ctaId(event.id)}`}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4"
+              >
+                {cardCta}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function HubCalendarDepth({
+  locale,
+  children,
+  id = "events_hub_calendar_depth",
+}: {
+  locale: EventLocale;
+  children: ReactNode;
+  id?: string;
+}) {
+  const title =
+    locale === "es"
+      ? "¿Cuáles son las fechas y detalles por temporada de todos los eventos?"
+      : "What are the seasonal dates and schedule for all South Florida events?";
+  const subtitle =
+    locale === "es"
+      ? "Despliega el desglose por estaciones (otoño, invierno, primavera y verano) con fechas publicadas y enlaces directos."
+      : "Expand the seasonal breakdown across fall, winter, spring, and summer with listed dates and direct links.";
+
+  return (
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef]" data-section={`${id}_section`}>
+      <Container size="xl">
+        <details id={id} className="group py-8 sm:py-10" data-section={id}>
+          <summary className="cursor-pointer list-none flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#101214] inline-block">
+                {title}
+              </h2>
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-[#5a6066]">
+                {subtitle}
+              </p>
+            </div>
+            <span className="inline-flex items-center rounded-full border border-[#ddd4c8] bg-[#f6f1ea] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#9f3c27] group-open:text-[#5a6066]">
+              <span className="group-open:hidden">{locale === "es" ? "Ver calendario completo +" : "Show full calendar +"}</span>
+              <span className="hidden group-open:inline">{locale === "es" ? "Ocultar calendario −" : "Hide calendar −"}</span>
+            </span>
+          </summary>
+          <div className="mt-8 border-t border-[#ddd4c8] pt-8 space-y-12">
+            {children}
+          </div>
+        </details>
+      </Container>
+    </section>
+  );
+}
+
 export function EventContentPage({ id, locale }: { id: EventId; locale: EventLocale }) {
   const event = getEvent(id);
   const copy = getEventPageCopy(id, locale);
@@ -301,6 +464,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">{copy.eyebrow}</p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">{copy.h1}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-7">{copy.lead}</p>
+              <HeroPricingSummary locale={locale} />
               <PageUpdated path={path} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
               <HeroActions locale={locale} prefix={prefix} eventLabel={event.name} inquiryId={inquiryId} />
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.notAffiliated(affiliationLabel(event, locale))}</p>
@@ -312,26 +476,28 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
 
       <ProseSection id={`${prefix}_answer`} heading={copy.answer.question} paragraphs={copy.answer.paragraphs} />
 
-      <ProseSection id={`${prefix}_audience`} heading={copy.audience.heading} paragraphs={[copy.audience.intro]} tone="paper">
-        <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-base leading-7 text-[#252a2d]">
-          {copy.audience.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#252a2d]">{copy.audience.closing}</p>
-      </ProseSection>
+      <EventDetailsDepth locale={locale} id={`${prefix}_depth`}>
+        <ProseSection id={`${prefix}_audience`} heading={copy.audience.heading} paragraphs={[copy.audience.intro]} tone="paper">
+          <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-base leading-7 text-[#252a2d]">
+            {copy.audience.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[#252a2d]">{copy.audience.closing}</p>
+        </ProseSection>
 
-      <ServiceCraft heading={copy.plan.heading} cards={copy.plan.cards} sectionId={`${prefix}_plan`} />
+        <ServiceCraft heading={copy.plan.heading} cards={copy.plan.cards} sectionId={`${prefix}_plan`} />
 
-      <ProseSection id={`${prefix}_send`} heading={copy.send.heading} paragraphs={[copy.send.intro]}>
-        <NumberedList items={copy.send.items} className="max-w-3xl" />
-      </ProseSection>
+        <ProseSection id={`${prefix}_send`} heading={copy.send.heading} paragraphs={[copy.send.intro]}>
+          <NumberedList items={copy.send.items} className="max-w-3xl" />
+        </ProseSection>
 
-      <ProseSection id={`${prefix}_footage_handoff`} heading={handoff.heading} paragraphs={handoff.paragraphs} tone="paper">
-        <NumberedList items={handoff.items} className="max-w-3xl" />
-      </ProseSection>
+        <ProseSection id={`${prefix}_footage_handoff`} heading={handoff.heading} paragraphs={handoff.paragraphs} tone="paper">
+          <NumberedList items={handoff.items} className="max-w-3xl" />
+        </ProseSection>
 
-      <ProseSection id={`${prefix}_scope`} heading={scope.heading} paragraphs={scope.paragraphs} tone="paper" />
+        <ProseSection id={`${prefix}_scope`} heading={scope.heading} paragraphs={scope.paragraphs} tone="paper" />
+      </EventDetailsDepth>
 
       <ProseSection id={`${prefix}_proof`} heading={t.proofHeading} paragraphs={[copy.proof.text]}>
         <Link
@@ -364,6 +530,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
         faqs={copy.faqs}
         sectionId={`${prefix}_faq`}
         eyebrow={t.faqEyebrow}
+        collapsible
       />
 
       <ServiceRelated
@@ -460,18 +627,20 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
 
       <ProseSection id={`${prefix}_answer`} heading={copy.answer.question} paragraphs={copy.answer.paragraphs} />
 
-      {seasons.map(({ season, events }) => (
-        <section
-          key={season}
-          className="border-b border-[#ddd4c8] py-12 sm:py-16"
-          aria-labelledby={`${prefix}-${season}-heading`}
-          data-section={`${prefix}_${season}`}
-        >
-          <Container size="xl">
-            <h2 id={`${prefix}-${season}-heading`} className="font-serif text-3xl sm:text-4xl">
+      <ScannableEventList locale={locale} events={EVENTS} cardCta={copy.cardCta} />
+
+      <HubCalendarDepth locale={locale} id={`${prefix}_calendar_depth`}>
+        {seasons.map(({ season, events }) => (
+          <section
+            key={season}
+            className="border-b border-[#ddd4c8] pb-10 last:border-b-0 last:pb-0"
+            aria-labelledby={`${prefix}-${season}-heading`}
+            data-section={`${prefix}_${season}`}
+          >
+            <h2 id={`${prefix}-${season}-heading`} className="font-serif text-2xl sm:text-3xl text-[#101214]">
               {copy.seasons[season]}
             </h2>
-            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {events.map((event) => {
                 const edition = displayEdition(event);
                 return (
@@ -497,9 +666,9 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
                 );
               })}
             </div>
-          </Container>
-        </section>
-      ))}
+          </section>
+        ))}
+      </HubCalendarDepth>
 
       <ProseSection id={`${prefix}_scope`} heading={scope.heading} paragraphs={scope.paragraphs} tone="paper" />
 
@@ -522,7 +691,7 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
         }}
       />
 
-      <ServiceFaqs heading={copy.faqHeading} faqs={copy.faqs} sectionId={`${prefix}_faq`} eyebrow={t.faqEyebrow} />
+      <ServiceFaqs heading={copy.faqHeading} faqs={copy.faqs} sectionId={`${prefix}_faq`} eyebrow={t.faqEyebrow} collapsible />
 
       <ServiceRelated heading={t.relatedHeading} services={copy.related} sectionId={`${prefix}_related`} linkLabel={t.linkLabel} />
     </main>
