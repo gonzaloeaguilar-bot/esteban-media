@@ -246,6 +246,7 @@ export function ServiceAnswerFirst({
   locale = "en",
   sectionId = "answer-first",
   answerOverride,
+  questionOverride,
 }: {
   service: string;
   locale?: "en" | "es";
@@ -256,6 +257,11 @@ export function ServiceAnswerFirst({
    * kind from the standard offer pass their own answer instead.
    */
   answerOverride?: string;
+  /**
+   * An explicit question H2. When provided, replaces the generated
+   * copy.question(service) heading.
+   */
+  questionOverride?: string;
 }) {
   const copy = answerFirstCopy[locale];
   return (
@@ -267,7 +273,7 @@ export function ServiceAnswerFirst({
       <Container size="xl">
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.eyebrow}</p>
         <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
-          {copy.question(locale === "es" ? esServicePhrase(inSentence(service)) : enServicePhrase(inSentence(service)))}
+          {questionOverride ?? copy.question(locale === "es" ? esServicePhrase(inSentence(service)) : enServicePhrase(inSentence(service)))}
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{answerOverride ?? copy.answer(service)}</p>
       </Container>
