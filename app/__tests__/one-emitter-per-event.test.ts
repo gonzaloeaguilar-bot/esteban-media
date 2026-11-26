@@ -57,7 +57,8 @@ describe("one emitter per event name", () => {
 
   it("keeps the site script's own names, which the shared layer has disabled", () => {
     // contact_intent / contact_cta_click stay here on purpose: `disable` in the
-    // init lists contact_click and outbound_click for exactly that reason.
+    // init lists contact_click for exactly that reason. outbound_click is NOT
+    // disabled: the site script never emits it, so the shared layer owns it.
     expect(script).toContain("contact_intent");
     expect(script).toContain("contact_cta_click");
     expect(source("components/google-analytics.tsx")).toMatch(/disable:[^\]]*contact_click/);

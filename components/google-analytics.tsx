@@ -38,8 +38,11 @@ export function GoogleAnalytics() {
           lifecycle, media and on-page errors — none of which this site
           measured. Its sink is the GA script's own writer, so everything
           leaves through one place and carries the contract's parameter block.
-          page_view, scroll_depth and the contact/outbound clicks the script
-          already owns are disabled: one writer per event name. */}
+          page_view, scroll_depth and the contact clicks the script already
+          owns are disabled: one writer per event name. outbound_click stays
+          ON here: the GA script never emits it (it only maps the name), so
+          disabling it here left every non-contact outbound click silent
+          (official event sites, portfolio hosts). Found in PR #842 review. */}
       <Script id="shared-analytics-lib" src="/track.js" strategy="afterInteractive" />
       <Script id="shared-analytics-init" strategy="afterInteractive">{`
         (function(){
@@ -48,7 +51,7 @@ export function GoogleAnalytics() {
             if (!window.Analytics || !window.__estebanTrack) { if (++tries > 20) return; return setTimeout(boot, 300); }
             window.Analytics.init({
               brand: 'esteban',
-              disable: ['page_view', 'scroll_depth', 'contact_click', 'outbound_click'],
+              disable: ['page_view', 'scroll_depth', 'contact_click'],
               sink: function (e, p) { window.__estebanTrack(e, p); }
             });
           })();

@@ -47,6 +47,10 @@ export function LensTelemetry({ locale }: { locale: string }) {
     const onClick = (event: Event) => {
       const target = (event.target as HTMLElement | null)?.closest("[data-cta]");
       if (!target) return;
+      // The shared layer (public/track.js) also emits cta_click for every
+      // [data-cta]. Claim the click first (this listener runs in capture
+      // phase, track.js in bubble), so one interaction is one event.
+      (window as unknown as { Analytics?: { claim?: (ms?: number) => void } }).Analytics?.claim?.();
       track("cta_click", {
         cta_id: target.getAttribute("data-cta") ?? "unknown",
         cta_text: (target.textContent ?? "").trim().slice(0, 80) || "unknown",
@@ -55,7 +59,7 @@ export function LensTelemetry({ locale }: { locale: string }) {
         locale,
       });
     };
-    document.addEventListener("click", onClick);
+    document.addEventListener("click", onClick, true);
 
     /**
      * A card that scrolls up past the lower band fades out, so a card on its way
@@ -92,7 +96,7 @@ export function LensTelemetry({ locale }: { locale: string }) {
 
     return () => {
       observer.disconnect();
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) window.cancelAnimationFrame(raf);
