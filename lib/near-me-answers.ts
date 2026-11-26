@@ -9,7 +9,7 @@
  * real published item, labelled for what it is.
  */
 import { priceSentence } from "@/lib/packages";
-import { EXPANSION_SERVICES, SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 
 export type NearMeAnswerContent = {
   /** Page the block lives on. */
@@ -25,7 +25,6 @@ export type NearMeAnswerContent = {
 };
 
 const PER_VIDEO = usd(SHORT_FORM.perVideoFrom);
-const DRONE_FROM = usd(EXPANSION_SERVICES.droneSessionFrom);
 const BOOKED = "A date is booked only once it is confirmed in writing.";
 
 export const DRONE_NEAR_ME: NearMeAnswerContent = {
@@ -39,9 +38,13 @@ export const DRONE_NEAR_ME: NearMeAnswerContent = {
   sectionId: "drone-near-me",
   ctaPrefix: "drone_near_me",
   question: "Is there a drone videographer near me in Miami or Fort Lauderdale?",
-  answer: `Yes. Esteban Moreno Media, based in Fort Lauderdale, films drone sessions across South Florida from ${DRONE_FROM} per session, and edits drone footage you already have from ${PER_VIDEO} per video. Esteban was the aerial drone cinematographer on the Banacol project: three days of flights over export operations in Urabá, Colombia, some launched from boats offshore. Whether a site can be flown (airspace, FAA rules and the owner's or venue's permission) is checked before the date is set. ${BOOKED}`,
+  // Aviation boundary (vault client-esteban-media/agents.md, confirmed 2026-07-21):
+  // Esteban holds no FAA Part 107 certificate, so aerial work is sold only as
+  // editing supplied footage or as capture flown by a separately verified
+  // Part 107 pilot. No per-session flying price and no claim that he flies here.
+  answer: `Yes. Esteban Moreno Media, based in Fort Lauderdale, edits drone footage you already have from ${PER_VIDEO} per video. When you also need the aerial capture in South Florida, the flight is done by a separately verified FAA Part 107 pilot who is responsible for the flight and its permissions, and that shoot is quoted per project. Esteban's own aerial work is past agency work in Colombia: on the Banacol project he captured three days of aerial footage over export operations in Urabá, some of it launched from boats offshore. ${BOOKED}`,
   proof: { href: "/case-studies/banacol", label: "Read the Banacol aerial drone case study" },
-  whatsappMessage: "Hi Esteban, I need a drone videographer. Here are the location, date and what the video is for:",
+  whatsappMessage: "Hi Esteban, I need drone video. Here are the location, the date, whether I already have footage, and what the video is for:",
 };
 
 export const LOCAL_VIDEOGRAPHER_NEAR_ME: NearMeAnswerContent = {

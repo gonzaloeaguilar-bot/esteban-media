@@ -93,7 +93,12 @@ describe("near-me answers on existing pages (2026-11-26)", () => {
       else expect(getPortfolioItemById(id as never), block.proof.href).toBeTruthy();
     }
     const drone = NEAR_ME_ANSWERS.find((b) => b.sectionId === "drone-near-me")!;
-    expect(drone.answer).toContain(usd(EXPANSION_SERVICES.droneSessionFrom));
+    // Aviation boundary (vault agents.md, 2026-07-21): no FAA Part 107
+    // certificate, so no "drone session" price and no claim that Esteban flies
+    // in Florida; capture is by a separately verified Part 107 pilot.
+    expect(drone.answer).not.toContain(usd(EXPANSION_SERVICES.droneSessionFrom));
+    expect(drone.answer).toContain("separately verified FAA Part 107 pilot");
+    expect(drone.answer).toContain(usd(SHORT_FORM.perVideoFrom));
     expect(drone.proof.href).toBe("/case-studies/banacol");
     const local = NEAR_ME_ANSWERS.find((b) => b.sectionId === "local-videographer-near-me")!;
     expect(local.answer).toContain(usd(FILMING_HOURLY.amount));
@@ -161,4 +166,21 @@ describe("event booking answers expire without a deploy (codex review, PR #842)"
       expect(Number(m![1].replace(/_/g, ""))).toBeLessThanOrEqual(86_400);
     });
   }
+});
+
+describe("aerial claims stay inside the Part 107 boundary (codex review, PR #842 cycle 2)", () => {
+  const files = [
+    "lib/near-me-answers.ts",
+    "app/(english)/services/drone-video-editing-service-miami/page.tsx",
+  ];
+  for (const file of files) {
+    it(`${file} never offers drone sessions or says Esteban flies them`, () => {
+      const src = read(file);
+      expect(src).not.toMatch(/droneSessionFrom/);
+      expect(src).not.toMatch(/films drone sessions|drone sessions from|Drone videographer in Miami/i);
+    });
+  }
+  it("the drone page names the Part 107 pilot for South Florida flights", () => {
+    expect(read("app/(english)/services/drone-video-editing-service-miami/page.tsx")).toContain("separately verified FAA Part 107 pilot");
+  });
 });

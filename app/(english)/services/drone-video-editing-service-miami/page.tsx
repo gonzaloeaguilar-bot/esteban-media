@@ -14,14 +14,14 @@ import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { NearMeAnswer } from "@/components/near-me-answer";
 import { DRONE_NEAR_ME } from "@/lib/near-me-answers";
-import { EXPANSION_SERVICES, SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   // Near-me gap fill 2026-11-26: "drone videographer near me" (3 engines) had
   // no owner page; GSC 90d showed 0 impressions for any drone phrase.
-  title: "Drone Videographer & Drone Video Editing Miami",
-  description: `Drone videographer in Miami and Fort Lauderdale: drone sessions from ${usd(EXPANSION_SERVICES.droneSessionFrom)}, and editing of your aerial footage from ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Drone Video Editing Miami & Aerial Shoots With a Part 107 Pilot",
+  description: `Drone video editing in Miami and Fort Lauderdale: your aerial footage edited from ${usd(SHORT_FORM.perVideoFrom)} per video, and aerial shoots flown by a separately verified FAA Part 107 pilot, quoted per project.`,
   path: "/services/drone-video-editing-service-miami",
   locale: "en",
 });
@@ -112,7 +112,7 @@ export default function DroneVideoEditingServiceMiamiPage() {
                 >
                   Banacol
                 </Link>{" "}
-                project Esteban was the aerial drone cinematographer: three days of flights in Urabá, Colombia, on assignment with the Jungelbox agency.
+                project (past agency work in Colombia) Esteban captured three days of aerial footage in Urabá on assignment with the Jungelbox agency. In South Florida, aerial shoots are flown by a separately verified FAA Part 107 pilot.
               </p>
               <Link
                 href="/case-studies/banacol"
