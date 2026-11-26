@@ -185,8 +185,6 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-med-spas-y-cirujanos-plasticos-miami",
   "/services/contractor-video-marketing-florida":
     "/es/video-marketing-para-contratistas-florida",
-  "/services/quinceanera-videographer-miami":
-    "/es/videografo-de-quinceaneras-miami",
   "/services/multicam-podcast-video-production-miami":
     "/es/produccion-de-podcast-con-multicamara-miami",
   "/services/personal-injury-lawyer-video-miami":

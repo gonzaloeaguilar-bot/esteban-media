@@ -23,6 +23,7 @@ import { SPANISH_SIBLING_CLUSTERS, ringSiblings } from "@/lib/service-depth-cont
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
 import { EventSeasonLinks } from "@/components/event-content-page";
+import { NeedSomeoneThisWeek, type NeedSomeoneThisWeekProof } from "@/components/need-someone-this-week";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
@@ -56,6 +57,34 @@ const sectorOfferSlugs: Record<string, "restaurant" | "event" | "marine"> = {
 };
 
 const nicheLinkContext: Record<string, NicheLinkContext> = {
+  "cuanto-cobra-un-videografo-en-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: una boda en Boston que Esteban grabó y editó, con una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente. Bar Door Monkey Miami: la promoción de un local, con videografía y edición de Esteban.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+      { href: "/es/portafolio/bar-door-monkey", title: "Bar Door Monkey Miami", detail: "Preproducción, locación, videografía y edición." },
+    ],
+  },
+  "videografo-para-ferias-comerciales-fort-lauderdale": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward y Miami-Dade",
+    note: "Todavía no hay una feria comercial publicada en el portafolio. Bar Door Monkey Miami es la promoción de un local que Esteban grabó y editó; muestra grabación en locación para un negocio, no cobertura de una feria.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      { href: "/es/portafolio/bar-door-monkey", title: "Bar Door Monkey Miami", detail: "Preproducción, locación, videografía y edición." },
+    ],
+  },
+  "contratar-editor-de-video-remoto": {
+    areaHref: "/es/areas",
+    areaLabel: "Ver zonas y trabajo remoto",
+    note: "Homeowners: un video para redes que Esteban editó a distancia con el material que entregó la agencia 300 Bees, el mismo flujo de la edición remota.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/homeowners", title: "Homeowners", detail: "Edición a distancia con material entregado por la agencia." },
+    ],
+  },
   // Ola de nichos 8 (2026-10-11). Prueba real del portafolio, nombrada por lo
   // que es: ninguno de estos proyectos se presenta como trabajo del nicho.
   "video-para-preventa-de-condominios-miami": {
@@ -1833,6 +1862,10 @@ export function SpanishNichePage({
 
       <EventSeasonLinks locale="es" path={`/es/${page.slug}`} />
 
+      {NEED_THIS_WEEK_PROOF[page.slug] ? (
+        <NeedSomeoneThisWeek locale="es" proof={NEED_THIS_WEEK_PROOF[page.slug]} />
+      ) : null}
+
       {inquiryService ? (
         <ServiceInquiryRail
           service={inquiryService}
@@ -1986,6 +2019,17 @@ const WEDDING_HUB_SLUGS: ReadonlySet<string> = new Set([
   "videografo-de-bodas-fort-lauderdale",
   "videografo-para-bodas-de-destino-palm-beach",
 ]);
+
+/**
+ * Spanish event pages that carry the "¿Necesitas a alguien esta semana?" block
+ * (commercial-intent strategy 2026-11-26), each with the closest real
+ * published item, labelled for what it is.
+ */
+const NEED_THIS_WEEK_PROOF: Readonly<Record<string, NeedSomeoneThisWeekProof>> = {
+  "video-para-quinceaneras-miami": { href: "/es/portafolio/diana-jack", label: "Diana & Jack, una película de boda publicada (una boda, no una quinceañera)" },
+  "videografo-de-bodas-miami": { href: "/es/portafolio/diana-jack", label: "Diana & Jack, una película de boda publicada" },
+  "videografo-para-eventos-corporativos-fort-lauderdale": { href: "/es/portafolio/bar-door-monkey", label: "Bar Door Monkey Miami, la promoción publicada de un local (no es cobertura de un evento)" },
+};
 
 /** Pages whose owner gave no price: every one is quoted individually. */
 const QUOTE_ONLY_SLUGS: ReadonlySet<string> = new Set(["videografo-de-bodas-fort-lauderdale"]);

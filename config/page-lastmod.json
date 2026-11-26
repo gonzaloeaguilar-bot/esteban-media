@@ -225,7 +225,11 @@
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-26",
-  "hash": "f2b6eeae5d1c869b"
+  "hash": "8f75fba01e351e4c"
+ },
+ "/es/cuanto-cobra-un-videografo-en-miami": {
+  "date": "2026-11-26",
+  "hash": "b1a9306fee621094"
  },
  "/es/diseno-web-fort-lauderdale": {
   "date": "2026-10-14",
@@ -632,8 +636,8 @@
   "hash": "4be8e6c2c6c3ad14"
  },
  "/es/guias/precios-edicion-de-reels-y-video-sur-de-florida": {
-  "date": "2026-11-04",
-  "hash": "e7017231f00b9bae"
+  "date": "2026-11-26",
+  "hash": "590a0715aa8a7ce8"
  },
  "/es/guias/preparar-material-para-edicion-de-video": {
   "date": "2026-10-07",
@@ -848,8 +852,8 @@
   "hash": "2f0c94ff1fd3c57b"
  },
  "/es/precios": {
-  "date": "2026-11-04",
-  "hash": "29c7e6fa824f433e"
+  "date": "2026-11-26",
+  "hash": "8aa6b7ac901cbaab"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -1164,8 +1168,8 @@
   "hash": "df78ce8dc0574ddd"
  },
  "/es/video-para-quinceaneras-miami": {
-  "date": "2026-10-14",
-  "hash": "1607acf52a844c27"
+  "date": "2026-11-26",
+  "hash": "e382e92b0c64034e"
  },
  "/es/video-para-relojes-de-lujo-miami": {
   "date": "2026-10-18",
@@ -1215,17 +1219,13 @@
   "date": "2026-10-19",
   "hash": "9688dfa967267433"
  },
- "/es/videografo-de-quinceaneras-miami": {
-  "date": "2026-10-19",
-  "hash": "380098a8425a9c62"
- },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
   "hash": "822555f11cf084b0"
  },
  "/es/videografo-en-miami": {
-  "date": "2026-10-15",
-  "hash": "f6139724aa772a06"
+  "date": "2026-11-26",
+  "hash": "7451cc7237ac6757"
  },
  "/es/videografo-para-activacion-de-marca-miami": {
   "date": "2026-10-19",
@@ -1280,8 +1280,8 @@
   "hash": "167adc1655ff9b14"
  },
  "/es/videografo-para-fiestas-privadas-sur-de-florida": {
-  "date": "2026-10-28",
-  "hash": "3c11f19577b267ce"
+  "date": "2026-11-26",
+  "hash": "a0fd6c85ab24ab06"
  },
  "/es/videografo-para-galas-corporativas-miami": {
   "date": "2026-10-18",
@@ -1512,8 +1512,8 @@
   "hash": "6c7f35a6f9ed4721"
  },
  "/guides/reels-video-editing-prices-south-florida": {
-  "date": "2026-11-04",
-  "hash": "aba319a75abf759c"
+  "date": "2026-11-26",
+  "hash": "4cbfc4a2619bf2eb"
  },
  "/guides/reels-vs-tiktok-vs-shorts-for-local-business": {
   "date": "2026-10-07",
@@ -1888,8 +1888,8 @@
   "hash": "699ab8811610b454"
  },
  "/services/corporate-event-videographer-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "237b6cd7637ecffb"
+  "date": "2026-11-26",
+  "hash": "7af731016fafdf10"
  },
  "/services/corporate-event-videographer-miami": {
   "date": "2026-10-18",
@@ -2029,7 +2029,7 @@
  },
  "/services/hire-remote-video-editor": {
   "date": "2026-11-26",
-  "hash": "b77d21be8790234b"
+  "hash": "c42ee000b01cb0a7"
  },
  "/services/hotel-hospitality-video-production-miami": {
   "date": "2026-10-13",
@@ -2164,8 +2164,8 @@
   "hash": "3b24c084b962dcea"
  },
  "/services/private-party-videographer-south-florida": {
-  "date": "2026-10-28",
-  "hash": "47042039981dc71f"
+  "date": "2026-11-26",
+  "hash": "3a8f2791bbbe2fed"
  },
  "/services/private-school-admissions-video-miami": {
   "date": "2026-10-19",
@@ -2184,12 +2184,8 @@
   "hash": "6ce881cafa2b0c8e"
  },
  "/services/quinceanera-video-miami": {
-  "date": "2026-10-13",
-  "hash": "af7d3503a42a87c0"
- },
- "/services/quinceanera-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "6cd2110f1fb4f86f"
+  "date": "2026-11-26",
+  "hash": "833d1cbd0ad73ff1"
  },
  "/services/real-estate-drone-video-editing-miami": {
   "date": "2026-10-13",
@@ -2364,8 +2360,8 @@
   "hash": "84fde40e4d96f5d6"
  },
  "/services/wedding-videographer-miami": {
-  "date": "2026-11-24",
-  "hash": "e30b56fd9ee00860"
+  "date": "2026-11-26",
+  "hash": "51519be389296e1d"
  },
  "/services/wellness-spa-video-marketing-miami": {
   "date": "2026-10-13",

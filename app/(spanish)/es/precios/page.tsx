@@ -115,7 +115,11 @@ export default function SpanishPricingPage() {
             <Link href="/es/servicios" className="underline hover:text-[#9f3c27]">
               todos los servicios
             </Link>
-            , compara el{" "}
+            , consulta{" "}
+            <Link href="/es/cuanto-cobra-un-videografo-en-miami" className="underline hover:text-[#9f3c27]">
+              cuánto cobra un videógrafo en Miami
+            </Link>
+            {" "}o compara el{" "}
             <Link href="/es/guias/precios-edicion-de-reels-y-video-sur-de-florida" className="underline hover:text-[#9f3c27]">
               índice de precios de edición de Reels en South Florida
             </Link>
