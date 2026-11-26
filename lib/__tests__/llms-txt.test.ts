@@ -42,7 +42,7 @@ describe("llms.txt stays in step with the sitemap (audit 2026-10-10, fix 4)", ()
     }
     expect(llms).not.toContain("/services/ecommerce-product-video-editor-miami");
     expect(llms).not.toContain("/services/social-media-video-batching-miami");
-    expect(llms).not.toContain("/services/youtube-video-editing-service-miami");
+    expect(llms).not.toContain("/services/video-production-davie-fl");
   });
 
   it("matches the owner-confirmed South Florida service boundary without inventing an office", () => {
