@@ -661,6 +661,9 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/casos-de-estudio/portosole",
   "https://estebanmorenomedia.com/case-studies/punto-de-giro",
   "https://estebanmorenomedia.com/es/casos-de-estudio/punto-de-giro",
+  // YouTube video editing Miami pair re-admitted (owner decision 2026-11-24, cohort rule 1).
+  "https://estebanmorenomedia.com/services/youtube-video-editing-service-miami",
+  "https://estebanmorenomedia.com/es/servicio-de-edicion-de-video-para-youtube-miami",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =
