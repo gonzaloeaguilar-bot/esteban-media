@@ -18,6 +18,8 @@ export function SiteFooter() {
         { label: "Vimeo", href: site.vimeo },
         { label: "Yelp", href: site.yelp },
         { label: "Nextdoor", href: site.nextdoor },
+        { label: "Facebook", href: site.facebook },
+        { label: "LinkedIn", href: site.linkedinCompany },
       ]}
       domain={site.domain}
       location={site.location}
