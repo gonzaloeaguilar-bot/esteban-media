@@ -647,7 +647,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         question: "¿Hay trabajo inmobiliario publicado para ver?",
         answer:
-          "Sí. La página de reels inmobiliarios en inglés muestra siete reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+          "Sí. La página de reels inmobiliarios en inglés muestra diez reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
       },
     ],
   },

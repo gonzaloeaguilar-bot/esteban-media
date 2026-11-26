@@ -3200,7 +3200,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "Published proof for this kind of edit: seven vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
+    note: "Published proof for this kind of edit: ten vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
   },
   craftHeading: "What a pre-construction reel has to get right.",
   craft: [
@@ -3239,7 +3239,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for property marketing.",
   related: [
-    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with seven published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with ten published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
     { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
     { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
   ],
@@ -3254,7 +3254,7 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "The seven reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
+    note: "The ten reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
   },
   craftHeading: "What a short-term rental tour needs from the edit.",
   craft: [
@@ -3288,12 +3288,12 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
     {
       question: "Is there published property work to look at?",
       answer:
-        "Yes. The real estate reels page shows seven vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
+        "Yes. The real estate reels page shows ten vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
     },
   ],
   relatedHeading: "Related services for property hosts and managers.",
   related: [
-    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with seven published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with ten published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
     { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits for local businesses near the base.", href: "/services/reels-editor-fort-lauderdale" },
     { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
   ],
