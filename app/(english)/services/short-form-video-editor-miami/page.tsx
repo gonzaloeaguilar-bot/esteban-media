@@ -26,8 +26,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Miami Short-Form Video Editor | Turn Raw Clips into Reels",
-  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami and Fort Lauderdale. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Short-Form Video Editor Miami | TikTok, Shorts & Reels",
+  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami-Dade. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -81,7 +81,7 @@ export default function ShortFormVideoEditorPage() {
                 Reels / Shorts / TikTok
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Miami Short-Form Video Editor for Reels, TikToks & Shorts.
+                Short-Form Video Editor in Miami for TikToks, Shorts & Reels.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Send your raw vertical clips and the platform you plan to use; Esteban Moreno Media turns them into clear Reels, TikToks, and YouTube Shorts for creators and businesses in Miami. Editing is remote when your footage is ready to use—use the{" "}
@@ -97,17 +97,21 @@ export default function ShortFormVideoEditorPage() {
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
                 Need an edit specifically for Instagram Reels in Miami? Start with the{" "}
                 <Link href="/services/reels-editor-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  Miami Reels editing page
+                  reel editor in Miami
                 </Link>{" "}
-                or the Spanish{" "}
+                page or the Spanish{" "}
                 <Link href="/es/editor-de-reels-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
                   editor de Reels en Miami
                 </Link>{" "}
                 route instead. For Broward businesses, see the{" "}
                 <Link href="/services/reels-editor-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  Fort Lauderdale Reels editor
+                  short-form video editor in Fort Lauderdale
                 </Link>{" "}
-                page, or visit{" "}
+                page (in Spanish, the{" "}
+                <Link href="/es/editor-de-reels-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de videos cortos en Fort Lauderdale
+                </Link>
+                ), or visit{" "}
                 <Link href="/services/youtube-long-form-video-editing" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
                   YouTube long-form video editing
                 </Link>{" "}
@@ -153,7 +157,7 @@ export default function ShortFormVideoEditorPage() {
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
       <p className="sr-only">
-        For a <Link href="/services/reels-editor-miami">Miami Reels editing page</Link> focused on location-specific short-form work, see the Miami Reels editing page.
+        For Instagram Reels only, the <Link href="/services/reels-editor-miami">reel editor in Miami</Link> page is the focused route.
       </p>
       <FoodCreatorChoice locale="en" sourcePage="miami-short-form" />
       <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">

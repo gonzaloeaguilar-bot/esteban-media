@@ -2241,7 +2241,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "editor-de-video-corto-para-redes-miami",
     title: "Editor de video corto para redes en Miami",
     metadataTitle: "Editor de Video Corto Reels Miami",
-    description: `Editor de videos cortos y reels para influencers, creadores y negocios en Miami y Fort Lauderdale. Reels, TikTok y Shorts desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
+    description: `Editor de videos cortos y reels para influencers, creadores y negocios en Miami-Dade. Reels, TikTok y Shorts desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Video Corto / Reels",
     updated: "2026-10-08",
     sectionsDisclosure: "Videos cortos para influencers y negocios: costo, grabar con el celular y contacto",
@@ -2279,7 +2279,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cuáles son los criterios técnicos de encuadre y zonas seguras?",
         paragraphs: [
           "El estándar técnico para videos cortos es una resolución vertical de 1080×1920 píxeles con relación de aspecto 9:16. Las interfaces móviles de Instagram y TikTok colocan botones de me gusta, comentarios, perfiles y descripciones sobre los laterales y la parte inferior del video. Si los elementos clave o textos se colocan en esas áreas, la interfaz los tapa.",
-          "Una postproducción cuidada mantiene los subtítulos dinámicos, logotipos y llamados a la acción dentro de la zona segura central (Safe Zone). Como gran parte del público consume video en el celular con el audio silenciado, los subtítulos legibles con alto contraste garantizan la comprensión completa. Para proyectos específicos en Broward, puedes coordinar con un [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
+          "Una postproducción cuidada mantiene los subtítulos dinámicos, logotipos y llamados a la acción dentro de la zona segura central (Safe Zone). Como gran parte del público consume video en el celular con el audio silenciado, los subtítulos legibles con alto contraste garantizan la comprensión completa. Para proyectos específicos en Broward, puedes coordinar con un [editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
         ],
       },
       {
@@ -6353,9 +6353,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     description:
       `Edición de videos cortos y Reels en Fort Lauderdale con tus clips: subtítulos legibles para TikTok, Shorts e Instagram. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Video y Reels / TikTok / Shorts",
-    h1: "Editor de video y Reels en Fort Lauderdale para convertir tus clips en videos claros.",
+    h1: "Editor de Reels y videos cortos en Fort Lauderdale para convertir tus clips en videos claros.",
     lead:
-      "Si buscas un editor de video en Fort Lauderdale o un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
+      "Si buscas un editor de Reels, un editor de videos cortos o un editor de video en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
     answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Si buscas un editor de videos cortos en Fort Lauderdale, Esteban edita con los archivos originales que ya tienes, una idea por video y la red donde vas a publicar; los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
     keyword: "editor de video en Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
@@ -6742,7 +6742,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     answerQuestion: buyerQuestion("remote-bilingual-editing", "es").question,
     fitQuestion: "¿Cuándo encaja la edición remota?",
     projectFit:
-      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
+      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte. Si tu negocio está en Broward, el [editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) explica la edición de Reels con tus clips.",
     sections: [
       {
         heading: "¿Cómo se contrata a un editor de video remoto?",

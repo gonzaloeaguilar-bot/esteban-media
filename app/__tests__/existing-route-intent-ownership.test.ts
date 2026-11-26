@@ -14,7 +14,8 @@ describe("existing-route intent ownership", () => {
 
     expect(reels).toContain("This page owns the direct Miami Reels question.");
     expect(reels).toContain('href="/services/short-form-video-editor-miami"');
-    expect(shortForm).toContain("Miami Reels editing page");
+    expect(shortForm).toContain("reel editor in Miami");
+    expect(shortForm).toContain('href="/es/editor-de-reels-fort-lauderdale"');
     expect(shortForm).toContain('href="/services/reels-editor-miami"');
     expect(shortForm).toContain('href="/es/editor-de-reels-miami"');
     expect(shortForm).toContain('href="/services/reels-editor-fort-lauderdale"');
