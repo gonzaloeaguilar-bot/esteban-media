@@ -99,7 +99,9 @@ describe("US-Spanish money pages & contextual linking", () => {
     expect(miamiAllText).toContain("/es/editor-de-video-miami");
 
     const hubAllText = hub?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
-    expect(hubAllText).toContain("[editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale)");
+    // 2026-11-26 one-owner-per-query: the short-form hub is the topical source for
+    // "editor de videos cortos fort lauderdale", so its link to the same owner uses that anchor.
+    expect(hubAllText).toContain("[editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale)");
     expect(hubAllText).toContain("[editor de Reels en Miami](/es/editor-de-reels-miami)");
 
     const miamiEditorAllText = miamiEditor?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
