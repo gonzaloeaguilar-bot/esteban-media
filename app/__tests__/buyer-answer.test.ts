@@ -83,3 +83,30 @@ describe("no duplicate of the #831 trade-show answer", () => {
     }
   });
 });
+
+describe("the contact forms keep each BuyerAnswer source (codex review, PR #808)", () => {
+  // VideoBriefBuilder.resolveLeadSource drops any ?source= value that is not in
+  // the page's querySources list, so a CTA source missing here reaches /api/lead
+  // as "brief-builder" and the attribution this PR adds is lost.
+  const en = read("app/(english)/contact/page.tsx");
+  const es = read("app/(spanish)/es/contacto/page.tsx");
+  const enList = en.match(/const CAPTURE_SOURCES = \[([^\]]*)\]/)?.[1] ?? "";
+  const esList = es.match(/querySources=\{\[([^\]]*)\]\}/)?.[1] ?? "";
+
+  for (const kind of [
+    "real-estate-monthly-plan",
+    "mastermind-filming-price",
+    "town-hall-filming-price",
+    "keys-retreat-filming-price",
+  ] as const) {
+    it(`/contact accepts ?source=${kind}`, () => {
+      expect(render(kind)).toContain(`href="/contact?source=${kind}"`);
+      expect(enList).toContain(`"${kind}"`);
+    });
+  }
+
+  it("/es/contacto accepts ?source=real-estate-monthly-plan", () => {
+    expect(render("real-estate-monthly-plan", "es")).toContain('href="/es/contacto?source=real-estate-monthly-plan"');
+    expect(esList).toContain('"real-estate-monthly-plan"');
+  });
+});

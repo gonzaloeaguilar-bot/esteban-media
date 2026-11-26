@@ -81,7 +81,7 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     // The allowlisted ?source= attribution survives, now resolved client-side.
     const { readFileSync } = await import("node:fs");
     expect(readFileSync("app/(spanish)/es/contacto/page.tsx", "utf8")).toContain(
-      "querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE, \"reels-editor-fort-lauderdale\", \"short-form-editor-miami\", \"event-attendee-interview\", \"caption-guide\", ...CENTRAL_FLORIDA_CAPTURE_SOURCES]}",
+      "querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE, \"reels-editor-fort-lauderdale\", \"short-form-editor-miami\", \"event-attendee-interview\", \"caption-guide\", \"real-estate-monthly-plan\", ...CENTRAL_FLORIDA_CAPTURE_SOURCES]}",
     );
     expect(wordCount(markup)).toBeGreaterThanOrEqual(450);
 
