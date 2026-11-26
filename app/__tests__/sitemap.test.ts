@@ -72,8 +72,8 @@ describe("portfolio sitemap entries", () => {
     // +4 = attendee interviews and AI commercial Reels (2026-11-18).
     // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
     // +2 = YouTube video editing Miami pair re-admitted (2026-11-24, owner decision under cohort rule 1).
-    expect(entries).toHaveLength(600);
-    expect(new Set(urls)).toHaveLength(600);
+    expect(entries).toHaveLength(602);
+    expect(new Set(urls)).toHaveLength(602);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

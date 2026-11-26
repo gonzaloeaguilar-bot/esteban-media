@@ -108,6 +108,12 @@ export default function Page() {
                 >
                   Send the wedding details
                 </Link>
+                <Link
+                  href="/services/wedding-packages"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  See Wedding Packages
+                </Link>
               </div>
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">
                 Based in Fort Lauderdale, filming on location across Broward and Miami-Dade, and editing remotely. Spanish-first, with intermediate English.
