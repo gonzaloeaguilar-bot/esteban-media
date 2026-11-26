@@ -1634,13 +1634,23 @@ export function SpanishNichePage({
                 >
                   Ver servicios
                 </Link>
-                <Link
-                  href="/es/guias"
-                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_guides`}
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-                >
-                  Ver guías de video
-                </Link>
+                {WEDDING_HUB_SLUGS.has(page.slug) ? (
+                  <Link
+                    href="/es/paquetes-de-boda"
+                    data-cta="es_wedding_packages_hero"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                  >
+                    Ver paquetes de boda
+                  </Link>
+                ) : (
+                  <Link
+                    href="/es/guias"
+                    data-cta={`${inquiryService?.serviceId ?? "es_niche"}_guides`}
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                  >
+                    Ver guías de video
+                  </Link>
+                )}
               </div>
             </div>
 
@@ -1964,10 +1974,17 @@ export function SpanishNichePage({
  * row its own identity and lets someone count what they are looking at, which
  * a repeated tick never allowed.
  */
-/** The page's first "¿Cuánto cuesta / cuestan…?" section, if it has one. */
+/** The three Spanish wedding city pages: their hero points at the packages hub. */
+const WEDDING_HUB_SLUGS: ReadonlySet<string> = new Set([
+  "videografo-de-bodas-miami",
+  "videografo-de-bodas-fort-lauderdale",
+  "videografo-para-bodas-de-destino-palm-beach",
+]);
+
 /** Pages whose owner gave no price: every one is quoted individually. */
 const QUOTE_ONLY_SLUGS: ReadonlySet<string> = new Set(["videografo-de-bodas-fort-lauderdale"]);
 
+/** The page's first "¿Cuánto cuesta / cuestan…?" section, if it has one. */
 export function spanishPriceSection<T extends { heading: string }>(sections: readonly T[] | undefined): T | undefined {
   return sections?.find((section) => /^¿cu[aá]nto cuesta|^¿cu[aá]nto cuestan|^¿cu[aá]nto cobra/i.test(section.heading.trim()));
 }

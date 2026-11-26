@@ -84,8 +84,8 @@
   "hash": "0d2248a88579ee5d"
  },
  "/contact": {
-  "date": "2026-11-22",
-  "hash": "edd8b8b64b434291"
+  "date": "2026-11-23",
+  "hash": "9d0a120028327f03"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -738,6 +738,10 @@
  "/es/marketing-de-video-para-superyates-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "c03af493ccb2b851"
+ },
+ "/es/paquetes-de-boda": {
+  "date": "2026-11-24",
+  "hash": "0aeba5267387575d"
  },
  "/es/planificador-de-ganchos-de-video": {
   "date": "2026-10-14",
@@ -1868,8 +1872,8 @@
   "hash": "04f91ca3a81ca008"
  },
  "/services/contractor-video-marketing-florida": {
-  "date": "2026-10-19",
-  "hash": "61693e5353b2e626"
+  "date": "2026-11-25",
+  "hash": "4365367196156801"
  },
  "/services/contractor-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1952,8 +1956,8 @@
   "hash": "07013d514fe11441"
  },
  "/services/destination-wedding-videographer-palm-beach": {
-  "date": "2026-10-19",
-  "hash": "3f87c671008d2972"
+  "date": "2026-11-24",
+  "hash": "5462de57cb7d5061"
  },
  "/services/drone-video-editing-service-miami": {
   "date": "2026-10-13",
@@ -2228,8 +2232,8 @@
   "hash": "7fe15c1e91652250"
  },
  "/services/short-form-video-editor-miami": {
-  "date": "2026-11-21",
-  "hash": "c43c5774cb6bcd7d"
+  "date": "2026-11-23",
+  "hash": "425ca820ab1d12c4"
  },
  "/services/small-business-video-hollywood-fl": {
   "date": "2026-10-14",
@@ -2347,13 +2351,17 @@
   "date": "2026-11-11",
   "hash": "de6d1e85cfa427e4"
  },
+ "/services/wedding-packages": {
+  "date": "2026-11-24",
+  "hash": "714dc12d22cce500"
+ },
  "/services/wedding-videographer-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "848badc11a546d7b"
+  "date": "2026-11-24",
+  "hash": "84fde40e4d96f5d6"
  },
  "/services/wedding-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "dd4331aef4c52623"
+  "date": "2026-11-24",
+  "hash": "e30b56fd9ee00860"
  },
  "/services/wellness-spa-video-marketing-miami": {
   "date": "2026-10-13",

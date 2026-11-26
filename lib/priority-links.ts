@@ -34,6 +34,8 @@ const EN: Record<string, PriorityLink> = {
   // read it "Discovered - currently not indexed" in both languages.
   study: { href: restaurantIgStudyPaths.en, label: "Study: what Miami restaurants post on Instagram", description: `Original data from ${STUDY.accounts} restaurant accounts and ${STUDY.posts} posts: formats, Reel length and how often they post.` },
   westPalm: { href: "/services/video-editing-west-palm-beach", label: "Reels and video editing in West Palm Beach", description: "Remote editing for Palm Beach County businesses, project by project." },
+  reelsFtl: { href: "/services/reels-editor-fort-lauderdale", label: "Reels editor in Fort Lauderdale", description: "Remote Reels, TikTok and Shorts editing for Broward businesses from your own clips." },
+  youtubeLong: { href: "/services/youtube-long-form-video-editing", label: "YouTube long-form video editing", description: "Full YouTube episodes edited from your recordings, separate from vertical social clips." },
 };
 
 const ES: Record<string, PriorityLink> = {
@@ -55,7 +57,7 @@ export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   // need the decision path (cost, supplied-footage scope and adjacent formats),
   // not a second near-duplicate location page.
   "/services/reels-editor-miami": [EN.reelsCost, EN.pricing, EN.repurposing, EN.ugc, EN.founders],
-  "/services/short-form-video-editor-miami": [EN.reelsCost, EN.pricing, EN.repurposing, EN.podcast, EN.founders],
+  "/services/short-form-video-editor-miami": [EN.reelsMiami, EN.reelsFtl, EN.youtubeLong, EN.reelsCost, EN.pricing, EN.repurposing, EN.podcast, EN.founders],
   "/guides/best-caption-styles-for-instagram-reels": [EN.reelsMiami, EN.reelsCost, EN.pricing, EN.repurposing],
   "/guides/fastest-way-to-send-large-video-files-to-editor": [EN.pricing, EN.reelsCost, EN.podcast, EN.ugc],
   "/guides/video-editor-vs-videographer": [EN.pricing, EN.reelsMiami, EN.founders],

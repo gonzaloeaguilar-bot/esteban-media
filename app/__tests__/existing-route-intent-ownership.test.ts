@@ -16,6 +16,12 @@ describe("existing-route intent ownership", () => {
     expect(reels).toContain('href="/services/short-form-video-editor-miami"');
     expect(shortForm).toContain("Miami Reels editing page");
     expect(shortForm).toContain('href="/services/reels-editor-miami"');
+    expect(shortForm).toContain('href="/es/editor-de-reels-miami"');
+    expect(shortForm).toContain('href="/services/reels-editor-fort-lauderdale"');
+    expect(shortForm).toContain('href="/services/youtube-long-form-video-editing"');
+    expect(shortForm).toContain('href="/es/edicion-de-video-largo-para-youtube"');
+    expect(shortForm).toContain("Can your phone clips be edited remotely, or should you book a local shoot first?");
+    expect(shortForm).toContain("no discovery call required");
   });
 
   it("sends long-form YouTube and food-creator intent to their existing owners", () => {
