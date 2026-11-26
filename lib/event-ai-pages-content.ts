@@ -160,7 +160,7 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
       heading: "When is AI-assisted editing the wrong choice?",
       paragraphs: [
         "It is the wrong choice when the buyer needs to inspect the item and a generated image cannot match it, when the claim is regulated, or when the brand's value is the visible presence of real people. A restaurant's signature dish, a property's actual finishes and an ecommerce product's label, texture and size should be filmed, not synthesized.",
-        "The honest comparison of AI assistance and human editing is already published in the guide on [AI video editing versus a human editor](/guides/ai-video-editing-vs-human-editor). For ad variation testing built from real creator footage, the [UGC ad variation editing](/services/ugc-ad-variation-video-editing) page covers that workflow.",
+        "The honest comparison of AI assistance and human editing is already published in the guide on [AI video editing versus a human editor](/guides/ai-video-editing-vs-human-editor). For ad variation testing built from real creator footage, the [UGC ad variation editing](/services/tiktok-ad-video-editor-miami) page covers that workflow.",
       ],
     },
   ],

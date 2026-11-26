@@ -73,8 +73,11 @@ describe("portfolio sitemap entries", () => {
     // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
     // +2 = YouTube video editing Miami pair re-admitted (2026-11-24, owner decision under cohort rule 1).
     // -1 net = commercial-intent package: added /es/cuanto-cobra-un-videografo-en-miami (+1), consolidated quinceañera duplicates (-2: /services/quinceanera-videographer-miami and /es/videografo-de-quinceaneras-miami).
-    expect(entries).toHaveLength(601);
-    expect(new Set(urls)).toHaveLength(601);
+    // -52 = zero-signal prune (2026-11-26): indexed niche pages with 0 impressions,
+    // 0 sessions and 0 leads in 90 days 301 to a same-language same-intent page
+    // (config/cohort-consolidation.json#merges).
+    expect(entries).toHaveLength(601 - 52);
+    expect(new Set(urls)).toHaveLength(601 - 52);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

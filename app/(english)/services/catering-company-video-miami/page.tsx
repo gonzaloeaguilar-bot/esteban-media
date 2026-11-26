@@ -114,13 +114,13 @@ export default function CateringCompanyVideoMiamiPage() {
               <UtensilsCrossed className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">What culinary video experience is available?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Explore restaurant promo and culinary storytelling across South Florida. Review our guide on <Link href="/services/fine-dining-restaurant-videographer-miami" className="underline decoration-[#e85d3e] underline-offset-4">fine dining restaurant videographer Miami</Link>.
+                Explore restaurant promo and culinary storytelling across South Florida. Review our guide on <Link href="/services/restaurant-promo-video-editing-miami" className="underline decoration-[#e85d3e] underline-offset-4">restaurant promo video in Miami</Link>.
               </p>
               <Link
-                href="/services/fine-dining-restaurant-videographer-miami"
+                href="/services/restaurant-promo-video-editing-miami"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Explore Fine Dining Videography
+                Explore Restaurant Video
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

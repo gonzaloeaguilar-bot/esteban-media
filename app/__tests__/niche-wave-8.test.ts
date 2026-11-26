@@ -9,6 +9,7 @@ import type { NicheWave8Depth } from "@/lib/service-depth-content";
 import type { DeepDive } from "@/lib/service-deep-dive-content";
 import { buildSpanishNicheStructuredData, getSpanishNichePage, languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
+import { isMergedPath, resolveMergedPath } from "@/lib/consolidation";
 import { sitemapRoutes } from "@/app/sitemap";
 import { getPortfolioItemById } from "@/lib/portfolio";
 import { CELEBRATION_FILM_BUNDLES, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
@@ -89,6 +90,16 @@ describe("niche wave 8 — structure and wiring", () => {
   it.each(WAVE)("%s is sitemapped and paired both ways", (_n, _d, _v, path, esSlug) => {
     const esPath = `/es/${esSlug}`;
     expect(sitemapRoutes).toContainEqual({ path, priority: 0.85 });
+    if (isMergedPath(esPath)) {
+      // 2026-11-26 zero-signal prune: the Spanish twin 301s to a Spanish owner
+      // page, so the pair is dissolved instead of advertising a redirect.
+      expect(languageAlternates[path]).toBeUndefined();
+      expect(languageAlternates[esPath]).toBeUndefined();
+      expect(getPairedLanguageRoute(path)).toBe(resolveMergedPath(esPath));
+      expect(resolveMergedPath(esPath).startsWith("/es/")).toBe(true);
+      expect(source("scripts/search-console-index-watch.mjs")).not.toContain(`"https://estebanmorenomedia.com${esPath}"`);
+      return;
+    }
     expect(spanishRoutes).toContain(esPath);
     const alternates = { "en-US": path, "es-US": esPath, "x-default": path };
     expect(languageAlternates[path]).toEqual(alternates);

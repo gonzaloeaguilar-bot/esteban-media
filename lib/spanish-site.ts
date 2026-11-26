@@ -889,7 +889,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Qué ritmo semanal puede sostener un equipo de medios?",
         paragraphs: [
           "Uno que empieza con la grabación del domingo y termina con los clips programados durante la semana. La grabación se comparte al terminar el servicio, la selección se acuerda con el pastor y los clips se reparten en los días siguientes, con el más fuerte primero. Un clip a mitad de semana recuerda el mensaje y el último puede invitar al próximo servicio o a un evento.",
-          "Si la iglesia tiene servicios en dos idiomas, los clips en español e inglés pueden alternarse. Cuida a la congregación: los niños y los miembros que se reconocen en cámara solo aparecen con permiso. La [reutilización de contenido para redes](/es/reutilizacion-de-contenido-para-redes-miami) aplica el mismo método a conferencias y retiros, y el [plan Crecimiento](/es/precios/crecimiento) sostiene el calendario.",
+          "Si la iglesia tiene servicios en dos idiomas, los clips en español e inglés pueden alternarse. Cuida a la congregación: los niños y los miembros que se reconocen en cámara solo aparecen con permiso. La [reutilización de contenido para redes](/es/editor-de-video-corto-para-redes-miami) aplica el mismo método a conferencias y retiros, y el [plan Crecimiento](/es/precios/crecimiento) sostiene el calendario.",
         ],
       },
     ],
@@ -1017,7 +1017,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Qué ritmo de publicación puede sostener un podcast pequeño?",
         paragraphs: [
           "Clips repartidos en los días después del episodio, no todos el día del estreno. Un ritmo común es el clip más fuerte junto con el episodio, dos o tres más durante la semana y el último invitando al siguiente episodio. Entre tres y cinco clips por episodio es un buen comienzo para un programa semanal; la cantidad se acuerda en la cotización según la duración del episodio y cada cuánto publicas.",
-          "Piensa en el invitado: mándale los clips donde aparece para que también los comparta, y confirma que la música y las intros tienen licencia para redes. Cuando el episodio completo también necesita edición, la [edición de video podcast](/es/edicion-de-video-podcast-miami) lo cubre, y para webinars y charlas sirve la [reutilización de contenido para redes](/es/reutilizacion-de-contenido-para-redes-miami).",
+          "Piensa en el invitado: mándale los clips donde aparece para que también los comparta, y confirma que la música y las intros tienen licencia para redes. Cuando el episodio completo también necesita edición, la [edición de video podcast](/es/edicion-de-video-podcast-miami) lo cubre, y para webinars y charlas sirve la [reutilización de contenido para redes](/es/editor-de-video-corto-para-redes-miami).",
         ],
       },
     ],
@@ -4904,7 +4904,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres clips cortos de momentos destacados para redes sociales?",
     ],
     projectFit:
-      "Edición bilingüe y optimización constante de episodios. Si ya editas el episodio y solo necesitas los clips cortos, mira la [edición de clips de podcast para Reels, TikTok y Shorts](/es/edicion-de-clips-de-podcast-miami).",
+      "Edición bilingüe y optimización constante de episodios. Si ya editas el episodio y solo necesitas los clips cortos, mira la [edición de clips de podcast para Reels, TikTok y Shorts](/es/editor-de-video-corto-para-redes-miami).",
     faqs: [
       {
         question: "¿Incluye diseño de portadas e introducciones animadas?",

@@ -45,7 +45,7 @@ const ES: Record<string, PriorityLink> = {
   videoMiami: { href: "/es/editor-de-video-miami", label: "Editor de video en Miami en español", description: "Edición para negocios, marcas y creadores de Miami." },
   comida: { href: "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami", label: "Videos para creadores de comida y lugares", description: "Tú descubres el lugar; Esteban edita la historia." },
   restaurantes: { href: "/es/edicion-de-video-promocional-para-restaurantes-miami", label: "Video promocional para restaurantes en Miami", description: "Promociones para redes editadas con las tomas de tu local." },
-  podcast: { href: "/es/edicion-de-clips-de-podcast-miami", label: "Clips de podcast para redes en Miami", description: "Un episodio convertido en clips verticales con subtítulos." },
+  podcast: { href: "/es/editor-de-video-corto-para-redes-miami", label: "Clips de podcast para redes en Miami", description: "Un episodio convertido en clips verticales con subtítulos." },
   estudio: { href: restaurantIgStudyPaths.es, label: "Estudio: qué publican los restaurantes de Miami en Instagram", description: `Datos propios de ${STUDY.accounts} cuentas de restaurantes y ${STUDY.posts} publicaciones: formatos, duración de los Reels y frecuencia.` },
   miamiBeach: { href: "/es/edicion-de-video-miami-beach", label: "Edición de video en Miami Beach", description: "Proyectos de Miami Beach editados en remoto." },
   reelsFtl: { href: "/es/editor-de-reels-fort-lauderdale", label: "Editor de Reels en Fort Lauderdale", description: "Edición remota de Reels para negocios de Broward a partir de clips propios." },

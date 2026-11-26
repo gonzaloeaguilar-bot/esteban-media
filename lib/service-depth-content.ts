@@ -1,3 +1,4 @@
+import { isConsolidatedPath } from "@/lib/consolidation";
 import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service-depth";
 import { priceSentence } from "@/lib/packages";
 import {
@@ -311,9 +312,9 @@ export const YACHT_CHARTER_DEPTH: Depth = {
   relatedHeading: "Related services for yacht charter and marine video.",
   related: [
     {
-      title: "Superyacht Charter Marketing Video",
-      detail: "Luxury charter films, stateroom walkthroughs, and broker marketing for superyachts.",
-      href: "/services/superyacht-charter-marketing-video-fort-lauderdale",
+      title: "Yacht Party Videographer",
+      detail: "Filming parties and private events on board in Miami.",
+      href: "/services/yacht-party-videographer-miami",
     },
     {
       title: "Yacht Hospitality Video",
@@ -961,9 +962,9 @@ export const YOUTUBE_EDITING_DEPTH: Depth = {
       href: "/services/content-repurposing-service-miami",
     },
     {
-      title: "Video Podcast Editing",
-      detail: "Edit conversation-based episodes and clips from supplied recordings.",
-      href: "/services/video-podcast-editing-service-miami",
+      title: "Podcast Clip Editing",
+      detail: "Cut captioned clips from conversation-based episodes and supplied recordings.",
+      href: "/services/podcast-clipping-service-miami",
     },
     {
       title: "How to Repurpose Long Form",
@@ -3034,7 +3035,7 @@ const SERVICE_CARD_COPY: Readonly<Record<string, Omit<RelatedService, "href">>> 
   "/services/crowdfunding-video-editor-miami": { title: "Crowdfunding Video Editor", detail: "Crowdfunding video editor in Miami: Kickstarter launch videos, Indiegogo product pitch edits, and backer conversion video post-production." },
 };
 
-export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+const RAW_SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
   [
     "/services/corporate-training-video-editing-miami",
     "/services/corporate-video-editing-weston-fl",
@@ -3071,7 +3072,7 @@ export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
 ];
 
 /** Spanish clusters, same ring rule; card copy comes from spanishNichePages. */
-export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+const RAW_SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
   [
     "edicion-de-video-corporativo-weston",
     "edicion-de-video-de-capacitacion-corporativa-miami",
@@ -3125,6 +3126,18 @@ export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
     "imagenes-con-ia-para-ecommerce-miami",
   ],
 ];
+
+// Merged and noindexed pages leave the rings so every surviving member keeps
+// its inbound links from live pages (2026-11-26 prune, lib/consolidation.ts).
+export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] =
+  RAW_SERVICE_SIBLING_CLUSTERS.map((cluster) =>
+    cluster.filter((path) => !isConsolidatedPath(path)),
+  ).filter((cluster) => cluster.length > 1);
+
+export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] =
+  RAW_SPANISH_SIBLING_CLUSTERS.map((cluster) =>
+    cluster.filter((slug) => !isConsolidatedPath(`/es/${slug}`)),
+  ).filter((cluster) => cluster.length > 1);
 
 /** The next `count` members of a ring cluster after `member`, or [] if absent. */
 export function ringSiblings(
@@ -3224,7 +3237,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   relatedHeading: "Related services for property marketing.",
   related: [
     { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with ten published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
-    { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
+    { title: "Interior Design & Millwork Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/interior-design-millwork-video-miami" },
     { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
   ],
 };
@@ -3494,7 +3507,7 @@ export const CHURCH_SERMON_DEPTH: NicheWave8Depth = {
   relatedHeading: "Related services for long recordings.",
   related: [
     { title: "Content Repurposing", detail: "One long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
-    { title: "Video Podcast Editing", detail: "Multi-camera conversations edited for YouTube and clips.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Podcast Clip Editing", detail: "Short clips cut from a podcast or a long interview.", href: "/services/podcast-clipping-service-miami" },
     { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
   ],
 };
@@ -3787,7 +3800,7 @@ export const PODCAST_CLIPPING_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for long recordings.",
   related: [
-    { title: "Video Podcast Editing", detail: "The full episode, multi-camera, edited for YouTube.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
     { title: "Content Repurposing", detail: "Any long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
     { title: "Founder Video Editing", detail: "Personal brand videos for founders, coaches and consultants.", href: "/services/personal-brand-video-editor-founders-miami" },
   ],
