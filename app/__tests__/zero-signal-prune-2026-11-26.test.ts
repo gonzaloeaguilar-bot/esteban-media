@@ -13,7 +13,7 @@ import { languageAlternates } from "@/lib/spanish-site";
 import { SERVICE_SIBLING_CLUSTERS, SPANISH_SIBLING_CLUSTERS } from "@/lib/service-depth-content";
 
 /**
- * 2026-11-26 zero-signal prune. 52 pages that were indexed by Google yet earned
+ * 2026-11-26 zero-signal prune. 50 pages (52 merged by #843; #842 reversed 2 it strengthened) that were indexed by Google yet earned
  * 0 impressions, 0 GA4 sessions and 0 lead events in the 90 days
  * 2026-08-27..2026-11-25 now 301 to a same-language page with the same buyer
  * intent. Evidence and the full hold list: vault page
@@ -48,8 +48,8 @@ function sitemapPaths(): Set<string> {
 }
 
 describe("zero-signal prune 2026-11-26", () => {
-  it("merges exactly 52 pages, each same-language, never a guide, never into another merge", () => {
-    expect(MERGE_DECISIONS).toHaveLength(52);
+  it("merges exactly 50 pages (52 by #843, 2 reversed by #842), each same-language, never a guide, never into another merge", () => {
+    expect(MERGE_DECISIONS).toHaveLength(50);
     const sources = new Set(MERGE_DECISIONS.map((entry) => entry.from));
     for (const { from, to } of MERGE_DECISIONS) {
       expect(from.startsWith("/es/"), from).toBe(to.startsWith("/es/") || to === "/es");
@@ -108,5 +108,28 @@ describe("zero-signal prune 2026-11-26", () => {
     for (const cluster of SPANISH_SIBLING_CLUSTERS) {
       for (const slug of cluster) expect(isMergedPath(`/es/${slug}`), slug).toBe(false);
     }
+  });
+  it("keeps the two event pages #842 strengthened live, indexable and paired (reversed merges)", async () => {
+    const restored = [
+      "/services/boat-show-exhibitor-video-fort-lauderdale",
+      "/es/cobertura-de-video-art-basel-miami-art-week",
+    ];
+    const paths = sitemapPaths();
+    const redirects = await nextConfig.redirects!();
+    for (const path of restored) {
+      expect(isMergedPath(path), path).toBe(false);
+      expect(paths.has(path), path).toBe(true);
+      expect(redirects.find((redirect) => redirect.source === path), path).toBeUndefined();
+    }
+    // Language switcher pairs resolve to the live twin again, not to a merge target.
+    expect(getPairedLanguageRoute("/es/cobertura-de-video-art-basel-miami-art-week")).toBe(
+      "/services/art-basel-miami-art-week-video",
+    );
+    expect(getPairedLanguageRoute("/services/art-basel-miami-art-week-video")).toBe(
+      "/es/cobertura-de-video-art-basel-miami-art-week",
+    );
+    expect(getPairedLanguageRoute("/services/boat-show-exhibitor-video-fort-lauderdale")).toBe(
+      "/es/video-para-expositores-del-boat-show-fort-lauderdale",
+    );
   });
 });

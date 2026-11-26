@@ -537,11 +537,6 @@
       "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: rehearsal dinner is wedding coverage"
     },
     {
-      "from": "/es/cobertura-de-video-art-basel-miami-art-week",
-      "to": "/es/eventos",
-      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: annual-events hub (Art Basel)"
-    },
-    {
       "from": "/services/architecture-design-video-miami",
       "to": "/services/interior-design-millwork-video-miami",
       "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: architecture/interior design video, Miami"
@@ -550,11 +545,6 @@
       "from": "/services/bar-mitzvah-videographer-south-florida",
       "to": "/services/bar-bat-mitzvah-videographer-boca-raton",
       "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: same offer (bar/bat mitzvah video)"
-    },
-    {
-      "from": "/services/boat-show-exhibitor-video-fort-lauderdale",
-      "to": "/services/trade-show-booth-videographer-fort-lauderdale",
-      "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: exhibitor booth video, Fort Lauderdale"
     },
     {
       "from": "/services/commercial-office-leasing-video-south-florida",
@@ -691,7 +681,8 @@
     "window": "2026-08-27..2026-11-25 (90 days)",
     "sources": "GSC searchAnalytics page dimension dataState=all; GA4 property 546162112 landingPage sessions + contact_click/lead/form_submit; GSC URL Inspection per zero-signal URL",
     "rule": "MERGE only when the URL has 0 impressions, 0 clicks, 0 sessions and 0 lead events in 90 days, URL Inspection says Submitted and indexed, it first shipped on or before 2026-10-22 (35+ days old), and a same-language same-intent page exists that earns impressions or sessions (or is the declared owner page). Never-crawled, discovered-not-indexed and crawled-not-indexed URLs are held as unjudged. Guides, core offers, tools, pages edited by PRs 831/836/837 and twins of owner pages are held.",
-    "merged": 52,
+    "merged": 50,
+    "reversed20261126": "Two merges reversed the same day by PR #842 before any recrawl: /services/boat-show-exhibitor-video-fort-lauderdale and /es/cobertura-de-video-art-basel-miami-art-week. #842 strengthened both (official Miami International Boat Show Feb 10-14 2027 and Art Basel Dec 4-6 2026 dates, answer-first booking), so they are no longer zero-signal candidates; they return to the sitemap and their hreflang pairs.",
     "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
     "recheck": "2027-01-07: GSC impressions on each merge target vs the prior 6 weeks; any target that loses impressions reverses its merges"
   }
