@@ -20,7 +20,7 @@ import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Hire Someone to Edit Your Videos | Remote Video Editor",
+  title: "Hire Someone to Edit Your Videos",
   description:
     "Hire or pay someone to edit your videos with Esteban Moreno Media: remote video editing, reels, YouTube editing, product videos, and bilingual social content from South Florida.",
   path: "/services/hire-remote-video-editor",
@@ -157,7 +157,14 @@ export default function HireRemoteVideoEditorPage() {
             <div>
               <h2 className="font-serif text-4xl leading-tight">Want to hire someone to edit your videos?</h2>
               <p className="mt-4 text-sm leading-7 text-[#3f4548]">
-                Pay someone to edit your videos starting from {usd(SHORT_FORM.perVideoFrom)} per finished video, with turnaround of at least {turnaroundFor("arranque").minimumDays} days: upload your raw files to a shared folder and receive finished, color-graded videos by review link.
+                Pay someone to edit your videos starting from {usd(SHORT_FORM.perVideoFrom)} per finished video, with turnaround of at least {turnaroundFor("arranque").minimumDays} days: upload your raw files to a shared folder and receive finished videos by review link.
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[#3f4548]">
+                You do not need to learn editing or use technical terms: say what the video should do and where it will be posted. See a real remote edit first:{" "}
+                <Link href="/case-studies/homeowners" data-cta="remote_editor_proof_case_study" className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                  the Homeowners case study
+                </Link>
+                , edited from footage an agency supplied.
               </p>
             </div>
             <div>

@@ -1041,7 +1041,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
   {
     slug: "video-para-quinceaneras-miami",
     title: "Video para quinceañeras en Miami",
-    metadataTitle: "Videógrafo de Quinceañeras y Video Miami",
+    metadataTitle: "Videógrafo de Quinceañeras Miami",
     description:
       "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
     metaDescription:
@@ -1361,13 +1361,12 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "cuanto-cobra-un-videografo-en-miami",
     title: "¿Cuánto cobra un videógrafo en Miami?",
-    metadataTitle: "¿Cuánto cobra un videógrafo en Miami? Precios y Tarifas",
+    metadataTitle: "¿Cuánto Cobra un Videógrafo en Miami?",
     description:
-      "Tarifas y precios por hora de un videógrafo en Miami: grabación desde $125/hora con 4 horas mínimas, bodas, equipo de dos personas y edición.",
+      `Cuánto cobra un videógrafo en Miami: grabación desde ${usd(FILMING_HOURLY.amount)} por hora con ${FILMING_HOURLY.minimumHours} horas mínimas, bodas desde ${usd(WEDDING_PACKAGES.halfDayFrom)} y edición aparte.`,
     eyebrow: "Guía de Precios y Tarifas / Miami-Dade",
     h1: "¿Cuánto cobra un videógrafo en Miami?",
-    lead:
-      "Conoce las tarifas publicadas de grabación en locación y video en Miami-Dade: precios transparentes por hora, jornada de equipo y cobertura para bodas o eventos.",
+    lead: `Con Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación (mínimo ${FILMING_HOURLY.minimumHours} horas, ${usd(FILMING_HOURLY.minimumAmount)}), y el video de una boda parte desde ${usd(WEDDING_PACKAGES.halfDayFrom)}.`,
     keyword: "cuánto cobra un videógrafo en Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1393,21 +1392,21 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cobra un videógrafo por hora en Miami?",
         paragraphs: [
-          `La tarifa de un videógrafo profesional independiente en Miami suele oscilar entre $100 y $250 por hora según la experiencia y el equipamiento. En Esteban Moreno Media, la grabación en locación comienza en ${usd(FILMING_HOURLY.amount)} por hora con una llamada mínima de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}), lo cual asegura tiempo suficiente para calibrar iluminación, ópticas y micrófonos profesionales.`,
-          `Para eventos con mayor dinamismo o cobertura simultánea, un equipo de dos personas tiene una tarifa de ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora (${usd(CREW_RECORDING_RATES.twoPerson.minimumAmount)} mínimo), combinando un director de fotografía 4K y un creador de contenido vertical para redes sociales. Todas las grabaciones se confirman por escrito antes de la fecha.`,
+          `En Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación en locación, con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}). Ese precio cubre a un videógrafo con cámara Sony Alpha 7 IV en 4K y audio; la edición se cotiza aparte. Medio día de grabación de una sola persona cuesta ${usd(CREW_RECORDING_RATES.solo.halfDay)} y el día completo ${usd(CREW_RECORDING_RATES.solo.fullDay)}.`,
+          `Para eventos con mayor dinamismo o cobertura simultánea, un equipo de dos personas tiene una tarifa de ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora (${usd(CREW_RECORDING_RATES.twoPerson.minimumAmount)} mínimo): una persona graba en 4K y la otra crea contenido vertical para redes. Todas las grabaciones se confirman por escrito antes de la fecha.`,
         ],
       },
       {
         heading: "¿Cuánto cobra un videógrafo de boda en Miami?",
         paragraphs: [
-          `Los paquetes de video para bodas en Miami-Dade parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} para coberturas de medio día o creación de contenido especializada para redes, y desde ${usd(WEDDING_PACKAGES.fullDayFrom)} para jornada completa con película cinematográfica de recuerdos. Se requiere un depósito del ${WEDDING_PACKAGES.depositPercent}% al confirmar la reserva en el calendario.`,
-          `Puedes consultar la estructura detallada de entregables en nuestros [paquetes de boda](/es/paquetes-de-boda) y ver un ejemplo publicado en el proyecto [Diana y Jack](/es/portafolio/diana-jack). El costo final se ajusta a la duración de la ceremonia, el salón de gala y los videos requeridos.`,
+          `Los paquetes de video para bodas en Miami-Dade parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} para coberturas de medio día o creación de contenido especializada para redes, y desde ${usd(WEDDING_PACKAGES.fullDayFrom)} para el día completo. Se requiere un depósito del ${WEDDING_PACKAGES.depositPercent}% al confirmar la reserva en el calendario.`,
+          `Puedes consultar la estructura detallada de entregables en nuestros [paquetes de boda](/es/paquetes-de-boda) y ver un ejemplo publicado en el proyecto [Diana y Jack](/es/portafolio/diana-jack). El precio final de cada boda se cotiza por escrito según las horas, el lugar y los videos que quieras recibir.`,
         ],
       },
       {
         heading: "¿Qué cambia el precio de un videógrafo?",
         paragraphs: [
-          `Varios factores determinan la cotización final de un proyecto audiovisual en Miami. El primer factor son las horas en el set y la cantidad de operadores de cámara requeridos. El segundo es la postproducción: la edición de video se cotiza por separado a partir del paquete Arranque (${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} por video) si se necesitan clips terminados con subtítulos y corrección de color.`,
+          `Varios factores determinan la cotización final de un proyecto audiovisual en Miami. El primer factor son las horas en el set y la cantidad de operadores de cámara requeridos. El segundo es la postproducción: la edición de video se cotiza por separado a partir del paquete Arranque (desde ${usd(SHORT_FORM.perVideoFrom)} por video) si se necesitan clips terminados con subtítulos y corrección de color.`,
           `Otros aspectos que influyen en el presupuesto incluyen traslados fuera del área metropolitana, alquiler de estudios o sonido en consola directa, y plazos de entrega urgente acordados previamente por escrito.`,
         ],
       },
@@ -1415,7 +1414,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cuándo basta con un editor y no un videógrafo?",
         paragraphs: [
           `Si tu equipo o tus clientes ya grabaron el metraje con teléfonos inteligentes o cámaras propias, no necesitas pagar por horas de grabación en locación; basta con contratar a un [editor de video remoto](/es/contratar-editor-de-video-remoto). Un editor organiza las tomas, mejora el audio, añade ritmo y adapta las dimensiones para Reels, Shorts o YouTube.`,
-          `Por el contrario, si el evento aún no ha ocurrido, necesitas capturar entrevistas presenciales o buscas tomas aéreas y de producto en alta resolución, necesitas un videógrafo en locación. Para más detalles sobre estas diferencias, lee nuestra guía sobre [editor de video vs videógrafo](/es/guias/editor-de-video-vs-videografo).`,
+          `Por el contrario, si el evento aún no ha ocurrido, necesitas capturar entrevistas presenciales o buscas tomas de producto en el lugar, necesitas un videógrafo en locación. Para más detalles sobre estas diferencias, lee nuestra guía sobre [editor de video vs videógrafo](/es/guias/editor-de-video-vs-videografo).`,
         ],
       },
     ],
@@ -1426,7 +1425,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
       {
         question: "¿La tarifa por hora incluye la edición de los videos?",
-        answer: `No. La tarifa por hora cubre la presencia física, operación de cámara 4K, audio e iluminación en locación. La edición final se cotiza por video o proyecto desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} con el paquete Arranque.`,
+        answer: `No. La tarifa por hora cubre al videógrafo en locación con cámara 4K y audio. La edición final se cotiza por video o proyecto desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque.`,
       },
       {
         question: "¿Se entrega el material original después de la grabación?",
@@ -6793,9 +6792,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     // instagram", "contratar editor de videos online", "editor de video remoto".
     slug: "contratar-editor-de-video-remoto",
     title: "Contratar un editor de video remoto",
-    metadataTitle: "Contratar a alguien que edite mis videos | Editor Remoto",
+    metadataTitle: "Contratar a Quien Edite mis Videos",
     description:
-      "Contrata a alguien que edite mis videos con Esteban Moreno Media: edición de video remota para Reels, YouTube, anuncios y contenido bilingüe desde el sur de Florida.",
+      "¿Buscas contratar a alguien que edite mis videos? Esteban Moreno Media edita a distancia Reels, YouTube, anuncios y video bilingüe desde el sur de Florida.",
     eyebrow: "Edición de video remota",
     h1: "Contrata un editor de video remoto para Reels, YouTube, anuncios y videos de tu negocio.",
     lead: buyerQuestion("remote-bilingual-editing", "es").lead,
@@ -6814,7 +6813,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué referencias, logotipo o tipografías debe seguir la edición?",
       "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
     ],
-    sectionsHeading: "Estrategia, formato y edición remota para negocios",
+    sectionsHeading: "¿Cómo contratar a alguien que edite mis videos?",
     answerFirst: buyerQuestion("remote-bilingual-editing", "es").answer,
     answerQuestion: buyerQuestion("remote-bilingual-editing", "es").question,
     fitQuestion: "¿Cuándo encaja la edición remota?",
@@ -6824,8 +6823,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Quieres contratar a alguien que edite tus videos?",
         paragraphs: [
-          `Pagar a alguien que edite tus videos empieza desde ${usd(SHORT_FORM.perVideoFrom)} por video terminado con el paquete Arranque, con un plazo de entrega de al menos ${turnaroundFor("arranque").minimumDays} días: subes tus archivos originales a una carpeta compartida y recibes los videos editados y listos para publicar por enlace de revisión.`,
-          `La edición remota incluye sincronización de audio, recorte de pausas, subtítulos dinámicos en zonas seguras y corrección de color básica, para que no tengas que pasar horas frente al editor ni aprender software complejo.`,
+          `Contratar a alguien que edite tus videos empieza desde ${usd(SHORT_FORM.perVideoFrom)} por video terminado con el paquete Arranque, con un plazo de entrega de al menos ${turnaroundFor("arranque").minimumDays} días: subes tus archivos originales a una carpeta compartida y recibes por enlace los videos editados y listos para publicar.`,
+          `No necesitas aprender a editar ni explicar términos técnicos: basta con decir qué quieres que el video logre y dónde se va a publicar. Puedes ver un ejemplo real en [Homeowners](/es/portafolio/homeowners), un video que Esteban editó con el material que entregó la agencia.`,
         ],
       },
       {

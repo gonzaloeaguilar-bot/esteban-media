@@ -308,6 +308,11 @@ export function buildGoogleAnalyticsScript({
         return allowed[method] ? method : 'form';
       }
 
+      // Capture the landing page on the FIRST page of the session, not at the
+      // moment of the click: a visitor who lands on a guide and messages from
+      // /contact three pages later must still credit the guide.
+      firstTouchLandingPage();
+
       function classifyReferralSource() {
         if (!document.referrer) {
           return null;

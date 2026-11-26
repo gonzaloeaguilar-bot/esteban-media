@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -125,6 +126,7 @@ export default function PrivatePartyVideographerPage() {
         </Container>
       </section>
 
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/diana-jack", label: "Diana & Jack, a published family celebration film (a wedding)" }} />
       <section className="py-12 sm:py-16" aria-labelledby="party-faqs">
         <Container size="lg">
           <h2 id="party-faqs" className="font-serif text-3xl sm:text-4xl">Questions before you book.</h2>

@@ -91,22 +91,22 @@ const legacyRedirects = [
   {
     source: "/services/quinceanera-videographer-miami",
     destination: "/services/quinceanera-video-miami",
-    permanent: true,
+    statusCode: 301,
   },
   {
     source: "/services/quinceanera-videographer-miami/",
     destination: "/services/quinceanera-video-miami",
-    permanent: true,
+    statusCode: 301,
   },
   {
     source: "/es/videografo-de-quinceaneras-miami",
     destination: "/es/video-para-quinceaneras-miami",
-    permanent: true,
+    statusCode: 301,
   },
   {
     source: "/es/videografo-de-quinceaneras-miami/",
     destination: "/es/video-para-quinceaneras-miami",
-    permanent: true,
+    statusCode: 301,
   },
 ];
 

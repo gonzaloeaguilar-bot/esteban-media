@@ -296,7 +296,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a video editor charge per video?",
           paragraphs: [
-            `Esteban Moreno Media edits a single video from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)}, with weekly arrangements ${shortFormWeeklyText("en")} (effective video editing price per video from ${usd(ARRANQUE_WEEKLY_FROM.perVideo)}), while long-form YouTube editing ranges from ${usd(PRICING_BANDS.youtube.baseMin)} to ${usd(PRICING_BANDS.youtube.baseMax)}. Editing turnaround is at least ${turnaroundFor("arranque").minimumDays} days from receiving organized raw footage.`,
+            `Esteban Moreno Media edits a single video from ${usd(ARRANQUE_FROM)}, with weekly arrangements ${shortFormWeeklyText("en")} (effective video editing price per video from ${usd(ARRANQUE_WEEKLY_FROM.perVideo)}), while long-form YouTube editing ranges from ${usd(PRICING_BANDS.youtube.baseMin)} to ${usd(PRICING_BANDS.youtube.baseMax)}. Editing turnaround is at least ${turnaroundFor("arranque").minimumDays} days from receiving organized raw footage.`,
             `When not to pay for an editor yet: if you have no footage filmed yet or cannot post at least once a week, do not pay for editing yet—film first (see our [guide on recording video with an iPhone](/guides/record-video-with-iphone-for-professional-editing)), because an editor cannot fix footage that does not exist.`,
           ],
         },
@@ -332,7 +332,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cobra un editor de video por video?",
           paragraphs: [
-            `Esteban Moreno Media edita un video individual desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)}, con planes semanales ${shortFormWeeklyText("es")} (tarifa efectiva de edición de video por video desde ${usd(ARRANQUE_WEEKLY_FROM.perVideo)}), y la edición de videos largos para YouTube se sitúa entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)}. El tiempo de entrega de edición es de al menos ${turnaroundFor("arranque").minimumDays} días a partir de recibir el material original organizado.`,
+            `Esteban Moreno Media edita un video individual desde ${usd(ARRANQUE_FROM)}, con planes semanales ${shortFormWeeklyText("es")} (tarifa efectiva de edición de video por video desde ${usd(ARRANQUE_WEEKLY_FROM.perVideo)}), y la edición de videos largos para YouTube se sitúa entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)}. El tiempo de entrega de edición es de al menos ${turnaroundFor("arranque").minimumDays} días a partir de recibir el material original organizado.`,
             `Cuándo no pagar por un editor todavía: si aún no tienes material grabado o no puedes publicar al menos una vez por semana, no pagues por edición todavía; graba primero (consulta nuestra [guía para grabar video con iPhone](/es/guias/grabar-video-con-iphone-para-edicion-profesional)), porque un editor no puede arreglar tomas que no existen.`,
           ],
         },

@@ -10,22 +10,22 @@ describe("quinceañera consolidation (301s, sitemap, language routes)", () => {
   const OLD_ES = "/es/videografo-de-quinceaneras-miami";
   const TARGET_ES = "/es/video-para-quinceaneras-miami";
 
-  it("next.config.ts defines permanent 301 redirects from old URLs to target URLs", async () => {
-    const config = typeof nextConfig === "function" ? await nextConfig("phase-production-build", {} as any) : nextConfig;
-    const redirectsFn = config.redirects;
+  it("next.config.ts defines 301 redirects from old URLs to target URLs", async () => {
+    const redirectsFn = nextConfig.redirects;
     expect(typeof redirectsFn).toBe("function");
 
-    const redirects = await redirectsFn();
+    type Redirect = { source: string; destination: string; permanent?: boolean; statusCode?: number };
+    const redirects = (await redirectsFn!()) as Redirect[];
 
-    const enRedirect = redirects.find((r: any) => r.source === OLD_EN);
+    const enRedirect = redirects.find((r) => r.source === OLD_EN);
     expect(enRedirect).toBeDefined();
-    expect(enRedirect.destination).toBe(TARGET_EN);
-    expect(enRedirect.permanent).toBe(true);
+    expect(enRedirect!.destination).toBe(TARGET_EN);
+    expect(enRedirect!.statusCode).toBe(301);
 
-    const esRedirect = redirects.find((r: any) => r.source === OLD_ES);
+    const esRedirect = redirects.find((r) => r.source === OLD_ES);
     expect(esRedirect).toBeDefined();
-    expect(esRedirect.destination).toBe(TARGET_ES);
-    expect(esRedirect.permanent).toBe(true);
+    expect(esRedirect!.destination).toBe(TARGET_ES);
+    expect(esRedirect!.statusCode).toBe(301);
   });
 
   it("sitemap excludes consolidated duplicate URLs and includes target URLs", () => {
@@ -50,5 +50,22 @@ describe("quinceañera consolidation (301s, sitemap, language routes)", () => {
 
     expect(pairedLanguageRoutes[OLD_EN]).toBeUndefined();
     expect(pairedLanguageRoutes[OLD_ES]).toBeUndefined();
+  });
+});
+
+describe("no rendered source links to a consolidated quinceañera duplicate", () => {
+  it("app/, components/ and lib/ never reference the two retired paths", async () => {
+    const { readdirSync, readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const walk = (dir: string): string[] =>
+      readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const path = join(dir, entry.name);
+        if (entry.isDirectory()) return entry.name === "__tests__" ? [] : walk(path);
+        return /\.(tsx?|mjs|txt)$/.test(entry.name) ? [path] : [];
+      });
+    const offenders = ["app", "components", "lib"]
+      .flatMap((dir) => walk(join(process.cwd(), dir)))
+      .filter((file) => /quinceanera-videographer-miami|videografo-de-quinceaneras-miami/.test(readFileSync(file, "utf8")));
+    expect(offenders).toEqual([]);
   });
 });

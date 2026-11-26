@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(602); // Includes current sitemap + Real Estate Hub v2 bilingual pair + wedding packages pair + YouTube editing Miami re-admission.
+    expect(WATCH_URLS).toHaveLength(601); // -1 net 2026-11-26: commercial-intent package (+1 ES videographer price page, -2 quinceañera duplicates 301ed). Includes current sitemap + Real Estate Hub v2 bilingual pair + wedding packages pair + YouTube editing Miami re-admission.
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

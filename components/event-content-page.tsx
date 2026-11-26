@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { PageUpdated } from "@/components/page-updated";
 import { withPageDate } from "@/lib/page-lastmod";
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, CalendarDays, MessageCircle } from "lucide-react";
 
 import { NumberedList } from "@/components/em-surface";
@@ -510,6 +511,8 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
         </Link>
       </ProseSection>
 
+      <NeedSomeoneThisWeek locale={locale} />
+
       <ServiceInquiryRail
         sectionId={inquiryId}
         locale={locale}
@@ -675,6 +678,8 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
       <ProseSection id={`${prefix}_footage_handoff`} heading={handoff.heading} paragraphs={handoff.paragraphs}>
         <NumberedList items={handoff.items} className="max-w-3xl" />
       </ProseSection>
+
+      <NeedSomeoneThisWeek locale={locale} />
 
       <ServiceInquiryRail
         sectionId={inquiryId}

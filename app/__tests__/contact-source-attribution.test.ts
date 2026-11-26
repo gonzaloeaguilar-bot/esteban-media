@@ -55,19 +55,20 @@ function runScript({
   const storage = new Map<string, string>();
   const listeners: Record<string, (event: { target?: unknown }) => void> = {};
 
+  const location = {
+    hostname: "estebanmorenomedia.com",
+    pathname,
+    search,
+    href: `https://estebanmorenomedia.com${pathname}${search}`,
+  };
   const windowStub = {
-    location: {
-      hostname: "estebanmorenomedia.com",
-      pathname,
-      search,
-      href: `https://estebanmorenomedia.com${pathname}${search}`,
-    },
+    location,
     history: {
       pushState(_data: unknown, _unused: string, url?: string | URL | null) {
         if (url && typeof url === "string") {
           const pathOnly = url.startsWith("http") ? new URL(url).pathname : url.split("?")[0];
-          windowStub.location.pathname = pathOnly;
-          windowStub.location.href = `https://estebanmorenomedia.com${pathOnly}`;
+          location.pathname = pathOnly;
+          location.href = `https://estebanmorenomedia.com${pathOnly}`;
         }
       },
       replaceState() {},
@@ -128,7 +129,11 @@ function runScript({
     handler({ target: anchor });
   }
 
-  return { events, clickWhatsapp, anchors, storage };
+  function navigate(path: string) {
+    (windowStub.history as { pushState: (d: unknown, u: string, url: string) => void }).pushState({}, "", path);
+  }
+
+  return { events, clickWhatsapp, navigate, anchors, storage };
 }
 
 describe("contact-source attribution on the direct-contact path", () => {
@@ -223,8 +228,12 @@ describe("contact-source attribution on the direct-contact path", () => {
       clickHref: "https://wa.me/13054974478?text=Hola.",
     });
     wa.events.length = 0;
-    // Simulate pushState to another page before clicking
+    // Browse to /contact before messaging: the landing page must still be "/".
+    wa.navigate("/contact");
+    wa.events.length = 0;
     wa.clickWhatsapp();
+    const waLegacy = wa.events.find((e) => e.name === "contact_intent");
+    expect(waLegacy!.params.page_path).toBe("/contact");
     const waTwin = wa.events.find((e) => e.name === "contact_click");
     expect(waTwin).toBeDefined();
     expect(waTwin!.params.lead_type).toBe("whatsapp");

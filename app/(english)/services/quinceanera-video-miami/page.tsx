@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -128,6 +129,7 @@ export default function Page() {
 
       <ServiceCraft heading={depth.craftHeading} cards={depth.craft} sectionId="quinceanera-craft" />
       <ServiceDeepDive id={dive.id} title={dive.title} destinations={dive.destinations} sections={dive.sections} />
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/diana-jack", label: "Diana & Jack, a published wedding film (a wedding, not a quinceañera)" }} />
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="quinceanera-faq" />
       <ServiceInquiryRail service={inquiry} sectionId="quinceanera-inquiry" />
       <ServiceRelated heading={depth.relatedHeading} services={depth.related} sectionId="quinceanera-related" />
