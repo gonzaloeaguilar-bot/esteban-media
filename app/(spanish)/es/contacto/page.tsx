@@ -117,7 +117,7 @@ export default function SpanishContactPage() {
           </section>
           <details id="video-brief" data-section="contact_video_brief" className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
-<div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE, "reels-editor-fort-lauderdale", "short-form-editor-miami", "event-attendee-interview", "caption-guide", ...CENTRAL_FLORIDA_CAPTURE_SOURCES]} /></div>
+<div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE, CAPTION_SAFE_ZONE_SOURCE, FOOTAGE_HANDOFF_SOURCE, "reels-editor-fort-lauderdale", "short-form-editor-miami", "event-attendee-interview", "caption-guide", "real-estate-monthly-plan", ...CENTRAL_FLORIDA_CAPTURE_SOURCES]} /></div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
