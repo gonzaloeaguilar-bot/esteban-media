@@ -10060,6 +10060,11 @@ for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-interna
   languageAlternatesRaw[es] = { "en-US": en, "es-US": es, "x-default": en };
 }
 
+const WEDDING_PACKAGES_EN = "/services/wedding-packages";
+const WEDDING_PACKAGES_ES = "/es/paquetes-de-boda";
+languageAlternatesRaw[WEDDING_PACKAGES_EN] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
+languageAlternatesRaw[WEDDING_PACKAGES_ES] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
+
 const PRIVATE_PARTY_EN = "/services/private-party-videographer-south-florida";
 const PRIVATE_PARTY_ES = "/es/videografo-para-fiestas-privadas-sur-de-florida";
 languageAlternatesRaw[PRIVATE_PARTY_EN] = { "en-US": PRIVATE_PARTY_EN, "es-US": PRIVATE_PARTY_ES, "x-default": PRIVATE_PARTY_EN };
