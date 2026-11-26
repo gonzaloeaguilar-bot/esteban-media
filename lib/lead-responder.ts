@@ -28,7 +28,12 @@ export type LeadSource =
   | "winter-park-overflow-edit"
   | "lake-nona-expert-footage"
   | "kissimmee-bilingual-event-edit"
-  | "sanford-testimonial-edit";
+  | "sanford-testimonial-edit"
+  | "reels-editor-fort-lauderdale"
+  | "short-form-editor-miami"
+  | "event-attendee-interview"
+  | "caption-guide"
+  | "large-files-guide";
 
 const LEAD_SOURCES = new Set<LeadSource>([
   "brief-builder",
@@ -56,6 +61,11 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "lake-nona-expert-footage",
   "kissimmee-bilingual-event-edit",
   "sanford-testimonial-edit",
+  "reels-editor-fort-lauderdale",
+  "short-form-editor-miami",
+  "event-attendee-interview",
+  "caption-guide",
+  "large-files-guide",
 ]);
 
 /**
@@ -78,6 +88,11 @@ export const CENTRAL_FLORIDA_CAPTURE_SOURCES = [
  */
 export const FOUND_VIA_OPTIONS = [
   "chatgpt",
+  "muse",
+  "grok",
+  "gemini",
+  "perplexity",
+  "claude",
   "other_ai",
   "google_search",
   "google_maps",
@@ -89,8 +104,20 @@ export const FOUND_VIA_OPTIONS = [
 
 export type FoundVia = (typeof FOUND_VIA_OPTIONS)[number];
 
+/** Chosen only for event work; this is a project-scope fact, not analytics PII. */
+export const EVENT_DELIVERY_PREFERENCES = ["original-files", "edited-clips", "both"] as const;
+export type EventDeliveryPreference = (typeof EVENT_DELIVERY_PREFERENCES)[number];
+export function isEventDeliveryPreference(value: unknown): value is EventDeliveryPreference {
+  return typeof value === "string" && (EVENT_DELIVERY_PREFERENCES as readonly string[]).includes(value);
+}
+
 export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
   chatgpt: "ChatGPT",
+  muse: "Muse",
+  grok: "Grok",
+  gemini: "Gemini",
+  perplexity: "Perplexity",
+  claude: "Claude",
   other_ai: "Otra IA / Other AI assistant",
   google_search: "Búsqueda en Google / Google search",
   google_maps: "Google Maps",
@@ -103,6 +130,11 @@ export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
 /** Answers where the exact words typed are worth asking for. */
 export const FOUND_VIA_ASKS_QUERY: ReadonlySet<FoundVia> = new Set<FoundVia>([
   "chatgpt",
+  "muse",
+  "grok",
+  "gemini",
+  "perplexity",
+  "claude",
   "other_ai",
   "google_search",
   "google_maps",
@@ -129,6 +161,7 @@ export interface LeadPayload {
   notes?: string;
   foundVia?: FoundVia;
   foundQuery?: string;
+  eventDeliveryPreference?: EventDeliveryPreference;
 }
 
 export interface LeadResponse {
@@ -188,6 +221,14 @@ export function formatLeadSummary(payload: LeadPayload): string {
       // forging extra summary lines (a fake "Email:") with embedded newlines.
       `Lo que escribió / What they typed: "${payload.foundQuery.replace(/\s+/g, " ").trim().slice(0, FOUND_QUERY_MAX)}"`,
     );
+  }
+  if (isEventDeliveryPreference(payload.eventDeliveryPreference)) {
+    const label = payload.eventDeliveryPreference === "original-files"
+      ? "Original files"
+      : payload.eventDeliveryPreference === "edited-clips"
+        ? "Edited clips"
+        : "Both";
+    lines.push(`Entrega para evento / Event delivery: ${label}`);
   }
 
   if (payload.notes) {

@@ -107,6 +107,12 @@ export default function WeddingVideographerMiamiPage() {
                   Request Wedding Quote
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+                <Link
+                  href="/services/wedding-packages"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  See Wedding Packages
+                </Link>
               </div>
             </div>
 

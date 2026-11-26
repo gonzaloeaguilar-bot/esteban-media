@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
 import { FoundViaField, foundViaPayload } from "@/components/found-via-field";
-import type { FoundVia, LeadSource } from "@/lib/lead-responder";
+import type { EventDeliveryPreference, FoundVia, LeadSource } from "@/lib/lead-responder";
 import { site } from "@/lib/site";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 
@@ -40,6 +40,7 @@ export function VideoBriefBuilder({
   const [projectType, setProjectType] = useState<string>("");
   const [footageStatus, setFootageStatus] = useState<string>("");
   const [formatNeeds, setFormatNeeds] = useState<string>("");
+  const [eventDeliveryPreference, setEventDeliveryPreference] = useState<EventDeliveryPreference | "">("");
   const [clientName, setClientName] = useState<string>("");
   const [clientEmail, setClientEmail] = useState<string>("");
   const [clientPhone, setClientPhone] = useState<string>("");
@@ -58,6 +59,7 @@ export function VideoBriefBuilder({
         { id: "real-estate", label: "Bienes Raíces & Video con Dron", desc: "Recorridos de propiedades, tomas aéreas 4K y colorimetría." },
         { id: "ecommerce", label: "Fotografía / Video de Producto", desc: "Demostración de productos, contenido UGC e imágenes mejoradas." },
         { id: "interview", label: "Entrevistas Multicámara & Podcasts", desc: "Sincronización multicámara, limpieza de audio y subtítulos." },
+        { id: "event", label: "Evento / Exposición", desc: "Define si necesitas archivos originales, videos editados o ambos." },
       ]
     : [
         { id: "youtube", label: "YouTube Channel / Long-Form", desc: "Pacing, thumbnails, chapter markers, and explanatory graphics." },
@@ -66,6 +68,7 @@ export function VideoBriefBuilder({
         { id: "real-estate", label: "Real Estate & Drone Aerial Video", desc: "Property walkthroughs, 4K aerial shots, and horizon color grading." },
         { id: "ecommerce", label: "Product Video & E-Commerce", desc: "Product demonstrations, UGC edits, and enhanced visuals." },
         { id: "interview", label: "Multi-Cam Interview & Podcast", desc: "Multi-cam syncing, dialogue audio cleaning, and captions." },
+        { id: "event", label: "Event / Exhibition", desc: "Choose original files, edited clips, or both." },
       ];
 
   const footageStatusOptions = isEs
@@ -111,12 +114,15 @@ export function VideoBriefBuilder({
         projectType,
         footageStatus,
         formatNeeds,
+        ...(projectType.toLowerCase().includes(isEs ? "evento" : "event") && eventDeliveryPreference
+          ? { eventDeliveryPreference }
+          : {}),
         notes,
         ...foundViaPayload(foundVia, foundQuery),
       }),
       });
       if (!response.ok) throw new Error("Lead submission failed");
-      trackLeadSubmit(source, locale, foundVia || "not_answered");
+      trackLeadSubmit(source, locale, foundVia || "not_answered", eventDeliveryPreference || undefined);
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -150,6 +156,7 @@ export function VideoBriefBuilder({
     setProjectType("");
     setFootageStatus("");
     setFormatNeeds("");
+    setEventDeliveryPreference("");
     setClientName("");
     setClientEmail("");
     setClientPhone("");
@@ -285,6 +292,35 @@ export function VideoBriefBuilder({
                 ))}
               </div>
 
+              {projectType.toLowerCase().includes(isEs ? "evento" : "event") ? (
+                <fieldset className="mt-6 border-t border-[#ddd4c8] pt-5">
+                  <legend className="text-sm font-medium text-[#252a2d]">
+                    {isEs ? "Para este evento, ¿qué necesitas recibir?" : "For this event, what do you need delivered?"}
+                  </legend>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                    {[
+                      { value: "original-files" as const, label: isEs ? "Archivos originales" : "Original files" },
+                      { value: "edited-clips" as const, label: isEs ? "Videos editados" : "Edited clips" },
+                      { value: "both" as const, label: isEs ? "Ambos" : "Both" },
+                    ].map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        aria-pressed={eventDeliveryPreference === option.value}
+                        onClick={() => setEventDeliveryPreference(option.value)}
+                        className={`min-h-11 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors ${
+                          eventDeliveryPreference === option.value
+                            ? "border-[#c84a2c] bg-[#c84a2c]/5 ring-1 ring-[#c84a2c]"
+                            : "border-[#ddd4c8] bg-[#f6f1ea] hover:border-[#a93e29]"
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                </fieldset>
+              ) : null}
+
               <div className="mt-6 flex justify-between">
                 <button
                   type="button"
@@ -295,7 +331,7 @@ export function VideoBriefBuilder({
                 </button>
                 <button
                   type="button"
-                  disabled={!footageStatus}
+                  disabled={!footageStatus || (projectType.toLowerCase().includes(isEs ? "evento" : "event") && !eventDeliveryPreference)}
                   onClick={() => setStep(3)}
                   className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[var(--em-accent-ink-hover)]"
                 >

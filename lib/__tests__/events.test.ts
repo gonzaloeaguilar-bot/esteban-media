@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
-import { EVENTS_HUB_COPY, eventDatesSentence, getEventPageCopy } from "@/lib/event-content";
+import { EVENTS_HUB_COPY, eventDatesSentence, eventFootageHandoffSection, getEventPageCopy } from "@/lib/event-content";
 import {
   EVENTS,
   EVENTS_HUB_PATHS,
@@ -117,6 +117,17 @@ describe("annual events section pages", () => {
   it("never publishes a hand-typed price", () => {
     const copy = readFileSync(join(process.cwd(), "lib/event-content.ts"), "utf8");
     expect(copy).not.toMatch(/\$\d/);
+  });
+
+  it("gives event buyers a factual original-footage handoff without promising a delivery time", () => {
+    const en = eventFootageHandoffSection("en");
+    const es = eventFootageHandoffSection("es");
+    expect(en.heading).toContain("original footage");
+    expect(en.items).toContain("One delivery contact for the files");
+    expect(en.paragraphs.join(" ")).toContain("confirmed in writing");
+    expect(en.paragraphs.join(" ")).not.toMatch(/same-day|turnaround/i);
+    expect(es.heading).toContain("material original");
+    expect(es.items).toContain("Una persona de contacto para recibir los archivos");
   });
 
   it("marks pages up as WebPage/Service, never as an Event", () => {

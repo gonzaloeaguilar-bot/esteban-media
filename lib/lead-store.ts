@@ -1,4 +1,4 @@
-import { isFoundVia, type LeadPayload } from "@/lib/lead-responder";
+import { isEventDeliveryPreference, isFoundVia, type LeadPayload } from "@/lib/lead-responder";
 
 interface StoreOptions {
   fetchImpl?: typeof fetch;
@@ -41,6 +41,9 @@ export function buildLeadRow(
   // this on only after migrations/20261109_lead_outcomes.sql is applied.
   if (meta.outcomeSchemaV1) {
     row.found_via = isFoundVia(payload.foundVia) ? payload.foundVia : null;
+    row.event_delivery_preference = isEventDeliveryPreference(payload.eventDeliveryPreference)
+      ? payload.eventDeliveryPreference
+      : null;
   }
   return row;
 }

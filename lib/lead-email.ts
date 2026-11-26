@@ -9,29 +9,48 @@ export interface LeadEmailResult {
   acknowledgementSent: boolean;
 }
 
+/** Leads always hear back from, and reply to, the public business mailbox. */
+const PUBLIC_SENDER = "Esteban Moreno Media <info@estebanmorenomedia.com>";
+const PUBLIC_MAILBOX = "info@estebanmorenomedia.com";
+const SIGNATURE = "Esteban Moreno\ninfo@estebanmorenomedia.com · (305) 497-4478";
+
 function text(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+/**
+ * First name for the greeting. The form field is free text sent to an address
+ * the visitor chose, so a value that is not a plain name (letters only) is left out
+ * rather than relayed from the business mailbox.
+ */
+export function greetingName(name: unknown): string {
+  const full = text(name);
+  if (full.length > 60 || !/^[\p{L}][\p{L}'’. -]*$/u.test(full)) return "";
+  const first = full.split(/\s+/)[0].replace(/\.$/, "");
+  return first.length <= 30 ? first : "";
+}
+
 function acknowledgement(payload: LeadPayload): { subject: string; text: string } {
-  const spanish = payload.locale === "es";
-  return spanish
+  const name = greetingName(payload.name);
+  return payload.locale === "es"
     ? {
-        subject: "Recibimos tu mensaje — Esteban Moreno Media",
+        subject: `Recibí tu mensaje${name ? `, ${name}` : ""} — Esteban Moreno Media`,
         text: [
-          "Gracias por escribir a Esteban Moreno Media.",
-          "Recibimos tu mensaje y revisaremos los detalles antes de responder.",
-          "Para preparar una cotización, indícanos la meta del proyecto, la fecha deseada, la ubicación y cualquier referencia o material que ya tengas.",
-          "Este correo confirma la recepción; no confirma disponibilidad, precio ni alcance.",
+          name ? `Hola, ${name}:` : "Hola:",
+          "Gracias por escribirme. Recibí tu mensaje y lo voy a leer con calma antes de responderte.",
+          "Si quieres adelantar, responde a este correo con tu meta, la fecha que tienes en mente, la ubicación y cualquier referencia o material que ya tengas.",
+          "Te confirmo precio, alcance y disponibilidad por escrito cuando haya visto los detalles.",
+          SIGNATURE,
         ].join("\n\n"),
       }
     : {
-        subject: "We received your message — Esteban Moreno Media",
+        subject: `Got your message${name ? `, ${name}` : ""} — Esteban Moreno Media`,
         text: [
-          "Thank you for contacting Esteban Moreno Media.",
-          "We received your message and will review the details before replying.",
-          "To prepare a quote, please share the project goal, desired date, location, and any references or existing footage.",
-          "This email confirms receipt only; it does not confirm availability, price, or scope.",
+          name ? `Hi ${name},` : "Hi,",
+          "Thanks for reaching out. I got your message and I'll read it carefully before I reply.",
+          "If you'd like to speed things up, reply to this email with your goal, the date you have in mind, the location, and any references or footage you already have.",
+          "I'll confirm price, scope and availability in writing once I've seen the details.",
+          SIGNATURE,
         ].join("\n\n"),
       };
 }
@@ -52,7 +71,9 @@ async function deliver(fetchImpl: FetchLike, apiKey: string, body: Record<string
 
 /**
  * Sends only the safe, first-touch messages for a persisted website lead.
- * Acknowledgements require an explicit opt-in and are never sent for test rows.
+ * Every real lead gets the receipt from info@estebanmorenomedia.com once
+ * Esteban's alert is accepted. LEAD_AUTOREPLY_ENABLED=0 switches it off;
+ * test rows never send anything.
  */
 export async function sendLeadEmails(
   payload: LeadPayload,
@@ -61,7 +82,7 @@ export async function sendLeadEmails(
 ): Promise<LeadEmailResult> {
   const apiKey = text(env.RESEND_API_KEY);
   const notifyEmail = text(env.LEAD_NOTIFY_EMAIL) || "info@estebanmorenomedia.com";
-  const from = text(env.RESEND_FROM_EMAIL) || "Esteban Moreno Media <info@estebanmorenomedia.com>";
+  const from = text(env.RESEND_FROM_EMAIL) || PUBLIC_SENDER;
   if (!apiKey || isTest) return { notificationStatus: "not_configured", acknowledgementSent: false };
 
   const notified = await deliver(fetchImpl, apiKey, {
@@ -72,14 +93,14 @@ export async function sendLeadEmails(
   });
   if (!notified) return { notificationStatus: "failed", acknowledgementSent: false };
 
-  if (text(env.LEAD_AUTOREPLY_ENABLED) !== "1") {
+  if (text(env.LEAD_AUTOREPLY_ENABLED) === "0") {
     return { notificationStatus: "accepted", acknowledgementSent: false };
   }
   const reply = acknowledgement(payload);
   const acknowledgementSent = await deliver(fetchImpl, apiKey, {
-    from,
+    from: PUBLIC_SENDER,
     to: [payload.email],
-    reply_to: notifyEmail,
+    reply_to: PUBLIC_MAILBOX,
     subject: reply.subject,
     text: reply.text,
   });

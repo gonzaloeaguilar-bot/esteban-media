@@ -24,6 +24,8 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
 import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
+import { ServiceDecisionRail, type ServiceDecisionRailContent } from "@/components/service-decision-rail";
+import { ServiceProofRail, type ServiceProofRailContent } from "@/components/service-proof-rail";
 import { withNicheService } from "@/lib/niche-answers";
 import { ClientReviews } from "@/components/client-reviews";
 import { renderFormattedText } from "@/components/formatted-text";
@@ -39,8 +41,19 @@ export type GeoServicePageContent = {
   proofHref: string;
   proofLabel: string;
   primaryCta: string;
+  /** An allowlisted contact-form source, kept out of public claims and URLs beyond the owned contact path. */
+  contactSource?: string;
   secondaryHref: string;
   secondaryLabel: string;
+  /**
+   * Optional source-linked local proof at the first decision point. The page
+   * can surface a public profile without asserting a rating or review count
+   * that may change between site releases.
+   */
+  localProof?: {
+    href: string;
+    label: string;
+  };
   serviceName: string;
   serviceDescription: string;
   serviceType: string;
@@ -78,6 +91,10 @@ export type GeoServicePageContent = {
   relatedHeading: string;
   related: readonly RelatedService[];
   inquiry: ServiceInquiry;
+  /** A specific choice comes before explanatory depth for AI/search arrivals. */
+  decisionRail?: ServiceDecisionRailContent;
+  /** Relevant published work, deliberately capped to keep the page decisive. */
+  proofRail?: ServiceProofRailContent;
   /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
   venueLine?: string;
 };
@@ -175,7 +192,7 @@ export function GeoServicePage({
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href={content.contactSource ? `/contact?source=${encodeURIComponent(content.contactSource)}` : "/contact"}
                   data-cta={`geo_service_contact_${content.path.split("/").pop()}`}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
@@ -189,6 +206,18 @@ export function GeoServicePage({
                   {content.secondaryLabel}
                 </Link>
               </div>
+              {content.localProof ? (
+                <a
+                  href={content.localProof.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={`geo_service_local_proof_${content.path.split("/").pop()}`}
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
+                >
+                  {content.localProof.label}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </a>
+              ) : null}
               <p className="mt-5 text-sm leading-6 text-[#252a2d]" data-section="service-price-line">
                 <span className="font-medium">
                   From {usd(startingVideo)} per video
@@ -224,6 +253,9 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
+
+      {content.decisionRail ? <ServiceDecisionRail content={content.decisionRail} /> : null}
+      {content.proofRail ? <ServiceProofRail content={content.proofRail} /> : null}
 
       <section className="scroll-mt-24 border-b border-[#ddd4c8] py-8" id="service-pricing" data-section="service-pricing">
         <Container size="xl">

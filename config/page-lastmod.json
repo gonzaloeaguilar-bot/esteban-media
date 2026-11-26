@@ -1,11 +1,11 @@
 {
  "/": {
-  "date": "2026-11-03",
-  "hash": "898f80e1094e40bf"
+  "date": "2026-11-19",
+  "hash": "334c5c8c61abf819"
  },
  "/about": {
-  "date": "2026-11-04",
-  "hash": "cf160d654bbe4871"
+  "date": "2026-11-19",
+  "hash": "257e2e73d2e1ab8e"
  },
  "/areas": {
   "date": "2026-11-04",
@@ -84,8 +84,8 @@
   "hash": "0d2248a88579ee5d"
  },
  "/contact": {
-  "date": "2026-11-14",
-  "hash": "cc501efe5faec2c7"
+  "date": "2026-11-23",
+  "hash": "9d0a120028327f03"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -112,8 +112,8 @@
   "hash": "0135f80e80d9613c"
  },
  "/es": {
-  "date": "2026-11-05",
-  "hash": "057a7a44089d22af"
+  "date": "2026-11-19",
+  "hash": "612771dc4a2a606e"
  },
  "/es/areas": {
   "date": "2026-10-28",
@@ -130,6 +130,10 @@
  "/es/automatizacion-de-operaciones": {
   "date": "2026-10-14",
   "hash": "ea29080072e2d014"
+ },
+ "/es/bienes-raices": {
+  "date": "2026-11-21",
+  "hash": "0e49b7da1d466bd5"
  },
  "/es/calculadora": {
   "date": "2026-10-11",
@@ -216,8 +220,8 @@
   "hash": "f313bc63f0bf99e3"
  },
  "/es/contacto": {
-  "date": "2026-11-08",
-  "hash": "87098c099c6eef00"
+  "date": "2026-11-22",
+  "hash": "134e9029c91a30c5"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-11",
@@ -254,6 +258,10 @@
  "/es/edicion-de-video-de-capacitacion-corporativa-miami": {
   "date": "2026-08-14",
   "hash": "0431adf1896a2e01"
+ },
+ "/es/edicion-de-video-hablando-a-camara": {
+  "date": "2026-11-19",
+  "hash": "16aba7827187114f"
  },
  "/es/edicion-de-video-largo-para-youtube": {
   "date": "2026-10-30",
@@ -312,12 +320,12 @@
   "hash": "60be7a8353dbee74"
  },
  "/es/editor-de-reels-fort-lauderdale": {
-  "date": "2026-11-05",
-  "hash": "b8131f05079f83ac"
+  "date": "2026-11-22",
+  "hash": "1e84bb4e5b8dac45"
  },
  "/es/editor-de-reels-miami": {
-  "date": "2026-11-08",
-  "hash": "693d2037f5c77cee"
+  "date": "2026-11-19",
+  "hash": "35c3949db3329cf8"
  },
  "/es/editor-de-video-corto-para-redes-miami": {
   "date": "2026-11-06",
@@ -347,41 +355,57 @@
   "date": "2026-10-28",
   "hash": "e1fd9226db7f1aea"
  },
+ "/es/editor-de-videos-cristianos-youtube": {
+  "date": "2026-11-19",
+  "hash": "6b106782b0c20807"
+ },
  "/es/evaluacion": {
   "date": "2026-10-11",
   "hash": "7a2e023ba1602af9"
  },
  "/es/eventos": {
-  "date": "2026-10-14",
-  "hash": "add78fc0c22ba1a5"
+  "date": "2026-11-19",
+  "hash": "8bb10885950fa739"
  },
  "/es/eventos/video-para-art-basel-miami-beach": {
-  "date": "2026-11-19",
-  "hash": "dd5eb17217792f6e"
+  "date": "2026-11-21",
+  "hash": "2f593380a3cb1f93"
  },
  "/es/eventos/video-para-el-boat-show-de-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "c5fa1df24eee58db"
+  "date": "2026-11-21",
+  "hash": "f645c0263af171a5"
  },
  "/es/eventos/video-para-el-miami-boat-show": {
-  "date": "2026-10-14",
-  "hash": "bf4ac8c2e01f04c3"
+  "date": "2026-11-21",
+  "hash": "821795da91fe3d6e"
  },
  "/es/eventos/video-para-el-south-beach-wine-food-festival": {
-  "date": "2026-10-14",
-  "hash": "f95f1dbfa0127e6b"
+  "date": "2026-11-21",
+  "hash": "edb4ac202a45fe34"
  },
  "/es/eventos/video-para-emerge-americas": {
-  "date": "2026-10-14",
-  "hash": "17a4f26c896964b5"
+  "date": "2026-11-21",
+  "hash": "96b4e66f7dbafb9b"
+ },
+ "/es/eventos/video-para-eventos-en-boca-raton": {
+  "date": "2026-11-21",
+  "hash": "2365321d7f97be7a"
+ },
+ "/es/eventos/video-para-eventos-en-pompano-beach": {
+  "date": "2026-11-21",
+  "hash": "06a0413a877131c7"
+ },
+ "/es/eventos/video-para-fitce-fort-lauderdale": {
+  "date": "2026-11-21",
+  "hash": "cb910a83db21afdf"
  },
  "/es/eventos/video-para-miami-music-week": {
-  "date": "2026-10-14",
-  "hash": "1300278310adee9e"
+  "date": "2026-11-21",
+  "hash": "d9657599c432d824"
  },
  "/es/eventos/video-para-restaurantes-en-miami-spice": {
-  "date": "2026-10-14",
-  "hash": "af037e79e6cf5af9"
+  "date": "2026-11-21",
+  "hash": "cf978688f26ec181"
  },
  "/es/fotografia-de-comida-con-ia-restaurantes": {
   "date": "2026-08-15",
@@ -715,6 +739,10 @@
   "date": "2026-10-18",
   "hash": "c03af493ccb2b851"
  },
+ "/es/paquetes-de-boda": {
+  "date": "2026-11-24",
+  "hash": "0aeba5267387575d"
+ },
  "/es/planificador-de-ganchos-de-video": {
   "date": "2026-10-14",
   "hash": "5c7d7a7f303fa82e"
@@ -768,8 +796,8 @@
   "hash": "671e94e399d29eb5"
  },
  "/es/portafolio/gains-from-geebs-shorts": {
-  "date": "2026-10-29",
-  "hash": "e5e816338b2a24e9"
+  "date": "2026-11-20",
+  "hash": "ba388728663ce38e"
  },
  "/es/portafolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -784,8 +812,8 @@
   "hash": "815a7b49370e8040"
  },
  "/es/portafolio/homeowners": {
-  "date": "2026-10-14",
-  "hash": "ade81d82bfbf7d82"
+  "date": "2026-11-19",
+  "hash": "ad5593142f939887"
  },
  "/es/portafolio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -911,6 +939,10 @@
   "date": "2026-10-11",
   "hash": "c76c635d2d08770b"
  },
+ "/es/reels-comerciales-con-ia-miami": {
+  "date": "2026-11-19",
+  "hash": "0d1e3c6e00a5379e"
+ },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
   "hash": "418f384ccc813068"
@@ -940,8 +972,8 @@
   "hash": "1828ba92ae142bb2"
  },
  "/es/sobre-esteban": {
-  "date": "2026-10-30",
-  "hash": "37303dbd2515848a"
+  "date": "2026-11-19",
+  "hash": "9e668b9ad896909f"
  },
  "/es/temporizador-de-guiones-de-video": {
   "date": "2026-10-14",
@@ -1215,6 +1247,10 @@
   "date": "2026-10-18",
   "hash": "ac965d6e4d4bb7cf"
  },
+ "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami": {
+  "date": "2026-11-19",
+  "hash": "eab13f1372b6aecb"
+ },
  "/es/videografo-para-entrevistas-ejecutivas-miami": {
   "date": "2026-11-04",
   "hash": "b5ed115f78b042d6"
@@ -1268,36 +1304,48 @@
   "hash": "086cd0f9d870cd32"
  },
  "/events": {
-  "date": "2026-10-14",
-  "hash": "4cd774765157f095"
+  "date": "2026-11-19",
+  "hash": "10a506c37d7e2d98"
  },
  "/events/art-basel-miami-beach-video": {
-  "date": "2026-11-19",
-  "hash": "f5d8e36a250a0eca"
+  "date": "2026-11-21",
+  "hash": "9648710a177af33b"
+ },
+ "/events/boca-raton-events-video": {
+  "date": "2026-11-21",
+  "hash": "753375e13efde540"
  },
  "/events/emerge-americas-video": {
-  "date": "2026-10-14",
-  "hash": "5069f448a44be0e8"
+  "date": "2026-11-21",
+  "hash": "ca59b2c969e23a56"
+ },
+ "/events/fitce-fort-lauderdale-video": {
+  "date": "2026-11-21",
+  "hash": "5b5ea8937bc4a975"
  },
  "/events/fort-lauderdale-boat-show-video": {
-  "date": "2026-10-14",
-  "hash": "57b36ca80022f08b"
+  "date": "2026-11-21",
+  "hash": "a016d5723cfedac8"
  },
  "/events/miami-boat-show-video": {
-  "date": "2026-10-14",
-  "hash": "2db840f4b6a25006"
+  "date": "2026-11-21",
+  "hash": "9171953df76b56b5"
  },
  "/events/miami-music-week-video": {
-  "date": "2026-10-14",
-  "hash": "1e508cf58de15483"
+  "date": "2026-11-21",
+  "hash": "8c92a565b9e8aa4e"
  },
  "/events/miami-spice-restaurant-video": {
-  "date": "2026-10-14",
-  "hash": "91b0412b0b12a183"
+  "date": "2026-11-21",
+  "hash": "0ff66f6898dae917"
+ },
+ "/events/pompano-beach-events-video": {
+  "date": "2026-11-21",
+  "hash": "d9b116e4c1594b81"
  },
  "/events/south-beach-wine-food-festival-video": {
-  "date": "2026-10-14",
-  "hash": "46c6cd6280c6f2a8"
+  "date": "2026-11-21",
+  "hash": "00be9ec1040f7097"
  },
  "/fort-lauderdale": {
   "date": "2026-10-16",
@@ -1568,8 +1616,8 @@
   "hash": "718495efb8edbcd3"
  },
  "/portfolio/gains-from-geebs-shorts": {
-  "date": "2026-10-29",
-  "hash": "aa472d4d68a98e74"
+  "date": "2026-11-20",
+  "hash": "5bb32bb3a0ac389c"
  },
  "/portfolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -1584,8 +1632,8 @@
   "hash": "3de1604ac0cf9741"
  },
  "/portfolio/homeowners": {
-  "date": "2026-10-14",
-  "hash": "2e4f5c823cadbdc8"
+  "date": "2026-11-19",
+  "hash": "e1a55fd9ab602c38"
  },
  "/portfolio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -1639,6 +1687,10 @@
   "date": "2026-10-14",
   "hash": "7a4415da26fbf4f0"
  },
+ "/real-estate": {
+  "date": "2026-11-21",
+  "hash": "f3d31f3aa3ee0996"
+ },
  "/reels-editing-cost-calculator": {
   "date": "2026-10-14",
   "hash": "5a48a1bdf20a7528"
@@ -1660,8 +1712,8 @@
   "hash": "98995f0a945681c5"
  },
  "/services": {
-  "date": "2026-11-14",
-  "hash": "814f0a8eec4ef666"
+  "date": "2026-11-21",
+  "hash": "bbb930c1c29b4ec4"
  },
  "/services/ai-chatbot-for-small-business": {
   "date": "2026-11-11",
@@ -1670,6 +1722,10 @@
  "/services/ai-chatbots-lead-automation-fort-lauderdale": {
   "date": "2026-11-11",
   "hash": "229dfa861a2ea14f"
+ },
+ "/services/ai-commercial-video-reels-miami": {
+  "date": "2026-11-19",
+  "hash": "4df6325680053ce8"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1775,6 +1831,10 @@
   "date": "2026-10-19",
   "hash": "3467dda277f8fc81"
  },
+ "/services/christian-youtube-video-editor": {
+  "date": "2026-11-19",
+  "hash": "bec33da6d5208cd3"
+ },
  "/services/church-sermon-clip-editing-miami": {
   "date": "2026-10-13",
   "hash": "09a037731b8e0b17"
@@ -1812,8 +1872,8 @@
   "hash": "04f91ca3a81ca008"
  },
  "/services/contractor-video-marketing-florida": {
-  "date": "2026-10-19",
-  "hash": "61693e5353b2e626"
+  "date": "2026-11-25",
+  "hash": "4365367196156801"
  },
  "/services/contractor-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1896,8 +1956,8 @@
   "hash": "07013d514fe11441"
  },
  "/services/destination-wedding-videographer-palm-beach": {
-  "date": "2026-10-19",
-  "hash": "3f87c671008d2972"
+  "date": "2026-11-24",
+  "hash": "5462de57cb7d5061"
  },
  "/services/drone-video-editing-service-miami": {
   "date": "2026-10-13",
@@ -1910,6 +1970,10 @@
  "/services/estate-planning-attorney-video-boca-raton": {
   "date": "2026-10-19",
   "hash": "8d4b6fdf2cc1862b"
+ },
+ "/services/event-attendee-interview-videographer-miami": {
+  "date": "2026-11-21",
+  "hash": "5c366bd06e707708"
  },
  "/services/executive-interview-videographer-miami": {
   "date": "2026-11-08",
@@ -2140,12 +2204,12 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-11-11",
-  "hash": "4a307a6953debb6f"
+  "date": "2026-11-21",
+  "hash": "b20966bafedfaeef"
  },
  "/services/reels-editor-miami": {
-  "date": "2026-11-15",
-  "hash": "6a6811bd46163562"
+  "date": "2026-11-21",
+  "hash": "e786b640a0d0e65f"
  },
  "/services/regenerative-medicine-stem-cell-video-miami": {
   "date": "2026-10-19",
@@ -2160,16 +2224,16 @@
   "hash": "e9a2748ee8740579"
  },
  "/services/restaurant-promo-video-editing-miami": {
-  "date": "2026-11-06",
-  "hash": "8da5b6338bbfd5a2"
+  "date": "2026-11-13",
+  "hash": "75e47902883dbfbb"
  },
  "/services/salon-barbershop-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "7fe15c1e91652250"
  },
  "/services/short-form-video-editor-miami": {
-  "date": "2026-11-14",
-  "hash": "d3f1f360bd37ff9e"
+  "date": "2026-11-23",
+  "hash": "425ca820ab1d12c4"
  },
  "/services/small-business-video-hollywood-fl": {
   "date": "2026-10-14",
@@ -2202,6 +2266,10 @@
  "/services/surprise-proposal-videographer-miami": {
   "date": "2026-10-18",
   "hash": "f4bf2c8169bd8e37"
+ },
+ "/services/talking-head-video-editing": {
+  "date": "2026-11-19",
+  "hash": "d282dd4fe748b4f0"
  },
  "/services/tiktok-ad-video-editor-miami": {
   "date": "2026-10-27",
@@ -2283,13 +2351,17 @@
   "date": "2026-11-11",
   "hash": "de6d1e85cfa427e4"
  },
+ "/services/wedding-packages": {
+  "date": "2026-11-24",
+  "hash": "714dc12d22cce500"
+ },
  "/services/wedding-videographer-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "848badc11a546d7b"
+  "date": "2026-11-24",
+  "hash": "84fde40e4d96f5d6"
  },
  "/services/wedding-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "dd4331aef4c52623"
+  "date": "2026-11-24",
+  "hash": "e30b56fd9ee00860"
  },
  "/services/wellness-spa-video-marketing-miami": {
   "date": "2026-10-13",

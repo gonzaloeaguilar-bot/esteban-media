@@ -19,6 +19,8 @@ import { ScriptAndOverlayKit } from "@/components/script-and-overlay-kit";
 import { VideoStrategyAssessment } from "@/components/video-strategy-assessment";
 import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import { CaptionGuideOffer } from "@/components/caption-guide-offer";
+import { CaptionGuideNextStep } from "@/components/caption-guide-next-step";
+import { GuideNextStep } from "@/components/guide-next-step";
 import { CaptionSafeZoneDiagnostic } from "@/components/caption-safe-zone-diagnostic";
 import { CaptionTypographyPresets } from "@/components/caption-typography-presets";
 import {
@@ -687,6 +689,15 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {guide.priceIndex ? priceIndexAnswer(locale) : guide.answer}
               </p>
+              {guide.id === "caption-styles-reels-guide" ? (
+                <CaptionGuideNextStep locale={locale} />
+              ) : (
+                <GuideNextStep
+                  locale={locale}
+                  guideTitle={guide.title}
+                  briefSource={guide.id === "transfer-large-video-files-guide" ? "large-files-guide" : undefined}
+                />
+              )}
               {guide.heroProof ? (
                 <div className="mt-8 max-w-2xl">
                   <PublishedProjectProof
@@ -995,17 +1006,15 @@ function ReelsPriceIndex({ locale }: { locale: GuideLocale }) {
 
 function CaptionGuideStickyCta({ locale }: { locale: GuideLocale }) {
   const isEs = locale === "es";
-  const serviceHref = isEs
-    ? "/es/servicio-de-subtitulado-bilingue-de-video"
-    : "/services/bilingual-video-subtitling-service";
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#ddd4c8] bg-[#f6f1ea]/95 px-3 py-2 backdrop-blur sm:hidden">
       <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
         <Link
-          href={serviceHref}
+          href={isEs ? "/es/contacto?source=caption-guide#video-brief" : "/contact?source=caption-guide#video-brief"}
+          data-cta="caption_guide_sticky_brief"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-semibold text-white"
         >
-          {isEs ? "Subtitular mi video · WhatsApp" : "Subtitle my video · WhatsApp"}
+          {isEs ? "Preparar mi brief de video" : "Build my video brief"}
         </Link>
       </div>
     </div>

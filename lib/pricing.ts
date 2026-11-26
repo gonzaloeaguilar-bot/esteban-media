@@ -302,18 +302,17 @@ export const PRODUCT_PHOTO_SESSION = {
 
 // On-location raw video capture (no editing): market $300-1,000 half-day,
 // starting floor from PRICING_BANDS["on-location"].baseMin ($400: the accessible recording-only option, owner 2026-10-28).
-export const ON_LOCATION_CAPTURE = {
-  from: PRICING_BANDS["on-location"].baseMin,
-  unit: "half-day",
-  source: "PRICING_BANDS on-location baseMin ($400 half-day)",
-} as const;
-
-// Raw filming on-location rates for events and scoped production ($400 half-day / $700 full-day).
 export const RAW_FILMING_RATES = {
   halfDay: 400,
   fullDay: 700,
   currency: "USD",
-  source: "owner rule: $400 half-day / $700 full-day raw filming",
+  source: "lib/pricing.ts raw filming rates: 400 half-day / 700 full-day raw filming; 100 per video edit",
+} as const;
+
+export const ON_LOCATION_CAPTURE = {
+  from: PRICING_BANDS["on-location"].baseMin,
+  unit: "half-day",
+  source: "PRICING_BANDS on-location baseMin ($400 half-day)",
 } as const;
 
 
@@ -580,4 +579,17 @@ export const EXPANSION_SERVICES = {
   droneSessionFrom: 300,
   vslEditingFrom: 725,
   tradeShowCoverageFrom: 900,
+} as const;
+
+/**
+ * Wedding packages (owner order 2026-11-24: packages start at $2,500+, 50%
+ * deposit). Half Day and Content Creation sit at the owner's $2,500 floor; the
+ * Full Day figure is a working starting point until the owner confirms it.
+ * The final price is always quoted per wedding.
+ */
+export const WEDDING_PACKAGES = {
+  halfDayFrom: 2500,
+  fullDayFrom: 4000,
+  contentCreationFrom: 2500,
+  depositPercent: 50,
 } as const;

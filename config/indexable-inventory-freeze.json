@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 582,
-  "approvedSitemapUrlSetSha256": "be4c1e2bc8b08d6672318c5b63e57cc31ef07e0b807e26acacd52ba6148f8bf4",
+  "approvedSitemapUrlCount": 600,
+  "approvedSitemapUrlSetSha256": "16943a4f1c28efc5e9877e9e2c1c67016b948cf4e6c9e305284891d79f7560c4",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,52 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-19",
+      "url": [
+        "/services/talking-head-video-editing",
+        "/es/edicion-de-video-hablando-a-camara",
+        "/services/christian-youtube-video-editor",
+        "/es/editor-de-videos-cristianos-youtube"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch ai-unlock)",
+      "kind": "remote supplied-footage talking-head editing and Christian YouTube bilingual pairs",
+      "demandEvidence": "CTO dispatch ai-unlock: targets our 0/2 GEO miss on remote bilingual supplied-footage editing and addresses Christian/ministry/devotional YouTube creators recording at home. Each page ships answer-first, 4 FAQs, transparent lib/pricing.ts rates ($100 Starter, $85/wk recurring, $400 half-day / $700 full-day filming), and zero invented claims.",
+      "followUpDate": "2026-12-19",
+      "followUp": "Check Search Console impressions and indexed status for all four URLs, track talking-head and Christian video editing queries, and audit qualified lead inquiries."
+    },
+    {
+      "on": "2026-11-19",
+      "url": [
+        "/events/fitce-fort-lauderdale-video",
+        "/es/eventos/video-para-fitce-fort-lauderdale",
+        "/events/boca-raton-events-video",
+        "/es/eventos/video-para-eventos-en-boca-raton",
+        "/events/pompano-beach-events-video",
+        "/es/eventos/video-para-eventos-en-pompano-beach"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch events-extend)",
+      "kind": "annual events extension: FITCE Fort Lauderdale, Boca Raton events & festivals, and Pompano Beach annual events bilingual pairs",
+      "demandEvidence": "CTO dispatch events-extend: extends the existing annual events hub to capture verified regional demand in Broward and Palm Beach (FITCE trade expo at Broward County Convention Center, Boca Raton business & arts festivals, Pompano Beach annual seaside celebrations). Each page ships answer-first, 4-5 FAQs with transparent $400 half-day / $700 full-day raw filming and $100/video editing prices, and non-affiliation disclaimers.",
+      "followUpDate": "2026-12-19",
+      "followUp": "Check GSC impressions and indexed status for all six URLs, monitor event and festival videography queries, and track qualified inquiries.",
+      "note": "SIX URLs (3 bilingual pairs), larger than default 4; recorded as one owner-ordered batch so the exception stays visible."
+    },
+    {
+      "on": "2026-11-18",
+      "url": [
+        "/services/event-attendee-interview-videographer-miami",
+        "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+        "/services/ai-commercial-video-reels-miami",
+        "/es/reels-comerciales-con-ia-miami"
+      ],
+      "orderedBy": "Gonzalo (active session / CTO dispatch)",
+      "kind": "event attendee interviews and AI commercial Reels bilingual pairs",
+      "demandEvidence": "Demand-backed answer-first coverage for event attendee interview videography and AI commercial Reels with transparent disclosure and platform labeling compliance.",
+      "followUpDate": "2026-12-18",
+      "followUp": "Check GSC impressions and indexed status for all six URLs, monitor attendee interview and AI reels queries, and read qualified inquiries.",
+      "note": "Four URLs (2 bilingual pairs) within default 4-URL demand gate allowance."
+    },
     {
       "on": "2026-11-11",
       "url": [
@@ -812,6 +858,21 @@
       "note": "FORTY URLs = twenty bilingual pairs across Waves 7 and 8. Recorded as one owner-ordered expansion batch.",
       "followUpDate": "2026-11-19",
       "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 40 URLs at 14 and 30 days."
+    }
+  ],
+  "approvedAdditions": [
+    {
+      "on": "2026-11-21",
+      "url": [
+        "/real-estate",
+        "/es/bienes-raices"
+      ],
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "Real Estate Hub v2 bilingual pair",
+      "demandEvidence": "Consolidates South Florida real-estate listing video, Reels, drone, AI photo enhancement, commercial, and monthly plans into one bilingual hub pair.",
+      "followUpDate": "2026-12-21",
+      "followUp": "Check GSC impressions, indexation, and qualified real-estate inquiries across /real-estate and /es/bienes-raices.",
+      "note": "Two URLs (1 bilingual pair) within default 4-URL demand gate allowance."
     }
   ]
 }

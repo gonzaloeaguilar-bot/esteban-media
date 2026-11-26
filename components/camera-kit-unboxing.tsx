@@ -4,11 +4,16 @@ import { useEffect, useRef, useState } from "react";
 
 type Locale = "en" | "es";
 
+export type UnboxingHighlight = readonly [label: string, detail: string];
+
 type Props = {
   locale: Locale;
   eyebrow: string;
   title: string;
   lead: string;
+  highlights: readonly UnboxingHighlight[];
+  gearLinkLabel: string;
+  gearSectionId: string;
   label: string;
   soundOn: string;
   soundOff: string;
@@ -21,7 +26,18 @@ type Props = {
  * celebrations loop: muted, inline, play() on loadeddata/canplay. Under
  * prefers-reduced-motion the clip stays paused with native controls instead.
  */
-export function CameraKitUnboxing({ locale, eyebrow, title, lead, label, soundOn, soundOff }: Props) {
+export function CameraKitUnboxing({
+  locale,
+  eyebrow,
+  title,
+  lead,
+  highlights,
+  gearLinkLabel,
+  gearSectionId,
+  label,
+  soundOn,
+  soundOff,
+}: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -94,16 +110,29 @@ export function CameraKitUnboxing({ locale, eyebrow, title, lead, label, soundOn
       <div className="em-camera-kit__unboxing-copy">
         <small>{eyebrow}</small>
         <strong>{title}</strong>
-        <span>{lead}</span>
-        <button
-          type="button"
-          className="em-camera-kit__unboxing-sound"
-          aria-pressed={soundEnabled}
-          data-cta={`camera_kit_unboxing_${locale}`}
-          onClick={toggleSound}
-        >
-          {soundEnabled ? soundOff : soundOn}
-        </button>
+        <p className="em-camera-kit__unboxing-lead">{lead}</p>
+        <dl className="em-camera-kit__unboxing-highlights">
+          {highlights.map(([itemLabel, itemDetail]) => (
+            <div key={itemLabel}>
+              <dt>{itemLabel}</dt>
+              <dd>{itemDetail}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="em-camera-kit__unboxing-actions">
+          <button
+            type="button"
+            className="em-camera-kit__unboxing-sound"
+            aria-pressed={soundEnabled}
+            data-cta={`camera_kit_unboxing_${locale}`}
+            onClick={toggleSound}
+          >
+            {soundEnabled ? soundOff : soundOn}
+          </button>
+          <a href={`#${gearSectionId}`} className="em-camera-kit__unboxing-jump">
+            {gearLinkLabel}
+          </a>
+        </div>
       </div>
     </div>
   );

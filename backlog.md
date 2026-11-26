@@ -1,3 +1,58 @@
+## 2026-11-25 — Priority-growth owned_site_ctr on HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
+
+- [x] Implement `owned_site_ctr` priority-growth recommendation on `/services/contractor-video-marketing-florida`: align title and meta description to target "hvac video production fl" / trade contractor searches, add targeted ServiceAnswerFirst override for HVAC compressor and duct installations, and render compact `ClientReviews` Google proof. Verified with `pnpm lastmod:update`, `pnpm vitest run`, `pnpm lint`, `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm build`, and `priority-growth-project-verify.sh`.
+
+## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/guides/best-caption-styles-for-instagram-reels` and Spanish twin: add direct link to verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable CTA `caption_guide_local_proof_gbp`. Verified with `npm test` and `priority-growth-project-verify.sh`.
+
+## 2026-11-22 — Local GBP conversion proof on Spanish Fort Lauderdale Reels Editor page (priority-growth:2026-11-22:esteban)
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/es/editor-de-reels-fort-lauderdale`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing matching its English twin `/services/reels-editor-fort-lauderdale`. Verified with `pnpm lastmod:update`, `npm test`, and `priority-growth-project-verify.sh`.
+
+## 2026-11-21 — Event handoff and bilingual exhibitor brief
+
+- [x] Add a factual original-footage handoff section to existing EN/ES event routes and a bilingual exhibitor message to both contact routes. Commit `fc5357b6`; PR #799 is pushed and awaiting remote checks/merge.
+- [ ] After PR #799 is merged, verify raw canonical HTML for `/events`, `/es/eventos`, `/contact`, and `/es/contacto`; measure attributable event inquiries at T+7 and T+14. Do not publish FITCE work until written client permission specifies the allowed facts and assets.
+
+## 2026-11-20 — Priority-growth owned_site_ctr refinement for Gains From Geebs Shorts
+
+- [x] Refine search snippet for `/portfolio/gains-from-geebs-shorts` and `/es/portafolio/gains-from-geebs-shorts` in `messages/en.json` and `messages/es.json` with dedicated `metaDescription` matching query `gainsfromgeebs` and vertical shorts/reels intent.
+- [x] Run `pnpm lastmod:update` and verify `priority-growth-project-verify.sh`.
+
+## 2026-11-19 — Talking-head, Christian YouTube video editing, and About entity enrichment (JOB=ai-unlock)
+
+- [x] Create talking-head remote video editing pages (`/services/talking-head-video-editing` and `/es/edicion-de-video-hablando-a-camara`) targeting 0/2 GEO miss on remote bilingual supplied-footage editing.
+- [x] Create Christian YouTube video editor pages (`/services/christian-youtube-video-editor`, `/es/editor-de-videos-cristianos-youtube`, plus permanent redirect `/es/edicion-de-predicas-youtube` -> `/es/editor-de-videos-cristianos-youtube`) for devotional creators recording at home.
+- [x] Enrich body copy on `/about` and `/es/sobre-esteban` with concise factual entity links to `/events`, talking-head remote editing, and AI commercial Reels (preserving exact metadata and Fort Lauderdale title/description limits).
+- [x] Update sitemap (588 -> 592 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
+- [x] Run `pnpm lastmod:update` and verify all gates (`pnpm typecheck`, `pnpm lint`, `npm test` 212 files / 3,918 tests passing, and `analytics-gate.py`).
+
+## 2026-11-19 — Spanish Miami Reels page content-depth refinement
+
+- [x] Prepare `/es/editor-de-reels-miami` for its existing search intent: outcome-specific title and H1, answer-first opening, a source-bounded intake checklist, one matching FAQ, contextual link to `/es/editor-de-video-corto-para-redes-miami`, and a refreshed page-lastmod ledger. Local checks passed: `npm run typecheck --silent`, `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, `pnpm build`, and raw generated HTML verification. `cto-qa-lead` must independently review the local diff; after authorized release, verify canonical production raw HTML. `cto-seo-lead` owns the later comparable GSC read; clicks and inquiries remain unmeasured.
+
+## 2026-11-19 — Extend events hub with FITCE, Boca Raton, and Pompano Beach pages (JOB=events-extend)
+
+- [x] Extend the annual events section with three bilingual event page pairs (6 new URLs: FITCE Fort Lauderdale, Boca Raton Business Festivals & Expos, Pompano Beach Annual Festivals & Events).
+- [x] Register new event definitions in `lib/events.ts` with transparent `nextEdition` dates marked 'confirm dates with organizer' and official organizer URLs.
+- [x] Add answer-first content, before/during/after plans, honest proof disclaimers, and 4-5 FAQs with server-rendered `<details>` in `lib/event-content.ts` using canonical `RAW_FILMING_RATES` ($400 half-day / $700 full-day raw filming) and `SHORT_FORM` ($100 per video editing) from `lib/pricing.ts`.
+- [x] Add Broward County events coverage section and FAQs to the events hub in `lib/event-content.ts`.
+- [x] Register pages in sitemap (582 -> 588 URLs), `config/indexable-inventory-freeze.json`, and `scripts/search-console-index-watch.mjs`.
+- [x] Run `pnpm lastmod:update` and verify with `pnpm lint`, `pnpm typecheck`, `npm test` (212 test files / 3,906 tests passing), and `analytics-gate.py`.
+
+## 2026-11-19 — Trimmed Event Attendee Interviews & AI Commercial Reels (feat/interview-ai-20261119)
+
+- [x] Create trimmed replacement for PR #775 without duplicate /resources/miami-events-calendar:
+  - `/services/event-attendee-interview-videographer-miami` and `/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami`
+  - `/services/ai-commercial-video-reels-miami` and `/es/reels-comerciales-con-ia-miami`
+- [x] Link attendee interview page to `/events` and `/es/eventos`.
+- [x] Strictly adhere to `lib/pricing.ts` figures ($400 raw half-day capture floor, corporate editing band, $100/video editing floor) with "price on request, quoted per reel".
+- [x] Update sitemap, inventory freeze (592 approved URLs), search-console watch list, and page-lastmod ledger.
+- [x] All 5 validation gates + full test suite passed (212 test files / 3908 tests).
+- [x] Rebase/merge origin/main and resolve inventory conflicts.
+- [ ] Push branch `feat/interview-ai-20261119` (PR #777).
+
 ## 2026-11-15 — Local GBP conversion proof on Miami Reels Editor page (priority-growth:2026-11-15:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/services/reels-editor-miami`: embed verified Google reviews (`ClientReviews`), linking local reel editor searchers to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (212 files / 3,894 tests passing), and `priority-growth-project-verify.sh`.
@@ -96,6 +151,11 @@
 - [ ] Release and verify the contextual `/es/areas` link from the Spanish editor-versus-videographer guide after sibling review; implementation and validation record: `.ai/internal-links-es-areas-2026-10-13.md`.
 
 # Esteban Moreno Media — Backlog
+
+## 2026-11-20 — Gains From Geebs Shorts content depth
+
+- [x] Prepare the bilingual content-depth refinement for `/portfolio/gains-from-geebs-shorts`: intent-specific H1/metadata, answer-first public-upload context, three server-rendered native-details FAQs, existing related-service/case-study links, and refreshed page-date ledger. Local checks: typecheck, full test suite (213 files / 3,932 tests), build, and raw local production-build HTML.
+- [ ] `cto-qa-lead`: independently review the exact Gains From Geebs Shorts diff. After an authorized release, verify canonical EN/ES raw HTML and the two related links; `cto-seo-lead` should compare a later like-for-like GSC query/page window. Click and inquiry impact remain unmeasured.
 
 ## 2026-11-05 — Demand wave: Miami Reels intent consolidation
 
@@ -331,3 +391,11 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Obtain independent scoped review, commit `ab2ef552`, and open PR #583 for `components/camera-kit-method.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/camera-kit-method.test.ts`.
 - [x] Replace the unboxing outbound-card treatment with an embedded Instagram Reel inside an iPhone-shaped player and preserve the direct Instagram fallback.
 - [ ] Clear the unrelated remote `prospect-auditor-verifier` Squarespace fixture failure on PR #583, attach genuine quality evidence, merge, and production-verify desktop/390px. Do not add the product link until a supplied Amazon URL resolves to the intended item.
+## 2026-11-19 — Contact-page project-intent refinement (growth-starvation content_depth)
+
+- [x] Update `/contact` with a specific video-editing-or-South-Florida-shoot title, answer-first H1/opening, retained FAQ/schema, and existing related links.
+- [x] Refresh `config/page-lastmod.json` via `pnpm lastmod:update`; verify with `npm run typecheck --silent`, full `npm test`, `pnpm lint` (0 errors; 26 existing warnings), `pnpm rail-adoption:check`, and `git diff --check`.
+- [ ] `cto-qa-lead`: review the local candidate; after authorized release, verify the served title, opening, FAQ/schema, and linked paths at canonical `/contact`. `cto-seo-lead` then compares a later settled query-page GSC window; clicks and inquiries remain unmeasured.
+# 2026-11-22 — Caption-guide attribution repair
+
+- [x] Route the caption guide's done-for-you card and mobile action through the existing allowlisted contact source, preserve the direct WhatsApp fallback, open the server-rendered brief only for the exact source/fragment, refresh page dates, and verify local raw/rendered behavior. Local only; production and T+7 outcome read remain pending authorization/release.

@@ -25,6 +25,8 @@ import {
 } from "@/lib/events";
 import { priceSentence } from "@/lib/packages";
 import { RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
+const RAW_HALF_DAY = usd(RAW_FILMING_RATES.halfDay);
+const RAW_FULL_DAY = usd(RAW_FILMING_RATES.fullDay);
 
 /**
  * Meta descriptions, answer-first snippet test (overnight SEO/GEO loop, round 2;
@@ -86,6 +88,45 @@ export function eventScopeSection(locale: EventLocale): { heading: string; parag
     paragraphs: [
       `Prices start from the published packages. Editing your own footage is the Starter package, ${starter}. A pre-event content calendar with editing across the month is the Growth plan, ${growth}. On-location filming is a paid add-on scoped per project: the Local Presence package starts ${onSite}, and the quote depends on the days, locations, access and deliverables.`,
       "Every project gets a written quote before the event, because the scope has to be clear before anyone records a clip. Esteban works Spanish-first, with intermediate English, from Fort Lauderdale; editing and planning are remote, so your team can send files straight from the event.",
+    ],
+  };
+}
+
+/**
+ * A short, honest handoff decision card shared by the hub and event pages.
+ * It helps an exhibitor decide what to include in the first message without
+ * implying a transfer method, delivery time, or on-site access that has not
+ * been confirmed in a written quote.
+ */
+export function eventFootageHandoffSection(locale: EventLocale): {
+  heading: string;
+  paragraphs: string[];
+  items: readonly string[];
+} {
+  if (locale === "es") {
+    return {
+      heading: "¿Necesitas conservar material original del evento?",
+      paragraphs: [
+        "Dilo antes de pedir la cotización. Así Esteban puede separar lo que tu equipo necesita conservar como material original de las piezas que quieres editar para redes. El método de entrega, el acceso y cualquier edición se confirman por escrito según el alcance.",
+      ],
+      items: [
+        "El evento, la ciudad y la fecha",
+        "Las tomas o momentos que deben quedar como material original",
+        "Una persona de contacto para recibir los archivos",
+        "Si necesitas material original, videos editados o ambos",
+      ],
+    };
+  }
+  return {
+    heading: "Need to keep original footage from the event?",
+    paragraphs: [
+      "Say so before you ask for a quote. It lets Esteban separate the moments your team needs to keep as original footage from the pieces you want edited for social. The delivery method, access and any editing are confirmed in writing for the actual scope.",
+    ],
+    items: [
+      "The event, city and date",
+      "The shots or moments that must remain as original footage",
+      "One delivery contact for the files",
+      "Whether you need original footage, edited videos, or both",
     ],
   };
 }
@@ -1347,6 +1388,550 @@ const miamiSpice: EventCopyBuilder = (event) => ({
   },
 });
 
+
+const fitce: EventCopyBuilder = (event) => ({
+  en: {
+    metaTitle: "FITCE Fort Lauderdale Video Content for International Exhibitors",
+    metaDescription:
+      `FITCE content for global trade delegations, exhibitors and sponsors: pre-expo calendars, booth footage edited from ${FROM} per video, and recaps.`,
+    breadcrumb: "FITCE",
+    eyebrow: "Fall · Broward County Convention Center",
+    h1: "International trade expo video content, planned before the convention doors open.",
+    lead: "Social content planning and editing for international delegations, trade agencies, sponsors and corporate exhibitors at FITCE in Fort Lauderdale. Send your own footage; on-location filming is a paid add-on scoped per project.",
+    serviceName: "International trade expo video content for FITCE exhibitors",
+    answer: {
+      question: "How can international exhibitors capture qualified business leads at FITCE?",
+      paragraphs: [
+        "Plan your content before arriving in Fort Lauderdale so your presence turns into measurable trade inquiries. The Florida International Trade and Cultural Expo brings together consulates, trade commissioners, export agencies and private enterprises from dozens of nations at the Broward County Convention Center. Instead of letting booth interactions stay on the convention floor, record twenty-second delegate interviews, booth demos and bilateral discussions with a standard smartphone, then send the raw footage to a dedicated editor.",
+        `Esteban Moreno Media, based in Fort Lauderdale, structures your pre-event publishing schedule, edits original video into professional vertical clips with bilingual captions, and delivers highlight recaps for government sponsors and commercial partners. Because Esteban works Spanish-first with intermediate English, cross-border Latin American and Caribbean delegations communicate without linguistic friction. On-location raw filming starts from ${RAW_HALF_DAY} for a half-day session or ${RAW_FULL_DAY} for a full day, and post-production editing starts from ${FROM} per video.`,
+      ],
+    },
+    audience: {
+      heading: "Who is this FITCE trade expo content plan for?",
+      intro: "Delegations, consulates and corporate trade teams investing in South Florida international commerce:",
+      items: [
+        "International trade commissions, consulates and bilateral chambers showcasing export manufacturing, agriculture, or tech infrastructure.",
+        "Import-export operators, customs brokerages, freight logistics firms and supply chain suppliers expanding Americas distribution.",
+        "B2B service providers and corporate sponsors hosting VIP breakfast briefings or bilateral matchmaking sessions at the convention center.",
+        "Foreign direct investment agencies seeking bilingual English and Spanish executive clips to circulate among commercial partners.",
+      ],
+      closing:
+        "Official floor rules permit filming within your contracted pavilion. Always confirm credential policies for private delegate briefings with event management.",
+    },
+    plan: {
+      heading: "What does a before, during and after FITCE content plan look like?",
+      cards: [
+        {
+          title: "Before the expo",
+          detail:
+            "A structured schedule for the weeks prior: announcing pavilion booth coordinates, introducing key trade commissioners, and publishing teasers for scheduled panel presentations. Esteban drafts a practical handheld shot list for your delegation staff: one-take product overviews, thirty-second delegate value statements, bilateral signing moments, and clear establishing visuals of your national pavilion.",
+        },
+        {
+          title: "During the expo",
+          detail:
+            "Your staff captures footage between meetings and uploads original files to a secure shared folder each evening. Esteban edits vertical videos for LinkedIn, Instagram and corporate portals, embedding English or Spanish subtitles so clips play cleanly in noisy exhibition halls. Delivery timelines are locked in advance; on-location raw camera operation is available as a scheduled paid add-on.",
+        },
+        {
+          title: "After the expo",
+          detail:
+            "A polished recap video highlighting delegation meetings, official protocol handshakes and marketplace negotiations for ministry stakeholders and executive boards. Concise follow-up video messages can be paired with sales outreach to new North American trade contacts while conversations remain fresh.",
+        },
+      ],
+    },
+    send: {
+      heading: "What should you send Esteban before FITCE?",
+      intro: "A single briefing message with these core details is sufficient to scope and price your production:",
+      items: [
+        "Your country pavilion number or booth location, schedule of formal bilateral signings, and visiting dates.",
+        "Prioritized commercial objectives: foreign investment attraction, export distribution partnerships, or regional brand awareness.",
+        "Existing institutional assets: national trade branding guidelines, motion graphics, and high-resolution logo vectors.",
+        "Accurate spelling of names, diplomatic titles, and company affiliations for on-screen lower thirds.",
+        "Primary distribution channels (LinkedIn, corporate web, YouTube, Instagram) and subtitle preferences (English, Spanish, or both).",
+        "Designation of who will operate cameras at the booth, or whether you require scheduled on-location filming services.",
+      ],
+    },
+    proof: {
+      text: "Esteban has not filmed FITCE, and this page does not suggest he has. The closest published work is Homeowners, an executive video edited from supplied multi-camera recordings, and Banacol, corporate trade footage edited for commercial distribution across Latin America and the United States.",
+      href: "/portfolio/homeowners",
+      label: "Watch Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "en"),
+      {
+        question: "Can Esteban provide on-location raw camera filming at the Broward Convention Center?",
+        answer:
+          `Yes. On-location raw video filming is available as a scheduled add-on: half-day raw capture starts at ${RAW_HALF_DAY}, and full-day raw capture is ${RAW_FULL_DAY}. If you require post-production, editing starts from ${FROM} per finished video. All credentials and organizer floor approvals must be arranged through your pavilion registration.`,
+      },
+      {
+        question: "How are bilingual English and Spanish interviews handled for international delegates?",
+        answer:
+          "Esteban operates Spanish-first with intermediate English, making bilingual delegate interviews seamless. Video clips are delivered with burned-in subtitles in either English, Spanish, or dual-language subtitle layouts optimized for LinkedIn and executive distribution.",
+      },
+    ],
+    related: [
+      { title: "Corporate event videographer", detail: "Professional conference and corporate expo video recording in Fort Lauderdale and Miami.", href: "/services/corporate-event-videographer-fort-lauderdale" },
+      { title: "Trade show booth videographer", detail: "On-site expo booth coverage and product demonstration capture.", href: "/services/trade-show-booth-videographer-fort-lauderdale" },
+      hubLink("en"),
+    ],
+    inquiry: {
+      serviceName: "FITCE trade expo video content",
+      goalPrompt: "plan and edit delegate interviews and pavilion content around FITCE",
+      assetPrompt: "our pavilion or booth number, visiting dates, and existing brand footage",
+    },
+  },
+  es: {
+    metaTitle: "Video para expositores de FITCE en Fort Lauderdale",
+    metaDescription:
+      `Contenido para FITCE: delegaciones comerciales, pabellones y expositores, edición de material desde ${FROM} por video y resúmenes para ferias internacionales.`,
+    breadcrumb: "FITCE",
+    eyebrow: "Otoño · Centro de Convenciones de Broward",
+    h1: "Contenido audiovisual para ferias de comercio exterior, planificado antes de abrir el pabellón.",
+    lead: "Planificación y edición de contenido para redes para delegaciones internacionales, cámaras binacionales y empresas expositoras en FITCE Fort Lauderdale. Envía tu propio material; la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.",
+    serviceName: "Contenido de video para expositores y delegaciones de FITCE",
+    answer: {
+      question: "¿Cómo pueden las delegaciones comerciales convertir su presencia en FITCE en alianzas reales?",
+      paragraphs: [
+        "Planifica el contenido antes de llegar a Fort Lauderdale para que tu inversión en la feria genere contactos comerciales verificables. La Expo Internacional de Comercio y Cultura de Florida (FITCE) reúne a consulados, comisionados de comercio, agencias de exportación y empresarios de decenas de países en el Centro de Convenciones de Broward. En lugar de limitar las reuniones al espacio del stand, graba entrevistas de veinte segundos con delegados, demostraciones de producto y firmas de acuerdos con un teléfono móvil y envía el material original a un editor.",
+        `Esteban Moreno Media, radicado en Fort Lauderdale, estructura tu cronograma previo, edita el material en videos verticales profesionales con subtítulos bilingües y entrega resúmenes ejecutivos para ministerios y socios comerciales. Al trabajar en español nativo con inglés intermedio, las delegaciones de América Latina y el Caribe colaboran sin barreras idiomáticas. La grabación en locación parte de ${RAW_HALF_DAY} por media jornada o ${RAW_FULL_DAY} por jornada completa, y la edición parte de ${FROM} por video.`,
+      ],
+    },
+    audience: {
+      heading: "¿Para quién es este plan de contenido para FITCE?",
+      intro: "Delegaciones oficiales, cámaras de comercio y empresas exportadoras que participan en ferias internacionales:",
+      items: [
+        "Comisiones de comercio exterior y consulados que presentan manufactura, agroindustria o tecnología ante inversionistas del sur de Florida.",
+        "Empresas de logística, agencias aduanales y distribuidores que buscan expandir su red comercial en Estados Unidos.",
+        "Patrocinadores corporativos que organizan desayunos de trabajo, ruedas de negocios o reuniones bilaterales en el centro de convenciones.",
+        "Agencias de promoción de inversiones que requieren clips ejecutivos en inglés y español para distribuir entre socios estratégicos.",
+      ],
+      closing:
+        "Las normas de la feria autorizan grabaciones dentro del pabellón contratado. Confirma los permisos para eventos privados con la gerencia del centro.",
+    },
+    plan: {
+      heading: "¿Cómo es el plan de contenido para antes, durante y después de FITCE?",
+      cards: [
+        {
+          title: "Antes de la feria",
+          detail:
+            "Un calendario estructurado para las semanas previas: anuncio de ubicación del pabellón, presentación de delegados clave y adelantos de conferencias programadas. Esteban elabora una guía de tomas para tu equipo: demostraciones breves, declaraciones comerciales de treinta segundos y planos generales del pabellón nacional.",
+        },
+        {
+          title: "Durante la feria",
+          detail:
+            "Tu personal graba entre reuniones y sube los archivos originales a una carpeta compartida al final del día. Esteban edita cortes verticales para LinkedIn, Instagram y canales corporativos, con subtítulos en español o inglés para que funcionen con claridad en un salón ruidoso. La grabación en locación es un servicio adicional pagado.",
+        },
+        {
+          title: "Después de la feria",
+          detail:
+            "Un video resumen que compila reuniones institucionales, acuerdos formales y actividad en el stand para reportes ministeriales y juntas directivas. Además, clips específicos de seguimiento que tu equipo de ventas puede enviar por mensaje directo a los compradores contactados durante el evento.",
+        },
+      ],
+    },
+    send: {
+      heading: "¿Qué debes enviar a Esteban antes de FITCE?",
+      intro: "Un mensaje con estos datos es suficiente para estructurar y cotizar el trabajo:",
+      items: [
+        "Número de pabellón o stand, horario de firmas bilaterales y fechas de participación de tu delegación.",
+        "Objetivos comerciales centrales: atracción de inversión, alianzas de distribución o posicionamiento de marca.",
+        "Material gráfico existente: manuales de marca institucional, tipografías y logotipos en alta resolución.",
+        "Nombres exactos y cargos diplomáticos o empresariales de quienes aparecerán en pantalla.",
+        "Redes de publicación (LinkedIn, web institucional, YouTube, Instagram) e idioma de subtítulos (español, inglés o ambos).",
+        "Responsable de grabación en el stand, o solicitud de grabación en locación si deseas contratar cámara presencial.",
+      ],
+    },
+    proof: {
+      text: "Esteban no ha grabado FITCE ni sus actividades oficiales, y esta página no lo insinúa. El trabajo publicado más cercano es Homeowners, un video editado a partir de material entregado por otro equipo, y Banacol, producción corporativa de exportación para mercados de Estados Unidos y América Latina.",
+      href: "/es/portafolio/homeowners",
+      label: "Ver Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "es"),
+      {
+        question: "¿Esteban ofrece servicio de grabación presencial en el Centro de Convenciones de Broward?",
+        answer:
+          `Sí. La grabación presencial de material en bruto está disponible como servicio adicional: ${RAW_HALF_DAY} por media jornada (half-day) y ${RAW_FULL_DAY} por jornada completa (full-day). Si deseas edición profesional posterior, el servicio parte de ${FROM} por video terminado. Las credenciales de acceso deben ser tramitadas por el expositor.`,
+      },
+      {
+        question: "¿Cómo se gestionan las entrevistas bilingües en español e inglés?",
+        answer:
+          "Esteban trabaja primero en español y cuenta con inglés intermedio, facilitando la interlocución con delegaciones hispanohablantes e internacionales. Los videos se entregan con subtítulos incrustados en español, inglés o versión doble bilingüe para plataformas profesionales.",
+      },
+    ],
+    related: [
+      { title: "Videógrafo para eventos corporativos", detail: "Grabación y edición de convenciones y reuniones de negocios en Fort Lauderdale.", href: "/es/videografo-para-eventos-corporativos-fort-lauderdale" },
+      { title: "Video para ferias comerciales", detail: "Cobertura de stands y demostraciones de producto en centros de convenciones.", href: "/es/videografo-para-ferias-comerciales-fort-lauderdale" },
+      hubLink("es"),
+    ],
+    inquiry: {
+      serviceName: "video para expositores de feria FITCE",
+      goalPrompt: "planificar y editar entrevistas a delegados y contenido de stand en FITCE",
+      assetPrompt: "nuestro número de stand o pabellón, fechas y material de marca que ya tenemos",
+    },
+  },
+});
+
+const bocaRatonEvents: EventCopyBuilder = (event) => ({
+  en: {
+    metaTitle: "Boca Raton Event Videographer & Business Festival Content",
+    metaDescription:
+      `Video production and editing for Boca Raton business conferences, expos, and festivals: calendars, raw capture from ${RAW_HALF_DAY}, edits from ${FROM} per video.`,
+    breadcrumb: "Boca Raton Events",
+    eyebrow: "Annual events · Boca Raton & Palm Beach County",
+    h1: "Boca Raton business expos and cultural festivals, captured with professional clarity.",
+    lead: "Social content planning, on-location video capture, and editing for corporate summits, wealth conferences, and cultural festivals across Boca Raton. Send your own footage; on-location filming is a paid add-on scoped per project.",
+    serviceName: "Boca Raton event videography and social content",
+    answer: {
+      question: "How can businesses and organizers document annual events and festivals in Boca Raton?",
+      paragraphs: [
+        "Secure your content strategy before event dates arrive at premier venues like The Boca Raton resort, Florida Atlantic University, and Mizner Park. Boca Raton hosts significant recurring annual gatherings, including the Festival of the Arts BOCA, major real estate and financial derivatives forums, and Greater Boca Raton Chamber expos. Documenting these sessions requires clear planning: capturing executive soundbites, sponsor activations, and keynote highlights without disrupting guest experiences.",
+        `Esteban Moreno Media provides remote video editing starting from ${FROM} per video, as well as on-location raw footage recording starting at ${RAW_HALF_DAY} for a half-day session and ${RAW_FULL_DAY} for a full day. Operating from nearby Fort Lauderdale, Esteban delivers rapid-turnaround vertical social reels and complete keynote archives for Boca Raton corporate brands, private practices, and festival organizers. Every booking includes a clear written quote with zero hidden travel charges.`,
+      ],
+    },
+    audience: {
+      heading: "Who is this Boca Raton event video service designed for?",
+      intro: "Companies, festival organizers, and executive leadership hosting or exhibiting in Boca Raton:",
+      items: [
+        "Corporate conference sponsors at The Boca Raton resort needing keynote recap reels and executive soundbites for LinkedIn.",
+        "Festival producers and cultural organizers at Mizner Park Amphitheater requiring multi-angle crowd and performance recaps.",
+        "Exhibitors at regional trade showcases and Boca Chamber business expos looking to capture booth traffic and customer interactions.",
+        "Wealth managers, medical specialists, and boutique law firms hosting private dinner masterminds and client symposiums.",
+      ],
+      closing:
+        "Private resort venues and university auditoriums enforce specific media check-in rules. Coordinate videographer access passes prior to production day.",
+    },
+    plan: {
+      heading: "What does a comprehensive Boca Raton event video workflow include?",
+      cards: [
+        {
+          title: "Pre-event planning",
+          detail:
+            "We review your speaker lineup, venue floor plan, and sponsor delivery requirements. Esteban establishes a target shot list outlining executive interview questions, stage presentations, sponsor signage recognition, and candid attendee networking moments.",
+        },
+        {
+          title: "On-site capture",
+          detail:
+            "Equipped with 4K camera gear, wireless lavalier microphones, and discreet handheld stabilization, filming proceeds without intrusive staging. We record keynotes, roving attendee reactions, and sponsor exhibits across conference halls or outdoor pavilions.",
+        },
+        {
+          title: "Post-production delivery",
+          detail:
+            "Original media files are processed, color-graded, and edited into high-retention vertical reels, horizontal presentation archives, or promotional trailers for subsequent annual ticket launches, formatted cleanly for Instagram, YouTube, and LinkedIn.",
+        },
+      ],
+    },
+    send: {
+      heading: "What should you provide to book Boca Raton event coverage?",
+      intro: "Send a message with these key project details for an immediate quote:",
+      items: [
+        "Event name, venue address (e.g., Mizner Park or hotel conference hall), and session dates.",
+        "Schedule outline highlighting keynotes, award presentations, or VIP networking receptions to record.",
+        "Desired deliverables: raw 4K footage archive, vertical social recap reels, or full presentation cuts.",
+        "Brand style guide, primary fonts, and high-resolution sponsor vector logos for title cards.",
+        "Selection of service model: remote editing of existing footage, or scheduled on-location raw filming.",
+        "Required turnaround deadlines for highlight teasers or post-event press releases.",
+      ],
+    },
+    proof: {
+      text: "Esteban has not filmed Festival of the Arts BOCA or official resort symposiums, and this page does not claim past representation. The closest published work is Homeowners, edited from supplied footage, and Bar Door Monkey Miami, a hospitality video produced on location in South Florida.",
+      href: "/portfolio/homeowners",
+      label: "Watch Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "en"),
+      {
+        question: "What does event filming in Boca Raton cost?",
+        answer:
+          `Pricing follows our transparent rate sheet: raw on-location filming starts at ${RAW_HALF_DAY} for a half-day session (up to 4 hours) and ${RAW_FULL_DAY} for a full day (up to 8 hours). Remote video editing starts from ${FROM} per video. For full turnkey monthly production, the Local Presence package starts from ${usd(1600)} per month.`,
+      },
+      {
+        question: "Can Esteban record both indoor keynotes and outdoor evening receptions?",
+        answer:
+          "Yes. Our camera kit uses high-sensitivity dual-base ISO full-frame sensors and low-profile on-camera lighting, maintaining pristine 4K video quality across bright auditorium stages and low-lit outdoor patio receptions.",
+      },
+    ],
+    related: [
+      { title: "Boca Raton video production", detail: "Comprehensive business and commercial video production across Boca Raton.", href: "/services/video-production-boca-raton" },
+      { title: "Bar and bat mitzvah videographer", detail: "Family celebrations and formal event filming in Boca Raton synagogues and resorts.", href: "/services/bar-bat-mitzvah-videographer-boca-raton" },
+      hubLink("en"),
+    ],
+    inquiry: {
+      serviceName: "Boca Raton event videography and reels",
+      goalPrompt: "plan and film corporate or cultural event coverage in Boca Raton",
+      assetPrompt: "the venue name, schedule of sessions, and desired video deliverables",
+    },
+  },
+  es: {
+    metaTitle: "Videógrafo para eventos y festivales en Boca Raton",
+    metaDescription:
+      `Grabación y edición de video para conferencias, ferias y festivales en Boca Raton: captura desde ${RAW_HALF_DAY}, edición desde ${FROM} por video y resúmenes.`,
+    breadcrumb: "Eventos en Boca Raton",
+    eyebrow: "Eventos anuales · Boca Raton y Palm Beach",
+    h1: "Festivales y eventos empresariales en Boca Raton, grabados con criterio profesional.",
+    lead: "Planificación de contenido, grabación en locación y edición de video para cumbres corporativas, foros de negocios y festivales culturales en Boca Raton. Envía tu material; la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.",
+    serviceName: "Grabación y edición para eventos en Boca Raton",
+    answer: {
+      question: "¿Cómo pueden empresas y organizadores registrar sus eventos y festivales en Boca Raton?",
+      paragraphs: [
+        "Diseña una estrategia audiovisual sólida antes de las fechas del evento en recintos como The Boca Raton resort, Florida Atlantic University y Mizner Park. La ciudad alberga citas anuales de gran repercusión, incluyendo el Festival of the Arts BOCA, foros de finanzas e inversión y exposiciones de la Cámara de Comercio de Boca Raton. Documentar estas jornadas exige precisión: registrar testimonios de ponentes, interacción de patrocinadores y ambiente del público sin entorpecer la agenda.",
+        `Esteban Moreno Media ofrece servicio de edición remota desde ${FROM} por video, así como grabación en locación de material en bruto desde ${RAW_HALF_DAY} por media jornada y ${RAW_FULL_DAY} por jornada completa. Con base en Fort Lauderdale, Esteban brinda cobertura ágil en video vertical y archivos completos de ponencias para firmas corporativas, clínicas y productores de eventos en Boca Raton. Cada contratación cuenta con cotización previa por escrito.`,
+      ],
+    },
+    audience: {
+      heading: "¿A quién se dirige este servicio de video para eventos en Boca Raton?",
+      intro: "Empresas expositoras, directivos corporativos y organizadores de encuentros en Boca Raton:",
+      items: [
+        "Patrocinadores de congresos en The Boca Raton que necesitan clips ejecutivos y declaraciones de ponentes para LinkedIn.",
+        "Productores de festivales y entidades culturales en Mizner Park que requieren resúmenes visuales de alta categoría.",
+        "Expositores en cumbres comerciales y encuentros de la Cámara de Boca Raton que buscan mostrar interés de clientes en su stand.",
+        "Firmas de gestión patrimonial, consultorías y bufetes que realizan cenas ejecutivas o simposios anuales con inversionistas.",
+      ],
+      closing:
+        "Los complejos hoteleros y auditorios privados exigen acreditación previa para equipos de grabación. Gestiona los accesos antes de la jornada.",
+    },
+    plan: {
+      heading: "¿Qué fases contempla la producción de video para eventos en Boca Raton?",
+      cards: [
+        {
+          title: "Planificación inicial",
+          detail:
+            "Revisión de la agenda, plano del recinto y requerimientos de patrocinadores. Definimos una lista de tomas prioritarias que incluye testimonios de ponentes, dinámicas de público y presencia de marca institucional.",
+        },
+        {
+          title: "Grabación presencial",
+          detail:
+            "Con cámaras 4K, audio inalámbrico de solapa y estabilización ligera, la grabación se desarrolla con discreción. Cubrimos conferencias magistrales, declaraciones de asistentes y muestras comerciales.",
+        },
+        {
+          title: "Edición y entrega",
+          detail:
+            "El material se procesa, corrige de color y edita en reels verticales de alto impacto, videos horizontales de conferencias completas o trailers promocionales para la preventa de futuras ediciones.",
+        },
+      ],
+    },
+    send: {
+      heading: "¿Qué datos enviar para cotizar video de eventos en Boca Raton?",
+      intro: "Envía un mensaje con esta información clave para recibir tu propuesta:",
+      items: [
+        "Nombre del evento, dirección de la sede (Mizner Park, hotel o auditorio) y fechas de actividades.",
+        "Programa del encuentro indicando conferencias centrales, paneles o cócteles que deben ser grabados.",
+        "Entregables deseados: archivo de tomas en bruto en 4K, reels verticales para redes o discursos completos.",
+        "Manual de marca, colores institucionales y logotipos de patrocinadores en formato vectorial.",
+        "Modalidad requerida: edición de material grabado por tu equipo o contratación de grabación presencial.",
+        "Tiempos de entrega necesarios para publicaciones inmediatas o comunicados posteriores.",
+      ],
+    },
+    proof: {
+      text: "Esteban no ha grabado el Festival of the Arts BOCA ni foros oficiales de la ciudad, y esta página no afirma haberlo hecho. El trabajo publicado más cercano es Homeowners, editado con material suministrado, y Bar Door Monkey Miami, producción gastronómica grabada en locación.",
+      href: "/es/portafolio/homeowners",
+      label: "Ver Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "es"),
+      {
+        question: "¿Cuánto cuesta la grabación de un evento en Boca Raton?",
+        answer:
+          `Nuestros precios son transparentes y se basan en tarifas publicadas: la grabación en locación de material en bruto parte de ${RAW_HALF_DAY} por media jornada (hasta 4 horas) y ${RAW_FULL_DAY} por jornada completa (hasta 8 horas). La edición remota parte de ${FROM} por video. El paquete integral Presencia Local comienza en ${usd(1600)} al mes.`,
+      },
+      {
+        question: "¿Se pueden grabar tanto salones de conferencias como recepciones nocturnas al aire libre?",
+        answer:
+          "Sí. Nuestro equipo técnico utiliza sensores full-frame de alta sensibilidad y microiluminación portátil, manteniendo nitidez en 4K tanto en escenarios cerrados como en cócteles al atardecer en patios y terrazas.",
+      },
+    ],
+    related: [
+      { title: "Producción de video en Boca Raton", detail: "Servicios comerciales de video corporativo y empresarial en Boca Raton.", href: "/es/editor-de-reels-boca-raton" },
+      { title: "Video para bar y bat mitzvah", detail: "Grabación cinematográfica de celebraciones familiares y eventos en sinagogas y hoteles.", href: "/es/video-para-bar-y-bat-mitzvah-boca-raton" },
+      hubLink("es"),
+    ],
+    inquiry: {
+      serviceName: "video para eventos y festivales en Boca Raton",
+      goalPrompt: "planificar y grabar contenido de conferencias o festivales en Boca Raton",
+      assetPrompt: "nombre de la sede, programa de sesiones y entregables de video que necesitas",
+    },
+  },
+});
+
+const pompanoBeachEvents: EventCopyBuilder = (event) => ({
+  en: {
+    metaTitle: "Pompano Beach Event Videographer & Festival Video Coverage",
+    metaDescription:
+      `Videography and editing for Pompano Beach annual festivals, nautical expos, and civic celebrations: raw capture from ${RAW_HALF_DAY}, edits from ${FROM} per video.`,
+    breadcrumb: "Pompano Beach Events",
+    eyebrow: "Annual events · Pompano Beach & Coastal Broward",
+    h1: "Pompano Beach festivals and community events, filmed with coastal vibrancy.",
+    lead: "Social content planning, on-location video capture, and post-production editing for annual seaside festivals, nautical markets, and cultural celebrations in Pompano Beach. Send your own clips; on-location filming is a paid add-on scoped per project.",
+    serviceName: "Pompano Beach festival and civic event videography",
+    answer: {
+      question: "How can businesses and organizers produce engaging video content around Pompano Beach events?",
+      paragraphs: [
+        "Coordinate your video capture plan in advance to showcase coastal events along Atlantic Boulevard, the Pompano Beach Fishing Pier, and Community Park. Pompano Beach features prominent annual celebrations such as the annual Nautical Flea Market, Pompano Beach Jazz Fest, seasonal Caribbean cultural showcases, and the historic Holiday Boat Parade on the Intracoastal. Capturing the oceanfront atmosphere, artisan vendors, and community excitement demands efficient camerawork.",
+        `Esteban Moreno Media provides remote social video editing from ${FROM} per video and on-location raw footage recording starting at ${RAW_HALF_DAY} for a half-day shoot and ${RAW_FULL_DAY} for a full day. Operating from neighboring Fort Lauderdale, Esteban produces high-energy vertical reels, sponsor recap videos, and promotional teasers for municipal organizers, beachfront restaurants, and festival vendors across Broward County. Quotes are provided in writing prior to filming.`,
+      ],
+    },
+    audience: {
+      heading: "Who benefits from Pompano Beach festival video coverage?",
+      intro: "Event coordinators, coastal businesses, and exhibitors active during Pompano Beach festivities:",
+      items: [
+        "Festival sponsors and corporate exhibitors seeking high-energy recap clips to document community engagement.",
+        "Beachfront dining establishments, oceanfront hospitality resorts, and bars running seasonal promotions during festival weekends.",
+        "Marine product vendors, nautical artisans, and outdoor equipment brands exhibiting at waterfront trade events.",
+        "Municipal and civic cultural committees requiring clean, broadcast-ready event recaps for community archives.",
+      ],
+      closing:
+        "Municipal parks and beachfront venues maintain established vendor guidelines. Ensure drone permits or private access passes are cleared before production.",
+    },
+    plan: {
+      heading: "What does an annual festival video production plan include?",
+      cards: [
+        {
+          title: "Pre-festival strategy",
+          detail:
+            "We review event schedules, performance line-ups, and vendor booth maps. A practical shot list is prepared covering musical performances, artisan displays, food vendor presentations, and attendee interactions.",
+        },
+        {
+          title: "On-location filming",
+          detail:
+            "Equipped with stabilized 4K cameras and professional outdoor audio gear, we capture live stage energy, artisan craftsmanship, and dynamic crowd reactions without creating bottlenecks in busy pedestrian pathways.",
+        },
+        {
+          title: "Social reel post-production",
+          detail:
+            "Footage is cut into vibrant vertical clips with synchronized musical pacing, on-screen subtitles, and sponsor branding, delivered quickly to capitalize on active festival engagement across social feeds.",
+        },
+      ],
+    },
+    send: {
+      heading: "What should you provide to book Pompano Beach event video?",
+      intro: "Submit a message with these practical details to structure your project quote:",
+      items: [
+        "Festival or event name, location (e.g., beachfront Great Lawn, Amp, or marina grounds), and event dates.",
+        "Key highlights to record: live headline concerts, vendor demonstrations, or evening fireworks displays.",
+        "Deliverable preferences: raw 4K clip delivery, finished vertical social reels, or promotional wrap-up films.",
+        "Branding guidelines, sponsor vector logos, and social media handles for caption tagging.",
+        "Selected service structure: editing of client-recorded files, or scheduled on-location camera filming.",
+        "Publishing deadlines for same-weekend social teasers or post-event sponsor recap decks.",
+      ],
+    },
+    proof: {
+      text: "Esteban has not filmed Pompano Beach municipal festivals or civic events, and this page does not claim past representation. The closest published work is Homeowners, edited from supplied footage, and Bar Door Monkey Miami, a hospitality video filmed on location.",
+      href: "/portfolio/homeowners",
+      label: "Watch Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "en"),
+      {
+        question: "How much does festival and event videography cost in Pompano Beach?",
+        answer:
+          `Rates follow our published price structure: raw on-location filming starts at ${RAW_HALF_DAY} for a half-day session (up to 4 hours) and ${RAW_FULL_DAY} for a full day (up to 8 hours). Remote video editing of supplied footage starts from ${FROM} per video. All terms and deliverables are confirmed in a written quote before work begins.`,
+      },
+      {
+        question: "Can Esteban film outdoor waterfront festivals and night events?",
+        answer:
+          "Yes. Our professional Sony full-frame cinema kits handle bright outdoor beach lighting with neutral density filters, and low-light sensors record clear footage during evening concerts and holiday boat parades along the Intracoastal Waterway.",
+      },
+    ],
+    related: [
+      { title: "Waterfront restaurant video", detail: "Culinary video production and outdoor atmosphere capture for coastal dining venues.", href: "/services/waterfront-restaurant-video-fort-lauderdale" },
+      { title: "Marina facility video", detail: "Commercial video production for marinas, boatyards, and yacht docking facilities.", href: "/services/marina-facility-video-fort-lauderdale" },
+      hubLink("en"),
+    ],
+    inquiry: {
+      serviceName: "Pompano Beach festival and event videography",
+      goalPrompt: "plan and capture festival or community event video in Pompano Beach",
+      assetPrompt: "the event location, schedule of activities, and required video deliverables",
+    },
+  },
+  es: {
+    metaTitle: "Videógrafo para festivales y eventos en Pompano Beach",
+    metaDescription:
+      `Grabación y edición de video para festivales, ferias náuticas y eventos en Pompano Beach: filmación desde ${RAW_HALF_DAY}, edición desde ${FROM} por video y resúmenes.`,
+    breadcrumb: "Eventos en Pompano Beach",
+    eyebrow: "Eventos anuales · Pompano Beach y Costa de Broward",
+    h1: "Festivales y eventos en Pompano Beach, grabados con dinamismo costero.",
+    lead: "Planificación de contenido, filmación presencial y edición de video para festivales frente al mar, mercados náuticos y celebraciones cívicas en Pompano Beach. Envía tus propios clips; la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.",
+    serviceName: "Video para festivales y eventos cívicos en Pompano Beach",
+    answer: {
+      question: "¿Cómo pueden negocios y organizadores generar contenido en video de los eventos en Pompano Beach?",
+      paragraphs: [
+        "Planifica con antelación el registro audiovisual de los eventos costeros a lo largo de Atlantic Boulevard, el muelle de Pompano Beach y Community Park. La localidad cuenta con celebraciones anuales consolidadas como la Feria Náutica (Nautical Flea Market), el Festival de Jazz de Pompano Beach, muestras culturales caribeñas y el tradicional Desfile Navideño de Embarcaciones en el Intracoastal. Capturar la energía playera y la gastronomía local requiere agilidad técnica.",
+        `Esteban Moreno Media brinda servicio de edición remota de videos para redes desde ${FROM} por video y grabación en locación de material en bruto desde ${RAW_HALF_DAY} por media jornada y ${RAW_FULL_DAY} por jornada completa. Con base en la vecina Fort Lauderdale, Esteban elabora reels verticales dinámicos y resúmenes para patrocinadores, restaurantes playeros y comerciantes locales en el condado de Broward. Todos los presupuestos se acuerdan por escrito.`,
+      ],
+    },
+    audience: {
+      heading: "¿Quién aprovecha la cobertura en video de festivales en Pompano Beach?",
+      intro: "Comités organizadores, comercios costeros y marcas participantes en eventos de Pompano Beach:",
+      items: [
+        "Patrocinadores de festivales y empresas expositoras que necesitan documentar su impacto y contacto con la comunidad.",
+        "Restaurantes frente al mar, locales de ocio nocturno y hoteles que impulsan ofertas especiales durante fines de semana de fiesta.",
+        "Marcas náuticas, talleres de pesca y expositores que participan en ferias de equipamiento marítimo.",
+        "Comisiones cívicas y entidades culturales que desean preservar un archivo audiovisual de calidad de sus festividades.",
+      ],
+      closing:
+        "Los parques municipales y paseos marítimos aplican normativas para operadores comerciales. Asegura los permisos de acceso antes del rodaje.",
+    },
+    plan: {
+      heading: "¿Cómo se organiza la producción de video para festivales en Pompano Beach?",
+      cards: [
+        {
+          title: "Estrategia previa",
+          detail:
+            "Revisión de programas de conciertos, planos de puestos y momentos destacados. Diseñamos una lista de tomas que contempla presentaciones en vivo, áreas gastronómicas e interacción del público.",
+        },
+        {
+          title: "Grabación en el recinto",
+          detail:
+            "Con cámaras 4K estabilizadas y micrófonos profesionales para exteriores, capturamos el ritmo del escenario y las muestras comerciales con total respeto a la circulación de asistentes.",
+        },
+        {
+          title: "Edición para redes",
+          detail:
+            "El material se transforma en reels verticales con ritmo musical sincronizado, subtítulos llamativos y marcas de patrocinadores, listos para publicar durante el mismo fin de semana.",
+        },
+      ],
+    },
+    send: {
+      heading: "¿Qué enviar para solicitar video de festivales en Pompano Beach?",
+      intro: "Envía un mensaje con estos datos prácticos para recibir una propuesta clara:",
+      items: [
+        "Nombre del festival, ubicación exacta (playa, parque o auditorio) y fechas de celebración.",
+        "Actividades prioritarias para filmar: conciertos principales, concursos o espectáculos pirotécnicos.",
+        "Formato de entrega deseado: archivos 4K en bruto, reels verticales editados o video resumen institucional.",
+        "Guía de marca, logotipos vectoriales de patrocinadores y cuentas sociales para etiquetado.",
+        "Modalidad elegida: edición de material grabado por tu equipo o contratación de grabación presencial.",
+        "Plazos requeridos para publicaciones durante el evento o informes comerciales posteriores.",
+      ],
+    },
+    proof: {
+      text: "Esteban no ha grabado los festivales municipales de Pompano Beach ni sus eventos cívicos, y esta página no lo afirma. El trabajo publicado más cercano es Homeowners, editado a partir de material entregado, y Bar Door Monkey Miami, producción gastronómica grabada en locación.",
+      href: "/es/portafolio/homeowners",
+      label: "Ver Homeowners",
+    },
+    faqs: [
+      ...sharedFaqs(event, "es"),
+      {
+        question: "¿Cuál es el costo de grabar un festival o evento en Pompano Beach?",
+        answer:
+          `Nos regimos por tarifas públicas: la grabación presencial de material en bruto parte de ${RAW_HALF_DAY} por media jornada (hasta 4 horas) y ${RAW_FULL_DAY} por jornada completa (hasta 8 horas). La edición remota de material entregado parte de ${FROM} por video. Todo el alcance se detalla en una cotización por escrito antes de comenzar.`,
+      },
+      {
+        question: "¿Se pueden filmar eventos costeros al aire libre y desfiles nocturnos?",
+        answer:
+          "Sí. Nuestros equipos Sony full-frame incorporan filtros de densidad neutra para el sol del mediodía en la playa y sensores de alta sensibilidad para registrar con nitidez conciertos al anochecer y desfiles de barcos iluminados en el Intracoastal.",
+      },
+    ],
+    related: [
+      { title: "Video para restaurantes frente al agua", detail: "Producción audiovisual y ambiente gastronómico para locales en zonas costeras.", href: "/es/video-para-restaurantes-frente-al-agua-fort-lauderdale" },
+      { title: "Video comercial para marinas", detail: "Grabación comercial de instalaciones portuarias, astilleros y servicios náuticos.", href: "/es/video-comercial-para-marinas-fort-lauderdale" },
+      hubLink("es"),
+    ],
+    inquiry: {
+      serviceName: "video para festivales y eventos en Pompano Beach",
+      goalPrompt: "planificar y registrar video de festivales o eventos comunitarios en Pompano Beach",
+      assetPrompt: "la ubicación del evento, cronograma de actividades y los entregables que necesitas",
+    },
+  },
+});
+
 const BUILDERS: Partial<Record<EventId, EventCopyBuilder>> = {
   flibs,
   "art-basel": artBasel,
@@ -1355,6 +1940,9 @@ const BUILDERS: Partial<Record<EventId, EventCopyBuilder>> = {
   "emerge-americas": emergeAmericas,
   "miami-music-week": miamiMusicWeek,
   "miami-spice": miamiSpice,
+  fitce,
+  "boca-raton-events": bocaRatonEvents,
+  "pompano-beach-events": pompanoBeachEvents,
 };
 
 export function getEventPageCopy(id: EventId, locale: EventLocale): EventPageCopy {
@@ -1379,8 +1967,8 @@ export const EVENTS_HUB_COPY = {
     answer: {
       question: "How should a small business plan content around a South Florida event?",
       paragraphs: [
-        "Start from the calendar, not from the week of the event. The big recurring events (boat shows, Art Week, food festivals, conferences, music week) land in roughly the same window every year, so the content can be planned weeks ahead: a posting calendar, a shot list your own team can follow, and an agreed plan for recap edits afterwards.",
-        "Esteban Moreno Media plans that calendar and edits the footage your team records into Reels, TikTok and Shorts with English or Spanish captions. He works from Fort Lauderdale, Spanish-first with intermediate English, and the editing is remote. On-location filming is a paid add-on scoped per project. None of these events is organized by or affiliated with Esteban Moreno Media; the pages use event names only to describe timing.",
+        "Start from the calendar, not from the week of the event. The major recurring events across Fort Lauderdale, Broward County, Boca Raton, Pompano Beach and Miami-Dade (trade expos, boat shows, Art Week, food festivals, tech conferences and civic gatherings) land in predictable seasonal windows every year, so the content can be planned weeks ahead: a posting calendar, a practical shot list your team can follow, and an agreed plan for recap edits afterwards.",
+        `Esteban Moreno Media plans that calendar, edits footage your team records into Reels, TikTok and Shorts with English or Spanish captions, and provides on-location raw filming starting from ${RAW_HALF_DAY} for a half-day or ${RAW_FULL_DAY} for a full day, with editing starting from ${FROM} per video. He works Spanish-first with intermediate English from Fort Lauderdale. Across Broward County and South Florida, Esteban covers major expo centers including the Broward County Convention Center, Mizner Park, and coastal festival venues with clear written quotes and transparent rates. None of these events is organized by or affiliated with Esteban Moreno Media; event names describe timing and geographic context only.`,
       ],
     },
     seasons: {
@@ -1401,6 +1989,11 @@ export const EVENTS_HUB_COPY = {
         question: "Has Esteban filmed these events before?",
         answer:
           "This site does not claim that. The published portfolio shows what Esteban has actually made, including editing from supplied footage, venue promos filmed on location and event films, and each event page names the closest real example and how it differs.",
+      },
+      {
+        question: "Which Broward County event venues and cities does Esteban cover?",
+        answer:
+          `Esteban is based in Fort Lauderdale and actively covers events across Broward County, including the Broward County Convention Center, downtown Fort Lauderdale, Pompano Beach coastal venues, and neighboring Boca Raton. On-location raw filming starts at ${RAW_HALF_DAY} for a half-day session (up to 4 hours) and ${RAW_FULL_DAY} for a full day (up to 8 hours), while remote video editing starts from ${FROM} per video.`,
       },
       {
         question: "How far ahead should I get in touch?",
@@ -1436,8 +2029,8 @@ export const EVENTS_HUB_COPY = {
     answer: {
       question: "¿Cómo debe planificar un pequeño negocio su contenido alrededor de un evento del sur de Florida?",
       paragraphs: [
-        "Empieza por el calendario, no por la semana del evento. Los grandes eventos recurrentes (boat shows, Art Week, festivales gastronómicos, conferencias, la semana de la música) caen más o menos en la misma época cada año, así que el contenido se puede planificar con semanas de anticipación: un calendario de publicaciones, una lista de tomas que tu propio equipo puede seguir y un plan acordado para los videos resumen.",
-        "Esteban Moreno Media arma ese calendario y edita el material que graba tu equipo para Reels, TikTok y Shorts, con subtítulos en español o inglés. Trabaja desde Fort Lauderdale, primero en español y con inglés intermedio, y la edición es remota. La grabación en locación es un servicio adicional pagado que se define por proyecto. Ninguno de estos eventos lo organiza Esteban Moreno Media ni está afiliado a él; las páginas usan los nombres solo para describir las fechas.",
+        "Empieza por el calendario, no por la semana del evento. Los grandes eventos del año en Fort Lauderdale, el condado de Broward, Boca Raton, Pompano Beach y Miami-Dade (ferias internacionales, boat shows, Art Week, festivales y encuentros cívicos) caen en periodos estacionales predecibles, así que el contenido puede planificarse con semanas de anticipación: un calendario de publicaciones, una guía de tomas y un plan acordado para los videos resumen.",
+        `Esteban Moreno Media estructura ese calendario, edita el material que graba tu equipo para Reels, TikTok y Shorts con subtítulos en español o inglés, y ofrece grabación presencial en bruto desde ${RAW_HALF_DAY} por media jornada o ${RAW_FULL_DAY} por jornada completa, con edición desde ${FROM} por video. Trabaja desde Fort Lauderdale en español nativo con inglés intermedio. En todo el condado de Broward y el sur de Florida, cubre recintos como el Centro de Convenciones de Broward, Mizner Park y áreas costeras de festivales con tarifas transparentes y cotización previa por escrito. Ninguno de estos eventos es organizado por Esteban Moreno Media ni cuenta con su afiliación; los nombres solo describen las fechas y su entorno geográfico.`,
       ],
     },
     seasons: {
@@ -1458,6 +2051,11 @@ export const EVENTS_HUB_COPY = {
         question: "¿Esteban ya ha grabado estos eventos?",
         answer:
           "Este sitio no lo afirma. El portafolio publicado muestra lo que Esteban realmente ha hecho, como edición a partir de material entregado, promociones de locales grabadas en locación y películas de eventos, y cada página de evento nombra el ejemplo real más cercano y en qué se diferencia.",
+      },
+      {
+        question: "¿Qué recintos y ciudades del condado de Broward cubre Esteban?",
+        answer:
+          `Esteban tiene su base en Fort Lauderdale y cubre eventos en todo el condado de Broward, incluyendo el Centro de Convenciones de Broward, el centro de Fort Lauderdale, áreas de eventos en Pompano Beach y la vecina Boca Raton. La filmación en locación parte de ${RAW_HALF_DAY} por media jornada (hasta 4 horas) y ${RAW_FULL_DAY} por jornada completa (hasta 8 horas), mientras que la edición parte de ${FROM} por video.`,
       },
       {
         question: "¿Con cuánta anticipación debo escribir?",

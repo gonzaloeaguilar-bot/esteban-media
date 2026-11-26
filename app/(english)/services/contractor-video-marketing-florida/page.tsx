@@ -10,6 +10,7 @@ import {
   buildServiceFaqSchema,
   buildServicePageNodes,
 } from "@/components/service-depth";
+import { ClientReviews } from "@/components/client-reviews";
 import { CONTRACTOR_VIDEO_MARKETING_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -18,9 +19,9 @@ import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Contractor Video Marketing Florida",
+  title: "HVAC & Contractor Video Production Florida | Esteban Moreno Media",
   description:
-    "Contractor video marketing in Florida: jobsite video production for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
+    "HVAC and contractor video production in Florida: jobsite video for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
   path: "/services/contractor-video-marketing-florida",
   locale: "en",
 });
@@ -35,17 +36,17 @@ export default function Page() {
       ),
       ...buildServicePageNodes({
         path: "/services/contractor-video-marketing-florida",
-        name: "Contractor Video Marketing Florida",
+        name: "HVAC & Contractor Video Production Florida",
         description:
-          "Contractor video marketing in Florida: jobsite video production for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
+          "HVAC and contractor video production in Florida: jobsite video for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
         crumb: "Contractor Video Marketing Florida",
       }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/contractor-video-marketing-florida#service"),
-        name: "Contractor Video Marketing Florida",
+        name: "HVAC & Contractor Video Production Florida",
         description:
-          "Contractor video marketing in Florida: jobsite video production for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
+          "HVAC and contractor video production in Florida: jobsite video for roofing, HVAC, and solar companies with crew features and storm-season reviews.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Fort Lauderdale / West Palm Beach / Orlando / Tampa",
         serviceType: "Contractor video marketing",
@@ -128,7 +129,12 @@ export default function Page() {
         </Container>
       </section>
 
-      <ServiceAnswerFirst service="contractor video marketing" />
+      <ServiceAnswerFirst
+        service="contractor video marketing"
+        answerOverride="Esteban Moreno Media provides jobsite video production and marketing for Florida HVAC, roofing, and specialty trade contractors. From compressor changeouts and duct installations to emergency storm repairs, filming captures real field craftsmanship, certified safety standards, and homeowner reviews across South and Central Florida. Production starts with existing jobsite footage or scheduled on-location filming, with written quotes and scope confirmed before work begins."
+      />
+
+      <ClientReviews locale="en" compact />
 
       <ServiceDeepDive
         id={CONTRACTOR_VIDEO_MARKETING_DEEP_DIVE.id}

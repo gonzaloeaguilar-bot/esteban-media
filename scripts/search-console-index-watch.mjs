@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Wedding packages hub (2026-11-24): the three wedding city pages had no hub and no published packages.
+  "https://estebanmorenomedia.com/services/wedding-packages",
+  "https://estebanmorenomedia.com/es/paquetes-de-boda",
   // Central Florida supplied-footage editing guide pair (2026-11-08). These
   // routes describe remote post-production only; they do not assert local
   // production coverage or regulated-industry credentials.
@@ -88,6 +91,16 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/eventos/video-para-miami-music-week",
   "https://estebanmorenomedia.com/events/miami-spice-restaurant-video",
   "https://estebanmorenomedia.com/es/eventos/video-para-restaurantes-en-miami-spice",
+  "https://estebanmorenomedia.com/events/fitce-fort-lauderdale-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-fitce-fort-lauderdale",
+  "https://estebanmorenomedia.com/events/boca-raton-events-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-eventos-en-boca-raton",
+  "https://estebanmorenomedia.com/events/pompano-beach-events-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-eventos-en-pompano-beach",
+  "https://estebanmorenomedia.com/services/talking-head-video-editing",
+  "https://estebanmorenomedia.com/es/edicion-de-video-hablando-a-camara",
+  "https://estebanmorenomedia.com/services/christian-youtube-video-editor",
+  "https://estebanmorenomedia.com/es/editor-de-videos-cristianos-youtube",
   "https://estebanmorenomedia.com/events",
   "https://estebanmorenomedia.com/es/eventos",
   "https://estebanmorenomedia.com/events/fort-lauderdale-boat-show-video",
@@ -112,6 +125,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/precios/presencia-local",
   "https://estebanmorenomedia.com/es/precios/todo-incluido",
   "https://estebanmorenomedia.com/pricing/real-estate",
+  "https://estebanmorenomedia.com/real-estate",
+  "https://estebanmorenomedia.com/es/bienes-raices",
   "https://estebanmorenomedia.com/es/precios/inmobiliaria",
   "https://estebanmorenomedia.com/pricing",
   // Added 2026-10-06 with the five owner-ordered niche pairs (medical practice,
@@ -181,6 +196,11 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/videografo-para-eventos-corporativos-fort-lauderdale",
   "https://estebanmorenomedia.com/services/networking-event-videographer-miami",
   "https://estebanmorenomedia.com/es/videografo-para-eventos-de-networking-miami",
+  // Event attendee interviews, AI commercial Reels, and Miami events calendar (2026-11-18).
+  "https://estebanmorenomedia.com/services/event-attendee-interview-videographer-miami",
+  "https://estebanmorenomedia.com/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+  "https://estebanmorenomedia.com/services/ai-commercial-video-reels-miami",
+  "https://estebanmorenomedia.com/es/reels-comerciales-con-ia-miami",
   // Wave 2 niche expansions (2026-10-18: wedding, vlog, conference, executive interview).
   "https://estebanmorenomedia.com/services/wedding-videographer-miami",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-miami",

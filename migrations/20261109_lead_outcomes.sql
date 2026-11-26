@@ -9,13 +9,23 @@ alter table public.esteban_leads
   add column if not exists found_via text;
 
 alter table public.esteban_leads
+  add column if not exists event_delivery_preference text;
+
+alter table public.esteban_leads
   drop constraint if exists esteban_leads_found_via_check;
 
 alter table public.esteban_leads
   add constraint esteban_leads_found_via_check
   check (found_via is null or found_via in (
-    'chatgpt', 'other_ai', 'google_search', 'google_maps', 'instagram', 'referral', 'other'
+    'chatgpt', 'muse', 'grok', 'gemini', 'perplexity', 'claude', 'other_ai', 'google_search', 'google_maps', 'instagram', 'tiktok', 'referral', 'other'
   ));
+
+alter table public.esteban_leads
+  drop constraint if exists esteban_leads_event_delivery_preference_check;
+
+alter table public.esteban_leads
+  add constraint esteban_leads_event_delivery_preference_check
+  check (event_delivery_preference is null or event_delivery_preference in ('original-files', 'edited-clips', 'both'));
 
 create table if not exists public.esteban_lead_outcomes (
   id uuid primary key default gen_random_uuid(),

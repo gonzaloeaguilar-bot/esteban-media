@@ -194,7 +194,34 @@
           { "metric": "Director", "label": "También director de fotografía y concepto original" }
         ]
       },
-      "gains-from-geebs-shorts": { "title": "Videos cortos de Gains From Geebs", "summary": "Dos videos cortos publicados públicamente por Kris Oddo | Geebs Method.", "credits": "Fuente pública: Kris Oddo | Geebs Method." },
+      "gains-from-geebs-shorts": {
+        "title": "Edición de video fitness corto para redes | Gains From Geebs",
+        "metaDescription": "Dos videos cortos de Gains From Geebs publicados como referencia para edición vertical de video fitness para redes.",
+        "summary": "Estos dos videos publicados de Gains From Geebs son una referencia directa para edición de video fitness corto para redes. Mira el video principal de 31 segundos y su pieza complementaria de 36 segundos para evaluar el ritmo, encuadre y formato vertical antes de hablar de un proyecto parecido.",
+        "credits": "Fuente pública: Kris Oddo | Geebs Method.",
+        "depth": {
+          "eyebrow": "Qué muestra este trabajo",
+          "heading": "Una referencia publicada para edición de video fitness corto",
+          "paragraphs": [
+            "Esta página documenta dos videos públicos de Gains From Geebs: un video principal de 31 segundos y una pieza complementaria de 36 segundos. Son una referencia concreta para quien evalúa si la edición de video corto encaja con un mensaje fitness para publicar en redes. La evidencia útil está en pantalla: encuadre vertical, orden de las ideas y ritmo de cada pieza terminada.",
+            "Las publicaciones no revelan presupuesto, proceso de revisión, alcance de campaña, ventas ni prometen que otro proyecto tendrá el mismo desempeño. Para una solicitud comparable, lo útil es compartir el material, dónde se publicará, qué mensaje debe llevar y qué momento de referencia quieres conservar. El servicio relacionado de edición de video corto explica cómo empezar esa conversación."
+          ],
+          "faqs": [
+            {
+              "question": "¿Qué se confirma en esta página?",
+              "answer": "Dos videos de Gains From Geebs están disponibles públicamente a través de Kris Oddo | Geebs Method. Esta página los identifica como referencia de video fitness corto y conserva sus fechas y duraciones públicas."
+            },
+            {
+              "question": "¿Qué puedo evaluar en los videos publicados?",
+              "answer": "Puedes evaluar composición vertical, ritmo, encuadre y si el formato sirve para tu propio mensaje. Alcance, rondas de edición, precio, respuesta de audiencia y resultado de negocio se definen por separado."
+            },
+            {
+              "question": "¿Qué debo llevar a un proyecto parecido?",
+              "answer": "Lleva el material o el plan para grabarlo, la primera plataforma donde se publicará, el mensaje que debe comunicar y un momento de referencia de estos videos u otro ejemplo. Esteban puede confirmar entonces un alcance específico."
+            }
+          ]
+        }
+      },
       "exatlon": { "title": "Video de introducción de Exatlón", "summary": "Un video de introducción de Exatlón publicado públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },
       "juanchis-burguer": { "title": "Campaña de redes sociales de Juanchis Burguer", "summary": "Una campaña de redes sociales con Juanchis Burguer, Miami, publicada públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },
       "portosole": { "title": "Campaña de redes sociales de Portosole", "summary": "Una campaña de redes sociales con Portosole, Miami, publicada públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },

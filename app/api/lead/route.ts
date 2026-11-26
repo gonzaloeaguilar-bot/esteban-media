@@ -50,6 +50,9 @@ export async function POST(request: Request) {
     const delivery = await sendLeadEmails(payload, formattedBrief, { isTest });
     notificationStatus = delivery.notificationStatus;
     if (notificationStatus === "failed") console.error("Resend API notification failed:", { reason: "delivery_failed" });
+    if (notificationStatus === "accepted" && !delivery.acknowledgementSent && process.env.LEAD_AUTOREPLY_ENABLED !== "0") {
+      console.error("Lead acknowledgement failed:", { reason: "delivery_failed" });
+    }
 
     const isEs = payload.locale === "es";
     if (!stored.ok && notificationStatus !== "accepted") {

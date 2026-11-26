@@ -322,6 +322,14 @@ import {
   YACHT_CHARTER_ES_SECTIONS,
   YACHT_CHARTER_ES_DISCLOSURE,
 } from "@/lib/vertical-deep-dives";
+import {
+  EVENT_INTERVIEW_ES_SECTIONS,
+  EVENT_INTERVIEW_ES_DISCLOSURE,
+  EVENT_INTERVIEW_ES_DESTINATIONS,
+  AI_COMMERCIAL_REELS_ES_SECTIONS,
+  AI_COMMERCIAL_REELS_ES_DISCLOSURE,
+  AI_COMMERCIAL_REELS_ES_DESTINATIONS,
+} from "@/lib/event-ai-pages-content";
 
 export const spanishSite = {
   // Matches the /es h1 ("Video, IA y redes") and the meta description (edits video
@@ -2936,6 +2944,108 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Se pueden filmar entrevistas con patrocinadores y asistentes destacados?",
         answer:
           "Sí. Se coordinan preguntas cortas previamente con la organización para capturar impresiones puntuales de 30 a 45 segundos durante los descansos y cócteles.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+    title: "Videógrafo para entrevistas a asistentes de eventos en Miami",
+    metadataTitle: "Entrevistas Asistentes Miami",
+    description:
+      "Grabación en locación de entrevistas itinerantes a asistentes y patrocinadores en ferias, expos y eventos de Miami con entrega de reels resumen.",
+    eyebrow: "Entrevistas en Eventos Miami",
+    h1: "Videógrafo para entrevistas a asistentes y expositores en Miami.",
+    lead:
+      "Micrófono en mano en el piso de exposición y áreas de networking: preguntas directas, audio claro en salones concurridos y reels resumen para el mismo día o el día siguiente.",
+    keyword: "videógrafo para entrevistas a asistentes de eventos en Miami",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Mic,
+    bestFor: [
+      "Organizadores de conferencias, exposiciones comerciales, boat shows y festivales en Miami.",
+      "Marcas y patrocinadores que necesitan captar testimonios reales de asistentes y visitantes.",
+    ],
+    scopingQuestions: [
+      "¿Cuáles son las dos preguntas clave para los asistentes y patrocinadores?",
+      "¿Necesitas entrega urgente de un reel resumen para publicar durante el evento?",
+    ],
+    projectFit:
+      "Cobertura dinámica y móvil con micrófono direccional de mano para aislar el audio en ambientes con ruido.",
+    updated: "2026-11-18",
+    sections: EVENT_INTERVIEW_ES_SECTIONS,
+    sectionsDisclosure: EVENT_INTERVIEW_ES_DISCLOSURE,
+    sectionsDestinations: EVENT_INTERVIEW_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cuál es el tiempo de entrega para un reel resumen con entrevistas?",
+        answer:
+          "Un reel vertical de 30 a 60 segundos con subtítulos se agenda típicamente para el mismo día o el día siguiente si se acuerda en la propuesta antes del evento.",
+      },
+      {
+        question: "¿Cómo se asegura un audio claro en salones de exposiciones o muelles ruidosos?",
+        answer:
+          "Utilizamos técnica de micrófono cercano con un micrófono dinámico de mano con patrón polar cerrado para aislar las voces del murmullo ambiental.",
+      },
+      {
+        question: "¿Se acuerdan las preguntas con la organización antes del evento?",
+        answer:
+          "Sí. Se definen dos a tres preguntas cortas con el director del evento para mantener las respuestas por debajo de cuarenta y cinco segundos.",
+      },
+      {
+        question: "¿La cobertura incluye planos de apoyo de stands y ambiente del evento?",
+        answer:
+          "Sí. El videógrafo graba tomas de stands de patrocinadores, reacciones del público, iluminación y señalización para dar contexto completo al reel.",
+      },
+    ],
+  },
+  {
+    slug: "reels-comerciales-con-ia-miami",
+    title: "Reels comerciales con IA en Miami",
+    metadataTitle: "Reels Comerciales con IA Miami",
+    description:
+      "Edición de reels comerciales asistidos por IA para restaurantes, bienes raíces y comercio electrónico en Miami con aviso claro y control editorial humano.",
+    eyebrow: "Reels Comerciales con IA",
+    h1: "Edición de reels comerciales con IA para negocios en Miami.",
+    lead:
+      "Aceleramos locuciones, fondos en movimiento, subtitulado y material de apoyo con IA, manteniendo el criterio narrativo, las ofertas y los ganchos bajo edición humana.",
+    keyword: "reels comerciales con ia miami",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Sparkles,
+    bestFor: [
+      "Restaurantes, inmobiliarias y tiendas de ecommerce que requieren variaciones de video comercial.",
+      "Marcas que buscan acelerar la producción de reels publicitarios con transparencia y cumplimiento normativo.",
+    ],
+    scopingQuestions: [
+      "¿Dispones de grabaciones reales de tu producto o propiedad para la edición base?",
+      "¿Qué elementos asistidos por IA requieres (locución, b-roll de atmósfera, subtítulos animados)?",
+    ],
+    projectFit:
+      "Flujo híbrido que combina la rapidez de herramientas de IA con la precisión visual y de marca de un editor profesional.",
+    updated: "2026-11-18",
+    sections: AI_COMMERCIAL_REELS_ES_SECTIONS,
+    sectionsDisclosure: AI_COMMERCIAL_REELS_ES_DISCLOSURE,
+    sectionsDestinations: AI_COMMERCIAL_REELS_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se avisa el uso de herramientas de IA en los reels comerciales?",
+        answer:
+          "Cada entrega incluye una nota detallada que especifica qué elementos utilizaron asistencia de IA (como locución o fondos) y cuáles son capturas reales de cámara.",
+      },
+      {
+        question: "¿El cliente debe cumplir las normas de etiquetado de IA de cada plataforma?",
+        answer:
+          "Sí. Meta, TikTok y YouTube exigen declarar el contenido generado o alterado por IA. Entregamos los archivos preparados para facilitar ese etiquetado.",
+      },
+      {
+        question: "¿Qué partes de la postproducción permanecen bajo control de un editor humano?",
+        answer:
+          "El editor humano decide el ritmo narrativo, los ganchos de retención, la exactitud de las ofertas, el color y la coherencia de marca. La IA asiste tareas mecánicas.",
+      },
+      {
+        question: "¿Se pueden generar platos de comida o acabados de propiedades con IA?",
+        answer:
+          "No. Los platos de un restaurante y los acabados arquitectónicos reales deben filmarse fielmente; la IA se limita a efectos de apoyo, ritmos y locuciones.",
       },
     ],
   },
@@ -6228,18 +6338,19 @@ export const spanishNichePages: SpanishNichePage[] = [
   },
   {
     slug: "editor-de-reels-fort-lauderdale",
-    title: "Editor de Reels en Fort Lauderdale",
-    // 2026-10-28: la consulta "editor de reels fort lauderdale" (15 impr) aterriza
-    // en la página en inglés; el título y la descripción ahora responden primero.
-    metadataTitle: "Editor de Reels en Fort Lauderdale",
+    title: "Editor de video y Reels en Fort Lauderdale",
+    // 2026-11-13: la consulta "editor de video fort lauderdale" llega con
+    // impresiones y 0 clics en rutas existentes; el título, H1 y respuesta
+    // nombran la intención de editor de video y Reels con precio y siguiente paso.
+    metadataTitle: "Editor de Video y Reels",
     description:
-      `Edición de Reels en Fort Lauderdale para negocios con clips grabados: Reels, TikTok y videos cortos con subtítulos legibles y una acción clara. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
-    eyebrow: "Reels / TikTok / Shorts",
-    h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
+      `Edición de videos cortos y Reels en Fort Lauderdale con tus clips: subtítulos legibles para TikTok, Shorts e Instagram. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
+    eyebrow: "Video y Reels / TikTok / Shorts",
+    h1: "Editor de video y Reels en Fort Lauderdale para convertir tus clips en videos claros.",
     lead:
-      "Si buscas un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
-    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Envía los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
-    keyword: "editor de reels Fort Lauderdale",
+      "Si buscas un editor de video en Fort Lauderdale o un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
+    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. También edita videos cortos cuando ya tienes los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
+    keyword: "editor de video en Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
     icon: Scissors,
@@ -6336,13 +6447,13 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-miami",
     title: "Editor de Reels en Miami",
-    metadataTitle: "Editor de Reels en Miami",
+    metadataTitle: "Editor de Reels Miami: clips claros",
     description:
       "Edición de Reels, TikTok y Shorts para negocios de Miami-Dade que necesitan piezas claras, subtituladas y listas para publicar.",
     eyebrow: "Miami / video corto",
-    h1: "Editor de Reels en Miami para negocios que publican en teléfono primero.",
+    h1: "Editor de Reels en Miami para convertir tus clips en videos claros.",
     lead:
-      "Para negocios en Miami-Dade, los Reels funcionan mejor cuando el video muestra una oferta concreta, una experiencia real o una respuesta rápida a una duda del cliente. Esteban puede editar con material existente y revisar proyectos de captura local de forma selectiva.",
+      "Un editor de Reels en Miami convierte tus clips originales en videos cortos, claros y subtitulados para publicar o dar una respuesta rápida en redes. Esteban edita material existente de forma remota; si necesitas grabación en Miami-Dade, ese alcance se revisa proyecto por proyecto.",
     keyword: "editor de reels Miami",
     location: "Miami-Dade / Remote",
     availability: "confirmed",
@@ -6377,6 +6488,19 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
+        heading: "¿Qué debes enviar para empezar a editar Reels?",
+        paragraphs: [
+          "Empieza con los archivos originales en una carpeta compartida, no con clips reenviados por mensajería. Añade una línea sobre la oferta o idea de cada video, la plataforma donde se publicará y cualquier detalle que deba aparecer, como un precio, una ubicación o una frase de cierre. Así se puede distinguir lo que es material útil de una toma repetida antes de decidir cuántas piezas salen de la grabación.",
+          "También ayuda indicar si el mensaje se leerá en español, inglés o ambos idiomas, y compartir una referencia si ya tienes un ritmo o estilo en mente. Para un proyecto que combina Reels, TikTok y Shorts, la página de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami) explica cómo pensar las versiones sin convertir cada plataforma en un video distinto por defecto.",
+        ],
+        bullets: [
+          "Archivos originales en una carpeta compartida",
+          "La oferta o idea principal de cada video",
+          "La plataforma, el idioma y el detalle que debe aparecer",
+          "Una referencia y la fecha ideal de publicación, si las tienes",
+        ],
+      },
+      {
         heading: "¿Cuándo conviene pedir una versión bilingüe?",
         paragraphs: [
           "Una versión bilingüe resulta especialmente conveniente cuando el negocio atiende simultáneamente a clientes hispanohablantes y angloparlantes en el sur de Florida. Esto no siempre exige duplicar toda la producción: en muchos casos basta con incorporar subtítulos precisos, textos de apoyo en pantalla o una segunda variante editada con diferente gancho verbal.",
@@ -6402,6 +6526,11 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Puede un video largo convertirse en varios Reels?",
         answer:
           "Sí. Si el material contiene varias ideas claras, se puede dividir en clips independientes. Es preferible crear menos Reels con mensaje claro que muchos videos repetitivos.",
+      },
+      {
+        question: "¿Qué información ayuda a cotizar la edición de Reels?",
+        answer:
+          "Comparte los clips originales, la cantidad aproximada de piezas, la plataforma, el idioma, referencias y la fecha ideal de publicación. Con eso se puede revisar si el proyecto corresponde a edición remota o si requiere una conversación aparte sobre captura en Miami.",
       },
       {
         question: "¿Se puede trabajar directamente en español?",
@@ -8746,6 +8875,146 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   ...nicheWave8Pages,
+  {
+    slug: "edicion-de-video-hablando-a-camara",
+    title: "Edición de video hablando a cámara",
+    metadataTitle: "Edición de Video Hablando a Cámara",
+    description: "Edición remota de video hablando a cámara: corte de pausas, reducción de ruido, subtítulos animados y Shorts a partir de grabaciones en Drive.",
+    metaDescription: "Tú te grabas hablando y envías el enlace de Drive; yo corto silencios, limpio el audio, agrego subtítulos y saco Shorts en español e inglés.",
+    eyebrow: "Edición Remota de Material Suministrado",
+    h1: "Tú te grabas hablando y envías el enlace de Drive; yo corto pausas, limpio el audio y saco Shorts.",
+    lead: "Sin capas de agencia ni procesos pesados. Grábate con tu teléfono o cámara, comparte tu carpeta en la nube y recibe videos listos para YouTube y clips verticales con subtítulos.",
+    keyword: "edición de video hablando a cámara",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    updated: "2026-11-19",
+    fitQuestion: "¿Cómo funciona la edición remota de videos hablando a cámara?",
+    projectFit: "Grábate hablando a cámara con tu celular o cámara en un trípode con luz de frente y micrófono corbatero. Sube los archivos originales a Drive o Dropbox y comparte el enlace. Esteban corta las dudas y falsos arranques, nivela el audio para quitar ruido de fondo y exporta piezas horizontales para YouTube y clips verticales con subtítulos para Reels, TikTok y Shorts. La edición de video remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes recurrentes. La grabación presencial en locación en Broward o Miami-Dade se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    sectionsDisclosure: "Detalles del proceso y formato de entrega",
+    sectionsDestinations: "Paso a paso desde tu grabación hasta la publicación con subtítulos",
+    bestFor: [
+      "Profesionales, consultores y educadores que graban frente a cámara.",
+      "Creadores bilingües que publican en español, inglés o ambos idiomas.",
+      "Negocios que prefieren grabarse ellos mismos y delegar la postproducción.",
+    ],
+    scopingQuestions: [
+      "¿En qué plataforma compartes el material: Drive, Dropbox o OneDrive?",
+      "¿Necesitas formato horizontal para YouTube, vertical para Shorts y Reels, o ambos?",
+      "¿Tienes pautas de marca, logo o tipografía específica para los subtítulos?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo preparar y enviar tus grabaciones?",
+        paragraphs: [
+          "No necesitas un estudio comercial complejo para transmitir autoridad frente a la cámara. Coloca tu teléfono o cámara en un trípode a la altura de los ojos, frente a una ventana o luz suave, y conecta un micrófono corbatero cerca del cuello. Habla siguiendo tus puntos clave o guion, dejando pequeñas pausas entre ideas.",
+          "Sube los videos originales sin comprimir a una carpeta compartida en Drive o Dropbox. No necesitas cortar las tomas malas ni limpiar el sonido antes de enviar; el proceso de edición elimina silencios, quita muletillas y extrae tus mejores momentos con ritmo ágil.",
+        ],
+      },
+      {
+        heading: "¿Cuándo enviar material de celular y cuándo contratar grabación en locación?",
+        paragraphs: [
+          "El criterio de decisión es muy claro: si grabas lecciones educativas, comentarios de negocio, respuestas a clientes o actualizaciones de redes, tu grabación con celular editada profesionalmente por ${usd(SHORT_FORM.perVideoFrom)} por video ofrece el mejor retorno con mínima fricción.",
+          "Por el contrario, si tu proyecto exige iluminación de cine multicámara, fondo corporativo en tu oficina, tomas de apoyo con tu equipo o entrevistas a clientes en vivo, contratar grabación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa asegura equipo profesional en Broward y Miami-Dade.",
+        ],
+      },
+      {
+        heading: "¿Qué acabado técnico incluye cada video finalizado?",
+        paragraphs: [
+          "Cada archivo pasa por remasterización de audio para suprimir zumbidos de aire acondicionado, eco de habitación y saltos bruscos de volumen. Los cortes eliminan pausas muertas manteniendo la cadencia natural de tu voz sin que suene robótica.",
+          "La entrega se adapta a tus canales: exportaciones verticales 9:16 con subtítulos dinámicos en español o inglés para Instagram Reels, TikTok y YouTube Shorts, y versiones 16:9 con placas de título limpias para YouTube o tu sitio web.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debo enviar para empezar la edición?",
+        answer: "Comparte un enlace de Google Drive o Dropbox con tus videos originales, tu logotipo o colores de marca, y cualquier nota de minutos específicos que quieras destacar. Nosotros nos encargamos del corte, el sonido y los subtítulos.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición de videos hablando a cámara?",
+        answer: "La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video en paquete Starter. Para creadores con publicación semanal constante, los planes de edición recurrente arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana por un video o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana por dos videos. La filmación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+      },
+      {
+        question: "¿Pueden sacar video largo de YouTube y Shorts verticales de la misma grabación?",
+        answer: "Sí. A partir de una misma toma horizontal o vertical podemos editar el video completo para YouTube y extraer los fragmentos más destacados en formato vertical con subtítulos dinámicos.",
+      },
+      {
+        question: "¿En qué idiomas editan los videos?",
+        answer: "Ofrecemos postproducción bilingüe nativa en español, inglés o formato combinado con subtítulos precisos adaptados al público hispanohablante de Florida y Latinoamérica.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-videos-cristianos-youtube",
+    title: "Editor de videos cristianos para YouTube",
+    metadataTitle: "Videos Cristianos YouTube",
+    description: "Edición de video para creadores cristianos, pastores y canales devocionales en YouTube: prédicas, estudios bíblicos, versículos en pantalla y Shorts semanales.",
+    metaDescription: "Edición remota para canales cristianos y devocionales de YouTube. Cortes limpios, versículos en pantalla, audio balanceado y Shorts verticales.",
+    eyebrow: "Pastores / Ministerios / Canales Devocionales",
+    h1: "Enseñanzas devocionales y estudios bíblicos en casa, editados para YouTube y Shorts.",
+    lead: "Grábate en casa con tu teléfono o cámara. Esteban elimina pausas incómodas, nivela el audio, inserta versículos bíblicos legibles y extrae Shorts semanales en español o inglés.",
+    keyword: "editor de videos cristianos para youtube",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    updated: "2026-11-19",
+    fitQuestion: "¿Cómo funciona la edición para canales de YouTube cristianos y devocionales?",
+    projectFit: "Para pastores, maestros bíblicos y creadores de contenido devocional que graban mensajes desde casa o la oficina. Esteban edita las grabaciones para mantener ritmo fluido, añade citas bíblicas en placas inferiores limpias y extrae momentos clave en formato vertical 9:16 para YouTube Shorts, Reels y TikTok. La edición remota inicia en ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes semanales. Si el ministerio desea filmar una conferencia o aniversario en el templo, la grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    sectionsDisclosure: "Estructura de canal y ritmo devocional semanal",
+    sectionsDestinations: "Paso de la grabación larga a publicaciones diarias que edifican",
+    bestFor: [
+      "Pastores y maestros que comparten devocionales semanales en YouTube.",
+      "Ministerios hispanos en Estados Unidos y Latinoamérica con canales bilingües.",
+      "Creadores cristianos que buscan constancia sin enredarse con programas de edición.",
+    ],
+    scopingQuestions: [
+      "¿Qué versión o traducción de la Biblia prefieres para las citas en pantalla?",
+      "¿Envías grabaciones desde casa o el archivo de transmisión de la congregación?",
+      "¿Deseas extraer clips cortos para redes sociales de cada enseñanza larga?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo estructurar grabaciones devocionales para YouTube?",
+        paragraphs: [
+          "Los devocionales en casa y las reflexiones bíblicas conectan mejor cuando plantean la pregunta central o promesa espiritual en los primeros quince segundos. Menciona el pasaje bíblico temprano antes de pasar a la explicación y aplicación práctica a la vida diaria.",
+          "Las citas y versículos se presentan en pantalla con tipografía sobria y legible, sin transiciones estridentes que resten seriedad al mensaje. Cuando se citan términos en idiomas originales o contexto histórico, los rótulos ayudan a fijar la enseñanza en la audiencia.",
+        ],
+      },
+      {
+        heading: "¿Cuándo editar material grabado en casa y cuándo filmar en locación?",
+        paragraphs: [
+          "Para devocionales semanales, estudios temáticos o mensajes pastorales directos, grabarte en casa con tu celular o cámara y enviar el material para edición remota a ${usd(SHORT_FORM.perVideoFrom)} por video es la vía más ágil y económica para sostener el canal sin fallar semanas.",
+          "Cuando se trata de una serie especial de conferencias, un retiro ministerial o un documental del aniversario de la iglesia, programar filmación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa en Broward y Miami-Dade asegura audio de solapa múltiple e iluminación cuidada.",
+        ],
+      },
+      {
+        heading: "¿Cómo convertir una enseñanza larga en clips para toda la semana?",
+        paragraphs: [
+          "Un estudio de quince o veinte minutos contiene varias verdades concisas que funcionan de forma independiente. Durante el proceso de montaje seleccionamos esas reflexiones de un minuto y las preparamos en formato vertical con subtítulos completos.",
+          "Estos clips se publican a lo largo de la semana en YouTube Shorts, Instagram Reels y TikTok, llevando nuevas personas hacia el estudio bíblico completo y manteniendo a la comunidad conectada entre servicios.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debe enviar el creador o ministerio?",
+        answer: "Envía tus videos originales por Google Drive o Dropbox junto con el bosquejo del mensaje, las referencias bíblicas indicando la versión deseada (Reina Valera, NVI, etc.) y tu logotipo si lo tienes.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición para canales cristianos de YouTube?",
+        answer: "La edición remota comienza en ${usd(SHORT_FORM.perVideoFrom)} por video en Starter. Para canales con publicaciones periódicas, los planes semanales arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana (un video) o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana (dos videos). La grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+      },
+      {
+        question: "¿Cómo se maneja la música en las reflexiones cristianas?",
+        answer: "Para evitar reclamos de derechos de autor y bloqueos en YouTube, utilizamos fondos instrumentales suaves con licencia comercial autorizada, salvo que el ministerio cuente con licencias de sincronización de canciones específicas.",
+      },
+      {
+        question: "¿Ofrecen edición devocional en español e inglés?",
+        answer: "Sí. Trabajamos con ministerios y predicadores bilingües, cuidando la ortografía bíblica, la terminología teológica adecuada y subtítulos precisos en ambos idiomas.",
+      },
+    ],
+  },
 ];
 
 
@@ -8905,6 +9174,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
       ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
+      ["/services/talking-head-video-editing", "/es/edicion-de-video-hablando-a-camara"],
+      ["/services/christian-youtube-video-editor", "/es/editor-de-videos-cristianos-youtube"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
       ["/services/wedding-videographer-fort-lauderdale", "/es/videografo-de-bodas-fort-lauderdale"],
       // DM-16 (2026-10-14): the English twin now exists.
@@ -8975,6 +9246,46 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/networking-event-videographer-miami",
     "es-US": "/es/videografo-para-eventos-de-networking-miami",
     "x-default": "/services/networking-event-videographer-miami",
+  },
+  "/services/talking-head-video-editing": {
+    "en-US": "/services/talking-head-video-editing",
+    "es-US": "/es/edicion-de-video-hablando-a-camara",
+    "x-default": "/services/talking-head-video-editing",
+  },
+  "/es/edicion-de-video-hablando-a-camara": {
+    "en-US": "/services/talking-head-video-editing",
+    "es-US": "/es/edicion-de-video-hablando-a-camara",
+    "x-default": "/services/talking-head-video-editing",
+  },
+  "/services/christian-youtube-video-editor": {
+    "en-US": "/services/christian-youtube-video-editor",
+    "es-US": "/es/editor-de-videos-cristianos-youtube",
+    "x-default": "/services/christian-youtube-video-editor",
+  },
+  "/es/editor-de-videos-cristianos-youtube": {
+    "en-US": "/services/christian-youtube-video-editor",
+    "es-US": "/es/editor-de-videos-cristianos-youtube",
+    "x-default": "/services/christian-youtube-video-editor",
+  },
+  "/services/event-attendee-interview-videographer-miami": {
+    "en-US": "/services/event-attendee-interview-videographer-miami",
+    "es-US": "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+    "x-default": "/services/event-attendee-interview-videographer-miami",
+  },
+  "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami": {
+    "en-US": "/services/event-attendee-interview-videographer-miami",
+    "es-US": "/es/videografo-para-entrevistas-a-asistentes-de-eventos-miami",
+    "x-default": "/services/event-attendee-interview-videographer-miami",
+  },
+  "/services/ai-commercial-video-reels-miami": {
+    "en-US": "/services/ai-commercial-video-reels-miami",
+    "es-US": "/es/reels-comerciales-con-ia-miami",
+    "x-default": "/services/ai-commercial-video-reels-miami",
+  },
+  "/es/reels-comerciales-con-ia-miami": {
+    "en-US": "/services/ai-commercial-video-reels-miami",
+    "es-US": "/es/reels-comerciales-con-ia-miami",
+    "x-default": "/services/ai-commercial-video-reels-miami",
   },
   "/services/wedding-videographer-miami": {
     "en-US": "/services/wedding-videographer-miami",
@@ -9748,6 +10059,11 @@ for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-interna
   languageAlternatesRaw[en] = { "en-US": en, "es-US": es, "x-default": en };
   languageAlternatesRaw[es] = { "en-US": en, "es-US": es, "x-default": en };
 }
+
+const WEDDING_PACKAGES_EN = "/services/wedding-packages";
+const WEDDING_PACKAGES_ES = "/es/paquetes-de-boda";
+languageAlternatesRaw[WEDDING_PACKAGES_EN] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
+languageAlternatesRaw[WEDDING_PACKAGES_ES] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
 
 const PRIVATE_PARTY_EN = "/services/private-party-videographer-south-florida";
 const PRIVATE_PARTY_ES = "/es/videografo-para-fiestas-privadas-sur-de-florida";
