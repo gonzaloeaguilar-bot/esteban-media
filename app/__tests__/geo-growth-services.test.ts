@@ -120,4 +120,9 @@ describe("GEO growth service pages", () => {
       expect(text).not.toContain("staging");
     }
   });
+
+  it("contains short-form video editor wording in Fort Lauderdale reels page", () => {
+    const englishReels = source("app/(english)/services/reels-editor-fort-lauderdale/page.tsx");
+    expect(englishReels).toContain("short-form video editor in Fort Lauderdale");
+  });
 });

@@ -11,6 +11,7 @@ import {
   buildServicePageNodes,
 } from "@/components/service-depth";
 import { YOUTUBE_EDITING_DEPTH } from "@/lib/service-depth-content";
+import { PRICING_BANDS, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -84,7 +85,7 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
                 YouTube Video Editing Service in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Send raw long-form footage for a scoped YouTube edit with pacing, chapter markers, explanatory graphics, and audio post-production. This page is for a full YouTube episode, not vertical social cuts.
+                If you need a YouTube editor in Miami, send raw long-form footage for a scoped YouTube edit with pacing, chapter markers, explanatory graphics, and audio post-production. Long-form YouTube video editing falls in the published range of ${usd(PRICING_BANDS.youtube.baseMin)} to ${usd(PRICING_BANDS.youtube.baseMax)} per edit, with every project quoted in writing before work begins. This page is for a full YouTube episode, not vertical social cuts.
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
                 For supplied footage that needs vertical versions for Reels, TikTok, or YouTube Shorts, use the{" "}

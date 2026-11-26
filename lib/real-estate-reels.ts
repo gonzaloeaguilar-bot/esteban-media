@@ -3,7 +3,7 @@ import { absoluteUrl } from "@/lib/site";
 /**
  * The real-estate reel shelf.
  *
- * Six short vertical videos Esteban edited for property content, kept in one
+ * Short vertical videos Esteban edited for property content, kept in one
  * typed list so the carousel, the WhatsApp calls to action and the VideoObject
  * structured data all read from the SAME record. Nothing here is invented per
  * surface: if a title changes it changes in the rail, the lightbox and the
@@ -148,6 +148,45 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     publishedAt: "2026-10-23T03:28:04Z",
     width: 576,
     height: 1024,
+  },
+  {
+    id: "davie-two-story-home-tour",
+    title: "Two-story home tour in Davie",
+    titleEs: "Recorrido de casa de dos pisos en Davie",
+    caption: "A Spanish-captioned walk-through of a two-story Davie home, ending on a visit call to action.",
+    captionEs: "Un recorrido con subtítulos en español por una casa de dos pisos en Davie, que termina con una invitación a agendar una visita.",
+    poster: "/real-estate-reels/reel-08.jpg",
+    src: "/real-estate-reels/reel-08.mp4",
+    durationSeconds: 52,
+    publishedAt: "2026-11-01T12:00:00-05:00",
+    width: 720,
+    height: 1280,
+  },
+  {
+    id: "fix-before-selling-tip",
+    title: "What to fix before you sell",
+    titleEs: "Qué arreglar antes de vender",
+    caption: "A talking-head tip on what to fix before listing, with on-screen captions.",
+    captionEs: "Un consejo en cámara sobre qué arreglar antes de publicar la propiedad, con subtítulos en pantalla.",
+    poster: "/real-estate-reels/reel-09.jpg",
+    src: "/real-estate-reels/reel-09.mp4",
+    durationSeconds: 23,
+    publishedAt: "2026-10-21T12:00:00-05:00",
+    width: 720,
+    height: 1280,
+  },
+  {
+    id: "selling-from-abroad",
+    title: "Agent explainer for remote sellers",
+    titleEs: "Explicación de la agente para vendedores remotos",
+    caption: "An agent explainer with on-screen captions about selling a property from out of town.",
+    captionEs: "Una explicación de la agente con subtítulos en pantalla sobre vender una propiedad desde fuera de la ciudad.",
+    poster: "/real-estate-reels/reel-10.jpg",
+    src: "/real-estate-reels/reel-10.mp4",
+    durationSeconds: 22,
+    publishedAt: "2026-10-29T12:00:00-05:00",
+    width: 720,
+    height: 1280,
   },
 ] as const;
 

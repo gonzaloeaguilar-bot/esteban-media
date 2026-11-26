@@ -63,10 +63,6 @@
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
     {
-      "path": "/es/servicio-de-edicion-de-video-para-youtube-miami",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
       "path": "/es/video-inmobiliario-aventura-miami",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     },
@@ -116,10 +112,6 @@
     },
     {
       "path": "/services/video-production-davie-fl",
-      "reason": "Google discovered it and declined to index; no demand and no differentiation"
-    },
-    {
-      "path": "/services/youtube-video-editing-service-miami",
       "reason": "Google discovered it and declined to index; no demand and no differentiation"
     }
   ],
@@ -415,6 +407,22 @@
       "decidedBy": "Gonzalo (in-session, 2026-10-14)",
       "reason": "Owner decision 2026-10-14: Boca Raton was added to the Google Business Profile service area the same day, and live Google did not show Esteban for 'reels editor boca raton'. The 2026-08-12 NOINDEX judged a ~190-word template city page; the page was rebuilt on the Reels Fort Lauderdale formula (title 'Reels & ...', price line, who-can-help/cost/contact blocks, question-headed sections) before the noindex was removed. Palm Beach stays 'project by project' (AGENTS.md).",
       "followUpDate": "2026-10-28"
+    },
+    {
+      "path": "/services/youtube-video-editing-service-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-24",
+      "decidedBy": "Gonzalo (in-session, 2026-11-24)",
+      "reason": "Search Console shows 'youtube editor miami' earning 7 phone impressions (position 11.9). The cohort rule 1 promotes back any URL that earns impressions. Reopened alongside its Spanish twin.",
+      "followUpDate": "2026-12-08"
+    },
+    {
+      "path": "/es/servicio-de-edicion-de-video-para-youtube-miami",
+      "was": "NOINDEX",
+      "on": "2026-11-24",
+      "decidedBy": "Gonzalo (in-session, 2026-11-24)",
+      "reason": "Search Console shows 'editor de youtube miami' earning 17 phone impressions (position 14.1). Reopened alongside its English twin under cohort rule 1.",
+      "followUpDate": "2026-12-08"
     }
   ]
 }
