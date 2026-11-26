@@ -19,6 +19,11 @@ import { EventBookingAnswer } from "@/components/event-booking-answer";
 import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { withNicheService } from "@/lib/niche-answers";
 
+// Renders EventBookingAnswer, which hides an edition once it has ended. That check
+// runs at render time, so a fully static page would keep a past edition (and its
+// booking link) until the next deploy. Re-render daily, like the /events routes.
+export const revalidate = 86_400;
+
 export const metadata = buildPageMetadata({
   title: "Art Basel & Miami Art Week Video",
   description:

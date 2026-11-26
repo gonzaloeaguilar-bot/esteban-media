@@ -1,4 +1,5 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import * as pathMod from "node:path";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
@@ -116,4 +117,48 @@ describe("near-me answers on existing pages (2026-11-26)", () => {
     expect(page).not.toContain("/portfolio/homeowners");
     expect(page).toContain("/case-studies/banacol");
   });
+});
+
+describe("event booking answers expire without a deploy (codex review, PR #842)", () => {
+  // EventBookingAnswer drops an ended edition at render time. On a fully static
+  // route that render happens once per deploy, so every route that renders it
+  // must re-render at least daily (the /events routes use 86_400 via layout).
+  const root = pathMod.join(process.cwd(), "app");
+  const pages: string[] = [];
+  const walk = (dir: string) => {
+    for (const name of readdirSync(dir)) {
+      const full = pathMod.join(dir, name);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (name === "page.tsx") pages.push(full);
+    }
+  };
+  walk(root);
+  const niche = readFileSync(pathMod.join(process.cwd(), "components/spanish-niche-page.tsx"), "utf8");
+  const bookingSlugs = [...(niche.match(/const EVENT_BOOKING_BY_SLUG[^=]*=\s*\{([^}]*)\}/)?.[1] ?? "").matchAll(/"([^"]+)":/g)].map((m) => m[1]);
+
+  it("finds the Spanish booking slugs it guards", () => {
+    expect(bookingSlugs).toEqual(
+      expect.arrayContaining(["video-para-expositores-del-boat-show-fort-lauderdale", "cobertura-de-video-art-basel-miami-art-week"]),
+    );
+  });
+
+  const consumers = pages.filter((file) => {
+    const src = readFileSync(file, "utf8");
+    if (src.includes("EventBookingAnswer")) return true;
+    return bookingSlugs.some((slug) => file.includes(`${pathMod.sep}es${pathMod.sep}${slug}${pathMod.sep}`));
+  });
+
+  it("covers the four service routes that render a booking answer", () => {
+    expect(consumers.length).toBeGreaterThanOrEqual(4);
+  });
+
+  for (const file of consumers) {
+    const rel = pathMod.relative(process.cwd(), file);
+    if (rel.includes(`${pathMod.sep}events${pathMod.sep}`) || rel.includes(`${pathMod.sep}eventos${pathMod.sep}`)) continue;
+    it(`${rel} re-renders at least daily`, () => {
+      const m = readFileSync(file, "utf8").match(/export const revalidate = ([\d_]+);/);
+      expect(m, rel).not.toBeNull();
+      expect(Number(m![1].replace(/_/g, ""))).toBeLessThanOrEqual(86_400);
+    });
+  }
 });
