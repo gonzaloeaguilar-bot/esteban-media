@@ -79,11 +79,6 @@ const content: GeoServicePageContent = {
   relatedHeading: "Related Miami video services and planning tools.",
   related: [
     {
-      title: "Corporate video production in Brickell",
-      detail: "A more specific corporate-video page for Brickell companies and professional teams.",
-      href: "/services/corporate-video-production-brickell",
-    },
-    {
       title: "Brand video production in Miami",
       detail: "For a founder story or company positioning piece with a broader brand focus.",
       href: "/services/brand-video-production-miami",

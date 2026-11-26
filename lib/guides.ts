@@ -903,7 +903,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Qué factores de alcance y presupuesto conviene dejar por escrito?",
           paragraphs: [
             "Describe las locaciones, fechas, límites de acceso, entrevistas, material existente, gráficos, subtítulos, música e idiomas que ya se conocen, sin adivinar cómo un proveedor trabajará o armará su equipo. Confirma quién decide cada punto y marca lo incierto como pregunta. Así cada propuesta empieza con la misma información y el proveedor puede recomendar un enfoque.",
-            "Para una historia de marca, compara la solicitud con la página de [producción de video de marca](/es/produccion-de-video-de-marca-miami); para una conferencia, consulta [videografía para conferencias](/es/videografo-para-conferencias-fort-lauderdale) y nombra los momentos prioritarios. Son contextos posibles, no una promesa de equipo, permisos, equipo técnico o cobertura disponible.",
+            "Para una historia de marca, compara la solicitud con la página de [producción de video de marca](/es/videografo-en-miami); para una conferencia, consulta [videografía para conferencias](/es/videografo-para-conferencias-fort-lauderdale) y nombra los momentos prioritarios. Son contextos posibles, no una promesa de equipo, permisos, equipo técnico o cobertura disponible.",
           ],
           bullets: [
             "Fechas, locaciones, acceso y material de origen conocidos",

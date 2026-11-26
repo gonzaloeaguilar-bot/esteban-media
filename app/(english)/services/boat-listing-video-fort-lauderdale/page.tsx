@@ -114,10 +114,10 @@ export default function BoatListingVideoFortLauderdalePage() {
               <Anchor className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">What marine video experience is available?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Explore specialized on-water hospitality and luxury yacht video production across South Florida. Review our guide on <Link href="/services/superyacht-charter-marketing-video-fort-lauderdale" className="underline decoration-[#e85d3e] underline-offset-4">superyacht charter marketing video</Link>.
+                Explore specialized on-water hospitality and luxury yacht video production across South Florida. Review our guide on <Link href="/services/yacht-charter-video-production-fort-lauderdale" className="underline decoration-[#e85d3e] underline-offset-4">yacht charter video production in Fort Lauderdale</Link>.
               </p>
               <Link
-                href="/services/superyacht-charter-marketing-video-fort-lauderdale"
+                href="/services/yacht-charter-video-production-fort-lauderdale"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
                 Explore Marine Video Guide
