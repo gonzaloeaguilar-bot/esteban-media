@@ -137,7 +137,8 @@ describe("Google Business Profile entity link", () => {
     // Starter from $100 per video; the highest fixed starting price is
     // Presencia Local / Local Presence from $1,600 per month, with
     // Todo Incluido / All-In quoted per project. "+" marks the custom ceiling.
-    expect(localBusinessEntityJsonLd.priceRange).toBe("$100-$1,600+");
+    expect(localBusinessEntityJsonLd.priceRange).toBe("$100-$1600+");
+    expect(localBusinessEntityJsonLd.priceRange).not.toContain(",");
   });
 
   it("gives the Organization/LocalBusiness node a logo so it's eligible for rich results", () => {

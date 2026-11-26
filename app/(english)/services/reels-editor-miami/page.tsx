@@ -166,7 +166,7 @@ const content: GeoServicePageContent = {
 export const metadata = buildPageMetadata({
   title: "Reels Editor Miami",
   description:
-    "Miami Reels editor for Instagram Reels, TikTok, YouTube Shorts, product clips, restaurant videos, captions, and social ad edits.",
+    "Reel editor in Miami for Instagram Reels from your clips: product videos, restaurant clips, captions and social ad edits, plus TikTok and YouTube Shorts versions.",
   path: content.path,
   locale: "en",
 });

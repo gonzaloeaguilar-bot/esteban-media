@@ -20,14 +20,14 @@ import {
 } from "@/components/service-depth";
 import { SHORT_FORM_DEPTH } from "@/lib/service-depth-content";
 import { SHORT_FORM_DEEP_DIVE_EN, shortFormServiceJsonLd, shortFormWhatsappHref } from "@/lib/short-form-recs";
-import { SHORT_FORM, usd } from "@/lib/pricing";
+import { ON_LOCATION_CAPTURE, RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
 import { withPageDate } from "@/lib/page-lastmod";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Miami Short-Form Video Editor | Turn Raw Clips into Reels",
-  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami and Fort Lauderdale. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
+  title: "Short-Form Video Editor Miami | TikTok, Shorts & Reels",
+  description: `Send raw clips for remote editing into Instagram Reels, TikToks, and YouTube Shorts for creators and businesses in Miami-Dade. Spanish-first service. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -81,7 +81,7 @@ export default function ShortFormVideoEditorPage() {
                 Reels / Shorts / TikTok
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Miami Short-Form Video Editor for Reels, TikToks & Shorts.
+                Short-Form Video Editor in Miami for TikToks, Shorts & Reels.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Send your raw vertical clips and the platform you plan to use; Esteban Moreno Media turns them into clear Reels, TikToks, and YouTube Shorts for creators and businesses in Miami. Editing is remote when your footage is ready to use—use the{" "}
@@ -97,9 +97,29 @@ export default function ShortFormVideoEditorPage() {
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#252a2d]">
                 Need an edit specifically for Instagram Reels in Miami? Start with the{" "}
                 <Link href="/services/reels-editor-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
-                  Miami Reels editing page
+                  reel editor in Miami
                 </Link>{" "}
-                instead. This page is the broader route when the same supplied footage needs versions for Reels, TikTok, or YouTube Shorts.
+                page or the Spanish{" "}
+                <Link href="/es/editor-de-reels-miami" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de Reels en Miami
+                </Link>{" "}
+                route instead. For Broward businesses, see the{" "}
+                <Link href="/services/reels-editor-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  short-form video editor in Fort Lauderdale
+                </Link>{" "}
+                page (in Spanish, the{" "}
+                <Link href="/es/editor-de-reels-fort-lauderdale" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  editor de videos cortos en Fort Lauderdale
+                </Link>
+                ), or visit{" "}
+                <Link href="/services/youtube-long-form-video-editing" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  YouTube long-form video editing
+                </Link>{" "}
+                (and{" "}
+                <Link href="/es/edicion-de-video-largo-para-youtube" className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]">
+                  edición de video para YouTube en español
+                </Link>
+                ) for full horizontal episodes. This page is the broader route when the same supplied footage needs versions for Reels, TikTok, or YouTube Shorts.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -137,7 +157,7 @@ export default function ShortFormVideoEditorPage() {
 
       <DefinitionAnswer path="/services/short-form-video-editor-miami" />
       <p className="sr-only">
-        For a <Link href="/services/reels-editor-miami">Miami Reels editing page</Link> focused on location-specific short-form work, see the Miami Reels editing page.
+        For Instagram Reels only, the <Link href="/services/reels-editor-miami">reel editor in Miami</Link> page is the focused route.
       </p>
       <FoodCreatorChoice locale="en" sourcePage="miami-short-form" />
       <section className="border-b border-[#ddd4c8] py-10" aria-labelledby="published-short-form-work">
@@ -184,6 +204,19 @@ export default function ShortFormVideoEditorPage() {
       </section>
 
       <ServiceAnswerFirst service="short-form video editing" />
+
+      <section className="border-b border-[#ddd4c8] py-10" data-section="phone_footage_decision_boundary" aria-labelledby="phone-footage-boundary-heading">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <h2 id="phone-footage-boundary-heading" className="font-serif text-2xl sm:text-3xl">
+              Can your phone clips be edited remotely, or should you book a local shoot first?
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-[#252a2d] sm:text-base">
+              Start with remote editing from {usd(SHORT_FORM.perVideoFrom)} per video when your existing phone or camera files show the subject in clear light, the spoken audio is understandable without heavy room echo, and you have the original vertical files rather than compressed social downloads. Under those conditions, spending on a shoot is unnecessary: send the folder on WhatsApp or through the brief with no discovery call required, and Esteban will return a written quote before cutting. Do not pay for editing yet if the audio is drowned out by background noise, the speaker stands with a bright window behind them, or the key product step was never filmed. Either re-record that single take on your phone facing a window in a quiet room at no cost, or scope a local South Florida capture session starting from {usd(ON_LOCATION_CAPTURE.from)} for a half-day ({usd(RAW_FILMING_RATES.fullDay)} full-day) when you need lighting, wireless microphones, and camera direction on site.
+            </p>
+          </div>
+        </Container>
+      </section>
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

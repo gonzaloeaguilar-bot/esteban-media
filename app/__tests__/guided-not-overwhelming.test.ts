@@ -89,6 +89,10 @@ describe("guided, not overwhelming", () => {
       expect(beforeDetails).toContain('data-cta="home_contact_whatsapp"');
       expect(beforeDetails).toContain('data-cta="home_contact_email"');
       expect(beforeDetails).toContain('data-cta="home_contact_phone"');
+      expect(beforeDetails).toContain('data-cta="home_contact_instagram"');
+      expect(beforeDetails).toContain('href="https://www.instagram.com/estebanmorenomedia/"');
+      expect(beforeDetails).toContain("Instagram @estebanmorenomedia");
+      expect(beforeDetails).not.toContain("steeban1");
     });
   });
 

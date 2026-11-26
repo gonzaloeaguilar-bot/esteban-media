@@ -13,15 +13,15 @@ import {
  * One buyer question, answered in its first sentence, on the page Google
  * already ranks for it.
  *
- * Why this exists: on 2026-11-24 the trade-show booth page ranked first for
- * "videographer for trade show booth fort lauderdale" and never mentioned raw
- * or original files, which is what the exhibitor actually asks. Every number
- * here is read from lib/pricing.ts; nothing is retyped, and no delivery time
- * is promised because none is set there.
+ * Why this exists: on 2026-11-24 three event pages ranked first on Google
+ * without ever stating the filming rate, and the real estate hub answered the
+ * monthly-plan price only deep in its FAQ. Every number here is read from
+ * lib/pricing.ts; nothing is retyped, and no delivery time is promised because
+ * none is set there. (The trade-show raw-files answer that started this file
+ * shipped separately on main in #831 via lib/buyer-question-answers.ts.)
  */
 type Locale = "en" | "es";
 type Kind =
-  | "trade-show-raw-files"
   | "real-estate-monthly-plan"
   | "mastermind-filming-price"
   | "town-hall-filming-price"
@@ -36,28 +36,6 @@ type Copy = {
 };
 
 const usd = (amount: number) => `$${amount.toLocaleString("en-US")}`;
-
-function tradeShow(locale: Locale): Copy {
-  const half = usd(RAW_FILMING_RATES.halfDay);
-  const full = usd(RAW_FILMING_RATES.fullDay);
-  const edit = usd(SHORT_FORM.perVideoFrom);
-  if (locale === "es") {
-    return {
-      eyebrow: "Respuesta directa",
-      question: "¿Pueden grabar mi stand en una feria y entregarme el material original?",
-      answer: `Sí. Esteban Moreno Media graba tu stand, las demostraciones de producto y entrevistas cortas en la feria, en Fort Lauderdale o Miami, y te entrega los archivos originales sin que tengas que contratar edición. Solo grabación cuesta ${half} por medio día y ${full} por día completo. El material original (raw footage) se entrega con un enlace de Google Drive o Dropbox; dinos la hora de tu vuelo al reservar para dejar la entrega acordada por escrito antes de que abra la feria. Los archivos originales bastan cuando tu propio equipo o agencia edita, o cuando solo necesitas dejar registro. Suma edición, desde ${edit} por video, cuando quieres clips listos para publicar durante la feria o un resumen para quien no asistió. Atención en español; inglés disponible.`,
-      action: "Enviar los datos de mi feria",
-      href: "/es/contacto?source=trade-show-raw-files",
-    };
-  }
-  return {
-    eyebrow: "Straight answer",
-    question: "Can you film my trade show booth and give me the raw footage?",
-    answer: `Yes. Esteban Moreno Media films your booth, product demos and short interviews on the show floor in Fort Lauderdale or Miami and hands over the original files, with no editing required. Filming only is ${half} for a half day and ${full} for a full day. The raw footage goes to you by Google Drive or Dropbox link; tell us your flight time when you book so the handoff is agreed in writing before the show opens. Original files alone are enough when your own team or agency edits, or when you only need the footage on record. Add an edit, from ${edit} per video, when you want clips ready to post during the show or a recap for people who were not there. Spanish-first, English too.`,
-    action: "Send my show details",
-    href: "/contact?source=trade-show-raw-files",
-  };
-}
 
 function realEstate(locale: Locale): Copy {
   const es = locale === "es";
@@ -138,12 +116,7 @@ function eventPrice(kind: keyof typeof EVENT_PRICE): Copy {
 }
 
 export function BuyerAnswer({ kind, locale = "en" }: { kind: Kind; locale?: Locale }) {
-  const copy =
-    kind === "trade-show-raw-files"
-      ? tradeShow(locale)
-      : kind === "real-estate-monthly-plan"
-        ? realEstate(locale)
-        : eventPrice(kind);
+  const copy = kind === "real-estate-monthly-plan" ? realEstate(locale) : eventPrice(kind);
   const sectionId = `buyer-answer-${kind}`;
   const ctaId = `buyer_answer_${kind.split("-").join("_")}${locale === "es" ? "_es" : ""}`;
   return (

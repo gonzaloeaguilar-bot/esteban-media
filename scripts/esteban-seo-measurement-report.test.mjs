@@ -2,7 +2,7 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { COMPLETE_LAG_DAYS, completeWindow, ctrCandidates, mergeManagedNote, provisionalWindow, renderReport, runMeasurement } from "./esteban-seo-measurement-report.mjs";
+import { COMPLETE_LAG_DAYS, attachDeviceImpressions, completeWindow, ctrCandidates, mergeManagedNote, provisionalWindow, renderReport, runMeasurement } from "./esteban-seo-measurement-report.mjs";
 
 const directories = [];
 afterEach(async () => Promise.all(directories.splice(0).map((path) => rm(path, { recursive: true, force: true }))));
@@ -42,15 +42,57 @@ describe("SEO measurement report", () => {
         const dimensions = JSON.parse(options.body).dimensions;
         if (dimensions.join(",") === "query") return json({ rows: [{ keys: ["video editor fort lauderdale"], clicks: 0, impressions: 12, ctr: 0, position: 4 }] });
         if (dimensions.join(",") === "page") return json({ rows: [{ keys: ["https://estebanmorenomedia.com/services/video-editing"], clicks: 0, impressions: 12, ctr: 0, position: 4 }] });
+        if (dimensions.join(",") === "query,device") return json({ rows: [{ keys: ["video editor fort lauderdale", "DESKTOP"], clicks: 0, impressions: 10, ctr: 0, position: 4 }, { keys: ["video editor fort lauderdale", "MOBILE"], clicks: 0, impressions: 2, ctr: 0, position: 4 }] });
         return json({ rows: [{ keys: ["video editor fort lauderdale", "https://estebanmorenomedia.com/services/video-editing"], clicks: 0, impressions: 12, ctr: 0, position: 4 }] });
       },
     });
-    expect(result).toMatchObject({ status: "PASS", rows: { query: 1, page: 1, queryPage: 1 }, provisionalRows: { query: 1, page: 1, queryPage: 1 } });
+    expect(result).toMatchObject({ status: "PASS", rows: { query: 1, page: 1, queryPage: 1, queryDevice: 2 }, provisionalRows: { query: 1, page: 1, queryPage: 1 } });
     const note = await readFile(join(directory, "note.md"), "utf8");
     expect(note).toContain("dataState: final");
     expect(note).toContain("Today, provisional only");
     expect(note).toContain("video editor fort lauderdale");
     expect(note).not.toContain("secret");
-    expect(renderReport(JSON.parse(await readFile(join(directory, "state/latest.json"), "utf8")))).toContain("Observation queue");
+    const savedState = JSON.parse(await readFile(join(directory, "state/latest.json"), "utf8"));
+    expect(savedState.rows.query[0]).toMatchObject({
+      keys: ["video editor fort lauderdale"],
+      desktopImpressions: 10,
+      mobileImpressions: 2,
+    });
+    expect(savedState.rows.queryPage[0]).toMatchObject({
+      keys: ["video editor fort lauderdale", "https://estebanmorenomedia.com/services/video-editing"],
+      desktopImpressions: 10,
+      mobileImpressions: 2,
+    });
+    expect(savedState.rows.queryDevice).toHaveLength(2);
+    expect(renderReport(savedState)).toContain("Observation queue");
+  });
+
+  it("attaches desktop and mobile impressions per query accurately", () => {
+    const queryRows = [
+      { keys: ["query a"], impressions: 15, clicks: 0 },
+      { keys: ["query b"], impressions: 5, clicks: 1 },
+      { keys: ["query without device info"], impressions: 3, clicks: 0 },
+    ];
+    const queryDeviceRows = [
+      { keys: ["query a", "DESKTOP"], impressions: 14 },
+      { keys: ["query a", "MOBILE"], impressions: 1 },
+      { keys: ["query b", "MOBILE"], impressions: 5 },
+    ];
+    const enriched = attachDeviceImpressions(queryRows, queryDeviceRows);
+    expect(enriched[0]).toMatchObject({
+      keys: ["query a"],
+      desktopImpressions: 14,
+      mobileImpressions: 1,
+    });
+    expect(enriched[1]).toMatchObject({
+      keys: ["query b"],
+      desktopImpressions: 0,
+      mobileImpressions: 5,
+    });
+    expect(enriched[2]).toMatchObject({
+      keys: ["query without device info"],
+      desktopImpressions: 0,
+      mobileImpressions: 0,
+    });
   });
 });

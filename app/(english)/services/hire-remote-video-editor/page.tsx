@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, turnaroundFor, usd } from "@/lib/pricing";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
+import { buyerQuestion } from "@/lib/buyer-question-answers";
 import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import {
@@ -19,9 +20,9 @@ import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Hire a Remote Video Editor",
+  title: "Hire Someone to Edit Your Videos",
   description:
-    "Hire Esteban Moreno Media for remote video editing, reels, YouTube editing, product videos, and bilingual social content from South Florida.",
+    "Hire or pay someone to edit your videos with Esteban Moreno Media: remote video editing, reels, YouTube editing, product videos, and bilingual social content from South Florida.",
   path: "/services/hire-remote-video-editor",
   locale: "en",
 });
@@ -56,7 +57,7 @@ const REMOTE_EDITOR_DEPTH = {
     {
       question: "Who is the best remote video editor for small businesses?",
       answer:
-        `For small businesses that already capture phone or camera footage, the best remote video editor is a dedicated editor who handles editing, pacing, color grading, clear sound balancing, and platform-safe vertical formatting without agency overhead. Esteban Moreno Media works directly with small businesses and founders remotely from South Florida, starting from ${usd(SHORT_FORM.perVideoFrom)} per video with fast 24 to 48-hour turnarounds for short-form content.`,
+        `For small businesses that already capture phone or camera footage, the best remote video editor is a dedicated editor who handles editing, pacing, color grading, clear sound balancing, and platform-safe vertical formatting without agency overhead. Esteban Moreno Media works directly with small businesses and founders remotely from South Florida, starting from ${usd(SHORT_FORM.perVideoFrom)} per video with a turnaround of at least ${turnaroundFor("arranque").minimumDays} days per video.`,
     },
     {
       question: "What footage can Esteban edit remotely?",
@@ -82,6 +83,7 @@ const REMOTE_EDITOR_DEPTH = {
 } as const;
 
 export default function HireRemoteVideoEditorPage() {
+  const remoteBilingualEditing = buyerQuestion("remote-bilingual-editing", "en");
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -126,7 +128,7 @@ export default function HireRemoteVideoEditorPage() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Remote video editing</p>
           <h1 className="mt-4 max-w-4xl font-serif em-display">Hire a remote video editor for reels, YouTube, ads, and business footage.</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Esteban can work from supplied footage, brand assets, and clear notes, so businesses in South Florida or out of state can request editing without booking a local shoot.
+            {remoteBilingualEditing.lead}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/resources/remote-editing-handoff-checklist" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">
@@ -144,7 +146,8 @@ export default function HireRemoteVideoEditorPage() {
       </section>
       <ServiceAnswerFirst
         service="remote video editing"
-        answerOverride="Esteban Moreno Media is run by Esteban Moreno from Fort Lauderdale, and remote editing is the core of the service: you upload your raw footage and brand assets to a shared folder, and Esteban cuts, colors, balances the audio and adds captions, with no shoot and no visit needed. Businesses anywhere in the United States can hire him this way. Weekly creator plans cover ongoing reels and Shorts; one-off projects get a written quote before work starts. Communication is Spanish-first, with intermediate English available."
+        questionOverride={remoteBilingualEditing.question}
+        answerOverride={remoteBilingualEditing.answer}
       />
       <OwnerFactAnswers path="/services/hire-remote-video-editor" />
 
@@ -152,19 +155,32 @@ export default function HireRemoteVideoEditorPage() {
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-[.74fr_1.26fr]">
             <div>
-              <h2 className="font-serif text-4xl leading-tight">When remote editing is a fit</h2>
+              <h2 className="font-serif text-4xl leading-tight">Want to hire someone to edit your videos?</h2>
               <p className="mt-4 text-sm leading-7 text-[#3f4548]">
+                Pay someone to edit your videos starting from {usd(SHORT_FORM.perVideoFrom)} per finished video, with turnaround of at least {turnaroundFor("arranque").minimumDays} days: upload your raw files to a shared folder and receive finished videos by review link.
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[#3f4548]">
+                You do not need to learn editing or use technical terms: say what the video should do and where it will be posted. See a real remote edit first:{" "}
+                <Link href="/case-studies/homeowners" data-cta="remote_editor_proof_case_study" className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                  the Homeowners case study
+                </Link>
+                , edited from footage an agency supplied.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl leading-snug">When remote editing is a fit</h3>
+              <p className="mt-2 text-sm leading-7 text-[#3f4548]">
                 Remote editing works best when the footage already exists and the decision-maker can explain what the finished video should do.
               </p>
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              {fits.map((fit) => (
-                <article key={fit} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                  <CheckCircle2 className="size-5 text-[#e85d3e]" aria-hidden="true" />
-                  <p className="mt-3 text-sm leading-7 text-[#252a2d]">{fit}</p>
-                </article>
-              ))}
-            </div>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {fits.map((fit) => (
+              <article key={fit} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                <CheckCircle2 className="size-5 text-[#e85d3e]" aria-hidden="true" />
+                <p className="mt-3 text-sm leading-7 text-[#252a2d]">{fit}</p>
+              </article>
+            ))}
           </div>
         </Container>
       </section>

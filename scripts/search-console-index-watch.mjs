@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Wedding packages hub (2026-11-24): the three wedding city pages had no hub and no published packages.
+  "https://estebanmorenomedia.com/services/wedding-packages",
+  "https://estebanmorenomedia.com/es/paquetes-de-boda",
   // Central Florida supplied-footage editing guide pair (2026-11-08). These
   // routes describe remote post-production only; they do not assert local
   // production coverage or regulated-industry credentials.
@@ -557,8 +560,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/video-para-med-spas-y-cirujanos-plasticos-miami",
   "https://estebanmorenomedia.com/services/contractor-video-marketing-florida",
   "https://estebanmorenomedia.com/es/video-marketing-para-contratistas-florida",
-  "https://estebanmorenomedia.com/services/quinceanera-videographer-miami",
-  "https://estebanmorenomedia.com/es/videografo-de-quinceaneras-miami",
+  "https://estebanmorenomedia.com/es/cuanto-cobra-un-videografo-en-miami",
   "https://estebanmorenomedia.com/services/multicam-podcast-video-production-miami",
   "https://estebanmorenomedia.com/es/produccion-de-podcast-con-multicamara-miami",
   "https://estebanmorenomedia.com/services/personal-injury-lawyer-video-miami",
@@ -658,6 +660,9 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/casos-de-estudio/portosole",
   "https://estebanmorenomedia.com/case-studies/punto-de-giro",
   "https://estebanmorenomedia.com/es/casos-de-estudio/punto-de-giro",
+  // YouTube video editing Miami pair re-admitted (owner decision 2026-11-24, cohort rule 1).
+  "https://estebanmorenomedia.com/services/youtube-video-editing-service-miami",
+  "https://estebanmorenomedia.com/es/servicio-de-edicion-de-video-para-youtube-miami",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

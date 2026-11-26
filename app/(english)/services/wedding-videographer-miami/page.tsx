@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -107,6 +108,12 @@ export default function WeddingVideographerMiamiPage() {
                   Request Wedding Quote
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+                <Link
+                  href="/services/wedding-packages"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  See Wedding Packages
+                </Link>
               </div>
             </div>
 
@@ -171,6 +178,7 @@ export default function WeddingVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/diana-jack", label: "Diana & Jack, a published wedding film" }} />
       <ServiceFaqs
         heading="Common questions before you start."
         faqs={PORTED_SERVICE_FAQS["/services/wedding-videographer-miami"]}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buyerQuestion } from "@/lib/buyer-question-answers";
 import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
 import {
   ServiceAnswerFirst,
@@ -16,7 +17,6 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
-import { BuyerAnswer } from "@/components/buyer-answer";
 
 export const metadata = buildPageMetadata({
   title: "Trade Show Booth Videographer Fort Lauderdale",
@@ -27,6 +27,7 @@ export const metadata = buildPageMetadata({
 });
 
 export default function TradeShowBoothVideographerFortLauderdalePage() {
+  const tradeShowRawFiles = buyerQuestion("trade-show-raw-files", "en");
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -98,11 +99,13 @@ export default function TradeShowBoothVideographerFortLauderdalePage() {
                 Trade Show Booth &amp; Convention Floor Videographer.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Stabilized 4K filming on convention floors, live booth demonstrations, and dynamic B2B video recaps for exhibitors at the Broward County and Miami Beach convention centers.
+                {tradeShowRawFiles.lead}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href="/contact?source=trade-show-raw-files"
+                  data-cta="trade_show_raw_files_hero"
+                  data-section="trade_show_hero"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Check Event Dates
@@ -129,9 +132,11 @@ export default function TradeShowBoothVideographerFortLauderdalePage() {
         </Container>
       </section>
 
-      <BuyerAnswer kind="trade-show-raw-files" locale="en" />
-
-      <ServiceAnswerFirst service="trade show booth videography in Fort Lauderdale and Miami" />
+      <ServiceAnswerFirst
+        service="trade show booth videography in Fort Lauderdale and Miami"
+        questionOverride={tradeShowRawFiles.question}
+        answerOverride={tradeShowRawFiles.answer}
+      />
 
       <ServiceDeepDive
         id={TRADE_SHOW_BOOTH_DEEP_DIVE.id}

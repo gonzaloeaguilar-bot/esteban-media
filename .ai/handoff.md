@@ -1,3 +1,32 @@
+## 2026-11-26 — Commercial-intent package (branch geo/commercial-intent-package)
+
+- Strategy: vault `esteban-commercial-intent-lateral-strategy-2026-11-26` (approved by Gonzalo 2026-11-26).
+- Money wall: Reels price index guide (EN+ES) opens with "How much does a video editor charge per video?" from lib/pricing.ts plus a "when not to pay for an editor yet" sentence; removed the invented "24-hour turnaround" FAQ claim (now the 7-day floor).
+- New ES-only page `/es/cuanto-cobra-un-videografo-en-miami` (SpanishNichePage entry; no EN twin, so no hreflang pair). Filming is FILMING_HOURLY ($125/h, 4h minimum), not the $80 the brief quoted.
+- Hire wording on `/services/hire-remote-video-editor` and `/es/contratar-editor-de-video-remoto`; PR #831 lead and answer block untouched.
+- Quinceañera: owners `/services/quinceanera-video-miami` + `/es/video-para-quinceaneras-miami`; the videographer pair 301s to them (next.config.ts, statusCode 301). Sitemap 602 -> 601.
+- `components/need-someone-this-week.tsx` on events hub, all event pages and 7 event service pages (EN+ES).
+- Tracking: contact_click carries `lead_type` (whatsapp/phone/email/form/instagram/booking) and `landing_page` (first page of the session, path only); `lead` carries `landing_page`. GA4 custom dimension `landing_page` registered (customDimensions/16423960564).
+- Text-parity baseline refreshed for the 9 Spanish routes changed here only. The rest of the baseline is stale on main since 2026-10-29 (~690 drifted routes, e.g. 21ee59f0); a full refresh trips the services-config ladder guard ($150/$225/$300 aggregate), so it was not done here.
+
+## 2026-11-25 — Priority-growth owned_site_ctr: HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
+
+- Priority-growth action brief: recommended action `owned_site_ctr` for round 2026-11-25 (work id: `priority-growth:2026-11-25:esteban`).
+- Source scope: `app/(english)/services/contractor-video-marketing-florida/page.tsx`, `app/__tests__/contractor-hvac-ctr-optimization.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`.
+- Identified top query opportunity: "hvac video production fl" reaching `/services/contractor-video-marketing-florida` (position 50.8, 8 impressions, 0 clicks).
+- Improved SERP CTR & on-page conversion:
+  - Aligned page title to "HVAC & Contractor Video Production Florida | Esteban Moreno Media" and meta description to explicitly highlight HVAC alongside roofing and solar companies.
+  - Added specialized ServiceAnswerFirst override detailing jobsite video production for Florida HVAC, compressor changeouts, duct installations, and emergency storm repairs.
+  - Added `ClientReviews` component with compact Google review proof (5.0 rating, verified reviews) to build conversion trust for commercial & residential contractors.
+- Verification: `pnpm lastmod:update`, `pnpm lint`, `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm build`, full vitest suite (222 files, 3,972 tests passing), and `priority-growth-project-verify.sh`.
+
+## 2026-11-24 — Warmer lead receipt in Esteban's voice (branch claude/kind-euler-lkz6ep)
+
+- Operator order after PR #804 went live (production deployment READY for `a5dcfdca`): replace the stiff receipt with a warmer one. `lib/lead-email.ts` now greets the lead by first name, speaks in first person (EN "I", ES "tú" voice), invites a reply with goal/date/location/references, and signs as Esteban Moreno with the canonical email and phone.
+- Guardrail kept: the receipt still confirms no price, scope or availability ("I'll confirm ... in writing once I've seen the details") and promises no response time.
+- The first name is used only when the whole name field is letters, spaces, hyphens, apostrophes or periods (max 60 chars); anything else falls back to a neutral greeting so free text is not relayed from `info@`.
+- Not verified: a real receipt in a lead's inbox, and Esteban has not reviewed the Spanish wording.
+
 ## 2026-11-23 — Website leads get an automatic receipt from info@ (branch claude/kind-euler-lkz6ep)
 
 - Owner order: every web lead is answered automatically from `info@estebanmorenomedia.com`. Cause of the gap: `lib/lead-email.ts` only sent the receipt when `LEAD_AUTOREPLY_ENABLED=1`; the production value could not be read from this session (Vercel env list returned 403).

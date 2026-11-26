@@ -1,4 +1,5 @@
 import { priceSentence } from "@/lib/packages";
+import { buyerQuestion } from "@/lib/buyer-question-answers";
 import {
   ES_CREATOR_START_SECTION,
   ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,
@@ -10,7 +11,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_TERMS, CREW_RECORDING_RATES, EXPANSION_SERVICES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS, CELEBRATION_FILM_BUNDLES, CREW_RECORDING_RATES, EXPANSION_SERVICES, FILMING_HOURLY, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, WEDDING_PACKAGES, filmingHourlyText, priceTermsText, shortFormPriceText, shortFormWeeklyText, turnaroundFor, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -197,9 +198,6 @@ import {
   CONTRACTOR_VIDEO_MARKETING_ES_DISCLOSURE,
   CONTRACTOR_VIDEO_MARKETING_ES_DESTINATIONS,
   CONTRACTOR_VIDEO_MARKETING_ES_SECTIONS,
-  QUINCEANERA_VIDEOGRAPHER_ES_DISCLOSURE,
-  QUINCEANERA_VIDEOGRAPHER_ES_DESTINATIONS,
-  QUINCEANERA_VIDEOGRAPHER_ES_SECTIONS,
   MULTICAM_PODCAST_VIDEO_ES_DISCLOSURE,
   MULTICAM_PODCAST_VIDEO_ES_DESTINATIONS,
   MULTICAM_PODCAST_VIDEO_ES_SECTIONS,
@@ -494,6 +492,11 @@ export type SpanishNichePage = {
    * (subtitling, remote editing) states its own answer here instead.
    */
   answerFirst?: string;
+  /**
+   * Page-specific question heading for "En corto". Replaces the default
+   * question built from the service keyword.
+   */
+  answerQuestion?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
   /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
@@ -647,7 +650,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         question: "¿Hay trabajo inmobiliario publicado para ver?",
         answer:
-          "Sí. La página de reels inmobiliarios en inglés muestra siete reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+          "Sí. La página de reels inmobiliarios en inglés muestra diez reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
       },
     ],
   },
@@ -1038,7 +1041,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
   {
     slug: "video-para-quinceaneras-miami",
     title: "Video para quinceañeras en Miami",
-    metadataTitle: "Video para Quinceañeras Miami",
+    metadataTitle: "Videógrafo de Quinceañeras Miami",
     description:
       "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
     metaDescription:
@@ -1096,6 +1099,10 @@ const nicheWave8Pages: SpanishNichePage[] = [
         question: "¿Cuándo conviene reservar la edición?",
         answer:
           "Antes de la fecha, para acordar la lista de momentos, los entregables y las canciones con tiempo. Si la fiesta ya pasó, envía el material y la lista de momentos más importantes. Las fechas de entrega se confirman en la cotización por escrito.",
+      },
+      {
+        question: "¿Cuánto cuesta el video de una quinceañera en Miami?",
+        answer: `Los paquetes de película completa para celebraciones privadas parten desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} para medio día de cobertura, incluyendo consulta y película de momentos destacados. Si otro videógrafo graba la fiesta y solo necesitas edición de clips para redes, parte de ${esArranque()}. Cada cotización se confirma por escrito según horas y traslados.`,
       },
     ],
   },
@@ -1352,6 +1359,81 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "cuanto-cobra-un-videografo-en-miami",
+    title: "¿Cuánto cobra un videógrafo en Miami?",
+    metadataTitle: "¿Cuánto Cobra un Videógrafo en Miami?",
+    description:
+      `Cuánto cobra un videógrafo en Miami: grabación desde ${usd(FILMING_HOURLY.amount)} por hora con ${FILMING_HOURLY.minimumHours} horas mínimas, bodas desde ${usd(WEDDING_PACKAGES.halfDayFrom)} y edición aparte.`,
+    eyebrow: "Guía de Precios y Tarifas / Miami-Dade",
+    h1: "¿Cuánto cobra un videógrafo en Miami?",
+    lead: `Con Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación (mínimo ${FILMING_HOURLY.minimumHours} horas, ${usd(FILMING_HOURLY.minimumAmount)}), y el video de una boda parte desde ${usd(WEDDING_PACKAGES.halfDayFrom)}.`,
+    keyword: "cuánto cobra un videógrafo en Miami",
+    location: "Miami-Dade",
+    availability: "confirmed",
+    icon: Video,
+    answerQuestion: "¿Cuánto cobra un videógrafo en Miami?",
+    answerFirst: `La grabación en locación en Miami parte desde ${usd(FILMING_HOURLY.amount)} por hora con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}), un equipo de dos personas cuesta ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora, y las bodas parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} (medio día o creación de contenido) y ${usd(WEDDING_PACKAGES.fullDayFrom)} para día completo con un depósito del ${WEDDING_PACKAGES.depositPercent}%. ${priceTermsText("es")}`,
+    bestFor: [
+      "Empresas y marcas que necesitan planificar su presupuesto de grabación en locación en Miami.",
+      "Parejas que buscan cobertura cinematográfica de bodas con precios de partida claros y transparentes.",
+      "Creadores y organizadores de eventos que requieren un videógrafo solo o un equipo de dos personas.",
+      "Clientes con material ya grabado que desean saber si necesitan filmación o solo edición.",
+    ],
+    scopingQuestions: [
+      "¿Cuántas horas de grabación requiere el evento o proyecto?",
+      "¿Se necesita un videógrafo solo o un equipo de dos personas con creador de contenido?",
+      "¿El proyecto incluye edición final de video o únicamente la entrega de archivos originales?",
+      "¿La locación está ubicada dentro de Miami-Dade o requiere traslados adicionales?",
+    ],
+    projectFit:
+      "Esta página detalla las tarifas oficiales y costos de grabación en locación en Miami-Dade. Para proyectos de bodas completas, explora nuestros [paquetes de boda](/es/paquetes-de-boda) o revisa la película real de [Diana y Jack](/es/portafolio/diana-jack). Si ya cuentas con material grabado y solo requieres montaje, consulta con un [editor de video remoto](/es/contratar-editor-de-video-remoto).",
+    sectionsHeading: "Preguntas frecuentes sobre tarifas de videografía en Miami",
+    sections: [
+      {
+        heading: "¿Cuánto cobra un videógrafo por hora en Miami?",
+        paragraphs: [
+          `En Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación en locación, con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}). Ese precio cubre a un videógrafo con cámara Sony Alpha 7 IV en 4K y audio; la edición se cotiza aparte. Medio día de grabación de una sola persona cuesta ${usd(CREW_RECORDING_RATES.solo.halfDay)} y el día completo ${usd(CREW_RECORDING_RATES.solo.fullDay)}.`,
+          `Para eventos con mayor dinamismo o cobertura simultánea, un equipo de dos personas tiene una tarifa de ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora (${usd(CREW_RECORDING_RATES.twoPerson.minimumAmount)} mínimo): una persona graba en 4K y la otra crea contenido vertical para redes. Todas las grabaciones se confirman por escrito antes de la fecha.`,
+        ],
+      },
+      {
+        heading: "¿Cuánto cobra un videógrafo de boda en Miami?",
+        paragraphs: [
+          `Los paquetes de video para bodas en Miami-Dade parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} para coberturas de medio día o creación de contenido especializada para redes, y desde ${usd(WEDDING_PACKAGES.fullDayFrom)} para el día completo. Se requiere un depósito del ${WEDDING_PACKAGES.depositPercent}% al confirmar la reserva en el calendario.`,
+          `Puedes consultar la estructura detallada de entregables en nuestros [paquetes de boda](/es/paquetes-de-boda) y ver un ejemplo publicado en el proyecto [Diana y Jack](/es/portafolio/diana-jack). El precio final de cada boda se cotiza por escrito según las horas, el lugar y los videos que quieras recibir.`,
+        ],
+      },
+      {
+        heading: "¿Qué cambia el precio de un videógrafo?",
+        paragraphs: [
+          `Varios factores determinan la cotización final de un proyecto audiovisual en Miami. El primer factor son las horas en el set y la cantidad de operadores de cámara requeridos. El segundo es la postproducción: la edición de video se cotiza por separado a partir del paquete Arranque (desde ${usd(SHORT_FORM.perVideoFrom)} por video) si se necesitan clips terminados con subtítulos y corrección de color.`,
+          `Otros aspectos que influyen en el presupuesto incluyen traslados fuera del área metropolitana, alquiler de estudios o sonido en consola directa, y plazos de entrega urgente acordados previamente por escrito.`,
+        ],
+      },
+      {
+        heading: "¿Cuándo basta con un editor y no un videógrafo?",
+        paragraphs: [
+          `Si tu equipo o tus clientes ya grabaron el metraje con teléfonos inteligentes o cámaras propias, no necesitas pagar por horas de grabación en locación; basta con contratar a un [editor de video remoto](/es/contratar-editor-de-video-remoto). Un editor organiza las tomas, mejora el audio, añade ritmo y adapta las dimensiones para Reels, Shorts o YouTube.`,
+          `Por el contrario, si el evento aún no ha ocurrido, necesitas capturar entrevistas presenciales o buscas tomas de producto en el lugar, necesitas un videógrafo en locación. Para más detalles sobre estas diferencias, lee nuestra guía sobre [editor de video vs videógrafo](/es/guias/editor-de-video-vs-videografo).`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Cuál es el mínimo de horas para contratar a un videógrafo en Miami?",
+        answer: `El mínimo de grabación en locación es de ${FILMING_HOURLY.minimumHours} horas consecutivas, con un costo base desde ${usd(FILMING_HOURLY.minimumAmount)}.`,
+      },
+      {
+        question: "¿La tarifa por hora incluye la edición de los videos?",
+        answer: `No. La tarifa por hora cubre al videógrafo en locación con cámara 4K y audio. La edición final se cotiza por video o proyecto desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque.`,
+      },
+      {
+        question: "¿Se entrega el material original después de la grabación?",
+        answer: `Sí. Las condiciones de entrega de los archivos originales se especifican en la cotización escrita antes de reservar el día de rodaje.`,
+      },
+    ],
+  },
+  {
     slug: "videografo-en-miami",
     title: "Videógrafo en Miami",
     metadataTitle: "Videógrafo en Miami",
@@ -1378,7 +1460,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué disponibilidad, formatos y alcance deben confirmarse para este proyecto?",
     ],
     projectFit:
-      "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+      "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para conocer tarifas y rangos detallados, consulta [cuánto cobra un videógrafo en Miami](/es/cuanto-cobra-un-videografo-en-miami). Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
     sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
@@ -2235,7 +2317,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "editor-de-video-corto-para-redes-miami",
     title: "Editor de video corto para redes en Miami",
     metadataTitle: "Editor de Video Corto Reels Miami",
-    description: `Editor de videos cortos y reels para influencers, creadores y negocios en Miami y Fort Lauderdale. Reels, TikTok y Shorts desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
+    description: `Editor de videos cortos y reels para influencers, creadores y negocios en Miami-Dade. Reels, TikTok y Shorts desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Video Corto / Reels",
     updated: "2026-10-08",
     sectionsDisclosure: "Videos cortos para influencers y negocios: costo, grabar con el celular y contacto",
@@ -2273,7 +2355,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cuáles son los criterios técnicos de encuadre y zonas seguras?",
         paragraphs: [
           "El estándar técnico para videos cortos es una resolución vertical de 1080×1920 píxeles con relación de aspecto 9:16. Las interfaces móviles de Instagram y TikTok colocan botones de me gusta, comentarios, perfiles y descripciones sobre los laterales y la parte inferior del video. Si los elementos clave o textos se colocan en esas áreas, la interfaz los tapa.",
-          "Una postproducción cuidada mantiene los subtítulos dinámicos, logotipos y llamados a la acción dentro de la zona segura central (Safe Zone). Como gran parte del público consume video en el celular con el audio silenciado, los subtítulos legibles con alto contraste garantizan la comprensión completa. Para proyectos específicos en Broward, puedes coordinar con un [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
+          "Una postproducción cuidada mantiene los subtítulos dinámicos, logotipos y llamados a la acción dentro de la zona segura central (Safe Zone). Como gran parte del público consume video en el celular con el audio silenciado, los subtítulos legibles con alto contraste garantizan la comprensión completa. Para proyectos específicos en Broward, puedes coordinar con un [editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
         ],
       },
       {
@@ -3443,8 +3525,9 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Videografía profesional para stands de exhibición, ferias comerciales y convenciones en Fort Lauderdale y Miami con equipo estabilizado 4K.",
     eyebrow: "Ferias Comerciales / Stands B2B",
     h1: "Videógrafo para ferias comerciales y stands de exhibición en Fort Lauderdale.",
-    lead:
-      "Captura dinámica de demostraciones de producto, afluencia en stands y presentaciones corporativas en el Centro de Convenciones de Broward y Miami.",
+    lead: buyerQuestion("trade-show-raw-files", "es").lead,
+    answerFirst: buyerQuestion("trade-show-raw-files", "es").answer,
+    answerQuestion: buyerQuestion("trade-show-raw-files", "es").question,
     keyword: "videógrafo para ferias comerciales en Fort Lauderdale",
     location: "Fort Lauderdale / Broward / Miami",
     availability: "confirmed",
@@ -5877,7 +5960,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "YouTube / Creadores y Marcas",
     h1: "Edición de video profesional para canales de YouTube.",
     lead:
-      "Aumenta la retención de tus espectadores en YouTube con cortes dinámicos, superposiciones gráficas y capítulos marcados.",
+      "Si buscas un editor de YouTube en Miami, aumenta la retención de tus espectadores con cortes dinámicos, superposiciones gráficas y capítulos marcados.",
     keyword: "servicio de edición de video para YouTube en Miami",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
@@ -6339,17 +6422,17 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "editor-de-reels-fort-lauderdale",
     title: "Editor de video y Reels en Fort Lauderdale",
-    // 2026-11-13: la consulta "editor de video fort lauderdale" llega con
-    // impresiones y 0 clics en rutas existentes; el título, H1 y respuesta
-    // nombran la intención de editor de video y Reels con precio y siguiente paso.
-    metadataTitle: "Editor de Video y Reels",
+    // 2026-11-24: la consulta "editor de reels fort lauderdale" tiene 40 impresiones
+    // en móvil (posición 75 en ES vs 8.9 en EN). El metadataTitle nombra la ciudad
+    // directamente como "Editor de Reels en Fort Lauderdale" para captar esa demanda.
+    metadataTitle: "Editor de Reels en Fort Lauderdale",
     description:
       `Edición de videos cortos y Reels en Fort Lauderdale con tus clips: subtítulos legibles para TikTok, Shorts e Instagram. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Video y Reels / TikTok / Shorts",
-    h1: "Editor de video y Reels en Fort Lauderdale para convertir tus clips en videos claros.",
+    h1: "Editor de Reels y videos cortos en Fort Lauderdale para convertir tus clips en videos claros.",
     lead:
-      "Si buscas un editor de video en Fort Lauderdale o un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
-    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. También edita videos cortos cuando ya tienes los archivos originales, una idea por video y la red donde vas a publicar; Esteban los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
+      "Si buscas un editor de Reels, un editor de videos cortos o un editor de video en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. En esta página están los pasos para editar videos cortos a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
+    answerFirst: `Esteban Moreno Media ofrece edición de Instagram Reels para negocios en Fort Lauderdale. Si buscas un editor de videos cortos en Fort Lauderdale, Esteban edita con los archivos originales que ya tienes, una idea por video y la red donde vas a publicar; los convierte en Reels, TikToks o Shorts con subtítulos dentro de las zonas seguras y una acción clara al final. La edición es remota y la conversación es en español primero, con inglés intermedio disponible. El paquete Arranque parte desde ${esStarterFrom} por video y cada proyecto recibe una cotización escrita. Cuando los clips todavía no muestran la oferta, una grabación local en South Florida se define y cotiza por separado; no se asume dentro de la edición. Así el alcance, las versiones y la fecha de entrega quedan claros antes de empezar.`,
     keyword: "editor de video en Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
@@ -6709,13 +6792,12 @@ export const spanishNichePages: SpanishNichePage[] = [
     // instagram", "contratar editor de videos online", "editor de video remoto".
     slug: "contratar-editor-de-video-remoto",
     title: "Contratar un editor de video remoto",
-    metadataTitle: "Contratar un Editor de Video Remoto",
+    metadataTitle: "Contratar a Quien Edite mis Videos",
     description:
-      "Contrata a Esteban Moreno Media para edición de video remota: Reels, YouTube, videos de producto y contenido bilingüe desde el sur de Florida.",
+      "¿Buscas contratar a alguien que edite mis videos? Esteban Moreno Media edita a distancia Reels, YouTube, anuncios y video bilingüe desde el sur de Florida.",
     eyebrow: "Edición de video remota",
     h1: "Contrata un editor de video remoto para Reels, YouTube, anuncios y videos de tu negocio.",
-    lead:
-      "Esteban trabaja con el material que le envías, los archivos de tu marca y notas claras, así que un negocio en el sur de Florida o en otro estado puede pedir la edición sin reservar una grabación local.",
+    lead: buyerQuestion("remote-bilingual-editing", "es").lead,
     keyword: "contratar editor de video remoto",
     location: "Remoto / sur de Florida",
     availability: "confirmed",
@@ -6731,12 +6813,20 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué referencias, logotipo o tipografías debe seguir la edición?",
       "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
     ],
-    sectionsHeading: "Estrategia, formato y edición remota para negocios",
-    answerFirst: `El editor remoto es Esteban Moreno Media, con base en Fort Lauderdale y clientes en todo Estados Unidos y Latinoamérica. Tú grabas con tu celular o tu cámara, subes el material a Drive o Dropbox y Esteban lo convierte en Reels, videos de YouTube, anuncios o clips para tu sitio, sin que nadie tenga que viajar. Todo se conversa en español, por mensajes o notas de voz, y cada entrega llega con su ronda de cambios. La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o por semana si publicas seguido; cada proyecto recibe una cotización por escrito antes de empezar.`,
+    sectionsHeading: "¿Cómo contratar a alguien que edite mis videos?",
+    answerFirst: buyerQuestion("remote-bilingual-editing", "es").answer,
+    answerQuestion: buyerQuestion("remote-bilingual-editing", "es").question,
     fitQuestion: "¿Cuándo encaja la edición remota?",
     projectFit:
-      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
+      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte. Si tu negocio está en Broward, el [editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) explica la edición de Reels con tus clips.",
     sections: [
+      {
+        heading: "¿Quieres contratar a alguien que edite tus videos?",
+        paragraphs: [
+          `Contratar a alguien que edite tus videos empieza desde ${usd(SHORT_FORM.perVideoFrom)} por video terminado con el paquete Arranque, con un plazo de entrega de al menos ${turnaroundFor("arranque").minimumDays} días: subes tus archivos originales a una carpeta compartida y recibes por enlace los videos editados y listos para publicar.`,
+          `No necesitas aprender a editar ni explicar términos técnicos: basta con decir qué quieres que el video logre y dónde se va a publicar. Puedes ver un ejemplo real en [Homeowners](/es/portafolio/homeowners), un video que Esteban editó con el material que entregó la agencia.`,
+        ],
+      },
       {
         heading: "¿Cómo se contrata a un editor de video remoto?",
         paragraphs: [
@@ -7123,52 +7213,6 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Qué piezas ayudan más a cerrar presupuestos comerciales con propietarios?",
         answer:
           "Los casos de estudio breves que muestran el proceso completo y el testimonio final del cliente aportan la mayor eficacia en ventas.",
-      },
-    ],
-  },
-  {
-    slug: "videografo-de-quinceaneras-miami",
-    title: "Videógrafo de quinceañeras en Miami",
-    metadataTitle: "Videógrafo de Quinceañeras Miami",
-    description:
-      "Videógrafo de quinceañeras en Miami: cobertura integral de misa y salón, multicámara para el vals, corte de honor y videos verticales familiares.",
-    eyebrow: "Eventos Familiares / Quinceañeras",
-    h1: "Videógrafo de fiestas de quinceañera y aniversarios.",
-    lead:
-      "Cinematografía emotiva de la misa religiosa, coreografía de la corte, baile de vals y celebración festiva para familias en South Florida.",
-    keyword: "videógrafo de quinceañeras en Miami",
-    location: "Miami / Coral Gables / Doral / Kendall",
-    availability: "confirmed",
-    icon: Heart,
-    bestFor: [
-      "Familias que desean una película cinematográfica completa y cuidada del festejo de quince años.",
-      "Quinceañeras que buscan clips dinámicos en vertical para compartir con amistades en Instagram y TikTok.",
-    ],
-    scopingQuestions: [
-      "¿En qué iglesia y salón de recepciones se celebrará la misa y la fiesta de quinceañera?",
-      "¿Se contempla cobertura desde los preparativos de maquillaje y peinado en casa o desde la iglesia?",
-    ],
-    projectFit:
-      "Grabación multicámara respetuosa, iluminación ambiental cuidada y sonido directo de la mesa de mezclas para discursos y música.",
-    updated: "2026-10-18",
-    sections: QUINCEANERA_VIDEOGRAPHER_ES_SECTIONS,
-    sectionsDisclosure: QUINCEANERA_VIDEOGRAPHER_ES_DISCLOSURE,
-    sectionsDestinations: QUINCEANERA_VIDEOGRAPHER_ES_DESTINATIONS,
-    faqs: [
-      {
-        question: "¿Cuántos camarógrafos se desplazan para cubrir la fiesta de quinceañera?",
-        answer:
-          "Recomendamos un equipo de dos operadores para captar la ceremonia religiosa y los bailes de la corte desde varios ángulos simultáneos.",
-      },
-      {
-        question: "¿Cómo se asegura la calidad del audio en los brindis y las palabras de los padres?",
-        answer:
-          "Conectamos grabadores directamente al equipo del DJ y colocamos micrófonos inalámbricos discretos en los protagonistas.",
-      },
-      {
-        question: "¿Cuándo recibe la familia los videos terminados de la celebración?",
-        answer:
-          "Entregamos un adelanto vertical en la primera semana tras la fiesta, y el documental completo tras el proceso de corrección de color.",
       },
     ],
   },
@@ -10059,6 +10103,11 @@ for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-interna
   languageAlternatesRaw[en] = { "en-US": en, "es-US": es, "x-default": en };
   languageAlternatesRaw[es] = { "en-US": en, "es-US": es, "x-default": en };
 }
+
+const WEDDING_PACKAGES_EN = "/services/wedding-packages";
+const WEDDING_PACKAGES_ES = "/es/paquetes-de-boda";
+languageAlternatesRaw[WEDDING_PACKAGES_EN] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
+languageAlternatesRaw[WEDDING_PACKAGES_ES] = { "en-US": WEDDING_PACKAGES_EN, "es-US": WEDDING_PACKAGES_ES, "x-default": WEDDING_PACKAGES_EN };
 
 const PRIVATE_PARTY_EN = "/services/private-party-videographer-south-florida";
 const PRIVATE_PARTY_ES = "/es/videografo-para-fiestas-privadas-sur-de-florida";

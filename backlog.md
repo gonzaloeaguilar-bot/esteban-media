@@ -1,3 +1,13 @@
+## 2026-11-26 — Commercial-intent package
+
+- [x] Money wall, ES videographer price page, hire wording, quinceañera 301 consolidation, "Need someone this week?" block, proof links, contact_click lead_type + landing_page (branch geo/commercial-intent-package).
+- [ ] After merge + deploy: curl the 2 quinceañera 301s, raw-HTML check of `/es/cuanto-cobra-un-videografo-en-miami`, run analytics-gate.mjs on the changed URLs, and read GA4 contact_click by lead_type/landing_page at T+14.
+- [ ] Refresh the stale Spanish text-parity baseline (stale since 2026-10-29) and resolve the services-config ladder false positive it triggers.
+
+## 2026-11-25 — Priority-growth owned_site_ctr on HVAC & Contractor Video Production Florida (priority-growth:2026-11-25:esteban)
+
+- [x] Implement `owned_site_ctr` priority-growth recommendation on `/services/contractor-video-marketing-florida`: align title and meta description to target "hvac video production fl" / trade contractor searches, add targeted ServiceAnswerFirst override for HVAC compressor and duct installations, and render compact `ClientReviews` Google proof. Verified with `pnpm lastmod:update`, `pnpm vitest run`, `pnpm lint`, `pnpm typecheck`, `pnpm rail-adoption:check`, `pnpm build`, and `priority-growth-project-verify.sh`.
+
 ## 2026-11-23 — Local GBP conversion proof on caption styles guide (priority-growth:2026-11-23:esteban)
 
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/guides/best-caption-styles-for-instagram-reels` and Spanish twin: add direct link to verified Google Business Profile public reviews (`reviewSourceUrl`) in `CaptionGuideNextStep` with attributable CTA `caption_guide_local_proof_gbp`. Verified with `npm test` and `priority-growth-project-verify.sh`.

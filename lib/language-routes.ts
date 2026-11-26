@@ -13,6 +13,7 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/services": "/es/servicios",
   "/real-estate": "/es/bienes-raices",
   "/pricing": "/es/precios",
+  "/services/wedding-packages": "/es/paquetes-de-boda",
   "/services/conversion-websites": "/es/sitios-web-de-conversion",
   "/services/ai-lead-capture-automation": "/es/captura-y-automatizacion-de-clientes-con-ia",
   "/services/local-presence-seo": "/es/presencia-local-seo",
@@ -184,8 +185,6 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-med-spas-y-cirujanos-plasticos-miami",
   "/services/contractor-video-marketing-florida":
     "/es/video-marketing-para-contratistas-florida",
-  "/services/quinceanera-videographer-miami":
-    "/es/videografo-de-quinceaneras-miami",
   "/services/multicam-podcast-video-production-miami":
     "/es/produccion-de-podcast-con-multicamara-miami",
   "/services/personal-injury-lawyer-video-miami":

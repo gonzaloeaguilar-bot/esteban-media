@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, isWrongIntentExcluded, readCitationRows, readWrongIntentExclusions, recommendation, scoreParts, writeWrongIntentExclusions } from "./free-capture-score.mjs";
+import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, isInstrumentSuspect, isWrongIntentExcluded, readCitationRows, readWrongIntentExclusions, recommendation, scoreParts, writeWrongIntentExclusions } from "./free-capture-score.mjs";
 
 const now = "2026-11-06T12:00:00.000Z";
 
@@ -95,5 +95,68 @@ describe("free capture score", () => {
     } finally {
       await rm(directory, { recursive: true, force: true });
     }
+  });
+
+  describe("instrument suspect detection", () => {
+    it("flags desktop-only top-3 zero-click rows with impressions >= 10 as instrument-suspect", () => {
+      const suspectRow = { query: "video production services", impressions: 56, clicks: 0, position: 1.0, desktopImpressions: 56, mobileImpressions: 0 };
+      expect(isInstrumentSuspect(suspectRow)).toBe(true);
+
+      const score = scoreParts(suspectRow, []);
+      expect(score.ctrOpportunity).toBe(0);
+      expect(recommendation(score.total, suspectRow)).toContain("likely rank tracker or repeat viewer");
+
+      const measurementWithSuspect = {
+        generatedAt: "2026-11-23T12:00:00.000Z",
+        window: { startDate: "2026-10-25", endDate: "2026-11-21" },
+        rows: {
+          queryPage: [
+            { keys: ["video production services", "https://estebanmorenomedia.com/"], impressions: 56, clicks: 0, ctr: 0, position: 1.0, desktopImpressions: 56, mobileImpressions: 0 },
+          ],
+        },
+      };
+      const candidates = buildCandidates(measurementWithSuspect, []);
+      expect(candidates[0].instrumentSuspect).toBe(true);
+      expect(candidates[0].score.ctrOpportunity).toBe(0);
+      expect(recommendation(candidates[0].score.total, candidates[0])).toContain("likely rank tracker or repeat viewer");
+    });
+
+    it("does not flag mobile-heavy rows as suspect and awards ctrOpportunity", () => {
+      const mobileRow = { query: "video editor miami", impressions: 30, clicks: 0, position: 2.0, desktopImpressions: 5, mobileImpressions: 25 };
+      expect(isInstrumentSuspect(mobileRow)).toBe(false);
+      const score = scoreParts(mobileRow, []);
+      expect(score.ctrOpportunity).toBe(1);
+      expect(recommendation(score.total, mobileRow)).not.toContain("likely rank tracker");
+    });
+
+    it("fails open when device fields are missing (never marks suspect)", () => {
+      const missingDeviceRow = { query: "video editor miami", impressions: 30, clicks: 0, position: 2.0 };
+      expect(isInstrumentSuspect(missingDeviceRow)).toBe(false);
+      const score = scoreParts(missingDeviceRow, []);
+      expect(score.ctrOpportunity).toBe(1);
+      expect(recommendation(score.total, missingDeviceRow)).not.toContain("likely rank tracker");
+    });
+
+    it("handles the 0.9 desktop share boundary strictly", () => {
+      // Exactly 0.9 (9 desktop, 1 mobile -> 9 / 10 = 0.9)
+      const exactlyBoundary = { query: "test query", impressions: 10, clicks: 0, position: 3.0, desktopImpressions: 9, mobileImpressions: 1 };
+      expect(isInstrumentSuspect(exactlyBoundary)).toBe(true);
+
+      // Just below 0.9 (89 desktop, 11 mobile -> 89 / 100 = 0.89)
+      const belowBoundary = { query: "test query", impressions: 100, clicks: 0, position: 3.0, desktopImpressions: 89, mobileImpressions: 11 };
+      expect(isInstrumentSuspect(belowBoundary)).toBe(false);
+
+      // Position > 3 should not be marked suspect even if 100% desktop
+      const position4 = { query: "test query", impressions: 20, clicks: 0, position: 3.1, desktopImpressions: 20, mobileImpressions: 0 };
+      expect(isInstrumentSuspect(position4)).toBe(false);
+
+      // Clicks > 0 should not be marked suspect
+      const withClicks = { query: "test query", impressions: 20, clicks: 1, position: 1.0, desktopImpressions: 20, mobileImpressions: 0 };
+      expect(isInstrumentSuspect(withClicks)).toBe(false);
+
+      // Impressions < 10 should not be marked suspect
+      const lowImpressions = { query: "test query", impressions: 9, clicks: 0, position: 1.0, desktopImpressions: 9, mobileImpressions: 0 };
+      expect(isInstrumentSuspect(lowImpressions)).toBe(false);
+    });
   });
 });

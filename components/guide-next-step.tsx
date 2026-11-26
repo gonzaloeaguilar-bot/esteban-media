@@ -17,6 +17,8 @@ const copy = {
     talkTitle: "Talk through my project",
     talkDetail: "Send the goal, what you have so far and where it needs to live. Esteban can point you to the useful next step.",
     talkAction: "Ask on WhatsApp",
+    briefAction: "Build a detailed video brief",
+    briefFallback: "Or ask directly on WhatsApp",
     messagePrefix: "Hi Esteban, I am reading your guide ",
     messageSuffix: ". I want help with a project. The goal is ____; I have ____; it needs to live on ____.",
   },
@@ -30,15 +32,28 @@ const copy = {
     talkTitle: "Hablar de mi proyecto",
     talkDetail: "Comparte el objetivo, lo que tienes hasta ahora y dónde necesita vivir. Esteban puede indicar el siguiente paso útil.",
     talkAction: "Pedir por WhatsApp",
+    briefAction: "Preparar un brief detallado",
+    briefFallback: "O pedir directamente por WhatsApp",
     messagePrefix: "Hola Esteban, estoy leyendo tu guía ",
     messageSuffix: ". Quiero ayuda con un proyecto. El objetivo es ____; tengo ____; necesita vivir en ____.",
   },
 } as const;
 
 /** A deliberately low-pressure, server-rendered choice for every guide. */
-export function GuideNextStep({ locale, guideTitle }: { locale: Locale; guideTitle: string }) {
+export function GuideNextStep({
+  locale,
+  guideTitle,
+  briefSource,
+}: {
+  locale: Locale;
+  guideTitle: string;
+  briefSource?: string;
+}) {
   const text = copy[locale];
   const message = `${text.messagePrefix}"${guideTitle}"${text.messageSuffix}`;
+  const briefHref = briefSource
+    ? `${locale === "es" ? "/es/contacto" : "/contact"}?source=${encodeURIComponent(briefSource)}#video-brief`
+    : null;
 
   return (
     <section
@@ -61,19 +76,42 @@ export function GuideNextStep({ locale, guideTitle }: { locale: Locale; guideTit
             {text.continueAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
           </span>
         </Link>
-        <a
-          href={whatsappHref(site.phone.e164, message)}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="guide_next_step_whatsapp"
-          className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
-        >
-          <span className="block font-serif text-2xl leading-tight">{text.talkTitle}</span>
-          <span className="mt-2 block text-sm leading-6 text-white/85">{text.talkDetail}</span>
-          <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
-            <MessageCircle className="size-4" aria-hidden="true" />{text.talkAction}
-          </span>
-        </a>
+        {briefHref ? (
+          <div className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]">
+            <span className="block font-serif text-2xl leading-tight">{text.talkTitle}</span>
+            <span className="mt-2 block text-sm leading-6 text-white/85">{text.talkDetail}</span>
+            <Link
+              href={briefHref}
+              data-cta="guide_next_step_brief"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold underline underline-offset-4"
+            >
+              {text.briefAction}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+            <a
+              href={whatsappHref(site.phone.e164, message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="guide_next_step_whatsapp"
+              className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white/85 underline underline-offset-4 hover:text-white"
+            >
+              <MessageCircle className="size-4" aria-hidden="true" />{text.briefFallback}
+            </a>
+          </div>
+        ) : (
+          <a
+            href={whatsappHref(site.phone.e164, message)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="guide_next_step_whatsapp"
+            className="group rounded-xl border border-[#9f3c27] bg-[#9f3c27] p-4 text-white transition hover:bg-[#7f2f21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f3c27]"
+          >
+            <span className="block font-serif text-2xl leading-tight">{text.talkTitle}</span>
+            <span className="mt-2 block text-sm leading-6 text-white/85">{text.talkDetail}</span>
+            <span className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold">
+              <MessageCircle className="size-4" aria-hidden="true" />{text.talkAction}
+            </span>
+          </a>
+        )}
       </div>
     </section>
   );

@@ -20,7 +20,8 @@ describe("US-Spanish money pages & contextual linking", () => {
     if (!ftl || !miami) return;
 
     // Title / metadataTitle: includes the "editor de video" intent alongside Reels.
-    expect(ftl.metadataTitle).toBe("Editor de Video y Reels");
+    // 2026-11-24: metadataTitle names the city directly for phone demand.
+    expect(ftl.metadataTitle).toBe("Editor de Reels en Fort Lauderdale");
     expect(ftl.description).toContain("Edición");
     expect(ftl.description).toContain("videos cortos");
     expect(ftl.lead).toContain("editor de video en Fort Lauderdale");
@@ -98,7 +99,9 @@ describe("US-Spanish money pages & contextual linking", () => {
     expect(miamiAllText).toContain("/es/editor-de-video-miami");
 
     const hubAllText = hub?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
-    expect(hubAllText).toContain("[editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale)");
+    // 2026-11-26 one-owner-per-query: the short-form hub is the topical source for
+    // "editor de videos cortos fort lauderdale", so its link to the same owner uses that anchor.
+    expect(hubAllText).toContain("[editor de videos cortos en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale)");
     expect(hubAllText).toContain("[editor de Reels en Miami](/es/editor-de-reels-miami)");
 
     const miamiEditorAllText = miamiEditor?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
@@ -147,5 +150,11 @@ describe("US-Spanish money pages & contextual linking", () => {
     expect(page?.sections).toBeDefined();
     expect(page?.sections?.length).toBeGreaterThanOrEqual(5);
     expect(page?.faqs.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("includes exact short-form video editor phrases in Fort Lauderdale page data", () => {
+    const ftl = getSpanishNichePage("editor-de-reels-fort-lauderdale");
+    expect(ftl).toBeDefined();
+    expect(ftl?.answerFirst).toContain("editor de videos cortos en Fort Lauderdale");
   });
 });

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -171,6 +172,7 @@ export default function CorporateEventVideographerFortLauderdalePage() {
           </div>
         </Container>
       </section>
+      <NeedSomeoneThisWeek locale="en" proof={{ href: "/portfolio/bar-door-monkey", label: "Bar Door Monkey Miami, a published venue promo (not event coverage)" }} />
       <ServiceFaqs
         heading="Common questions before you start."
         faqs={PORTED_SERVICE_FAQS["/services/corporate-event-videographer-fort-lauderdale"]}

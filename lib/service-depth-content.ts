@@ -2,6 +2,7 @@ import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service
 import { priceSentence } from "@/lib/packages";
 import {
   CARE_AND_PRODUCTION_PLANS,
+  CELEBRATION_FILM_BUNDLES,
   SHORT_FORM,
   TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
@@ -2361,23 +2362,6 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Two-minute video case studies detailing complete scope of work and homeowner satisfaction provide powerful digital proof during in-person sales bids.",
     },
   ],
-  "/services/quinceanera-videographer-miami": [
-    {
-      question: "How many camera operators are recommended for a full quinceañera event?",
-      answer:
-        "A two-person camera crew ensures continuous multi-angle coverage of church blessings, court dances, and emotional family reactions simultaneously.",
-    },
-    {
-      question: "How is sound captured during loud ballroom music, waltzes, and family toasts?",
-      answer:
-        "Direct audio connections to the DJ soundboard paired with discreet wireless lapel microphones guarantee crystal-clear recording of all speeches.",
-    },
-    {
-      question: "When will our family receive the finished quinceañera highlight video?",
-      answer:
-        "A dynamic vertical social teaser is delivered within one week of the party, with complete documentary films delivered following comprehensive color grading.",
-    },
-  ],
   "/services/multicam-podcast-video-production-miami": [
     {
       question: "Can you film our podcast on-location at our corporate office or private studio?",
@@ -3200,7 +3184,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "Published proof for this kind of edit: seven vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
+    note: "Published proof for this kind of edit: ten vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
   },
   craftHeading: "What a pre-construction reel has to get right.",
   craft: [
@@ -3239,7 +3223,7 @@ export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for property marketing.",
   related: [
-    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with seven published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with ten published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
     { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
     { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
   ],
@@ -3254,7 +3238,7 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
   proof: {
     href: "/services/real-estate-reels-video-editor-south-florida",
     label: "Watch the property reels",
-    note: "The seven reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
+    note: "The ten reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
   },
   craftHeading: "What a short-term rental tour needs from the edit.",
   craft: [
@@ -3288,12 +3272,12 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
     {
       question: "Is there published property work to look at?",
       answer:
-        "Yes. The real estate reels page shows seven vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
+        "Yes. The real estate reels page shows ten vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs, an agent-led social edit and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
     },
   ],
   relatedHeading: "Related services for property hosts and managers.",
   related: [
-    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with seven published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with ten published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
     { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits for local businesses near the base.", href: "/services/reels-editor-fort-lauderdale" },
     { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
   ],
@@ -3559,6 +3543,10 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
       question: "When should the family book the edit?",
       answer:
         "Before the date, so the shot list, the deliverables and the songs are agreed while there is still time to plan. If the party has already happened, send the footage and a list of the moments that matter most; the edit is scoped from what was recorded. Delivery dates are confirmed in the written quote rather than promised in advance.",
+    },
+    {
+      question: "How much does a quinceañera video cost in Miami?",
+      answer: `Private celebration finished film packages start from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} for half-day coverage, including consultation and a finished highlight film. If another videographer films the party, editing supplied footage into social clips starts from ${enStarter()}. Scope, hours, and travel are confirmed in writing before booking.`,
     },
   ],
   relatedHeading: "Related services for celebrations and events.",

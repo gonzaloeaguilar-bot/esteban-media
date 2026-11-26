@@ -84,8 +84,8 @@
   "hash": "0d2248a88579ee5d"
  },
  "/contact": {
-  "date": "2026-11-22",
-  "hash": "edd8b8b64b434291"
+  "date": "2026-11-23",
+  "hash": "9d0a120028327f03"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -224,8 +224,12 @@
   "hash": "134e9029c91a30c5"
  },
  "/es/contratar-editor-de-video-remoto": {
-  "date": "2026-11-11",
-  "hash": "6a7ec8f8152aa10e"
+  "date": "2026-11-26",
+  "hash": "8f75fba01e351e4c"
+ },
+ "/es/cuanto-cobra-un-videografo-en-miami": {
+  "date": "2026-11-26",
+  "hash": "b1a9306fee621094"
  },
  "/es/diseno-web-fort-lauderdale": {
   "date": "2026-10-14",
@@ -320,16 +324,16 @@
   "hash": "60be7a8353dbee74"
  },
  "/es/editor-de-reels-fort-lauderdale": {
-  "date": "2026-11-22",
-  "hash": "1e84bb4e5b8dac45"
+  "date": "2026-11-26",
+  "hash": "ef7549c157b4b50f"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-11-19",
   "hash": "35c3949db3329cf8"
  },
  "/es/editor-de-video-corto-para-redes-miami": {
-  "date": "2026-11-06",
-  "hash": "f6953927fe959200"
+  "date": "2026-11-26",
+  "hash": "5fcb24cc18c2e987"
  },
  "/es/editor-de-video-miami": {
   "date": "2026-11-03",
@@ -368,8 +372,8 @@
   "hash": "8bb10885950fa739"
  },
  "/es/eventos/video-para-art-basel-miami-beach": {
-  "date": "2026-11-21",
-  "hash": "2f593380a3cb1f93"
+  "date": "2026-11-26",
+  "hash": "869a4dcf4a9563ca"
  },
  "/es/eventos/video-para-el-boat-show-de-fort-lauderdale": {
   "date": "2026-11-21",
@@ -536,8 +540,8 @@
   "hash": "158ba3c0ca1af52f"
  },
  "/es/guias/edicion-remota-central-florida": {
-  "date": "2026-11-08",
-  "hash": "4d00d0e829ca16da"
+  "date": "2026-11-26",
+  "hash": "354f1cec946dc93c"
  },
  "/es/guias/edicion-remota-vs-estudio-local": {
   "date": "2026-10-07",
@@ -556,8 +560,8 @@
   "hash": "40854728ec6872a0"
  },
  "/es/guias/editores-de-video-fort-lauderdale-comparados": {
-  "date": "2026-11-04",
-  "hash": "8975a68a9758c33a"
+  "date": "2026-11-26",
+  "hash": "7b03074a4e8c5270"
  },
  "/es/guias/entrega-para-edicion-remota-de-video": {
   "date": "2026-10-07",
@@ -632,8 +636,8 @@
   "hash": "4be8e6c2c6c3ad14"
  },
  "/es/guias/precios-edicion-de-reels-y-video-sur-de-florida": {
-  "date": "2026-11-04",
-  "hash": "e7017231f00b9bae"
+  "date": "2026-11-26",
+  "hash": "590a0715aa8a7ce8"
  },
  "/es/guias/preparar-material-para-edicion-de-video": {
   "date": "2026-10-07",
@@ -738,6 +742,10 @@
  "/es/marketing-de-video-para-superyates-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "c03af493ccb2b851"
+ },
+ "/es/paquetes-de-boda": {
+  "date": "2026-11-24",
+  "hash": "0aeba5267387575d"
  },
  "/es/planificador-de-ganchos-de-video": {
   "date": "2026-10-14",
@@ -844,8 +852,8 @@
   "hash": "2f0c94ff1fd3c57b"
  },
  "/es/precios": {
-  "date": "2026-11-04",
-  "hash": "29c7e6fa824f433e"
+  "date": "2026-11-26",
+  "hash": "8aa6b7ac901cbaab"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -954,6 +962,10 @@
  "/es/serie-de-video-para-linkedin-ejecutivo-miami": {
   "date": "2026-10-19",
   "hash": "41b97e6bb66dbbf1"
+ },
+ "/es/servicio-de-edicion-de-video-para-youtube-miami": {
+  "date": "2026-11-24",
+  "hash": "247a9b54d5cbeac6"
  },
  "/es/servicio-de-subtitulado-bilingue-de-video": {
   "date": "2026-11-02",
@@ -1064,8 +1076,8 @@
   "hash": "9892d91ed693bf49"
  },
  "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
-  "date": "2026-10-22",
-  "hash": "4afa4543ebdd3577"
+  "date": "2026-11-25",
+  "hash": "db2a09cefad96fa9"
  },
  "/es/video-para-arquitectura-y-diseno-miami": {
   "date": "2026-08-14",
@@ -1156,8 +1168,8 @@
   "hash": "df78ce8dc0574ddd"
  },
  "/es/video-para-quinceaneras-miami": {
-  "date": "2026-10-14",
-  "hash": "1607acf52a844c27"
+  "date": "2026-11-26",
+  "hash": "e382e92b0c64034e"
  },
  "/es/video-para-relojes-de-lujo-miami": {
   "date": "2026-10-18",
@@ -1207,17 +1219,13 @@
   "date": "2026-10-19",
   "hash": "9688dfa967267433"
  },
- "/es/videografo-de-quinceaneras-miami": {
-  "date": "2026-10-19",
-  "hash": "380098a8425a9c62"
- },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
   "hash": "822555f11cf084b0"
  },
  "/es/videografo-en-miami": {
-  "date": "2026-10-15",
-  "hash": "f6139724aa772a06"
+  "date": "2026-11-26",
+  "hash": "7451cc7237ac6757"
  },
  "/es/videografo-para-activacion-de-marca-miami": {
   "date": "2026-10-19",
@@ -1264,16 +1272,16 @@
   "hash": "01725ba118260098"
  },
  "/es/videografo-para-ferias-comerciales-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "897c2b8d468ead3b"
+  "date": "2026-11-26",
+  "hash": "d6e423f5d915d8bb"
  },
  "/es/videografo-para-fiestas-en-yates-miami": {
   "date": "2026-10-19",
   "hash": "167adc1655ff9b14"
  },
  "/es/videografo-para-fiestas-privadas-sur-de-florida": {
-  "date": "2026-10-28",
-  "hash": "3c11f19577b267ce"
+  "date": "2026-11-26",
+  "hash": "a0fd6c85ab24ab06"
  },
  "/es/videografo-para-galas-corporativas-miami": {
   "date": "2026-10-18",
@@ -1304,8 +1312,8 @@
   "hash": "10a506c37d7e2d98"
  },
  "/events/art-basel-miami-beach-video": {
-  "date": "2026-11-21",
-  "hash": "9648710a177af33b"
+  "date": "2026-11-26",
+  "hash": "9dfa228089c71028"
  },
  "/events/boca-raton-events-video": {
   "date": "2026-11-21",
@@ -1372,8 +1380,8 @@
   "hash": "ca218abab005605d"
  },
  "/guides/central-florida-footage-editing": {
-  "date": "2026-11-08",
-  "hash": "121fc19fe0789133"
+  "date": "2026-11-26",
+  "hash": "aeb2fb1797c0ceed"
  },
  "/guides/color-grading-vs-color-correction-guide": {
   "date": "2026-10-07",
@@ -1504,8 +1512,8 @@
   "hash": "6c7f35a6f9ed4721"
  },
  "/guides/reels-video-editing-prices-south-florida": {
-  "date": "2026-11-04",
-  "hash": "aba319a75abf759c"
+  "date": "2026-11-26",
+  "hash": "4cbfc4a2619bf2eb"
  },
  "/guides/reels-vs-tiktok-vs-shorts-for-local-business": {
   "date": "2026-10-07",
@@ -1544,8 +1552,8 @@
   "hash": "8406ca00f1e25bd4"
  },
  "/guides/video-editors-fort-lauderdale-compared": {
-  "date": "2026-11-04",
-  "hash": "359ada9f70467d36"
+  "date": "2026-11-26",
+  "hash": "3a54c17d4afae61f"
  },
  "/guides/video-production-cost-fort-lauderdale": {
   "date": "2026-10-28",
@@ -1868,8 +1876,8 @@
   "hash": "04f91ca3a81ca008"
  },
  "/services/contractor-video-marketing-florida": {
-  "date": "2026-10-19",
-  "hash": "61693e5353b2e626"
+  "date": "2026-11-25",
+  "hash": "4365367196156801"
  },
  "/services/contractor-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1880,8 +1888,8 @@
   "hash": "699ab8811610b454"
  },
  "/services/corporate-event-videographer-fort-lauderdale": {
-  "date": "2026-10-18",
-  "hash": "237b6cd7637ecffb"
+  "date": "2026-11-26",
+  "hash": "7af731016fafdf10"
  },
  "/services/corporate-event-videographer-miami": {
   "date": "2026-10-18",
@@ -1952,8 +1960,8 @@
   "hash": "07013d514fe11441"
  },
  "/services/destination-wedding-videographer-palm-beach": {
-  "date": "2026-10-19",
-  "hash": "3f87c671008d2972"
+  "date": "2026-11-24",
+  "hash": "5462de57cb7d5061"
  },
  "/services/drone-video-editing-service-miami": {
   "date": "2026-10-13",
@@ -2020,8 +2028,8 @@
   "hash": "1c4f65f7111e50c9"
  },
  "/services/hire-remote-video-editor": {
-  "date": "2026-11-11",
-  "hash": "3d922b69f4ca8dd1"
+  "date": "2026-11-26",
+  "hash": "c42ee000b01cb0a7"
  },
  "/services/hotel-hospitality-video-production-miami": {
   "date": "2026-10-13",
@@ -2156,8 +2164,8 @@
   "hash": "3b24c084b962dcea"
  },
  "/services/private-party-videographer-south-florida": {
-  "date": "2026-10-28",
-  "hash": "47042039981dc71f"
+  "date": "2026-11-26",
+  "hash": "3a8f2791bbbe2fed"
  },
  "/services/private-school-admissions-video-miami": {
   "date": "2026-10-19",
@@ -2176,20 +2184,16 @@
   "hash": "6ce881cafa2b0c8e"
  },
  "/services/quinceanera-video-miami": {
-  "date": "2026-10-13",
-  "hash": "af7d3503a42a87c0"
- },
- "/services/quinceanera-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "6cd2110f1fb4f86f"
+  "date": "2026-11-26",
+  "hash": "833d1cbd0ad73ff1"
  },
  "/services/real-estate-drone-video-editing-miami": {
   "date": "2026-10-13",
   "hash": "762d39751aa02d2e"
  },
  "/services/real-estate-reels-video-editor-south-florida": {
-  "date": "2026-10-30",
-  "hash": "d2c115d7a8f0ac97"
+  "date": "2026-11-25",
+  "hash": "a785f1a60d42ee71"
  },
  "/services/real-estate-video-coral-gables": {
   "date": "2026-10-13",
@@ -2200,12 +2204,12 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-11-21",
-  "hash": "b20966bafedfaeef"
+  "date": "2026-11-24",
+  "hash": "86f0cb8e5b879fae"
  },
  "/services/reels-editor-miami": {
-  "date": "2026-11-21",
-  "hash": "e786b640a0d0e65f"
+  "date": "2026-11-26",
+  "hash": "e9cce0791d6522cc"
  },
  "/services/regenerative-medicine-stem-cell-video-miami": {
   "date": "2026-10-19",
@@ -2228,8 +2232,8 @@
   "hash": "7fe15c1e91652250"
  },
  "/services/short-form-video-editor-miami": {
-  "date": "2026-11-21",
-  "hash": "c43c5774cb6bcd7d"
+  "date": "2026-11-26",
+  "hash": "801afab3a08305d4"
  },
  "/services/small-business-video-hollywood-fl": {
   "date": "2026-10-14",
@@ -2272,8 +2276,8 @@
   "hash": "bd264cc6859c73ca"
  },
  "/services/trade-show-booth-videographer-fort-lauderdale": {
-  "date": "2026-11-23",
-  "hash": "10bffd798798ea91"
+  "date": "2026-11-26",
+  "hash": "461e6a37a54f2d83"
  },
  "/services/ugc-ad-variation-video-editing": {
   "date": "2026-11-03",
@@ -2347,13 +2351,17 @@
   "date": "2026-11-11",
   "hash": "de6d1e85cfa427e4"
  },
+ "/services/wedding-packages": {
+  "date": "2026-11-24",
+  "hash": "714dc12d22cce500"
+ },
  "/services/wedding-videographer-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "848badc11a546d7b"
+  "date": "2026-11-24",
+  "hash": "84fde40e4d96f5d6"
  },
  "/services/wedding-videographer-miami": {
-  "date": "2026-10-18",
-  "hash": "dd4331aef4c52623"
+  "date": "2026-11-26",
+  "hash": "51519be389296e1d"
  },
  "/services/wellness-spa-video-marketing-miami": {
   "date": "2026-10-13",
@@ -2390,5 +2398,9 @@
  "/services/youtube-long-form-video-editing": {
   "date": "2026-10-19",
   "hash": "848e8d567f6b45cd"
+ },
+ "/services/youtube-video-editing-service-miami": {
+  "date": "2026-11-24",
+  "hash": "097d3857ba19466e"
  }
 }

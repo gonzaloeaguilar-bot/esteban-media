@@ -88,6 +88,29 @@ describe("owner re-admissions stay consistent with the noindex list", () => {
       expect(metadata.robots).toBeUndefined();
     }
   });
+
+  it("re-admits the YouTube editing Miami pair: out of the noindex list, indexable, sitemapped", () => {
+    // Owner decision 2026-11-24: Search Console shows 'editor de youtube miami' 17 phone imp (@14.1)
+    // and 'youtube editor miami' 7 phone imp (@11.9). Cohort rule 1 promotes URLs back when they earn impressions.
+    expect(REOPENED_BY_OWNER).toContain("/services/youtube-video-editing-service-miami");
+    expect(REOPENED_BY_OWNER).toContain("/es/servicio-de-edicion-de-video-para-youtube-miami");
+    const paths = new Set(sitemapPaths());
+    for (const path of [
+      "/services/youtube-video-editing-service-miami",
+      "/es/servicio-de-edicion-de-video-para-youtube-miami",
+    ]) {
+      expect(isNoindexPath(path)).toBe(false);
+      expect(isConsolidatedPath(path)).toBe(false);
+      expect(paths.has(path)).toBe(true);
+      const metadata = buildPageMetadata({
+        title: "t",
+        description: "d",
+        path,
+        locale: path.startsWith("/es") ? "es" : "en",
+      });
+      expect(metadata.robots).toBeUndefined();
+    }
+  });
 });
 
 describe("stale decisions were re-validated before execution", () => {
@@ -119,10 +142,10 @@ describe("stale decisions were re-validated before execution", () => {
 });
 
 describe("consolidation arithmetic matches the published baseline", () => {
-  it("removes exactly 25 URLs from the prior 269-URL inventory", () => {
-    // 26 on 2026-08-19; 25 since the owner re-admitted the Boca Raton page on
-    // 2026-10-14 (reopenedByOwner in config/cohort-consolidation.json).
-    expect(consolidatedPathCount()).toBe(25);
+  it("removes exactly 23 URLs from the prior 269-URL inventory", () => {
+    // 26 on 2026-08-19; 25 on 2026-10-14 (Boca Raton reopenedByOwner);
+    // 23 on 2026-11-24 (YouTube video editing Miami pair reopenedByOwner under cohort rule 1).
+    expect(consolidatedPathCount()).toBe(23);
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
     // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
     // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
@@ -171,7 +194,10 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +4 = talking-head and Christian YouTube bilingual pairs (2026-11-19).
     // +4 = attendee interviews and AI commercial Reels (2026-11-18).
     // +2 = Real Estate Hub v2 bilingual pair (/real-estate, /es/bienes-raices) (2026-11-21).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2);
+    // +2 = YouTube video editing Miami pair re-admitted (2026-11-24, owner decision under cohort rule 1).
+    // +1 - 2 = commercial-intent package (2026-11-26): /es/cuanto-cobra-un-videografo-en-miami added;
+    // the quinceañera videographer pair 301ed to the quinceañera video owners.
+    expect(sitemap()).toHaveLength(269 - 23 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1 + 1 + 1 - 2);
   });
 
   it("never lists a redirect source in the sitemap", () => {
