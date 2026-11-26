@@ -52,6 +52,14 @@ export type EventEdition = {
   end: string;
   /** Where the dates were read. Event guides, not the organizer, unless stated. */
   confirmedSource: string;
+  /**
+   * True only when the dates were read on the organizer's own site (the URL in
+   * `sourceUrl`). The pages then say "official dates" instead of "listed
+   * dates", and the event page opens with a booking answer built from them.
+   */
+  organizerConfirmed?: boolean;
+  /** The organizer page the dates were read from, when organizerConfirmed. */
+  sourceUrl?: string;
   /** ISO date the listing was last read. */
   lastChecked: string;
   /** Named sub-windows inside the edition (VIP days, a festival weekend). */
@@ -125,8 +133,13 @@ export const EVENTS: readonly AnnualEvent[] = [
     nextEdition: {
       start: "2026-12-04",
       end: "2026-12-06",
-      confirmedSource: "Art Basel official Miami Beach 2026 fair dates",
-      lastChecked: EVENT_DATES_LAST_CHECKED,
+      // Read 2026-11-26 on the organizer's page: "The next edition of Art Basel
+      // Miami Beach takes place from December 4 to 6, 2026." Evidence in the
+      // vault: esteban-events-nearme-checks-2026-11-26.
+      confirmedSource: "Art Basel official site (artbasel.com/miami-beach)",
+      organizerConfirmed: true,
+      sourceUrl: "https://www.artbasel.com/miami-beach",
+      lastChecked: "2026-11-26",
       windows: [
         { label: { en: "Public fair days", es: "Días abiertos al público" }, start: "2026-12-04", end: "2026-12-06" },
       ],
@@ -153,8 +166,13 @@ export const EVENTS: readonly AnnualEvent[] = [
     nextEdition: {
       start: "2027-02-10",
       end: "2027-02-14",
-      confirmedSource: GUIDE_LISTING,
-      lastChecked: EVENT_DATES_LAST_CHECKED,
+      // Read 2026-11-26 on the organizer's home page: "Don't miss Miami's
+      // premier boating event, February 10-14, 2027!" The 2027 venues are not
+      // listed there yet, so no `where` is printed.
+      confirmedSource: "Discover Boating Miami International Boat Show official site (miamiboatshow.com)",
+      organizerConfirmed: true,
+      sourceUrl: "https://www.miamiboatshow.com",
+      lastChecked: "2026-11-26",
     },
     paths: {
       en: "/events/miami-boat-show-video",

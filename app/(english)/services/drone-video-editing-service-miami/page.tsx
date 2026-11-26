@@ -12,12 +12,16 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { NearMeAnswer } from "@/components/near-me-answer";
+import { DRONE_NEAR_ME } from "@/lib/near-me-answers";
+import { EXPANSION_SERVICES, SHORT_FORM, usd } from "@/lib/pricing";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Drone Video Editing Service Miami",
-  description:
-    "Drone video editing service in Miami: 4K aerial footage post-production, horizon color grading, video stabilization, and speed ramping.",
+  // Near-me gap fill 2026-11-26: "drone videographer near me" (3 engines) had
+  // no owner page; GSC 90d showed 0 impressions for any drone phrase.
+  title: "Drone Videographer & Drone Video Editing Miami",
+  description: `Drone videographer in Miami and Fort Lauderdale: drone sessions from ${usd(EXPANSION_SERVICES.droneSessionFrom)}, and editing of your aerial footage from ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/drone-video-editing-service-miami",
   locale: "en",
 });
@@ -101,26 +105,28 @@ export default function DroneVideoEditingServiceMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Drone video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our{" "}
+                On the{" "}
                 <Link
-                  href="/portfolio"
+                  href="/portfolio/banacol"
                   className="underline underline-offset-4 hover:text-[#9f3c27]"
                 >
-                  portfolio
+                  Banacol
                 </Link>{" "}
-                project <strong>Homeowners</strong> proves published aerial and real estate drone video editing.
+                project Esteban was the aerial drone cinematographer: three days of flights in Urabá, Colombia, on assignment with the Jungelbox agency.
               </p>
               <Link
-                href="/portfolio/homeowners"
+                href="/case-studies/banacol"
+                data-cta="drone_hero_proof"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Review Homeowners Drone Video Proof
+                Read the Banacol drone case study
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
         </Container>
       </section>
+      <NearMeAnswer content={DRONE_NEAR_ME} />
       <ServiceAnswerFirst service="Drone video editing service" />
 
       <section className="pb-12 sm:pb-16">

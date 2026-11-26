@@ -3,6 +3,7 @@ import { PageUpdated } from "@/components/page-updated";
 import { withPageDate } from "@/lib/page-lastmod";
 import Link from "next/link";
 import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
+import { EventBookingAnswer } from "@/components/event-booking-answer";
 import { ArrowRight, CalendarDays, MessageCircle } from "lucide-react";
 
 import { NumberedList } from "@/components/em-surface";
@@ -15,7 +16,7 @@ import {
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
-import { EVENTS_HUB_COPY, eventFootageHandoffSection, eventScopeSection, getEventPageCopy } from "@/lib/event-content";
+import { EVENTS_HUB_COPY, eventBookingAnswer, eventFootageHandoffSection, eventScopeSection, getEventPageCopy } from "@/lib/event-content";
 import {
   EVENTS,
   EVENTS_HUB_PATHS,
@@ -50,6 +51,8 @@ const UI = {
     home: "Home",
     typical: "Typical window",
     listedYear: (year: string) => `Listed dates for ${year} (confirm dates with organizer)`,
+    officialYear: (year: string) => `Official dates for ${year} (from the organizer's site)`,
+    officialRead: (checked: string) => `Read on the official site ${checked}.`,
     noNext: "The next edition has not been listed yet. Check the official site.",
     listed: (checked: string) => `Dates last checked ${checked}. Confirm current dates on the official site before you plan around them.`,
     official: "Official event site",
@@ -72,6 +75,8 @@ const UI = {
     home: "Inicio",
     typical: "Temporada habitual",
     listedYear: (year: string) => `Fechas publicadas para ${year} (confirmar fechas con el organizador)`,
+    officialYear: (year: string) => `Fechas oficiales para ${year} (del sitio del organizador)`,
+    officialRead: (checked: string) => `Leídas en el sitio oficial el ${checked}.`,
     noNext: "La próxima edición todavía no se ha publicado. Revisa el sitio oficial.",
     listed: (checked: string) => `Fechas revisadas el ${checked}. Confirma las fechas vigentes en el sitio oficial antes de planear alrededor de ellas.`,
     official: "Sitio oficial del evento",
@@ -157,7 +162,7 @@ function EventDates({ event, locale }: { event: AnnualEvent; locale: EventLocale
       <CalendarDays className="size-7 text-[#e85d3e]" aria-hidden="true" />
       <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#9f3c27]">{t.typical}</p>
       <p className="mt-2 font-serif text-3xl leading-tight">{event.typicalWindow[locale]}</p>
-      <p className="mt-5 text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">{edition ? t.listedYear(edition.start.slice(0, 4)) : t.noNext}</p>
+      <p className="mt-5 text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">{edition ? (edition.organizerConfirmed ? t.officialYear(edition.start.slice(0, 4)) : t.listedYear(edition.start.slice(0, 4))) : t.noNext}</p>
       {edition ? (
         <>
           <p className="mt-2 text-base font-medium leading-7">
@@ -173,7 +178,7 @@ function EventDates({ event, locale }: { event: AnnualEvent; locale: EventLocale
             </ul>
           ) : null}
           {edition.where ? <p className="mt-2 text-sm leading-6 text-[#252a2d]">{edition.where[locale]}</p> : null}
-          <p className="mt-3 text-xs leading-5 text-[#5a6066]">{t.listed(formatIsoDate(edition.lastChecked, locale))}</p>
+          <p className="mt-3 text-xs leading-5 text-[#5a6066]">{edition.organizerConfirmed ? t.officialRead(formatIsoDate(edition.lastChecked, locale)) : t.listed(formatIsoDate(edition.lastChecked, locale))}</p>
         </>
       ) : null}
       <a
@@ -318,6 +323,18 @@ function EventDetailsDepth({
   );
 }
 
+/** "Official dates: December 4–6, 2026" on a hub card, only when read on the organizer's site. */
+function OfficialDatesLine({ event, locale }: { event: AnnualEvent; locale: EventLocale }) {
+  const edition = displayEdition(event);
+  if (!edition?.organizerConfirmed) return null;
+  return (
+    <p className="mt-2 text-sm font-medium leading-6 text-[#252a2d]" data-event-official-dates={event.id}>
+      {locale === "es" ? "Fechas oficiales: " : "Official dates: "}
+      {formatDateRange(edition.start, edition.end, locale)}
+    </p>
+  );
+}
+
 function ScannableEventList({
   locale,
   events,
@@ -352,6 +369,7 @@ function ScannableEventList({
               <p className="mt-2 text-xs uppercase tracking-[0.12em] text-[#9f3c27]">
                 {event.typicalWindow[locale]}
               </p>
+              <OfficialDatesLine event={event} locale={locale} />
               <Link
                 href={event.paths[locale]}
                 data-cta={`events_hub_scan_${ctaId(event.id)}`}
@@ -465,7 +483,13 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">{copy.eyebrow}</p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">{copy.h1}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-7">{copy.lead}</p>
-              <HeroPricingSummary locale={locale} />
+              {/* Organizer-confirmed dates: the booking answer (dates + the same published
+                  rates) replaces the pricing box on the first screen. */}
+              {eventBookingAnswer(event, locale) ? (
+                <EventBookingAnswer id={id} locale={locale} variant="hero" />
+              ) : (
+                <HeroPricingSummary locale={locale} />
+              )}
               <PageUpdated path={path} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
               <HeroActions locale={locale} prefix={prefix} eventLabel={event.name} inquiryId={inquiryId} />
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.notAffiliated(affiliationLabel(event, locale))}</p>
