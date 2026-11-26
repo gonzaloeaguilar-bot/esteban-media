@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { buyerQuestion } from "@/lib/buyer-question-answers";
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
@@ -46,6 +47,7 @@ const experiments = [
 ] as const;
 
 export default function CentralFloridaFootageEditingGuide() {
+  const orlandoExecInterview = buyerQuestion("orlando-executive-interview", "en");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -66,8 +68,16 @@ export default function CentralFloridaFootageEditingGuide() {
         <Container size="xl">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Supplied-footage editing</p>
           <h1 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-6xl">Turn footage you already have into video your team can publish.</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-[#3f4548]">For Central Florida teams, remote editing does not require a local shoot: send the approved footage, the audience, the deadline, and the formats you need. Esteban scopes the edit in writing before work begins.</p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-[#3f4548]">{orlandoExecInterview.lead}</p>
           <Link href="/contact?source=orlando-executive-footage" data-cta="central_florida_hub_brief" data-section="central_florida_hub" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">Build an editing brief</Link>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] py-10 sm:py-12">
+        <Container size="xl">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">In short</p>
+          <h2 className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">{orlandoExecInterview.question}</h2>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{orlandoExecInterview.answer}</p>
         </Container>
       </section>
 

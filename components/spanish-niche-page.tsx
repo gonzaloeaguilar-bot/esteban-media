@@ -1702,7 +1702,13 @@ export function SpanishNichePage({
           generic answer below quotes the package prices, so they skip it; their
           hero card already answers the question first. */}
       {isPendingConfirmation || QUOTE_ONLY_SLUGS.has(page.slug) ? null : (
-        <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" answerOverride={page.answerFirst} />
+        <ServiceAnswerFirst
+          service={page.keyword}
+          locale="es"
+          sectionId="en-corto"
+          answerOverride={page.answerFirst}
+          questionOverride={page.answerQuestion}
+        />
       )}
       {sectorOffer ? <SectorQuotePath sector={sectorOffer} locale="es" /> : null}
 

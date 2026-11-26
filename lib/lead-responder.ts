@@ -33,7 +33,8 @@ export type LeadSource =
   | "short-form-editor-miami"
   | "event-attendee-interview"
   | "caption-guide"
-  | "large-files-guide";
+  | "large-files-guide"
+  | "trade-show-raw-files";
 
 const LEAD_SOURCES = new Set<LeadSource>([
   "brief-builder",
@@ -66,6 +67,7 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "event-attendee-interview",
   "caption-guide",
   "large-files-guide",
+  "trade-show-raw-files",
 ]);
 
 /**

@@ -1,4 +1,5 @@
 import { priceSentence } from "@/lib/packages";
+import { buyerQuestion } from "@/lib/buyer-question-answers";
 import {
   ES_CREATOR_START_SECTION,
   ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,
@@ -494,6 +495,11 @@ export type SpanishNichePage = {
    * (subtitling, remote editing) states its own answer here instead.
    */
   answerFirst?: string;
+  /**
+   * Page-specific question heading for "En corto". Replaces the default
+   * question built from the service keyword.
+   */
+  answerQuestion?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
   /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
@@ -3443,8 +3449,9 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Videografía profesional para stands de exhibición, ferias comerciales y convenciones en Fort Lauderdale y Miami con equipo estabilizado 4K.",
     eyebrow: "Ferias Comerciales / Stands B2B",
     h1: "Videógrafo para ferias comerciales y stands de exhibición en Fort Lauderdale.",
-    lead:
-      "Captura dinámica de demostraciones de producto, afluencia en stands y presentaciones corporativas en el Centro de Convenciones de Broward y Miami.",
+    lead: buyerQuestion("trade-show-raw-files", "es").lead,
+    answerFirst: buyerQuestion("trade-show-raw-files", "es").answer,
+    answerQuestion: buyerQuestion("trade-show-raw-files", "es").question,
     keyword: "videógrafo para ferias comerciales en Fort Lauderdale",
     location: "Fort Lauderdale / Broward / Miami",
     availability: "confirmed",
@@ -6714,8 +6721,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Contrata a Esteban Moreno Media para edición de video remota: Reels, YouTube, videos de producto y contenido bilingüe desde el sur de Florida.",
     eyebrow: "Edición de video remota",
     h1: "Contrata un editor de video remoto para Reels, YouTube, anuncios y videos de tu negocio.",
-    lead:
-      "Esteban trabaja con el material que le envías, los archivos de tu marca y notas claras, así que un negocio en el sur de Florida o en otro estado puede pedir la edición sin reservar una grabación local.",
+    lead: buyerQuestion("remote-bilingual-editing", "es").lead,
     keyword: "contratar editor de video remoto",
     location: "Remoto / sur de Florida",
     availability: "confirmed",
@@ -6732,7 +6738,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
     ],
     sectionsHeading: "Estrategia, formato y edición remota para negocios",
-    answerFirst: `El editor remoto es Esteban Moreno Media, con base en Fort Lauderdale y clientes en todo Estados Unidos y Latinoamérica. Tú grabas con tu celular o tu cámara, subes el material a Drive o Dropbox y Esteban lo convierte en Reels, videos de YouTube, anuncios o clips para tu sitio, sin que nadie tenga que viajar. Todo se conversa en español, por mensajes o notas de voz, y cada entrega llega con su ronda de cambios. La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o por semana si publicas seguido; cada proyecto recibe una cotización por escrito antes de empezar.`,
+    answerFirst: buyerQuestion("remote-bilingual-editing", "es").answer,
+    answerQuestion: buyerQuestion("remote-bilingual-editing", "es").question,
     fitQuestion: "¿Cuándo encaja la edición remota?",
     projectFit:
       "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
