@@ -135,6 +135,8 @@ export const localBusinessEntityJsonLd = {
     site.clutch,
     site.theManifest,
     site.youtubeChannel,
+    site.facebook,
+    site.linkedinCompany,
   ],
   knowsLanguage: ["en", "es"],
   availableLanguage: ["Spanish", "English (intermediate)"],
