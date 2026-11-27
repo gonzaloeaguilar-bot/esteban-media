@@ -22,6 +22,7 @@
     "seo:measurement:run": "node scripts/esteban-seo-measurement-report.mjs run",
     "seo:measurement:status": "node scripts/esteban-seo-measurement-report.mjs status",
     "seo:citation-normalize": "node scripts/normalize-geo-citation-receipts.mjs",
+    "geo:citation:record": "node scripts/citation-receipt.mjs",
     "seo:capture-score": "node scripts/normalize-geo-citation-receipts.mjs && node scripts/free-capture-score.mjs report",
     "geo:free-sources": "python3 scripts/esteban-free-geo-sources.py",
     "geo:snapshot": "node scripts/normalize-geo-citation-receipts.mjs && pnpm geo:free-sources && node scripts/esteban-geo-daily-snapshot.mjs run",

@@ -1,3 +1,13 @@
+## 2026-11-27 — Citation measurement layer and data-point registry (branch claude/friendly-lamport-x1hizi)
+
+- Added `config/citation-panel.json` (12 buyer questions, EN+ES, each mapped to a live service page; 5 engines; status `draft-for-owner-review`).
+- Added `scripts/citation-receipt.mjs` (`pnpm geo:citation:record --observations=FILE`): converts captured answers into the receipt format `normalize-geo-citation-receipts.mjs` already reads. Stores cited URLs and a named flag only, never answer text. Any missing or failed prompt makes the receipt incomplete, so it cannot replace a complete measurement. Tests: `scripts/citation-receipt.test.mjs` (11 passing, with the existing normalizer test: 12 total).
+- Added `docs/geo-measurement-data-points.md`: every free data point, its status, and what it does not prove.
+- Measured now: Supabase `esteban_leads` = 4 real web leads (2026-10-07, 10-14, 11-13, 11-22), 2 test rows. The 2026-11-27 email inquiry is not in any system.
+- Not measured: no citation run recorded yet; GBP, Metricool, PageSpeed, Common Crawl and GDELT are unmeasured (GBP and Metricool modules are on the owner's Mac; outbound calls from the container failed); Bing and Ahrefs accounts are not verified.
+- Gap: info@ inbox is not visible to the Gmail connector (it is a separate Google account; alerts go to the owner's Gmail). Security alerts for a new Mac sign-in on info@ (2026-11-27 02:29 UTC) need owner confirmation.
+- Next: owner confirms the panel questions; first citation run on each engine; then `pnpm seo:citation-normalize` and `pnpm seo:capture-score` on the Mac.
+
 ## 2026-11-26 — Prune follow-up: one survivor per zero-signal cluster (branch seo/prune-followup)
 
 - 24 more indexed zero-signal pages 301 (statusCode 301) to a cluster survivor; sitemap 551 -> 527 (533 after #851 added 6 case-study URLs); freeze count/sha, lastmod ledger, GSC watch set (-24), llms-base and text-parity baseline (203 routes) follow. Fresh evidence: GSC 90d 2026-08-28..11-26 (0 impressions on every source), GA4 0 sessions / 0 lead events, URL Inspection: every source Submitted and indexed.
