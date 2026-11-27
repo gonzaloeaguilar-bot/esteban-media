@@ -24,16 +24,24 @@
   "hash": "aab6ec1e0e00aca8"
  },
  "/case-studies": {
-  "date": "2026-10-24",
-  "hash": "ad2644faf0159b62"
+  "date": "2026-11-26",
+  "hash": "a077a4d3ced5bd70"
+ },
+ "/case-studies/ai-edit-prep-reel": {
+  "date": "2026-11-27",
+  "hash": "46d752e4178ee12e"
  },
  "/case-studies/banacol": {
   "date": "2026-11-26",
-  "hash": "4a0a00ddf61f81e0"
+  "hash": "626a67ee4e1e3b6a"
  },
  "/case-studies/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/case-studies/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/case-studies/dupont-realty-international": {
   "date": "2026-10-24",
@@ -45,7 +53,7 @@
  },
  "/case-studies/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "7552260425175781"
+  "hash": "59a0f9e69e2b756e"
  },
  "/case-studies/gains-from-geebs": {
   "date": "2026-10-24",
@@ -57,15 +65,15 @@
  },
  "/case-studies/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "bf6a213d1ea3d563"
+  "hash": "54702e25d01e0e37"
  },
  "/case-studies/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "8e7701eb3882d9bf"
+  "hash": "b2491889068e539e"
  },
  "/case-studies/homeowners": {
   "date": "2026-11-26",
-  "hash": "f8564898cf39afc1"
+  "hash": "16fffd67910a02bb"
  },
  "/case-studies/juanchis-burguer": {
   "date": "2026-10-29",
@@ -73,7 +81,7 @@
  },
  "/case-studies/my-dler": {
   "date": "2026-11-26",
-  "hash": "64bf62b862905685"
+  "hash": "188971d3e5b24fb8"
  },
  "/case-studies/portosole": {
   "date": "2026-10-29",
@@ -83,9 +91,13 @@
   "date": "2026-10-29",
   "hash": "0d2248a88579ee5d"
  },
+ "/case-studies/real-estate-reels-davie": {
+  "date": "2026-11-27",
+  "hash": "433fbf99496dc2cb"
+ },
  "/contact": {
   "date": "2026-11-26",
-  "hash": "16b838895c836d4c"
+  "hash": "06e62dba3c96aa12"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -152,16 +164,24 @@
   "hash": "755a09283e6894f2"
  },
  "/es/casos-de-estudio": {
-  "date": "2026-10-24",
-  "hash": "c4bf303e183eee8a"
+  "date": "2026-11-26",
+  "hash": "df6ccb50722415e6"
+ },
+ "/es/casos-de-estudio/ai-edit-prep-reel": {
+  "date": "2026-11-27",
+  "hash": "46d752e4178ee12e"
  },
  "/es/casos-de-estudio/banacol": {
   "date": "2026-11-26",
-  "hash": "3fb6a7bd42bda970"
+  "hash": "dbed3e83385c301a"
  },
  "/es/casos-de-estudio/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/es/casos-de-estudio/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/es/casos-de-estudio/dupont-realty-international": {
   "date": "2026-10-24",
@@ -173,7 +193,7 @@
  },
  "/es/casos-de-estudio/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "5dfb150162ef45bd"
+  "hash": "04f5038f975ff6ef"
  },
  "/es/casos-de-estudio/gains-from-geebs": {
   "date": "2026-10-24",
@@ -185,15 +205,15 @@
  },
  "/es/casos-de-estudio/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "bf6a213d1ea3d563"
+  "hash": "54702e25d01e0e37"
  },
  "/es/casos-de-estudio/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "67e0babd7cb912dc"
+  "hash": "b04db6f169444b70"
  },
  "/es/casos-de-estudio/homeowners": {
   "date": "2026-11-26",
-  "hash": "3d79db8be76a23d9"
+  "hash": "31c00b4912f4278e"
  },
  "/es/casos-de-estudio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -201,7 +221,7 @@
  },
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-11-26",
-  "hash": "36147e75a18a4d93"
+  "hash": "0dda0049d82ed54d"
  },
  "/es/casos-de-estudio/portosole": {
   "date": "2026-10-29",
@@ -210,6 +230,10 @@
  "/es/casos-de-estudio/punto-de-giro": {
   "date": "2026-10-29",
   "hash": "0d2248a88579ee5d"
+ },
+ "/es/casos-de-estudio/real-estate-reels-davie": {
+  "date": "2026-11-27",
+  "hash": "433fbf99496dc2cb"
  },
  "/es/chatbot-con-ia-para-negocios": {
   "date": "2026-10-16",
@@ -221,7 +245,7 @@
  },
  "/es/contacto": {
   "date": "2026-11-26",
-  "hash": "225e628524eb6c2c"
+  "hash": "7c4bfa3b50256946"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-26",
@@ -244,8 +268,8 @@
   "hash": "8ea30f7a68059de0"
  },
  "/es/edicion-de-video-con-dron-miami": {
-  "date": "2026-08-14",
-  "hash": "f4b106c48fda6916"
+  "date": "2026-11-26",
+  "hash": "44c81f3cc077206d"
  },
  "/es/edicion-de-video-corporativo-weston": {
   "date": "2026-10-09",
@@ -305,7 +329,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-11-26",
-  "hash": "ef7549c157b4b50f"
+  "hash": "e67fc5a07087bdde"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-11-19",
@@ -332,8 +356,8 @@
   "hash": "65e9c72f8fb9d0fd"
  },
  "/es/editor-de-video-real-estate-miami": {
-  "date": "2026-10-14",
-  "hash": "04ca052a197b020d"
+  "date": "2026-11-26",
+  "hash": "b9fcd27e01ef306b"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-10-28",
@@ -724,8 +748,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-11-04",
-  "hash": "e1fcf76eeba4780b"
+  "date": "2026-11-26",
+  "hash": "ba4e497a95306cad"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -733,7 +757,7 @@
  },
  "/es/portafolio/banacol": {
   "date": "2026-11-26",
-  "hash": "e3ad066f2b3d4a99"
+  "hash": "011fdf3758b970bb"
  },
  "/es/portafolio/bar-door-monkey": {
   "date": "2026-10-18",
@@ -824,16 +848,16 @@
   "hash": "8aa6b7ac901cbaab"
  },
  "/es/precios/arranque": {
-  "date": "2026-10-14",
-  "hash": "f190cb8491bed3e0"
+  "date": "2026-11-26",
+  "hash": "ab6c6f99f33025fc"
  },
  "/es/precios/crecimiento": {
   "date": "2026-09-29",
   "hash": "552ea2f037eb0159"
  },
  "/es/precios/inmobiliaria": {
-  "date": "2026-10-14",
-  "hash": "ef48ea0b26956175"
+  "date": "2026-11-26",
+  "hash": "4311639570544314"
  },
  "/es/precios/presencia-local": {
   "date": "2026-09-29",
@@ -900,8 +924,8 @@
   "hash": "c76c635d2d08770b"
  },
  "/es/reels-comerciales-con-ia-miami": {
-  "date": "2026-11-19",
-  "hash": "0d1e3c6e00a5379e"
+  "date": "2026-11-26",
+  "hash": "05848d8d18fe4079"
  },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
@@ -1129,7 +1153,7 @@
  },
  "/es/videografo-en-miami": {
   "date": "2026-11-26",
-  "hash": "da1831003fc35be4"
+  "hash": "7451cc7237ac6757"
  },
  "/es/videografo-para-activacion-de-marca-miami": {
   "date": "2026-10-19",
@@ -1465,7 +1489,7 @@
  },
  "/portfolio": {
   "date": "2026-11-26",
-  "hash": "2d62b577ce5a8b7c"
+  "hash": "0455bd7dc83ae057"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-11-11",
@@ -1473,7 +1497,7 @@
  },
  "/portfolio/banacol": {
   "date": "2026-11-26",
-  "hash": "ec2f578b85bf401a"
+  "hash": "7aa9e7a736822afb"
  },
  "/portfolio/bar-door-monkey": {
   "date": "2026-10-18",
@@ -1572,12 +1596,12 @@
   "hash": "42b1c80f3e2ea81a"
  },
  "/pricing/real-estate": {
-  "date": "2026-10-01",
-  "hash": "76b30d28f90ab2ab"
+  "date": "2026-11-26",
+  "hash": "509d7e174ed56f91"
  },
  "/pricing/starter": {
-  "date": "2026-10-14",
-  "hash": "7a4415da26fbf4f0"
+  "date": "2026-11-26",
+  "hash": "fcdcd50c04e7e71e"
  },
  "/real-estate": {
   "date": "2026-11-21",
@@ -1616,8 +1640,8 @@
   "hash": "229dfa861a2ea14f"
  },
  "/services/ai-commercial-video-reels-miami": {
-  "date": "2026-11-19",
-  "hash": "4df6325680053ce8"
+  "date": "2026-11-26",
+  "hash": "48862d03cf0038c7"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1696,8 +1720,8 @@
   "hash": "a8d28064de1b4ab5"
  },
  "/services/brand-video-production-miami": {
-  "date": "2026-10-18",
-  "hash": "f90be7eb8d08fe17"
+  "date": "2026-11-26",
+  "hash": "3e68ab1cda4516c9"
  },
  "/services/brewery-craft-distillery-video-miami": {
   "date": "2026-11-26",
@@ -1817,7 +1841,7 @@
  },
  "/services/drone-video-editing-service-miami": {
   "date": "2026-11-26",
-  "hash": "526825614be14a53"
+  "hash": "23840474f8ab1599"
  },
  "/services/equestrian-polo-videographer-wellington": {
   "date": "2026-10-19",
@@ -2025,15 +2049,15 @@
  },
  "/services/real-estate-reels-video-editor-south-florida": {
   "date": "2026-11-26",
-  "hash": "68c2a2f7e85341b4"
+  "hash": "a0d9a7ef09d4fe0d"
  },
  "/services/real-estate-video-coral-gables": {
   "date": "2026-10-13",
   "hash": "3505eee75d53026b"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-11-24",
-  "hash": "86f0cb8e5b879fae"
+  "date": "2026-11-26",
+  "hash": "c054c75011fa4c9a"
  },
  "/services/reels-editor-miami": {
   "date": "2026-11-26",
@@ -2121,7 +2145,7 @@
  },
  "/services/video-production-fort-lauderdale": {
   "date": "2026-11-26",
-  "hash": "cf90b90c291ac8c4"
+  "hash": "06cf8efa2067b977"
  },
  "/services/videographer-miami": {
   "date": "2026-10-15",

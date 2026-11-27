@@ -206,7 +206,7 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +1 - 2 = commercial-intent package (2026-11-26): /es/cuanto-cobra-un-videografo-en-miami added;
     // the quinceañera videographer pair 301ed to the quinceañera video owners.
     // -50 = zero-signal prune (2026-11-26; 52 by #843, 2 reversed by #842), config/cohort-consolidation.json#merges.
-    expect(sitemap()).toHaveLength(269 - 23 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1 + 1 + 1 - 2 - 50);
+    expect(sitemap()).toHaveLength(269 - 23 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4 + 2 + 2 + 2 + 3 + 6 + 4 + 4 + 2 + 1 + 1 + 1 - 2 - 50 + 4 + 2);
   });
 
   it("never lists a redirect source in the sitemap", () => {

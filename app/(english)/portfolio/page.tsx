@@ -29,6 +29,7 @@ import {
 } from "@/components/portfolio-grid";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
+import { CaseStudyRail, LATEST_CASE_STUDY_IDS } from "@/components/case-study-rail";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS, mediaOrientation } from "@/lib/portfolio";
 import { PageUpdated } from "@/components/page-updated";
@@ -251,6 +252,7 @@ export default function PortfolioPage() {
           </Container>
         </section>
       ) : null}
+      <CaseStudyRail ids={LATEST_CASE_STUDY_IDS} locale="en" source="portfolio_latest_cases" heading="Which case studies are newest?" />
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <PortfolioGrid items={PORTFOLIO_ITEMS.filter((item) => item.id !== liveItems[0]?.id)} locale="en" />
