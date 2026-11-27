@@ -161,3 +161,53 @@ export function ServiceRail({
     />
   );
 }
+
+export type CaseStudyCard = {
+  id: string;
+  href: string;
+  title: string;
+  detail: string;
+  image: { src: string; alt: string };
+};
+
+/**
+ * Case studies as a rail of stills, for the portfolio and the service page
+ * each case belongs to. The cards arrive resolved from the server (title,
+ * opening sentence, poster), so this client file never imports the case-study
+ * library and the words are in the served HTML from the first byte.
+ */
+export function CaseStudyCardRail({
+  cards,
+  source,
+  cta,
+  locale,
+}: {
+  cards: CaseStudyCard[];
+  source: string;
+  cta: string;
+  locale: "en" | "es";
+}) {
+  const items: RailItem[] = cards.map((card) => ({
+    kind: "media" as const,
+    id: card.id,
+    href: card.href,
+    title: card.title,
+    description: card.detail,
+    image: card.image,
+    cta,
+  }));
+
+  return (
+    <Rail
+      items={items}
+      source={source}
+      variant="poster"
+      size="lg"
+      ariaLabel={locale === "es" ? "Casos de estudio" : "Case studies"}
+      titleAs="h3"
+      cta="link"
+      labels={locale === "es" ? RAIL_LABELS_ES : RAIL_LABELS_EN}
+      showControls
+    />
+  );
+}

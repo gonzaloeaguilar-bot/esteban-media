@@ -19,7 +19,20 @@ import {
   getCaseStudyPath,
   type CaseStudy,
 } from "@/lib/case-studies";
+import { caseStudyPriceLine } from "@/lib/case-study-pricing";
 import { isYouTubeSource, getPortfolioItemById } from "@/lib/portfolio";
+
+/**
+ * Every case-study contact link carries ?source=case-study so the brief that
+ * follows reaches /api/lead attributed (lib/lead-responder.ts LEAD_SOURCES and
+ * both contact pages' querySources list it; PR #808 lesson). The landing_page
+ * dimension on contact_click already says WHICH case study it was.
+ */
+export const CASE_STUDY_LEAD_SOURCE = "case-study";
+
+export function caseStudyContactHref(href: string): string {
+  return `${href}?source=${CASE_STUDY_LEAD_SOURCE}`;
+}
 
 function renderFormattedText(text: string) {
   const parts: React.ReactNode[] = [];
@@ -81,6 +94,11 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
   const homePath = isSpanish ? "/es" : "/";
   const portfolioPath = isSpanish ? "/es/portafolio" : "/portfolio";
   const portfolioItem = getPortfolioItemById(caseStudy.id);
+  const videos = caseStudy.videos ?? [];
+  const priceLine = caseStudy.priceKind
+    ? caseStudyPriceLine(caseStudy.priceKind, caseStudy.locale)
+    : null;
+  const contactHref = caseStudyContactHref(caseStudy.contactLink.href);
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -115,6 +133,34 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
           </nav>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] lg:items-center lg:gap-12">
+            {videos.length > 0 ? (
+              <div
+                data-section="case_study_videos"
+                className={`grid min-w-0 gap-3 ${videos.length > 1 ? "grid-cols-2 sm:grid-cols-3" : "mx-auto w-full max-w-[20rem]"}`}
+              >
+                {videos.map((video, index) => (
+                  <figure
+                    key={video.id}
+                    className={`min-w-0 overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl ${videos.length > 1 && index === 0 ? "col-span-2 mx-auto w-full max-w-[20rem] sm:col-span-1 sm:max-w-none" : ""}`}
+                  >
+                    <video
+                      controls
+                      playsInline
+                      preload="none"
+                      poster={video.poster}
+                      data-media-id={video.id}
+                      className="block aspect-[9/16] h-auto w-full max-w-full bg-black object-contain"
+                      aria-label={video.name}
+                    >
+                      <source src={video.src} type="video/mp4" />
+                    </video>
+                    <figcaption className="px-3 py-2 text-xs leading-5 text-[#d8d0c7]">
+                      {video.name} · {Math.round(video.durationSeconds)} s
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : (
             <div className="relative aspect-video overflow-hidden rounded-xl border border-white/15 bg-[#292b2d] shadow-2xl">
               <Image
                 src={caseStudy.posterUrl}
@@ -156,8 +202,11 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                 </div>
               )}
             </div>
+            )}
 
-            <div>
+            {/* Answer first on a phone: three vertical players are taller than a
+                screen, so the title and summary lead and the videos follow. */}
+            <div className={videos.length > 0 ? "order-first lg:order-none" : undefined}>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">
                 {caseStudy.eyebrow}
               </p>
@@ -460,7 +509,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
       </section>
 
       {/* Bottom Contact CTA Strip */}
-      <section className="border-t border-[#d6ccc0] bg-[#e7ded2] py-14 sm:py-18">
+      <section data-section="case_study_cta" className="border-t border-[#d6ccc0] bg-[#e7ded2] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#101214] p-7 text-[#f6f1ea] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
@@ -478,13 +527,28 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                   : "Share the goal, location, existing source material, and timeline. Esteban will follow up with the essential scoping questions."}
               </p>
             </div>
-            <Link
-              href={caseStudy.contactLink.href}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)]"
-            >
-              {caseStudy.contactLink.label}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+            <div className="flex flex-col items-start gap-3 lg:items-end">
+              {priceLine ? (
+                <p data-case-study-price className="max-w-sm text-sm leading-6 text-[#c9c1b8] lg:text-right">
+                  {priceLine.text}{" "}
+                  <Link
+                    href={priceLine.href}
+                    data-cta="case_study_price"
+                    className="font-semibold text-[#f0b384] underline underline-offset-4 hover:text-white"
+                  >
+                    {priceLine.linkLabel}
+                  </Link>
+                </p>
+              ) : null}
+              <Link
+                href={contactHref}
+                data-cta="case_study_contact"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)]"
+              >
+                {caseStudy.contactLink.label}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </Container>
       </section>

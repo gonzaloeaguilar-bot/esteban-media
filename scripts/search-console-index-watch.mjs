@@ -596,6 +596,11 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/casos-de-estudio/caro-sells-miami",
   "https://estebanmorenomedia.com/case-studies/dupont-realty-international",
   "https://estebanmorenomedia.com/es/casos-de-estudio/dupont-realty-international",
+  // Case-study batch 2026-11-26: real-estate Reels (Davie) and the AI edit-planning Reel.
+  "https://estebanmorenomedia.com/case-studies/real-estate-reels-davie",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/real-estate-reels-davie",
+  "https://estebanmorenomedia.com/case-studies/ai-edit-prep-reel",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/ai-edit-prep-reel",
   "https://estebanmorenomedia.com/case-studies/exatlon",
   "https://estebanmorenomedia.com/es/casos-de-estudio/exatlon",
   "https://estebanmorenomedia.com/case-studies/gains-from-geebs",

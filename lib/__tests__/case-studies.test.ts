@@ -1,3 +1,4 @@
+import { getPortfolioItemById } from "@/lib/portfolio";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -45,6 +46,8 @@ function countWords(text: string): number {
 describe("case studies - published portfolio projects", () => {
   it("ships the approved case-study inventory", () => {
     expect(CASE_STUDY_IDS).toEqual([
+      "real-estate-reels-davie",
+      "ai-edit-prep-reel",
       "banacol",
       "homeowners",
       "flas-concierge",
@@ -121,8 +124,14 @@ describe("case studies - published portfolio projects", () => {
             expect(study.contactLink.href).toBe(
               locale === "es" ? "/es/contacto" : "/contact",
             );
+            // A case with a portfolio record links to it; a case built on
+            // self-hosted Reels (no portfolio record, so no /portfolio/<id>
+            // page) links to the portfolio hub instead of a 404.
+            const hasPortfolioItem = Boolean(getPortfolioItemById(id));
             expect(study.portfolioLink.href).toBe(
-              locale === "es" ? `/es/portafolio/${id}` : `/portfolio/${id}`,
+              hasPortfolioItem
+                ? locale === "es" ? `/es/portafolio/${id}` : `/portfolio/${id}`
+                : locale === "es" ? "/es/portafolio" : "/portfolio",
             );
           });
 

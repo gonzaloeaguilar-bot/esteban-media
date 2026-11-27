@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-11-26",
-  "approvedSitemapUrlCount": 551,
-  "approvedSitemapUrlSetSha256": "8a9e7a31ab834750dddcdb4248d1b80a4160a6ab566a003eeb5d1067fdc7bf72",
+  "approvedSitemapUrlCount": 555,
+  "approvedSitemapUrlSetSha256": "6d0b4ac9032394a5f482c10ae5dfcef311cde3d38724fcb66c91e4d87763222c",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,21 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-11-26",
+      "url": [
+        "/case-studies/real-estate-reels-davie",
+        "/es/casos-de-estudio/real-estate-reels-davie",
+        "/case-studies/ai-edit-prep-reel",
+        "/es/casos-de-estudio/ai-edit-prep-reel"
+      ],
+      "orderedBy": "Gonzalo (2026-11-26: 'Do also the other 6 things', case-study batch)",
+      "kind": "two bilingual case-study pairs built on owner-cleared and own-brand Reels",
+      "demandEvidence": "GA4 546162112, 60 days to 2026-11-26: every contact click and lead started on /, /portfolio, /about or a case study (e.g. /case-studies/healthy-smile, 3); zero on service pages. Vault: esteban-commercial-intent-lateral-strategy-2026-11-26.",
+      "followUpDate": "2026-12-26",
+      "followUp": "Check GSC impressions and indexed status for the four URLs, and GA4 contact_click / lead with landing_page on a case study and source=case-study.",
+      "note": "4 URLs, exactly one demand-wave allowance of 4. Banacol was strengthened in place (no new URL); no portfolio item pages were added for the new cases so the batch stays inside the allowance."
+    },
     {
       "on": "2026-11-26",
       "url": [
