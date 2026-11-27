@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -146,7 +148,10 @@ export function GeoServicePage({
   const video = PACKAGE_PRICES.arranque;
   const startingVideo = video.kind === "from" ? video.amount : 0;
   const startingPlan = Math.min(...REAL_ESTATE_PLANS.map((plan) => plan.price));
-  const jsonLd = withNicheService(content.path, buildGeoServiceSchema(content), content.serviceName);
+  const jsonLd = withOwnerFaqJsonLd(
+    withNicheService(content.path, buildGeoServiceSchema(content), content.serviceName),
+    content.path,
+  );
   const publishedProof = resolvePublishedProjectProof({
     href: content.proofHref,
     title: content.proofTitle,
@@ -332,6 +337,7 @@ export function GeoServicePage({
       {showcase}
 
       <ServiceFaqs heading={content.faqHeading} faqs={content.faqs} />
+      <OwnerPageFaqs path={content.path} />
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
       <NicheAnswers path={content.path} fact={content.description} />
       <PriorityLinks path={content.path} locale="en" />

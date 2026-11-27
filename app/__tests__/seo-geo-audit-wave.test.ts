@@ -1,3 +1,4 @@
+import { ownerPageFaqs } from "@/lib/owner-page-faqs";
 import { readdirSync, readFileSync } from "node:fs";
 
 import { buildCaseStudyStructuredData, getCaseStudies } from "@/lib/case-studies";
@@ -213,9 +214,13 @@ describe("ported FAQs on hand-written English service pages (owner decision)", (
     const faqPage = ld.find((node) => node["@type"] === "FAQPage") as
       | { mainEntity: { name: string; acceptedAnswer: { text: string } }[] }
       | undefined;
-    expect(faqPage?.mainEntity.map((q) => q.name)).toEqual(faqs.map((faq) => faq.question));
-    const text = markup.replace(/&#x27;/g, "'").replace(/&amp;/g, "&");
-    for (const faq of faqs) {
+    // Owner-page FAQs (lib/owner-page-faqs.ts) join the same FAQPage after the
+    // ported ones; they carry published prices, so they are kept out of the
+    // ported list and its no-figures rule below.
+    const owned = ownerPageFaqs(path);
+    expect(faqPage?.mainEntity.map((q) => q.name)).toEqual([...faqs, ...owned].map((faq) => faq.question));
+    const text = markup.replace(/&#x27;/g, "'").replace(/&amp;/g, "&").replace(/&quot;/g, '"');
+    for (const faq of [...faqs, ...owned]) {
       expect(text).toContain(faq.question);
       expect(text).toContain(faq.answer);
     }

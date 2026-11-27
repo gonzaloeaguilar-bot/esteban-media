@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
@@ -60,12 +62,10 @@ export default function WeddingVideographerMiamiPage() {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            withNicheService(
+          __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService(
               "/services/wedding-videographer-miami",
               jsonLd,
-            ),
-          ),
+            ), "/services/wedding-videographer-miami")),
         }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
@@ -184,6 +184,7 @@ export default function WeddingVideographerMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/wedding-videographer-miami"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/wedding-videographer-miami" />
       <EventSeasonLinks locale="en" path="/services/wedding-videographer-miami" />
       <NicheAnswers path="/services/wedding-videographer-miami" fact={String(metadata.description ?? "")} />
     </main>

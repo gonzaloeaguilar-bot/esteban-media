@@ -1,4 +1,5 @@
 import React from "react";
+import { withOwnerFaqJsonLd, withOwnerPageFaqs } from "@/lib/owner-page-faqs";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
@@ -654,7 +655,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <StructuredData data={buildGuideStructuredData(guide)} />
+      <StructuredData data={withOwnerFaqJsonLd(buildGuideStructuredData(guide), getGuidePath(guide))} />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -821,7 +822,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 <div className="mt-6">
                   <RailFaq
                     source="guide-faq"
-                    items={guide.faqs.map((faq) => ({
+                    items={withOwnerPageFaqs(getGuidePath(guide), guide.faqs).map((faq) => ({
                       id: faq.question,
                       question: faq.question,
                       answer: renderFormattedText(faq.answer),

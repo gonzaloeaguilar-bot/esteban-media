@@ -1,3 +1,4 @@
+import { withOwnerFaqJsonLd, withOwnerPageFaqs } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { NeedSomeoneThisWeek } from "@/components/need-someone-this-week";
 import { ArrowRight, MessageCircle } from "lucide-react";
@@ -64,7 +65,7 @@ export default function PrivatePartyVideographerPage() {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(jsonLd, "/services/private-party-videographer-south-florida")) }} />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
@@ -131,7 +132,7 @@ export default function PrivatePartyVideographerPage() {
         <Container size="lg">
           <h2 id="party-faqs" className="font-serif text-3xl sm:text-4xl">Questions before you book.</h2>
           <div className="mt-6 divide-y divide-[#ddd4c8] border-y border-[#ddd4c8]">
-            {faqs.map((faq) => <details key={faq.question} className="py-5"><summary className="cursor-pointer font-medium">{faq.question}</summary><p className="mt-3 max-w-3xl text-sm leading-7 text-[#252a2d]">{faq.answer}</p></details>)}
+            {withOwnerPageFaqs(path, faqs).map((faq) => <details key={faq.question} className="py-5"><summary className="cursor-pointer font-medium">{faq.question}</summary><p className="mt-3 max-w-3xl text-sm leading-7 text-[#252a2d]">{faq.answer}</p></details>)}
           </div>
         </Container>
       </section>

@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { SHORT_FORM, turnaroundFor, usd } from "@/lib/pricing";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -113,7 +115,7 @@ export default function HireRemoteVideoEditorPage() {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/hire-remote-video-editor", jsonLd)) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService("/services/hire-remote-video-editor", jsonLd), "/services/hire-remote-video-editor")) }} />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">
           <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
@@ -214,6 +216,7 @@ export default function HireRemoteVideoEditorPage() {
       <ClientReviews locale="en" />
 
       <ServiceFaqs heading={REMOTE_EDITOR_DEPTH.faqHeading} faqs={REMOTE_EDITOR_DEPTH.faqs} />
+      <OwnerPageFaqs path="/services/hire-remote-video-editor" />
 
       <ServiceInquiryRail
         service={{

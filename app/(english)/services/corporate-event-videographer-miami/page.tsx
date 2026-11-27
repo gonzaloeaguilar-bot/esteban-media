@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
@@ -55,7 +57,7 @@ export default function CorporateEventVideographerMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/corporate-event-videographer-miami", jsonLd)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService("/services/corporate-event-videographer-miami", jsonLd), "/services/corporate-event-videographer-miami")) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -166,6 +168,7 @@ export default function CorporateEventVideographerMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/corporate-event-videographer-miami"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/corporate-event-videographer-miami" />
       <section className="py-8 border-t border-[#ddd4c8]">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">Related Event Services</p>

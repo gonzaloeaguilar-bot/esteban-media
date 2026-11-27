@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
 import { packagesFor, packagesCopy, whatsappHref, packageFaqFor, packageDirectAnswer, packageDetailJsonLd, priceSentence, type Locale } from "@/lib/packages";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
+import { ownerPageFaqs, withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import { entityIds } from "@/lib/entity-schema";
 import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, type PackageId } from "@/lib/pricing";
@@ -101,11 +102,14 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
         <RailFaq
           heading={es ? "Preguntas sobre este paquete" : "Questions about this package"}
           source={`package_faq_${id}`}
-          items={faq.map((q) => ({ id: q.id, question: q.question, answer: q.answer }))}
+          items={[
+            ...faq.map((q) => ({ id: q.id, question: q.question, answer: q.answer })),
+            ...ownerPageFaqs(packageRoutes[id][locale]).filter((q) => !faq.some((f) => f.question === q.question)).map((q) => ({ id: q.id, question: q.question, answer: q.answer })),
+          ]}
         />
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(faqLd, packageRoutes[id][locale])) }} />
     </Container>
   </main>;
 }
