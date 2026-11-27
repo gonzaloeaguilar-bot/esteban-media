@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
@@ -53,7 +55,7 @@ export default function MusicVideoPostProductionMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/music-video-post-production-miami", jsonLd)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService("/services/music-video-post-production-miami", jsonLd), "/services/music-video-post-production-miami")) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -150,6 +152,7 @@ export default function MusicVideoPostProductionMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/music-video-post-production-miami"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/music-video-post-production-miami" />
       <ServiceRelated
         heading="Related services nearby."
         services={serviceSiblings("/services/music-video-post-production-miami")}

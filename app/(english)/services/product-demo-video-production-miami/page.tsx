@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { ArrowRight, Laptop, Mail, Phone } from "lucide-react";
 
@@ -60,12 +62,10 @@ export default function ProductDemoVideoMiamiPage() {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            withNicheService(
+          __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService(
               "/services/product-demo-video-production-miami",
               jsonLd,
-            ),
-          ),
+            ), "/services/product-demo-video-production-miami")),
         }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
@@ -182,6 +182,7 @@ export default function ProductDemoVideoMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/product-demo-video-production-miami"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/product-demo-video-production-miami" />
       <EventSeasonLinks locale="en" path="/services/product-demo-video-production-miami" />
       <NicheAnswers path="/services/product-demo-video-production-miami" fact={String(metadata.description ?? "")} />
     </main>

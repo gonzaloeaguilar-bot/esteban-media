@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { ArrowRight, Film, Mail, Phone } from "lucide-react";
 
@@ -59,12 +61,10 @@ export default function Page() {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            withNicheService(
+          __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService(
               "/services/youtube-long-form-video-editing",
               jsonLd,
-            ),
-          ),
+            ), "/services/youtube-long-form-video-editing")),
         }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
@@ -178,6 +178,7 @@ export default function Page() {
         faqs={PORTED_SERVICE_FAQS["/services/youtube-long-form-video-editing"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/youtube-long-form-video-editing" />
       <EventSeasonLinks locale="en" path="/services/youtube-long-form-video-editing" />
       <NicheAnswers path="/services/youtube-long-form-video-editing" fact={String(metadata.description ?? "")} />
     </main>

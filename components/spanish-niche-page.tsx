@@ -1,4 +1,5 @@
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
+import { withOwnerFaqJsonLd, withOwnerPageFaqs } from "@/lib/owner-page-faqs";
 import React from "react";
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
@@ -1596,7 +1597,7 @@ export function SpanishNichePage({
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(withNicheService(`/es/${page.slug}`, jsonLd)),
+          __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService(`/es/${page.slug}`, jsonLd), `/es/${page.slug}`)),
         }}
       />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
@@ -1920,7 +1921,7 @@ export function SpanishNichePage({
               </h2>
             </div>
             <div className="grid gap-3">
-              {page.faqs.map((faq, index) => (
+              {withOwnerPageFaqs(`/es/${page.slug}`, page.faqs).map((faq, index) => (
                 <Cartel
                   as="details"
                   key={faq.question}

@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import { PageQuestions } from "@/components/page-questions";
 import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
@@ -56,7 +58,7 @@ export default function UGCVideoEditorEcommercePage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/ugc-video-editor-ecommerce", jsonLd)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService("/services/ugc-video-editor-ecommerce", jsonLd), "/services/ugc-video-editor-ecommerce")) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -163,6 +165,7 @@ export default function UGCVideoEditorEcommercePage() {
         sectionId="ugc-ecommerce-craft"
       />
       <ServiceFaqs heading={UGC_ECOMMERCE_DEPTH.faqHeading} faqs={UGC_ECOMMERCE_DEPTH.faqs} />
+      <OwnerPageFaqs path="/services/ugc-video-editor-ecommerce" />
       <ServiceInquiryRail
         service={{
           serviceId: "ugc_ecommerce_video",

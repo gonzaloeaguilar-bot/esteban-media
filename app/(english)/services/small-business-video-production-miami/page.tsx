@@ -1,3 +1,5 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { withOwnerFaqJsonLd } from "@/lib/owner-page-faqs";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
@@ -68,7 +70,7 @@ export default function SmallBusinessVideoPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/small-business-video-production-miami", jsonLd)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withOwnerFaqJsonLd(withNicheService("/services/small-business-video-production-miami", jsonLd), "/services/small-business-video-production-miami")) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -219,6 +221,7 @@ export default function SmallBusinessVideoPage() {
         faqs={PORTED_SERVICE_FAQS["/services/small-business-video-production-miami"]}
         sectionId="ported-faq"
       />
+      <OwnerPageFaqs path="/services/small-business-video-production-miami" />
       <NicheAnswers path="/services/small-business-video-production-miami" fact={String(metadata.description ?? "")} />
     </main>
   );

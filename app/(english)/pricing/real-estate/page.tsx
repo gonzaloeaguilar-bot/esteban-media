@@ -1,3 +1,4 @@
+import { OwnerPageFaqs } from "@/components/owner-page-faqs";
 import { RealEstatePricing, realEstateDirectAnswer } from "@/components/real-estate-pricing";
 import { entityIds } from "@/lib/entity-schema";
 import { realEstateJsonLd } from "@/lib/real-estate-schema";
@@ -19,6 +20,7 @@ export default function Page() {
   return (
     <>
       <RealEstatePricing locale="en" />
+      <OwnerPageFaqs path={PATH} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
     </>
   );
