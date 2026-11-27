@@ -7,7 +7,7 @@ import nextConfig from "../../next.config";
 import sitemap from "../sitemap";
 import { MERGE_DECISIONS, isMergedPath, resolveMergedPath } from "@/lib/consolidation";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
-import { FILMING_HOURLY, RESTAURANT_PROMO, SHORT_FORM, usd } from "@/lib/pricing";
+import { RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 import { languageAlternates, spanishNichePages } from "@/lib/spanish-site";
 
 /**
@@ -130,7 +130,9 @@ describe("prune follow-up 2026-11-26", () => {
 
   it("gives every Spanish survivor an answer-first paragraph with prices from lib/pricing.ts", () => {
     const starter = usd(SHORT_FORM.perVideoFrom);
-    const film = usd(FILMING_HOURLY.amount);
+    // filmingHourlyText() is the one filming phrase on main and in the pending
+    // filming-price PR (#853), so the survivors follow whichever ships.
+    const film = filmingHourlyText("es");
     const expected: Record<string, readonly string[]> = {
       "marketing-de-video-para-consultorios-medicos-miami": [starter, film, "cirugía plástica", "restauración capilar"],
       "marketing-de-video-para-abogados-miami": [starter, film, "inmigración", "lesiones personales"],
@@ -169,7 +171,7 @@ describe("prune follow-up 2026-11-26", () => {
     );
     // The English answers read every figure from lib/pricing.ts.
     const PRICED =
-      "Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming starts at ${usd(FILMING_HOURLY.amount)} an hour with a ${FILMING_HOURLY.minimumHours}-hour minimum (${usd(FILMING_HOURLY.minimumAmount)}).";
+      "Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming is priced ${filmingHourlyText(\"en\")}.";
     for (const [name, src, intents] of [
       ["automotive", auto, "car dealerships, exotic car rental fleets and detailing, tint and wrap shops"],
       ["hotel", hotel, "hotels, boutique hotels and resorts in Miami and Miami Beach"],

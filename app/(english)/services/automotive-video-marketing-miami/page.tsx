@@ -11,7 +11,7 @@ import {
   buildServicePageNodes,
 } from "@/components/service-depth";
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
-import { FILMING_HOURLY, SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -120,7 +120,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
       {/* Prune follow-up 2026-11-26: this page is the survivor of its zero-signal cluster; the answer names the merged intents and the prices come from lib/pricing.ts. */}
       <ServiceAnswerFirst service="automotive video marketing"
         questionOverride="Which automotive businesses does Esteban edit for, and what does it cost?"
-        answerOverride={`Esteban Moreno Media edits video for car dealerships, exotic car rental fleets and detailing, tint and wrap shops in Miami and Fort Lauderdale: walkarounds, interior details, before-and-afters and vertical Reels. Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming starts at ${usd(FILMING_HOURLY.amount)} an hour with a ${FILMING_HOURLY.minimumHours}-hour minimum (${usd(FILMING_HOURLY.minimumAmount)}).`}
+        answerOverride={`Esteban Moreno Media edits video for car dealerships, exotic car rental fleets and detailing, tint and wrap shops in Miami and Fort Lauderdale: walkarounds, interior details, before-and-afters and vertical Reels. Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming is priced ${filmingHourlyText("en")}.`}
       />
 
       <ServiceDeepDive
