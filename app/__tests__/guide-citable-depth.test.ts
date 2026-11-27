@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { getGuides } from "@/lib/guides";
-import { FILMING_HOURLY, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
+import { FILMING_RATES, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 import * as pricingModule from "@/lib/pricing";
 import baseline from "./fixtures/guide-figure-baseline.json";
 
@@ -33,8 +33,8 @@ for (const band of Object.values(PRICING_BANDS)) {
 for (const p of Object.values(PACKAGE_PRICES)) if (p.kind === "from") pricingFigures.add(usd(p.amount));
 // Short-form is priced like Starter (lib/pricing.ts SHORT_FORM): per video and weekly.
 for (const f of [SHORT_FORM.perVideoFrom, SHORT_FORM.marketMin, SHORT_FORM.marketMax, ...SHORT_FORM.weekly.map((o) => o.pricePerWeek)]) pricingFigures.add(usd(f));
-// Filming floor, owner fact 2026-10-14 (lib/pricing.ts FILMING_HOURLY).
-pricingFigures.add(usd(FILMING_HOURLY.amount));
+// Filming rates, owner decision 2026-11-26 (lib/pricing.ts FILMING_RATES).
+for (const f of [FILMING_RATES.halfDay, FILMING_RATES.fullDay, FILMING_RATES.extraHour]) pricingFigures.add(usd(f));
 // 2026-10-28: every figure in lib/pricing.ts is published by definition (single source of truth).
 const visit = (v: unknown) => {
   if (typeof v === "number" && Number.isFinite(v)) pricingFigures.add(usd(v));

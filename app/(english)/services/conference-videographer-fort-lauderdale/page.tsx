@@ -149,7 +149,7 @@ export default function ConferenceVideographerFortLauderdalePage() {
                   Organizing a convention or conference in Broward?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Filming from {usd(CREW_RECORDING_RATES.solo.hourly)}/hr or full-day Local Presence production with keynote and recap delivery.
+                  Filming from {usd(CREW_RECORDING_RATES.solo.halfDay)} per half day or full-day Local Presence production with keynote and recap delivery.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

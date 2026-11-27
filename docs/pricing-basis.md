@@ -37,7 +37,7 @@ band is that range narrowed to Esteban's typical scope, less 10%, rounded to $25
 | Corporate / explainer | $500–2,500 | **$725–1,450** | yes |
 | Real-estate video | $250–1,200 | **$575–1,075** | yes |
 | Ecommerce / product | $250–1,200 | **$400–775** | yes |
-| On-location capture add-on | $300–1,000 half-day | **+$400–775** | yes |
+| On-location capture add-on | $300–1,000 half-day | **+$500–900** (owner filming rates 2026-11-26: $500 half day up to 4 h, $900 full day up to 8 h, $150 extra hour) | owner-set |
 
 Volume multipliers (5-video pack, 15/month, 30/month) and the 1.25× express
 multiplier are unchanged — they describe scope, not market position.

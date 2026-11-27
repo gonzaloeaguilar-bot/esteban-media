@@ -132,7 +132,7 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
       </section>
       <ServiceAnswerFirst
         service="executive interview videography in Miami"
-        answerOverride={`Executive interview videography records a clear leadership message or customer testimonial for your website, sales conversations, or LinkedIn. Esteban Moreno Media films on location across Miami-Dade and Broward, with options for a full horizontal interview and shorter vertical cuts. On-location corporate interview filming at your office or venue is billed at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour, with a 4-hour minimum (${usd(CREW_RECORDING_RATES.solo.minimumAmount)} floor), using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
+        answerOverride={`Executive interview videography records a clear leadership message or customer testimonial for your website, sales conversations, or LinkedIn. Esteban Moreno Media films on location across Miami-Dade and Broward, with options for a full horizontal interview and shorter vertical cuts. On-location corporate interview filming at your office or venue is ${usd(CREW_RECORDING_RATES.solo.halfDay)} for a half day (up to 4 hours), ${usd(CREW_RECORDING_RATES.solo.fullDay)} for a full day (up to 8 hours) and ${usd(CREW_RECORDING_RATES.solo.extraHour)} for each extra hour, using professional 4K camera gear, studio-grade lighting, and isolated dual audio. Post-production remote editing starts from ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 100)} per video for short social cuts, while full production days that combine on-location filming and complete editing start from ${usd(PACKAGE_PRICES["presencia-local"].kind === "from" ? PACKAGE_PRICES["presencia-local"].amount : 1600)} under the Local Presence package. Every shoot is scheduled selectively with a written scope before the date is booked.`}
       />
 
       <ServiceDeepDive
@@ -154,7 +154,7 @@ export default function ExecutiveInterviewVideographerMiamiPage() {
                   Scheduling an executive interview or client testimonial?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Hourly on-location filming from {usd(CREW_RECORDING_RATES.solo.hourly)}/hr with full horizontal and vertical social cuts.
+                  On-location filming from {usd(CREW_RECORDING_RATES.solo.halfDay)} per half day with full horizontal and vertical social cuts.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

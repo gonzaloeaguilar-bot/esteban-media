@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { CREW_RECORDING_RATES, FILMING_RATES, PRODUCT_PHOTO_MARKET } from "@/lib/pricing";
 import {
   REAL_ESTATE_MEDIA,
   listingPhotographyPrice,
@@ -55,6 +56,28 @@ function ladderHits(text: string, ladder: number[]): number {
  */
 const TEXT_PARITY_FIXTURE = "app/__tests__/fixtures/spanish-niche-text-baseline.json";
 
+/**
+ * 2026-11-26: the owner set filming at $500 half day / $900 full day / $150 per
+ * extra hour. es/precios now shows $150 (extra hour), $225 (multi-camera hour)
+ * and $300 (published market floor): three rungs, all three public prices from
+ * lib/pricing.ts, no client card. Inside the fixture, a route is therefore
+ * flagged only when its three-plus rungs include at least one figure that no
+ * published price explains ($190, $375). A leak of the private card still
+ * shows those rungs; see the negative controls below.
+ */
+const PUBLISHED_RUNGS = new Set<number>([
+  FILMING_RATES.extraHour,
+  CREW_RECORDING_RATES.multiCamera.hourly,
+  PRODUCT_PHOTO_MARKET.halfDayMin,
+]);
+
+function routeLadderOffenders(label: string, text: string): string[] {
+  const hits = PREFERRED_PHOTO_LADDER.filter((n) => new RegExp(`\\$${n}\\b|amount:\\s*${n}\\b`).test(text));
+  const out = ladderOffenders(label, text).filter((o) => !o.endsWith("preferred photo ladder"));
+  if (hits.length >= 3 && hits.some((n) => !PUBLISHED_RUNGS.has(n))) out.push(`${label} -> preferred photo ladder`);
+  return out;
+}
+
 function ladderOffenders(label: string, text: string): string[] {
   const out: string[] = [];
   // Three of five rungs together is the card, not a coincidence.
@@ -78,7 +101,7 @@ function rateCardOffenders(file: string, text: string): string[] {
   }
   if (perRoute) {
     for (const [route, entry] of Object.entries(perRoute)) {
-      offenders.push(...ladderOffenders(`${file} [${route}]`, JSON.stringify(entry)));
+      offenders.push(...routeLadderOffenders(`${file} [${route}]`, JSON.stringify(entry)));
     }
   } else {
     offenders.push(...ladderOffenders(file, text));
@@ -127,6 +150,17 @@ describe("services config", () => {
     for (let i = 1; i < tiers.length; i += 1) {
       expect(tiers[i].minSf).toBe((tiers[i - 1].maxSf as number) + 1);
     }
+  });
+
+  it("inside the parity fixture, ignores three PUBLISHED rungs but still flags a private one", () => {
+    const fx = (words: string) => JSON.stringify({ "es/x.html": { words } });
+    expect(rateCardOffenders(TEXT_PARITY_FIXTURE, fx("$150 $225 $300"))).toEqual([]);
+    expect(rateCardOffenders(TEXT_PARITY_FIXTURE, fx("$150 $190 $225"))).toEqual([
+      `${TEXT_PARITY_FIXTURE} [es/x.html] -> preferred photo ladder`,
+    ]);
+    expect(rateCardOffenders(TEXT_PARITY_FIXTURE, fx("$150 $300 $375"))).toHaveLength(1);
+    // Outside the fixture the whole-file rule is unchanged.
+    expect(rateCardOffenders("lib/x.ts", "$150 $225 $300")).toEqual(["lib/x.ts -> preferred photo ladder"]);
   });
 
   it("keeps a client's negotiated rates out of a PUBLIC repository", () => {

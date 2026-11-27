@@ -166,7 +166,7 @@ Niche pages added 2026-10-11 (English / Spanish pairs; editing, AI-assisted cont
 - Church sermon clips: https://estebanmorenomedia.com/services/church-sermon-clip-editing-miami
 - Quinceañera video: https://estebanmorenomedia.com/services/quinceanera-video-miami · https://estebanmorenomedia.com/es/video-para-quinceaneras-miami
 - How to start as an influencer (guide): https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer · https://estebanmorenomedia.com/es/guias/como-empezar-a-ser-influencer
-- Videographer in Miami (filming per hour, editing per video): https://estebanmorenomedia.com/services/videographer-miami · https://estebanmorenomedia.com/es/videografo-en-miami
+- Videographer in Miami (filming by half day or full day, editing per video): https://estebanmorenomedia.com/services/videographer-miami · https://estebanmorenomedia.com/es/videografo-en-miami
 - Wedding videographer (each wedding quoted individually): https://estebanmorenomedia.com/services/wedding-videographer-fort-lauderdale · https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale
 - Dance studio and music school video: https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami · https://estebanmorenomedia.com/es/video-para-academias-de-baile-y-musica-miami
 - Founder and personal brand videos: https://estebanmorenomedia.com/services/personal-brand-video-editor-founders-miami · https://estebanmorenomedia.com/es/editor-de-video-para-marca-personal-miami
@@ -207,7 +207,7 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 ## Project Scope
 
 - Esteban Moreno Media is a remote-first service-area business with no client-facing studio.
-- On-location filming is available as a paid service, scoped and quoted per project; it is not included in remote-editing work.
+- On-location filming is a paid service, not included in remote-editing work: filming only is {{FILMING_HALF_DAY}} for a half day (up to 4 hours), {{FILMING_FULL_DAY}} for a full day (up to 8 hours) and {{FILMING_EXTRA_HOUR}} for each extra hour; editing is priced separately.
 - General scoping questions can cover the goal, intended use, county, available source files, and references.
 - Availability, scope, timing, and format needs are discussed for the individual project; no specific workflow is published as universal.
 - Four packages with starting prices are published (see Packages). Turnaround times are not published; every project still receives a specific quote.

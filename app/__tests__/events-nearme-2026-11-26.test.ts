@@ -9,7 +9,7 @@ import { eventBookingAnswer, eventDatesSentence } from "@/lib/event-content";
 import { getEvent, parseIsoDate } from "@/lib/events";
 import { NEAR_ME_ANSWERS } from "@/lib/near-me-answers";
 import { getPortfolioItemById } from "@/lib/portfolio";
-import { EXPANSION_SERVICES, FILMING_HOURLY, RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
+import { EXPANSION_SERVICES, FILMING_RATES, RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
 
 const read = (path: string) => readFileSync(join(process.cwd(), path), "utf8");
 const BEFORE = new Date("2026-11-26T12:00:00Z");
@@ -36,7 +36,7 @@ describe("event dates read on the organizer's site (2026-11-26)", () => {
     const art = eventBookingAnswer(getEvent("art-basel"), "en", BEFORE)!;
     expect(art.question).toBe("When is Art Basel Miami Beach 2026, and how do I book video for it?");
     expect(art.answer).toContain("runs December 4–6, 2026, according to its official site");
-    for (const price of [RAW_FILMING_RATES.halfDay, RAW_FILMING_RATES.fullDay, SHORT_FORM.perVideoFrom]) {
+    for (const price of [RAW_FILMING_RATES.halfDay, RAW_FILMING_RATES.fullDay, RAW_FILMING_RATES.extraHour, SHORT_FORM.perVideoFrom]) {
       expect(art.answer).toContain(usd(price));
     }
     expect(art.answer).toContain("booked only once it is confirmed in writing");
@@ -101,7 +101,9 @@ describe("near-me answers on existing pages (2026-11-26)", () => {
     expect(drone.answer).toContain(usd(SHORT_FORM.perVideoFrom));
     expect(drone.proof.href).toBe("/case-studies/banacol");
     const local = NEAR_ME_ANSWERS.find((b) => b.sectionId === "local-videographer-near-me")!;
-    expect(local.answer).toContain(usd(FILMING_HOURLY.amount));
+    expect(local.answer).toContain(usd(FILMING_RATES.halfDay));
+    expect(local.answer).toContain(usd(FILMING_RATES.fullDay));
+    expect(local.answer).toContain(usd(FILMING_RATES.extraHour));
   });
 
   it("never hand-types a price in the near-me copy", () => {

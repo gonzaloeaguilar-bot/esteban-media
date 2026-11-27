@@ -1,6 +1,6 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { filmingHourlyText } from "@/lib/pricing";
+import { filmingPriceText } from "@/lib/pricing";
 import { priceSentence } from "@/lib/packages";
 
 const content: GeoServicePageContent = {
@@ -51,7 +51,7 @@ const content: GeoServicePageContent = {
     },
     {
       question: "Can a corporate project combine Miami filming and remote editing?",
-      body: `Yes. If the project needs interviews, controlled audio, or a specific workplace, the filming portion is a paid service scoped to the project, ${filmingHourlyText("en")}. Editing can continue remotely once the footage and approval notes are available. A production day that combines planning, filming, and an edit is ${priceSentence("en", "presencia-local").toLowerCase()}. The final scope, locations, deliverables, and schedule are confirmed in the quote rather than assumed from a template.`,
+      body: `Yes. If the project needs interviews, controlled audio, or a specific workplace, the filming portion is a paid service scoped to the project, ${filmingPriceText("en")}. Editing can continue remotely once the footage and approval notes are available. A production day that combines planning, filming, and an edit is ${priceSentence("en", "presencia-local").toLowerCase()}. The final scope, locations, deliverables, and schedule are confirmed in the quote rather than assumed from a template.`,
     },
     {
       question: "When is a company overview better than several short videos?",

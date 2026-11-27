@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { PAGE_QUESTIONS } from "@/lib/page-questions";
-import { FILMING_HOURLY, filmingHourlyText, usd } from "@/lib/pricing";
+import { FILMING_RATES, filmingPriceText, usd } from "@/lib/pricing";
 import { languageAlternates, spanishNichePages } from "@/lib/spanish-site";
 import { pairedLanguageRoutes } from "@/lib/language-routes";
 import { getGuides } from "@/lib/guides";
@@ -16,10 +16,10 @@ const read = (p: string) => readFileSync(join(root, p), "utf8");
 const words = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\$\{[^}]+\}/g, "x").trim().split(/\s+/).filter(Boolean).length;
 
 describe("parked content ship", () => {
-  it("row 33: filming floor lives once in lib/pricing.ts and reads as a floor", () => {
-    expect(FILMING_HOURLY).toMatchObject({ amount: 125, unit: "hour", isMinimum: true, minimumHours: 4, minimumAmount: 500 });
-    expect(filmingHourlyText("en")).toBe(`from ${usd(FILMING_HOURLY.amount)} per hour of filming`);
-    expect(filmingHourlyText("es")).toBe(`desde ${usd(FILMING_HOURLY.amount)} por hora de grabación`);
+  it("row 33: filming rates live once in lib/pricing.ts (owner decision 2026-11-26)", () => {
+    expect(FILMING_RATES).toMatchObject({ halfDay: 500, halfDayHours: 4, fullDay: 900, fullDayHours: 8, extraHour: 150 });
+    expect(filmingPriceText("en")).toBe(`from ${usd(FILMING_RATES.halfDay)} for a half day (up to 4 hours of filming), ${usd(FILMING_RATES.fullDay)} for a full day (up to 8 hours) and ${usd(FILMING_RATES.extraHour)} for each extra hour`);
+    expect(filmingPriceText("es")).toBe(`desde ${usd(FILMING_RATES.halfDay)} por medio día (hasta 4 horas de grabación), ${usd(FILMING_RATES.fullDay)} por día completo (hasta 8 horas) y ${usd(FILMING_RATES.extraHour)} por cada hora adicional`);
     for (const f of ["lib/guides.ts", "lib/page-questions.ts", "lib/spanish-site.ts", "app/(english)/pricing/page.tsx", "app/(spanish)/es/precios/page.tsx"]) {
       expect(read(f), f).not.toMatch(/\$80\b/);
     }
@@ -27,8 +27,8 @@ describe("parked content ship", () => {
     const es = getGuides("es").find((g) => g.id === "editor-vs-videographer-guide")!;
     const enSection = en.sections.find((s) => s.heading === "How much does a videographer charge per hour?")!;
     const esSection = es.sections.find((s) => s.heading === "¿Cuánto cobra un videógrafo por hora?")!;
-    expect(enSection.paragraphs[0]).toContain(filmingHourlyText("en"));
-    expect(esSection.paragraphs[0]).toContain(filmingHourlyText("es"));
+    expect(enSection.paragraphs[0]).toContain(filmingPriceText("en"));
+    expect(esSection.paragraphs[0]).toContain(filmingPriceText("es"));
   });
 
   it("rows 10/14/109/111: every page question is question-shaped, 100-180 words, one answer per id", () => {

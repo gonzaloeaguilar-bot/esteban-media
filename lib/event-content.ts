@@ -27,6 +27,7 @@ import { priceSentence } from "@/lib/packages";
 import { RAW_FILMING_RATES, SHORT_FORM, usd } from "@/lib/pricing";
 const RAW_HALF_DAY = usd(RAW_FILMING_RATES.halfDay);
 const RAW_FULL_DAY = usd(RAW_FILMING_RATES.fullDay);
+const RAW_EXTRA_HOUR = usd(RAW_FILMING_RATES.extraHour);
 
 /**
  * Meta descriptions, answer-first snippet test (overnight SEO/GEO loop, round 2;
@@ -182,13 +183,13 @@ export function eventBookingAnswer(
   if (locale === "es") {
     return {
       question: `¿Cuándo es ${event.name} ${year} y cómo reservo video para esas fechas?`,
-      answer: `${event.name} es ${range}, según su sitio oficial (revisado el ${read}). Grabación en locación desde ${RAW_HALF_DAY} media jornada o ${RAW_FULL_DAY} jornada completa; edición de tu material desde ${FROM} por video. Envía por WhatsApp fechas, lugar y horario; la fecha queda reservada solo cuando se confirma por escrito.`,
+      answer: `${event.name} es ${range}, según su sitio oficial (revisado el ${read}). Grabación en locación: ${RAW_HALF_DAY} media jornada, ${RAW_FULL_DAY} jornada completa, ${RAW_EXTRA_HOUR} por hora adicional; edición de tu material desde ${FROM} por video. Envía por WhatsApp fechas, lugar y horario; la fecha queda reservada solo cuando se confirma por escrito.`,
       sourceUrl: edition.sourceUrl,
     };
   }
   return {
     question: `When is ${event.name} ${year}, and how do I book video for it?`,
-    answer: `${event.name} runs ${range}, according to its official site (read ${read}). Raw filming from ${RAW_HALF_DAY} half-day or ${RAW_FULL_DAY} full-day; editing your footage from ${FROM} per video. Send the dates, place and hours on WhatsApp; a date is booked only once it is confirmed in writing.`,
+    answer: `${event.name} runs ${range}, according to its official site (read ${read}). Raw filming ${RAW_HALF_DAY} half-day, ${RAW_FULL_DAY} full-day, ${RAW_EXTRA_HOUR} per extra hour; editing your footage from ${FROM} per video. Send the dates, place and hours on WhatsApp; a date is booked only once it is confirmed in writing.`,
     sourceUrl: edition.sourceUrl,
   };
 }

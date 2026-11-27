@@ -16,7 +16,7 @@
 
 import study from "@/data/studies/miami-restaurant-instagram-2026.json";
 import { priceSentence } from "@/lib/packages";
-import { filmingHourlyText, shortFormPriceText } from "@/lib/pricing";
+import { filmingPriceText, shortFormPriceText, filmingPriceShortText } from "@/lib/pricing";
 
 export type PageQuestion = {
   path: string;
@@ -62,7 +62,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "Is there a UGC video editor in Fort Lauderdale?",
     paragraphs: [
       "Yes. Esteban Moreno Media is based in Fort Lauderdale and edits UGC for brands in Broward, Miami-Dade and remote clients. The editing itself does not depend on where the brand is: creators upload their clips to a shared folder, and the edits come back as ad variations with different hooks, captions and lengths for Meta and TikTok, so a Fort Lauderdale brand and one in another state get the same process.",
-      `Being local matters when the brand also needs product footage filmed, for example a product in use at the store or at an event. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}. Editing creator clips is Starter, ${shortFormPriceText("en")}. Communication is Spanish-first with intermediate English, and the [Fort Lauderdale service area page](/fort-lauderdale) lists what else is available close to the base.`,
+      `Being local matters when the brand also needs product footage filmed, for example a product in use at the store or at an event. On-location filming is a paid service, ${filmingPriceShortText("en")}. Editing creator clips is Starter, ${shortFormPriceText("en")}. Communication is Spanish-first with intermediate English, and the [Fort Lauderdale service area page](/fort-lauderdale) lists what else is available close to the base.`,
     ],
   },
 
@@ -176,7 +176,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "What does creative production include?",
     paragraphs: [
       "Creative production is the video and photography that the rest of a growth system runs on: the clips on the website, the photos on the Google profile, the Reels that send people to the offer. Here it covers video editing, photography and on-location capture scoped per project, repurposing one recording into channel-ready exports, and a look at how past videos and posts performed before deciding what to make next.",
-      `Prices are published. Editing your own clips is Starter, ${shortFormPriceText("en")}. On-location filming is ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. Deliverables, timing, location and usage are confirmed per project. Performance analysis informs the next decision; it cannot predict or guarantee that a video goes viral.`,
+      `Prices are published. Editing your own clips is Starter, ${shortFormPriceText("en")}. On-location filming is ${filmingPriceText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. Deliverables, timing, location and usage are confirmed per project. Performance analysis informs the next decision; it cannot predict or guarantee that a video goes viral.`,
     ],
   },
   {
@@ -186,7 +186,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "¿Qué incluye la producción creativa?",
     paragraphs: [
       "La producción creativa es el video y la fotografía de los que vive el resto del sistema de crecimiento: los clips del sitio web, las fotos del perfil de Google, los Reels que llevan a la gente a la oferta. Aquí incluye edición de video, fotografía y grabación en locación definida por proyecto, versiones de una misma grabación listas para cada canal y una revisión de cómo funcionaron los videos anteriores antes de decidir qué hacer.",
-      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingHourlyText("es")}, y un día de producción en tu negocio, con planificación, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}. Entregables, tiempos, locación y uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
+      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingPriceShortText("es")}, y un día de producción en tu negocio, con planificación, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}. Entregables, tiempos, locación y uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
     ],
   },
   // Row 14, second answer per growth-system page: what to prepare, so each
@@ -287,7 +287,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     id: "filming-or-editing-first",
     heading: "Should you start with filming or with editing?",
     paragraphs: [
-      "Start with editing when the footage already exists: phone clips, an old shoot, recorded webinars or product videos that were never cut down. Editing is remote, needs no visit, and shows quickly which kinds of clips are missing. Start with filming when the business has nothing that shows the real service, the space, the team or the product being used. Filming is booked by the hour or as a production day, and one shoot can be planned to feed weeks of edits, with vertical and horizontal crops decided before the camera rolls. Either way, the first message should list the footage that already exists, so the quote does not pay to film something you already have.",
+      "Start with editing when the footage already exists: phone clips, an old shoot, recorded webinars or product videos that were never cut down. Editing is remote, needs no visit, and shows quickly which kinds of clips are missing. Start with filming when the business has nothing that shows the real service, the space, the team or the product being used. Filming is booked by the half day or full day, or as a production day, and one shoot can be planned to feed weeks of edits, with vertical and horizontal crops decided before the camera rolls. Either way, the first message should list the footage that already exists, so the quote does not pay to film something you already have.",
     ],
   },
   {
