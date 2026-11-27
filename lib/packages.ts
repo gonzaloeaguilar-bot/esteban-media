@@ -15,6 +15,7 @@ import {
   usd,
   type PackageId,
   type PackagePrice,
+  AI_COMMERCIAL,
   COMMERCIAL_VIDEO_TIERS,
   PRICE_TERMS,
 } from "@/lib/pricing";
@@ -208,7 +209,7 @@ const COPY: Record<Locale, Copy> = {
       title: "¿Solo necesitas una cosa?",
       lead: "También trabajo por proyecto en servicios puntuales.",
       items: [
-        { id: "ia", title: "Contenido asistido por IA", note: "Cotización según referencia y objetivo", icon: "sparkles" },
+        { id: "ia", title: "Comercial generado con IA", note: `Desde ${usd(AI_COMMERCIAL.from)} por video de ${AI_COMMERCIAL.lengthSeconds} s, sin material grabado`, icon: "sparkles" },
         { id: "foto", title: "Fotografía de producto o inmobiliaria", href: "/es/fotografo-en-fort-lauderdale", icon: "camera" },
         { id: "grabacion", title: "Grabación en locación sin edición", note: "Material 4K en bruto para tu equipo", href: "/es/produccion-de-video-fort-lauderdale", icon: "camera" },
         { id: "multicam", title: "Producción multicámara y conferencias", note: "2 a 3 cámaras con audio directo de consola", href: "/es/videografo-para-conferencias-fort-lauderdale", icon: "camera" },
@@ -264,7 +265,7 @@ const COPY: Record<Locale, Copy> = {
       title: "Only need one thing?",
       lead: "I also take single projects.",
       items: [
-        { id: "ia", title: "AI-assisted content", note: "Quoted from your reference and goal", icon: "sparkles" },
+        { id: "ia", title: "AI-generated commercial", note: `From ${usd(AI_COMMERCIAL.from)} per ${AI_COMMERCIAL.lengthSeconds} s video, no footage needed`, icon: "sparkles" },
         { id: "foto", title: "Product or real estate photography", note: "Quoted per shoot", icon: "camera" },
         { id: "grabacion", title: "On-location raw video capture", note: "Raw 4K footage delivered unedited", href: "/services/video-production-fort-lauderdale", icon: "camera" },
         { id: "multicam", title: "Multi-camera and conference production", note: "2 to 3 cameras with soundboard audio feed", href: "/services/conference-videographer-fort-lauderdale", icon: "camera" },

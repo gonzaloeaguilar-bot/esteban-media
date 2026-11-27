@@ -1,5 +1,6 @@
 import type { CaseStudyLocale, CaseStudyPriceKind } from "@/lib/case-studies";
 import {
+  AI_COMMERCIAL,
   AI_SERVICES,
   ARRANQUE_WEEKLY_FROM,
   REAL_ESTATE_PLANS,
@@ -57,12 +58,12 @@ export function caseStudyPriceLine(
     case "ai-commercial":
       return es
         ? {
-            text: `Una pieza corta de marca hecha con IA empieza en ${usd(AI_SERVICES.microShortFilmFrom)}; un Reel con IA editado empieza en ${perVideo} por video, y el b-roll generado se suma a ${usd(AI_SERVICES.bRollPerVideo)} por video.`,
+            text: `Un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA, como este, empieza en ${usd(AI_COMMERCIAL.from)} por video; un Reel con IA editado de tu propio material empieza en ${perVideo} por video, y el b-roll generado se suma a ${usd(AI_SERVICES.bRollPerVideo)} por video.`,
             href: "/es/reels-comerciales-con-ia-miami",
             linkLabel: "Ver Reels comerciales con IA",
           }
         : {
-            text: `A short AI-made brand film starts at ${usd(AI_SERVICES.microShortFilmFrom)}; an edited AI Reel starts at ${perVideo} per video, with generated b-roll at ${usd(AI_SERVICES.bRollPerVideo)} per video.`,
+            text: `A ${AI_COMMERCIAL.lengthSeconds} second commercial made entirely with AI, like this one, starts at ${usd(AI_COMMERCIAL.from)} per video; an edited AI Reel from your own footage starts at ${perVideo} per video, with generated b-roll at ${usd(AI_SERVICES.bRollPerVideo)} per video.`,
             href: "/services/ai-commercial-video-reels-miami",
             linkLabel: "See AI commercial Reels",
           };

@@ -1,10 +1,12 @@
 import type { DeepDive } from "@/lib/service-deep-dive-content";
 import type { SpanishNicheSection } from "@/lib/spanish-site";
 import {
+  AI_COMMERCIAL,
   AI_SERVICES,
   PACKAGE_PRICES,
   PRICING_BANDS,
   SHORT_FORM,
+  aiCommercialPriceText,
   filmingPriceText,
   usd,
 } from "@/lib/pricing";
@@ -24,6 +26,7 @@ const localPresenceFrom =
     : "a scoped quote";
 const corporateBand = `${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}`;
 const shortFormFrom = usd(SHORT_FORM.perVideoFrom);
+const aiCommercialFrom = usd(AI_COMMERCIAL.from);
 
 // ---------------------------------------------------------------------------
 // EN: /services/event-attendee-interview-videographer-miami
@@ -128,10 +131,10 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
     "What the AI actually does, where a human editor stays in the loop, how disclosure and platform labels apply, and how pricing is built.",
   sections: [
     {
-      heading: "What does an AI-assisted commercial Reel include?",
+      heading: "What does an AI commercial or AI-assisted Reel include?",
       paragraphs: [
-        "An AI-assisted commercial Reel still starts with a real product, a real property or a real dish. The AI helps with the parts a small team cannot produce by hand: voiceover, generated b-roll that does not misrepresent the product, motion graphics, cleanup and fast captioning. The cut, the pacing and the claims are decided by a human editor.",
-        `A finished Reel is built as a vertical piece for one offer and one audience, from ${shortFormFrom} per video for a single edit. AI-specific add-ons are priced separately: voiceover at ${usd(AI_SERVICES.voiceoverPerVideo)} per video, generated b-roll at ${usd(AI_SERVICES.bRollPerVideo)} per video, animation from ${usd(AI_SERVICES.animationFrom)} and a short AI-assisted brand film from ${usd(AI_SERVICES.microShortFilmFrom)}.`,
+        `There are two ways to work. An AI-generated commercial is made entirely with AI from your brief, logo and offer, ${aiCommercialPriceText("en")}. An AI-assisted Reel starts with your own footage of a real product, property or dish, and the AI helps with voiceover, generated b-roll that does not misrepresent the product, motion graphics, cleanup and captioning. In both, the script, the pacing and the claims are decided by a person.`,
+        `An edited Reel is built as a vertical piece for one offer and one audience, from ${shortFormFrom} per video for a single edit. AI-specific add-ons are priced separately: voiceover at ${usd(AI_SERVICES.voiceoverPerVideo)} per video, generated b-roll at ${usd(AI_SERVICES.bRollPerVideo)} per video, animation from ${usd(AI_SERVICES.animationFrom)} and a short AI-assisted brand film from ${usd(AI_SERVICES.microShortFilmFrom)}.`,
       ],
     },
     {
@@ -149,9 +152,9 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
       ],
     },
     {
-      heading: "How much does an AI-assisted commercial Reel cost, and what changes the price?",
+      heading: "How much does an AI commercial cost, and what changes the price?",
       paragraphs: [
-        `Base editing for one vertical commercial Reel starts at ${shortFormFrom} per video, and social ad creative in the ecommerce and real estate bands typically runs ${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)} for a scoped short ad. AI add-ons are quoted line by line from lib/pricing.ts, so a voiceover is never bundled into a price that does not include it.`,
+        `A fully AI-generated commercial of ${AI_COMMERCIAL.lengthSeconds} seconds starts at ${aiCommercialFrom} per video. Editing your own footage into one vertical commercial Reel starts at ${shortFormFrom} per video, and social ad creative in the ecommerce and real estate bands typically runs ${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)} for a scoped short ad. AI add-ons are quoted line by line from lib/pricing.ts, so a voiceover is never bundled into a price that does not include it.`,
         "Four things move the quote: how many products or listings are in scope, whether original footage exists or capture is needed, how far the AI work goes, and how many variations are required for testing. Bulk or rush work is priced by the same rules as every other edit. The final quote follows the scope, and a starting price alone does not confirm availability for your date.",
       ],
     },
@@ -167,10 +170,10 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
 
 export const AI_COMMERCIAL_REELS_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
-    heading: "¿Qué incluye un reel comercial asistido por IA?",
+    heading: "¿Qué incluye un comercial con IA o un reel asistido por IA?",
     paragraphs: [
-      "Un reel comercial asistido por IA sigue partiendo de un producto, una propiedad o un plato real. La IA ayuda en lo que un equipo pequeño no puede producir a mano: la locución, el b-roll generado que no tergiversa el producto, los gráficos en movimiento, la limpieza y el subtitulado rápido. El corte, el ritmo y las afirmaciones los decide un editor humano.",
-      `Un reel terminado se arma en formato vertical para una oferta y una audiencia, desde ${shortFormFrom} por video para una edición individual. Los complementos de IA se cotizan aparte: locución a ${usd(AI_SERVICES.voiceoverPerVideo)} por video, b-roll generado a ${usd(AI_SERVICES.bRollPerVideo)} por video, animación desde ${usd(AI_SERVICES.animationFrom)} y una pieza corta de marca asistida por IA desde ${usd(AI_SERVICES.microShortFilmFrom)}.`,
+      `Hay dos formas de trabajar. Un comercial generado con IA se hace completamente con IA a partir de tu idea, tu logo y tu oferta, ${aiCommercialPriceText("es")}. Un reel asistido por IA parte de tu propio material de un producto, una propiedad o un plato real, y la IA ayuda con la locución, el b-roll generado que no tergiversa el producto, los gráficos en movimiento, la limpieza y los subtítulos. En los dos casos, el guion, el ritmo y las afirmaciones los decide una persona.`,
+      `Un reel editado se arma en formato vertical para una oferta y una audiencia, desde ${shortFormFrom} por video para una edición individual. Los complementos de IA se cotizan aparte: locución a ${usd(AI_SERVICES.voiceoverPerVideo)} por video, b-roll generado a ${usd(AI_SERVICES.bRollPerVideo)} por video, animación desde ${usd(AI_SERVICES.animationFrom)} y una pieza corta de marca asistida por IA desde ${usd(AI_SERVICES.microShortFilmFrom)}.`,
     ],
   },
   {
@@ -188,9 +191,9 @@ export const AI_COMMERCIAL_REELS_ES_SECTIONS: readonly SpanishNicheSection[] = [
     ],
   },
   {
-    heading: "¿Cuánto cuesta un reel comercial asistido por IA y qué cambia el precio?",
+    heading: "¿Cuánto cuesta un comercial con IA y qué cambia el precio?",
     paragraphs: [
-      `La edición base de un reel comercial vertical parte de ${shortFormFrom} por video, y una pieza corta de anuncio en las bandas de ecommerce e inmobiliaria se mueve típicamente entre ${usd(PRICING_BANDS.ecommerce.baseMin)} y ${usd(PRICING_BANDS.realestate.baseMax)}. Los complementos de IA se cotizan línea por línea desde lib/pricing.ts, así que una locución nunca se incluye dentro de un precio que no la contempla.`,
+      `Un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA parte de ${aiCommercialFrom} por video. La edición de tu propio material en un reel comercial vertical parte de ${shortFormFrom} por video, y una pieza corta de anuncio en las bandas de ecommerce e inmobiliaria se mueve típicamente entre ${usd(PRICING_BANDS.ecommerce.baseMin)} y ${usd(PRICING_BANDS.realestate.baseMax)}. Los complementos de IA se cotizan línea por línea desde lib/pricing.ts, así que una locución nunca se incluye dentro de un precio que no la contempla.`,
       "Cuatro cosas mueven la cotización: cuántos productos o propiedades entran en el alcance, si existe material original o hace falta grabar, hasta dónde llega el trabajo de IA y cuántas variaciones se necesitan para probar. El trabajo por volumen o urgente se cotiza con las mismas reglas que cualquier otra edición. La cotización final sigue el alcance, y un precio inicial no confirma disponibilidad para tu fecha.",
     ],
   },
@@ -252,6 +255,35 @@ export const AI_COMMERCIAL_REELS_FAQS = [
   {
     question: "Can AI generate dishes for restaurants or finishes for real estate properties?",
     answer:
-      "No. Authentic dishes served by restaurant kitchens and real architectural finishes of properties must be filmed accurately, not synthesized. AI assistance is reserved for background accents, pacing, clean voiceovers, and motion titles.",
+      "No. Authentic dishes served by restaurant kitchens and real architectural finishes of properties must be filmed accurately, not synthesized. A fully AI-generated commercial sells a mood, a season or an offer, never a specific dish or unit a buyer will inspect.",
+  },
+  {
+    question: "How much does a fully AI-generated commercial cost?",
+    answer: `A fully AI-generated commercial of ${AI_COMMERCIAL.lengthSeconds} seconds starts at ${aiCommercialFrom} per video, made from your brief with no footage needed. AI add-ons on an edit of your own footage are priced separately.`,
   },
 ] as const;
+
+/**
+ * The AI-generated commercial as a JSON-LD Offer, EN or ES. Same figure as the
+ * visible answer-first sentence: both read AI_COMMERCIAL in lib/pricing.ts.
+ */
+export function aiCommercialOfferJsonLd(locale: "en" | "es", pageUrl: string, providerId: string) {
+  const es = locale === "es";
+  const name = es ? "Comercial generado con IA" : "AI-generated commercial video";
+  return {
+    "@type": "Offer",
+    "@id": `${pageUrl}#ai-commercial-offer`,
+    name,
+    description: es
+      ? `Comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA, sin material grabado.`
+      : `A ${AI_COMMERCIAL.lengthSeconds} second commercial made entirely with AI, no footage needed.`,
+    url: pageUrl,
+    itemOffered: { "@type": "Service", name, provider: { "@id": providerId } },
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      minPrice: AI_COMMERCIAL.from,
+      priceCurrency: AI_COMMERCIAL.currency,
+      unitText: es ? "video" : AI_COMMERCIAL.unit,
+    },
+  };
+}

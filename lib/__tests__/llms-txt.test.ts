@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { buildLlmsTxt } from "@/lib/llms-txt";
-import { CHATBOT_PRICE, FILMING_RATES, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { AI_COMMERCIAL, CHATBOT_PRICE, FILMING_RATES, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 // /llms.txt is served by app/llms.txt/route.ts: the hand-written facts in
 // lib/llms-base.txt plus a page index generated from the sitemap sources.
@@ -102,6 +102,8 @@ describe("/llms.txt for AI crawlers", () => {
         usd(FILMING_RATES.halfDay),
         usd(FILMING_RATES.fullDay),
         usd(FILMING_RATES.extraHour),
+        // AI-generated commercial, owner quote 2026-11-26.
+        usd(AI_COMMERCIAL.from),
       ],
     );
     for (const m of llms.match(/\$\d[\d,]*/g) ?? []) expect(allowed.has(m), m).toBe(true);

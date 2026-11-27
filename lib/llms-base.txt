@@ -171,6 +171,7 @@ Niche pages added 2026-10-11 (English / Spanish pairs; editing, AI-assisted cont
 - Dance studio and music school video: https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami · https://estebanmorenomedia.com/es/video-para-academias-de-baile-y-musica-miami
 - Founder and personal brand videos: https://estebanmorenomedia.com/services/personal-brand-video-editor-founders-miami · https://estebanmorenomedia.com/es/editor-de-video-para-marca-personal-miami
 - AI chatbot for small business (website + Instagram DM, English and Spanish, from {{CHATBOT_FROM}} setup plus a monthly fee): https://estebanmorenomedia.com/services/ai-chatbot-for-small-business · https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios
+- AI-generated commercial (a {{AI_COMMERCIAL_LENGTH}} second commercial made entirely with AI from the client's brief, no footage needed, from {{AI_COMMERCIAL_FROM}} per video; AI add-ons on an edit of the client's own footage are priced separately): https://estebanmorenomedia.com/services/ai-commercial-video-reels-miami · https://estebanmorenomedia.com/es/reels-comerciales-con-ia-miami
 - Landing page design (one offer, one action, for ads and bio links, from {{LANDING_FROM}}; larger builds {{LANDING_UPPER}}+): https://estebanmorenomedia.com/services/landing-page-design · https://estebanmorenomedia.com/es/landing-page-para-negocios
 - Podcast clipping for Reels, TikTok and Shorts: https://estebanmorenomedia.com/services/podcast-clipping-service-miami
 

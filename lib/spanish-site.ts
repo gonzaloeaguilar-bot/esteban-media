@@ -11,7 +11,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_OPTIONS, ARRANQUE_WEEKLY_TERMS, RAW_FILMING_RATES, CELEBRATION_FILM_BUNDLES, CREW_RECORDING_RATES, EXPANSION_SERVICES, FILMING_RATES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, WEDDING_PACKAGES, filmingPriceText, priceTermsText, shortFormPriceText, shortFormWeeklyText, turnaroundFor, usd } from "@/lib/pricing";
+import { AI_COMMERCIAL, aiCommercialPriceText, ARRANQUE_WEEKLY_OPTIONS, ARRANQUE_WEEKLY_TERMS, RAW_FILMING_RATES, CELEBRATION_FILM_BUNDLES, CREW_RECORDING_RATES, EXPANSION_SERVICES, FILMING_RATES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, WEDDING_PACKAGES, filmingPriceText, priceTermsText, shortFormPriceText, shortFormWeeklyText, turnaroundFor, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -388,6 +388,7 @@ export const spanishServices: SpanishService[] = [
       "Las preguntas de alcance aclaran dónde puede encajar la IA, qué referencias guían la dirección y cómo se usará el contenido.",
     icon: WandSparkles,
     tags: ["Asistido por IA", "Dirección creativa", "Según proyecto"],
+    startingPrice: `Comerciales generados con IA desde ${usd(AI_COMMERCIAL.from)} por video de ${AI_COMMERCIAL.lengthSeconds} segundos`,
   },
   {
     id: "planificacion-social",
@@ -3093,12 +3094,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "reels-comerciales-con-ia-miami",
     title: "Reels comerciales con IA en Miami",
     metadataTitle: "Reels Comerciales con IA Miami",
-    description:
-      "Edición de reels comerciales asistidos por IA para restaurantes, bienes raíces y comercio electrónico en Miami con aviso claro y control editorial humano.",
+    description: `Comerciales con IA en Miami desde ${usd(AI_COMMERCIAL.from)} por video de ${AI_COMMERCIAL.lengthSeconds} s, sin grabar nada, y reels asistidos por IA con tu material. Aviso claro de IA.`,
     eyebrow: "Reels Comerciales con IA",
     h1: "Edición de reels comerciales con IA para negocios en Miami.",
-    lead:
-      "Aceleramos locuciones, fondos en movimiento, subtitulado y material de apoyo con IA, manteniendo el criterio narrativo, las ofertas y los ganchos bajo edición humana.",
+    lead: `Un comercial generado con IA es un anuncio corto hecho completamente con IA a partir de tu idea, tu logo y tu oferta: ${aiCommercialPriceText("es")}. Si ya tienes material, un reel asistido por IA le suma locución, b-roll generado, gráficos y subtítulos, con el gancho, las afirmaciones y el ritmo en manos de un editor humano.`,
     keyword: "reels comerciales con ia miami",
     location: "Miami-Dade / Broward / Remoto",
     availability: "confirmed",
@@ -3113,7 +3112,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Flujo híbrido que combina la rapidez de herramientas de IA con la precisión visual y de marca de un editor profesional.",
-    updated: "2026-11-18",
+    updated: "2026-11-26",
     sections: AI_COMMERCIAL_REELS_ES_SECTIONS,
     sectionsDisclosure: AI_COMMERCIAL_REELS_ES_DISCLOSURE,
     sectionsDestinations: AI_COMMERCIAL_REELS_ES_DESTINATIONS,
@@ -3136,7 +3135,11 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Se pueden generar platos de comida o acabados de propiedades con IA?",
         answer:
-          "No. Los platos de un restaurante y los acabados arquitectónicos reales deben filmarse fielmente; la IA se limita a efectos de apoyo, ritmos y locuciones.",
+          "No. Los platos de un restaurante y los acabados arquitectónicos reales deben filmarse fielmente. Un comercial generado con IA vende un ambiente, una temporada o una oferta, nunca un plato o una unidad concreta que el comprador va a revisar.",
+      },
+      {
+        question: "¿Cuánto cuesta un comercial hecho completamente con IA?",
+        answer: `Un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA parte de ${usd(AI_COMMERCIAL.from)} por video, a partir de tu idea y sin material grabado. Los complementos de IA sobre la edición de tu propio material se cotizan aparte.`,
       },
     ],
   },

@@ -612,6 +612,31 @@ export const AI_SERVICES = {
   microShortFilmFrom: 600,
 } as const;
 
+/**
+ * AI-generated commercial (owner quote by email, reported by the account
+ * manager 2026-11-26; vault client-esteban-media/wiki/
+ * esteban-pricing-change-2026-11-26). A fully AI-generated commercial video,
+ * 15–30 seconds, made from the client's brief with no footage needed: from
+ * $350 per video. This is a separate product from the AI add-ons above, which
+ * stay priced on top of an edit of the client's own footage. Every page, card,
+ * JSON-LD Offer and llms line that shows this price reads it from here.
+ */
+export const AI_COMMERCIAL = {
+  from: 350,
+  unit: "video",
+  lengthSeconds: "15–30",
+  currency: "USD",
+  source: "owner quote by email, reported by the account manager 2026-11-26: AI-generated commercial videos starting at $350 per video",
+} as const;
+
+/** The one answer-first price phrase for the AI-generated commercial, EN or ES. */
+export function aiCommercialPriceText(locale: "en" | "es"): string {
+  const from = usd(AI_COMMERCIAL.from);
+  return locale === "es"
+    ? `desde ${from} por video para un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA, sin necesidad de material grabado`
+    : `from ${from} per video for a ${AI_COMMERCIAL.lengthSeconds} second commercial made entirely with AI, no footage needed`;
+}
+
 /** Expansion batch (owner approval 2026-10-30, "Todo sí"). */
 export const EXPANSION_SERVICES = {
   ugcAdPack5: 1250,

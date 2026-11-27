@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import { socialImageAlt, socialImageSize } from "@/lib/social-image";
-import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { AI_COMMERCIAL, PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 /** The Arranque / Starter package floor — the ONE figure, from lib/pricing.ts. */
 const startingPackagePrice = usd(
@@ -145,6 +145,7 @@ export const services: Service[] = [
       "Scoping questions clarify where AI-assisted methods may fit, which references guide the direction, and how the content will be used.",
     icon: WandSparkles,
     tags: ["AI-assisted", "Creative direction", "Project-specific"],
+    startingPrice: `AI-generated commercials from ${usd(AI_COMMERCIAL.from)} per ${AI_COMMERCIAL.lengthSeconds} second video`,
   },
   {
     id: "social-planning",

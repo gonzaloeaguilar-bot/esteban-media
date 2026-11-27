@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { CHATBOT_PRICE, FILMING_RATES, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { AI_COMMERCIAL, CHATBOT_PRICE, FILMING_RATES, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { join } from "node:path";
 
 import sitemap from "@/app/sitemap";
@@ -45,6 +45,8 @@ const PRICE_TOKENS: Record<string, string> = {
   FILMING_HALF_DAY: usd(FILMING_RATES.halfDay),
   FILMING_FULL_DAY: usd(FILMING_RATES.fullDay),
   FILMING_EXTRA_HOUR: usd(FILMING_RATES.extraHour),
+  AI_COMMERCIAL_FROM: usd(AI_COMMERCIAL.from),
+  AI_COMMERCIAL_LENGTH: AI_COMMERCIAL.lengthSeconds,
 };
 export function fillPrices(text: string): string {
   return text.replace(/\{\{([A-Z_]+)\}\}/g, (whole, key: string) => PRICE_TOKENS[key] ?? whole);
