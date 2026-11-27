@@ -463,6 +463,10 @@ export type SpanishNicheSection = {
   bullets?: readonly string[];
 };
 
+// Prune follow-up survivors (2026-11-26) read the filming phrase through its own
+// import, kept away from the shared pricing import so an edit there cannot drop it.
+import { filmingHourlyText as survivorFilmingText } from "@/lib/pricing";
+
 export type SpanishNichePage = {
   slug: string;
   title: string;
@@ -2028,6 +2032,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Consultorios odontológicos que desean explicar tratamientos en video.",
       "Clínicas dentales con tomas grabadas que necesitan edición profesional.",
       "Doctores que buscan atraer pacientes en el mercado hispano de Miami.",
+      "Odontología cosmética y carillas: antes y después solo con autorización escrita del paciente.",
     ],
     scopingQuestions: [
       "¿El video explicará procedimientos o testimonios de pacientes?",
@@ -2056,7 +2061,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Servicios Legales / Firmas",
     h1: "Video marketing y Reels educativos para abogados y firmas legales.",
     lead:
-      "Estructuramos y editamos videos educativos para abogados y firmas de abogados en South Florida. Convierte conceptos legales complejos en mensajes claros y profesionales para redes sociales.",
+      "Estructuramos y editamos videos educativos para abogados y firmas de abogados en South Florida. Convierte conceptos legales complejos en mensajes claros y profesionales para redes sociales. Puedes ver trabajos publicados en el [portafolio](/es/portafolio).",
+    // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
+    answerQuestion: "¿Qué tipo de firma legal atiende Esteban y cuánto cuesta?",
+    answerFirst: `Esteban Moreno Media edita videos educativos para abogados y firmas de Miami y Fort Lauderdale, en español y en inglés: inmigración, lesiones personales, planificación patrimonial y derecho corporativo. Un video editado con el material de la firma parte desde ${esStarterFrom} (paquete Arranque); si hace falta grabar en la oficina, la grabación se cotiza ${survivorFilmingText("es")}. El contenido lo define la firma: Esteban no da asesoría legal.`,
+    updated: "2026-11-26",
     keyword: "marketing de video para abogados",
     location: "Miami-Dade / Broward County",
     availability: "confirmed",
@@ -2065,6 +2074,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Abogados que comparten consejos legales y respuestas frecuentes en redes.",
       "Firmas que buscan mantener presencia constante en Instagram, YouTube y LinkedIn.",
       "Despachos que requieren atención y edición bilingüe (español e inglés).",
+      "Firmas de inmigración, lesiones personales y planificación patrimonial en Miami-Dade y Broward.",
     ],
     scopingQuestions: [
       "¿Qué especialidad legal abordará el contenido (inmigración, accidentes, corporativo)?",
@@ -4818,7 +4828,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Automotriz / Detailing",
     h1: "Videos de vehículos de alto nivel y servicios automotrices.",
     lead:
-      "Resaltamos el diseño y acabado de autos exóticos, servicios de detailing y ventas en concesionarios con ediciones en video de estilo cinematográfico.",
+      "Resaltamos el diseño y acabado de autos exóticos, servicios de detailing y ventas en concesionarios con ediciones en video de estilo cinematográfico. Todavía no hay un video de vehículos publicado; para un concesionario de Fort Lauderdale Esteban construyó el sitio web y el asistente conversacional: [caso Fort Lauderdale Auto Sale](/es/casos-de-estudio/flas-concierge).",
+    // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
+    answerQuestion: "¿Qué video automotriz edita Esteban y cuánto cuesta?",
+    answerFirst: `Esteban Moreno Media edita video para concesionarios, agencias y rentas de autos exóticos y talleres de detailing, tint y wraps en Miami y Fort Lauderdale: recorridos del auto, detalles de interior, antes y después y Reels verticales. Un video editado con tus tomas parte desde ${esStarterFrom} (paquete Arranque) y la grabación en locación se cotiza ${survivorFilmingText("es")}.`,
+    updated: "2026-11-26",
     keyword: "video automotriz en Miami",
     location: "Miami / Fort Lauderdale",
     availability: "confirmed",
@@ -4826,6 +4840,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     bestFor: [
       "Talleres de auto detailing y protección de pintura (PPF).",
       "Concesionarios de autos exóticos y de lujo en South Florida.",
+      "Agencias y rentas de autos exóticos en Miami.",
     ],
     scopingQuestions: [
       "¿Dispones de tomas detalladas de interiores y exteriores del auto?",
@@ -4853,7 +4868,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Hoteles / Hospitalidad",
     h1: "Videos promocionales para hoteles y resorts en Miami.",
     lead:
-      "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach. Para contenido gastronómico específico de comedores y bares, consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+      "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach. Para contenido gastronómico específico de comedores y bares, consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Todavía no hay un proyecto de hotel publicado; el trabajo de hospitalidad más cercano es [Bar Door Monkey](/es/portafolio/bar-door-monkey), un spot para un restaurante de Miami grabado en locación y editado por Esteban.",
+    // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
+    answerQuestion: "¿Qué video hace Esteban para hoteles y cuánto cuesta?",
+    answerFirst: `Esteban Moreno Media produce y edita video para hoteles, hoteles boutique y resorts de Miami y Miami Beach: recorridos de habitaciones y suites, amenidades, gastronomía y cortes verticales para el sitio web y las redes del hotel. La edición con material del hotel parte desde ${esStarterFrom} por video (paquete Arranque) y la grabación en locación se cotiza ${survivorFilmingText("es")}.`,
     keyword: "video para hoteles en Miami",
     location: "Miami Beach / South Florida",
     availability: "confirmed",
@@ -4861,6 +4879,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     bestFor: [
       "Boutique hoteles, resorts y propiedades de hospitalidad.",
       "Grupos hoteleros que necesitan videos para su sitio web y redes sociales.",
+      "Hoteles boutique de Miami Beach que quieren editar su propio material para el sitio web y las redes.",
     ],
     scopingQuestions: [
       "¿El video abarcará habitaciones, piscina, restaurante o todo el complejo?",
@@ -4868,7 +4887,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Calidad cinematográfica que transmite lujo y hospitalidad.",
-    updated: "2026-10-07",
+    updated: "2026-11-26",
     sections: HOTEL_ES_SECTIONS,
     sectionsDisclosure: HOTEL_ES_DISCLOSURE,
     sectionsDestinations: HOTEL_ES_DESTINATIONS,
@@ -5152,6 +5171,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Edición de video promocional para restaurantes en Miami.",
     lead:
       `Envía tus videos de cocina, platos, bebidas o salón para editar una promoción para redes desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. Un solo reel editado con tus clips es ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque). Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.`,
+    // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
+    answerQuestion: "¿Cuánto cuesta un video promocional para un restaurante o bar en Miami?",
+    answerFirst: `La edición de video promocional para restaurantes, bares de coctelería, cocina de autor, empresas de catering y cervecerías artesanales en Miami parte desde ${usd(RESTAURANT_PROMO.from)} por proyecto con el material del local; un reel suelto editado con tus clips es ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque). Cada proyecto recibe una cotización escrita.`,
+    updated: "2026-11-26",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
@@ -5159,6 +5182,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     bestFor: [
       "Restaurantes, bares gastronómicos y conceptos de comida rápida de lujo.",
       "Agencias de marketing gastronómico en South Florida.",
+      "Bares de coctelería, empresas de catering y cervecerías artesanales que graban su propio material.",
     ],
     scopingQuestions: [
       "¿Cuentas con tomas en cámara lenta de preparación de alimentos?",
@@ -6644,7 +6668,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Consultorios / Quiropráctica / Fisioterapia",
     h1: "Video para consultorios médicos en Miami y Broward.",
     lead:
-      "Esteban edita el material que el propio consultorio graba en sus salas, y considera jornadas en locación de forma selectiva. Envía los clips que ya tienes, indica cuáles cuentan con autorización firmada del paciente y recibes un siguiente paso concreto. La atención es principalmente en español y también hay comunicación en inglés intermedio.",
+      "Esteban edita el material que el propio consultorio graba en sus salas, y considera jornadas en locación de forma selectiva. Envía los clips que ya tienes, indica cuáles cuentan con autorización firmada del paciente y recibes un siguiente paso concreto. La atención es principalmente en español y también hay comunicación en inglés intermedio. Como referencia, Esteban grabó, registró el sonido y editó en locación un video para una clínica dental de Miami: [caso Healthy Smile](/es/casos-de-estudio/healthy-smile).",
+    // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
+    answerQuestion: "¿Qué consultorios y clínicas atiende Esteban y cuánto cuesta?",
+    answerFirst: `Esteban Moreno Media edita video para consultorios y clínicas de salud en Miami-Dade y Broward: medicina general y concierge, quiropráctica y fisioterapia, clínicas estéticas, cirugía plástica, restauración capilar y spas de bienestar. Un video editado con el material del consultorio parte desde ${esStarterFrom} (paquete Arranque) y la grabación en locación se cotiza ${survivorFilmingText("es")}. Un paciente reconocible solo aparece con su autorización escrita, que conserva el consultorio.`,
+    updated: "2026-11-26",
     keyword: "marketing de video para consultorios médicos",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
@@ -6654,6 +6682,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Clínicas de medicina funcional con grabaciones propias listas para editar.",
       "Centros de atención sin cita que necesitan explicar cómo es la primera visita.",
       "Equipos clínicos que prefieren definir el contenido en español.",
+      "Clínicas estéticas, de cirugía plástica, de restauración capilar y spas de bienestar que publican en español.",
     ],
     scopingQuestions: [
       "¿El video explicará un tratamiento, una molestia específica o la experiencia de la primera visita?",

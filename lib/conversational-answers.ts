@@ -71,7 +71,7 @@ export const TIKTOK_SECTION_ES: ConversationalSection = {
   heading: "¿Quién edita TikToks para negocios y creadores en Miami?",
   paragraphs: [
     `Esteban Moreno Media edita TikToks con el material que envías, para negocios y creadores de Miami que publican video vertical. TikTok se edita para su propia interfaz: los botones están a la derecha y el texto de la publicación va abajo, así que los subtítulos se colocan más arriba y centrados, y el primer segundo tiene que mostrar el tema, no un logotipo. El mismo clip suele necesitar otra portada, y a veces otra primera frase, antes de ir a Reels o Shorts; esas versiones salen del mismo corte.`,
-    `Esteban trabaja primero en español, con inglés intermedio, algo útil para cuentas que publican en los dos idiomas. Un TikTok se cotiza como cualquier video del Arranque: desde ${once} por video, o ${shortFormWeeklyText("es")} si publicas cada semana. Para anuncios pagados en TikTok, revisa [edición de anuncios para TikTok](/es/editor-de-video-para-anuncios-de-tiktok-miami).`,
+    `Esteban trabaja primero en español, con inglés intermedio, algo útil para cuentas que publican en los dos idiomas. Un TikTok se cotiza como cualquier video del Arranque: desde ${once} por video, o ${shortFormWeeklyText("es")} si publicas cada semana. Para anuncios pagados en TikTok, revisa [edición de anuncios para TikTok](/es/editor-de-video-corto-para-redes-miami).`,
   ],
 };
 

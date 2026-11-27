@@ -79,8 +79,10 @@ describe("portfolio sitemap entries", () => {
     // +4 = case-study batch (2026-11-26): /case-studies/real-estate-reels-davie and
     // /case-studies/ai-edit-prep-reel with their Spanish twins (one 4-URL allowance).
     // +2 = owner-ordered DuPont AI commercial case-study pair (2026-11-26).
-    expect(entries).toHaveLength(601 - 50 + 4 + 2);
-    expect(new Set(urls)).toHaveLength(601 - 50 + 4 + 2);
+    // -24 = prune follow-up (2026-11-26): one survivor per zero-signal cluster
+    // (config/cohort-consolidation.json#prune20261126Followup).
+    expect(entries).toHaveLength(601 - 50 + 4 + 2 - 24);
+    expect(new Set(urls)).toHaveLength(601 - 50 + 4 + 2 - 24);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

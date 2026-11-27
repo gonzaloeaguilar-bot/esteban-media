@@ -645,6 +645,126 @@
       "from": "/services/video-podcast-editing-service-miami",
       "to": "/services/podcast-clipping-service-miami",
       "reason": "0 Google impressions, 0 GA4 sessions, 0 leads 2026-08-27..2026-11-25; indexed (URL Inspection 2026-11-26); same-language same-intent: podcast video editing, Miami"
+    },
+    {
+      "from": "/es/video-para-odontologia-cosmetica-y-carillas-miami",
+      "to": "/es/marketing-de-video-para-dentistas-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster, dental sub-cluster: cosmetic dentistry is dentist video; the dentist page stays because the Healthy Smile case study links it"
+    },
+    {
+      "from": "/es/marketing-de-video-para-clinicas-esteticas-miami",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: aesthetic clinic video is medical-practice video"
+    },
+    {
+      "from": "/es/marketing-de-video-para-cirugia-plastica-miami",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: plastic surgery practice video is medical-practice video"
+    },
+    {
+      "from": "/es/video-para-restauracion-capilar-miami",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: hair restoration clinic video is medical-practice video"
+    },
+    {
+      "from": "/es/marketing-de-video-para-quiropracticos-miami",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: chiropractic is already named on the survivor page"
+    },
+    {
+      "from": "/es/marketing-de-video-para-spas-y-bienestar-miami",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: wellness and spa practice video is medical-practice video"
+    },
+    {
+      "from": "/es/video-para-medicos-concierge-y-clinicas-privadas-palm-beach",
+      "to": "/es/marketing-de-video-para-consultorios-medicos-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish medical cluster: concierge and private clinic video is medical-practice video"
+    },
+    {
+      "from": "/es/video-para-abogados-de-lesiones-personales-miami",
+      "to": "/es/marketing-de-video-para-abogados-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish law cluster: personal-injury firm video is law-firm video"
+    },
+    {
+      "from": "/es/video-para-abogados-de-planificacion-patrimonial-boca-raton",
+      "to": "/es/marketing-de-video-para-abogados-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish law cluster: estate-planning firm video is law-firm video"
+    },
+    {
+      "from": "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
+      "to": "/es/marketing-de-video-para-abogados-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish law cluster: immigration firm video is law-firm video"
+    },
+    {
+      "from": "/services/boutique-hotel-resort-video-miami-beach",
+      "to": "/services/hotel-hospitality-video-production-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; English hotel cluster: boutique hotel and resort video is hotel video production"
+    },
+    {
+      "from": "/services/boutique-hotel-video-editing-miami",
+      "to": "/services/hotel-hospitality-video-production-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; English hotel cluster: boutique hotel video editing is hotel video production"
+    },
+    {
+      "from": "/es/edicion-de-video-para-hoteles-boutique-miami",
+      "to": "/es/produccion-de-video-para-hoteles-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish hotel cluster: boutique hotel video editing is hotel video production"
+    },
+    {
+      "from": "/es/video-marketing-para-hoteles-boutique-miami-beach",
+      "to": "/es/produccion-de-video-para-hoteles-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish hotel cluster: boutique hotel video marketing is hotel video production"
+    },
+    {
+      "from": "/es/videografo-para-restaurantes-de-alta-cocina-miami",
+      "to": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish restaurant/bar cluster: fine-dining video is restaurant promo video"
+    },
+    {
+      "from": "/es/videografo-de-cocteleria-para-bares-miami",
+      "to": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish restaurant/bar cluster: bar and cocktail video is restaurant promo video"
+    },
+    {
+      "from": "/es/video-para-empresas-de-catering-miami",
+      "to": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish restaurant/bar cluster: catering video is food-business promo video"
+    },
+    {
+      "from": "/es/video-para-cervecerias-artesanales-miami",
+      "to": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish restaurant/bar cluster: brewery taproom video is food-and-drink promo video"
+    },
+    {
+      "from": "/es/video-para-agencias-de-carros-exoticos-miami",
+      "to": "/es/marketing-de-video-automotriz-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; Spanish automotive cluster: exotic car dealer video is automotive video marketing"
+    },
+    {
+      "from": "/services/exotic-car-rental-video-miami",
+      "to": "/services/automotive-video-marketing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; English automotive cluster: exotic car rental video is automotive video marketing"
+    },
+    {
+      "from": "/services/auto-detailing-tint-wrap-video-marketing-miami",
+      "to": "/services/automotive-video-marketing-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; English automotive cluster: detailing, tint and wrap shop video is automotive video marketing"
+    },
+    {
+      "from": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
+      "to": "/es/editor-de-video-corto-para-redes-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; re-evaluated after #831/#837 merged: TikTok/Instagram ad cuts are short-form social editing"
+    },
+    {
+      "from": "/es/videografo-para-fiestas-en-yates-miami",
+      "to": "/es/videografo-para-eventos-en-yates-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; re-evaluated after #837 merged: yacht party video is yacht event video"
+    },
+    {
+      "from": "/es/video-de-unboxing-y-demostracion-de-producto-south-florida",
+      "to": "/es/video-de-demostracion-de-producto-miami",
+      "reason": "0 Google impressions, 0 GA4 sessions, 0 lead events 2026-08-28..2026-11-26; Submitted and indexed (URL Inspection 2026-11-26); first shipped on or before 2026-10-22; re-evaluated after today's PRs merged: unboxing and demo video is product demo video"
     }
   ],
   "deferralReason": "All 19 MERGE decisions are guide URLs, and the 2026-08-12 clustering ran per-language: the EN and ES clusters picked different winners for the same concept. Propagating each merge to its language counterpart would merge two surviving winners away (/guides/how-to-mix-audio-for-social-video and /guides/drone-video-editing-guidelines-florida) and create redirect chains. Choosing one winner per concept across both languages is an editorial decision, not a mechanical one, so the merges are deferred to a follow-up rather than executed unsafely here. The 40 noindex decisions are independent of pairing and ship now.",
@@ -685,5 +805,39 @@
     "reversed20261126": "Two merges reversed the same day by PR #842 before any recrawl: /services/boat-show-exhibitor-video-fort-lauderdale and /es/cobertura-de-video-art-basel-miami-art-week. #842 strengthened both (official Miami International Boat Show Feb 10-14 2027 and Art Basel Dec 4-6 2026 dates, answer-first booking), so they are no longer zero-signal candidates; they return to the sitemap and their hreflang pairs.",
     "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
     "recheck": "2027-01-07: GSC impressions on each merge target vs the prior 6 weeks; any target that loses impressions reverses its merges"
+  },
+  "prune20261126Followup": {
+    "executedOn": "2026-11-26",
+    "orderedBy": "Gonzalo (chat 2026-11-26: \"Do also the other 6 things\")",
+    "window": "2026-08-28..2026-11-26 (90 days)",
+    "sources": "GSC searchAnalytics page dimension dataState=all (265 pages with impressions, 3,714 impressions); GA4 546162112 landingPage sessions + pagePath contact_click/lead/form_submit; GSC URL Inspection of every cluster member and target",
+    "rule": "Zero-signal clusters with no stronger same-language sibling keep ONE survivor and 301 the rest to it. Survivor = the broadest page of the cluster that is the hreflang twin of the cluster page the other language keeps (medical, hotel, restaurant, automotive), so the surviving pair stays intact; inbound links and indexation break ties. Two survivors are not indexed yet (/es/edicion-de-video-promocional-para-restaurantes-miami discovered, /services/automotive-video-marketing-miami discovered): each is the only page covering the whole cluster and the twin of the page that earns, so the 301s from indexed siblings are expected to pull it into the index; the 2027-01-07 check reverses them if not. Pages held only because a PR merged today (#831/#836/#837/#842/#808) linked them were re-judged under the 2026-11-26 rule: 3 merge, the rest stay held because event or boat-show pages link them (off limits), the target is not indexed, or a hub card would self-link.",
+    "merged": 24,
+    "clusters": {
+      "es-medical": "/es/marketing-de-video-para-consultorios-medicos-miami (cosmetic dentistry -> /es/marketing-de-video-para-dentistas-miami)",
+      "es-law": "/es/marketing-de-video-para-abogados-miami",
+      "en-hotel": "/services/hotel-hospitality-video-production-miami",
+      "es-hotel": "/es/produccion-de-video-para-hoteles-miami",
+      "es-restaurant-bar": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "en-automotive": "/services/automotive-video-marketing-miami",
+      "es-automotive": "/es/marketing-de-video-automotriz-miami"
+    },
+    "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
+    "recheck": "2027-01-07: GSC impressions and URL Inspection on each survivor; reverse a cluster whose survivor is still not indexed or lost impressions",
+    "held": {
+      "/es/marketing-de-video-para-dentistas-miami": "the Healthy Smile case study links it (case studies are off limits); it absorbs cosmetic dentistry instead",
+      "/es/video-para-restaurantes-frente-al-agua-fort-lauderdale": "an event page links it (lib/event-content.ts); event pages are off limits",
+      "/es/edicion-de-video-para-discotecas-y-eventos-miami": "event pages link it",
+      "/es/marketing-de-video-para-alquiler-de-yates-miami": "boat-show event pages link it",
+      "/es/video-para-yates-y-hospitalidad-fort-lauderdale": "boat-show event pages link it",
+      "/es/video-para-bar-y-bat-mitzvah-boca-raton": "an event page links it",
+      "/es/edicion-de-video-largo-para-youtube": "proposed target /es/servicio-de-edicion-de-video-para-youtube-miami is unknown to Google",
+      "/services/youtube-long-form-video-editing": "proposed target /services/youtube-video-editing-service-miami is excluded by noindex at its last crawl (2026-11-17)",
+      "/services/real-estate-drone-video-editing-miami": "a card on the /real-estate hub links it; merging into /real-estate would self-link",
+      "/es/drone-real-estate-miami": "two cards on the Real Estate Hub v2 (not a today-PR hold)",
+      "/es/video-inmobiliario-coral-gables": "card on the Real Estate Hub v2 (not a today-PR hold)",
+      "/es/videografo-para-bodas-de-destino-palm-beach": "city row on the wedding-packages page (not a today-PR hold)",
+      "/es/fotografia-de-producto-con-ia-miami": "cross-sold from its target, would self-link (not a today-PR hold)"
+    }
   }
 }
