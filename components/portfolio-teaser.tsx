@@ -76,7 +76,7 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
   const reelHref = realEstateReelsPath(locale);
   const unboxingHref = isSpanish
-    ? "/es/video-de-unboxing-y-demostracion-de-producto-south-florida"
+    ? "/es/video-de-demostracion-de-producto-miami"
     : "/services/product-unboxing-demo-video-south-florida";
 
   if (items.length === 0) {

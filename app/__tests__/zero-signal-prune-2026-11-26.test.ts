@@ -35,8 +35,6 @@ const SAMPLE: ReadonlyArray<readonly [string, string]> = [
 // were held out of the prune on purpose.
 const HELD: readonly string[] = [
   "/services/youtube-long-form-video-editing",
-  "/es/videografo-para-fiestas-en-yates-miami",
-  "/es/editor-de-video-para-anuncios-de-tiktok-miami",
   "/services/wedding-packages",
   "/es/fotografia-de-producto-con-ia-miami",
   "/services/hire-remote-video-editor",
@@ -48,8 +46,10 @@ function sitemapPaths(): Set<string> {
 }
 
 describe("zero-signal prune 2026-11-26", () => {
-  it("merges exactly 50 pages (52 by #843, 2 reversed by #842), each same-language, never a guide, never into another merge", () => {
-    expect(MERGE_DECISIONS).toHaveLength(50);
+  it("merges exactly 74 pages (52 by #843, 2 reversed by #842, 24 by the follow-up), each same-language, never a guide, never into another merge", () => {
+    // 50 from the first pass + 24 from the follow-up prune
+    // (app/__tests__/prune-followup-2026-11-26.test.ts).
+    expect(MERGE_DECISIONS).toHaveLength(74);
     const sources = new Set(MERGE_DECISIONS.map((entry) => entry.from));
     for (const { from, to } of MERGE_DECISIONS) {
       expect(from.startsWith("/es/"), from).toBe(to.startsWith("/es/") || to === "/es");

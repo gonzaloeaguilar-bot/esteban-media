@@ -1,3 +1,11 @@
+## 2026-11-26 — Prune follow-up: one survivor per zero-signal cluster (branch seo/prune-followup)
+
+- 24 more indexed zero-signal pages 301 (statusCode 301) to a cluster survivor; sitemap 551 -> 527; freeze count/sha, lastmod ledger, GSC watch set (-24), llms-base and text-parity baseline (203 routes) follow. Fresh evidence: GSC 90d 2026-08-28..11-26 (0 impressions on every source), GA4 0 sessions / 0 lead events, URL Inspection: every source Submitted and indexed.
+- Survivors: ES medical -> /es/marketing-de-video-para-consultorios-medicos-miami (cosmetic dentistry -> /es/marketing-de-video-para-dentistas-miami, kept because the Healthy Smile case study links it); ES law -> /es/marketing-de-video-para-abogados-miami; hotels -> /services/hotel-hospitality-video-production-miami + /es/produccion-de-video-para-hoteles-miami (an hreflang pair); ES restaurants/bars -> /es/edicion-de-video-promocional-para-restaurantes-miami; automotive -> /services/automotive-video-marketing-miami + /es/marketing-de-video-automotriz-miami (an hreflang pair). Each survivor got a page-specific answer-first with prices from lib/pricing.ts, a proof link and an updated date.
+- Re-judged holds: 3 merged (ES TikTok ads, ES yacht parties, ES unboxing); the rest stay held (event/boat-show pages link them, target not indexed, or a hub card would self-link). Full list: config/cohort-consolidation.json#prune20261126Followup.held.
+- Two survivors are not indexed yet (ES restaurant promo, EN automotive: discovered-not-indexed). 2027-01-07: reverse a cluster whose survivor is still not indexed or lost impressions.
+- Test: app/__tests__/prune-followup-2026-11-26.test.ts (negative controls: one merge row removed -> 3 red; survivor price changed -> red).
+
 ## 2026-11-26 — Official event dates + near-me answers (branch geo/events-nearme)
 
 - `lib/events.ts`: Art Basel Miami Beach 2026-12-04..06 and Miami International Boat Show 2027-02-10..14 now `organizerConfirmed` with `sourceUrl` (read on artbasel.com/miami-beach and miamiboatshow.com on 2026-11-26; evidence in vault `esteban-events-nearme-checks-2026-11-26`). Pages say "Official dates", not "listed dates".

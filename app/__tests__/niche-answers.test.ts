@@ -41,7 +41,8 @@ const words = (paragraphs: string[]) =>
 describe("niche answers (PR #316 pattern at template level)", () => {
   it("covers every row with a live, indexable page", () => {
     // 124 after the 2026-11-26 zero-signal prune dropped the rows of merged pages.
-    expect(NICHE_ANSWER_PATHS.length).toBeGreaterThan(120);
+    // 116 after the 2026-11-26 prune follow-up dropped 8 more merged rows.
+    expect(NICHE_ANSWER_PATHS.length).toBeGreaterThan(110);
     for (const path of NICHE_ANSWER_PATHS) {
       expect(isConsolidatedPath(path), path).toBe(false);
       if (path.startsWith("/es/")) {

@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-11-26",
-  "approvedSitemapUrlCount": 551,
-  "approvedSitemapUrlSetSha256": "8a9e7a31ab834750dddcdb4248d1b80a4160a6ab566a003eeb5d1067fdc7bf72",
+  "approvedSitemapUrlCount": 527,
+  "approvedSitemapUrlSetSha256": "b81a9dc50a8176b7a6f317523d4b420a87bb32bc6d787361b7dfc77cb72b2d25",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -913,5 +913,16 @@
     "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
     "followUpDate": "2027-01-07",
     "followUp": "Compare GSC impressions on every merge target for the 6 weeks after the prune against the 6 weeks before; reverse the merges into any target that lost impressions, then judge the held list (discovered/unknown/young pages)."
+  },
+  "pruneFollowupExecuted20261126": {
+    "on": "2026-11-26",
+    "orderedBy": "Gonzalo (chat 2026-11-26: \"Do also the other 6 things\")",
+    "previousCount": 551,
+    "merged": 24,
+    "newCount": 527,
+    "rule": "see prune20261126Followup in config/cohort-consolidation.json",
+    "vaultPage": "client-esteban-media/wiki/esteban-page-prune-2026-11-26.md",
+    "followUpDate": "2027-01-07",
+    "followUp": "GSC impressions + URL Inspection on the 8 survivors; reverse a cluster whose survivor is still not indexed or lost impressions."
   }
 }

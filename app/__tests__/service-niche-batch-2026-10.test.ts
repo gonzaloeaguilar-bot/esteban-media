@@ -1,3 +1,4 @@
+import { isMergedPath } from "@/lib/consolidation";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -147,6 +148,13 @@ describe("niche batch 2026-10-06 — both languages, reciprocally", () => {
 
   it.each(BATCH)("%s pairs both ways in hreflang and in the route map", (_name, _depth, _dive, _page, path, esSlug) => {
     const esPath = `/es/${esSlug}`;
+    // A merged half (2026-11-26 prune follow-up: the detailing page 301s to
+    // /services/automotive-video-marketing-miami) dissolves the pair.
+    if (isMergedPath(path)) {
+      expect(languageAlternates[path]).toBeUndefined();
+      expect(languageAlternates[esPath]).toBeUndefined();
+      return;
+    }
     expect(languageAlternates[path]).toEqual({
       "en-US": path,
       "es-US": esPath,
