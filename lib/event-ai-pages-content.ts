@@ -154,7 +154,7 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does an AI commercial cost, and what changes the price?",
       paragraphs: [
-        `A fully AI-generated commercial of ${AI_COMMERCIAL.lengthSeconds} seconds starts at ${aiCommercialFrom} per video. Editing your own footage into one vertical commercial Reel starts at ${shortFormFrom} per video, and social ad creative in the ecommerce and real estate bands typically runs ${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)} for a scoped short ad. AI add-ons are quoted line by line from lib/pricing.ts, so a voiceover is never bundled into a price that does not include it.`,
+        `A fully AI-generated commercial of ${AI_COMMERCIAL.lengthSeconds} seconds starts at ${aiCommercialFrom} per video. Editing your own footage into one vertical commercial Reel starts at ${shortFormFrom} per video, and social ad creative in the ecommerce and real estate bands typically runs ${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)} for a scoped short ad. AI add-ons are quoted line by line, so a voiceover is never bundled into a price that does not include it.`,
         "Four things move the quote: how many products or listings are in scope, whether original footage exists or capture is needed, how far the AI work goes, and how many variations are required for testing. Bulk or rush work is priced by the same rules as every other edit. The final quote follows the scope, and a starting price alone does not confirm availability for your date.",
       ],
     },
@@ -193,7 +193,7 @@ export const AI_COMMERCIAL_REELS_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un comercial con IA y qué cambia el precio?",
     paragraphs: [
-      `Un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA parte de ${aiCommercialFrom} por video. La edición de tu propio material en un reel comercial vertical parte de ${shortFormFrom} por video, y una pieza corta de anuncio en las bandas de ecommerce e inmobiliaria se mueve típicamente entre ${usd(PRICING_BANDS.ecommerce.baseMin)} y ${usd(PRICING_BANDS.realestate.baseMax)}. Los complementos de IA se cotizan línea por línea desde lib/pricing.ts, así que una locución nunca se incluye dentro de un precio que no la contempla.`,
+      `Un comercial de ${AI_COMMERCIAL.lengthSeconds} segundos hecho completamente con IA parte de ${aiCommercialFrom} por video. La edición de tu propio material en un reel comercial vertical parte de ${shortFormFrom} por video, y una pieza corta de anuncio en las bandas de ecommerce e inmobiliaria se mueve típicamente entre ${usd(PRICING_BANDS.ecommerce.baseMin)} y ${usd(PRICING_BANDS.realestate.baseMax)}. Los complementos de IA se cotizan línea por línea, así que una locución nunca se incluye dentro de un precio que no la contempla.`,
       "Cuatro cosas mueven la cotización: cuántos productos o propiedades entran en el alcance, si existe material original o hace falta grabar, hasta dónde llega el trabajo de IA y cuántas variaciones se necesitan para probar. El trabajo por volumen o urgente se cotiza con las mismas reglas que cualquier otra edición. La cotización final sigue el alcance, y un precio inicial no confirma disponibilidad para tu fecha.",
     ],
   },

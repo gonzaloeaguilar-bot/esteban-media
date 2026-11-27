@@ -78,6 +78,8 @@ describe("AI-generated commercial: from $350 per video, one source", () => {
       expect(es).toContain(usd(v));
     }
     expect(JSON.stringify(AI_COMMERCIAL_REELS_FAQS)).toContain(FROM);
+    // Public copy never names a source file.
+    expect(en + es).not.toMatch(/lib\/|pricing\.ts/);
 
     const esPage = getSpanishNichePage("reels-comerciales-con-ia-miami")!;
     expect(esPage.lead).toContain(FROM);
