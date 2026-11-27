@@ -133,7 +133,7 @@ export const AI_COMMERCIAL_REELS_DEEP_DIVE: DeepDive = {
     {
       heading: "What does an AI commercial or AI-assisted Reel include?",
       paragraphs: [
-        `There are two ways to work. An AI-generated commercial is made entirely with AI from your brief, logo and offer, ${aiCommercialPriceText("en")}. An AI-assisted Reel starts with your own footage of a real product, property or dish, and the AI helps with voiceover, generated b-roll that does not misrepresent the product, motion graphics, cleanup and captioning. In both, the script, the pacing and the claims are decided by a person.`,
+        `There are two ways to work. An AI-generated commercial is built from your brief, logo and offer, ${aiCommercialPriceText("en")}. An AI-assisted Reel starts with your own footage of a real product, property or dish, and the AI helps with voiceover, generated b-roll that does not misrepresent the product, motion graphics, cleanup and captioning. In both, the script, the pacing and the claims are decided by a person.`,
         `An edited Reel is built as a vertical piece for one offer and one audience, from ${shortFormFrom} per video for a single edit. AI-specific add-ons are priced separately: voiceover at ${usd(AI_SERVICES.voiceoverPerVideo)} per video, generated b-roll at ${usd(AI_SERVICES.bRollPerVideo)} per video, animation from ${usd(AI_SERVICES.animationFrom)} and a short AI-assisted brand film from ${usd(AI_SERVICES.microShortFilmFrom)}.`,
       ],
     },
@@ -172,7 +172,7 @@ export const AI_COMMERCIAL_REELS_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Qué incluye un comercial con IA o un reel asistido por IA?",
     paragraphs: [
-      `Hay dos formas de trabajar. Un comercial generado con IA se hace completamente con IA a partir de tu idea, tu logo y tu oferta, ${aiCommercialPriceText("es")}. Un reel asistido por IA parte de tu propio material de un producto, una propiedad o un plato real, y la IA ayuda con la locución, el b-roll generado que no tergiversa el producto, los gráficos en movimiento, la limpieza y los subtítulos. En los dos casos, el guion, el ritmo y las afirmaciones los decide una persona.`,
+      `Hay dos formas de trabajar. Un comercial generado con IA se arma a partir de tu idea, tu logo y tu oferta, ${aiCommercialPriceText("es")}. Un reel asistido por IA parte de tu propio material de un producto, una propiedad o un plato real, y la IA ayuda con la locución, el b-roll generado que no tergiversa el producto, los gráficos en movimiento, la limpieza y los subtítulos. En los dos casos, el guion, el ritmo y las afirmaciones los decide una persona.`,
       `Un reel editado se arma en formato vertical para una oferta y una audiencia, desde ${shortFormFrom} por video para una edición individual. Los complementos de IA se cotizan aparte: locución a ${usd(AI_SERVICES.voiceoverPerVideo)} por video, b-roll generado a ${usd(AI_SERVICES.bRollPerVideo)} por video, animación desde ${usd(AI_SERVICES.animationFrom)} y una pieza corta de marca asistida por IA desde ${usd(AI_SERVICES.microShortFilmFrom)}.`,
     ],
   },

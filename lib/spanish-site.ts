@@ -3097,7 +3097,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     description: `Comerciales con IA en Miami desde ${usd(AI_COMMERCIAL.from)} por video de ${AI_COMMERCIAL.lengthSeconds} s, sin grabar nada, y reels asistidos por IA con tu material. Aviso claro de IA.`,
     eyebrow: "Reels Comerciales con IA",
     h1: "Edición de reels comerciales con IA para negocios en Miami.",
-    lead: `Un comercial generado con IA es un anuncio corto hecho completamente con IA a partir de tu idea, tu logo y tu oferta: ${aiCommercialPriceText("es")}. Si ya tienes material, un reel asistido por IA le suma locución, b-roll generado, gráficos y subtítulos, con el gancho, las afirmaciones y el ritmo en manos de un editor humano.`,
+    lead: `Un comercial generado con IA es un anuncio corto armado a partir de tu idea, tu logo y tu oferta: ${aiCommercialPriceText("es")}. Si ya tienes material, un reel asistido por IA le suma locución, b-roll generado, gráficos y subtítulos, con el gancho, las afirmaciones y el ritmo en manos de un editor humano.`,
     keyword: "reels comerciales con ia miami",
     location: "Miami-Dade / Broward / Remoto",
     availability: "confirmed",

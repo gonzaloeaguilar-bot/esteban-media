@@ -22,7 +22,7 @@ import { withNicheService } from "@/lib/niche-answers";
 import { AI_COMMERCIAL, aiCommercialPriceText, usd } from "@/lib/pricing";
 
 const PAGE_DESCRIPTION = `AI-generated commercials in Miami from ${usd(AI_COMMERCIAL.from)} per ${AI_COMMERCIAL.lengthSeconds} second video, no footage needed, plus AI-assisted Reels from your own footage. Clear AI disclosure.`;
-const AI_COMMERCIAL_ANSWER = `An AI-generated commercial is a short ad made entirely with AI from your brief, logo and offer: ${aiCommercialPriceText("en")}.`;
+const AI_COMMERCIAL_ANSWER = `An AI-generated commercial is a short ad built from your brief, logo and offer: ${aiCommercialPriceText("en")}.`;
 
 export const metadata = buildPageMetadata({
   title: "AI Commercial Video Reels Miami",
