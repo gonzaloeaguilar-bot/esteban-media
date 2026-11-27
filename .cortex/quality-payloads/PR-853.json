@@ -27,6 +27,17 @@
       "skeptic": "Codex review via cto-dispatch: attempt 1 REJECT (filmingQuote rounding, guard weakening, buyer-answer spacing) addressed; attempt 2 APPROVE (canonical PASS by cto-dev-lead).",
       "taste": "No new component or motion; copy rewritten in the existing voice, EN/ES, word budgets kept (100-180 word sections, Art Basel visible-word guard)."
     },
-    "outcome_boundary": "Changes published prices on site, llms.txt and the client catalog; does not by itself prove bookings or leads."
+    "outcome_boundary": "Changes published prices on site, llms.txt and the client catalog; does not by itself prove bookings or leads.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /Users/gonzalo/code/esteban-media-wt-pricing, branch pricing/filming-500-900, rebased on origin/main 7c9196cd; owner-approved price change (filming only).",
+    "reviewer_disagreement_reviewed": "Codex review attempt 1 REJECTED on three points: (1) filmingQuote rounding - checked, the function already rounds up to the started hour; pinned by tests 4.5h->650, 0->500; (2) the services-config ladder relaxation - narrowed to the parity fixture, only when every rung is a published price, with negative controls proving $190/$375 combinations still fail; (3) empty location spacing in buyer-answer - fixed. Attempt 2 APPROVED.",
+    "winner_rationale": "One constant (FILMING_RATES) feeding every surface removes the two contradicting filming structures ($400/$700 vs $125/h) that GBP and site visitors saw; the guard test makes the old copy impossible to reintroduce silently.",
+    "tests_or_validation": "After rebase on 7c9196cd: lint 0 errors, typecheck 0, pnpm test all files green, pnpm build 0, pnpm text-parity 203 routes (baseline refreshed for 72 changed Spanish routes, all filming-price text), verify-spanish-hub-indexability ok, analytics-gate.py PASS; guard test negative control red on a planted $125-per-hour file. CI validate passed on the pre-rebase head."
+  },
+  "winner_rationale": "One constant (FILMING_RATES) feeding every surface removes the two contradicting filming structures ($400/$700 vs $125/h) that GBP and site visitors saw; the guard test makes the old copy impossible to reintroduce silently.",
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-media-wt-pricing",
+    "branch": "pricing/filming-500-900",
+    "move_class": "price_single_source"
   }
 }
