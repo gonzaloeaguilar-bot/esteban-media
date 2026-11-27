@@ -48,6 +48,7 @@ describe("case studies - published portfolio projects", () => {
     expect(CASE_STUDY_IDS).toEqual([
       "real-estate-reels-davie",
       "ai-edit-prep-reel",
+      "dupont-ai-commercial",
       "banacol",
       "homeowners",
       "flas-concierge",

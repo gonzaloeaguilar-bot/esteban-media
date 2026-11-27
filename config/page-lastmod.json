@@ -33,11 +33,15 @@
  },
  "/case-studies/banacol": {
   "date": "2026-11-26",
-  "hash": "c9826ac6e2e0670f"
+  "hash": "626a67ee4e1e3b6a"
  },
  "/case-studies/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/case-studies/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/case-studies/dupont-realty-international": {
   "date": "2026-10-24",
@@ -49,7 +53,7 @@
  },
  "/case-studies/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "c8160dbec1288c3c"
+  "hash": "59a0f9e69e2b756e"
  },
  "/case-studies/gains-from-geebs": {
   "date": "2026-10-24",
@@ -61,15 +65,15 @@
  },
  "/case-studies/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "86b7fc963b0b37e2"
+  "hash": "54702e25d01e0e37"
  },
  "/case-studies/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "d776a40c34a81080"
+  "hash": "b2491889068e539e"
  },
  "/case-studies/homeowners": {
   "date": "2026-11-26",
-  "hash": "9bb189717f2b5b5d"
+  "hash": "16fffd67910a02bb"
  },
  "/case-studies/juanchis-burguer": {
   "date": "2026-10-29",
@@ -77,7 +81,7 @@
  },
  "/case-studies/my-dler": {
   "date": "2026-11-26",
-  "hash": "7eb2ac03dc58ded3"
+  "hash": "188971d3e5b24fb8"
  },
  "/case-studies/portosole": {
   "date": "2026-10-29",
@@ -169,11 +173,15 @@
  },
  "/es/casos-de-estudio/banacol": {
   "date": "2026-11-26",
-  "hash": "cbb318feea9f0aed"
+  "hash": "dbed3e83385c301a"
  },
  "/es/casos-de-estudio/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/es/casos-de-estudio/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/es/casos-de-estudio/dupont-realty-international": {
   "date": "2026-10-24",
@@ -185,7 +193,7 @@
  },
  "/es/casos-de-estudio/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "d878a62d6c28fc8b"
+  "hash": "04f5038f975ff6ef"
  },
  "/es/casos-de-estudio/gains-from-geebs": {
   "date": "2026-10-24",
@@ -197,15 +205,15 @@
  },
  "/es/casos-de-estudio/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "86b7fc963b0b37e2"
+  "hash": "54702e25d01e0e37"
  },
  "/es/casos-de-estudio/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "8e621da2de3e45dc"
+  "hash": "b04db6f169444b70"
  },
  "/es/casos-de-estudio/homeowners": {
   "date": "2026-11-26",
-  "hash": "08d9f3c56b1eecc6"
+  "hash": "31c00b4912f4278e"
  },
  "/es/casos-de-estudio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -213,7 +221,7 @@
  },
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-11-26",
-  "hash": "ffb47a90359afd46"
+  "hash": "0dda0049d82ed54d"
  },
  "/es/casos-de-estudio/portosole": {
   "date": "2026-10-29",
@@ -916,8 +924,8 @@
   "hash": "c76c635d2d08770b"
  },
  "/es/reels-comerciales-con-ia-miami": {
-  "date": "2026-11-19",
-  "hash": "0d1e3c6e00a5379e"
+  "date": "2026-11-26",
+  "hash": "05848d8d18fe4079"
  },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
@@ -1632,8 +1640,8 @@
   "hash": "229dfa861a2ea14f"
  },
  "/services/ai-commercial-video-reels-miami": {
-  "date": "2026-11-19",
-  "hash": "4df6325680053ce8"
+  "date": "2026-11-26",
+  "hash": "25c451ffc694c810"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",

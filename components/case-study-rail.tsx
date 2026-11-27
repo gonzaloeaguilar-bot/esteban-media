@@ -11,6 +11,7 @@ import {
 export const LATEST_CASE_STUDY_IDS = [
   "real-estate-reels-davie",
   "ai-edit-prep-reel",
+  "dupont-ai-commercial",
   "banacol",
 ] as const satisfies readonly CaseStudyId[];
 

@@ -9,6 +9,7 @@ import { reelCaseStudyPairs } from "@/lib/case-studies-reels";
 export const CASE_STUDY_IDS = [
   "real-estate-reels-davie",
   "ai-edit-prep-reel",
+  "dupont-ai-commercial",
   "banacol",
   "homeowners",
   "flas-concierge",
@@ -64,7 +65,7 @@ export type CaseStudyVideo = {
 };
 
 /** Which published starting price a case study shows next to its contact step. */
-export type CaseStudyPriceKind = "real-estate" | "short-form" | "drone-editing";
+export type CaseStudyPriceKind = "real-estate" | "short-form" | "drone-editing" | "ai-commercial";
 
 export type CaseStudy = {
   id: CaseStudyId;
@@ -1511,6 +1512,7 @@ export type CaseStudyDiscipline = "systems" | "production" | "design";
 export const CASE_STUDY_DISCIPLINES: Record<CaseStudyId, CaseStudyDiscipline> = {
   "real-estate-reels-davie": "production",
   "ai-edit-prep-reel": "production",
+  "dupont-ai-commercial": "production",
   "flas-concierge": "systems",
   "gains-from-geebs": "systems",
   "caro-sells-miami": "systems",

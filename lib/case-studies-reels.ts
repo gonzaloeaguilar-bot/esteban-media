@@ -74,6 +74,23 @@ const AI_PREP_REEL: CaseStudyVideo = {
   inLanguage: "es",
 };
 
+const DUPONT_COMMERCIAL: CaseStudyVideo = {
+  id: "dupont-ai-commercial",
+  name: "Come home to South Florida: AI commercial for DuPont International Realty",
+  description:
+    "An 18-second AI-made commercial by Esteban Moreno Media for DuPont International Realty: a couple in a snowed-in winter home, then a South Florida terrace, ending on the brokerage's card.",
+  src: "/case-studies/dupont-ai-commercial.mp4",
+  poster: "/case-studies/dupont-ai-commercial.jpg",
+  durationSeconds: 18,
+  uploadDate: "2026-11-14T03:05:57+01:00",
+  width: 1280,
+  height: 720,
+  inLanguage: "en",
+};
+
+/** DuPont's own Instagram reel; linked, not embedded (flood imagery held on our site). */
+const DUPONT_JET_SKI_REEL = "https://www.instagram.com/reel/Df5zAMrMH9T/";
+
 /** The Spanish page describes the same files in Spanish. */
 function inSpanish(video: CaseStudyVideo, name: string, description: string): CaseStudyVideo {
   return { ...video, name, description };
@@ -424,6 +441,173 @@ export const reelCaseStudyPairs: readonly CaseStudyPair[] = [
       ],
       videos: [AI_PREP_REEL],
       priceKind: "short-form",
+    },
+  },
+  {
+    id: "dupont-ai-commercial",
+    en: {
+      title: "DuPont International Realty: AI Commercials for a South Florida Realtor",
+      metadataTitle: "DuPont Realty AI Commercials Case Study",
+      client: "DuPont International Realty Florida",
+      summary:
+        "Esteban Moreno Media made AI commercials for DuPont International Realty, a South Florida brokerage, with no film shoot, and the 8-second AI Reel of a jet ski in a flooded street drew 3,157 Instagram views on DuPont's account, its most-viewed Reel from November 9 to 25, 2026 (Metricool, read November 26, 2026).",
+      metaDescription:
+        "AI commercials for DuPont International Realty, made with no shoot: an 18-second winter-to-Florida spot and a jet-ski Reel with 3,157 Instagram views.",
+      eyebrow: "AI Commercials for Real Estate",
+      role: "Creative and AI production by Esteban Moreno Media; DuPont is the client brand",
+      year: 2026,
+      location: "South Florida",
+      deliverables:
+        "An 18-second 16:9 AI commercial with captions and end card, and an 8-second 9:16 AI Reel for Instagram",
+      answer: {
+        question: "What did Esteban make for DuPont, and what happened?",
+        text:
+          "In 2026 Esteban Moreno Media made AI commercials for DuPont International Realty, a South Florida real-estate brokerage whose social media he runs. None of it needed a film shoot. The 18-second commercial opens on a couple in a snowed-in winter home under the lines \"Every winter, you dream of sunshine, you scroll, you wait, you wonder\", then cuts to a sunny South Florida terrace with \"This time, come home to South Florida\" and ends on DuPont's card. The second piece is an 8-second vertical Reel of a woman riding a pink jet ski down a flooded street. DuPont posted it on November 18, 2026 with a caption about checking a home's flood history before buying, and Instagram counted 3,157 views, 2,071 accounts reached, 34 likes and 25 shares, read in Metricool on November 26, 2026. In the same read, DuPont's other Reels from November 9 to 25 had between 55 and 1,886 views. Every image in both pieces is AI-generated and labelled that way here.",
+      },
+      mediaUrl: "/case-studies/dupont-ai-commercial.mp4",
+      posterUrl: "/case-studies/dupont-ai-commercial.jpg",
+      serviceLink: {
+        href: "/services/ai-commercial-video-reels-miami",
+        label: "AI Commercial Video Reels",
+        description:
+          "AI-made commercials and Reels for South Florida businesses, with clear AI labelling and a human edit.",
+      },
+      contactLink: { href: "/contact", label: "Discuss an AI Commercial" },
+      portfolioLink: { href: "/portfolio", label: "See all portfolio work" },
+      keyFacts: [
+        { label: "Client brand", value: "DuPont International Realty, a South Florida real-estate brokerage" },
+        { label: "Pieces", value: "18-second 16:9 commercial; 8-second 9:16 Instagram Reel" },
+        { label: "Jet-ski Reel on Instagram", value: "3,157 views, 2,071 reached, 34 likes, 25 shares (Metricool, read November 26, 2026)" },
+        { label: "Production", value: "AI-generated images and motion, no film shoot; captions, sound and end card added in the edit" },
+        { label: "Label", value: "AI-made content, shown and described as AI work" },
+      ],
+      scopingQuestions: [
+        "Which single feeling or question should the viewer carry away: escape, safety, a price point, a neighborhood?",
+        "Which scenes are impossible or expensive to film for real, such as snow, a flood or a sunset on cue?",
+        "Which brand facts must appear on the end card, and which must never appear, such as a private address?",
+        "Where will it run: Instagram Reels, a listing page, an ad, or all three in different shapes?",
+        "How will the post be captioned so the AI imagery is clear and the advice is accurate?",
+      ],
+      sections: [
+        {
+          heading: "Why make a real-estate commercial with AI instead of a shoot?",
+          paragraphs: [
+            "Both ideas depend on scenes nobody can book. The commercial sells South Florida to people who are cold somewhere else, so it needs a snowed-in house, frost on the window and a couple waiting out the winter. The Reel needs a flooded street and a jet ski where a car should be. Filming either for real would mean travel, weather and permits; generating them meant the creative could be judged on screen the same week.",
+            "AI also changes what a brokerage can test. Instead of one expensive spot, DuPont could publish a short, odd, shareable Reel next to its listing tours and see how its own audience responded. The numbers below are that response, read from DuPont's own Instagram account.",
+          ],
+        },
+        {
+          heading: "How is the 18-second commercial built?",
+          paragraphs: [
+            "It is written as five short lines over five winter shots: \"Every winter\" on a face behind frosted glass, \"you dream of sunshine\" as a hand wipes the window, \"you scroll\" and \"you wonder\" on a man looking at his phone on the sofa, and a woman at a glass door facing the snow. The turn comes with a cut to a couple on a bright terrace by the sea and the words \"South Florida\", spoken as \"This time, come home to South Florida\".",
+            "The last seconds are DuPont's card: the brokerage logo, \"South Florida\", the office phone number and the website. No street address appears, in the commercial or on this page. Esteban also posted a vertical version on his own Instagram on November 14, 2026, captioned as an example of AI-powered visual storytelling.",
+          ],
+        },
+        {
+          heading: "What did the jet-ski Reel get, and what does that number mean?",
+          paragraphs: [
+            "DuPont posted the 8-second Reel on November 18, 2026 with a joke line, \"The rain can't stop me, gotta make it rain\", followed by a practical note: ask about a home's flood history and get a flood insurance quote early when buying in South Florida. Metricool's Instagram report, read on November 26, 2026, showed 3,157 views, 2,071 accounts reached, 34 likes, 25 shares, 1 save and 1 comment.",
+            `In the same read, DuPont's other Reels published between November 9 and 25 had between 55 and 1,886 views, so the AI Reel was the most viewed of that period, and its 25 shares were the most of any of them. That is one account over one week; it is not a forecast and not proof of a lead or a sale. The Reel itself is [on DuPont's Instagram](${DUPONT_JET_SKI_REEL}) rather than embedded here.`,
+          ],
+          callout: {
+            title: "Who made what",
+            text: "Esteban Moreno Media made the creative and the AI production; both source files sit in Esteban's own AI portfolio folder. DuPont International Realty is the client brand and published the Reel on its account.",
+          },
+        },
+        {
+          heading: "How does a comparable AI commercial start?",
+          paragraphs: [
+            "Start with one sentence the viewer should believe after watching, and the scene that would make it obvious. Then confirm the brand facts for the end card, where the piece will run and how the post will say it is AI-made. A short AI piece can be drafted, reviewed and revised in days because no crew or location has to be booked; the starting price is shown beside the contact step below.",
+          ],
+        },
+      ],
+      videos: [DUPONT_COMMERCIAL],
+      priceKind: "ai-commercial",
+    },
+    es: {
+      title: "DuPont International Realty: comerciales con IA para una inmobiliaria del sur de Florida",
+      metadataTitle: "Caso: comerciales con IA para DuPont Realty",
+      client: "DuPont International Realty Florida",
+      summary:
+        "Esteban Moreno Media hizo comerciales con IA para DuPont International Realty, una inmobiliaria del sur de Florida, sin ninguna grabación, y el Reel con IA de 8 segundos de una moto acuática en una calle inundada sumó 3,157 vistas en el Instagram de DuPont, su Reel más visto entre el 9 y el 25 de noviembre de 2026 (Metricool, leído el 26 de noviembre de 2026).",
+      metaDescription:
+        "Comerciales con IA para DuPont International Realty, sin grabación: un spot de 18 segundos y un Reel de moto acuática con 3,157 vistas en Instagram.",
+      eyebrow: "Comerciales con IA para bienes raíces",
+      role: "Creatividad y producción con IA de Esteban Moreno Media; DuPont es la marca cliente",
+      year: 2026,
+      location: "Sur de Florida",
+      deliverables:
+        "Un comercial 16:9 de 18 segundos con textos y cierre de marca, y un Reel 9:16 de 8 segundos para Instagram, hechos con IA",
+      answer: {
+        question: "¿Qué hizo Esteban para DuPont y qué pasó?",
+        text:
+          "En 2026 Esteban Moreno Media hizo comerciales con IA para DuPont International Realty, una inmobiliaria del sur de Florida cuyas redes sociales maneja. Nada de eso necesitó una grabación. El comercial de 18 segundos abre con una pareja en una casa nevada en invierno, con frases en inglés sobre soñar con el sol, luego pasa a una terraza soleada del sur de Florida con \"This time, come home to South Florida\" y cierra con la tarjeta de DuPont. La segunda pieza es un Reel vertical de 8 segundos de una mujer en una moto acuática rosada por una calle inundada. DuPont lo publicó el 18 de noviembre de 2026 e Instagram registró 3,157 vistas, 2,071 cuentas alcanzadas, 34 me gusta y 25 compartidos, leídos en Metricool el 26 de noviembre de 2026. En la misma lectura, los otros Reels de DuPont del 9 al 25 de noviembre tuvieron entre 55 y 1,886 vistas. Todas las imágenes de ambas piezas son generadas con IA y aquí se identifican así.",
+      },
+      mediaUrl: "/case-studies/dupont-ai-commercial.mp4",
+      posterUrl: "/case-studies/dupont-ai-commercial.jpg",
+      serviceLink: {
+        href: "/es/reels-comerciales-con-ia-miami",
+        label: "Reels comerciales con IA",
+        description:
+          "Comerciales y Reels hechos con IA para negocios del sur de Florida, con etiqueta clara de IA y edición humana.",
+      },
+      contactLink: { href: "/es/contacto", label: "Hablar de un comercial con IA" },
+      portfolioLink: { href: "/es/portafolio", label: "Ver todo el portafolio" },
+      keyFacts: [
+        { label: "Marca cliente", value: "DuPont International Realty, inmobiliaria del sur de Florida" },
+        { label: "Piezas", value: "Comercial 16:9 de 18 segundos; Reel 9:16 de 8 segundos para Instagram" },
+        { label: "Reel de la moto acuática", value: "3,157 vistas, 2,071 alcanzadas, 34 me gusta, 25 compartidos (Metricool, leído el 26 de noviembre de 2026)" },
+        { label: "Producción", value: "Imágenes y movimiento generados con IA, sin grabación; textos, sonido y cierre en la edición" },
+        { label: "Etiqueta", value: "Contenido hecho con IA, mostrado y descrito como trabajo con IA" },
+      ],
+      scopingQuestions: [
+        "¿Qué sensación o pregunta debe quedarle a quien mira: escape, seguridad, un precio, un vecindario?",
+        "¿Qué escenas son imposibles o caras de grabar de verdad, como nieve, una inundación o un atardecer a pedido?",
+        "¿Qué datos de la marca van en el cierre y cuáles nunca deben salir, como una dirección privada?",
+        "¿Dónde se publica: Reels de Instagram, la página de una propiedad, un anuncio o los tres en formatos distintos?",
+        "¿Cómo se escribe el texto de la publicación para que la IA quede clara y el consejo sea correcto?",
+      ],
+      sections: [
+        {
+          heading: "¿Por qué hacer un comercial inmobiliario con IA en lugar de grabarlo?",
+          paragraphs: [
+            "Las dos ideas dependen de escenas que nadie puede agendar. El comercial le vende el sur de Florida a personas que pasan frío en otro lugar, así que necesita una casa nevada, escarcha en la ventana y una pareja esperando que pase el invierno. El Reel necesita una calle inundada y una moto acuática donde debería ir un carro. Grabar cualquiera de verdad implicaría viajes, clima y permisos; generarlas permitió evaluar la idea en pantalla la misma semana.",
+            "La IA también cambia lo que una inmobiliaria puede probar. En lugar de un solo spot costoso, DuPont pudo publicar un Reel corto, raro y fácil de compartir junto a sus recorridos de propiedades y ver cómo respondía su propia audiencia. Las cifras de abajo son esa respuesta, leídas de la cuenta de Instagram de DuPont.",
+          ],
+        },
+        {
+          heading: "¿Cómo está armado el comercial de 18 segundos?",
+          paragraphs: [
+            "Está escrito como cinco frases cortas sobre cinco tomas de invierno: \"Every winter\" sobre una cara detrás de un vidrio escarchado, \"you dream of sunshine\" mientras una mano limpia la ventana, \"you scroll\" y \"you wonder\" sobre un hombre que mira su celular en el sofá, y una mujer en una puerta de vidrio frente a la nieve. El giro llega con el corte a una pareja en una terraza luminosa frente al mar y las palabras \"South Florida\", dichas como \"This time, come home to South Florida\".",
+            "Los últimos segundos son la tarjeta de DuPont: el logo de la inmobiliaria, \"South Florida\", el teléfono de la oficina y el sitio web. No aparece ninguna dirección, ni en el comercial ni en esta página. Esteban también publicó una versión vertical en su propio Instagram el 14 de noviembre de 2026, presentada como ejemplo de narrativa visual con IA.",
+          ],
+        },
+        {
+          heading: "¿Qué logró el Reel de la moto acuática y qué significa esa cifra?",
+          paragraphs: [
+            "DuPont publicó el Reel de 8 segundos el 18 de noviembre de 2026 con una frase en broma, \"The rain can't stop me, gotta make it rain\", seguida de una nota práctica: preguntar por el historial de inundaciones de una casa y cotizar temprano el seguro contra inundaciones al comprar en el sur de Florida. El reporte de Instagram en Metricool, leído el 26 de noviembre de 2026, mostró 3,157 vistas, 2,071 cuentas alcanzadas, 34 me gusta, 25 compartidos, 1 guardado y 1 comentario.",
+            `En la misma lectura, los otros Reels de DuPont publicados entre el 9 y el 25 de noviembre tuvieron entre 55 y 1,886 vistas, así que el Reel con IA fue el más visto del periodo y sus 25 compartidos fueron los más altos de todos. Es una cuenta durante una semana; no es una predicción ni prueba de un prospecto o una venta. El Reel está [en el Instagram de DuPont](${DUPONT_JET_SKI_REEL}) y no se inserta aquí.`,
+          ],
+          callout: {
+            title: "Quién hizo qué",
+            text: "Esteban Moreno Media hizo la creatividad y la producción con IA; los dos archivos originales están en la carpeta de portafolio con IA del propio Esteban. DuPont International Realty es la marca cliente y publicó el Reel en su cuenta.",
+          },
+        },
+        {
+          heading: "¿Cómo empieza un comercial con IA parecido?",
+          paragraphs: [
+            "Empieza con una frase que quien mira debe creer al terminar y la escena que la haría evidente. Luego confirma los datos de marca para el cierre, dónde se publicará la pieza y cómo dirá la publicación que está hecha con IA. Una pieza corta con IA se puede bocetar, revisar y corregir en días porque no hay que reservar equipo ni locación; el precio inicial aparece junto al paso de contacto, más abajo.",
+          ],
+        },
+      ],
+      videos: [
+        inSpanish(
+          DUPONT_COMMERCIAL,
+          "Vuelve a casa en el sur de Florida: comercial con IA para DuPont International Realty",
+          "Un comercial de 18 segundos hecho con IA por Esteban Moreno Media para DuPont International Realty: una pareja en una casa nevada y luego una terraza del sur de Florida, con cierre de la inmobiliaria.",
+        ),
+      ],
+      priceKind: "ai-commercial",
     },
   },
 ];

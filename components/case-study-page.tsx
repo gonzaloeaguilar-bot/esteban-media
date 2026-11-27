@@ -136,7 +136,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
             {videos.length > 0 ? (
               <div
                 data-section="case_study_videos"
-                className={`grid min-w-0 gap-3 ${videos.length > 1 ? "grid-cols-2 sm:grid-cols-3" : "mx-auto w-full max-w-[20rem]"}`}
+                className={`grid min-w-0 gap-3 ${videos.length > 1 ? "grid-cols-2 sm:grid-cols-3" : videos[0].width > videos[0].height ? "w-full" : "mx-auto w-full max-w-[20rem]"}`}
               >
                 {videos.map((video, index) => (
                   <figure
@@ -149,7 +149,8 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                       preload="none"
                       poster={video.poster}
                       data-media-id={video.id}
-                      className="block aspect-[9/16] h-auto w-full max-w-full bg-black object-contain"
+                      style={{ aspectRatio: `${video.width} / ${video.height}` }}
+                      className="block h-auto w-full max-w-full bg-black object-contain"
                       aria-label={video.name}
                     >
                       <source src={video.src} type="video/mp4" />

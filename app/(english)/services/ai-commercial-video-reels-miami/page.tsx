@@ -16,6 +16,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { CaseStudyRail } from "@/components/case-study-rail";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
@@ -179,6 +180,7 @@ export default function AiCommercialVideoReelsMiamiPage() {
         faqs={AI_COMMERCIAL_REELS_FAQS}
         sectionId="ai-commercial-faqs"
       />
+      <CaseStudyRail ids={["dupont-ai-commercial"]} locale="en" source="ai_commercial_service_case" heading="What did an AI commercial do for a South Florida realtor?" />
       <NicheAnswers path="/services/ai-commercial-video-reels-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
