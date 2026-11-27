@@ -4867,7 +4867,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach. Para contenido gastronómico específico de comedores y bares, consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Todavía no hay un proyecto de hotel publicado; el trabajo de hospitalidad más cercano es [Bar Door Monkey](/es/portafolio/bar-door-monkey), un spot para un restaurante de Miami grabado en locación y editado por Esteban.",
     // Prune follow-up 2026-11-26: survivor of a zero-signal cluster (config/cohort-consolidation.json#prune20261126Followup).
     answerQuestion: "¿Qué video hace Esteban para hoteles y cuánto cuesta?",
-    answerFirst: `Esteban Moreno Media produce y edita video para hoteles, hoteles boutique y resorts de Miami y Miami Beach: recorridos de habitaciones y suites, amenidades, gastronomía y cortes verticales que llevan a la reserva directa. La edición con material del hotel parte desde ${esStarterFrom} por video (paquete Arranque) y la grabación en locación desde ${usd(FILMING_HOURLY.amount)} por hora con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}).`,
+    answerFirst: `Esteban Moreno Media produce y edita video para hoteles, hoteles boutique y resorts de Miami y Miami Beach: recorridos de habitaciones y suites, amenidades, gastronomía y cortes verticales para el sitio web y las redes del hotel. La edición con material del hotel parte desde ${esStarterFrom} por video (paquete Arranque) y la grabación en locación desde ${usd(FILMING_HOURLY.amount)} por hora con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}).`,
     keyword: "video para hoteles en Miami",
     location: "Miami Beach / South Florida",
     availability: "confirmed",
@@ -4875,7 +4875,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     bestFor: [
       "Boutique hoteles, resorts y propiedades de hospitalidad.",
       "Grupos hoteleros que necesitan videos para su sitio web y redes sociales.",
-      "Hoteles boutique de Miami Beach que quieren editar su propio material para redes y reservas directas.",
+      "Hoteles boutique de Miami Beach que quieren editar su propio material para el sitio web y las redes.",
     ],
     scopingQuestions: [
       "¿El video abarcará habitaciones, piscina, restaurante o todo el complejo?",

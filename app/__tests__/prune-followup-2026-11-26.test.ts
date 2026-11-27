@@ -163,12 +163,43 @@ describe("prune follow-up 2026-11-26", () => {
       "utf8",
     );
     expect(auto).toContain('href="/case-studies/flas-concierge"');
-    expect(auto).toContain("answerOverride=");
     const hotel = readFileSync(
       join(process.cwd(), "app/(english)/services/hotel-hospitality-video-production-miami/page.tsx"),
       "utf8",
     );
-    expect(hotel).toContain("answerOverride=");
-    expect(hotel).toContain("FILMING_HOURLY.amount");
+    // The English answers read every figure from lib/pricing.ts.
+    const PRICED =
+      "Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming starts at ${usd(FILMING_HOURLY.amount)} an hour with a ${FILMING_HOURLY.minimumHours}-hour minimum (${usd(FILMING_HOURLY.minimumAmount)}).";
+    for (const [name, src, intents] of [
+      ["automotive", auto, "car dealerships, exotic car rental fleets and detailing, tint and wrap shops"],
+      ["hotel", hotel, "hotels, boutique hotels and resorts in Miami and Miami Beach"],
+    ] as const) {
+      const answer = src.match(/answerOverride=\{`([^`]*)`\}/)?.[1] ?? "";
+      expect(answer, name).toContain(intents);
+      expect(answer, name).toContain(PRICED);
+    }
+  });
+
+  it("promises no outcome in a survivor answer (no published project backs one)", () => {
+    const OUTCOME = /drive|direct bookings|reserva directa|más reservas|more bookings|more leads|más clientes|guarantee|garantiza/i;
+    for (const slug of [
+      "marketing-de-video-para-consultorios-medicos-miami",
+      "marketing-de-video-para-abogados-miami",
+      "produccion-de-video-para-hoteles-miami",
+      "edicion-de-video-promocional-para-restaurantes-miami",
+      "marketing-de-video-automotriz-miami",
+    ]) {
+      const page = spanishNichePages.find((entry) => entry.slug === slug)!;
+      expect(page.answerFirst ?? "", slug).not.toMatch(OUTCOME);
+      for (const line of page.bestFor) expect(line, slug).not.toMatch(OUTCOME);
+    }
+    for (const file of [
+      "app/(english)/services/automotive-video-marketing-miami/page.tsx",
+      "app/(english)/services/hotel-hospitality-video-production-miami/page.tsx",
+    ]) {
+      const answer = readFileSync(join(process.cwd(), file), "utf8").match(/answerOverride=\{`([^`]*)`\}/)?.[1] ?? "";
+      expect(answer.length, file).toBeGreaterThan(100);
+      expect(answer, file).not.toMatch(OUTCOME);
+    }
   });
 });
