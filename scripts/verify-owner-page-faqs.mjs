@@ -49,10 +49,11 @@ for (const path of paths) {
     const inHtml = text.includes(q) && text.includes(a);
     const inDetails = details.some((d) => d.includes(q) && d.includes(a));
     const ldText = decode(ld);
-    const inLd = !hasFaqPage || (ldText.includes(q) && ldText.includes(JSON.stringify(a).slice(1, -1)));
+    // Every owner page must carry the FAQ in a FAQPage node; no exemption.
+    const inLd = hasFaqPage && ldText.includes(q) && ldText.includes(JSON.stringify(a).slice(1, -1));
     const ok = inHtml && inDetails && inLd;
     if (!ok) fail++;
-    console.log(`${ok ? "ok  " : "FAIL"} ${path} | html=${inHtml} details=${inDetails} faqpage=${hasFaqPage ? inLd : "none"} | ${q}`);
+    console.log(`${ok ? "ok  " : "FAIL"} ${path} | html=${inHtml} details=${inDetails} faqpage=${inLd} | ${q}`);
   }
 }
 console.log(fail ? `${fail} failures` : `all ${paths.length} pages ok`);

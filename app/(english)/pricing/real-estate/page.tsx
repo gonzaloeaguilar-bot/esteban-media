@@ -1,4 +1,6 @@
 import { OwnerPageFaqs } from "@/components/owner-page-faqs";
+import { buildServiceFaqSchema } from "@/components/service-depth";
+import { ownerPageFaqs } from "@/lib/owner-page-faqs";
 import { RealEstatePricing, realEstateDirectAnswer } from "@/components/real-estate-pricing";
 import { entityIds } from "@/lib/entity-schema";
 import { realEstateJsonLd } from "@/lib/real-estate-schema";
@@ -22,6 +24,11 @@ export default function Page() {
       <RealEstatePricing locale="en" />
       <OwnerPageFaqs path={PATH} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      {/* The page had no FAQ until the owner-page FAQs; its FAQPage carries exactly those visible questions. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...buildServiceFaqSchema(absoluteUrl(PATH), ownerPageFaqs(PATH)) }) }}
+      />
     </>
   );
 }
