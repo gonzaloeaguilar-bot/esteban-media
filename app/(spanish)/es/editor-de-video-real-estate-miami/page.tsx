@@ -3,6 +3,7 @@ import {
   SpanishNichePage,
 } from "@/components/spanish-niche-page";
 import { RealEstateReels } from "@/components/real-estate-reels";
+import { CaseStudyRail } from "@/components/case-study-rail";
 
 const slug = "editor-de-video-real-estate-miami";
 
@@ -12,7 +13,12 @@ export default function Page() {
   return (
     <SpanishNichePage
       slug={slug}
-      showcase={<RealEstateReels locale="es" />}
+      showcase={
+        <>
+          <RealEstateReels locale="es" />
+          <CaseStudyRail ids={["real-estate-reels-davie"]} locale="es" source="real_estate_service_case_es" />
+        </>
+      }
     />
   );
 }

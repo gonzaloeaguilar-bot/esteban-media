@@ -24,6 +24,8 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NeedSomeoneThisWeek, type NeedSomeoneThisWeekProof } from "@/components/need-someone-this-week";
+import { EventBookingAnswer } from "@/components/event-booking-answer";
+import type { EventId } from "@/lib/events";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
@@ -1726,6 +1728,7 @@ export function SpanishNichePage({
           substituted: the existing first H2 stays, because these routes are
           pinned by the text-parity baseline. Skipped on pages whose service
           is still pending confirmation. */}
+      {EVENT_BOOKING_BY_SLUG[page.slug] ? <EventBookingAnswer id={EVENT_BOOKING_BY_SLUG[page.slug]} locale="es" /> : null}
       <DefinitionAnswer path={`/es/${page.slug}`} />
       {/* Quote-only pages (weddings, owner 2026-10-14) publish no figure, and the
           generic answer below quotes the package prices, so they skip it; their
@@ -2029,6 +2032,18 @@ const NEED_THIS_WEEK_PROOF: Readonly<Record<string, NeedSomeoneThisWeekProof>> =
   "video-para-quinceaneras-miami": { href: "/es/portafolio/diana-jack", label: "Diana & Jack, una película de boda publicada (una boda, no una quinceañera)" },
   "videografo-de-bodas-miami": { href: "/es/portafolio/diana-jack", label: "Diana & Jack, una película de boda publicada" },
   "videografo-para-eventos-corporativos-fort-lauderdale": { href: "/es/portafolio/bar-door-monkey", label: "Bar Door Monkey Miami, la promoción publicada de un local (no es cobertura de un evento)" },
+  "video-para-expositores-del-boat-show-fort-lauderdale": { href: "/es/portafolio/bar-door-monkey", label: "Bar Door Monkey Miami, la promoción publicada de un local (no es cobertura de un boat show)" },
+  "cobertura-de-video-art-basel-miami-art-week": { href: "/es/portafolio/bar-door-monkey", label: "Bar Door Monkey Miami, la promoción publicada de un restaurante (no es cobertura de Art Basel)" },
+};
+
+/**
+ * Spanish event-service pages that open with the official-date booking answer
+ * (lib/event-content.ts eventBookingAnswer; renders nothing once the edition
+ * ends or if the dates were not read on the organizer's site).
+ */
+const EVENT_BOOKING_BY_SLUG: Readonly<Record<string, EventId>> = {
+  "video-para-expositores-del-boat-show-fort-lauderdale": "miami-boat-show",
+  "cobertura-de-video-art-basel-miami-art-week": "art-basel",
 };
 
 /** Pages whose owner gave no price: every one is quoted individually. */

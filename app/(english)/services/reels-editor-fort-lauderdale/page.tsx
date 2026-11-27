@@ -1,6 +1,7 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { FoodCreatorChoice } from "@/components/food-creator-choice";
 import { ClientReviews } from "@/components/client-reviews";
+import { CaseStudyRail } from "@/components/case-study-rail";
 import { ReelsCapCutComparison } from "@/components/reels-capcut-comparison";
 import { reviewSourceUrl } from "@/lib/client-reviews";
 import { SHORT_FORM, usd } from "@/lib/pricing";
@@ -174,7 +175,7 @@ const content: GeoServicePageContent = {
     proofHref: "/portfolio/ml-colombia",
     proofLabel: "Review short-form proof",
   },
-  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership web and AI concierge systems) and Port Everglades in Fort Lauderdale (marine and export video logistics context).",
+  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership web and AI concierge systems) and [real-estate Reels for a two-story home in Davie](/case-studies/real-estate-reels-davie) (listing tour and seller explainers, edited).",
   decisionRail: {
     eyebrow: "Choose your starting point",
     heading: "What do you already have for the next Reel?",
@@ -246,6 +247,7 @@ export default function ReelsEditorFortLauderdalePage() {
           <>
             <FoodCreatorChoice locale="en" sourcePage="fort-lauderdale-reels" />
             <ReelsCapCutComparison />
+            <CaseStudyRail ids={["ai-edit-prep-reel"]} locale="en" source="reels_ftl_service_case" />
           </>
         }
       />

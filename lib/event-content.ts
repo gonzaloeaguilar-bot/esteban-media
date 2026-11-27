@@ -143,6 +143,9 @@ export function eventDatesSentence(event: AnnualEvent, locale: EventLocale, now?
     const windows = edition.windows?.length
       ? ` (${edition.windows.map((w) => `${w.label.es}: ${formatDateRange(w.start, w.end, "es")}`).join("; ")})`
       : "";
+    if (edition.organizerConfirmed) {
+      return `${event.name} normalmente ocurre ${typical.replace(/^normalmente /, "")}. El sitio oficial del organizador publica la próxima edición ${formatDateRange(edition.start, edition.end, "es")}${where}${windows}. Fechas leídas en el sitio oficial el ${formatIsoDate(edition.lastChecked, "es")}; revísalas allí de nuevo antes de reservar viajes o espacios.`;
+    }
     return `${event.name} normalmente ocurre ${typical.replace(/^normalmente /, "")}. Las guías de eventos publican la próxima edición ${formatDateRange(edition.start, edition.end, "es")}${where}${windows}. Esas fechas vienen de guías revisadas el ${formatIsoDate(edition.lastChecked, "es")}, no del organizador, así que confírmalas en el sitio oficial antes de planear alrededor de ellas.`;
   }
   if (!edition) {
@@ -152,7 +155,42 @@ export function eventDatesSentence(event: AnnualEvent, locale: EventLocale, now?
   const windows = edition.windows?.length
     ? ` (${edition.windows.map((w) => `${w.label.en}: ${formatDateRange(w.start, w.end, "en")}`).join("; ")})`
     : "";
+  if (edition.organizerConfirmed) {
+    return `${event.name} is ${typical}. The organizer's official site lists the next edition for ${formatDateRange(edition.start, edition.end, "en")}${where}${windows}. Dates read on the official site on ${formatIsoDate(edition.lastChecked, "en")}; check there again before you book travel or space.`;
+  }
   return `${event.name} is ${typical}. Event guides list the next edition for ${formatDateRange(edition.start, edition.end, "en")}${where}${windows}. Those dates come from guide listings checked on ${formatIsoDate(edition.lastChecked, "en")}, not from the organizer, so confirm them on the official site before you plan around them.`;
+}
+
+/**
+ * The answer-first booking sentence for an event whose next dates were read on
+ * the organizer's own site. Dates come from lib/events.ts and prices from
+ * lib/pricing.ts, so neither can drift; availability is never asserted (a date
+ * is booked only once confirmed in writing). Returns null for guide-listed or
+ * ended editions, so a page never opens with a date the organizer did not
+ * publish.
+ */
+export function eventBookingAnswer(
+  event: AnnualEvent,
+  locale: EventLocale,
+  now?: Date,
+): { question: string; answer: string; sourceUrl: string } | null {
+  const edition = displayEdition(event, now);
+  if (!edition?.organizerConfirmed || !edition.sourceUrl) return null;
+  const year = edition.start.slice(0, 4);
+  const range = formatDateRange(edition.start, edition.end, locale);
+  const read = formatIsoDate(edition.lastChecked, locale);
+  if (locale === "es") {
+    return {
+      question: `¿Cuándo es ${event.name} ${year} y cómo reservo video para esas fechas?`,
+      answer: `${event.name} es ${range}, según su sitio oficial (revisado el ${read}). Grabación en locación desde ${RAW_HALF_DAY} media jornada o ${RAW_FULL_DAY} jornada completa; edición de tu material desde ${FROM} por video. Envía por WhatsApp fechas, lugar y horario; la fecha queda reservada solo cuando se confirma por escrito.`,
+      sourceUrl: edition.sourceUrl,
+    };
+  }
+  return {
+    question: `When is ${event.name} ${year}, and how do I book video for it?`,
+    answer: `${event.name} runs ${range}, according to its official site (read ${read}). Raw filming from ${RAW_HALF_DAY} half-day or ${RAW_FULL_DAY} full-day; editing your footage from ${FROM} per video. Send the dates, place and hours on WhatsApp; a date is booked only once it is confirmed in writing.`,
+    sourceUrl: edition.sourceUrl,
+  };
 }
 
 function sharedFaqs(event: AnnualEvent, locale: EventLocale): ServiceFaq[] {

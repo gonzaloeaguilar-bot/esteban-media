@@ -11,6 +11,7 @@ import {
   buildServicePageNodes,
 } from "@/components/service-depth";
 import { HOTEL_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -109,7 +110,11 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="Hospitality video production" />
+      {/* Prune follow-up 2026-11-26: this page is the survivor of its zero-signal cluster; the answer names the merged intents and the prices come from lib/pricing.ts. */}
+      <ServiceAnswerFirst service="Hospitality video production"
+        questionOverride="Which hotels does Esteban film for, and what does it cost?"
+        answerOverride={`Esteban Moreno Media produces and edits video for hotels, boutique hotels and resorts in Miami and Miami Beach: room and suite walkthroughs, amenities, dining and vertical cuts for the hotel website and social channels. Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming is priced ${filmingHourlyText("en")}.`}
+      />
 
       <ServiceDeepDive
         id={HOTEL_DEEP_DIVE.id}

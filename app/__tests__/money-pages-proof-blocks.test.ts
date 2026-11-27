@@ -36,6 +36,8 @@ describe("proof blocks on three money pages", () => {
   it.each(pages)("$path renders venue proof line with only verified locations/venues", ({ render }) => {
     const html = render();
     expect(html).toContain("Where Esteban has filmed or edited for:");
+    // No unworked venue in the proof line (see the Port Everglades note below).
+    expect(html).not.toMatch(/Port Everglades in Fort Lauderdale \(/);
 
     // Collect all valid venue names and locations from portfolio and case-studies
     const validNames = new Set<string>();
@@ -52,13 +54,15 @@ describe("proof blocks on three money pages", () => {
 
     // Specific verified places used across the pages:
     // - Fort Lauderdale Auto Sale / Fort Lauderdale Auto Sales
-    // - Port Everglades
+    // Port Everglades was removed on 2026-11-26: it only "existed" because the
+    // old Banacol copy mentioned it in a generic South Florida paragraph.
+    // Esteban never filmed there, so the venue line claimed work that was not
+    // done. The substring check below could not tell a venue from a mention.
     // - Healthy Smile Miami
     // - Bar Door Monkey / Bar Door Monkey Miami
     // - Caro Sells Miami
     const expectedVenues = [
       "Fort Lauderdale Auto Sale",
-      "Port Everglades",
       "Healthy Smile Miami",
       "Bar Door Monkey",
       "Caro Sells Miami",

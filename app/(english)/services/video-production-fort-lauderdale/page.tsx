@@ -2,6 +2,7 @@ import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-ser
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { priceSentence } from "@/lib/packages";
 import { SHORT_FORM, filmingHourlyText, shortFormPriceText, usd } from "@/lib/pricing";
+import { LOCAL_VIDEOGRAPHER_NEAR_ME } from "@/lib/near-me-answers";
 
 const content: GeoServicePageContent = {
   path: "/services/video-production-fort-lauderdale",
@@ -120,7 +121,8 @@ const content: GeoServicePageContent = {
     proofHref: "/portfolio",
     proofLabel: "Review portfolio examples",
   },
-  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership media systems), Port Everglades in Fort Lauderdale (marine and shipping video logistics), and Healthy Smile Miami (on-location medical clinic filming and sound).",
+  nearMe: LOCAL_VIDEOGRAPHER_NEAR_ME,
+  venueLine: "Fort Lauderdale Auto Sales in Fort Lauderdale (dealership media systems), Healthy Smile Miami (on-location medical clinic filming and sound), and [real-estate Reels for a two-story home in Davie](/case-studies/real-estate-reels-davie) (listing tour editing).",
 };
 
 export const metadata = buildPageMetadata({

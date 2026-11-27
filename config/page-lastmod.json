@@ -24,16 +24,24 @@
   "hash": "aab6ec1e0e00aca8"
  },
  "/case-studies": {
-  "date": "2026-10-24",
-  "hash": "ad2644faf0159b62"
+  "date": "2026-11-26",
+  "hash": "a077a4d3ced5bd70"
+ },
+ "/case-studies/ai-edit-prep-reel": {
+  "date": "2026-11-27",
+  "hash": "46d752e4178ee12e"
  },
  "/case-studies/banacol": {
   "date": "2026-11-26",
-  "hash": "4a0a00ddf61f81e0"
+  "hash": "626a67ee4e1e3b6a"
  },
  "/case-studies/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/case-studies/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/case-studies/dupont-realty-international": {
   "date": "2026-10-24",
@@ -45,7 +53,7 @@
  },
  "/case-studies/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "7552260425175781"
+  "hash": "59a0f9e69e2b756e"
  },
  "/case-studies/gains-from-geebs": {
   "date": "2026-10-24",
@@ -57,15 +65,15 @@
  },
  "/case-studies/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "bf6a213d1ea3d563"
+  "hash": "54702e25d01e0e37"
  },
  "/case-studies/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "8e7701eb3882d9bf"
+  "hash": "b2491889068e539e"
  },
  "/case-studies/homeowners": {
   "date": "2026-11-26",
-  "hash": "f8564898cf39afc1"
+  "hash": "16fffd67910a02bb"
  },
  "/case-studies/juanchis-burguer": {
   "date": "2026-10-29",
@@ -73,7 +81,7 @@
  },
  "/case-studies/my-dler": {
   "date": "2026-11-26",
-  "hash": "64bf62b862905685"
+  "hash": "188971d3e5b24fb8"
  },
  "/case-studies/portosole": {
   "date": "2026-10-29",
@@ -83,9 +91,13 @@
   "date": "2026-10-29",
   "hash": "0d2248a88579ee5d"
  },
+ "/case-studies/real-estate-reels-davie": {
+  "date": "2026-11-27",
+  "hash": "433fbf99496dc2cb"
+ },
  "/contact": {
   "date": "2026-11-26",
-  "hash": "16b838895c836d4c"
+  "hash": "06e62dba3c96aa12"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -152,16 +164,24 @@
   "hash": "755a09283e6894f2"
  },
  "/es/casos-de-estudio": {
-  "date": "2026-10-24",
-  "hash": "c4bf303e183eee8a"
+  "date": "2026-11-26",
+  "hash": "df6ccb50722415e6"
+ },
+ "/es/casos-de-estudio/ai-edit-prep-reel": {
+  "date": "2026-11-27",
+  "hash": "46d752e4178ee12e"
  },
  "/es/casos-de-estudio/banacol": {
   "date": "2026-11-26",
-  "hash": "3fb6a7bd42bda970"
+  "hash": "dbed3e83385c301a"
  },
  "/es/casos-de-estudio/caro-sells-miami": {
   "date": "2026-10-24",
   "hash": "076c3ee0824a902b"
+ },
+ "/es/casos-de-estudio/dupont-ai-commercial": {
+  "date": "2026-11-27",
+  "hash": "790707f3d203e9f0"
  },
  "/es/casos-de-estudio/dupont-realty-international": {
   "date": "2026-10-24",
@@ -173,7 +193,7 @@
  },
  "/es/casos-de-estudio/flas-concierge": {
   "date": "2026-11-26",
-  "hash": "5dfb150162ef45bd"
+  "hash": "04f5038f975ff6ef"
  },
  "/es/casos-de-estudio/gains-from-geebs": {
   "date": "2026-10-24",
@@ -185,15 +205,15 @@
  },
  "/es/casos-de-estudio/great-reviewer-website": {
   "date": "2026-11-26",
-  "hash": "bf6a213d1ea3d563"
+  "hash": "54702e25d01e0e37"
  },
  "/es/casos-de-estudio/healthy-smile": {
   "date": "2026-11-26",
-  "hash": "67e0babd7cb912dc"
+  "hash": "b04db6f169444b70"
  },
  "/es/casos-de-estudio/homeowners": {
   "date": "2026-11-26",
-  "hash": "3d79db8be76a23d9"
+  "hash": "31c00b4912f4278e"
  },
  "/es/casos-de-estudio/juanchis-burguer": {
   "date": "2026-10-29",
@@ -201,7 +221,7 @@
  },
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-11-26",
-  "hash": "36147e75a18a4d93"
+  "hash": "0dda0049d82ed54d"
  },
  "/es/casos-de-estudio/portosole": {
   "date": "2026-10-29",
@@ -211,17 +231,21 @@
   "date": "2026-10-29",
   "hash": "0d2248a88579ee5d"
  },
+ "/es/casos-de-estudio/real-estate-reels-davie": {
+  "date": "2026-11-27",
+  "hash": "433fbf99496dc2cb"
+ },
  "/es/chatbot-con-ia-para-negocios": {
   "date": "2026-10-16",
   "hash": "1c5a8e15c4dff4e4"
  },
  "/es/cobertura-de-video-art-basel-miami-art-week": {
-  "date": "2026-10-19",
-  "hash": "f313bc63f0bf99e3"
+  "date": "2026-11-26",
+  "hash": "b9d3e11de4468690"
  },
  "/es/contacto": {
   "date": "2026-11-26",
-  "hash": "225e628524eb6c2c"
+  "hash": "7c4bfa3b50256946"
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-11-26",
@@ -244,8 +268,8 @@
   "hash": "8ea30f7a68059de0"
  },
  "/es/edicion-de-video-con-dron-miami": {
-  "date": "2026-08-14",
-  "hash": "f4b106c48fda6916"
+  "date": "2026-11-26",
+  "hash": "44c81f3cc077206d"
  },
  "/es/edicion-de-video-corporativo-weston": {
   "date": "2026-10-09",
@@ -283,17 +307,13 @@
   "date": "2026-10-11",
   "hash": "98ba6006632cb6de"
  },
- "/es/edicion-de-video-para-hoteles-boutique-miami": {
-  "date": "2026-08-14",
-  "hash": "c5f23e94bacc5d64"
- },
  "/es/edicion-de-video-podcast-miami": {
   "date": "2026-11-26",
   "hash": "469289c66a703fc7"
  },
  "/es/edicion-de-video-promocional-para-restaurantes-miami": {
-  "date": "2026-11-05",
-  "hash": "c48ba34dd02df394"
+  "date": "2026-11-26",
+  "hash": "f904c76e4de25845"
  },
  "/es/edicion-de-video-remota-colombia": {
   "date": "2026-10-18",
@@ -305,7 +325,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-11-26",
-  "hash": "ef7549c157b4b50f"
+  "hash": "e67fc5a07087bdde"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-11-19",
@@ -319,10 +339,6 @@
   "date": "2026-11-03",
   "hash": "0609c2e74a13edb9"
  },
- "/es/editor-de-video-para-anuncios-de-tiktok-miami": {
-  "date": "2026-10-30",
-  "hash": "b13ff421f3bfeb9c"
- },
  "/es/editor-de-video-para-campanas-de-crowdfunding": {
   "date": "2026-11-04",
   "hash": "35c520110dafc415"
@@ -332,8 +348,8 @@
   "hash": "65e9c72f8fb9d0fd"
  },
  "/es/editor-de-video-real-estate-miami": {
-  "date": "2026-10-14",
-  "hash": "04ca052a197b020d"
+  "date": "2026-11-26",
+  "hash": "b9fcd27e01ef306b"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-10-28",
@@ -353,43 +369,43 @@
  },
  "/es/eventos/video-para-art-basel-miami-beach": {
   "date": "2026-11-26",
-  "hash": "869a4dcf4a9563ca"
+  "hash": "668a71d84d3f1c5b"
  },
  "/es/eventos/video-para-el-boat-show-de-fort-lauderdale": {
-  "date": "2026-11-21",
-  "hash": "f645c0263af171a5"
+  "date": "2026-11-26",
+  "hash": "bb543ccf406ce611"
  },
  "/es/eventos/video-para-el-miami-boat-show": {
-  "date": "2026-11-21",
-  "hash": "821795da91fe3d6e"
+  "date": "2026-11-26",
+  "hash": "3750bda5dd748cd1"
  },
  "/es/eventos/video-para-el-south-beach-wine-food-festival": {
-  "date": "2026-11-21",
-  "hash": "edb4ac202a45fe34"
+  "date": "2026-11-26",
+  "hash": "05c270224bfefad0"
  },
  "/es/eventos/video-para-emerge-americas": {
-  "date": "2026-11-21",
-  "hash": "96b4e66f7dbafb9b"
+  "date": "2026-11-26",
+  "hash": "f3591368a39d07e7"
  },
  "/es/eventos/video-para-eventos-en-boca-raton": {
-  "date": "2026-11-21",
-  "hash": "2365321d7f97be7a"
+  "date": "2026-11-26",
+  "hash": "10aab9c40b7d457e"
  },
  "/es/eventos/video-para-eventos-en-pompano-beach": {
-  "date": "2026-11-21",
-  "hash": "06a0413a877131c7"
+  "date": "2026-11-26",
+  "hash": "3deaa901e12eba13"
  },
  "/es/eventos/video-para-fitce-fort-lauderdale": {
-  "date": "2026-11-21",
-  "hash": "cb910a83db21afdf"
+  "date": "2026-11-26",
+  "hash": "8c21d5f618e74b63"
  },
  "/es/eventos/video-para-miami-music-week": {
-  "date": "2026-11-21",
-  "hash": "d9657599c432d824"
+  "date": "2026-11-26",
+  "hash": "30b6ed4ef7dd77b3"
  },
  "/es/eventos/video-para-restaurantes-en-miami-spice": {
-  "date": "2026-11-21",
-  "hash": "cf978688f26ec181"
+  "date": "2026-11-26",
+  "hash": "4f33f6a7825e7723"
  },
  "/es/fotografia-de-comida-con-ia-restaurantes": {
   "date": "2026-08-15",
@@ -512,8 +528,8 @@
   "hash": "d4a39c77410af9d5"
  },
  "/es/guias/edicion-de-video-con-ia-vs-editor-profesional": {
-  "date": "2026-10-07",
-  "hash": "158ba3c0ca1af52f"
+  "date": "2026-11-26",
+  "hash": "8e61761a9d9c8b15"
  },
  "/es/guias/edicion-remota-central-florida": {
   "date": "2026-11-26",
@@ -636,16 +652,12 @@
   "hash": "de8df9331df2d258"
  },
  "/es/marketing-de-video-automotriz-miami": {
-  "date": "2026-10-07",
-  "hash": "326d6cd398939d23"
- },
- "/es/marketing-de-video-para-abogados-de-inmigracion-miami": {
-  "date": "2026-10-14",
-  "hash": "d1999c92699508cf"
+  "date": "2026-11-26",
+  "hash": "679e2a71b8889f25"
  },
  "/es/marketing-de-video-para-abogados-miami": {
-  "date": "2026-07-26",
-  "hash": "301e251603cdcfd8"
+  "date": "2026-11-26",
+  "hash": "62b408ec7836b810"
  },
  "/es/marketing-de-video-para-agencias-de-seguros-miami": {
   "date": "2026-10-14",
@@ -659,29 +671,21 @@
   "date": "2026-10-14",
   "hash": "ee8ab86040231636"
  },
- "/es/marketing-de-video-para-cirugia-plastica-miami": {
-  "date": "2026-08-14",
-  "hash": "88e76e2487769138"
- },
- "/es/marketing-de-video-para-clinicas-esteticas-miami": {
-  "date": "2026-10-07",
-  "hash": "b331989a8d0359ef"
- },
  "/es/marketing-de-video-para-concesionarios-south-florida": {
   "date": "2026-10-18",
   "hash": "9dcf32f082299009"
  },
  "/es/marketing-de-video-para-consultorios-medicos-miami": {
-  "date": "2026-10-06",
-  "hash": "028ac10f6abb854e"
+  "date": "2026-11-26",
+  "hash": "4dfe87a56c04438c"
  },
  "/es/marketing-de-video-para-contratistas-miami": {
   "date": "2026-07-26",
   "hash": "d29ebf4c9c7f86bc"
  },
  "/es/marketing-de-video-para-dentistas-miami": {
-  "date": "2026-10-07",
-  "hash": "168e2354fc94bc44"
+  "date": "2026-11-26",
+  "hash": "62e7e93a8a0b474e"
  },
  "/es/marketing-de-video-para-detallado-y-wraps-miami": {
   "date": "2026-10-06",
@@ -695,17 +699,9 @@
   "date": "2026-07-26",
   "hash": "c282e941dc22e94a"
  },
- "/es/marketing-de-video-para-quiropracticos-miami": {
-  "date": "2026-10-19",
-  "hash": "b28fe98474d17bbc"
- },
  "/es/marketing-de-video-para-salones-y-barberias-miami": {
   "date": "2026-10-08",
   "hash": "dac6afa876a6851c"
- },
- "/es/marketing-de-video-para-spas-y-bienestar-miami": {
-  "date": "2026-10-08",
-  "hash": "a18da33b0bb62f4b"
  },
  "/es/marketing-de-video-para-superyates-fort-lauderdale": {
   "date": "2026-10-18",
@@ -724,8 +720,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-11-04",
-  "hash": "e1fcf76eeba4780b"
+  "date": "2026-11-26",
+  "hash": "ba4e497a95306cad"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -733,7 +729,7 @@
  },
  "/es/portafolio/banacol": {
   "date": "2026-11-26",
-  "hash": "e3ad066f2b3d4a99"
+  "hash": "011fdf3758b970bb"
  },
  "/es/portafolio/bar-door-monkey": {
   "date": "2026-10-18",
@@ -824,16 +820,16 @@
   "hash": "8aa6b7ac901cbaab"
  },
  "/es/precios/arranque": {
-  "date": "2026-10-14",
-  "hash": "f190cb8491bed3e0"
+  "date": "2026-11-26",
+  "hash": "ab6c6f99f33025fc"
  },
  "/es/precios/crecimiento": {
   "date": "2026-09-29",
   "hash": "552ea2f037eb0159"
  },
  "/es/precios/inmobiliaria": {
-  "date": "2026-10-14",
-  "hash": "ef48ea0b26956175"
+  "date": "2026-11-26",
+  "hash": "4311639570544314"
  },
  "/es/precios/presencia-local": {
   "date": "2026-09-29",
@@ -880,8 +876,8 @@
   "hash": "fbf33db0d21440bb"
  },
  "/es/produccion-de-video-para-hoteles-miami": {
-  "date": "2026-10-07",
-  "hash": "d26d39418e23a24c"
+  "date": "2026-11-26",
+  "hash": "caeb52f99d4d6e00"
  },
  "/es/produccion-de-video-reel-para-conferencistas-miami": {
   "date": "2026-10-18",
@@ -900,8 +896,8 @@
   "hash": "c76c635d2d08770b"
  },
  "/es/reels-comerciales-con-ia-miami": {
-  "date": "2026-11-19",
-  "hash": "0d1e3c6e00a5379e"
+  "date": "2026-11-26",
+  "hash": "05848d8d18fe4079"
  },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-30",
@@ -959,10 +955,6 @@
   "date": "2026-07-26",
   "hash": "111279094ec41b16"
  },
- "/es/video-de-unboxing-y-demostracion-de-producto-south-florida": {
-  "date": "2026-10-19",
-  "hash": "aedd01bbae48275b"
- },
  "/es/video-explicativo-de-software-saas-miami": {
   "date": "2026-10-19",
   "hash": "7fde42bddef816e3"
@@ -971,25 +963,9 @@
   "date": "2026-10-11",
   "hash": "aa95d91b20b416cc"
  },
- "/es/video-marketing-para-hoteles-boutique-miami-beach": {
-  "date": "2026-10-19",
-  "hash": "f8d8f3488ce6a9e8"
- },
- "/es/video-para-abogados-de-lesiones-personales-miami": {
-  "date": "2026-10-19",
-  "hash": "2564131f69f60886"
- },
- "/es/video-para-abogados-de-planificacion-patrimonial-boca-raton": {
-  "date": "2026-10-19",
-  "hash": "b854c951be2e5067"
- },
  "/es/video-para-academias-de-baile-y-musica-miami": {
   "date": "2026-10-14",
   "hash": "43c61111a9726b0d"
- },
- "/es/video-para-agencias-de-carros-exoticos-miami": {
-  "date": "2026-10-19",
-  "hash": "00c63daa43dbe416"
  },
  "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
   "date": "2026-11-25",
@@ -1019,10 +995,6 @@
   "date": "2026-10-18",
   "hash": "61be3479d3e2a446"
  },
- "/es/video-para-cervecerias-artesanales-miami": {
-  "date": "2026-10-19",
-  "hash": "54dd955adbfd3b03"
- },
  "/es/video-para-clinicas-de-medicina-regenerativa-miami": {
   "date": "2026-10-19",
   "hash": "8ab5377d1494774b"
@@ -1035,13 +1007,9 @@
   "date": "2026-10-19",
   "hash": "ba635939a1dacfa3"
  },
- "/es/video-para-empresas-de-catering-miami": {
-  "date": "2026-10-19",
-  "hash": "b840a3daa664de2e"
- },
  "/es/video-para-expositores-del-boat-show-fort-lauderdale": {
-  "date": "2026-10-19",
-  "hash": "57d1b454ac9712bc"
+  "date": "2026-11-26",
+  "hash": "e19f4e4d79b6a9da"
  },
  "/es/video-para-marcas-de-cosmeticos-miami": {
   "date": "2026-10-19",
@@ -1054,14 +1022,6 @@
  "/es/video-para-med-spas-y-cirujanos-plasticos-miami": {
   "date": "2026-10-19",
   "hash": "9ffa95c2372ca480"
- },
- "/es/video-para-medicos-concierge-y-clinicas-privadas-palm-beach": {
-  "date": "2026-10-19",
-  "hash": "e6594cde9ba5832c"
- },
- "/es/video-para-odontologia-cosmetica-y-carillas-miami": {
-  "date": "2026-10-19",
-  "hash": "0f7f00f735615f6d"
  },
  "/es/video-para-pequenos-negocios-pembroke-pines": {
   "date": "2026-10-30",
@@ -1082,10 +1042,6 @@
  "/es/video-para-relojes-de-lujo-miami": {
   "date": "2026-10-18",
   "hash": "25027e70c282bfab"
- },
- "/es/video-para-restauracion-capilar-miami": {
-  "date": "2026-10-19",
-  "hash": "b2aae4b44cfee84d"
  },
  "/es/video-para-restaurantes-frente-al-agua-fort-lauderdale": {
   "date": "2026-10-19",
@@ -1111,10 +1067,6 @@
   "date": "2026-10-18",
   "hash": "8b447427980e8e5d"
  },
- "/es/videografo-de-cocteleria-para-bares-miami": {
-  "date": "2026-10-18",
-  "hash": "6efacc05c0c4cc44"
- },
  "/es/videografo-de-pesca-deportiva-miami": {
   "date": "2026-10-19",
   "hash": "640c35a69ed224af"
@@ -1129,7 +1081,7 @@
  },
  "/es/videografo-en-miami": {
   "date": "2026-11-26",
-  "hash": "da1831003fc35be4"
+  "hash": "7451cc7237ac6757"
  },
  "/es/videografo-para-activacion-de-marca-miami": {
   "date": "2026-10-19",
@@ -1167,13 +1119,9 @@
   "date": "2026-11-26",
   "hash": "d6e423f5d915d8bb"
  },
- "/es/videografo-para-fiestas-en-yates-miami": {
-  "date": "2026-10-19",
-  "hash": "167adc1655ff9b14"
- },
  "/es/videografo-para-fiestas-privadas-sur-de-florida": {
   "date": "2026-11-26",
-  "hash": "a0fd6c85ab24ab06"
+  "hash": "5a4a58d81b2a4a4e"
  },
  "/es/videografo-para-masterminds-miami": {
   "date": "2026-10-18",
@@ -1182,10 +1130,6 @@
  "/es/videografo-para-propuestas-de-matrimonio-miami": {
   "date": "2026-10-18",
   "hash": "8f5efdf05c0897ad"
- },
- "/es/videografo-para-restaurantes-de-alta-cocina-miami": {
-  "date": "2026-10-18",
-  "hash": "ba8268a4e69f8cd2"
  },
  "/es/videografo-para-retiros-ejecutivos-florida-keys": {
   "date": "2026-10-19",
@@ -1201,43 +1145,43 @@
  },
  "/events/art-basel-miami-beach-video": {
   "date": "2026-11-26",
-  "hash": "9dfa228089c71028"
+  "hash": "868f45ea3e3a0bf3"
  },
  "/events/boca-raton-events-video": {
-  "date": "2026-11-21",
-  "hash": "753375e13efde540"
+  "date": "2026-11-26",
+  "hash": "27db37939154f155"
  },
  "/events/emerge-americas-video": {
-  "date": "2026-11-21",
-  "hash": "ca59b2c969e23a56"
+  "date": "2026-11-26",
+  "hash": "6cd0032a0b8404e7"
  },
  "/events/fitce-fort-lauderdale-video": {
-  "date": "2026-11-21",
-  "hash": "5b5ea8937bc4a975"
+  "date": "2026-11-26",
+  "hash": "e4c9b5b14fe6c5e6"
  },
  "/events/fort-lauderdale-boat-show-video": {
-  "date": "2026-11-21",
-  "hash": "a016d5723cfedac8"
+  "date": "2026-11-26",
+  "hash": "6026a86ff48eab76"
  },
  "/events/miami-boat-show-video": {
-  "date": "2026-11-21",
-  "hash": "9171953df76b56b5"
+  "date": "2026-11-26",
+  "hash": "cfba875c11775620"
  },
  "/events/miami-music-week-video": {
-  "date": "2026-11-21",
-  "hash": "8c92a565b9e8aa4e"
+  "date": "2026-11-26",
+  "hash": "755a62f3577a4e64"
  },
  "/events/miami-spice-restaurant-video": {
-  "date": "2026-11-21",
-  "hash": "0ff66f6898dae917"
+  "date": "2026-11-26",
+  "hash": "46d1e97292068e34"
  },
  "/events/pompano-beach-events-video": {
-  "date": "2026-11-21",
-  "hash": "d9b116e4c1594b81"
+  "date": "2026-11-26",
+  "hash": "a733e7684af815c1"
  },
  "/events/south-beach-wine-food-festival-video": {
-  "date": "2026-11-21",
-  "hash": "00be9ec1040f7097"
+  "date": "2026-11-26",
+  "hash": "45846e14d8f2df43"
  },
  "/fort-lauderdale": {
   "date": "2026-10-16",
@@ -1465,7 +1409,7 @@
  },
  "/portfolio": {
   "date": "2026-11-26",
-  "hash": "2d62b577ce5a8b7c"
+  "hash": "0455bd7dc83ae057"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-11-11",
@@ -1473,7 +1417,7 @@
  },
  "/portfolio/banacol": {
   "date": "2026-11-26",
-  "hash": "ec2f578b85bf401a"
+  "hash": "7aa9e7a736822afb"
  },
  "/portfolio/bar-door-monkey": {
   "date": "2026-10-18",
@@ -1572,12 +1516,12 @@
   "hash": "42b1c80f3e2ea81a"
  },
  "/pricing/real-estate": {
-  "date": "2026-10-01",
-  "hash": "76b30d28f90ab2ab"
+  "date": "2026-11-26",
+  "hash": "509d7e174ed56f91"
  },
  "/pricing/starter": {
-  "date": "2026-10-14",
-  "hash": "7a4415da26fbf4f0"
+  "date": "2026-11-26",
+  "hash": "fcdcd50c04e7e71e"
  },
  "/real-estate": {
   "date": "2026-11-21",
@@ -1616,8 +1560,8 @@
   "hash": "229dfa861a2ea14f"
  },
  "/services/ai-commercial-video-reels-miami": {
-  "date": "2026-11-19",
-  "hash": "4df6325680053ce8"
+  "date": "2026-11-26",
+  "hash": "48862d03cf0038c7"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1644,16 +1588,12 @@
   "hash": "7dc96b2e1160cbdf"
  },
  "/services/art-basel-miami-art-week-video": {
-  "date": "2026-10-19",
-  "hash": "b6dc5d67bd9e6535"
- },
- "/services/auto-detailing-tint-wrap-video-marketing-miami": {
-  "date": "2026-10-13",
-  "hash": "e63d7b93b03808e6"
+  "date": "2026-11-26",
+  "hash": "6f4c797b311b9ab1"
  },
  "/services/automotive-video-marketing-miami": {
-  "date": "2026-10-13",
-  "hash": "422c3b140d3069df"
+  "date": "2026-11-26",
+  "hash": "046fcef8f91cdd05"
  },
  "/services/b2b-client-case-study-video-production-miami": {
   "date": "2026-10-19",
@@ -1680,24 +1620,16 @@
   "hash": "d3f2cc3748e59e09"
  },
  "/services/boat-show-exhibitor-video-fort-lauderdale": {
-  "date": "2026-10-19",
-  "hash": "25097c3984b8b031"
- },
- "/services/boutique-hotel-resort-video-miami-beach": {
-  "date": "2026-10-19",
-  "hash": "111c9fc1454a6b56"
- },
- "/services/boutique-hotel-video-editing-miami": {
-  "date": "2026-10-13",
-  "hash": "6823faf5b5d2610b"
+  "date": "2026-11-26",
+  "hash": "e37f4838888808ff"
  },
  "/services/brand-activation-videographer-miami": {
   "date": "2026-10-19",
   "hash": "a8d28064de1b4ab5"
  },
  "/services/brand-video-production-miami": {
-  "date": "2026-10-18",
-  "hash": "f90be7eb8d08fe17"
+  "date": "2026-11-26",
+  "hash": "3e68ab1cda4516c9"
  },
  "/services/brewery-craft-distillery-video-miami": {
   "date": "2026-11-26",
@@ -1804,8 +1736,8 @@
   "hash": "d93b26dc73c3c2b7"
  },
  "/services/dance-studio-music-school-video-marketing-miami": {
-  "date": "2026-10-13",
-  "hash": "b4b9bbe0a4d083a2"
+  "date": "2026-11-26",
+  "hash": "313524a2da2787e8"
  },
  "/services/dental-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1816,8 +1748,8 @@
   "hash": "5462de57cb7d5061"
  },
  "/services/drone-video-editing-service-miami": {
-  "date": "2026-10-13",
-  "hash": "1c6ec7836aa9b2a2"
+  "date": "2026-11-26",
+  "hash": "23840474f8ab1599"
  },
  "/services/equestrian-polo-videographer-wellington": {
   "date": "2026-10-19",
@@ -1846,10 +1778,6 @@
  "/services/executive-video-bio-production-miami": {
   "date": "2026-10-18",
   "hash": "d66a3681f7698ea2"
- },
- "/services/exotic-car-rental-video-miami": {
-  "date": "2026-10-19",
-  "hash": "21a7296a8f67ee58"
  },
  "/services/fashion-lookbook-video-miami": {
   "date": "2026-10-18",
@@ -1880,8 +1808,8 @@
   "hash": "c42ee000b01cb0a7"
  },
  "/services/hotel-hospitality-video-production-miami": {
-  "date": "2026-10-13",
-  "hash": "20ed4c3a283ae19d"
+  "date": "2026-11-26",
+  "hash": "af3813ffe9f74ea5"
  },
  "/services/immigration-attorney-video-marketing-miami": {
   "date": "2026-10-14",
@@ -2025,15 +1953,15 @@
  },
  "/services/real-estate-reels-video-editor-south-florida": {
   "date": "2026-11-26",
-  "hash": "68c2a2f7e85341b4"
+  "hash": "a0d9a7ef09d4fe0d"
  },
  "/services/real-estate-video-coral-gables": {
   "date": "2026-10-13",
   "hash": "3505eee75d53026b"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-11-24",
-  "hash": "86f0cb8e5b879fae"
+  "date": "2026-11-26",
+  "hash": "c054c75011fa4c9a"
  },
  "/services/reels-editor-miami": {
   "date": "2026-11-26",
@@ -2120,8 +2048,8 @@
   "hash": "68e07e8330aeefc7"
  },
  "/services/video-production-fort-lauderdale": {
-  "date": "2026-11-03",
-  "hash": "8b941c0cfff64d90"
+  "date": "2026-11-26",
+  "hash": "06cf8efa2067b977"
  },
  "/services/videographer-miami": {
   "date": "2026-11-12",

@@ -8,6 +8,7 @@ import {
   resolvePortfolioItemCopy,
 } from "@/components/portfolio-grid";
 import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
+import { CaseStudyRail, LATEST_CASE_STUDY_IDS } from "@/components/case-study-rail";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS, mediaOrientation } from "@/lib/portfolio";
 import { PageUpdated } from "@/components/page-updated";
@@ -103,6 +104,7 @@ export default function SpanishPortfolioPage() {
           </Container>
         </section>
       ) : null}
+      <CaseStudyRail ids={LATEST_CASE_STUDY_IDS} locale="es" source="portfolio_latest_cases" heading="¿Cuáles son los casos de estudio más recientes?" />
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <PortfolioGrid items={PORTFOLIO_ITEMS.filter((item) => item.id !== liveItems[0]?.id)} locale="es" />

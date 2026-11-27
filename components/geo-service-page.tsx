@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 
 import { PriceSheet } from "@/components/price-sheet";
+import { NearMeAnswer } from "@/components/near-me-answer";
+import type { NearMeAnswerContent } from "@/lib/near-me-answers";
 import {
   ServiceCraft,
   ServiceFaqs,
@@ -97,6 +99,8 @@ export type GeoServicePageContent = {
   proofRail?: ServiceProofRailContent;
   /** Short "Where Esteban has filmed or edited for" line naming real places from portfolio/case studies */
   venueLine?: string;
+  /** Optional "… near me" answer (lib/near-me-answers.ts), rendered right after the answer-first block. */
+  nearMe?: NearMeAnswerContent;
 };
 
 export function buildGeoServiceSchema(content: GeoServicePageContent) {
@@ -280,6 +284,7 @@ export function GeoServicePage({
       </section>
 
       <ServiceAnswerFirst service={content.answerService ?? content.serviceType} answerOverride={content.answerFirst} />
+      {content.nearMe ? <NearMeAnswer content={content.nearMe} /> : null}
       <ClientReviews locale="en" compact />
       {content.venueLine ? (
         <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-6" data-section="service-venues">

@@ -11,6 +11,7 @@ import {
   buildServicePageNodes,
 } from "@/components/service-depth";
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -103,7 +104,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Automotive video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                No vehicle video is published yet. <strong>Homeowners</strong> is a social video Esteban edited from footage supplied by the agency 300 Bees; his dealership work is the Fort Lauderdale Auto Sale web system and AI concierge.
+                No vehicle video is published yet. <strong>Homeowners</strong> is a social video Esteban edited from footage supplied by the agency 300 Bees; his dealership work is the <Link href="/case-studies/flas-concierge" className="underline decoration-[#e85d3e] underline-offset-4">Fort Lauderdale Auto Sale web system and AI concierge</Link>.
               </p>
               <Link
                 href="/portfolio/homeowners"
@@ -116,7 +117,11 @@ export default function AutomotiveVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service="automotive video marketing" />
+      {/* Prune follow-up 2026-11-26: this page is the survivor of its zero-signal cluster; the answer names the merged intents and the prices come from lib/pricing.ts. */}
+      <ServiceAnswerFirst service="automotive video marketing"
+        questionOverride="Which automotive businesses does Esteban edit for, and what does it cost?"
+        answerOverride={`Esteban Moreno Media edits video for car dealerships, exotic car rental fleets and detailing, tint and wrap shops in Miami and Fort Lauderdale: walkarounds, interior details, before-and-afters and vertical Reels. Editing your own footage starts at ${usd(SHORT_FORM.perVideoFrom)} per video (Starter package), and on-location filming is priced ${filmingHourlyText("en")}.`}
+      />
 
       <ServiceDeepDive
         id={AUTOMOTIVE_DEEP_DIVE.id}

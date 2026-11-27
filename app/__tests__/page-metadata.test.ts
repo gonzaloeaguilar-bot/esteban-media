@@ -115,11 +115,11 @@ describe("complete page metadata", () => {
     expect(metadata.alternates?.canonical).toBe(
       "/services/tiktok-ad-video-editor-miami",
     );
-    expect(metadata.alternates?.languages).toMatchObject({
-      "en-US": "/services/tiktok-ad-video-editor-miami",
-      "es-US": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
-      "x-default": "/services/tiktok-ad-video-editor-miami",
-    });
+    // The Spanish twin 301s to /es/editor-de-video-corto-para-redes-miami since
+    // the 2026-11-26 prune follow-up, so the hreflang pair dissolves.
+    expect(
+      (metadata.alternates?.languages as Record<string, string> | undefined)?.["es-US"],
+    ).toBeUndefined();
   });
 
   it("verifies Spanish restaurant video metadata and snippet CTR criteria", () => {
