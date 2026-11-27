@@ -7,6 +7,7 @@ import {
   shortFormWeeklyText,
   usd,
   CREW_RECORDING_RATES,
+  filmingPriceText,
 } from "@/lib/pricing";
 
 /**
@@ -36,7 +37,6 @@ const fromOr = (p: typeof starter, fallback: string) => (p.kind === "from" ? usd
 const weeklyEn = shortFormWeeklyText("en");
 const weeklyEs = shortFormWeeklyText("es");
 const corporate = `${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}`;
-const onLocation = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
 const starterEn = fromOr(starter, "a custom quote");
 const growthEn = fromOr(growth, "a custom quote");
@@ -61,7 +61,7 @@ export const NIGHTLIFE_DEEP_DIVE: DeepDive = {
       heading: "What does it cost to have the night filmed, not just edited?",
       paragraphs: [
         `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per production day: pre-production, on-location capture, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward, and selected projects in Miami-Dade, so a Miami Beach or Wynwood date is confirmed case by case.`,
-        `The separate half-day capture add-on has an indicative range of ${onLocation} on the same discounted freelancer basis. Do not add the two together; they are different ways of scoping the same need. Tell Esteban the venue, the hours, whether the room is dark or lit, and which moments matter: the DJ, the crowd, the bar, the bottle service, the arrival. A venue with house rules on filming guests should say so before the date is set.`,
+        `Filming only, without editing, is ${filmingPriceText("en")}. Do not add the two together; they are different ways of scoping the same need. Tell Esteban the venue, the hours, whether the room is dark or lit, and which moments matter: the DJ, the crowd, the bar, the bottle service, the arrival. A venue with house rules on filming guests should say so before the date is set.`,
       ],
     },
     {
@@ -96,7 +96,7 @@ export const HOTEL_DEEP_DIVE: DeepDive = {
     {
       heading: "What does a filmed day at a hotel or resort cost?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per production day: pre-production, capture on location, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward and selected projects in Miami-Dade, so a Miami Beach or Brickell property is confirmed case by case. The half-day capture add-on is ${onLocation} on the same discounted basis.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceEn} per production day: pre-production, capture on location, editing after the shoot, and deliverables in the formats you need. It covers Fort Lauderdale and Broward and selected projects in Miami-Dade, so a Miami Beach or Brickell property is confirmed case by case. Filming only, without editing, is ${filmingPriceText("en")}.`,
         "A hotel day goes further when the property plans it around light and occupancy. Rooms photograph best when they are made up and empty; the pool and terrace change completely between mid-morning and late afternoon; restaurant service is easiest to film at a quiet hour with a staged table. Send the list of spaces in priority order and the hours each one is available.",
       ],
     },
@@ -132,7 +132,7 @@ export const NIGHTLIFE_ES_SECTIONS: readonly SpanishNicheSection[] = [
     heading: "¿Cuánto cuesta que graben la noche, no solo que la editen?",
     paragraphs: [
       `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una fecha en Miami Beach o Wynwood se confirma caso por caso.`,
-      `La captura de medio día como complemento tiene un rango indicativo de ${onLocation} con la misma base de descuento. No se suman: son dos maneras distintas de definir la misma necesidad. Cuéntale a Esteban el local, el horario, si el espacio es oscuro o iluminado y qué momentos importan: el DJ, el público, la barra, el servicio de botellas, la llegada. Si el local tiene reglas sobre grabar a los clientes, dilo antes de fijar la fecha.`,
+      `La grabación sola, sin edición, va ${filmingPriceText("es")}. No se suman: son dos maneras distintas de definir la misma necesidad. Cuéntale a Esteban el local, el horario, si el espacio es oscuro o iluminado y qué momentos importan: el DJ, el público, la barra, el servicio de botellas, la llegada. Si el local tiene reglas sobre grabar a los clientes, dilo antes de fijar la fecha.`,
     ],
   },
   {
@@ -165,7 +165,7 @@ export const HOTEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un día de grabación en un hotel o resort?",
     paragraphs: [
-      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una propiedad en Miami Beach o Brickell se confirma caso por caso. La captura de medio día como complemento es ${onLocation} con la misma base.`,
+      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción: preproducción, captura en locación, edición posterior y entregables en los formatos que necesites. Cubre Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade, así que una propiedad en Miami Beach o Brickell se confirma caso por caso. La grabación sola, sin edición, va ${filmingPriceText("es")}.`,
       "Un día en un hotel rinde más cuando la propiedad lo planifica según la luz y la ocupación. Las habitaciones se ven mejor arregladas y vacías; la piscina y la terraza cambian por completo entre media mañana y la tarde; el servicio del restaurante es más fácil de grabar en una hora tranquila con una mesa montada. Envía la lista de espacios por prioridad y el horario en que cada uno está disponible.",
     ],
   },
@@ -199,7 +199,7 @@ export const CORPORATE_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cómo se presupuesta la grabación en el lugar del evento?",
     paragraphs: [
-      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción. La captura de medio día como complemento tiene un rango indicativo de ${onLocation} con la misma base de descuento. Son maneras distintas de definir el trabajo: no se suman ni se debe asumir que alguna cubre el evento completo sin revisar la propuesta. Las productoras con equipo completo trabajan con otro modelo.`,
+      `[Presencia Local](/es/precios/presencia-local) parte desde ${localPresenceEs} por día de producción. La grabación sola, sin edición, va ${filmingPriceText("es")}. Son maneras distintas de definir el trabajo: no se suman ni se debe asumir que alguna cubre el evento completo sin revisar la propuesta. Las productoras con equipo completo trabajan con otro modelo.`,
       "Envía el lugar, el horario, el acceso y las partes del evento que sí o sí deben grabarse. Explica si la prioridad son los discursos, las reacciones del público, entrevistas o detalles del lugar. Si hay actividades al mismo tiempo, dilo antes de acordar la cobertura. Pide que la cotización separe grabación, requisitos de sonido, edición, versiones finales y cualquier necesidad que se cobre aparte.",
     ],
   },
@@ -240,7 +240,7 @@ export const CORPORATE_EVENT_FTL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos corporativos en Fort Lauderdale?",
     paragraphs: [
-      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
+      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, ${filmingPriceText("es")}, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre ${usd(PRICING_BANDS.corporate.baseMin)} y ${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
       "La edición varía según los entregables requeridos: un video resumen ágil para LinkedIn, grabaciones íntegras de conferencias magistrales o cápsulas verticales de testimonios. Especifica qué ponencias son prioritarias, los requisitos de audio y las fechas límite de entrega. La grabación presencial y la postproducción se coordinan de forma integral según el cronograma de tu evento en Fort Lauderdale.",
     ],
   },
@@ -264,7 +264,7 @@ export const NETWORKING_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la videografía para eventos de networking y cócteles en Miami?",
     paragraphs: [
-      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre ${usd(PRICING_BANDS["on-location"].baseMin)} y ${usd(PRICING_BANDS["on-location"].baseMax)} por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
+      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: el rodaje presencial, ${filmingPriceText("es")}, y la edición del resumen en video. La banda corporativa de edición se sitúa entre ${usd(PRICING_BANDS.corporate.baseMin)} y ${usd(PRICING_BANDS.corporate.baseMax)} por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
       "Los eventos de networking suelen demandar una pieza principal de sesenta a noventa segundos en formato horizontal y clips cortos verticales con entrevistas espontáneas a los asistentes. Definir si se priorizan los patrocinadores, los discursos de bienvenida o las interacciones entre invitados permite optimizar el tiempo de cámara durante el evento.",
     ],
   },
@@ -308,7 +308,7 @@ export const VLOG_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
     heading: "¿Cómo funciona el rodaje de vlogs en exteriores en Miami?",
     paragraphs: [
       "La filmación de vlogs en exteriores asigna al creador un camarógrafo dedicado que registra tomas en movimiento, segmentos de diálogo y material de apoyo por toda la ciudad. Esteban utiliza una cámara Sony Alpha 7 IV sobre estabilizador con micrófonos inalámbricos de alta calidad. Esta configuración ligera permite desplazarse con fluidez por restaurantes, eventos y zonas concurridas como Wynwood o Brickell sin cargar trípodes pesados.",
-      `El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a ${usd(CREW_RECORDING_RATES.solo.hourly)} la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.`,
+      `El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se contrata desde ${usd(CREW_RECORDING_RATES.solo.halfDay)} por medio día (hasta 4 horas) o ${usd(CREW_RECORDING_RATES.solo.fullDay)} por jornada completa (hasta 8 horas), proporcionando semanas de contenido listo para publicar.`,
     ],
   },
   {

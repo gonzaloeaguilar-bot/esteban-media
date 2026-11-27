@@ -11,7 +11,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_TERMS, CELEBRATION_FILM_BUNDLES, CREW_RECORDING_RATES, EXPANSION_SERVICES, FILMING_HOURLY, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, WEDDING_PACKAGES, filmingHourlyText, priceTermsText, shortFormPriceText, shortFormWeeklyText, turnaroundFor, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_OPTIONS, ARRANQUE_WEEKLY_TERMS, RAW_FILMING_RATES, CELEBRATION_FILM_BUNDLES, CREW_RECORDING_RATES, EXPANSION_SERVICES, FILMING_RATES, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, WEDDING_PACKAGES, filmingPriceText, priceTermsText, shortFormPriceText, shortFormWeeklyText, turnaroundFor, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -517,7 +517,6 @@ const esGrowthFrom = esFrom(PACKAGE_PRICES.crecimiento);
 const esLocalFrom = esFrom(PACKAGE_PRICES["presencia-local"]);
 const esShortForm = shortFormPriceText("es");
 const esWeekly = shortFormWeeklyText("es");
-const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
 // Ola de nichos 8 (2026-10-11, aprobada por el dueño). Ocho compradores sin
 // página propia. Precios solo vía priceSentence() (lib/pricing.ts); la grabación
@@ -1367,16 +1366,16 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "¿Cuánto cobra un videógrafo en Miami?",
     metadataTitle: "¿Cuánto Cobra un Videógrafo en Miami?",
     description:
-      `Cuánto cobra un videógrafo en Miami: grabación desde ${usd(FILMING_HOURLY.amount)} por hora con ${FILMING_HOURLY.minimumHours} horas mínimas, bodas desde ${usd(WEDDING_PACKAGES.halfDayFrom)} y edición aparte.`,
+      `Cuánto cobra un videógrafo en Miami: grabación ${usd(FILMING_RATES.halfDay)} medio día, ${usd(FILMING_RATES.fullDay)} día completo, ${usd(FILMING_RATES.extraHour)} hora extra; bodas desde ${usd(WEDDING_PACKAGES.halfDayFrom)}; edición aparte.`,
     eyebrow: "Guía de Precios y Tarifas / Miami-Dade",
     h1: "¿Cuánto cobra un videógrafo en Miami?",
-    lead: `Con Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación (mínimo ${FILMING_HOURLY.minimumHours} horas, ${usd(FILMING_HOURLY.minimumAmount)}), y el video de una boda parte desde ${usd(WEDDING_PACKAGES.halfDayFrom)}.`,
+    lead: `Con Esteban Moreno Media, un videógrafo en Miami cobra ${usd(FILMING_RATES.halfDay)} por medio día de grabación (hasta ${FILMING_RATES.halfDayHours} horas), ${usd(FILMING_RATES.fullDay)} por día completo (hasta ${FILMING_RATES.fullDayHours} horas) y ${usd(FILMING_RATES.extraHour)} por cada hora adicional; el video de una boda parte desde ${usd(WEDDING_PACKAGES.halfDayFrom)}.`,
     keyword: "cuánto cobra un videógrafo en Miami",
     location: "Miami-Dade",
     availability: "confirmed",
     icon: Video,
     answerQuestion: "¿Cuánto cobra un videógrafo en Miami?",
-    answerFirst: `La grabación en locación en Miami parte desde ${usd(FILMING_HOURLY.amount)} por hora con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}), un equipo de dos personas cuesta ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora, y las bodas parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} (medio día o creación de contenido) y ${usd(WEDDING_PACKAGES.fullDayFrom)} para día completo con un depósito del ${WEDDING_PACKAGES.depositPercent}%. ${priceTermsText("es")}`,
+    answerFirst: `La grabación en locación en Miami cuesta ${usd(FILMING_RATES.halfDay)} por medio día (hasta ${FILMING_RATES.halfDayHours} horas), ${usd(FILMING_RATES.fullDay)} por día completo (hasta ${FILMING_RATES.fullDayHours} horas) y ${usd(FILMING_RATES.extraHour)} por cada hora adicional, un equipo de dos personas cuesta ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora, y las bodas parten desde ${usd(WEDDING_PACKAGES.halfDayFrom)} (medio día o creación de contenido) y ${usd(WEDDING_PACKAGES.fullDayFrom)} para día completo con un depósito del ${WEDDING_PACKAGES.depositPercent}%. ${priceTermsText("es")}`,
     bestFor: [
       "Empresas y marcas que necesitan planificar su presupuesto de grabación en locación en Miami.",
       "Parejas que buscan cobertura cinematográfica de bodas con precios de partida claros y transparentes.",
@@ -1394,9 +1393,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsHeading: "Preguntas frecuentes sobre tarifas de videografía en Miami",
     sections: [
       {
-        heading: "¿Cuánto cobra un videógrafo por hora en Miami?",
+        heading: "¿Cuánto cobra un videógrafo en Miami por medio día o día completo?",
         paragraphs: [
-          `En Esteban Moreno Media, un videógrafo en Miami cobra desde ${usd(FILMING_HOURLY.amount)} por hora de grabación en locación, con un mínimo de ${FILMING_HOURLY.minimumHours} horas (${usd(FILMING_HOURLY.minimumAmount)}). Ese precio cubre a un videógrafo con cámara Sony Alpha 7 IV en 4K y audio; la edición se cotiza aparte. Medio día de grabación de una sola persona cuesta ${usd(CREW_RECORDING_RATES.solo.halfDay)} y el día completo ${usd(CREW_RECORDING_RATES.solo.fullDay)}.`,
+          `En Esteban Moreno Media, la grabación en locación con un videógrafo cuesta ${usd(FILMING_RATES.halfDay)} por medio día (hasta ${FILMING_RATES.halfDayHours} horas) y ${usd(FILMING_RATES.fullDay)} por día completo (hasta ${FILMING_RATES.fullDayHours} horas); cada hora adicional cuesta ${usd(FILMING_RATES.extraHour)}. Ese precio cubre a un videógrafo con cámara Sony Alpha 7 IV en 4K y audio; la edición se cotiza aparte, desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
           `Para eventos con mayor dinamismo o cobertura simultánea, un equipo de dos personas tiene una tarifa de ${usd(CREW_RECORDING_RATES.twoPerson.hourly)} por hora (${usd(CREW_RECORDING_RATES.twoPerson.minimumAmount)} mínimo): una persona graba en 4K y la otra crea contenido vertical para redes. Todas las grabaciones se confirman por escrito antes de la fecha.`,
         ],
       },
@@ -1417,19 +1416,19 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuándo basta con un editor y no un videógrafo?",
         paragraphs: [
-          `Si tu equipo o tus clientes ya grabaron el metraje con teléfonos inteligentes o cámaras propias, no necesitas pagar por horas de grabación en locación; basta con contratar a un [editor de video remoto](/es/contratar-editor-de-video-remoto). Un editor organiza las tomas, mejora el audio, añade ritmo y adapta las dimensiones para Reels, Shorts o YouTube.`,
+          `Si tu equipo o tus clientes ya grabaron el metraje con teléfonos inteligentes o cámaras propias, no necesitas pagar grabación en locación; basta con contratar a un [editor de video remoto](/es/contratar-editor-de-video-remoto). Un editor organiza las tomas, mejora el audio, añade ritmo y adapta las dimensiones para Reels, Shorts o YouTube.`,
           `Por el contrario, si el evento aún no ha ocurrido, necesitas capturar entrevistas presenciales o buscas tomas de producto en el lugar, necesitas un videógrafo en locación. Para más detalles sobre estas diferencias, lee nuestra guía sobre [editor de video vs videógrafo](/es/guias/editor-de-video-vs-videografo).`,
         ],
       },
     ],
     faqs: [
       {
-        question: "¿Cuál es el mínimo de horas para contratar a un videógrafo en Miami?",
-        answer: `El mínimo de grabación en locación es de ${FILMING_HOURLY.minimumHours} horas consecutivas, con un costo base desde ${usd(FILMING_HOURLY.minimumAmount)}.`,
+        question: "¿Cuál es el mínimo para contratar a un videógrafo en Miami?",
+        answer: `El mínimo es medio día: hasta ${FILMING_RATES.halfDayHours} horas de grabación en locación por ${usd(FILMING_RATES.halfDay)}. Cada hora adicional cuesta ${usd(FILMING_RATES.extraHour)}, y el día completo (hasta ${FILMING_RATES.fullDayHours} horas) cuesta ${usd(FILMING_RATES.fullDay)}.`,
       },
       {
-        question: "¿La tarifa por hora incluye la edición de los videos?",
-        answer: `No. La tarifa por hora cubre al videógrafo en locación con cámara 4K y audio. La edición final se cotiza por video o proyecto desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque.`,
+        question: "¿La tarifa de grabación incluye la edición de los videos?",
+        answer: `No. La tarifa de grabación cubre al videógrafo en locación con cámara 4K y audio. La edición final se cotiza por video o proyecto desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque.`,
       },
       {
         question: "¿Se entrega el material original después de la grabación?",
@@ -1472,7 +1471,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Cómo encontrar un videógrafo cerca de mí en Miami?",
         paragraphs: [
           `Si buscas un videógrafo cerca de mí en Miami, ten en cuenta que Esteban Moreno Media tiene su base en Fort Lauderdale y toma proyectos en Miami-Dade de forma seleccionada: la disponibilidad de cada locación se confirma al consultar. Hay trabajo publicado grabado en Miami, como el video de [Bar Door Monkey](/es/portafolio/bar-door-monkey), para que veas el estilo antes de escribir.`,
-          `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
+          `La grabación en locación es un servicio pagado, ${filmingPriceText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
         ],
       },
       {
@@ -1530,7 +1529,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         // Row 72 (2026-10-14): autocomplete "videografo cerca de mi"; no page said "cerca de".
         heading: "¿Cómo encontrar un videógrafo cerca de mí en Fort Lauderdale?",
         paragraphs: [
-          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingHourlyText("es")}. Un día de producción en tu negocio, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
+          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingPriceText("es")}. Un día de producción en tu negocio, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
           `Antes de contratar a un videógrafo cercano conviene confirmar tres cosas: si el material que ya tienes alcanza para editar sin grabar de nuevo, quién se queda con los archivos originales y cuántas rondas de cambios incluye la edición. Si ya tienes clips, la edición es remota y parte del paquete Arranque, ${esShortForm}; para videos cortos, mira el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
         ],
       },
@@ -2862,7 +2861,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar en el gimnasio o el estudio?",
         paragraphs: [
-          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción. Incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Existe además un complemento de media jornada de captura con un rango orientativo de ${esHalfDayBand}, con la misma base. No se suman: son dos maneras distintas de cotizar la misma necesidad.`,
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción. Incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Existe además la grabación sola, sin edición, que va ${filmingPriceText("es")}. No se suman: son dos maneras distintas de cotizar la misma necesidad.`,
           "Una grabación en un gimnasio es más fácil de cotizar cuando el horario está decidido de antemano: qué clase, a qué hora, qué entrenadores y si habrá miembros en cuadro. Las horas tranquilas hacen la grabación más rápida y eliminan casi todas las dudas de permiso. Envía ese horario con la solicitud.",
         ],
       },
@@ -3219,7 +3218,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Cómo se contrata y cotiza la filmación de un vlog?",
         answer:
-          "El rodaje se puede reservar por horas según el alcance o en jornadas de medio día y día completo para acumular varias entregas de material.",
+          "El rodaje se reserva en jornadas de medio día o día completo, con horas adicionales según el alcance, para acumular varias entregas de material.",
       },
       {
         question: "¿Se entregan episodios terminados o los archivos originales?",
@@ -3289,7 +3288,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     h1: "Video para entrevistas ejecutivas y testimonios corporativos en Miami.",
     lead:
       "Grabación en oficinas corporativas y locaciones de Miami con iluminación suave, microfonía doble y edición enfocada en liderazgo y marca.",
-    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación parte desde ${usd(CREW_RECORDING_RATES.solo.hourly)} por hora, con un mínimo de cuatro horas (${usd(CREW_RECORDING_RATES.solo.minimumAmount)}), e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y los días de producción con grabación y edición parten desde ${esLocalFrom}. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
+    answerFirst: `La videografía para entrevistas ejecutivas en Miami registra un mensaje de liderazgo o un testimonio claro para tu sitio web, conversaciones comerciales o LinkedIn. Esteban Moreno Media graba en oficinas y locaciones de Miami-Dade y Broward, con una entrevista horizontal completa y cortes verticales cuando el alcance lo requiere. La grabación corporativa en locación va ${filmingPriceText("es")}, e incluye cámara 4K, iluminación y audio dual aislado. Los cortes cortos para redes se editan a distancia desde ${esStarterFrom} por video, y los días de producción con grabación y edición parten desde ${esLocalFrom}. Cada sesión se agenda selectivamente con un alcance escrito antes de reservar la fecha.`,
     keyword: "videógrafo para entrevistas ejecutivas en Miami",
     location: "Miami-Dade / Broward / Remoto",
     availability: "confirmed",
@@ -5038,7 +5037,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar en el spa?",
         paragraphs: [
-          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción: preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base. Son dos formas de cotizar el trabajo, no cantidades que se suman.`,
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción: preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. La grabación sola, sin edición, va ${filmingPriceText("es")}. Son dos formas de cotizar el trabajo, no cantidades que se suman.`,
           "Casi todos los spas son más fáciles de grabar antes de abrir o en un bloque tranquilo entre reservas, con las salas listas y nadie esperando. Envía las horas disponibles, las salas que quieres mostrar y si alguien del equipo hablará a cámara, para que la propuesta diga qué se graba y qué queda fuera.",
         ],
       },
@@ -6482,7 +6481,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Dónde encontrar un editor de Reels en Fort Lauderdale?",
         paragraphs: [
           `Esteban Moreno Media es un editor de Reels en Fort Lauderdale: tiene aquí su base y atiende en español primero, con inglés intermedio para proyectos bilingües. Si buscas un editor de Reels cerca de mí desde Broward, la distancia importa menos de lo que parece, porque la edición es remota: envías los clips del teléfono por un enlace y recibes el Reel con subtítulos, ritmo y formato 9:16, sin visita. La edición de Reels parte del paquete Arranque, ${esShortForm}.`,
-          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción completo en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
+          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingPriceText("es")}, con alcance y cotización por proyecto, y un día de producción completo en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
         ],
       },
       {
@@ -7023,7 +7022,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta grabar dentro del salón?",
         paragraphs: [
-          `Cuando el local quiere que alguien venga a grabar, [Presencia Local](/es/precios/presencia-local) empieza desde ${esLocalFrom} por día de producción e incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base; son alternativas, no una suma.`,
+          `Cuando el local quiere que alguien venga a grabar, [Presencia Local](/es/precios/presencia-local) empieza desde ${esLocalFrom} por día de producción e incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. La grabación sola, sin edición, va ${filmingPriceText("es")}; son alternativas, no una suma.`,
           "Una grabación en el salón avanza más rápido cuando se agenda junto con las citas y no en contra de ellas. Elige un bloque en que un estilista o barbero tenga un cliente dispuesto, una silla con luz constante y unos minutos libres para decir algo útil a cámara.",
         ],
       },
@@ -8963,7 +8962,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     icon: Video,
     updated: "2026-11-19",
     fitQuestion: "¿Cómo funciona la edición remota de videos hablando a cámara?",
-    projectFit: "Grábate hablando a cámara con tu celular o cámara en un trípode con luz de frente y micrófono corbatero. Sube los archivos originales a Drive o Dropbox y comparte el enlace. Esteban corta las dudas y falsos arranques, nivela el audio para quitar ruido de fondo y exporta piezas horizontales para YouTube y clips verticales con subtítulos para Reels, TikTok y Shorts. La edición de video remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes recurrentes. La grabación presencial en locación en Broward o Miami-Dade se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    projectFit: `Grábate hablando a cámara con tu celular o cámara en un trípode con luz de frente y micrófono corbatero. Sube los archivos originales a Drive o Dropbox y comparte el enlace. Esteban corta las dudas y falsos arranques, nivela el audio para quitar ruido de fondo y exporta piezas horizontales para YouTube y clips verticales con subtítulos para Reels, TikTok y Shorts. La edición de video remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes recurrentes. La grabación presencial en locación en Broward o Miami-Dade se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.`,
     sectionsDisclosure: "Detalles del proceso y formato de entrega",
     sectionsDestinations: "Paso a paso desde tu grabación hasta la publicación con subtítulos",
     bestFor: [
@@ -8987,8 +8986,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuándo enviar material de celular y cuándo contratar grabación en locación?",
         paragraphs: [
-          "El criterio de decisión es muy claro: si grabas lecciones educativas, comentarios de negocio, respuestas a clientes o actualizaciones de redes, tu grabación con celular editada profesionalmente por ${usd(SHORT_FORM.perVideoFrom)} por video ofrece el mejor retorno con mínima fricción.",
-          "Por el contrario, si tu proyecto exige iluminación de cine multicámara, fondo corporativo en tu oficina, tomas de apoyo con tu equipo o entrevistas a clientes en vivo, contratar grabación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa asegura equipo profesional en Broward y Miami-Dade.",
+          `El criterio de decisión es muy claro: si grabas lecciones educativas, comentarios de negocio, respuestas a clientes o actualizaciones de redes, tu grabación con celular editada profesionalmente por ${usd(SHORT_FORM.perVideoFrom)} por video ofrece el mejor retorno con mínima fricción.`,
+          `Por el contrario, si tu proyecto exige iluminación de cine multicámara, fondo corporativo en tu oficina, tomas de apoyo con tu equipo o entrevistas a clientes en vivo, contratar grabación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa asegura equipo profesional en Broward y Miami-Dade.`,
         ],
       },
       {
@@ -9006,7 +9005,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
       {
         question: "¿Cuánto cuesta la edición de videos hablando a cámara?",
-        answer: "La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video en paquete Starter. Para creadores con publicación semanal constante, los planes de edición recurrente arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana por un video o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana por dos videos. La filmación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+        answer: `La edición remota parte desde ${usd(SHORT_FORM.perVideoFrom)} por video en paquete Starter. Para creadores con publicación semanal constante, los planes de edición recurrente arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana por un video o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana por dos videos. La filmación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.`,
       },
       {
         question: "¿Pueden sacar video largo de YouTube y Shorts verticales de la misma grabación?",
@@ -9033,7 +9032,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     icon: Video,
     updated: "2026-11-19",
     fitQuestion: "¿Cómo funciona la edición para canales de YouTube cristianos y devocionales?",
-    projectFit: "Para pastores, maestros bíblicos y creadores de contenido devocional que graban mensajes desde casa o la oficina. Esteban edita las grabaciones para mantener ritmo fluido, añade citas bíblicas en placas inferiores limpias y extrae momentos clave en formato vertical 9:16 para YouTube Shorts, Reels y TikTok. La edición remota inicia en ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes semanales. Si el ministerio desea filmar una conferencia o aniversario en el templo, la grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+    projectFit: `Para pastores, maestros bíblicos y creadores de contenido devocional que graban mensajes desde casa o la oficina. Esteban edita las grabaciones para mantener ritmo fluido, añade citas bíblicas en placas inferiores limpias y extrae momentos clave en formato vertical 9:16 para YouTube Shorts, Reels y TikTok. La edición remota inicia en ${usd(SHORT_FORM.perVideoFrom)} por video (Starter) o ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)}/semana en planes semanales. Si el ministerio desea filmar una conferencia o aniversario en el templo, la grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.`,
     sectionsDisclosure: "Estructura de canal y ritmo devocional semanal",
     sectionsDestinations: "Paso de la grabación larga a publicaciones diarias que edifican",
     bestFor: [
@@ -9057,8 +9056,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuándo editar material grabado en casa y cuándo filmar en locación?",
         paragraphs: [
-          "Para devocionales semanales, estudios temáticos o mensajes pastorales directos, grabarte en casa con tu celular o cámara y enviar el material para edición remota a ${usd(SHORT_FORM.perVideoFrom)} por video es la vía más ágil y económica para sostener el canal sin fallar semanas.",
-          "Cuando se trata de una serie especial de conferencias, un retiro ministerial o un documental del aniversario de la iglesia, programar filmación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa en Broward y Miami-Dade asegura audio de solapa múltiple e iluminación cuidada.",
+          `Para devocionales semanales, estudios temáticos o mensajes pastorales directos, grabarte en casa con tu celular o cámara y enviar el material para edición remota a ${usd(SHORT_FORM.perVideoFrom)} por video es la vía más ágil y económica para sostener el canal sin fallar semanas.`,
+          `Cuando se trata de una serie especial de conferencias, un retiro ministerial o un documental del aniversario de la iglesia, programar filmación en locación a ${usd(RAW_FILMING_RATES.halfDay)} por media jornada o ${usd(RAW_FILMING_RATES.fullDay)} por jornada completa en Broward y Miami-Dade asegura audio de solapa múltiple e iluminación cuidada.`,
         ],
       },
       {
@@ -9076,7 +9075,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
       {
         question: "¿Cuánto cuesta la edición para canales cristianos de YouTube?",
-        answer: "La edición remota comienza en ${usd(SHORT_FORM.perVideoFrom)} por video en Starter. Para canales con publicaciones periódicas, los planes semanales arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana (un video) o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana (dos videos). La grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.",
+        answer: `La edición remota comienza en ${usd(SHORT_FORM.perVideoFrom)} por video en Starter. Para canales con publicaciones periódicas, los planes semanales arrancan en ${usd(ARRANQUE_WEEKLY_OPTIONS[0].pricePerWeek)} por semana (un video) o ${usd(ARRANQUE_WEEKLY_OPTIONS[1].pricePerWeek)} por semana (dos videos). La grabación en locación se cotiza a ${usd(RAW_FILMING_RATES.halfDay)} media jornada o ${usd(RAW_FILMING_RATES.fullDay)} jornada completa.`,
       },
       {
         question: "¿Cómo se maneja la música en las reflexiones cristianas?",

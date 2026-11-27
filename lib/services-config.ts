@@ -159,7 +159,7 @@ export const ON_SITE_PRODUCTION_RATES = {
     {
       id: "solo-videographer",
       name: { en: "Solo Videographer (1 Camera)", es: "Videógrafo individual (1 Cámara)" },
-      hourly: CREW_RECORDING_RATES.solo.hourly,
+      extraHour: CREW_RECORDING_RATES.solo.extraHour,
       minimumHours: CREW_RECORDING_RATES.solo.minimumHours,
       halfDay: CREW_RECORDING_RATES.solo.halfDay,
       fullDay: CREW_RECORDING_RATES.solo.fullDay,

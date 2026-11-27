@@ -149,7 +149,7 @@ export default function VlogVideographerMiamiPage() {
                   Filming your next vlog series in Miami?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Hourly filming from {usd(CREW_RECORDING_RATES.solo.hourly)}/hr or full-day creator packages with rapid video turnaround.
+                  Filming from {usd(CREW_RECORDING_RATES.solo.halfDay)} per half day or full-day creator packages with rapid video turnaround.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

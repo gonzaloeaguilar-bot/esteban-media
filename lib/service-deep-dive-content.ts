@@ -5,7 +5,7 @@ import {
   PACKAGE_PRICES,
   PRICING_BANDS,
   SHORT_FORM,
-  filmingHourlyText,
+  filmingPriceText,
   shortFormWeeklyText,
   usd,
   CREW_RECORDING_RATES,
@@ -184,14 +184,14 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
             // DM-15 (2026-10-14): "event videography pricing" / "event
             // videographer cost" autocomplete x6/x2; the hourly filming floor
             // now sits inside this price answer.
-            `Event videography is priced in two lines: filming at the venue, ${filmingHourlyText("en")} (the minimum for time on location), and the edit. For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, there is no filming line: share the original material and explain the finished piece you want before treating that range as a quote.`,
+            `Event videography is priced in two lines: filming at the venue, ${filmingPriceText("en")}, and the edit. For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, there is no filming line: share the original material and explain the finished piece you want before treating that range as a quote.`,
             "A short recap, a speaker presentation, and a longer event film require different editorial decisions. Specify which moments matter, whether dialogue must remain complete, and where the finished video will be published. The amount and condition of the source material also need review. Capture and editing can be discussed together, with the actual deliverables agreed for your event.",
           ],
         },
         {
           heading: "How should you budget for filming at the venue?",
           paragraphs: [
-            `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+            `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. Filming only, without editing, is ${filmingPriceText("en")}. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
             "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
           ],
         },
@@ -234,14 +234,14 @@ export const CORPORATE_EVENT_FTL_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does event videography cost in Fort Lauderdale?",
       paragraphs: [
-        `Event videography in Fort Lauderdale is priced in two parts: time on location, ${filmingHourlyText("en")} (the hourly filming minimum), and editing. For corporate conferences, summits or trade shows, the corporate editing range is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, representing an indicative editing-led freelancer band with introductory adjustments applied rather than a fixed production package. If your internal crew or another team recorded the footage at the Broward County Convention Center or a local resort, share the raw media and target delivery schedule for an exact quote.`,
+        `Event videography in Fort Lauderdale is priced in two parts: time on location, ${filmingPriceText("en")}, and editing. For corporate conferences, summits or trade shows, the corporate editing range is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, representing an indicative editing-led freelancer band with introductory adjustments applied rather than a fixed production package. If your internal crew or another team recorded the footage at the Broward County Convention Center or a local resort, share the raw media and target delivery schedule for an exact quote.`,
         "A short social recap, an executive keynote, and a full conference summary demand distinct editing choices. Specify your key moments, whether audience dialogue or stage questions must be kept intact, and where the final deliverables will be published. The volume and condition of the raw source files are evaluated during scoping. Filming and post-production can be scoped together, with concrete deliverables confirmed for your event.",
       ],
     },
     {
       heading: "How should you budget for filming at the venue?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. Filming only, without editing, is ${filmingPriceText("en")}. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
         "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
       ],
     },
@@ -284,14 +284,14 @@ export const NETWORKING_EVENT_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does networking event videography cost in Miami?",
       paragraphs: [
-        `Videography for business networking mixers and corporate socials in Miami is scoped across two components: filming on location, ${filmingHourlyText("en")}, and post-production editing. The corporate editing baseline is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, covering color grading, sound leveling, and fast-paced social recap assembly. If you only need raw footage transferred directly to your internal marketing team after the mixer concludes, coverage is billed purely on filming hours with no editing markups.`,
+        `Videography for business networking mixers and corporate socials in Miami is scoped across two components: filming on location, ${filmingPriceText("en")}, and post-production editing. The corporate editing baseline is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, covering color grading, sound leveling, and fast-paced social recap assembly. If you only need raw footage transferred directly to your internal marketing team after the mixer concludes, coverage is billed purely on filming hours with no editing markups.`,
         "Mixer recaps usually produce a ninety-second horizontal highlight for LinkedIn and websites, accompanied by vertical thirty-second clips spotlighting attendee interactions or sponsor mentions. Clearly outline whether sponsor banners, keynote remarks, or roving guest testimonials are top priorities before arriving on site. Both filming hours and final clipping deliveries are scoped in advance, ensuring the coverage matches your event schedule.",
       ],
     },
     {
       heading: "How should you budget for filming at the venue?",
       paragraphs: [
-        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. Filming only, without editing, is ${filmingPriceText("en")}. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
         "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
       ],
     },
@@ -328,7 +328,6 @@ const fromPrice = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) 
 const starterFrom = fromPrice(PACKAGE_PRICES.arranque);
 const growthFrom = fromPrice(PACKAGE_PRICES.crecimiento);
 const weeklyEn = shortFormWeeklyText("en");
-const halfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
 export const GYM_DEEP_DIVE: DeepDive = {
   id: "gym-cost",
@@ -345,7 +344,7 @@ export const GYM_DEEP_DIVE: DeepDive = {
     {
       heading: "What does it cost to film at the gym or studio?",
       paragraphs: [
-        `On-site work runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day. It covers pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. Do not add the two together; they are different ways of scoping the same need.`,
+        `On-site work runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day. It covers pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. Filming only, without editing, is ${filmingPriceText("en")}. Do not add the two together; they are different ways of scoping the same need.`,
         "A gym shoot is easier to price when the schedule is fixed in advance: which class, which hour, which trainers, and whether members will be in frame. Quiet hours make filming faster and remove most permission questions. Send that schedule with the request, and the proposal can say exactly what will be filmed and what will be delivered.",
       ],
     },
@@ -388,7 +387,7 @@ export const SALON_COST_DEEP_DIVE: DeepDive = {
     {
       heading: "What does filming inside the salon cost?",
       paragraphs: [
-        `When the shop wants someone to come and film, [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day and includes pre-production, on-location capture, post-capture editing and deliverables in the formats you need, in Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same basis; the two are alternatives, not a sum.`,
+        `When the shop wants someone to come and film, [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day and includes pre-production, on-location capture, post-capture editing and deliverables in the formats you need, in Fort Lauderdale, Broward and selected Miami-Dade projects. Filming only, without editing, is ${filmingPriceText("en")}; the two are alternatives, not a sum.`,
         "A salon shoot goes faster when it is booked around the appointment book rather than against it. Pick a block when a stylist or barber has a willing client, a chair near consistent light, and a few minutes free for one useful line to camera. Send that plan with the request so the proposal can state what will be filmed and delivered.",
       ],
     },
@@ -417,7 +416,7 @@ export const SPA_DEEP_DIVE: DeepDive = {
     {
       heading: "What does filming at the spa cost?",
       paragraphs: [
-        `On-site filming runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day: pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. They are two ways to scope the work, not amounts to add together.`,
+        `On-site filming runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day: pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. Filming only, without editing, is ${filmingPriceText("en")}. They are two ways to scope the work, not amounts to add together.`,
         "Most spas are easiest to film before opening or in a quiet block between bookings, when rooms are set and nobody is waiting. Send the hours available, the rooms to show, and whether any staff member will speak to camera. The proposal can then state what will be filmed, what will be delivered, and what stays out of frame.",
       ],
     },
@@ -711,7 +710,7 @@ export const VLOG_VIDEOGRAPHER_DEEP_DIVE: DeepDive = {
     {
       heading: "How does on-location vlog filming work in Miami?",
       paragraphs: [
-        `On-location vlog filming pairs the creator with a dedicated camera operator who captures walking footage, speaking segments, and contextual b-roll across Miami. Esteban operates a compact Sony Alpha 7 IV camera rigged with a gimbal or handheld stabilizer and compact directional wireless microphones. This setup allows creators to move naturally through outdoor venues, restaurants, and neighborhoods like Wynwood or Brickell without heavy tripods slowing the day down. Audio stays crisp even in busy environments through direct transmitter clipping. Filming can be booked by the hour at ${usd(CREW_RECORDING_RATES.solo.hourly)} per hour or packaged as a multi-hour content day, giving creators weeks of raw footage ready for editing.`,
+        `On-location vlog filming pairs the creator with a dedicated camera operator who captures walking footage, speaking segments, and contextual b-roll across Miami. Esteban operates a compact Sony Alpha 7 IV camera rigged with a gimbal or handheld stabilizer and compact directional wireless microphones. This setup allows creators to move naturally through outdoor venues, restaurants, and neighborhoods like Wynwood or Brickell without heavy tripods slowing the day down. Audio stays crisp even in busy environments through direct transmitter clipping. Filming is booked from ${usd(CREW_RECORDING_RATES.solo.halfDay)} for a half day (up to 4 hours) or ${usd(CREW_RECORDING_RATES.solo.fullDay)} for a full content day (up to 8 hours), giving creators weeks of raw footage ready for editing.`,
       ],
     },
     {

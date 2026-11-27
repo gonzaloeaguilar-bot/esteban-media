@@ -5,7 +5,7 @@ import {
   PACKAGE_PRICES,
   PRICING_BANDS,
   SHORT_FORM,
-  filmingHourlyText,
+  filmingPriceText,
   usd,
 } from "@/lib/pricing";
 
@@ -22,7 +22,6 @@ const localPresenceFrom =
   PACKAGE_PRICES["presencia-local"].kind === "from"
     ? usd(PACKAGE_PRICES["presencia-local"].amount)
     : "a scoped quote";
-const onLocationBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 const corporateBand = `${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}`;
 const shortFormFrom = usd(SHORT_FORM.perVideoFrom);
 
@@ -39,8 +38,8 @@ export const EVENT_INTERVIEW_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does an event attendee interview videographer cost in Miami?",
       paragraphs: [
-        `Coverage is quoted from two parts: filming on location, ${filmingHourlyText("en")} with a four-hour minimum call, and the editing that turns the interviews into recap Reels. Social recap editing sits in the corporate editing band of ${corporateBand} per finished piece, and a production day through [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom}.`,
-        `Raw capture only, with files handed to your marketing team, is billed on filming hours without editing. Capture-only half-days are quoted in the ${onLocationBand} range. These are different ways to scope the same event, so they are not added together. Send the venue, the run of show and the interviews you need before the date; a starting price cannot confirm coverage for your specific event.`,
+        `Coverage is quoted from two parts: filming on location, ${filmingPriceText("en")}, and the editing that turns the interviews into recap Reels. Social recap editing sits in the corporate editing band of ${corporateBand} per finished piece, and a production day through [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom}.`,
+        `Raw capture only, with files handed to your marketing team, is billed as filming only, without editing. Capture-only filming is ${filmingPriceText("en")}. These are different ways to scope the same event, so they are not added together. Send the venue, the run of show and the interviews you need before the date; a starting price cannot confirm coverage for your specific event.`,
       ],
     },
     {
@@ -78,8 +77,8 @@ export const EVENT_INTERVIEW_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un videógrafo de entrevistas a asistentes en Miami?",
     paragraphs: [
-      `La cobertura se cotiza en dos partes: grabación en locación, desde ${usd(125)} por hora con un mínimo de cuatro horas, y la edición que convierte las entrevistas en reels resumen. La edición de resumen social se mueve en la banda corporativa de ${corporateBand} por pieza terminada, y un día de producción con [Presencia Local](/es/precios/presencia-local) parte de ${localPresenceFrom}.`,
-      `Si solo necesitas la captura, con los archivos entregados a tu equipo de marketing, se cobra por horas de grabación sin edición. La captura de medio día se cotiza en el rango de ${onLocationBand}. Son dos maneras distintas de definir el mismo evento y no se suman. Envía la sede, el programa y las entrevistas que necesitas antes de la fecha: un precio inicial no confirma la cobertura de tu evento.`,
+      `La cobertura se cotiza en dos partes: grabación en locación, ${filmingPriceText("es")}, y la edición que convierte las entrevistas en reels resumen. La edición de resumen social se mueve en la banda corporativa de ${corporateBand} por pieza terminada, y un día de producción con [Presencia Local](/es/precios/presencia-local) parte de ${localPresenceFrom}.`,
+      `Si solo necesitas la captura, con los archivos entregados a tu equipo de marketing, se cobra como grabación sola, sin edición. La captura sola va ${filmingPriceText("es")}. Son dos maneras distintas de definir el mismo evento y no se suman. Envía la sede, el programa y las entrevistas que necesitas antes de la fecha: un precio inicial no confirma la cobertura de tu evento.`,
     ],
   },
   {

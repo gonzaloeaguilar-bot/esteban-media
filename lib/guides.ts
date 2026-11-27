@@ -18,7 +18,7 @@ import {
   ARRANQUE_WEEKLY_TERMS,
   ARRANQUE_WEEKLY_FROM,
   SHORT_FORM,
-  filmingHourlyText,
+  filmingPriceText,
   turnaroundFor,
   TURNKEY_PRODUCTION_BUNDLES,
 } from "@/lib/pricing";
@@ -1962,7 +1962,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a videographer charge per hour?",
           paragraphs: [
-            `Esteban Moreno Media films ${filmingHourlyText("en")}, the minimum for time on location, and every shoot still gets a written quote before the date is booked. Editing is priced separately, per video or per project, so an hour of filming and the edit that follows are two lines on the quote.`,
+            `Esteban Moreno Media films ${filmingPriceText("en")}, and every shoot still gets a written quote before the date is booked. Editing is priced separately, per video or per project, so an hour of filming and the edit that follows are two lines on the quote.`,
             "Videographers typically bill using half-day (4 to 5 hours) or full-day (8 to 10 hours) day rates. These rates cover not only their time on set, but also capital depreciation on expensive camera packages, lighting gear, transport, and insurance. Adding extra shoot days or specialized crew members immediately scales on-location expenses.",
           ],
         },
@@ -1971,7 +1971,7 @@ const guidePairs: readonly GuidePair[] = [
           // editor de video freelance" (co+mx+us); EN twin for parity.
           heading: "Should you hire a freelance videographer or a production company?",
           paragraphs: [
-            `Hire a freelance videographer when one person can film what you need and you want to talk directly with whoever holds the camera; hire a production company when the shoot needs a crew, several cameras or someone running sound, lights and talent at the same time. Esteban Moreno Media is the freelance option: Esteban films ${filmingHourlyText("en")}, the minimum for time on location, and edits the footage himself, so the person who filmed is the person who cuts.`,
+            `Hire a freelance videographer when one person can film what you need and you want to talk directly with whoever holds the camera; hire a production company when the shoot needs a crew, several cameras or someone running sound, lights and talent at the same time. Esteban Moreno Media is the freelance option: Esteban films ${filmingPriceText("en")}, and edits the footage himself, so the person who filmed is the person who cuts.`,
             `The trade-off is size. A freelancer suits interviews, a business's space, a product in use or a small event; a production company suits a commercial with actors, a multi-room conference or a set that needs a director and a producer. Ask both for the same written quote: hours on location, number of people, finished files and rounds of changes. A full production day with Esteban, planning, filming and the edit, starts from ${packageGuidePrice("presencia-local")} per production day.`,
           ],
         },
@@ -2140,7 +2140,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cobra un videógrafo por hora?",
           paragraphs: [
-            `Esteban Moreno Media graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y cada grabación recibe una cotización por escrito antes de reservar la fecha. La edición se cobra aparte, por video o por proyecto, así que la hora de grabación y la edición que viene después son dos líneas distintas en la cotización.`,
+            `Esteban Moreno Media graba ${filmingPriceText("es")}, y cada grabación recibe una cotización por escrito antes de reservar la fecha. La edición se cobra aparte, por video o por proyecto, así que la hora de grabación y la edición que viene después son dos líneas distintas en la cotización.`,
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
           ],
         },
@@ -2149,7 +2149,7 @@ const guidePairs: readonly GuidePair[] = [
           // "busco editor de video freelance" (co+mx+us).
           heading: "¿Videógrafo freelance o productora?",
           paragraphs: [
-            `Contrata un videógrafo freelance cuando una sola persona puede grabar lo que necesitas y quieres hablar directo con quien opera la cámara; contrata una productora cuando la grabación necesita un equipo, varias cámaras o alguien a cargo del sonido, la luz y las personas al mismo tiempo. Esteban Moreno Media es la opción freelance: Esteban graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y edita él mismo el material, así que quien grabó es quien edita.`,
+            `Contrata un videógrafo freelance cuando una sola persona puede grabar lo que necesitas y quieres hablar directo con quien opera la cámara; contrata una productora cuando la grabación necesita un equipo, varias cámaras o alguien a cargo del sonido, la luz y las personas al mismo tiempo. Esteban Moreno Media es la opción freelance: Esteban graba ${filmingPriceText("es")}, y edita él mismo el material, así que quien grabó es quien edita.`,
             `La diferencia está en el tamaño. Un freelance encaja con entrevistas, el espacio de un negocio, un producto en uso o un evento pequeño; una productora encaja con un comercial con actores, una conferencia en varias salas o un set que necesita director y productor. Pide a los dos la misma cotización por escrito: horas en locación, cuántas personas van, archivos finales y rondas de cambios. Un día completo de producción con Esteban, con planificación, grabación y edición, parte desde ${packageGuidePrice("presencia-local")} por día de producción.`,
           ],
         },
@@ -2453,7 +2453,7 @@ const guidePairs: readonly GuidePair[] = [
           // on this guide; the answer now opens the page as its own H2.
           heading: "How much does video production cost in Miami?",
           paragraphs: [
-            `Video production in Miami with Esteban Moreno Media starts from ${packageGuidePrice("presencia-local")} per production day on the Local Presence package, with planning, filming and the edit for one business. Shorter shoots are billed by time: filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} for a short social video on the Starter package, and a corporate or explainer edit falls in the calculator's corporate band, ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `Video production in Miami with Esteban Moreno Media starts from ${packageGuidePrice("presencia-local")} per production day on the Local Presence package, with planning, filming and the edit for one business. Shorter shoots are billed by time: filming is ${filmingPriceText("en")}. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} for a short social video on the Starter package, and a corporate or explainer edit falls in the calculator's corporate band, ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}.`,
             `Those bands were checked against a published market range of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)} for a medium or explainer project, and they are deliberately not full-crew production-company rates, which assume a director, a producer and several operators. Every project gets a written quote that separates filming time, the number of finished videos and the rounds of changes, so two quotes can be compared line by line rather than by total.`,
           ],
         },
@@ -2530,7 +2530,7 @@ const guidePairs: readonly GuidePair[] = [
           // DM-1 (2026-10-14): ES twin of the answer-first price H2.
           heading: "¿Cuánto cuesta la producción de video en Miami?",
           paragraphs: [
-            `La producción de video en Miami con Esteban Moreno Media parte desde ${packageGuidePrice("presencia-local")} por día de producción con el paquete Presencia Local, con planificación, grabación y edición para un negocio. Las grabaciones más cortas se cobran por tiempo: la grabación va ${filmingHourlyText("es")}, el mínimo por tiempo en locación. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} por un video corto para redes con el paquete Arranque, y una edición corporativa o explicativa entra en el rango corporativo de la calculadora, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `La producción de video en Miami con Esteban Moreno Media parte desde ${packageGuidePrice("presencia-local")} por día de producción con el paquete Presencia Local, con planificación, grabación y edición para un negocio. Las grabaciones más cortas se cobran por tiempo: la grabación va ${filmingPriceText("es")}. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} por un video corto para redes con el paquete Arranque, y una edición corporativa o explicativa entra en el rango corporativo de la calculadora, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}.`,
             `Esos rangos se compararon con un rango publicado del mercado de ${usd(PRICING_BANDS.corporate.marketMin)} a ${usd(PRICING_BANDS.corporate.marketMax)} por un proyecto mediano o explicativo, y a propósito no son tarifas de una productora con equipo completo, que suponen director, productor y varios operadores. Cada proyecto recibe una cotización por escrito que separa el tiempo de grabación, la cantidad de videos terminados y las rondas de cambios, así dos cotizaciones se comparan línea por línea y no solo por el total.`,
           ],
         },
@@ -4413,7 +4413,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a video editor charge per hour?",
           paragraphs: [
-            `Many editors and agencies bill editing by the hour, but Esteban Moreno Media does not. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package, not by the hour, so you know the price before work starts; only filming is billed by time, ${filmingHourlyText("en")}. With an hourly rate the total stays open until the end: it depends on how many hours the edit took, and a slow session or an extra round of changes adds to the bill. With a per-video price, what you pay for one finished video is fixed before the edit begins, and the written quote says how many rounds of changes are included.`,
+            `Many editors and agencies bill editing by the hour, but Esteban Moreno Media does not. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package, not by the hour, so you know the price before work starts; only filming is billed by time, ${filmingPriceText("en")}. With an hourly rate the total stays open until the end: it depends on how many hours the edit took, and a slow session or an extra round of changes adds to the bill. With a per-video price, what you pay for one finished video is fixed before the edit begins, and the written quote says how many rounds of changes are included.`,
             "To compare an hourly quote with a per-video one, ask the hourly editor how many hours a video like yours usually takes, multiply by the rate, and then add the same extras to both: captions, extra sizes and revision rounds. That gives you two numbers for the same finished video.",
           ],
         },
@@ -4458,7 +4458,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cobra un editor de video por hora?",
           paragraphs: [
-            `Muchos editores y agencias cobran la edición por hora, pero Esteban Moreno Media no. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque, no por hora, así que sabes el precio antes de que empiece el trabajo; solo la grabación se cobra por tiempo, ${filmingHourlyText("es")}. Con una tarifa por hora el total queda abierto hasta el final: depende de cuántas horas tomó la edición, y una sesión lenta o una ronda extra de cambios suben la cuenta. Con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye.`,
+            `Muchos editores y agencias cobran la edición por hora, pero Esteban Moreno Media no. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque, no por hora, así que sabes el precio antes de que empiece el trabajo; solo la grabación se cobra por tiempo, ${filmingPriceText("es")}. Con una tarifa por hora el total queda abierto hasta el final: depende de cuántas horas tomó la edición, y una sesión lenta o una ronda extra de cambios suben la cuenta. Con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye.`,
             "Para comparar una cotización por hora con una por video, pregúntale al editor que cobra por hora cuántas horas suele tomar un video como el tuyo, multiplícalo por su tarifa y suma a los dos los mismos extras: subtítulos, formatos adicionales y rondas de cambios. Si estás en Latinoamérica, Esteban trabaja a distancia y en español, con precios en dólares estadounidenses (USD).",
           ],
         },
@@ -4712,7 +4712,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a customer testimonial video cost in Miami?",
           paragraphs: [
-            `If the interview is already recorded, the editing is priced on the calculator's corporate band: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} per project, an editing-led freelancer range with a 10% introductory discount, checked against a published market of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. If it still has to be filmed, the half-day on-location add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same basis, or the [Local Presence](/pricing/local-presence) package starts from ${packageGuidePrice("presencia-local")} per production day, covering pre-production, capture and editing.`,
+            `If the interview is already recorded, the editing is priced on the calculator's corporate band: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} per project, an editing-led freelancer range with a 10% introductory discount, checked against a published market of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. If it still has to be filmed, filming on location is ${filmingPriceText("en")}, or the [Local Presence](/pricing/local-presence) package starts from ${packageGuidePrice("presencia-local")} per production day, covering pre-production, capture and editing.`,
             "These are budgeting starting points, not a quote. The price moves with how many customers are interviewed, how many short cut-downs are needed for social, and whether captions or a second language are part of the delivery. Full-crew Miami production companies quote on a different model, with a larger crew on set, so their ranges are not directly comparable.",
           ],
         },
@@ -4780,7 +4780,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cuesta un video testimonial en Miami?",
           paragraphs: [
-            `Si la entrevista ya está grabada, la edición se calcula con la banda corporativa de la calculadora: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, un rango de editor independiente con un descuento introductorio del 10 %, comparado con un mercado publicado de ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. Si todavía hay que grabarla, el complemento de grabación en locación por media jornada va de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} con la misma base, o el paquete [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción, con preproducción, grabación y edición.`,
+            `Si la entrevista ya está grabada, la edición se calcula con la banda corporativa de la calculadora: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, un rango de editor independiente con un descuento introductorio del 10 %, comparado con un mercado publicado de ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. Si todavía hay que grabarla, la grabación en locación va ${filmingPriceText("es")}, o el paquete [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción, con preproducción, grabación y edición.`,
             "Son puntos de partida para presupuestar, no una cotización. El precio cambia según cuántos clientes se entrevisten, cuántos cortes breves se necesiten para redes y si la entrega incluye subtítulos o un segundo idioma. Las productoras de Miami con equipo completo cotizan con otro modelo, con más personas en el set, así que sus rangos no se comparan directamente.",
           ],
         },
@@ -4967,7 +4967,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How does filming at the restaurant change the budget?",
           paragraphs: [
-            `The indicative half-day on-location capture add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. The [Local Presence package](/pricing/local-presence) separately starts from ${packageGuidePrice("presencia-local")} per production day. The capture add-on and package describe different scopes; neither should be treated as an all-inclusive restaurant campaign or combined without reviewing what is included. The indicative capture range uses the same editing-led freelancer basis and introductory discount.`,
+            `Filming at the restaurant, without editing, is ${filmingPriceText("en")}. The [Local Presence package](/pricing/local-presence) separately starts from ${packageGuidePrice("presencia-local")} per production day. The capture add-on and package describe different scopes; neither should be treated as an all-inclusive restaurant campaign or combined without reviewing what is included. The indicative capture range uses the same editing-led freelancer basis and introductory discount.`,
             "Explain whether the camera needs to cover food preparation, plated dishes, staff speaking, or the dining room. Share the location, access arrangements, proposed filming window, and any restrictions during service. Those details help separate time spent filming from editing afterward. Review the [restaurant promo video service](/services/restaurant-promo-video-editing-miami), then ask for a written breakdown of capture, editing, final versions, and any additional expenses before agreeing to the shoot.",
           ],
         },
@@ -4988,7 +4988,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per video. Posting every week, it is ${shortFormWeeklyText("en")}. The quote identifies which scope applies.` },
-        { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
+        { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. Filming is ${filmingPriceText("en")}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
         { question: "Is there a monthly option?", answer: `Growth starts from ${packageGuidePrice("crecimiento")} per month. Confirm the content scope and whether filming is required before comparing it with a standalone edit.` },
         { question: "Can I see a restaurant example?", answer: "See the [Bar Door Monkey project](/portfolio/bar-door-monkey), a Miami restaurant promo with videography and editing for Instagram. Its published credits do not establish your project's price." },
       ],
@@ -5016,7 +5016,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué cambia si necesitas grabar en el restaurante?",
           paragraphs: [
-            `El complemento de grabación en locación por media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. Por separado, [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. No son servicios idénticos ni cantidades que debas sumar sin revisar lo incluido. El rango de grabación mantiene la misma base de profesional independiente y descuento introductorio.`,
+            `La grabación en el restaurante, sin edición, va ${filmingPriceText("es")}. Por separado, [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. No son servicios idénticos ni cantidades que debas sumar sin revisar lo incluido. El rango de grabación mantiene la misma base de profesional independiente y descuento introductorio.`,
             "Explica si quieres mostrar la preparación de los platos, conversar con el equipo o recorrer el comedor. Comparte la dirección, el acceso disponible, el horario propuesto y las limitaciones durante el servicio. Así puedes separar la grabación de la edición posterior. Revisa el servicio de [video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami) y pide que la propuesta detalle grabación, edición, versiones finales y gastos adicionales antes de acordar la sesión.",
           ],
         },
@@ -5037,7 +5037,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por video. Si publicas cada semana, es ${shortFormWeeklyText("es")}. La cotización indica cuál corresponde a tu pedido.` },
-        { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
+        { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. La grabación va ${filmingPriceText("es")}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
         { question: "¿Hay una opción mensual?", answer: `Crecimiento parte desde ${packageGuidePrice("crecimiento")} al mes. Confirma las piezas incluidas y si necesitas grabación antes de compararlo con un proyecto de edición individual.` },
         { question: "¿Dónde puedo ver un ejemplo para restaurantes?", answer: "Mira el [proyecto Bar Door Monkey](/es/portafolio/bar-door-monkey), con grabación y edición para el Instagram de un restaurante de Miami. Sus créditos no establecen el precio de tu proyecto." },
       ],

@@ -86,7 +86,8 @@ describe("niche-specific answer-first openers on 8 service pages", () => {
 
     // Executive interview page
     const execInterviewHtml = renderToStaticMarkup(React.createElement(ExecutiveInterviewVideographerMiamiPage));
-    expect(execInterviewHtml).toContain("$125 per hour");
+    expect(execInterviewHtml).toContain("$500 for a half day");
+    expect(execInterviewHtml).not.toContain("$125");
 
     // Doral page
     const doralHtml = renderToStaticMarkup(React.createElement(VideoProductionDoralPage));

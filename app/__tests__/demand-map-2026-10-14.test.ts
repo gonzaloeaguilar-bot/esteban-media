@@ -7,7 +7,7 @@ import { DEMAND_MAP_ANSWERS, goingRateAnswer } from "@/lib/demand-map-answers";
 import { getGuideBySlug } from "@/lib/guides";
 import { pairedLanguageRoutes } from "@/lib/language-routes";
 import { ownerFactAnswers } from "@/lib/owner-fact-answers";
-import { FILMING_HOURLY, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
+import { FILMING_RATES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 
 // Demand coverage map 2026-10-14 (vault esteban-demand-coverage-map-2026-10-14),
 // the "ready to build" DM rows shipped in one wave.
@@ -42,7 +42,7 @@ describe("demand-map answers (DM rows, 2026-10-14)", () => {
 
   it("reads every figure from lib/pricing.ts", () => {
     const text = JSON.stringify(DEMAND_MAP_ANSWERS);
-    expect(text).toContain(usd(FILMING_HOURLY.amount));
+    expect(text).toContain(usd(FILMING_RATES.halfDay));
     expect(text).toContain(usd(SHORT_FORM.perVideoFrom));
     expect(text).toContain(usd(PRICING_BANDS.youtube.baseMin));
     expect(text).toContain(usd(PRICING_BANDS.youtube.baseMax));
@@ -102,7 +102,7 @@ describe("demand-map guides and pages (DM-1, DM-16, DM-21/22, DM-25, DM-28)", ()
     const es = getGuideBySlug("es", "editor-de-video-vs-videografo")!;
     const section = es.sections.find((s) => s.heading === "¿Videógrafo freelance o productora?");
     expect(section).toBeDefined();
-    expect(JSON.stringify(section)).toContain(usd(FILMING_HOURLY.amount));
+    expect(JSON.stringify(section)).toContain(usd(FILMING_RATES.halfDay));
   });
 
   it("publishes the influencer guide pair with 100-180 word question sections (DM-21/22)", () => {

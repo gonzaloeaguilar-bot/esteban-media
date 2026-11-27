@@ -51,8 +51,7 @@ describe("buyer-question-answers", () => {
     const editFrom = usd(SHORT_FORM.perVideoFrom);
     const rawHalf = usd(RAW_FILMING_RATES.halfDay);
     const rawFull = usd(RAW_FILMING_RATES.fullDay);
-    const hourly = usd(CREW_RECORDING_RATES.solo.hourly);
-    const minAmount = usd(CREW_RECORDING_RATES.solo.minimumAmount);
+    const extraHour = usd(CREW_RECORDING_RATES.solo.extraHour);
 
     for (const locale of LOCALES) {
       const tradeShow = buyerQuestion("trade-show-raw-files", locale);
@@ -67,8 +66,8 @@ describe("buyer-question-answers", () => {
 
       const orlando = buyerQuestion("orlando-executive-interview", locale);
       expect(orlando.answer).toContain(editFrom);
-      expect(orlando.answer).toContain(hourly);
-      expect(orlando.answer).toContain(minAmount);
+      expect(orlando.answer).toContain(extraHour);
+      expect(orlando.answer).toContain(rawHalf);
     }
   });
 

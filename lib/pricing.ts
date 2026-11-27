@@ -34,6 +34,22 @@ export type PricingBand = {
   source: string;
 };
 
+// Filming only (on-location recording, no editing). Owner decision 2026-11-26:
+// the account manager for Esteban Moreno Media approved "$500 / $900 / $150"
+// ("Ok hazlo"). This is the ONE filming price structure on the site: it
+// replaced the event pages' $400 half day / $700 full day AND the $125 per
+// hour, 4-hour-minimum copy. Editing is separate (from $100 per video, see
+// SHORT_FORM). Every filming figure reads from here; never hard-code it.
+export const FILMING_RATES = {
+  halfDay: 500,
+  halfDayHours: 4,
+  fullDay: 900,
+  fullDayHours: 8,
+  extraHour: 150,
+  currency: "USD",
+  source: "owner decision 2026-11-26: filming only, half day up to 4 hours $500, full day up to 8 hours $900, extra hour $150; editing priced separately",
+} as const;
+
 export const PRICING_BANDS: Record<PricingBandId, PricingBand> = {
   youtube: {
     id: "youtube",
@@ -67,14 +83,15 @@ export const PRICING_BANDS: Record<PricingBandId, PricingBand> = {
     marketMax: 1200,
     source: "market $250-1,200 short ad creative",
   },
-  // Half-day on-location capture add-on: market $300-1,000, less 10%.
+  // On-location filming add-on: the owner's filming rates (FILMING_RATES),
+  // half day ($500, up to 4 hours) to full day ($900, up to 8 hours).
   "on-location": {
     id: "on-location",
-    baseMin: 400,
-    baseMax: 775,
+    baseMin: FILMING_RATES.halfDay,
+    baseMax: FILMING_RATES.fullDay,
     marketMin: 300,
     marketMax: 1000,
-    source: "market $300-1,000 half-day",
+    source: "owner filming rates 2026-11-26: $500 half day to $900 full day (market $300-1,000 half-day)",
   },
 };
 
@@ -300,43 +317,65 @@ export const PRODUCT_PHOTO_SESSION = {
   source: "owner-authorized $280 2026-08-28 (docs/pricing-basis.md); raised to $350 in the 2026-10-28 market review; raised to $500 in the 2026-10-29 price inventory that Stripe charges",
 } as const;
 
-// On-location raw video capture (no editing): market $300-1,000 half-day,
-// starting floor from PRICING_BANDS["on-location"].baseMin ($400: the accessible recording-only option, owner 2026-10-28).
+// On-location raw video capture (no editing). Same figures as FILMING_RATES;
+// kept as a named alias because event, trade-show and buyer pages read it.
 export const RAW_FILMING_RATES = {
-  halfDay: 400,
-  fullDay: 700,
+  halfDay: FILMING_RATES.halfDay,
+  fullDay: FILMING_RATES.fullDay,
+  extraHour: FILMING_RATES.extraHour,
   currency: "USD",
-  source: "lib/pricing.ts raw filming rates: 400 half-day / 700 full-day raw filming; 100 per video edit",
+  source: FILMING_RATES.source,
 } as const;
 
 export const ON_LOCATION_CAPTURE = {
-  from: PRICING_BANDS["on-location"].baseMin,
+  from: FILMING_RATES.halfDay,
   unit: "half-day",
-  source: "PRICING_BANDS on-location baseMin ($400 half-day)",
+  source: "FILMING_RATES half day ($500, up to 4 hours of filming)",
 } as const;
 
-
-// Filming (on-location recording) hourly floor. Owner decision 2026-10-29
-// (price inventory that Stripe charges): filming from $125 per hour with a
-// 4-hour minimum ($500 floor). Copy reads it through filmingHourlyText();
-// never hard-code the figure.
-export const FILMING_HOURLY = {
-  amount: 125,
-  currency: "USD",
-  unit: "hour",
-  isMinimum: true,
-  minimumHours: 4,
-  minimumAmount: 500,
-  source: "owner decision 2026-10-29: filming from $125 per hour with 4-hour minimum call (price inventory, Stripe parity)",
-} as const;
-
-/** "from $100 per hour of filming" / "desde $100 por hora de grabación". */
-export function filmingHourlyText(locale: "en" | "es"): string {
-  const price = usd(FILMING_HOURLY.amount);
+/**
+ * The one filming price phrase, EN or ES:
+ * "from $500 for a half day (up to 4 hours of filming), $900 for a full day
+ * (up to 8 hours) and $150 for each extra hour".
+ */
+export function filmingPriceText(locale: "en" | "es"): string {
+  const half = usd(FILMING_RATES.halfDay);
+  const full = usd(FILMING_RATES.fullDay);
+  const extra = usd(FILMING_RATES.extraHour);
   return locale === "es"
-    ? `desde ${price} por hora de grabación`
-    : `from ${price} per hour of filming`;
+    ? `desde ${half} por medio día (hasta ${FILMING_RATES.halfDayHours} horas de grabación), ${full} por día completo (hasta ${FILMING_RATES.fullDayHours} horas) y ${extra} por cada hora adicional`
+    : `from ${half} for a half day (up to ${FILMING_RATES.halfDayHours} hours of filming), ${full} for a full day (up to ${FILMING_RATES.fullDayHours} hours) and ${extra} for each extra hour`;
 }
+
+/**
+ * Compact form for word-budgeted answers (100-180 word sections):
+ * "from $500 a half day or $900 a full day" / "desde $500 medio día o $900 día completo".
+ */
+export function filmingPriceShortText(locale: "en" | "es"): string {
+  const half = usd(FILMING_RATES.halfDay);
+  const full = usd(FILMING_RATES.fullDay);
+  return locale === "es" ? `desde ${half} medio día o ${full} día completo` : `from ${half} a half day or ${full} a full day`;
+}
+
+/**
+ * Filming-only price for a number of hours on location: half day up to 4
+ * hours, then the extra-hour rate, never above the full day up to 8 hours;
+ * beyond 8 hours, the full day plus the extra-hour rate per started hour.
+ */
+export function filmingQuote(hours: number): number {
+  const h = Math.max(0, Math.ceil(hours));
+  if (h <= FILMING_RATES.halfDayHours) return FILMING_RATES.halfDay;
+  if (h <= FILMING_RATES.fullDayHours) {
+    return Math.min(
+      FILMING_RATES.halfDay + (h - FILMING_RATES.halfDayHours) * FILMING_RATES.extraHour,
+      FILMING_RATES.fullDay,
+    );
+  }
+  return FILMING_RATES.fullDay + (h - FILMING_RATES.fullDayHours) * FILMING_RATES.extraHour;
+}
+
+/** @deprecated Filming is no longer hourly; use filmingPriceText(). Kept so open branches still compile. */
+export const filmingHourlyText = filmingPriceText;
 
 // ---------------------------------------------------------------------------
 // On-site crew, multi-camera, yacht and turnkey catalog (2026-10-18)
@@ -356,12 +395,14 @@ export function priceTermsText(locale: "en" | "es"): string {
 }
 
 export const CREW_RECORDING_RATES = {
+  // Solo filming = FILMING_RATES (owner decision 2026-11-26). No hourly rate:
+  // half day up to 4 hours, full day up to 8 hours, then a per-extra-hour rate.
   solo: {
-    hourly: 125,
-    minimumHours: 4,
-    minimumAmount: 500,
-    halfDay: 500,
-    fullDay: 1000,
+    minimumHours: FILMING_RATES.halfDayHours,
+    minimumAmount: FILMING_RATES.halfDay,
+    halfDay: FILMING_RATES.halfDay,
+    fullDay: FILMING_RATES.fullDay,
+    extraHour: FILMING_RATES.extraHour,
     description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
   },
   twoPerson: {

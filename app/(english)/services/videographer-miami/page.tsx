@@ -1,7 +1,7 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { priceSentence } from "@/lib/packages";
-import { SHORT_FORM, filmingHourlyText, shortFormPriceText, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingPriceText, shortFormPriceText, usd } from "@/lib/pricing";
 
 // DM-16 (demand coverage map 2026-10-14): autocomplete x4 "videographer miami"
 // and x4 "videographer fort lauderdale", and /es/videografo-en-miami had no
@@ -17,7 +17,7 @@ const content: GeoServicePageContent = {
   eyebrow: "Videographer in Miami",
   title: "A videographer in Miami who films and edits the same project.",
   description:
-    "Videographer for Miami-Dade businesses: on-location filming billed by the hour, editing priced per video, Spanish-first, from a Fort Lauderdale base.",
+    "Videographer for Miami-Dade businesses: on-location filming by the half or full day, editing priced per video, Spanish-first, from a Fort Lauderdale base.",
   locationLabel: "Miami-Dade / based in Fort Lauderdale",
   proofTitle: "See video filmed on location in Miami",
   proofText:
@@ -61,7 +61,7 @@ const content: GeoServicePageContent = {
   depth: [
     {
       question: "How do you hire a videographer in Miami?",
-      body: `Start with what the video is for, then ask for a written quote that separates filming time from editing. Esteban Moreno Media is based in Fort Lauderdale and takes Miami-Dade projects one by one, so the location and the date are confirmed when you ask. Filming is ${filmingHourlyText("en")}, the minimum for time on location, and editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${local}. Send the address, the goal, where the video will be published and a reference you like. Esteban replies with the hours he would film, the number of finished videos and the rounds of changes, before the date is booked. Communication is Spanish-first, with intermediate English for bilingual projects.`,
+      body: `Start with what the video is for, then ask for a written quote that separates filming time from editing. Esteban Moreno Media is based in Fort Lauderdale and takes Miami-Dade projects one by one, so the location and the date are confirmed when you ask. Filming is ${filmingPriceText("en")}, and editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${local}. Send the address, the goal, where the video will be published and a reference you like. Esteban replies with the hours he would film, the number of finished videos and the rounds of changes, before the date is booked. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
     {
       question: "Do you need a videographer, or only an editor?",
@@ -77,7 +77,7 @@ const content: GeoServicePageContent = {
     },
     {
       question: "How much does a videographer cost per hour in Miami?",
-      answer: `With Esteban Moreno Media, filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced separately, per video, and every shoot gets a written quote first.`,
+      answer: `With Esteban Moreno Media, filming is ${filmingPriceText("en")}. Editing is priced separately, per video, and every shoot gets a written quote first.`,
     },
     {
       question: "Is Esteban based in Miami?",

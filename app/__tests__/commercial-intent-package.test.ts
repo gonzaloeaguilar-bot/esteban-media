@@ -9,7 +9,7 @@ import { getGuides } from "@/lib/guides";
 import { pairedLanguageRoutes } from "@/lib/language-routes";
 import {
   CREW_RECORDING_RATES,
-  FILMING_HOURLY,
+  FILMING_RATES,
   SHORT_FORM,
   WEDDING_PACKAGES,
   turnaroundFor,
@@ -59,9 +59,11 @@ describe("Spanish videographer price page", () => {
   it("answers in sentence one with the owner prices from lib/pricing.ts", () => {
     const answer = page!.answerFirst!;
     expect(page!.answerQuestion).toBe("¿Cuánto cobra un videógrafo en Miami?");
-    expect(page!.lead).toContain(usd(FILMING_HOURLY.amount));
-    expect(answer).toContain(usd(FILMING_HOURLY.amount));
-    expect(answer).toContain(usd(FILMING_HOURLY.minimumAmount));
+    // Sentence one carries the 2026-11-26 filming structure: $500 / $900 / $150.
+    for (const figure of [FILMING_RATES.halfDay, FILMING_RATES.fullDay, FILMING_RATES.extraHour]) {
+      expect(page!.lead).toContain(usd(figure));
+      expect(answer.split(". ")[0]).toContain(usd(figure));
+    }
     expect(answer).toContain(usd(CREW_RECORDING_RATES.twoPerson.hourly));
     expect(answer).toContain(usd(WEDDING_PACKAGES.halfDayFrom));
     expect(answer).toContain(usd(WEDDING_PACKAGES.fullDayFrom));
@@ -69,12 +71,11 @@ describe("Spanish videographer price page", () => {
 
   it("publishes no dollar figure that lib/pricing.ts does not hold", () => {
     const allowed = new Set([
-      usd(FILMING_HOURLY.amount), usd(FILMING_HOURLY.minimumAmount),
-      usd(CREW_RECORDING_RATES.solo.halfDay), usd(CREW_RECORDING_RATES.solo.fullDay),
+      usd(FILMING_RATES.halfDay), usd(FILMING_RATES.fullDay), usd(FILMING_RATES.extraHour),
       usd(CREW_RECORDING_RATES.twoPerson.hourly), usd(CREW_RECORDING_RATES.twoPerson.minimumAmount),
       usd(WEDDING_PACKAGES.halfDayFrom), usd(WEDDING_PACKAGES.fullDayFrom), usd(SHORT_FORM.perVideoFrom),
     ]);
-    const figures = JSON.stringify(page).match(/\$[\d,]+/g) ?? [];
+    const figures = (JSON.stringify(page).match(/\$[\d,]+/g) ?? []).map((f) => f.replace(/,$/, ""));
     expect(figures.length).toBeGreaterThan(0);
     for (const figure of figures) expect(allowed).toContain(figure);
   });

@@ -1,7 +1,7 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { priceSentence } from "@/lib/packages";
-import { SHORT_FORM, filmingHourlyText, shortFormPriceText, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingPriceText, shortFormPriceText, usd } from "@/lib/pricing";
 import { LOCAL_VIDEOGRAPHER_NEAR_ME } from "@/lib/near-me-answers";
 
 const content: GeoServicePageContent = {
@@ -50,11 +50,11 @@ const content: GeoServicePageContent = {
   depth: [
     {
       question: "Can a Fort Lauderdale video production company work remotely?",
-      body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
+      body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingPriceText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
     {
       question: "Who does video production for small businesses in Fort Lauderdale?",
-      body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingHourlyText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. If you need a production day that combines planning, filming and an edit, Local Presence is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
+      body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingPriceText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. If you need a production day that combines planning, filming and an edit, Local Presence is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
     },
     {
       question: "What should a business share before asking about a Fort Lauderdale video project?",

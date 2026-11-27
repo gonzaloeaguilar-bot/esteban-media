@@ -25,10 +25,11 @@ import {
   PRICING_BANDS,
   RESTAURANT_PROMO,
   SHORT_FORM,
-  filmingHourlyText,
+  filmingPriceText,
   shortFormWeeklyText,
   usd,
   type PricingBandId,
+  filmingPriceShortText,
 } from "@/lib/pricing";
 
 const perVideo = usd(SHORT_FORM.perVideoFrom);
@@ -58,7 +59,7 @@ const VIDEOGRAPHER_COST_FTL: OwnerFactSection = {
   id: "videographer-cost",
   heading: "How much does a videographer cost in Fort Lauderdale?",
   paragraphs: [
-    `A videographer in Fort Lauderdale with Esteban Moreno Media costs ${filmingHourlyText("en")}, which is the minimum for time on location, and editing is priced separately, from ${perVideo} per video on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${enLocal()}. Every shoot gets a written quote before the date is booked, so the hours, the place and the finished files are agreed first.`,
+    `A videographer in Fort Lauderdale with Esteban Moreno Media costs ${filmingPriceText("en")}, and editing is priced separately, from ${perVideo} per video on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${enLocal()}. Every shoot gets a written quote before the date is booked, so the hours, the place and the finished files are agreed first.`,
     `Two lines on the quote keep the price easy to read: filming time and editing. An hour of filming that becomes three short videos is billed as the filming plus three edits, not as a package with a vague total. If you already have footage, there is no filming line and you pay for editing only. Esteban works from Fort Lauderdale across Broward and Miami-Dade, in Spanish first with intermediate English; for a shoot in Miami-Dade, see the [videographer in Miami](/services/videographer-miami) page.`,
   ],
 };
@@ -80,7 +81,7 @@ const RESTAURANT_VIDEOGRAPHER: OwnerFactSection = {
   id: "restaurant-videographer",
   heading: "Restaurant videographer in Miami: what do filming and editing cost?",
   paragraphs: [
-    `A restaurant promo edited from your own footage starts at ${usd(RESTAURANT_PROMO.from)} per project, and if you want Esteban Moreno Media to film at the restaurant as well, filming is ${filmingHourlyText("en")}. The two are quoted as separate lines, so a venue that already has good clips of the kitchen and the room pays for the edit only, and a venue that has nothing yet adds the filming time. A full production day, with planning, filming and the edit, is the Local Presence package, ${enLocal()}.`,
+    `A restaurant promo edited from your own footage starts at ${usd(RESTAURANT_PROMO.from)} per project, and if you want Esteban Moreno Media to film at the restaurant as well, filming is ${filmingPriceText("en")}. The two are quoted as separate lines, so a venue that already has good clips of the kitchen and the room pays for the edit only, and a venue that has nothing yet adds the filming time. A full production day, with planning, filming and the edit, is the Local Presence package, ${enLocal()}.`,
     `Restaurant filming works best when the shoot is planned around service: the dishes that sell, the bar at its busiest hour, the staff who agree to be on camera, and a quiet window for the room shots. The published Bar Door Monkey Miami promo, which Esteban filmed and edited for the venue, shows the style. Every project gets a written quote first.`,
   ],
 };
@@ -92,7 +93,7 @@ const VLOG_RATES_EN: OwnerFactSection = {
   heading: "What do vlog editing rates look like?",
   paragraphs: [
     `Vlog editing rates depend mostly on length, and Esteban Moreno Media prices them per video, never per hour. A short vlog-style post for Reels, TikTok or Shorts is the Starter package, from ${perVideo} per video, and if you post every week it is ${shortFormWeeklyText("en")}, each video up to ${T.maxVideoSeconds} seconds from up to ${T.maxFootageMinutes} minutes of footage. A full YouTube vlog falls in the calculator's YouTube band, ${band("youtube")} per edit, which was checked against a published market range of ${bandMarket("youtube")} per YouTube edit.`,
-    `What moves the price inside that band is how much footage there is, how many cuts it takes to keep the story moving, and whether you want music, titles, maps or a thumbnail frame. Send one vlog's original files and the length you want; the written quote fixes the price before editing starts. Filming, if you want it, is ${filmingHourlyText("en")}. New to posting? Read [how to start as an influencer](/guides/how-to-start-as-an-influencer).`,
+    `What moves the price inside that band is how much footage there is, how many cuts it takes to keep the story moving, and whether you want music, titles, maps or a thumbnail frame. Send one vlog's original files and the length you want; the written quote fixes the price before editing starts. Filming, if you want it, is ${filmingPriceShortText("en")}. New to posting? Read [how to start as an influencer](/guides/how-to-start-as-an-influencer).`,
   ],
 };
 
@@ -143,7 +144,7 @@ const SHORT_EDITOR_MIAMI_ES: OwnerFactSection = {
   heading: "¿Buscas un editor de videos cortos en Miami?",
   paragraphs: [
     `Esteban Moreno Media es un editor de videos cortos en Miami y Fort Lauderdale que edita Reels, TikToks y YouTube Shorts a partir de los clips que tú grabas, desde ${perVideo} por video con el paquete Arranque. Si publicas cada semana, el mismo servicio va ${shortFormWeeklyText("es")}, con un mínimo de ${T.minimumWeeks} semanas, y cada video semanal dura hasta ${T.maxVideoSeconds} segundos.`,
-    `La edición es a distancia, así que no importa en qué parte de Miami-Dade estés: envías los archivos originales, Esteban corta las pausas, ordena la historia, pone subtítulos dentro de la zona segura y exporta en vertical 9:16. Si además necesitas que alguien grabe en tu negocio, la grabación va ${filmingHourlyText("es")}. Todo se habla en español, y su inglés es intermedio para proyectos bilingües. Las tarifas publicadas del mercado para un video corto van de ${market("es")}.`,
+    `La edición es a distancia, así que no importa en qué parte de Miami-Dade estés: envías los archivos originales, Esteban corta las pausas, ordena la historia, pone subtítulos dentro de la zona segura y exporta en vertical 9:16. Si además necesitas que alguien grabe en tu negocio, la grabación va ${filmingPriceText("es")}. Todo se habla en español, y su inglés es intermedio para proyectos bilingües. Las tarifas publicadas del mercado para un video corto van de ${market("es")}.`,
   ],
 };
 
@@ -153,7 +154,7 @@ const VIDEO_EDITOR_FTL_ES: OwnerFactSection = {
   heading: "¿Buscas un editor de video en Fort Lauderdale?",
   paragraphs: [
     `Esteban Moreno Media es un editor de video con base en Fort Lauderdale, que atiende en español primero a negocios y creadores de Broward y Miami-Dade. Edita Reels, TikToks, Shorts, videos para la web y videos de YouTube con el material que ya tienes: un video corto cuesta desde ${perVideo} con el paquete Arranque, y la edición de YouTube va de ${band("youtube", "es")} por video.`,
-    `Estar en la misma ciudad ayuda cuando hace falta grabar: la grabación en tu negocio va ${filmingHourlyText("es")}, y un día completo de producción, con planificación, grabación y edición, va ${esLocal()}. Si ya grabaste, todo puede ser a distancia: envías los archivos por Google Drive o Dropbox y recibes el video terminado por el mismo enlace. Cada proyecto recibe una cotización por escrito antes de empezar, con las rondas de cambios incluidas.`,
+    `Estar en la misma ciudad ayuda cuando hace falta grabar: la grabación en tu negocio va ${filmingPriceText("es")}, y un día completo de producción, con planificación, grabación y edición, va ${esLocal()}. Si ya grabaste, todo puede ser a distancia: envías los archivos por Google Drive o Dropbox y recibes el video terminado por el mismo enlace. Cada proyecto recibe una cotización por escrito antes de empezar, con las rondas de cambios incluidas.`,
   ],
 };
 
@@ -206,7 +207,7 @@ const VLOG_EDITOR_ES: OwnerFactSection = {
   heading: "¿Cuánto cobra un editor de vlogs para YouTube?",
   paragraphs: [
     `Un editor de vlogs cobra según la duración, y Esteban Moreno Media lo cobra por video, nunca por hora. Un vlog completo para YouTube entra en el rango de YouTube de la calculadora, ${band("youtube", "es")} por edición, comparado con un rango publicado del mercado de ${bandMarket("youtube", "es")}. Un vlog corto para Reels, TikTok o Shorts es el paquete Arranque, desde ${perVideo} por video.`,
-    `Esteban graba y edita vlogs. Si grabas tú, envías los archivos originales y él quita los tiempos muertos, mantiene la historia en el orden en que la viviste, y agrega subtítulos, música y un título. Lo que mueve el precio dentro del rango es cuánto material hay, cuántos cortes necesita y si quieres mapas, títulos animados o una imagen de portada. Si prefieres que él grabe, la grabación va ${filmingHourlyText("es")}. La cotización por escrito fija el precio antes de editar.`,
+    `Esteban graba y edita vlogs. Si grabas tú, envías los archivos originales y él quita los tiempos muertos, mantiene la historia en el orden en que la viviste, y agrega subtítulos, música y un título. Lo que mueve el precio dentro del rango es cuánto material hay, cuántos cortes necesita y si quieres mapas, títulos animados o una imagen de portada. Si prefieres que él grabe, la grabación va ${filmingPriceText("es")}. La cotización por escrito fija el precio antes de editar.`,
   ],
 };
 

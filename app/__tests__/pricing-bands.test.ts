@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   EXPRESS_MULTIPLIER,
   PACKAGE_PRICES,
+  FILMING_RATES,
   PRICING_BANDS,
   PRODUCT_PHOTO_MARKET,
   SHORT_FORM,
@@ -55,9 +56,9 @@ describe("pricing module bands", () => {
     expect(estimator).not.toMatch(/PRICING_BANDS\.social|PRICING_BANDS\["social"\]/);
   });
 
-  it("keeps the on-location capture add-on at the documented figures", () => {
-    expect(PRICING_BANDS["on-location"].baseMin).toBe(400);
-    expect(PRICING_BANDS["on-location"].baseMax).toBe(775);
+  it("keeps the on-location capture add-on on the owner filming rates (half day to full day)", () => {
+    expect(PRICING_BANDS["on-location"].baseMin).toBe(FILMING_RATES.halfDay);
+    expect(PRICING_BANDS["on-location"].baseMax).toBe(FILMING_RATES.fullDay);
   });
 
   it("keeps the documented volume and express multipliers", () => {

@@ -40,6 +40,7 @@ import {
   shortFormWeeklyText,
   usd,
   type PricingBandId,
+  filmingPriceShortText,
 } from "@/lib/pricing";
 import { withPageDate } from "@/lib/page-lastmod";
 import { realEstatePlanName } from "@/lib/real-estate-plans";
@@ -327,8 +328,8 @@ function costParagraphs(e: NicheEntry): string[] {
     ? `Cada proyecto recibe una cotización por escrito antes de empezar. Los paquetes de video que Esteban sí publica están en la [página de precios](${pricing}).`
     : `Every project gets a written quote before work begins. The video packages Esteban does publish are on the [pricing page](${pricing}).`;
   const onLocation = es
-    ? `Si hace falta grabar en el lugar, se cotiza aparte: la jornada de producción del paquete Presencia Local va ${productionDay("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`
-    : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`;
+    ? `Si hace falta grabar en el lugar, se cotiza aparte: la jornada de producción del paquete Presencia Local va ${productionDay("es")}, y la grabación sola va ${filmingPriceShortText("es")}.`
+    : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${productionDay("en")}, and filming alone is ${filmingPriceShortText("en")}.`;
 
   switch (e.model) {
     case "restaurant": {
@@ -376,11 +377,11 @@ function costParagraphs(e: NicheEntry): string[] {
     case "local":
       return es
         ? [
-            `Depende de si hace falta grabar. Si ya tienes el material, la edición sola empieza con el paquete Arranque, ${starter("es")}, y se puede pagar semana a semana: ${shortFormWeeklyText("es")}, con un mínimo de ${T.minimumWeeks} semanas. Si Esteban va a grabar, el paquete Presencia Local va ${productionDay("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`,
+            `Depende de si hace falta grabar. Si ya tienes el material, la edición sola empieza con el paquete Arranque, ${starter("es")}, y se puede pagar semana a semana: ${shortFormWeeklyText("es")}, con un mínimo de ${T.minimumWeeks} semanas. Si Esteban va a grabar, el paquete Presencia Local va ${productionDay("es")}, y la grabación sola va ${filmingPriceShortText("es")}.`,
             `La grabación en ${e.place} se acuerda proyecto por proyecto desde la base de Esteban en Fort Lauderdale. ${close}`,
           ]
         : [
-            `It depends on whether anything needs filming. If you already have footage, editing alone starts with the Starter package, ${starter("en")}, and can be paid weekly: ${shortFormWeeklyText("en")}, with a ${T.minimumWeeks}-week minimum. If Esteban films, the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`,
+            `It depends on whether anything needs filming. If you already have footage, editing alone starts with the Starter package, ${starter("en")}, and can be paid weekly: ${shortFormWeeklyText("en")}, with a ${T.minimumWeeks}-week minimum. If Esteban films, the Local Presence package is ${productionDay("en")}, and filming alone is ${filmingPriceShortText("en")}.`,
             `Filming in ${e.place} is agreed project by project from Esteban's base in Fort Lauderdale. ${close}`,
           ];
     case "longform":
