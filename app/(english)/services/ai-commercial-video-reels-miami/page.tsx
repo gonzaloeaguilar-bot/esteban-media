@@ -131,6 +131,7 @@ export default function AiCommercialVideoReelsMiamiPage() {
       </section>
 
       <ServiceAnswerFirst service="AI commercial video reels in Miami" />
+      <CaseStudyRail ids={["dupont-ai-commercial"]} locale="en" source="ai_commercial_service_case" heading="What did an AI commercial do for a South Florida realtor?" />
 
       <ServiceDeepDive
         id={AI_COMMERCIAL_REELS_DEEP_DIVE.id}
@@ -180,7 +181,6 @@ export default function AiCommercialVideoReelsMiamiPage() {
         faqs={AI_COMMERCIAL_REELS_FAQS}
         sectionId="ai-commercial-faqs"
       />
-      <CaseStudyRail ids={["dupont-ai-commercial"]} locale="en" source="ai_commercial_service_case" heading="What did an AI commercial do for a South Florida realtor?" />
       <NicheAnswers path="/services/ai-commercial-video-reels-miami" fact={String(metadata.description ?? "")} />
     </main>
   );

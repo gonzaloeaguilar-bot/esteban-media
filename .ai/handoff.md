@@ -6,6 +6,8 @@
 - Every case-study contact CTA now carries `?source=case-study` (registered in LEAD_SOURCES + both contact querySources). Price line beside the CTA comes from lib/pricing.ts (`lib/case-study-pricing.ts`); case copy itself stays currency-free.
 - Linked from /portfolio + /es/portafolio (`CaseStudyRail`, LATEST_CASE_STUDY_IDS), the case hub (automatic), the real-estate Reels EN/ES pages, the Reels FTL EN/ES pages and the ES drone page. Sitemap 551 -> 555 (one 4-URL allowance; no portfolio item pages added on purpose). Parity baseline refreshed for 5 changed ES routes only.
 - Test: `app/__tests__/case-studies-batch-2026-11-26.test.ts` (negative controls: removing ?source, the portfolio rail, or the lead source turns it red).
+- Owner order (same day): `/case-studies/dupont-ai-commercial` EN+ES. 18-s AI commercial master from Esteban's Drive "AI Portfolio" (same scenes as his IG repost DftF1MONgBd, poster frame matches the IG cover); DuPont jet-ski reel IG Df5zAMrMH9T (file "Dupont Real Estate.mp4", cover = last frame) cited, not embedded: 3,157 views / 2,071 reach / 25 shares, Metricool read 2026-11-26; DuPont "POV" reel (1,886) NOT attributed (no source file). Rail on the AI commercial pages (EN directly under the answer block). Sitemap 555 -> 557 as a separate owner-ordered entry.
+- Gotcha: one `pnpm build` prerendered `/case-studies/dupont-ai-commercial` as status 404 while data resolved fine; a clean rebuild fixed it. After merge, curl every new URL for 200, do not trust a single build.
 
 ## 2026-11-26 — Official event dates + near-me answers (branch geo/events-nearme)
 
