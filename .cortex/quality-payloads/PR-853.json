@@ -1,0 +1,32 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-853",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "status": "quality_passed",
+    "mode": "general",
+    "findings": [],
+    "hard_stops": [],
+    "missing_evidence": [],
+    "reviewer_roles": {
+      "builder": "ok",
+      "skeptic": "ok",
+      "taste": "ok"
+    },
+    "deterministic_gate": "pnpm lint, pnpm typecheck, pnpm test, pnpm build, pnpm text-parity, verify-spanish-hub-indexability, analytics-gate.py"
+  },
+  "evidence": {
+    "obsidian_context": "Owner price decision 2026-11-26 ($500 half day / $900 full day / $150 extra hour, filming only) recorded in client-esteban-media/wiki/esteban-pricing-change-2026-11-26.",
+    "hard_stops_checked": "Prices changed only where the owner decided (filming only). Weddings, real-estate plans, editing, landing pages and chatbots unchanged. No payment path, Stripe link, DNS or production config touched.",
+    "verification": "pnpm test: 234 files / 4040+ tests passed; lint 0 errors; typecheck 0; build 0; text-parity 203 routes (baseline refreshed for 71 changed Spanish routes only); analytics-gate PASS. New guard test filming-price-2026-11-26 verified red on a planted $125-per-hour file.",
+    "reviewer_ensemble": {
+      "builder": "Claude implemented the single-source constant and consumer updates.",
+      "skeptic": "Codex review via cto-dispatch: attempt 1 REJECT (filmingQuote rounding, guard weakening, buyer-answer spacing) addressed; attempt 2 APPROVE (canonical PASS by cto-dev-lead).",
+      "taste": "No new component or motion; copy rewritten in the existing voice, EN/ES, word budgets kept (100-180 word sections, Art Basel visible-word guard)."
+    },
+    "outcome_boundary": "Changes published prices on site, llms.txt and the client catalog; does not by itself prove bookings or leads."
+  }
+}
