@@ -4,8 +4,12 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { getPortfolioItemById, isYouTubeSource } from "@/lib/portfolio";
+import { reelCaseStudyPairs } from "@/lib/case-studies-reels";
 
 export const CASE_STUDY_IDS = [
+  "real-estate-reels-davie",
+  "ai-edit-prep-reel",
+  "dupont-ai-commercial",
   "banacol",
   "homeowners",
   "flas-concierge",
@@ -40,6 +44,28 @@ export type CaseStudyMetaField = {
   label: string;
   value: string;
 };
+
+/**
+ * A self-hosted vertical video embedded on a case study (the YouTube cases get
+ * their player from the portfolio record instead). Every field is measured on
+ * the file that ships: duration with ffprobe, size from the encode.
+ */
+export type CaseStudyVideo = {
+  /** Stable analytics id: rides on media_play as media_id. */
+  id: string;
+  name: string;
+  description: string;
+  src: string;
+  poster: string;
+  durationSeconds: number;
+  uploadDate: string;
+  width: number;
+  height: number;
+  inLanguage: "en" | "es";
+};
+
+/** Which published starting price a case study shows next to its contact step. */
+export type CaseStudyPriceKind = "real-estate" | "short-form" | "drone-editing" | "ai-commercial";
 
 export type CaseStudy = {
   id: CaseStudyId;
@@ -83,9 +109,13 @@ export type CaseStudy = {
   keyFacts: readonly CaseStudyMetaField[];
   scopingQuestions: readonly string[];
   sections: readonly CaseStudySection[];
+  /** Self-hosted videos shown in the hero, each with its own VideoObject. */
+  videos?: readonly CaseStudyVideo[];
+  /** Starting price read from lib/pricing.ts at render time, never typed into the copy. */
+  priceKind?: CaseStudyPriceKind;
 };
 
-type CaseStudyPair = {
+export type CaseStudyPair = {
   id: CaseStudyId;
   en: Omit<CaseStudy, "id" | "locale" | "slug">;
   es: Omit<CaseStudy, "id" | "locale" | "slug">;
@@ -300,205 +330,174 @@ const websiteCasePairs: readonly CaseStudyPair[] = [
 ];
 
 export const caseStudyPairs: readonly CaseStudyPair[] = [
+  ...reelCaseStudyPairs,
   {
     id: "banacol",
     en: {
-      title: "Banacol: Aerial Cinematography for Maritime & Agro-Industrial Export Operations",
-      metadataTitle: "Banacol Case Study | Aerial Drone Cinematography",
+      title: "Banacol: Aerial Footage for a Banana and Plantain Exporter in Urabá, Colombia",
+      metadataTitle: "Banacol Case Study | Aerial Footage in Urabá, Colombia",
       client: "Banacol (Agro-industrial Exporter)",
       summary:
-        "A multi-day aerial drone cinematography assignment documenting large-scale banana and plantain export operations in Urabá, Colombia, including challenging offshore boat launches and maritime logistics.",
+        "Esteban shot the aerial footage for a corporate video that the Medellín agency Jungelbox produced for Banacol, a Colombian banana and plantain exporter, over three days in Urabá in 2021, flying many shots from a boat at sea.",
       metaDescription:
-        "Aerial drone cinematography over several days for Banacol, a banana and plantain exporter in Urabá, Colombia, including launches from boats offshore.",
-      eyebrow: "Agro-Industrial Video Production",
-      role: "Aerial Drone Cinematographer (On assignment with Jungelbox agency)",
+        "Past agency work in Colombia: three days of aerial footage for Banacol, a banana and plantain exporter in Urabá, many shots flown from a boat at sea.",
+      eyebrow: "Past Agency Work in Colombia",
+      role: "Aerial capture for the Jungelbox agency (Medellín)",
       year: 2021,
       location: "Urabá, Antioquia, Colombia",
-      deliverables: "4K aerial drone master footage, offshore vessel tracking reels, facility establishing shots",
-      agencyContext: "Produced on assignment with the Jungelbox creative agency based in Medellín, Colombia.",
+      deliverables: "Aerial shots of the export facilities and shipments at sea, delivered to the agency for its edit",
+      agencyContext: "Produced on assignment for the Jungelbox creative agency, based in Medellín, Colombia.",
       answer: {
         question: "What did Esteban do on the Banacol project?",
         text:
-          "Esteban was the aerial drone cinematographer on a corporate overview that the Jungelbox creative agency in Medellín produced for Banacol, a Colombian exporter of bananas and plantains. The shoot ran three continuous days in 2021 in Urabá, Antioquia, on the Caribbean coast, and covered plantation fields, packing facilities, coastal loading docks and cargo barges offshore. Some flights were launched from, and caught by hand on, moving boats. He delivered 4K aerial master footage, vessel tracking shots and facility establishing shots. His role was aerial capture only: the agency's director and editors handled the edit, sound design and script, and the public cut runs 1 minute 48 seconds. It is shown here as past agency work in Colombia, with the role stated exactly as it was performed.",
+          "Esteban was hired by Jungelbox, a creative agency in Medellín, to shoot every aerial shot of a corporate video for Banacol, a Colombian exporter of bananas and plantains. In 2021 the agency took him to Urabá, Antioquia, on the Caribbean coast, for three days visiting the facilities where banana and plantain shipments are prepared for export to the United States. Many of the shots were of the shipments at sea, and he often had to fly the drone from a boat, which is what made the job demanding. His part was aerial capture only: the agency produced and edited the video, and the public cut on his YouTube channel runs 1 minute 48 seconds. It is shown here as past agency work in Colombia, with the role stated exactly as he described it, and no client result is claimed.",
       },
       mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
       posterUrl: "/portfolio/banacol.jpg",
       serviceLink: {
-        href: "/services/brand-video-production-miami",
-        label: "Brand Video Production Services",
-        description: "Explore commercial brand video production and on-location filming for South Florida businesses.",
+        href: "/services/drone-video-editing-service-miami",
+        label: "Drone Video Editing Service",
+        description: "Have aerial footage already? Get it edited in South Florida; new flights are flown by a separately verified FAA Part 107 pilot.",
       },
       contactLink: {
         href: "/contact",
-        label: "Discuss an On-Location Video Project",
+        label: "Discuss Your Aerial Footage",
       },
       portfolioLink: {
         href: "/portfolio/banacol",
         label: "View Banacol Portfolio Video",
       },
       keyFacts: [
-        { label: "Production Duration", value: "Three continuous shoot days on location in Urabá" },
-        { label: "Environment", value: "Coastal loading docks, open ocean cargo barges, fruit packing hubs" },
-        { label: "Flight Regime", value: "Offshore marine launches and hand-catches from moving skiffs" },
-        { label: "Primary Role", value: "Aerial drone cinematography (strictly aerial capture; editing by agency)" },
-        { label: "Deliverable Format", value: "16:9 widescreen master video assets (1 minute 48 seconds public cut)" },
+        { label: "When and where", value: "2021, three days on location in Urabá, Antioquia, Colombia" },
+        { label: "Subject", value: "Facilities where banana and plantain shipments are prepared for export to the United States" },
+        { label: "Hardest part", value: "Many shots of shipments at sea, flown from a boat" },
+        { label: "Role", value: "Aerial capture only; the agency produced and edited the video" },
+        { label: "Public cut", value: "1 minute 48 seconds, 16:9, on Esteban's YouTube channel" },
       ],
       scopingQuestions: [
-        "What specific facility zones, shipping vessels, or agricultural parcels require aerial coverage?",
-        "Are there active maritime or port authority security clearances required prior to flight dates?",
-        "What contingency protocols exist for high-humidity coastal weather, sudden precipitation, or sea spray?",
-        "Will drone takeoff and recovery occur on stable ground or from watercraft and industrial platforms?",
-        "What technical specifications (color profile, resolution, frame rates) does the editing team require?",
+        "Do you already have aerial footage that needs an edit, or does the project also need a new flight?",
+        "Which facilities, vessels or properties must appear from the air?",
+        "If a flight is needed in South Florida, which licensed pilot holds the authorization for that site?",
+        "Will any shots be taken over water or from a boat?",
+        "What format, length and platform is the finished video for?",
       ],
       sections: [
         {
-          heading: "Project Context & Commercial Background",
+          heading: "What was the project, in Esteban's own account?",
           paragraphs: [
-            "Banacol is one of Colombia's largest agro-industrial producers and international exporters of bananas and plantains, shipping millions of boxes annually to markets across North America and Europe. To showcase the massive scale, modern logistics infrastructure, and rigorous quality control of their northern export corridors, the Jungelbox creative agency was commissioned to produce an extensive corporate brand overview. Esteban was contracted by Jungelbox specifically as the dedicated aerial drone cinematographer for the production.",
-            "The filming took place across three intensive days in the Urabá region of Antioquia, a vital commercial port and agricultural hub on the Caribbean coast of Colombia. Capturing the full scope of Banacol's operations required filming across vast plantation fields, automated packing facilities, overland transport routes, and the active maritime loading zones where cargo barges transfer produce to international container ships anchored offshore.",
-            "Because this was an agency-led production with a dedicated director and post-production editorial team, Esteban's role was sharply defined: aerial cinematography only. No ground editing, voice-over casting, or color finishing was claimed. Preserving this boundary ensures an honest portrayal of the collaborative production workflow.",
+            "Banacol exports bananas and plantains from Colombia. The Medellín agency Jungelbox was producing a corporate video about its export operations and hired Esteban for one job: all of the aerial shots. The agency took him to Urabá, in Antioquia, on Colombia's Caribbean coast, where the crew spent three days visiting the facilities where banana and plantain shipments are prepared for export to the United States.",
+            "That description comes from Esteban's own voice notes about his past projects, recorded in July 2026, and it is the whole basis of this page. He summed the result up as a good final result. No client figures, testimonial or campaign numbers exist for this project, so none appear here.",
           ],
           callout: {
-            title: "Verified Role Demarcation",
-            text: "Esteban performed aerial drone capture across all three production days. Post-production assembly, sound design, and script finishing were executed by the commissioning agency Jungelbox.",
+            title: "Role, stated as performed",
+            text: "Esteban shot the aerial footage. The agency produced the video and handled the edit; this page claims no part of the edit, script or sound for him.",
           },
         },
         {
-          heading: "Operational Challenges & Maritime Flight Execution",
+          heading: "What made the aerial work hard?",
           paragraphs: [
-            "Operating unmanned aerial systems in industrial and maritime settings introduces complex physical constraints that differ fundamentally from standard landscape videography. In Urabá, the primary export mechanism involves loading fruit crates onto shallow-draft barges, which navigate coastal waterways before meeting large ocean-going vessels in open water.",
-            "To capture dynamic tracking shots of these vessels in transit, Esteban executed drone flights launched directly from small, moving support boats and skiffs. Launching and recovering a drone from a rocking watercraft in open swell requires manual flight override, precise gimbal handling, and coordination with the boat captain to manage wind shear and engine vibrations.",
-            "In addition to open-water flight hazards, coastal tropical conditions in Urabá present rapid weather shifts, sudden equatorial squalls, high humidity, and airborne sea salt. Equipment had to be continuously monitored, calibrated, and protected to ensure zero camera sensor contamination or mechanical failure during flight windows.",
-          ],
-          bullets: [
-            "Manual boat-deck takeoffs and hand recoveries in moderate sea swell without GPS lock assistance",
-            "Continuous tracking of industrial conveyor belts, barge transfers, and tug operations from safe standoffs",
-            "Management of intense equatorial sun reflections off the water surface using polarizing neutral density filters",
-            "Strict adherence to commercial shipping safety buffers and port security perimeters",
+            "Much of what Banacol wanted to show happens on the water: the shipments leave the coast and are loaded at sea. To film them, Esteban often had to launch and fly the drone from a boat rather than from solid ground, with the boat moving underneath him and the subject moving too.",
+            "That is the part of the job he singled out as demanding. The finished public cut, 1 minute 48 seconds long, combines his aerial shots with the agency's ground footage and edit, so a viewer can see how the aerial material sits inside a corporate story rather than standing alone.",
           ],
         },
         {
-          heading: "Visible Craft Decisions & Cinematographic Technique",
+          heading: "How is aerial work handled in South Florida today?",
           paragraphs: [
-            "The visual strength of the Banacol footage rests on deliberate camera movement and compositional discipline. Rather than relying on static wide views, Esteban employed continuous parabolic arcs and low-altitude sweeping moves that connect the physical workers to the immense industrial machinery surrounding them.",
-            "When filming the packing facilities and transport corridors, the camera maintains a steady horizon while tracking perpendicular to the movement of trucks and container cranes. This technique reveals the geometric efficiency of the facility layout while keeping human activity in clear, proportional perspective.",
-            "In the maritime sequences, Esteban utilized slow, deliberate descent angles toward the cargo holds. This gradual shift in perspective from wide ocean vistas to tight container alignments provides visual weight and emphasizes the precision required during international transshipment operations.",
+            "This project was flown in Colombia in 2021. In the United States, commercial drone flights require an FAA Part 107 remote pilot, so Esteban Moreno Media does not offer to fly them. What it offers is the edit: aerial footage you already have, from a pilot, an agency or a previous shoot, cut into a finished video.",
+            "When a South Florida project also needs new aerial capture, that flight is done by a separately verified FAA Part 107 pilot who is responsible for the flight and its permissions, and the shoot is quoted per project. The experience from Banacol is still useful at the edit: knowing what an aerial shot over water can and cannot show helps decide where it belongs in the story.",
           ],
         },
         {
-          heading: "Relevance for South Florida Industrial & Maritime Productions",
+          heading: "How does a comparable project start?",
           paragraphs: [
-            "South Florida is home to major commercial shipping channels, luxury yacht manufacturers, marine service hubs, and construction logistics infrastructure across PortMiami, Port Everglades in Fort Lauderdale, and the Palm Beach waterways. Video projects in these environments require crews who understand industrial safety protocols, watercraft dynamics, and rapid setup procedures.",
-            "Whether documenting marine hospitality, commercial port operations, or architectural developments in coastal Broward and Miami-Dade counties, the technical principles demonstrated in the Banacol assignment apply directly. Commercial clients require reliable visual execution without disruptive delays to active business operations.",
-          ],
-        },
-        {
-          heading: "How Comparable Commercial Projects Are Scoped",
-          paragraphs: [
-            "Planning a commercial on-location video shoot begins with clear operational scoping rather than generic package pricing. Every industrial and marine location presents distinct access rules, safety requirements, and lighting windows that govern the filming schedule.",
-            "Esteban works with clients and creative directors to audit the physical location, establish flight zones, verify permit requirements, and define exact deliverable specifications before production begins. This structured approach prevents unexpected site delays and guarantees clean footage handoff for editorial teams.",
+            "Start with the footage that exists and the story the video has to tell. Send the aerial and ground clips, the platform and length of the finished piece, and any facts that must appear on screen. If new aerial shots are needed, say where and when, so the licensed pilot can check the site before anything is promised. The starting price for editing footage you already have is shown beside the contact step below.",
           ],
         },
       ],
+      priceKind: "drone-editing",
     },
     es: {
-      title: "Banacol: Cinematografía Aérea en Operaciones de Exportación y Embarque Marítimo",
-      metadataTitle: "Caso de Estudio Banacol | Cinematografía Aérea con Dron",
+      title: "Banacol: tomas aéreas para un exportador de banano y plátano en Urabá, Colombia",
+      metadataTitle: "Caso de Estudio Banacol | Tomas aéreas en Urabá",
       client: "Banacol (Exportadora Agroindustrial)",
       summary:
-        "Producción de cinematografía aérea con dron durante tres días en Urabá, Colombia, documentando operaciones de exportación de banano y plátano, incluyendo vuelos marítimos desde embarcaciones.",
+        "Esteban hizo las tomas aéreas de un video corporativo que la agencia Jungelbox, de Medellín, produjo para Banacol, exportadora colombiana de banano y plátano, durante tres días en Urabá en 2021, volando muchas tomas desde una lancha en el mar.",
       metaDescription:
-        "Cinematografía aérea con dron durante tres días en Urabá, Colombia, para Banacol, exportador de banano y plátano, con vuelos desde embarcaciones.",
-      eyebrow: "Producción de Video Agroindustrial",
-      role: "Cinematógrafo Aéreo con Dron (Por encargo de la agencia Jungelbox)",
+        "Trabajo previo para agencia en Colombia: tres días de tomas aéreas para Banacol, exportadora de banano y plátano en Urabá, muchas desde una lancha.",
+      eyebrow: "Trabajo previo para agencia en Colombia",
+      role: "Tomas aéreas para la agencia Jungelbox (Medellín)",
       year: 2021,
       location: "Urabá, Antioquia, Colombia",
-      deliverables: "Tomas aéreas master en 4K, secuencias de seguimiento marítimo, planos generales de infraestructura",
+      deliverables: "Tomas aéreas de las instalaciones de exportación y de los embarques en el mar, entregadas a la agencia para su edición",
       agencyContext: "Proyecto realizado por encargo de la agencia creativa Jungelbox, con sede en Medellín, Colombia.",
       answer: {
         question: "¿Qué hizo Esteban en el proyecto de Banacol?",
         text:
-          "Esteban fue el cinematógrafo aéreo con dron de un video corporativo que la agencia creativa Jungelbox, de Medellín, produjo para Banacol, exportadora colombiana de banano y plátano. El rodaje duró tres días continuos en 2021 en Urabá, Antioquia, en la costa del Caribe, y cubrió plantaciones, plantas de empaque, muelles de carga y barcazas en mar abierto. Algunos vuelos despegaron desde lanchas en movimiento y se recuperaron a mano sobre ellas. Entregó tomas aéreas master en 4K, secuencias de seguimiento de embarcaciones y planos generales de las instalaciones. Su rol fue solo la captura aérea: el director y los editores de la agencia hicieron el montaje, el diseño de sonido y el guion, y el corte público dura 1 minuto 48 segundos. Se muestra aquí como trabajo pasado para una agencia en Colombia, con el rol declarado tal como se ejecutó.",
+          "Esteban fue contratado por Jungelbox, una agencia creativa de Medellín, para hacer todas las tomas aéreas de un video corporativo de Banacol, exportadora colombiana de banano y plátano. En 2021 la agencia lo llevó a Urabá, Antioquia, en la costa del Caribe, donde estuvieron tres días visitando las instalaciones en las que se preparan los embarques de banano y plátano para exportar a Estados Unidos. Muchas tomas eran de los embarques en el mar, y muchas veces tuvo que volar el dron desde una lancha, lo que hizo el trabajo exigente. Su rol fue solo la captura aérea: la agencia produjo y editó el video, y el corte público en su canal de YouTube dura 1 minuto 48 segundos. Se muestra aquí como trabajo previo para una agencia en Colombia, con el rol declarado tal como él lo describió, y sin afirmar resultados del cliente.",
       },
       mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
       posterUrl: "/portfolio/banacol.jpg",
       serviceLink: {
-        href: "/es/videografo-en-miami",
-        label: "Videógrafo para empresas en Miami",
-        description: "Conoce nuestro servicio de producción audiovisual y grabación en locación para empresas en South Florida.",
+        href: "/es/edicion-de-video-con-dron-miami",
+        label: "Edición de video con dron",
+        description: "¿Ya tienes tomas aéreas? Edítalas en el sur de Florida; los vuelos nuevos los hace un piloto con certificación FAA Part 107 verificado por separado.",
       },
       contactLink: {
         href: "/es/contacto",
-        label: "Conversar sobre un Proyecto en Locación",
+        label: "Hablar de tus tomas aéreas",
       },
       portfolioLink: {
         href: "/es/portafolio/banacol",
         label: "Ver Proyecto Banacol en el Portafolio",
       },
       keyFacts: [
-        { label: "Duración del Rodaje", value: "Tres días continuos de grabación en locación en Urabá" },
-        { label: "Entorno Operativo", value: "Muelles de carga, barcazas en mar abierto y plantas de empaque" },
-        { label: "Régimen de Vuelo", value: "Despegues y capturas manuales desde lanchas en movimiento" },
-        { label: "Rol Verificado", value: "Cinematografía aérea con dron (captura aérea; edición por la agencia)" },
-        { label: "Formato de Entrega", value: "Material panorámico 16:9 en alta resolución (corte público de 1 min 48 s)" },
+        { label: "Cuándo y dónde", value: "2021, tres días en locación en Urabá, Antioquia, Colombia" },
+        { label: "Tema", value: "Instalaciones donde se preparan los embarques de banano y plátano para exportar a Estados Unidos" },
+        { label: "Lo más difícil", value: "Muchas tomas de los embarques en el mar, voladas desde una lancha" },
+        { label: "Rol", value: "Solo captura aérea; la agencia produjo y editó el video" },
+        { label: "Corte público", value: "1 minuto 48 segundos, 16:9, en el canal de YouTube de Esteban" },
       ],
       scopingQuestions: [
-        "¿Qué instalaciones, embarcaciones o terrenos agrícolas específicos requieren cobertura aérea?",
-        "¿Existen permisos de seguridad portuaria o autorizaciones marítimas requeridas antes del rodaje?",
-        "¿Qué protocolos de contingencia existen para climas costeros con humedad alta o lluvia súbita?",
-        "¿El despegue y aterrizaje del dron se realizará sobre tierra firme o desde embarcaciones marítimas?",
-        "¿Qué especificaciones técnicas de color y resolución requiere el equipo de postproducción?",
+        "¿Ya tienes tomas aéreas que necesitan edición o el proyecto también necesita un vuelo nuevo?",
+        "¿Qué instalaciones, embarcaciones o propiedades deben verse desde el aire?",
+        "Si hace falta volar en el sur de Florida, ¿qué piloto con licencia tiene la autorización para ese lugar?",
+        "¿Habrá tomas sobre el agua o desde una embarcación?",
+        "¿Para qué formato, duración y plataforma es el video final?",
       ],
       sections: [
         {
-          heading: "Contexto del Proyecto y Alcance Comercial",
+          heading: "¿Cuál fue el proyecto, según el propio Esteban?",
           paragraphs: [
-            "Banacol es una de las empresas agroindustriales y exportadoras de banano y plátano más importantes de Colombia, responsable del envío continuo de fruta hacia mercados en Norteamérica y Europa. Con el objetivo de registrar la magnitud de sus operaciones, su infraestructura logística y sus procesos de calidad en el norte del país, la agencia creativa Jungelbox fue contratada para producir una pieza corporativa integral. Para este proyecto, Esteban fue seleccionado por Jungelbox como el cinematógrafo aéreo a cargo de todas las tomas con dron.",
-            "La producción se llevó a cabo durante tres jornadas intensivas en la región de Urabá, Antioquia, un enclave estratégico sobre el mar Caribe. La cobertura demandó registrar plantaciones extensas, centros tecnificados de empaque, transporte terrestre y los puntos de transferencia marítima donde las barcazas cargan la fruta en buques de gran calado fondeados en el mar.",
-            "Al tratarse de una producción liderada por agencia, el rol de Esteban estuvo delimitado con total precisión a la cinematografía aérea. No se incluyen atribuciones sobre la edición final, la locución ni la colorimetría de la pieza terminada, preservando la veracidad del crédito profesional.",
+            "Banacol exporta banano y plátano desde Colombia. La agencia Jungelbox, de Medellín, estaba produciendo un video corporativo sobre sus operaciones de exportación y contrató a Esteban para un solo trabajo: todas las tomas aéreas. La agencia lo llevó a Urabá, en Antioquia, sobre la costa del Caribe colombiano, donde el equipo pasó tres días visitando las instalaciones en las que se preparan los embarques de banano y plátano para exportar a Estados Unidos.",
+            "Esa descripción viene de las notas de voz de Esteban sobre sus proyectos anteriores, grabadas en julio de 2026, y es toda la base de esta página. Él resumió el resultado como un buen resultado final. No existen cifras del cliente, testimonios ni datos de campaña para este proyecto, así que aquí no aparece ninguno.",
           ],
           callout: {
-            title: "Delimitación Precisa del Rol",
-            text: "Esteban ejecutó la captura aérea con dron durante los tres días de rodaje. La edición final, el diseño de sonido y la postproducción fueron realizadas por la agencia Jungelbox.",
+            title: "Rol, tal como se cumplió",
+            text: "Esteban hizo las tomas aéreas. La agencia produjo el video y se encargó de la edición; esta página no le atribuye ninguna parte de la edición, el guion ni el sonido.",
           },
         },
         {
-          heading: "Desafíos Operativos y Captura Aérea en Mar Abierto",
+          heading: "¿Qué hizo difícil el trabajo aéreo?",
           paragraphs: [
-            "La operación de drones en entornos industriales y marítimos exige una preparación técnica muy distinta a la grabación en espacios abiertos convencionales. En Urabá, parte fundamental del proceso de exportación se realiza trasladando la fruta en barcazas a través de canales fluviales hasta alcanzar los buques mercantes en el mar.",
-            "Para lograr tomas dinámicas de estas embarcaciones en movimiento, Esteban tuvo que realizar despegues y recuperaciones del dron directamente desde lanchas rápidas y botes de apoyo. Operar un equipo sobre una cubierta inestable con oleaje moderado requiere vuelo manual, control riguroso del estabilizador de cámara y coordinación constante con el piloto de la lancha para evitar ráfagas de viento y vibraciones.",
-            "A estos factores se sumaron las condiciones climáticas del trópico costero: humedad elevada, salitre marino y cambios repentinos en la nubosidad. El cuidado del equipo y la calibración óptica con filtros de densidad neutra fueron indispensables para mantener la nitidez y evitar daños en los sensores durante las ventanas de vuelo.",
-          ],
-          bullets: [
-            "Despegues y recepciones manuales en cubierta de embarcaciones sin asistencia de retorno automático",
-            "Seguimiento visual fluido de barcazas, grúas y remolcadores respetando márgenes de seguridad",
-            "Manejo de reflejos solares sobre el agua mediante filtros polarizadores de densidad neutra",
-            "Cumplimiento de perímetros de seguridad y normativas de navegación portuaria",
+            "Mucho de lo que Banacol quería mostrar ocurre en el agua: los embarques salen de la costa y se cargan en el mar. Para grabarlos, Esteban muchas veces tuvo que despegar y volar el dron desde una lancha en lugar de tierra firme, con la lancha moviéndose debajo y el sujeto moviéndose también.",
+            "Esa es la parte del trabajo que él destacó como exigente. El corte público, de 1 minuto 48 segundos, combina sus tomas aéreas con el material en tierra y la edición de la agencia, así que se puede ver cómo el material aéreo vive dentro de una historia corporativa y no como piezas sueltas.",
           ],
         },
         {
-          heading: "Decisiones Visuales y Técnica Cinematográfica",
+          heading: "¿Cómo se maneja hoy el trabajo aéreo en el sur de Florida?",
           paragraphs: [
-            "El valor visual del material registrado para Banacol radica en la intencionalidad del movimiento de cámara. En lugar de planos cenitales estáticos, se emplearon trayectorias parabólicas y descensos graduales que integran al equipo de trabajo con la escala de la maquinaria industrial.",
-            "Durante las tomas en las plantas de empaque y patios de transferencia, la cámara mantuvo un horizonte perfectamente nivelado mientras acompañaba el desplazamiento de los vehículos de carga. Este recurso visual transmite orden y dinamismo sin recurrir a cortes abruptos ni movimientos artificiales.",
-            "En las tomas marítimas, los vuelos a baja altura en dirección a los buques de carga permitieron mostrar la transición entre el paisaje costero y la magnitud del comercio exterior, aportando dramatismo y autoridad a la narrativa visual de la marca.",
+            "Este proyecto se voló en Colombia en 2021. En Estados Unidos, los vuelos comerciales de dron requieren un piloto remoto con certificación FAA Part 107, así que Esteban Moreno Media no ofrece volarlos. Lo que ofrece es la edición: el material aéreo que ya tienes, de un piloto, una agencia o una grabación anterior, convertido en un video terminado.",
+            "Cuando un proyecto en el sur de Florida también necesita tomas aéreas nuevas, el vuelo lo hace un piloto con certificación FAA Part 107 verificado por separado, responsable del vuelo y de sus permisos, y esa grabación se cotiza por proyecto. La experiencia de Banacol sigue sirviendo en la edición: saber qué puede y qué no puede mostrar una toma aérea sobre el agua ayuda a decidir dónde va en la historia.",
           ],
         },
         {
-          heading: "Aplicación para Proyectos Marítimos e Industriales en South Florida",
+          heading: "¿Cómo empieza un proyecto parecido?",
           paragraphs: [
-            "El sur de la Florida cuenta con una infraestructura marítima, comercial y turística de primer nivel, desde las terminales de PortMiami y Port Everglades en Fort Lauderdale hasta marinas y astilleros en Broward y Palm Beach. La realización de videos en estos entornos requiere experiencia práctica en dinámicas náuticas, protocolos de seguridad y rapidez de respuesta.",
-            "Ya sea para documentar servicios náuticos, construcciones costeras o actividades corporativas frente al mar, los criterios técnicos aplicados en el proyecto de Banacol son directamente trasladables a empresas locales que buscan contenido audiovisual sólido y profesional.",
-          ],
-        },
-        {
-          heading: "Cómo se Define el Alcance de una Producción Similar",
-          paragraphs: [
-            "La planificación de un rodaje en locación no parte de paquetes cerrados con tarifas fijas, sino de una evaluación técnica de los requerimientos del cliente. Factores como el acceso a la locación, las condiciones de luz, los permisos requeridos y los entregables esperados determinan el plan de trabajo.",
-            "Esteban colabora con empresas y agencias para definir las rutas de filmación, prever contingencias climáticas y acordar los formatos de entrega requeridos para una postproducción eficiente y sin fricciones.",
+            "Empieza por el material que existe y la historia que debe contar el video. Envía los clips aéreos y de tierra, la plataforma y la duración de la pieza final, y los datos que deben salir en pantalla. Si hacen falta tomas aéreas nuevas, di dónde y cuándo, para que el piloto con licencia revise el lugar antes de prometer nada. El precio inicial para editar material que ya tienes aparece junto al paso de contacto, más abajo.",
           ],
         },
       ],
+      priceKind: "drone-editing",
     },
   },
   {
@@ -1356,8 +1355,8 @@ export function buildCaseStudyMetadata(caseStudy: CaseStudy): Metadata {
     images: [
       {
         url: absoluteUrl(caseStudy.posterUrl),
-        width: 1280,
-        height: 720,
+        width: caseStudy.videos?.[0]?.width ?? 1280,
+        height: caseStudy.videos?.[0]?.height ?? 720,
         alt: caseStudy.title,
       },
     ],
@@ -1378,6 +1377,39 @@ export function buildCaseStudyMetadata(caseStudy: CaseStudy): Metadata {
  * than restated (SEO/GEO audit 2026-10-10, fix 8). Case studies without a
  * YouTube source (a website build) get no VideoObject.
  */
+/** Creator of every self-hosted case-study video: the business entity. */
+const CASE_STUDY_VIDEO_CREATOR = {
+  "@type": "Organization",
+  "@id": absoluteUrl("/#business"),
+  name: "Esteban Moreno Media",
+  url: absoluteUrl("/"),
+} as const;
+
+/**
+ * One VideoObject per self-hosted case-study video. contentUrl is the file the
+ * page plays and thumbnailUrl the poster it renders; nothing points at a URL
+ * the page does not serve.
+ */
+export function buildCaseStudySelfHostedVideoObjects(caseStudy: CaseStudy) {
+  const path = getCaseStudyPath(caseStudy);
+  return (caseStudy.videos ?? []).map((video) => ({
+    "@type": "VideoObject",
+    "@id": absoluteUrl(`${path}#video-${video.id}`),
+    name: video.name,
+    description: video.description,
+    thumbnailUrl: [absoluteUrl(video.poster)],
+    uploadDate: video.uploadDate,
+    duration: `PT${Math.round(video.durationSeconds)}S`,
+    contentUrl: absoluteUrl(video.src),
+    width: video.width,
+    height: video.height,
+    inLanguage: video.inLanguage,
+    isFamilyFriendly: true,
+    creator: CASE_STUDY_VIDEO_CREATOR,
+    publisher: { "@id": absoluteUrl("/#business") },
+  }));
+}
+
 function buildCaseStudyVideoObject(caseStudy: CaseStudy, path: string) {
   const item = getPortfolioItemById(caseStudy.id);
   if (!item || !isYouTubeSource(item.media)) return undefined;
@@ -1400,6 +1432,7 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
   const path = getCaseStudyPath(caseStudy);
   const isSpanish = caseStudy.locale === "es";
   const video = buildCaseStudyVideoObject(caseStudy, path);
+  const selfHosted = buildCaseStudySelfHostedVideoObjects(caseStudy);
 
   return {
     "@context": "https://schema.org",
@@ -1426,8 +1459,12 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
           name: caseStudy.client,
         },
         ...(video ? { video: { "@id": video["@id"] } } : {}),
+        ...(selfHosted.length
+          ? { video: selfHosted.map((node) => ({ "@id": node["@id"] })) }
+          : {}),
       },
       ...(video ? [video] : []),
+      ...selfHosted,
       {
         "@type": "BreadcrumbList",
         "@id": absoluteUrl(`${path}#breadcrumbs`),
@@ -1473,6 +1510,9 @@ export type CaseStudyDiscipline = "systems" | "production" | "design";
  * between the English and Spanish copies of the same project.
  */
 export const CASE_STUDY_DISCIPLINES: Record<CaseStudyId, CaseStudyDiscipline> = {
+  "real-estate-reels-davie": "production",
+  "ai-edit-prep-reel": "production",
+  "dupont-ai-commercial": "production",
   "flas-concierge": "systems",
   "gains-from-geebs": "systems",
   "caro-sells-miami": "systems",
@@ -1540,12 +1580,12 @@ export const caseStudiesIndexCopy = {
       {
         question: "Which case study is closest to your project?",
         text:
-          "Match the case to the material you already have. If you have clips from a phone or a camera and need them cut into a short promo, read Homeowners: it was edited entirely from supplied footage. If you need someone on site to film, record sound and edit, read Healthy Smile Miami, the only case where Esteban covered all three in one place. If the project is a website, a chatbot or lead intake, compare the website-system cases: FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer. If the product does not exist yet and you need 3D or animated visuals for a pitch, read My D'ler. Each case links to its portfolio project and related service page, so you can see the work and scope side by side.",
+          "Match the case to the material you already have. If you have clips from a phone or a camera and need them cut into a short promo, read Homeowners: it was edited entirely from supplied footage. For listing and seller Reels, read the Davie real-estate Reels. If you need someone on site to film, record sound and edit, read Healthy Smile Miami, the only case where Esteban covered all three in one place. If the project is a website, a chatbot or lead intake, compare the website-system cases: FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer. If the product does not exist yet and you need 3D or animated visuals for a pitch, read My D'ler. Each case links to its portfolio project and related service page, so you can see the work and scope side by side.",
       },
       {
         question: "What do the case studies not claim?",
         text:
-          "They do not claim results the client has not published or measured in a dated source. No page here gives traffic, lead, sales, view or conversion figures as a result of the work, and no testimonial is quoted without its public source. Roles are stated as performed: on Banacol the agency handled the edit, sound and script, and Esteban's part was aerial capture; on Homeowners there was no filming on his side. The current website cases show implemented visitor paths, not rankings, leads or revenue. Prices and turnaround are not quoted on the case studies either, because each project is scoped from its own material; the current prices are on the pricing page.",
+          "They do not claim results the client has not published or measured in a dated source. No page here gives traffic, lead, sales or conversion figures as a result of client work, and no testimonial is quoted without its public source. The one view count, on Esteban's own AI edit-planning Reel, is dated and names its source. Roles are stated as performed: on Banacol Esteban's part was aerial capture and the agency edited; on Homeowners there was no filming on his side. The current website cases show implemented visitor paths, not rankings, leads or revenue. Prices are never written into a case as what a client paid; where a starting price appears, it is read from the current price list.",
       },
     ],
     roleLabel: "Role",
@@ -1594,12 +1634,12 @@ export const caseStudiesIndexCopy = {
       {
         question: "¿Qué caso de estudio se parece más a tu proyecto?",
         text:
-          "Compara el caso con el material que ya tienes. Si tienes clips del celular o de una cámara y necesitas convertirlos en un video promocional corto, lee Homeowners: se editó por completo con material entregado. Si necesitas a alguien en el lugar para grabar, registrar el sonido y editar, lee Healthy Smile Miami, el único caso en el que Esteban cubrió las tres cosas en un mismo sitio. Si el proyecto es un sitio web, un chatbot o la captura de prospectos, compara los casos de FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida y The Great Reviewer. Si el producto todavía no existe y necesitas visuales 3D o animados para una presentación, lee My D'ler. Cada caso enlaza a su proyecto de portafolio y a la página del servicio relacionado, para ver trabajo y alcance juntos.",
+          "Compara el caso con el material que ya tienes. Si tienes clips del celular o de una cámara y necesitas convertirlos en un video promocional corto, lee Homeowners: se editó por completo con material entregado. Para Reels de propiedades y vendedores, lee los Reels inmobiliarios de Davie. Si necesitas a alguien en el lugar para grabar, registrar el sonido y editar, lee Healthy Smile Miami, el único caso en el que Esteban cubrió las tres cosas en un mismo sitio. Si el proyecto es un sitio web, un chatbot o la captura de prospectos, compara los casos de FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida y The Great Reviewer. Si el producto todavía no existe y necesitas visuales 3D o animados para una presentación, lee My D'ler. Cada caso enlaza a su proyecto de portafolio y a la página del servicio relacionado, para ver trabajo y alcance juntos.",
       },
       {
         question: "¿Qué no afirman los casos de estudio?",
         text:
-          "No afirman resultados que el cliente no haya publicado o medido en una fuente fechada. Ninguna página aquí da cifras de tráfico, prospectos, ventas, vistas ni conversiones como resultado del trabajo, y no se cita un testimonio sin fuente pública. Los roles se declaran tal como se cumplieron: en Banacol la agencia hizo la edición, el sonido y el guion, y la parte de Esteban fue la captura aérea; en Homeowners no hubo grabación de su lado. Los casos web actuales muestran recorridos implementados para visitantes, no posiciones, prospectos ni ingresos. Tampoco se publican precios ni plazos en los casos de estudio, porque cada proyecto se define con su propio material; los precios actuales están en la página de precios.",
+          "No afirman resultados que el cliente no haya publicado o medido en una fuente fechada. Ninguna página aquí da cifras de tráfico, prospectos, ventas ni conversiones como resultado del trabajo para clientes, y no se cita un testimonio sin fuente pública. La única cifra de vistas, del Reel propio de Esteban sobre planear con IA, lleva fecha y fuente. Los roles se declaran tal como se cumplieron: en Banacol la parte de Esteban fue la captura aérea y la agencia editó; en Homeowners no hubo grabación de su lado. Los casos web actuales muestran recorridos implementados para visitantes, no posiciones, prospectos ni ingresos. Un precio nunca se presenta como lo que pagó un cliente; cuando aparece un precio inicial, sale de la lista de precios vigente.",
       },
     ],
     roleLabel: "Rol",

@@ -76,10 +76,13 @@ describe("portfolio sitemap entries", () => {
     // -50 = zero-signal prune (2026-11-26; 52 merged by #843, 2 reversed by #842): indexed niche pages with 0 impressions,
     // 0 sessions and 0 leads in 90 days 301 to a same-language same-intent page
     // (config/cohort-consolidation.json#merges).
+    // +4 = case-study batch (2026-11-26): /case-studies/real-estate-reels-davie and
+    // /case-studies/ai-edit-prep-reel with their Spanish twins (one 4-URL allowance).
+    // +2 = owner-ordered DuPont AI commercial case-study pair (2026-11-26).
     // -24 = prune follow-up (2026-11-26): one survivor per zero-signal cluster
     // (config/cohort-consolidation.json#prune20261126Followup).
-    expect(entries).toHaveLength(601 - 50 - 24);
-    expect(new Set(urls)).toHaveLength(601 - 50 - 24);
+    expect(entries).toHaveLength(601 - 50 + 4 + 2 - 24);
+    expect(new Set(urls)).toHaveLength(601 - 50 + 4 + 2 - 24);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

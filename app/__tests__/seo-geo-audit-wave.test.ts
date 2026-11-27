@@ -300,7 +300,9 @@ describe("case studies that embed YouTube carry a VideoObject (fix 8, partial)",
     for (const locale of ["en", "es"] as const) {
       for (const study of getCaseStudies(locale)) {
         const graph = buildCaseStudyStructuredData(study)["@graph"] as Array<Record<string, unknown>>;
-        const video = graph.find((node) => node["@type"] === "VideoObject");
+        // YouTube embeds only; self-hosted case-study videos carry contentUrl
+        // and are covered in app/__tests__/case-studies-batch-2026-11-26.test.ts.
+        const video = graph.find((node) => node["@type"] === "VideoObject" && "embedUrl" in node);
         const article = graph.find((node) => node["@type"] === "Article")!;
         if (!video) continue;
         withVideo += 1;

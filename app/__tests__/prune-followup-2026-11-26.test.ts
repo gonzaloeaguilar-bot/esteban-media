@@ -95,7 +95,8 @@ describe("prune follow-up 2026-11-26", () => {
 
   it("drops the merged pages from the sitemap and keeps survivors and held pages in it", () => {
     const paths = sitemapPaths();
-    expect(paths.size).toBe(527);
+    // 557 after #851 (case studies), minus the 24 follow-up merges.
+    expect(paths.size).toBe(533);
     for (const [from, to] of Object.entries(FOLLOWUP)) {
       expect(paths.has(from), from).toBe(false);
       expect(paths.has(to), to).toBe(true);

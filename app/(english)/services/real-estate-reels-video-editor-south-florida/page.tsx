@@ -1,5 +1,6 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { RealEstateReels } from "@/components/real-estate-reels";
+import { CaseStudyRail } from "@/components/case-study-rail";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -107,7 +108,12 @@ export default function RealEstateReelsVideoEditorSouthFloridaPage() {
   return (
     <GeoServicePage
       content={content}
-      showcase={<RealEstateReels locale="en" />}
+      showcase={
+        <>
+          <RealEstateReels locale="en" />
+          <CaseStudyRail ids={["real-estate-reels-davie"]} locale="en" source="real_estate_service_case" />
+        </>
+      }
     />
   );
 }
