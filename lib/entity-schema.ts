@@ -135,6 +135,8 @@ export const localBusinessEntityJsonLd = {
     site.clutch,
     site.theManifest,
     site.youtubeChannel,
+    site.shootsVideo,
+    site.twine,
     site.facebook,
     site.linkedinCompany,
   ],

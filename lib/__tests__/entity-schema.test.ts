@@ -83,6 +83,8 @@ describe("Google Business Profile entity link", () => {
       site.clutch,
       site.theManifest,
       site.youtubeChannel,
+      site.shootsVideo,
+      site.twine,
       site.facebook,
       site.linkedinCompany,
     ];
@@ -95,6 +97,8 @@ describe("Google Business Profile entity link", () => {
       "https://clutch.co/profile/esteban-moreno-media",
       "https://themanifest.com/company/esteban-moreno-media",
       "https://www.youtube.com/@estebanmorenomedia",
+      "https://www.shoots.video/video-production/esteban-moreno-media/",
+      "https://www.twine.net/estebanmorenomedia",
       "https://www.facebook.com/profile.php?id=61583136001307",
       "https://www.linkedin.com/company/esteban-moreno-media/",
     ]);
