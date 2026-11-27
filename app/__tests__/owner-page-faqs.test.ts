@@ -97,6 +97,15 @@ describe("owner-page FAQs", () => {
     }
   });
 
+  it("never promises full English: language is Spanish first, intermediate English", () => {
+    for (const faq of allFaqs) {
+      const text = faq.answer;
+      expect(text, faq.id).not.toMatch(/in Spanish or (in )?English|either language|in English or Spanish|en español o (en )?inglés|en inglés o (en )?español/i);
+      if (/\bEnglish\b/.test(text)) expect(text, faq.id).toMatch(/intermediate English/);
+      if (/\binglés\b/.test(text)) expect(text, faq.id).toMatch(/inglés intermedio/);
+    }
+  });
+
   it("does not strengthen Palm Beach positioning", () => {
     for (const faq of allFaqs) expect(faq.answer, faq.id).not.toMatch(/Palm Beach/);
   });
