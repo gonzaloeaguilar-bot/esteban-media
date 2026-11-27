@@ -4,8 +4,8 @@ import type { Locale } from "@/lib/packages";
 const scenes = {
   ia: {
     image: "ai-content", kind: "create",
-    en: "Send a visual reference, where you want to publish, and what you want the content to communicate.",
-    es: "Envíame una referencia visual, dónde quieres publicar y qué quieres comunicar con el contenido.",
+    en: "Send your logo, the offer, a visual reference and where you want to publish. No footage needed.",
+    es: "Envíame tu logo, la oferta, una referencia visual y dónde quieres publicar. No hace falta material grabado.",
   },
   foto: {
     image: "photography", kind: "capture",

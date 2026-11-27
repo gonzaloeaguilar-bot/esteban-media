@@ -12,17 +12,21 @@ import {
 import {
   AI_COMMERCIAL_REELS_DEEP_DIVE,
   AI_COMMERCIAL_REELS_FAQS,
+  aiCommercialOfferJsonLd,
 } from "@/lib/event-ai-pages-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { CaseStudyRail } from "@/components/case-study-rail";
 import { withNicheService } from "@/lib/niche-answers";
+import { AI_COMMERCIAL, aiCommercialPriceText, usd } from "@/lib/pricing";
+
+const PAGE_DESCRIPTION = `AI-generated commercials in Miami from ${usd(AI_COMMERCIAL.from)} per ${AI_COMMERCIAL.lengthSeconds} second video, no footage needed, plus AI-assisted Reels from your own footage. Clear AI disclosure.`;
+const AI_COMMERCIAL_ANSWER = `An AI-generated commercial is a short ad built from your brief, logo and offer: ${aiCommercialPriceText("en")}.`;
 
 export const metadata = buildPageMetadata({
   title: "AI Commercial Video Reels Miami",
-  description:
-    "AI-assisted commercial Reels for restaurants, real estate, and ecommerce in Miami. Clear disclosure, platform labeling compliance, and human post-production control.",
+  description: PAGE_DESCRIPTION,
   path: "/services/ai-commercial-video-reels-miami",
   locale: "en",
 });
@@ -38,8 +42,7 @@ export default function AiCommercialVideoReelsMiamiPage() {
       ...buildServicePageNodes({
         path: "/services/ai-commercial-video-reels-miami",
         name: "AI Commercial Video Reels Miami",
-        description:
-          "AI-assisted commercial Reels for restaurants, real estate, and ecommerce in Miami. Clear disclosure, platform labeling compliance, and human post-production control.",
+        description: PAGE_DESCRIPTION,
         crumb: "AI Commercial Video Reels Miami",
       }),
       {
@@ -52,6 +55,11 @@ export default function AiCommercialVideoReelsMiamiPage() {
         areaServed: "Miami / South Florida / Remote",
         serviceType: "Video editing and post-production",
       },
+      aiCommercialOfferJsonLd(
+        "en",
+        absoluteUrl("/services/ai-commercial-video-reels-miami"),
+        absoluteUrl("/#business"),
+      ),
     ],
   };
 
@@ -99,7 +107,7 @@ export default function AiCommercialVideoReelsMiamiPage() {
                 AI Commercial Video Reels in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                AI-assisted vertical commercial Reels for local restaurants, real estate portfolios, and ecommerce brands. We leverage AI acceleration for voiceovers, generated atmospheric b-roll, motion graphics, and rapid captioning—while narrative pacing, hooks, claims, and compliance remain strictly supervised by human editors.
+                {AI_COMMERCIAL_ANSWER} Already have footage? An AI-assisted Reel adds voiceover, generated b-roll, motion graphics and captions to your own video, while hooks, claims and pacing stay with a human editor.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

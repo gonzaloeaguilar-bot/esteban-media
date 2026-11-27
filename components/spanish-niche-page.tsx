@@ -26,6 +26,7 @@ import { EventSeasonLinks } from "@/components/event-content-page";
 import { NeedSomeoneThisWeek, type NeedSomeoneThisWeekProof } from "@/components/need-someone-this-week";
 import { EventBookingAnswer } from "@/components/event-booking-answer";
 import type { EventId } from "@/lib/events";
+import { aiCommercialOfferJsonLd } from "@/lib/event-ai-pages-content";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
@@ -1549,7 +1550,15 @@ export function SpanishNichePage({
           arranqueWeeklyOfferJsonLd("es", absoluteUrl(`/es/${page.slug}`), absoluteUrl("/#business")),
         ],
       }
-    : baseJsonLd;
+    : page.slug === "reels-comerciales-con-ia-miami"
+      ? {
+          ...baseJsonLd,
+          "@graph": [
+            ...baseJsonLd["@graph"],
+            aiCommercialOfferJsonLd("es", absoluteUrl(`/es/${page.slug}`), absoluteUrl("/#business")),
+          ],
+        }
+      : baseJsonLd;
   const contactHref =
     page.slug === "video-para-pequenos-negocios-pembroke-pines"
       ? "/es/contacto?source=pembroke-pines-small-business-video"
