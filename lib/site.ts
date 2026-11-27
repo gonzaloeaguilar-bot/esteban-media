@@ -85,6 +85,12 @@ export const site = {
   clutch: "https://clutch.co/profile/esteban-moreno-media",
   theManifest: "https://themanifest.com/company/esteban-moreno-media",
   youtubeChannel: "https://www.youtube.com/@estebanmorenomedia",
+  // Both directory identities were directly public-read on 2026-11-27. Shoots
+  // now links to the canonical Fort Lauderdale Reels service page; Twine's
+  // public profile remains a verified identity source while its owner login is
+  // recovered. These links identify the business only, never the Person.
+  shootsVideo: "https://www.shoots.video/video-production/esteban-moreno-media/",
+  twine: "https://www.twine.net/estebanmorenomedia",
   // The business Facebook page ("Esteban.media") and the LinkedIn COMPANY page,
   // both verified live 2026-11-26 (curl_cffi impersonate=chrome: 200; Facebook
   // redirects to /people/Estebanmedia/61583136001307/). Business sameAs only:
