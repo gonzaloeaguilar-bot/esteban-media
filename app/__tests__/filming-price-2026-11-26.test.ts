@@ -79,6 +79,9 @@ describe("filming price 2026-11-26: one structure, $500 / $900 / $150", () => {
     expect(filmingQuote(7)).toBe(900);
     expect(filmingQuote(8)).toBe(900);
     expect(filmingQuote(9)).toBe(1050);
+    // Fractional hours round up to the started hour, so a quote is always whole dollars.
+    expect(filmingQuote(4.5)).toBe(650);
+    expect(filmingQuote(0)).toBe(500);
   });
 
   it("the phrases name all three figures (full) or both day rates (short)", () => {

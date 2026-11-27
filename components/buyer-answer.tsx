@@ -106,7 +106,7 @@ function eventPrice(kind: keyof typeof EVENT_PRICE): Copy {
   const price =
     kind === "keys-retreat-filming-price"
       ? `Filming only starts at ${half} for a half day (up to 4 hours) and ${full} for a full day (up to 8 hours), ${extra} for each extra hour; travel to the Keys is confirmed in writing before the date is booked.`
-      : `Filming only is ${half} for a half day (up to 4 hours) and ${full} for a full day (up to 8 hours) ${item.where}, ${extra} for each extra hour.`;
+      : `Filming only is ${half} for a half day (up to 4 hours) and ${full} for a full day (up to 8 hours)${item.where ? ` ${item.where}` : ""}, ${extra} for each extra hour.`;
   return {
     eyebrow: "Straight answer",
     question: item.question,
