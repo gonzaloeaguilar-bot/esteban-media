@@ -1,0 +1,12 @@
+vault_path: /Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-geo-seo-findings-2026-10-29.md
+task: esteban-findings-to-knowledge-base-retry
+bridge_issue: 183
+prior_issue: 181
+prior_pr: 668
+idempotency_key: spark-2026-10-29-903
+added_at: 2026-10-29T14:59:11-04:00
+cross_references:
+  - bridge_task: 180 (esteban-geo-citation-winning-plan, spark-done)
+  - reconciliation_task: 179 (esteban-ga4-totals-reconcile, spark-done)
+status: ingested
+supersedes: round-2 GEO sweep added, real estate upgraded to won, losses cataloged
