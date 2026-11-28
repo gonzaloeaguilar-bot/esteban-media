@@ -1,3 +1,10 @@
+## 2026-11-27 — Verified directory identity links released
+
+- PR #857 merged as `1326a2230e72e6475bedb367ecfde654e91d2ea9`; source `0f4c6e24d37671f9b0dae441fca2600a10c5f694` adds the public Shoots.video and Twine profile URLs to the business-only `sameAs` graph.
+- Local gates: 237 test files / 4,113 tests passed, typecheck passed, lint exited 0 with 27 existing warnings, build completed, Rail adoption 3/3, and `git diff --check` passed. Independent CTO QA approved in `/Users/gonzalo/.claude/state/cto-decisions/20261127T054150Z-cto-qa-lead-esteban-media-1795758112286662000-31217-a9afee1a50610716.json`.
+- Production raw HTML readback on 2026-11-27 contains both public directory URLs. This establishes an entity connection only; it is not an LLM citation, referral, inquiry, or revenue outcome.
+- Twine owner recovery remains open: its public profile currently says `Website not available`. Recover the inbox that receives its account code and update that existing listing; do not create a duplicate.
+
 ## 2026-11-26 — Prune follow-up: one survivor per zero-signal cluster (branch seo/prune-followup)
 
 - 24 more indexed zero-signal pages 301 (statusCode 301) to a cluster survivor; sitemap 551 -> 527 (533 after #851 added 6 case-study URLs); freeze count/sha, lastmod ledger, GSC watch set (-24), llms-base and text-parity baseline (203 routes) follow. Fresh evidence: GSC 90d 2026-08-28..11-26 (0 impressions on every source), GA4 0 sessions / 0 lead events, URL Inspection: every source Submitted and indexed.
