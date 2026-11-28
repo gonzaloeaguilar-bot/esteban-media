@@ -78,7 +78,7 @@ describe("caption guide snippet (round 7)", () => {
   it("answers first, under 160 characters", () => {
     const guide = getGuideBySlug("en", "best-caption-styles-for-instagram-reels");
     const d = guide?.metaDescription ?? "";
-    expect(d).toMatch(/^Best Reel captions:/);
+    expect(d).toMatch(/^Style Instagram Reel captions/);
     expect(d.length).toBeLessThanOrEqual(160);
   });
 });

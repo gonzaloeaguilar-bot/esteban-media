@@ -188,6 +188,22 @@ describe("bilingual practical guides", () => {
     );
   });
 
+  it("answers the observed caption-readability query in the served title and snippet", () => {
+    const guide = getGuides("en").find(
+      ({ id }) => id === "caption-styles-reels-guide",
+    );
+
+    expect(guide).toMatchObject({
+      slug: "best-caption-styles-for-instagram-reels",
+      metadataTitle: "Style Captions for Readable Reels",
+      metaDescription:
+        "Style Instagram Reel captions with high-contrast type in the central safe area. Use full sentences for spoken clips; use emphasis words when visuals lead.",
+    });
+    expect(buildGuideMetadata(guide!).description).toBe(guide!.metaDescription);
+    expect(guide!.answer).toContain("high-contrast subtitles");
+    expect(guide!.answer).toContain("full-sentence captions");
+  });
+
   it("hands event buyers from the Miami cost guide to the existing corporate-event service", () => {
     const guide = getGuides("en").find(({ id }) => id === "corporate-video-cost-guide")!;
     const body = guide.sections.flatMap(({ paragraphs }) => paragraphs).join(" ");
