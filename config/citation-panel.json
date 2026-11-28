@@ -1,0 +1,87 @@
+{
+  "schema": "esteban-media.citation-panel.v1",
+  "status": "draft-for-owner-review",
+  "owned_domain": "estebanmorenomedia.com",
+  "brand_names": ["Esteban Moreno Media", "estebanmorenomedia", "Esteban Moreno"],
+  "engines": ["chatgpt", "perplexity", "gemini", "google_ai_overview", "copilot"],
+  "rules": [
+    "Ask each question in a fresh chat with no account memory, as a new visitor would.",
+    "Record only the answer's cited source URLs and whether Esteban is named. Do not store the answer text.",
+    "Run every question on every engine in the same session window; record checked_at as the session start.",
+    "A failed or empty answer is recorded as an error, never as zero citations."
+  ],
+  "prompts": [
+    {
+      "id": "remote-video-editor-small-business",
+      "language": "en",
+      "question": "Who is a good remote video editor for a small business?",
+      "target_page": "/services/hire-remote-video-editor"
+    },
+    {
+      "id": "reels-editor-miami",
+      "language": "en",
+      "question": "Who edits Instagram Reels in Miami?",
+      "target_page": "/services/reels-editor-miami"
+    },
+    {
+      "id": "reels-editor-fort-lauderdale",
+      "language": "en",
+      "question": "Who edits Instagram Reels in Fort Lauderdale?",
+      "target_page": "/services/reels-editor-fort-lauderdale"
+    },
+    {
+      "id": "bilingual-subtitling",
+      "language": "en",
+      "question": "Who provides bilingual English and Spanish video subtitling?",
+      "target_page": "/services/bilingual-video-subtitling-service"
+    },
+    {
+      "id": "short-form-editor-miami",
+      "language": "en",
+      "question": "Where can I hire a short-form video editor in Miami?",
+      "target_page": "/services/short-form-video-editor-miami"
+    },
+    {
+      "id": "video-production-doral",
+      "language": "en",
+      "question": "Which video production company serves Doral, Florida for business videos?",
+      "target_page": "/services/video-production-doral-miami"
+    },
+    {
+      "id": "ai-commercial-reels-miami",
+      "language": "en",
+      "question": "Who makes AI-assisted commercial videos in Miami?",
+      "target_page": "/services/ai-commercial-video-reels-miami"
+    },
+    {
+      "id": "talking-head-editing",
+      "language": "en",
+      "question": "Who edits talking-head videos recorded at home?",
+      "target_page": "/services/talking-head-video-editing"
+    },
+    {
+      "id": "christian-youtube-editor",
+      "language": "en",
+      "question": "Who edits YouTube videos for pastors and ministries?",
+      "target_page": "/services/christian-youtube-video-editor"
+    },
+    {
+      "id": "reels-editor-es-miami",
+      "language": "es",
+      "question": "¿Quién edita Reels para Instagram en Miami?",
+      "target_page": "/es/editor-de-reels-miami"
+    },
+    {
+      "id": "subtitulado-bilingue-es",
+      "language": "es",
+      "question": "¿Quién ofrece servicio de subtitulado bilingüe inglés español para videos?",
+      "target_page": "/es/servicio-de-subtitulado-bilingue-de-video"
+    },
+    {
+      "id": "editor-remoto-es",
+      "language": "es",
+      "question": "¿Cuál es un buen editor de video remoto para un negocio pequeño?",
+      "target_page": "/es/contratar-editor-de-video-remoto"
+    }
+  ]
+}
