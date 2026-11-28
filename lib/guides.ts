@@ -3470,13 +3470,13 @@ const guidePairs: readonly GuidePair[] = [
     en: {
       slug: "best-caption-styles-for-instagram-reels",
       // 2026-10-28: 124 impressions at position 8.6 in the 28-day brief, 0 clicks.
-      metadataTitle: "Reel Caption Styles That Read Well",
+      metadataTitle: "Style Captions for Readable Reels",
       title: "Best Instagram Reel caption styles for readable subtitles",
       // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
       // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
       // only; the copy below is unchanged.
       metaDescription:
-        "Best Reel captions: bold, high-contrast type inside the safe zone, full sentences for talking heads, a few emphasis words for food or product clips.",
+        "Style Instagram Reel captions with high-contrast type in the central safe area. Use full sentences for spoken clips; use emphasis words when visuals lead.",
       description:
         "Explore word-by-word highlighted captions, safe zone margins, and typographic styles for maximum social video engagement.",
       eyebrow: "Subtitles / Social Reels",
